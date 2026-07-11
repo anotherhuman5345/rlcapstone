@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'classifier.dart';
+import 'onboarding_screen.dart';
 import 'result_screen.dart';
 
 void main() => runApp(const MoleCheckApp());
@@ -26,8 +27,39 @@ class MoleCheckApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-      home: const HomeScreen(),
+      home: const _Root(),
     );
+  }
+}
+
+/// Decides between onboarding (first run) and the home screen.
+class _Root extends StatefulWidget {
+  const _Root();
+
+  @override
+  State<_Root> createState() => _RootState();
+}
+
+class _RootState extends State<_Root> {
+  bool? _seen;
+
+  @override
+  void initState() {
+    super.initState();
+    onboardingSeen().then((v) {
+      if (mounted) setState(() => _seen = v);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_seen == null) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+    if (!_seen!) {
+      return OnboardingScreen(onDone: () => setState(() => _seen = true));
+    }
+    return const HomeScreen();
   }
 }
 

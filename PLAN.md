@@ -57,12 +57,13 @@ image (0%, cleared). Phase 5 (iOS build on the Mac, polish, writeup) remains.
 - [ ] Test on Android device/emulator
 
 ### Phase 5 — iOS + polish
+- [x] App icon (scripts/make_icon.py → flutter_launcher_icons, Android + iOS)
+- [x] Onboarding flow (3 slides, disclaimer acknowledgment, shown once)
+- [x] Capstone writeup: docs/MoleCheck_Capstone_Report.docx
+      (scripts/make_report.py) — dataset, methodology, metrics, limitations
 - [ ] On the Mac: install Xcode + Flutter, clone the repo, build and run
       the app on an iPhone (free Apple ID works for on-device testing;
       a $99/yr Apple Developer account only needed for App Store/TestFlight)
-- [ ] App icon, onboarding screen with photo-taking tips
-      (good lighting, close-up, ruler/coin for scale)
-- [ ] Capstone writeup: dataset, methodology, metrics, limitations
 
 ## Repo layout (planned)
 - `src/` — training + data prep Python code
