@@ -17,6 +17,12 @@ The app must always present results as a risk indicator with a clear
 | Dataset       | HAM10000 (10,015 dermatoscopic images, 7 classes)  |
 | iOS builds    | Mac available → local Xcode builds                 |
 
+## Status (2026-07-11)
+Phases 0–4 complete and verified live on an Android emulator. Model: ROC-AUC
+0.914, 90% sensitivity at threshold 0.137. App runs on-device inference and
+correctly classified a known malignant image (48%, flagged) and a known benign
+image (0%, cleared). Phase 5 (iOS build on the Mac, polish, writeup) remains.
+
 ## Phases
 
 ### Phase 0 — Tooling (one-time setup)
