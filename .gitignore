@@ -13,6 +13,21 @@ data/
 runs/
 notebooks/bus.jpg
 
+# Flutter / Dart build artifacts
+app/build/
+app/android/build/
+app/android/app/build/
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/android/.gradle/
+app/android/local.properties
+app/ios/Pods/
+app/ios/.symlinks/
+# The trained model is copied into the app for release, but it is a large
+# generated artifact — regenerate it with src/export_tflite.py.
+app/assets/*.tflite
+
 # IDE / OS
 .vscode/
 .idea/
