@@ -7,10 +7,11 @@ __pycache__/
 
 # Datasets and model weights (too large for git)
 data/
-models/*.pt
-models/*.pth
-models/*.onnx
+*.pt
+*.pth
+*.onnx
 runs/
+notebooks/bus.jpg
 
 # IDE / OS
 .vscode/
