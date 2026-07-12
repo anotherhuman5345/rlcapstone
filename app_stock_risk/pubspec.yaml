@@ -1,0 +1,32 @@
+name: stock_risk
+description: "On-device stock volatility-risk classifier (educational, not advice)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # On-device inference. Same stack as the other apps.
+  tflite_flutter: ^0.12.1
+
+  # Remember that onboarding has been shown.
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/stock_classifier.tflite
+    - assets/labels.txt
+    - assets/stock_samples.json

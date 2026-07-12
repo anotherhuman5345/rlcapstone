@@ -33,6 +33,8 @@ app_ecg/assets/*.tflite
 app_adhd_eeg/assets/*.tflite
 # Leukemia app model is regenerated with src/export_tflite.py.
 app_leukemia/assets/*.tflite
+# Stock risk app model is regenerated with src/stock_export_tflite.py.
+app_stock_risk/assets/*.tflite
 
 # Built APKs for sideloading (large binaries)
 dist/
