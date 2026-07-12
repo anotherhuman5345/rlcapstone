@@ -28,6 +28,10 @@ app/ios/.symlinks/
 # generated artifact — regenerate it with src/export_tflite.py.
 app/assets/*.tflite
 
+# Built APKs for sideloading (large binaries)
+dist/
+*.apk
+
 # IDE / OS
 .vscode/
 .idea/
