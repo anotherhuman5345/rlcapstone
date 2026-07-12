@@ -29,6 +29,8 @@ app/ios/.symlinks/
 app/assets/*.tflite
 # ECG app model is regenerated with src/ecg_export_tflite.py.
 app_ecg/assets/*.tflite
+# ADHD EEG app model is regenerated with src/adhd_export_tflite.py.
+app_adhd_eeg/assets/*.tflite
 
 # Built APKs for sideloading (large binaries)
 dist/
