@@ -27,6 +27,8 @@ app/ios/.symlinks/
 # The trained model is copied into the app for release, but it is a large
 # generated artifact — regenerate it with src/export_tflite.py.
 app/assets/*.tflite
+# ECG app model is regenerated with src/ecg_export_tflite.py.
+app_ecg/assets/*.tflite
 
 # Built APKs for sideloading (large binaries)
 dist/
