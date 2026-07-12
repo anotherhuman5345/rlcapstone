@@ -21,26 +21,28 @@ from pathlib import Path
 from ultralytics import YOLO
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "ham10000" / "split"
+DEFAULT_DATA = ROOT / "data" / "ham10000" / "split"
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--model", default="yolo11s-cls.pt", help="pretrained cls checkpoint")
+    ap.add_argument("--data", default=str(DEFAULT_DATA), help="classification dataset root")
     ap.add_argument("--epochs", type=int, default=40)
     ap.add_argument("--imgsz", type=int, default=224)
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--name", default="mole_cls")
     args = ap.parse_args()
 
-    if not DATA.exists():
+    data = Path(args.data)
+    if not data.exists():
         raise SystemExit(
-            f"{DATA} not found. Run: .venv\\Scripts\\python.exe src\\prepare_dataset.py"
+            f"{data} not found. Run the matching prepare_*.py first."
         )
 
     model = YOLO(args.model)
     model.train(
-        data=str(DATA),
+        data=str(data),
         epochs=args.epochs,
         imgsz=args.imgsz,
         batch=args.batch,

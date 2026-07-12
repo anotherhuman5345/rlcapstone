@@ -20,15 +20,16 @@ from PIL import Image
 from ultralytics import YOLO
 
 ROOT = Path(__file__).resolve().parents[1]
-TEST = ROOT / "data" / "ham10000" / "split" / "test"
+DEFAULT_TEST = ROOT / "data" / "ham10000" / "split" / "test"
 
 
-def load_test_set() -> tuple[list[Path], np.ndarray]:
+def load_test_set(test_dir: Path) -> tuple[list[Path], np.ndarray]:
     paths, labels = [], []
     for label_idx, label in enumerate(("benign", "malignant")):
-        for p in (TEST / label).glob("*.jpg"):
-            paths.append(p)
-            labels.append(label_idx)
+        for ext in ("*.jpg", "*.png", "*.jpeg"):
+            for p in (test_dir / label).glob(ext):
+                paths.append(p)
+                labels.append(label_idx)
     return paths, np.array(labels)
 
 
@@ -54,15 +55,19 @@ def roc_auc(y_true: np.ndarray, scores: np.ndarray) -> float:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--weights", default=str(ROOT / "runs/classify/mole_cls/weights/best.pt"))
+    ap.add_argument("--test-dir", default=str(DEFAULT_TEST),
+                    help="folder with benign/ and malignant/ subdirs")
     ap.add_argument("--target-sensitivity", type=float, default=0.90)
     ap.add_argument("--imgsz", type=int, default=224)
     args = ap.parse_args()
 
+    test_dir = Path(args.test_dir)
     model = YOLO(args.weights)
     mal_idx = malignant_index(model)
-    paths, y_true = load_test_set()
+    paths, y_true = load_test_set(test_dir)
     if not len(paths):
-        raise SystemExit(f"No test images under {TEST}")
+        raise SystemExit(f"No test images under {test_dir}")
+    print(f"Test set: {test_dir}")
     print(f"Test images: {len(paths)}  (malignant: {int(y_true.sum())})")
 
     scores = np.zeros(len(paths))
