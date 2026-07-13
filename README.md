@@ -26,6 +26,13 @@ A recurring theme across the portfolio is rigorous, honest evaluation: leakage-a
 subject-level train/test splits, metrics chosen to suit the task (sensitivity/specificity, ROC-AUC,
 macro-recall over raw accuracy), and negative results reported rather than hidden.
 
+## Trained models
+
+The actual trained weights and the raw training logs for every project are published under
+[`trained_models/`](trained_models) — per-epoch `results.csv`, confusion matrices, and evaluation
+reports alongside each checkpoint — so the numbers can be inspected and reproduced, not just taken
+on faith. Everything regenerates from the scripts in [`src/`](src).
+
 ## Repository layout
 
 - `src/` — training, export, and inference code for all six projects, plus the pentest app/agent and the JADEPUFFER detector

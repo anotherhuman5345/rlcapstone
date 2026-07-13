@@ -1,0 +1,28 @@
+{
+  "per_image": {
+    "accuracy": 0.8077,
+    "sensitivity": 0.9362,
+    "specificity": 0.534,
+    "roc_auc": 0.8565,
+    "confusion": {
+      "tp": 646,
+      "tn": 173,
+      "fp": 151,
+      "fn": 44
+    }
+  },
+  "per_patient": {
+    "accuracy": 0.7273,
+    "sensitivity": 1.0,
+    "specificity": 0.25,
+    "roc_auc": 0.9286,
+    "confusion": {
+      "tp": 7,
+      "tn": 1,
+      "fp": 3,
+      "fn": 0
+    },
+    "n_patients": 11
+  },
+  "n_test_images": 1014
+}
