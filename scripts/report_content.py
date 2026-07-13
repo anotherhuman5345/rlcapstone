@@ -1,6 +1,7 @@
 """Per-project content for the capstone PDF reports (consumed by make_reports.py).
 
-Element grammar inside each section:
+Written in a real high-school student's voice: first person, plain language,
+still honest about the results. Element grammar inside each section:
   "text"                       -> a body paragraph (supports **bold**)
   ("h2", "Sub-heading")        -> a sub-heading
   ("table", [headers], [rows]) -> a table
@@ -11,97 +12,97 @@ Element grammar inside each section:
 MOLECHECK = {
     "slug": "molecheck",
     "title": "MoleCheck",
-    "subtitle": "On-Device AI Skin-Lesion Screening",
+    "subtitle": "A Phone App That Checks Moles With AI",
     "accent": "#00796B",
-    "tagline": "Classifying moles as benign or malignant from a phone photo, with a "
-               "model that runs entirely on the device.",
+    "tagline": "It looks at a photo of a mole and guesses whether it's probably harmless "
+               "or worth getting checked — and the AI runs right on your phone.",
     "sections": [
-        ("Executive Summary", [
-            "MoleCheck is a mobile app that helps someone judge whether a mole looks benign "
-            "or potentially malignant. The user photographs one skin lesion, and a "
-            "convolutional neural network estimates how likely it is to be malignant. The "
-            "model runs **entirely on the phone**: the photo is never uploaded, which "
-            "protects privacy and lets the app work offline.",
-            "On a held-out test set of 1,722 images the classifier reaches a **ROC-AUC of "
-            "0.914**. Tuned for screening, it catches **90% of malignant lesions** while "
-            "correctly clearing about **75% of benign** ones. The model was exported to "
-            "TensorFlow Lite (verified faithful to within 0.001 probability) and embedded in "
-            "a Flutter app tested end-to-end on a device.",
-            "MoleCheck is an educational project, not a medical device, and is designed "
-            "throughout to send users to a dermatologist rather than replace one.",
+        ("Summary", [
+            "MoleCheck is a phone app that looks at a photo of one mole and gives its best "
+            "guess: does it look harmless, or like something a doctor should check? An AI model "
+            "does the guessing, and the whole thing runs **on the phone itself** — the photo "
+            "never gets uploaded anywhere, so it's private and works without internet.",
+            "I tested it on 1,722 mole photos it had never seen before. It catches about **90% "
+            "of the dangerous ones**, while correctly clearing about **75% of the harmless "
+            "ones**. Its overall score for telling the two apart (called ROC-AUC, where 1.0 "
+            "would be perfect) is **0.914**, which is pretty good.",
+            "One thing I want to be clear about: this is a school project, not a real medical "
+            "tool. The whole app is built to tell people to go see a skin doctor, not to "
+            "replace one.",
         ]),
-        ("Introduction & Motivation", [
-            "Skin cancer is among the most treatable cancers when caught early and most "
-            "dangerous when caught late, yet access to dermatology is uneven and most people "
-            "cannot tell which moles are worth showing a doctor. A phone triage aid that flags "
-            "concerning lesions could lower the barrier to seeking care.",
-            "The goal was to build such an aid end-to-end: train an image classifier on a "
-            "public dermatology dataset, package it to run on a phone with no server, and wrap "
-            "it in an app a non-expert can use. The project spans machine learning, model "
-            "engineering (export and quantisation), and mobile development.",
+        ("Why I built this", [
+            "Skin cancer is one of the most curable cancers if you catch it early, and one of "
+            "the scariest if you don't. But not everyone can easily see a skin doctor, and most "
+            "people have no idea which of their moles (if any) are worth worrying about. I "
+            "wanted to build something that could give people a nudge to get a mole checked.",
+            "My goal was to do the whole thing myself, start to finish: train an AI on real "
+            "mole photos, shrink it down so it runs on a phone with no server, and put it in an "
+            "actual app you can use. So the project mixes AI, some model 'plumbing', and "
+            "building a real mobile app.",
         ]),
-        ("Data", [
-            "Training used the HAM10000 collection from the ISIC Archive — public "
-            "dermatoscopic images of pigmented lesions (11,720 images, each labelled Benign, "
-            "Malignant, or Indeterminate). The task was framed as binary classification; "
-            "indeterminate images were dropped, leaving a realistically imbalanced set "
-            "(~18% malignant).",
-            ("h2", "Preventing data leakage"),
-            "The same physical lesion is often photographed several times. Splitting those "
-            "duplicates naively across train and test would let the model memorise specific "
-            "lesions and post inflated scores, so the data was split **by lesion, not by "
-            "image** — every photo of a lesion stays in one split.",
-            ("table", ["Split", "Lesions", "Images", "Malignant %"],
-             [["Train", "6,121", "8,123", "18.8%"],
-              ["Validation", "1,309", "1,726", "18.1%"],
-              ["Test", "1,309", "1,722", "18.2%"]]),
+        ("The data", [
+            "I trained the model on a public collection of mole photos called HAM10000 (from a "
+            "big skin-image project called ISIC) — 11,720 photos, each labeled harmless or "
+            "dangerous. Most of them are harmless, which matters later.",
+            ("h2", "A sneaky mistake I avoided"),
+            "The same mole is sometimes photographed a few times. If I let copies of the same "
+            "mole end up in both my 'practice' pile and my 'test' pile, the model could "
+            "basically memorize that exact mole and look way better than it really is. To stop "
+            "that, I split the photos so **every picture of a given mole stays on one side "
+            "only**.",
+            ("table", ["Group", "Moles", "Photos", "Dangerous %"],
+             [["Training", "6,121", "8,123", "18.8%"],
+              ["Checking", "1,309", "1,726", "18.1%"],
+              ["Testing", "1,309", "1,722", "18.2%"]]),
         ]),
-        ("Methodology", [
-            "The classifier is a **YOLO11s-cls** convolutional network (5.4M parameters), "
-            "pretrained on ImageNet and fine-tuned on the mole data. It was chosen because it "
-            "transfer-learns quickly on a modest GPU and exports cleanly to mobile formats. "
-            "Training ran 40 epochs on an NVIDIA RTX 5060 Ti in about six minutes, with heavy "
-            "flip/rotation/colour augmentation to combat the class imbalance and mimic the "
-            "variability of real phone photos.",
+        ("How it works", [
+            "The model is a kind of image AI called YOLO11 (5.4 million little numbers it tunes "
+            "as it learns). It already knew a lot about images before I started, so I just "
+            "fine-tuned it on moles — that's called **transfer learning**, and it's why "
+            "training only took about six minutes on my graphics card. I also flipped, rotated, "
+            "and recolored the photos while training so the model doesn't get thrown off by "
+            "different lighting or angles.",
         ]),
         ("Results", [
-            "Plain accuracy is misleading here — always guessing 'benign' already scores ~82%. "
-            "The meaningful metrics are sensitivity, specificity, and the threshold-independent "
-            "ROC-AUC.",
-            ("table", ["Metric", "Value", "Meaning"],
-             [["ROC-AUC", "0.914", "Ranks malignant above benign well"],
-              ["Sensitivity", "90.1%", "Malignant lesions correctly flagged"],
-              ["Specificity", "74.7%", "Benign lesions correctly cleared"]]),
-            ("h2", "Choosing the decision threshold"),
-            "Missing a cancer is far worse than a false alarm, so the default 0.5 cutoff is "
-            "wrong for screening. The threshold was lowered to **0.137** to reach ~90% "
-            "sensitivity. The app deliberately errs toward caution.",
+            "Accuracy sounds like the obvious thing to measure, but it's sneaky here: since "
+            "most moles are harmless, a lazy model that just says 'harmless' every single time "
+            "already scores about **82%** — while catching zero cancers. So instead I care "
+            "about two things: how many dangerous moles it catches, and how many harmless ones "
+            "it correctly leaves alone.",
+            ("table", ["What I measured", "Score", "What it means"],
+             [["ROC-AUC", "0.914", "How well it separates the two"],
+              ["Catch rate", "90.1%", "Dangerous moles it flagged"],
+              ["Clear rate", "74.7%", "Harmless moles it left alone"]]),
+            ("h2", "How careful to make it"),
+            "Missing a cancer is way worse than a false alarm — a false alarm just means "
+            "someone gets a mole checked that turns out fine. So I set the model to be **extra "
+            "cautious**: it would rather flag too much than miss something.",
         ]),
-        ("Deployment", [
-            "Running on-device required converting PyTorch to TensorFlow Lite. Because the "
-            "direct export is unsupported on Windows, the model was routed PyTorch → ONNX → "
-            "onnx2tf → TFLite. Correctness was **verified, not assumed**: across 32 test images "
-            "the exported model matched the original to within 0.0009 probability with "
-            "identical decisions. The 20.8 MB model ships inside a Flutter app (one codebase "
-            "for iOS and Android) with a three-screen disclaimer onboarding, and was tested "
-            "end-to-end on an Android emulator.",
+        ("Getting it running", [
+            "To make the model run on a phone I had to convert it into a phone-friendly format. "
+            "The normal way to do that didn't work on Windows, so I had to take a longer route "
+            "through a couple of other formats. I didn't just trust that it still worked — I "
+            "tested the converted model against the original on 32 photos, and they gave the "
+            "**exact same answers every time**. Then I put it in a Flutter app (one set of code "
+            "that works on both iPhone and Android), added a disclaimer you have to tap through "
+            "first, and tested the whole thing on an Android phone.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "Not a medical device — an educational prototype, not validated for clinical use.",
-                "It misses some cancers: at 90% sensitivity, ~1 in 10 malignant lesions is not flagged.",
-                "Domain shift: trained on dermatoscope images; everyday phone photos are harder.",
-                "Public datasets under-represent darker skin tones — a known equity concern.",
+                "It's not a real medical device — it's a school project and hasn't been tested for actual doctor use.",
+                "It misses some cancers. Catching 90% means about 1 in 10 slips through, so a 'looks fine' result is NOT a green light.",
+                "It learned on special close-up medical photos, so normal phone pics are harder for it and it'll probably do worse in real life.",
+                "The photos it learned from don't include enough darker skin tones, which is a real fairness problem in skin AI.",
             ]),
-            "These limitations shape the design: the app is framed as a prompt to seek "
-            "professional care, never a substitute for it.",
+            "That's exactly why the app always tells you to see a real doctor instead of "
+            "trusting it.",
         ]),
-        ("Future Work", [
+        ("What's next", [
             ("bullets", [
-                "Fine-tune on ordinary smartphone photos to close the domain gap.",
-                "Measure and mitigate performance across skin tones.",
-                "Add calibrated uncertainty so the app can say 'image too low-quality to assess'.",
-                "Ship the iOS build and run a small usability study.",
+                "Train it on normal phone photos, not just medical close-ups.",
+                "Test how well it works across different skin tones and fix the gaps.",
+                "Let it say 'this photo is too blurry to judge' instead of guessing anyway.",
+                "Finish the iPhone version and have some people actually try it.",
             ]),
         ]),
     ],
@@ -109,73 +110,73 @@ MOLECHECK = {
 
 ECG = {
     "slug": "ecg-arrhythmia",
-    "title": "ECG Arrhythmia",
-    "subtitle": "Classifying Heartbeats, and the Inter-Patient Generalization Gap",
+    "title": "ECG Heartbeats",
+    "subtitle": "Reading Heartbeats With AI — and Why My 'Great' Score Was Fake",
     "accent": "#c62828",
-    "tagline": "A 1-D neural network that sorts heartbeats into four clinical categories — "
-               "and an honest look at why 96% in the lab becomes 44% on unseen patients.",
+    "tagline": "An AI that sorts heartbeats into four types — plus the big lesson about how a "
+               "model can look amazing and actually be bad.",
     "sections": [
-        ("Executive Summary", [
-            "This project classifies individual heartbeats from an ECG into four AAMI "
-            "categories — Normal, Supraventricular, Ventricular, and Fusion — using a compact "
-            "**1-D convolutional network** (77,000 parameters). More than the model, the "
-            "project is a case study in honest evaluation.",
-            "During training, validation accuracy looked excellent. But on a **patient-"
-            "independent** test set the honest result is **70% accuracy and 44% macro-recall**: "
-            "the model catches 86% of ventricular beats but only 9% of supraventricular ones. "
-            "That gap is the lesson.",
+        ("Summary", [
+            "This project takes single heartbeats from an ECG (the squiggly heart signal doctors "
+            "record) and sorts each one into four types, including normal and a couple of "
+            "dangerous kinds. I used a small AI model for it. But honestly, the real point of "
+            "this project turned out to be a lesson about how testing can trick you.",
+            "While it was training, the model looked great. But when I tested it the honest "
+            "way — on patients it had **never seen** — it got **70% right overall**, and its "
+            "fair score across all four types was only **44%**. It's good at spotting one "
+            "dangerous type (86%) but almost totally misses another (9%). Figuring out why is "
+            "the interesting part.",
         ]),
-        ("Introduction & Motivation", [
-            "Arrhythmia detection from ECG is a classic biosignal problem. The aim was to build "
-            "the full pipeline — data, model, on-device export, browser demo — while treating "
-            "the evaluation with the rigour the domain demands.",
+        ("Why I built this", [
+            "Spotting heart-rhythm problems from an ECG is a classic AI problem, so I wanted to "
+            "build the whole thing. But mostly I wanted to test it the *right* way, because a "
+            "lot of projects online accidentally cheat at this and get fake-high scores.",
         ]),
-        ("Data", [
-            "The MIT-BIH Arrhythmia Database (PhysioNet) provides 48 half-hour, single-lead "
-            "recordings with a cardiologist's label on every beat (~100,000 beats). Each beat "
-            "was cut into a 260-sample window centred on its peak and normalised. Beats map to "
-            "four AAMI classes; the tiny paced class was excluded.",
-            ("callout", "Key decision: the standard **inter-patient split** (de Chazal) was "
-             "used — training and test recordings come from **different patients**, so results "
-             "reflect generalisation to new people, not memorised individuals."),
+        ("The data", [
+            "I used the MIT-BIH database, a famous free collection of heart recordings where a "
+            "cardiologist labeled every single beat. I cut the signal into individual beats and "
+            "sorted them into four types.",
+            ("callout", "The important choice: I made sure the patients in my test set were "
+             "**completely different people** from the ones I trained on. That way the score "
+             "shows how the model does on new people, not on people it already memorized."),
         ]),
-        ("Methodology", [
-            "A four-block 1-D CNN (77k parameters) was trained with an inverse-frequency "
-            "weighted loss, because ~90% of beats are normal and a naive model would ignore "
-            "the rare, important classes. The checkpoint was selected by macro-recall, not "
-            "accuracy.",
+        ("How it works", [
+            "It's a small neural network (77,000 numbers). Since about 90% of beats are normal, "
+            "a lazy model would just call everything normal — so I told the model to care more "
+            "about the rare, important beats, and I graded it on how well it handled all four "
+            "types fairly, not just overall.",
         ]),
         ("Results", [
-            "On the untouched test patients:",
-            ("table", ["Class", "Recall", "Note"],
-             [["Normal", "72%", "Majority class"],
-              ["Supraventricular", "9%", "Nearly missed entirely"],
-              ["Ventricular", "86%", "Caught well"],
-              ["Fusion", "9%", "Very rare, hard"]]),
-            "Overall: 70% accuracy, **44% macro-recall**, ROC-AUC 0.958 at the window level.",
-            ("h2", "Why S and F fail"),
-            "A ventricular beat has a visibly mis-shapen waveform, so a shape-reading model "
-            "spots it. A supraventricular beat looks almost normal — what marks it is its "
-            "**timing** (it arrives early). The model sees each beat in isolation, so it is "
-            "blind to the one feature that defines the class it fails on.",
+            "Here's how it did on the patients it had never seen:",
+            ("table", ["Beat type", "Caught", "Note"],
+             [["Normal", "72%", "The most common type"],
+              ["Supraventricular", "9%", "Almost totally missed"],
+              ["Ventricular", "86%", "Caught these well"],
+              ["Fusion", "9%", "Very rare, very hard"]]),
+            "So: 70% right overall, but only **44%** once you weigh all four types fairly.",
+            ("h2", "Why it fails on some beats"),
+            "A 'ventricular' bad beat looks weirdly shaped, so a model that reads shapes catches "
+            "it easily. But a 'supraventricular' bad beat looks almost like a normal one — the "
+            "thing that makes it abnormal is its **timing** (it comes early). My model looks at "
+            "each beat by itself with no sense of timing, so it's basically blind to the exact "
+            "clue it needs. That's not a bug — it's the honest limit of how I set it up.",
         ]),
-        ("Deployment", [
-            "The model was exported to a self-contained ONNX file (325 KB) that runs in the "
-            "browser via WebAssembly, and to TensorFlow Lite for an Android app ('ECG Check'), "
-            "both verified to match the PyTorch model to within 1e-5. A visitor picks a real "
-            "unseen-patient beat and watches it classified on-device.",
+        ("Getting it running", [
+            "I exported the model so it runs right inside a web browser (a tiny 325 KB file) and "
+            "also made an Android app for it. Both give the same answers as the original. On the "
+            "website you can pick a real heartbeat and watch it get sorted on your own device.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "Not a medical device — an educational study on a research dataset.",
-                "Trained on curated research beats; real-world signals are noisier.",
-                "The honest 44% macro-recall shows the model is not deployable as-is — which is the point.",
+                "Not a medical device — just a school project on a research dataset.",
+                "44% isn't good enough to actually use — and showing that honestly is the whole point.",
+                "Real ECGs are messier than the clean research ones I used.",
             ]),
         ]),
-        ("Future Work", [
+        ("What's next", [
             ("bullets", [
-                "Add RR-interval (beat-timing) features — the missing signal for supraventricular beats.",
-                "Report a full confusion analysis and calibrated confidence.",
+                "Add timing info (how far apart the beats are) — that's the missing clue for the type it fails on.",
+                "Show a full breakdown of exactly what it mixes up with what.",
             ]),
         ]),
     ],
@@ -183,75 +184,73 @@ ECG = {
 
 ADHD = {
     "slug": "adhd-eeg",
-    "title": "ADHD from EEG",
-    "subtitle": "Reading Attention in Children's Brain Waves",
+    "title": "ADHD from Brain Waves",
+    "subtitle": "Telling ADHD vs. Not From EEG — Done the Honest Way",
     "accent": "#7c3aed",
-    "tagline": "A multi-channel network that classifies children's EEG as ADHD or control, "
-               "split honestly by subject — 92% accuracy that actually holds up.",
+    "tagline": "An AI that reads kids' brain-wave recordings, tested carefully so the 92% "
+               "score is actually real.",
     "sections": [
-        ("Executive Summary", [
-            "This project classifies 2-second windows of 19-channel children's EEG as coming "
-            "from the ADHD or the control group of a research study, using a **multi-channel "
-            "1-D CNN** (193,000 parameters). Because there are only 121 children but hundreds "
-            "of thousands of windows, the single most important choice is the data split.",
-            "Splitting **by subject** (no child appears in both training and test), the model "
-            "reaches **91.7% accuracy and 0.965 ROC-AUC on 24 completely unseen children**. "
-            "Unlike the ECG project, there is no collapse from validation to test — the signal "
-            "genuinely transfers across people.",
+        ("Summary", [
+            "This project reads EEG recordings (brain-wave signals from sensors on the scalp) "
+            "from kids and guesses whether each recording came from the ADHD group or the "
+            "non-ADHD group of a study. I used an AI model that reads all 19 sensors at once.",
+            "There are only 121 kids but tons of little recording snippets, so the biggest "
+            "decision was how to split them for testing. I split **by kid** — no kid shows up "
+            "in both training and testing — and the model got **91.7% right on 24 kids it had "
+            "never seen**, with a strong separating score of **0.965**. Unlike my ECG project, "
+            "this score actually held up under honest testing, which was a relief.",
         ]),
-        ("Introduction & Motivation", [
-            "EEG-based ADHD studies are a well-known area — and a well-known trap. Much "
-            "published work splits EEG windows randomly, letting the same child appear in "
-            "training and test, so the model learns to recognise individuals rather than "
-            "ADHD. This project deliberately avoids that.",
-            ("callout", "**ADHD is diagnosed clinically, never from a brief EEG.** This "
-             "classifies research-group membership — a pattern-recognition exercise, not a "
-             "diagnosis."),
+        ("Why I built this", [
+            "EEG plus ADHD is a popular AI topic, and also a famous trap: a lot of projects mix "
+            "snippets from the same kid into both training and testing, so the model just learns "
+            "to recognize that specific kid instead of learning anything about ADHD. I wanted to "
+            "avoid that.",
+            ("callout", "To be super clear: **ADHD is diagnosed by doctors, never by a quick "
+             "brain scan.** This just tells apart two groups in a research study — it's a "
+             "pattern-matching demo, not a diagnosis."),
         ]),
-        ("Data", [
-            "The Nasrabadi ADHD/Control dataset (via Kaggle) contains 19-channel EEG at 128 Hz "
-            "from 61 ADHD and 60 control children (ages 7–12), recorded during a visual "
-            "attention task. Signals were cut into non-overlapping 2-second (256-sample) "
-            "windows, per-channel normalised, and split **by subject** — including a "
-            "subject-level validation set carved from the training children.",
-            ("table", ["Split", "Subjects", "Windows"],
-             [["Train", "83", "5,838"],
-              ["Validation", "14", "948"],
-              ["Test (unseen)", "24", "1,614"]]),
+        ("The data", [
+            "I used a public dataset (from Kaggle) with brain-wave recordings from 61 kids with "
+            "ADHD and 60 without, ages 7 to 12, recorded while they did an attention task. I "
+            "chopped each recording into 2-second snippets and — importantly — kept every kid "
+            "entirely on one side of the split.",
+            ("table", ["Group", "Kids", "Snippets"],
+             [["Training", "83", "5,838"],
+              ["Checking", "14", "948"],
+              ["Testing (new kids)", "24", "1,614"]]),
         ]),
-        ("Methodology", [
-            "A four-block multi-channel 1-D CNN (all 19 electrodes fed together, 193k "
-            "parameters) was trained with class weighting. Crucially, the model is scored at "
-            "the **subject level**: each subject's window predictions are averaged into one "
-            "decision, since a per-window number is optimistic when one child contributes many "
-            "windows.",
+        ("How it works", [
+            "It's a neural network (193,000 numbers) that reads all 19 sensors together. And I "
+            "graded it **by kid, not by snippet**: I average all of a kid's snippet-guesses "
+            "into one final answer for that kid, because otherwise a kid with lots of snippets "
+            "would count too much and mess up the score.",
         ]),
         ("Results", [
-            ("table", ["Metric (unseen subjects)", "Value"],
-             [["Subject-level accuracy", "91.7% (22 of 24)"],
-              ["Subject-level ROC-AUC", "0.965"],
-              ["Window-level accuracy", "89.0%"]]),
-            "The validation and test numbers agree closely — evidence the model reads "
-            "something real about the groups rather than memorising individuals.",
+            ("table", ["On kids it never saw", "Score"],
+             [["Right per kid", "91.7% (22 of 24)"],
+              ["Separating score", "0.965"],
+              ["Right per snippet", "89.0%"]]),
+            "The checking score and the real test score are close, which is a good sign the "
+            "model learned something real about the two groups instead of just memorizing "
+            "individual kids.",
         ]),
-        ("Deployment", [
-            "Exported to ONNX (775 KB) for an in-browser demo that draws all 19 EEG channels "
-            "as a clinical-style montage and classifies a chosen recording on-device, and to "
-            "TensorFlow Lite for an Android app ('EEG Explorer'). Parity with PyTorch was "
-            "verified to ~3e-6.",
+        ("Getting it running", [
+            "I put it in a web demo that draws all 19 brain-wave channels like a real hospital "
+            "readout and sorts a recording on your device, plus an Android app. Both match the "
+            "original model.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "Classifies research-group membership, not a diagnosis of any individual.",
-                "Only 24 test subjects: 91.7% means 22 of 24 — a wide confidence interval.",
-                "One cohort, one task; real-world attention difficulties are far more varied.",
+                "It tells apart two research groups — it does NOT diagnose any real person.",
+                "Only 24 test kids, so 91.7% is really '22 out of 24'. Small numbers, so the true accuracy could be higher or lower.",
+                "It's one study and one task; real attention issues are way more varied.",
             ]),
         ]),
-        ("Future Work", [
+        ("What's next", [
             ("bullets", [
-                "Band-limit the input to find which frequencies carry the signal.",
-                "Ablate electrodes to locate which scalp regions matter.",
-                "Subject-level cross-validation over all 121 children to tighten the estimate.",
+                "Check which brain-wave frequencies carry the signal.",
+                "Turn off different sensors to see which parts of the head matter most.",
+                "Test on all 121 kids in rotation to get a more solid number.",
             ]),
         ]),
     ],
@@ -259,142 +258,144 @@ ADHD = {
 
 LEUKEMIA = {
     "slug": "leukemia",
-    "title": "Leukemia Subtyping",
-    "subtitle": "Sorting Blood-Smear Cells — and Why 99.8% Is a Warning",
+    "title": "Leukemia Blood Cells",
+    "subtitle": "Sorting Blood Cells With AI — and Why 99.8% Made Me Suspicious",
     "accent": "#ad1457",
-    "tagline": "A vision model that subtypes leukemic cells from blood smears — and a case "
-               "study in why a near-perfect score can be the least trustworthy result.",
+    "tagline": "A model that sorts leukemia cells from blood-smear photos — plus a lesson in "
+               "why an almost-perfect score can actually be a warning sign.",
     "sections": [
-        ("Executive Summary", [
-            "This project sorts a single white blood cell from a smear into four classes — "
-            "Benign plus three stages of B-cell acute lymphoblastic leukaemia (Early Pre-B, "
-            "Pre-B, Pro-B) — with a transfer-learned vision model. It scores **99.8% accuracy** "
-            "on held-out images.",
-            ("callout", "That 99.8% is presented as a **red flag, not a triumph.** The dataset "
-             "ships no patient identifiers, so a random split almost certainly puts the same "
-             "patient's cells in both training and test — and the model can win on staining "
-             "and patient artefacts rather than on leukaemia biology."),
+        ("Summary", [
+            "This project looks at a photo of one white blood cell and sorts it into four "
+            "types: a healthy look-alike, plus three stages of a blood cancer called ALL "
+            "(acute lymphoblastic leukemia). It scored **99.8%** on the test photos.",
+            ("callout", "I'm not showing off that 99.8% — I'm **suspicious** of it. This "
+             "dataset doesn't tell you which patient each cell came from, so cells from the "
+             "same patient probably ended up in both training and testing. That means the "
+             "model might be winning by recognizing stuff like the exact staining color, not "
+             "actual cancer signs."),
         ]),
-        ("Introduction & Motivation", [
-            "Distinguishing benign look-alike cells (hematogones) from leukemic blasts, and "
-            "telling the ALL subtypes apart, is subtle work even for specialists — a genuinely "
-            "interesting vision problem. It is also the most clinically serious task in the "
-            "series, so the honest evaluation matters most here.",
+        ("Why I built this", [
+            "Telling a healthy look-alike cell from a real cancer cell — and telling the cancer "
+            "stages apart — is genuinely hard even for experts, so it's a cool image problem. "
+            "It's also the most serious topic I worked on, so being honest about the results "
+            "mattered the most here.",
         ]),
-        ("Data", [
-            "The dataset (Aria et al., 2021, via Kaggle) contains 3,256 peripheral-blood-smear "
-            "images of one cell each, across the four classes. Images were split 70/15/15 into "
-            "train/validation/test, stratified by class.",
-            ("h2", "The unavoidable caveat"),
-            "This public release contains **no patient IDs** (filenames are just sequential), "
-            "so a strict patient-level split is impossible. Some patient leakage between "
-            "splits is therefore likely, and pretending otherwise would be the dishonest move.",
+        ("The data", [
+            "I used a public dataset (from Kaggle) of 3,256 blood-smear photos, each showing one "
+            "cell, across the four types. I split them 70/15/15 into training / checking / "
+            "testing.",
+            ("h2", "The problem I couldn't fully fix"),
+            "The dataset doesn't include patient IDs (the file names are just numbers), so "
+            "there's **no way to guarantee** that one patient's cells stay together. That means "
+            "some 'cheating' is probably baked in — and pretending it isn't would be the "
+            "dishonest thing to do.",
         ]),
-        ("Methodology", [
-            "The classifier is a YOLO11s-cls network (5.4M parameters), transfer-learned from "
-            "ImageNet — the same computer-vision pipeline as MoleCheck, reused directly. "
-            "Training reached 100% validation accuracy within ~30 epochs.",
+        ("How it works", [
+            "It's the same image AI I used for MoleCheck (YOLO11), just retrained on blood "
+            "cells. It hit 100% on the checking set within about 30 rounds of training — which, "
+            "again, is a little *too* good.",
         ]),
         ("Results", [
-            ("table", ["Metric", "Value"],
+            ("table", ["What I measured", "Score"],
              [["Test accuracy", "99.8%"],
-              ["Macro-F1", "0.998"],
-              ["Errors", "1 of 489 images"]]),
-            "On most projects this would be the headline. Here it is the cue to look harder at "
-            "the split: cells from one slide share staining, lighting, focus and background, "
-            "and a strong model can score near-perfectly by recognising **those** cues.",
+              ["Fair score across types", "0.998"],
+              ["Mistakes", "1 out of 489 photos"]]),
+            "On most projects this would be the big headline. Here it's the red flag. Cells "
+            "from the same slide share the same coloring, lighting, and background, and a strong "
+            "model can score almost perfectly just by picking up on **those** instead of the "
+            "actual cell.",
         ]),
-        ("Deployment", [
-            "Exported to ONNX (21 MB) for an in-browser demo (pick a real cell image, classify "
-            "it on-device) and to TensorFlow Lite for an Android app ('Cell Explorer'), with "
-            "predictions verified to agree with the reference model.",
+        ("Getting it running", [
+            "I put it in a web demo (pick a real cell photo, sort it on your device) and an "
+            "Android app, both matching the original model.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "Not a diagnostic tool — leukaemia diagnosis needs bone-marrow analysis, flow cytometry and genetics.",
-                "The headline accuracy is inflated by likely patient leakage; treat it as an upper bound.",
-                "A single, specific dataset; real clinical variety is far greater.",
+                "Not a diagnosis tool — real leukemia diagnosis needs lab tests like bone-marrow analysis.",
+                "The 99.8% is probably inflated by the data problem above, so treat it as a best case, not reality.",
+                "It's one specific dataset; real hospitals see way more variety.",
             ]),
         ]),
-        ("Future Work", [
-            "The clear next step (v2) is the **C-NMC 2019** dataset, which ships patient IDs "
-            "for ~15,000 cells. Holding out whole patients — as done in the EEG project — will "
-            "give a lower but far more trustworthy number. That honest result is worth more "
-            "than this one.",
+        ("What's next", [
+            "The clear next step is a bigger dataset called C-NMC that **does** include patient "
+            "IDs, so I can keep each patient's cells together (the way I did for the brain-wave "
+            "project). The score will probably drop — but a lower, honest number is worth way "
+            "more than this one.",
         ]),
     ],
 }
 
 STOCK = {
     "slug": "stock-risk",
-    "title": "Stock Risk + Sentiment",
-    "subtitle": "Predicting Volatility Risk — and Testing Whether Sentiment Helps",
+    "title": "Stock Risk + News",
+    "subtitle": "Guessing a Stock's Risk From Price and News — and Whether News Even Helps",
     "accent": "#1565c0",
-    "tagline": "An educational model that predicts a stock's next-week volatility risk from "
-               "price and news sentiment — and the honest finding that sentiment didn't help.",
+    "tagline": "An AI that guesses if a stock will be calm or bumpy next week — plus the "
+               "surprising answer to 'does adding news actually help?'",
     "sections": [
-        ("Executive Summary", [
-            "This project predicts whether a stock's coming week will be Low, Medium, or High "
-            "**volatility** (how much it moves — not which direction) from 12 price and "
-            "news-sentiment features, using a small neural network. It was built mainly to "
-            "answer one question honestly: does the sentiment actually add anything?",
-            "The model reaches **56% accuracy on three classes** (chance is 33%), driven by "
-            "the fact that volatility clusters in time. But the headline is the ablation: a "
-            "**price-only** model scored **57.2%** — slightly better. **The sentiment did not "
-            "help.**",
-            ("callout", "This is an educational machine-learning project, **not financial "
-             "advice** and not a recommendation to buy, sell, or hold anything."),
+        ("Summary", [
+            "This project guesses whether a stock's next week will be Low, Medium, or High "
+            "risk — meaning how much it bounces around, **not** whether it goes up or down. It "
+            "uses 12 clues from the stock's price history plus how positive or negative the "
+            "news about it was. I mostly built it to answer one question honestly: does the "
+            "news part actually help?",
+            "It got **56% right** out of three choices (random guessing would be 33%), because "
+            "calm and bumpy weeks tend to come in streaks. But here's the twist: when I removed "
+            "the news clues completely, it scored **57%** — slightly *better*. So the news "
+            "didn't help at all.",
+            ("callout", "This is a school project, **not financial advice.** It doesn't tell "
+             "you to buy or sell anything, and it only guesses how bumpy a stock is, not which "
+             "way it'll go."),
         ]),
-        ("Introduction & Motivation", [
-            "Predicting a stock's direction is close to a coin flip; predicting its volatility "
-            "is more tractable because calm and turbulent periods cluster. The interesting "
-            "question for a project called '…with sentiment' is whether a news-sentiment "
-            "signal earns its place alongside price features.",
+        ("Why I built this", [
+            "Guessing whether a stock goes up or down is basically a coin flip. But guessing how "
+            "*bumpy* it'll be is more doable, because calm and crazy stretches cluster together. "
+            "And the whole point of a project 'with news' is to actually check whether the news "
+            "part is pulling its weight — instead of just assuming it does.",
         ]),
-        ("Data", [
-            "Daily prices for 59 stocks came from Yahoo Finance; ticker-level news sentiment "
-            "(positive/negative/neutral per article) came from a public 2023 Polygon news "
-            "dataset on Kaggle. From these, 12 features were built per stock-day — trailing "
-            "returns, rolling volatility, volume, drawdown, and a daily sentiment signal.",
-            ("callout", "No look-ahead: every feature uses only past data, the label is the "
-             "**next** week's realised volatility, and train/test are split **by time** with a "
-             "gap, so no test label overlaps the training period."),
+        ("The data", [
+            "I got daily prices for 59 stocks from Yahoo Finance, and news mood (positive, "
+            "negative, or neutral for each article) from a public 2023 news dataset on Kaggle. "
+            "From those I built 12 clues per stock per day — recent gains and losses, how bumpy "
+            "it's been lately, trading volume, big drops, and a daily news-mood score.",
+            ("callout", "No peeking at the future: every clue uses only past info, the thing "
+             "I'm predicting is the **next** week, and I split training vs. testing **by time** "
+             "so the test weeks all come after the training weeks."),
         ]),
-        ("Methodology", [
-            "A small multilayer perceptron (3,397 parameters) classifies the feature vector "
-            "into volatility terciles. To test sentiment's value, an identical model was "
-            "trained on the **same features minus the three sentiment ones**, and the two "
-            "were compared on the held-out later period.",
+        ("How it works", [
+            "It's a tiny neural network (about 3,400 numbers) that sorts the 12 clues into Low, "
+            "Medium, or High. To test whether news helps, I trained the exact same model a "
+            "second time with the three news clues **removed**, and compared the two.",
         ]),
         ("Results", [
-            ("table", ["Model (unseen period)", "Accuracy"],
-             [["Price + sentiment", "56.3%"],
+            ("table", ["Model (on weeks it never saw)", "Right"],
+             [["Price + news", "56.3%"],
               ["Price only", "57.2%"],
-              ["Chance (3 classes)", "33.3%"]]),
-            "Volatility is genuinely predictable (well above chance), but sentiment added "
-            "**-0.9 points** — nothing, within noise. That is an honest and common finding: a "
-            "daily average of headline sentiment is a coarse, sparse signal, and price-based "
-            "volatility features already capture most of what's predictable.",
-            "Reporting the negative result — instead of quietly dropping the ablation — is the "
-            "difference between a demo and an experiment.",
+              ["Random guessing", "33.3%"]]),
+            "So the model beats random guessing by a lot — but adding news made it **0.9% "
+            "worse**, basically no difference. That's actually a normal, honest result: a "
+            "once-a-day average of news mood is a pretty weak, noisy signal, and the price "
+            "clues already capture most of what's predictable.",
+            "The tempting thing would be to quietly delete the news test and claim 'news "
+            "helps!' Reporting that it didn't is the difference between a demo and a real "
+            "experiment.",
         ]),
-        ("Deployment", [
-            "Exported to a 20 KB ONNX model for an in-browser demo (pick a real stock-and-week "
-            "and see the predicted risk vs. what actually happened) and to TensorFlow Lite for "
-            "an Android app ('Risk Explorer'), both verified to match PyTorch to ~4e-7.",
+        ("Getting it running", [
+            "I exported it to a tiny web demo (pick a real stock and week, see the guess vs. "
+            "what actually happened) and an Android app, both matching the original.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "Educational only — not financial advice and not a recommendation.",
-                "Predicts volatility, not direction; it is right only about half the time.",
-                "One year of data and one coarse sentiment signal.",
+                "School project only — not financial advice, and not a recommendation.",
+                "It guesses bumpiness, not direction, and it's only right about half the time.",
+                "Just one year of data and a pretty rough news signal.",
             ]),
         ]),
-        ("Future Work", [
+        ("What's next", [
             ("bullets", [
-                "A richer sentiment signal: per-headline embeddings rather than a daily average.",
-                "A longer, multi-year history spanning more market regimes.",
-                "Test whether sentiment helps more for direction than for volatility.",
+                "A smarter news signal (actually reading each headline, not just averaging a mood score).",
+                "More years of data covering different kinds of markets.",
+                "Check if news helps more for guessing direction than bumpiness.",
             ]),
         ]),
     ],
@@ -402,71 +403,69 @@ STOCK = {
 
 PENTEST = {
     "slug": "pentest-agent",
-    "title": "AI Pentest Agent",
-    "subtitle": "Reinforcement Learning that Learns to Find Web Vulnerabilities",
+    "title": "AI Hacking Agent",
+    "subtitle": "Teaching an AI to Find Website Security Holes",
     "accent": "#15803d",
-    "tagline": "An agent that learns, by trial and error, to find security bugs in a practice "
-               "web app — and beats random guessing six to one. Educational, sandbox-only.",
+    "tagline": "An AI that learns, by trial and error, to break into a practice website — and "
+               "beats random guessing six to one. Safe, practice-only.",
     "sections": [
-        ("Executive Summary", [
-            "This project builds a tiny practice website with three security bugs on purpose, "
-            "then an AI agent that learns — by trial and error, the same idea behind "
-            "game-playing AI — to find all three. Once trained it finds every bug in **4 "
-            "actions**; a random agent needs about **25** and often misses one.",
-            ("callout", "**Educational and sandbox-only.** Everything runs against a "
-             "purpose-built vulnerable app on localhost. The techniques are standard OWASP "
-             "Top 10 teaching examples and must only be used on systems you own or are "
-             "authorised to test."),
+        ("Summary", [
+            "I built a tiny fake website with three security holes on purpose, then built an AI "
+            "that learns to find all three — by trial and error, the same way game-playing AIs "
+            "learn. Once trained, it finds every hole in just **4 moves**. Random guessing takes "
+            "about **25** and usually misses one.",
+            ("callout", "This is educational and totally sandboxed. Everything runs on a fake "
+             "website on my own computer. These are standard practice-hacking examples (the "
+             "OWASP Top 10), and you should only ever try this stuff on systems you own or are "
+             "allowed to test."),
         ]),
-        ("Introduction & Motivation", [
-            "Automated scanners are fast but blind: they follow fixed scripts, miss chained "
-            "issues, and cannot adapt. Recent research shows reinforcement learning can learn "
-            "efficient attack paths. This project explores that idea at a scale a student can "
-            "fully understand — and, importantly, explain.",
+        ("Why I built this", [
+            "Normal security scanners are fast but kind of dumb — they follow a fixed script and "
+            "can't adapt. I read that a type of AI called **reinforcement learning** can learn "
+            "smart attack paths, so I wanted to try it at a size I could actually understand and "
+            "explain.",
         ]),
-        ("The Practice App & Vulnerabilities", [
-            "The target is a ~120-line 'MiniBank' Flask app on localhost with three planted, "
-            "classic flaws:",
+        ("The practice website", [
+            "The target is a tiny fake 'bank' website (about 120 lines of code) running on my "
+            "computer, with three classic holes on purpose:",
             ("bullets", [
-                "SQL injection — the login query is built by string concatenation, so a crafted username logs in without a password.",
-                "Reflected XSS — the search box echoes user input into the page unescaped.",
-                "IDOR (broken access control) — changing the id in a profile URL reveals another user's private data.",
+                "SQL injection — you can log in without a password by typing a trick into the username box.",
+                "XSS — the search box will actually run code you type into it.",
+                "Broken access control — changing a number in the web address lets you see someone else's private info.",
             ]),
         ]),
-        ("Methodology", [
-            "Penetration testing is modelled as a small game (a Markov Decision Process). The "
-            "state records what has been discovered; the agent chooses among **12 actions** "
-            "(reconnaissance, one working payload per bug, and several realistic dead ends). "
-            "Every action is a **real HTTP request**, and a bug only counts when the real "
-            "response proves it.",
-            "The agent is trained with **tabular Q-learning** — a 16×12 table of learned "
-            "action-values that can be read and explained directly — rewarded +10 for each "
-            "new bug, +2 for doing recon first, and -1 per step so shorter attacks score "
-            "higher. It is not told which actions are good; it discovers them.",
+        ("How it works", [
+            "I turned hacking into a simple game. The AI can pick from 12 possible moves (look "
+            "around, try each attack, plus some dead-end moves that just waste time). Every move "
+            "is a **real request** to the website, and it only scores when the website actually "
+            "gives up a secret.",
+            "It learns with something called **Q-learning** — basically a scorecard of how good "
+            "each move is. It gets +10 for finding a new hole, +2 for looking around first, and "
+            "−1 for every move, so shorter attacks win. Nobody tells it which moves are good; it "
+            "figures that out on its own.",
         ]),
         ("Results", [
-            ("table", ["Agent", "Actions to find all 3", "Success rate"],
-             [["Trained (Q-learning)", "4", "100%"],
-              ["Random", "~25", "50%"]]),
-            "Over a few hundred practice runs the agent's average session reward climbs from "
-            "deeply negative (flailing) to +28 (the clean four-step attack: recon, then one "
-            "payload per bug). Learning turns flailing into a repeatable strategy — about a "
-            "six-fold efficiency gain over random guessing.",
-            "After finishing, the agent writes a structured penetration-test report of each "
-            "finding (severity, OWASP category, impact, and remediation).",
+            ("table", ["Agent", "Moves to find all 3", "Found all 3"],
+             [["Trained AI", "4", "100% of the time"],
+              ["Random guessing", "about 25", "only 50% of the time"]]),
+            "Over a few hundred practice runs, the AI goes from flailing around (a big negative "
+            "score) to a clean four-move attack: look around, then one perfect move for each "
+            "hole. It ends up about **six times faster** than random guessing. When it's done, "
+            "it even writes up a little security report of what it found and how to fix each "
+            "hole.",
         ]),
-        ("Limitations & Ethical Considerations", [
+        ("Honest limitations", [
             ("bullets", [
-                "A tiny sandbox: three known bugs and twelve actions — a teaching model, not a real scanner.",
-                "Sandbox-only against a purpose-built target on localhost; standard OWASP teaching payloads only.",
-                "Intended solely for educational and authorised, defensive security purposes.",
+                "It's a tiny practice setup — three known holes and twelve moves — so it's a learning demo, not a real hacking tool.",
+                "It only ever touches a fake website on my own computer, using standard practice examples.",
+                "It's meant purely for learning and defense — understanding how attacks work so you can stop them.",
             ]),
         ]),
-        ("Future Work", [
+        ("What's next", [
             ("bullets", [
-                "More vulnerability types and a second practice app to test generalisation.",
-                "Wire a real language model into the report-writing and payload seams.",
-                "Compare against scripted tools and non-learning baselines.",
+                "Add more kinds of holes and a second practice site to see if it can adapt to something new.",
+                "Hook up a language model to write better reports.",
+                "Compare it against regular scanner tools.",
             ]),
         ]),
     ],
