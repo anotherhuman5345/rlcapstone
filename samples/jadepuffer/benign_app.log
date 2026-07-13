@@ -1,0 +1,8 @@
+-- Normal application database activity (should stay clean / low).
+SELECT id, name, price FROM products WHERE category = 'coffee';
+INSERT INTO orders (user_id, total_cents) VALUES (42, 1299);
+UPDATE users SET last_login = NOW() WHERE id = 42;
+SELECT COUNT(*) FROM sessions WHERE active = 1;
+CREATE TABLE temp_daily_report AS SELECT user_id, SUM(total_cents) FROM orders GROUP BY user_id;
+DROP TABLE temp_daily_report;
+INSERT INTO audit_log (action, user_id) VALUES ('checkout', 42);
