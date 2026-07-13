@@ -44,3 +44,8 @@ dist/
 .vscode/
 .idea/
 Thumbs.db
+
+# --- Published trained models + training logs (kept in git on purpose,
+#     overriding the *.pt ignore above) ---
+!trained_models/
+!trained_models/**

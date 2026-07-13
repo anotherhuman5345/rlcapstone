@@ -1,0 +1,58 @@
+{
+  "classes": [
+    "benign",
+    "early",
+    "pre",
+    "pro"
+  ],
+  "accuracy": 0.9979550102249489,
+  "macro_f1": 0.9975185554447767,
+  "per_class": {
+    "benign": {
+      "precision": 0.987,
+      "recall": 1.0,
+      "f1": 0.9935
+    },
+    "early": {
+      "precision": 1.0,
+      "recall": 0.9932,
+      "f1": 0.9966
+    },
+    "pre": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "pro": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      76,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      147,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      144,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      121
+    ]
+  ]
+}
