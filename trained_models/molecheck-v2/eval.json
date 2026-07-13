@@ -1,0 +1,34 @@
+{
+  "experiment": "MoleCheck v2 \u2014 dermoscopy->smartphone domain gap",
+  "test_set": "PAD-UFES-20, patient-level test split (ACK excluded to match v1 label space)",
+  "n_test_images": 239,
+  "n_malignant": 167,
+  "target_sensitivity": 0.9,
+  "reference_v1_on_own_dermoscopy_test_roc_auc": 0.914,
+  "v1_dermoscopy_on_smartphone": {
+    "accuracy_at_0.5": 0.4854,
+    "roc_auc": 0.7433,
+    "operating_threshold": 0.0411,
+    "sensitivity": 0.9042,
+    "specificity": 0.3194,
+    "confusion": {
+      "tp": 151,
+      "tn": 23,
+      "fp": 49,
+      "fn": 16
+    }
+  },
+  "v2_finetuned_on_smartphone": {
+    "accuracy_at_0.5": 0.8577,
+    "roc_auc": 0.9205,
+    "operating_threshold": 0.3684,
+    "sensitivity": 0.9042,
+    "specificity": 0.75,
+    "confusion": {
+      "tp": 151,
+      "tn": 54,
+      "fp": 18,
+      "fn": 16
+    }
+  }
+}

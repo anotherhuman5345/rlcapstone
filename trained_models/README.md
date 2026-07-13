@@ -11,7 +11,8 @@ our own hardware (an NVIDIA RTX 5060 Ti), with the configs in `../src/`.
 
 | Folder | Model | Weights | What the logs show |
 |---|---|---|---|
-| `molecheck/` | YOLO11s-cls (skin lesion) | `molecheck.pt` | `results.csv`, confusion matrix |
+| `molecheck/` | YOLO11s-cls (skin lesion, v1 — dermoscopy) | `molecheck.pt` | `results.csv`, confusion matrix |
+| `molecheck-v2/` | YOLO11s-cls, v1 fine-tuned on smartphone photos | `molecheck_v2.pt` | `results.csv`, confusion, `eval.json` (0.743&rarr;0.920 ROC-AUC domain-gap recovery) |
 | `ecg/` | 1D CNN (heartbeat) | `ecg.pt` | `report.json` (per-class recall, macro-recall) |
 | `adhd/` | multi-channel 1D CNN (EEG) | `adhd.pt` | `report.json` (subject-level metrics) |
 | `leukemia-v1/` | YOLO11s-cls, 4-class | `leukemia_v1.pt` | `results.csv`, confusion, `eval.json` (99.8% — leakage-inflated) |
@@ -27,6 +28,12 @@ Everything here is regenerated from the scripts in [`../src/`](../src). For exam
 python src/leukemia_cnmc_prepare.py     # patient-disjoint split of C-NMC 2019
 python src/train.py --data data/leukemia_cnmc/split --name leukemia_cnmc_v2
 python src/leukemia_cnmc_evaluate.py    # -> the eval.json in leukemia-v2/
+
+# MoleCheck v2 (the dermoscopy -> smartphone domain-gap experiment)
+python src/molecheck_pad_prepare.py --copy   # patient-level split of PAD-UFES-20 phone photos
+python src/train.py --model trained_models/molecheck/molecheck.pt \
+    --data data/pad_ufes_20/split --name molecheck_pad_v2   # fine-tune v1 on phone photos
+python src/molecheck_pad_evaluate.py         # -> the eval.json in molecheck-v2/
 ```
 
 The datasets themselves are public (see each `src/*_prepare.py` / `*_download.py`
