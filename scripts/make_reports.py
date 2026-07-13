@@ -23,7 +23,7 @@ from reportlab.platypus import (BaseDocTemplate, Frame, HRFlowable, ListFlowable
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist" / "reports"
-AUTHOR = "RL"
+AUTHOR = "Arel"
 SITE = "RLcapstone.ai"
 
 
