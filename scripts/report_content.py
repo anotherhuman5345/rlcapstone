@@ -97,11 +97,61 @@ MOLECHECK = {
             "(a single codebase targeting Android and iOS), gated behind a first-run disclaimer "
             "acknowledgement, and tested on an Android device.",
         ]),
+        ("v2 — closing the smartphone gap", [
+            "The most consequential limitation of v1 is that it was trained on **dermatoscopic** "
+            "images — captured through a clinical lens in contact with the skin — while the "
+            "application receives an ordinary **smartphone photograph**. The 0.914 headline was "
+            "therefore measured on a domain the application never encounters. v2 quantifies that "
+            "mismatch and then corrects it.",
+            "The evaluation set is **PAD-UFES-20**: 2,298 smartphone photographs of skin lesions "
+            "from a Brazilian screening program, each carrying a patient identifier. The data is "
+            "split **by patient**, using v1's benign/malignant label space; actinic keratosis is "
+            "excluded because v1's source data marked it indeterminate and dropped it, so scoring "
+            "it would not be a fair test of the same model. This leaves 969 patients and 1,564 "
+            "images.",
+            ("table", ["Model", "Evaluated on", "ROC-AUC", "Specificity at 90% sensitivity"],
+             [["v1 (dermoscopy-trained)", "its own dermoscopy test", "0.914", "75%"],
+              ["v1 (dermoscopy-trained)", "smartphone photographs", "0.743", "32%"],
+              ["v2 (fine-tuned on smartphone)", "the same smartphone photographs", "0.920", "75%"]]),
+            "On smartphone photographs the dermoscopy-trained model fell from ROC-AUC 0.914 to "
+            "**0.743**, and at the 90%-sensitivity operating point its specificity collapsed to "
+            "32% — it flagged roughly two-thirds of benign lesions. Fine-tuning the same model on "
+            "smartphone photographs restored performance to **ROC-AUC 0.920**, matching v1's "
+            "original in-domain figure but now on the images the application actually receives, "
+            "with specificity back to 75%.",
+            ("callout", "v2's 0.920 is the more meaningful number because it is measured on the "
+             "domain the application operates in. Evaluating a model on the data it will really "
+             "face — rather than the most favorable version of the task — is the principle applied "
+             "throughout this portfolio."),
+        ]),
+        ("Fairness across skin tones", [
+            "A model with strong average performance can still fail unevenly, and in dermatology "
+            "the recognized concern is degraded performance on darker skin. Because PAD-UFES-20 "
+            "records a Fitzpatrick skin-type for many images, v2 can be audited for this directly. "
+            "A **single global decision threshold** — the 90%-sensitivity operating point — is "
+            "applied to every group, and the errors are examined for disparity.",
+            ("table", ["Skin type (Fitzpatrick)", "Images", "Malignant", "Sensitivity"],
+             [["I–II (lighter)", "130", "123", "94.3%"],
+              ["III–IV (medium)", "48", "41", "78.0%"],
+              ["V–VI (darker)", "3", "3", "too few to assess"]]),
+            "The model catches 94% of malignant lesions on lighter skin but only 78% on medium "
+            "skin — a roughly 16-point sensitivity gap in the direction the literature warns of, "
+            "with enough malignant cases in each group (123 and 41) for the difference to be a real "
+            "signal. Two honest limitations bound the audit: the dataset contains almost no darker "
+            "skin (three Fitzpatrick V images, no VI), so performance on the group most affected "
+            "**cannot be evaluated at all**; and skin type was recorded mainly for biopsied, mostly "
+            "malignant lesions, leaving too few labelled benign cases to measure per-group "
+            "specificity honestly.",
+            ("callout", "The uncomfortable but honest conclusion: v2 is measurably better at "
+             "detecting cancer on lighter skin than on darker skin, and the available data cannot "
+             "even test the darkest skin. Closing that gap requires more representative data, not a "
+             "modelling adjustment."),
+        ]),
         ("Limitations", [
             ("bullets", [
                 "Not a medical device — an educational project, not validated for clinical use.",
                 "A 90% sensitivity target still implies roughly one in ten malignant lesions is missed, so a 'lower-risk' result is not reassurance.",
-                "The model was trained on dermatoscopic images, which differ substantially from ordinary smartphone photographs; real-world accuracy is expected to be lower.",
+                "The shipped v1 model was trained on dermatoscopic images; v2 (above) measures the resulting smartphone-domain gap and closes it, but the two use different evaluation datasets and are not a like-for-like comparison beyond the shared label definition.",
                 "Public dermatology datasets under-represent darker skin tones, so performance is not guaranteed to be uniform across skin types — a recognized equity concern in dermatology AI.",
             ]),
             "These limitations are precisely why the application always directs the user to "
@@ -109,8 +159,8 @@ MOLECHECK = {
         ]),
         ("Future work", [
             ("bullets", [
-                "Train and evaluate on ordinary smartphone photographs, not only dermatoscopic images.",
-                "Measure and address performance disparities across skin tones.",
+                "Extend training and evaluation to datasets that include darker skin (Fitzpatrick V–VI), which PAD-UFES-20 barely contains — the fairness audit above cannot assess the group most affected by the equity gap.",
+                "Ship the smartphone-trained v2 model in the application, replacing the dermoscopy-trained v1.",
                 "Add an abstention option so low-quality images are declined rather than classified.",
                 "Complete the iOS build and conduct informal user testing.",
             ]),

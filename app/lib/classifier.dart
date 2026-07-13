@@ -28,9 +28,10 @@ class MoleClassifier {
   final int _inputSize;
   final bool _nchw; // true if the model wants [1,3,H,W] rather than [1,H,W,3]
 
-  // Decision threshold from evaluate.py, tuned for ~90% sensitivity on the
-  // held-out test set (ROC-AUC 0.914; specificity 0.75 at this threshold).
-  static const double decisionThreshold = 0.137;
+  // Decision threshold for the v2 (smartphone-trained) model, tuned for ~90%
+  // sensitivity on the PAD-UFES-20 phone-photo test set (ROC-AUC 0.920;
+  // specificity 0.75 at this threshold). v1 (dermoscopy) used 0.137 on ISIC.
+  static const double decisionThreshold = 0.368;
 
   static Future<MoleClassifier> load() async {
     final interpreter = await Interpreter.fromAsset(
