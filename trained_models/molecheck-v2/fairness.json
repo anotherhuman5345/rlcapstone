@@ -1,0 +1,88 @@
+{
+  "model": "molecheck-v2 (smartphone-fine-tuned)",
+  "test_set": "PAD-UFES-20 patient-level test split",
+  "global_threshold": 0.3684,
+  "note_threshold": "One global threshold (targeting 90% sensitivity overall) applied to every group.",
+  "overall": {
+    "n": 239,
+    "n_malignant": 167,
+    "n_benign": 72,
+    "sensitivity": 0.9042,
+    "specificity": 0.75,
+    "sensitivity_reliable": true,
+    "specificity_reliable": true,
+    "confusion": {
+      "tp": 151,
+      "tn": 54,
+      "fp": 18,
+      "fn": 16
+    }
+  },
+  "by_skin_type": {
+    "I–II (lighter)": {
+      "n": 130,
+      "n_malignant": 123,
+      "n_benign": 7,
+      "sensitivity": 0.9431,
+      "specificity": 0.7143,
+      "sensitivity_reliable": true,
+      "specificity_reliable": false,
+      "confusion": {
+        "tp": 116,
+        "tn": 5,
+        "fp": 2,
+        "fn": 7
+      }
+    },
+    "III–IV (medium)": {
+      "n": 48,
+      "n_malignant": 41,
+      "n_benign": 7,
+      "sensitivity": 0.7805,
+      "specificity": 0.8571,
+      "sensitivity_reliable": true,
+      "specificity_reliable": false,
+      "confusion": {
+        "tp": 32,
+        "tn": 6,
+        "fp": 1,
+        "fn": 9
+      }
+    },
+    "V–VI (darker)": {
+      "n": 3,
+      "n_malignant": 3,
+      "n_benign": 0,
+      "sensitivity": 1.0,
+      "specificity": null,
+      "sensitivity_reliable": false,
+      "specificity_reliable": false,
+      "confusion": {
+        "tp": 3,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "Unknown (unrecorded)": {
+      "n": 58,
+      "n_malignant": 0,
+      "n_benign": 58,
+      "sensitivity": null,
+      "specificity": 0.7414,
+      "sensitivity_reliable": false,
+      "specificity_reliable": true,
+      "confusion": {
+        "tp": 0,
+        "tn": 43,
+        "fp": 15,
+        "fn": 0
+      }
+    }
+  },
+  "limitations": [
+    "Fitzpatrick V–VI (darker skin) is nearly absent from this Brazilian cohort, so dark-skin performance cannot be evaluated here — the central equity gap in dermatology AI.",
+    "Skin type was recorded mainly for biopsied (mostly malignant) lesions; most benign cases have no Fitzpatrick label. Per-skin-type specificity is therefore unreliable (few benign samples per group), while per-skin-type sensitivity is the meaningful comparison.",
+    "Any rate over fewer than 10 cases is flagged unreliable in the JSON."
+  ]
+}
