@@ -1,0 +1,31 @@
+{
+  "experiment": "leukemia v3 \u2014 multi-source (C-NMC Delhi + Aria Tehran) for cross-lab generalization",
+  "within_source_cnmc_heldout_patients": {
+    "v2": {
+      "accuracy": 0.808,
+      "roc_auc": 0.857,
+      "sensitivity": 0.936,
+      "specificity": 0.534
+    },
+    "v3": {
+      "accuracy": 0.833,
+      "roc_auc": 0.863,
+      "sensitivity": 0.949,
+      "specificity": 0.586
+    },
+    "n_patients": 11,
+    "n_images": 1014
+  },
+  "external_acevedo_barcelona_normals_heldout": {
+    "n_normal_cells": 17092,
+    "v2_specificity": 0.1967,
+    "v3_specificity": 0.6714,
+    "v2_lymphocyte_fpr": 0.8913,
+    "v3_lymphocyte_fpr": 0.3616
+  },
+  "aria_note": "Aria is a v3 TRAINING source (near-perfect v3 Aria numbers are in-domain, not generalization). v2's Aria numbers (pre-training) show the single-source failure: Original AUC 0.404, Segmented 0.514.",
+  "v2_aria_pretraining": {
+    "original_roc_auc": 0.4038,
+    "segmented_roc_auc": 0.5144
+  }
+}

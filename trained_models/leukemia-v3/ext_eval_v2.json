@@ -1,0 +1,86 @@
+{
+  "model": "leukemia-v2 (C-NMC-trained), evaluated externally without any retraining",
+  "reference_cnmc_internal": {
+    "roc_auc": 0.857,
+    "accuracy": 0.808,
+    "sensitivity": 0.936,
+    "specificity": 0.534
+  },
+  "aria_original": {
+    "n": 3256,
+    "n_blast": 2752,
+    "n_normal": 504,
+    "accuracy": 0.8446,
+    "roc_auc": 0.4038,
+    "sensitivity": 0.9993,
+    "specificity": 0.0,
+    "confusion": {
+      "tp": 2750,
+      "tn": 0,
+      "fp": 504,
+      "fn": 2
+    }
+  },
+  "aria_segmented": {
+    "n": 3256,
+    "n_blast": 2752,
+    "n_normal": 504,
+    "accuracy": 0.6238,
+    "roc_auc": 0.5144,
+    "sensitivity": 0.6711,
+    "specificity": 0.3651,
+    "confusion": {
+      "tp": 1847,
+      "tn": 184,
+      "fp": 320,
+      "fn": 905
+    }
+  },
+  "acevedo_specificity": {
+    "n": 17092,
+    "overall_false_positive_rate": 0.8033,
+    "overall_specificity": 0.1967,
+    "by_cell_type": {
+      "basophil": {
+        "n": 1218,
+        "false_positive_rate": 0.9466,
+        "mean_p_leukemic": 0.7868
+      },
+      "eosinophil": {
+        "n": 3117,
+        "false_positive_rate": 0.8742,
+        "mean_p_leukemic": 0.71
+      },
+      "erythroblast": {
+        "n": 1551,
+        "false_positive_rate": 0.6892,
+        "mean_p_leukemic": 0.6017
+      },
+      "ig": {
+        "n": 2895,
+        "false_positive_rate": 0.9679,
+        "mean_p_leukemic": 0.8351
+      },
+      "lymphocyte": {
+        "n": 1214,
+        "false_positive_rate": 0.8913,
+        "mean_p_leukemic": 0.7011
+      },
+      "monocyte": {
+        "n": 1420,
+        "false_positive_rate": 0.969,
+        "mean_p_leukemic": 0.8749
+      },
+      "neutrophil": {
+        "n": 3329,
+        "false_positive_rate": 0.8519,
+        "mean_p_leukemic": 0.7105
+      },
+      "platelet": {
+        "n": 2348,
+        "false_positive_rate": 0.2926,
+        "mean_p_leukemic": 0.3906
+      }
+    }
+  }
+}
