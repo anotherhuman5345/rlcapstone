@@ -1,4 +1,2 @@
-benign
-early
-pre
-pro
+all
+hem

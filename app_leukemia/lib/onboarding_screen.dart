@@ -30,16 +30,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _Slide(
       icon: Icons.biotech_outlined,
       title: 'Blood Cell Explorer',
-      body: 'See how an AI model reads a blood-smear cell. Pick a real image from '
-          'a public research dataset and the model sorts it into four cell types — '
+      body: 'See how an AI model reads a blood cell. Pick a real image from three '
+          'different labs and the model decides whether it is leukemic or normal — '
           'running entirely on your phone.',
     ),
     _Slide(
       icon: Icons.science_outlined,
-      title: 'Four cell types',
-      body: 'One benign look-alike and three maturation stages of B-cell acute '
-          'lymphoblastic leukaemia. Telling them apart is subtle work even for '
-          'specialists.',
+      title: 'Leukemic vs normal',
+      body: 'A leukemic cell is a B-ALL blast; a normal cell is healthy — including '
+          'normal lymphocytes, which look deceptively similar. The cells come from '
+          'three different labs, so the model has to work across microscopes.',
     ),
     _Slide(
       icon: Icons.info_outline,

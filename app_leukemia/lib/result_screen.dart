@@ -53,6 +53,7 @@ class ResultScreen extends StatelessWidget {
                     const SizedBox(height: 6),
                     Text(
                       'True label: ${cellClassName[sample.trueClass] ?? sample.trueClass}'
+                      '${sample.source != null ? ' · from ${sample.source}' : ''}'
                       '  —  ${correct ? 'model agrees' : 'model is wrong'}',
                       textAlign: TextAlign.center,
                       style: theme.textTheme.bodyMedium,
@@ -84,9 +85,9 @@ class ResultScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'This model scores near-perfectly on its dataset, but that number '
-                        'is inflated by how the data is split. It is a teaching example of '
-                        'image classification — never a diagnosis.',
+                        'This v3 model is trained on cells from multiple labs, so it generalizes '
+                        'across microscopes far better than a single-source model — but it is still '
+                        'imperfect. It is a teaching example of image classification, never a diagnosis.',
                         style: theme.textTheme.bodyMedium,
                       ),
                     ),

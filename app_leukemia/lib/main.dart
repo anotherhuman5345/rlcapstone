@@ -130,8 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: theme.textTheme.headlineSmall),
               const SizedBox(height: 8),
               Text(
-                'Each is a real blood-smear cell image from a research dataset. '
-                'Tap one to classify it into four cell types on your device.',
+                'Each is a real single-cell image from one of three labs. '
+                'Tap one to classify it as leukemic or normal on your device.',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium,
               ),
@@ -176,8 +176,8 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               Text(
                 'Educational tool only — not a medical device and not a diagnosis. '
-                'It classifies pre-recorded research images, and its accuracy is '
-                'inflated by how the dataset is split.',
+                'It classifies pre-recorded research images; even trained on multiple '
+                'labs the model is imperfect.',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant),
