@@ -37,13 +37,6 @@ MALIGNANT = {"BCC", "SCC", "MEL", "ACK"}
 BENIGN = {"NEV", "SEK"}
 
 
-def find_image(img_id: str) -> Path | None:
-    # Images live under all_images/imgs_part_*/<img_id>.
-    for p in IMAGES_ROOT.rglob(img_id):
-        return p
-    return None
-
-
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--val-frac", type=float, default=0.15)

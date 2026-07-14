@@ -57,8 +57,8 @@ def build_ticker(px: pd.DataFrame, sent: pd.DataFrame) -> pd.DataFrame:
         r = px["ret"].to_numpy()
         win5, win10, win21 = r[t - 4:t + 1], r[t - 9:t + 1], r[t - 20:t + 1]
         vol5, vol21 = win5.std(), win21.std()
-        vol_seq = close[t - 4:t + 1]
-        dd = float((vol_seq / np.maximum.accumulate(vol_seq) - 1).min())
+        close_win = close[t - 4:t + 1]
+        dd = float((close_win / np.maximum.accumulate(close_win) - 1).min())
         vol20 = px["volume"].to_numpy()[t - 19:t + 1]
         vz = (px["volume"].to_numpy()[t] - vol20.mean()) / (vol20.std() + 1e-9)
         hl = ((px["high"].to_numpy()[t - 4:t + 1] - px["low"].to_numpy()[t - 4:t + 1])

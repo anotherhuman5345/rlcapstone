@@ -90,12 +90,21 @@ def main() -> None:
                     shutil.copy(p, out / p.name)
                     img_counts[split][cls] += 1
 
-    # integrity: no subject in more than one split (within a class)
-    seen = defaultdict(set)
+    # integrity: the whole point of v2 — verify no patient spans two splits.
+    # Key on the subject token alone (NOT (class, subject), which is unique by
+    # construction and can never fire): if one patient ever landed in two splits
+    # this catches it. Also confirm the all/hem patient sets are disjoint, so no
+    # UID is shared across the two classes.
+    subj_to_splits = defaultdict(set)
     for (cls, subj), split in assignment.items():
-        seen[(cls, subj)].add(split)
-    leaks = {k: v for k, v in seen.items() if len(v) > 1}
-    assert not leaks, f"patient leak detected: {leaks}"
+        subj_to_splits[subj].add(split)
+    leaks = {s: sorted(v) for s, v in subj_to_splits.items() if len(v) > 1}
+    assert not leaks, f"patient leak — subject(s) in multiple splits: {leaks}"
+
+    all_subs = {subj for (cls, subj) in assignment if cls == "all"}
+    hem_subs = {subj for (cls, subj) in assignment if cls == "hem"}
+    shared = all_subs & hem_subs
+    assert not shared, f"same patient token in both classes: {sorted(shared)}"
 
     print("C-NMC patient-level split (v2) — patient-disjoint train/val/test\n")
     print(f"{'split':6s}  {'all imgs':>8s} {'all pts':>7s}  {'hem imgs':>8s} {'hem pts':>7s}")

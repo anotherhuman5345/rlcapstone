@@ -78,7 +78,8 @@ def main() -> None:
     ap.add_argument("--target-sensitivity", type=float, default=0.90)
     args = ap.parse_args()
 
-    rows = [r for r in csv.DictReader(open(MANIFEST, encoding="utf-8")) if r["split"] == "test"]
+    with MANIFEST.open(encoding="utf-8") as f:
+        rows = [r for r in csv.DictReader(f) if r["split"] == "test"]
     model = YOLO(str(V2))
     mal_idx = malignant_index(model)
 
@@ -86,7 +87,9 @@ def main() -> None:
     for r in rows:
         label = r["label"]
         img = TEST_DIR / label / r["img_id"]
-        res = model.predict(Image.open(img).convert("RGB"), imgsz=args.imgsz, verbose=False)[0]
+        with Image.open(img) as im:
+            rgb = im.convert("RGB")
+        res = model.predict(rgb, imgsz=args.imgsz, verbose=False)[0]
         scores.append(float(res.probs.data[mal_idx]))
         y_true.append(1 if label == "malignant" else 0)
         buckets.append(BUCKETS.get(r["fitspatrick"], "Unknown (unrecorded)"))

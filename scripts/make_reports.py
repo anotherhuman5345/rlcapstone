@@ -38,7 +38,6 @@ def build(project: dict) -> None:
     accent = colors.HexColor(project["accent"])
     dark = colors.HexColor("#1a2b29")
     grey = colors.HexColor("#555555")
-    light = colors.HexColor(project["accent"]).clone()
 
     styles = getSampleStyleSheet()
     body = ParagraphStyle("body", parent=styles["Normal"], fontName="Helvetica",
@@ -77,8 +76,7 @@ def build(project: dict) -> None:
         inner = Paragraph(esc(t), callout_style)
         tbl = Table([[inner]], colWidths=[6.6 * inch])
         tbl.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor(project["accent"] + "14")
-                if False else _tint(project["accent"])),
+            ("BACKGROUND", (0, 0), (-1, -1), _tint(project["accent"])),
             ("LEFTPADDING", (0, 0), (-1, -1), 10), ("RIGHTPADDING", (0, 0), (-1, -1), 10),
             ("TOPPADDING", (0, 0), (-1, -1), 8), ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
             ("LINEBEFORE", (0, 0), (0, -1), 3, accent)]))

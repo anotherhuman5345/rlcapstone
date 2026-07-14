@@ -68,13 +68,17 @@ def score_model(weights: Path, paths, y_true, imgsz, target_sens):
     mal_idx = malignant_index(model)
     scores = np.zeros(len(paths))
     for i, p in enumerate(paths):
-        r = model.predict(Image.open(p).convert("RGB"), imgsz=imgsz, verbose=False)[0]
+        with Image.open(p) as im:
+            rgb = im.convert("RGB")
+        r = model.predict(rgb, imgsz=imgsz, verbose=False)[0]
         scores[i] = float(r.probs.data[mal_idx])
 
     acc = float(((scores >= 0.5).astype(int) == y_true).mean())
     auc = roc_auc(y_true, scores)
 
     mal_scores = np.sort(scores[y_true == 1])
+    if len(mal_scores) == 0:
+        raise SystemExit("No malignant images in the test set — cannot pick a threshold.")
     k = int(np.floor((1 - target_sens) * len(mal_scores)))
     thr = float(mal_scores[min(k, len(mal_scores) - 1)])
     pred = (scores >= thr).astype(int)

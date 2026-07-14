@@ -72,7 +72,9 @@ def main() -> None:
 
     scores = np.zeros(len(paths))
     for i, p in enumerate(paths):
-        r = model.predict(Image.open(p).convert("RGB"), imgsz=args.imgsz, verbose=False)[0]
+        with Image.open(p) as im:
+            rgb = im.convert("RGB")
+        r = model.predict(rgb, imgsz=args.imgsz, verbose=False)[0]
         scores[i] = float(r.probs.data[mal_idx])
 
     # Default-threshold accuracy.
@@ -83,6 +85,8 @@ def main() -> None:
 
     # Threshold for the target sensitivity.
     mal_scores = np.sort(scores[y_true == 1])
+    if len(mal_scores) == 0:
+        raise SystemExit("No malignant images in the test set — cannot pick a threshold.")
     k = int(np.floor((1 - args.target_sensitivity) * len(mal_scores)))
     thr = mal_scores[min(k, len(mal_scores) - 1)]
     pred = (scores >= thr).astype(int)

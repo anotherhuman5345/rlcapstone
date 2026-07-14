@@ -80,6 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<MoleClassifier> _classifier() =>
       _classifierFuture ??= MoleClassifier.load();
 
+  @override
+  void dispose() {
+    // Release the native TFLite interpreter if it was ever loaded.
+    _classifierFuture?.then((c) => c.close());
+    super.dispose();
+  }
+
   Future<void> _capture(ImageSource source) async {
     if (_busy) return;
     final XFile? file = await _picker.pickImage(

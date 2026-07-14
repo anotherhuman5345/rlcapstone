@@ -59,7 +59,10 @@ def main() -> None:
         for p in (Path(args.test_dir) / cls).glob("*.bmp"):
             paths.append(p)
             y_true.append(1 if cls == "all" else 0)
-            subj.append((cls, SUBJECT_RE.match(p.name).group(1)))
+            m = SUBJECT_RE.match(p.name)
+            if m is None:
+                raise SystemExit(f"Cannot parse patient id from filename: {p.name}")
+            subj.append((cls, m.group(1)))
     y_true = np.array(y_true)
     print(f"Test images: {len(paths)}  (patients: {len(set(subj))})")
 
