@@ -77,8 +77,7 @@ and **≥2 phone screenshots** (I can capture these from the emulator).
 
 ## Step 5 — Privacy policy  **[YOU paste one URL]**
 
-Same for all five: **https://rlcapstone.ai/privacy.html** (already live — on-device, collects
-nothing).
+Same for all five: **https://rlcapstone.ai/privacy** (already live — on-device, collects nothing).
 
 ## Step 6 — Data safety form  **[YOU, answers below]**
 
