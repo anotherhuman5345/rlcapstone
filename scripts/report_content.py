@@ -435,10 +435,10 @@ STOCK = {
             "and daily news sentiment. It was built primarily to answer one question through a "
             "**controlled experiment**: does the sentiment signal actually improve the "
             "prediction?",
-            "The model reaches **56% accuracy** on a three-class problem where chance is 33%, "
+            "The model reaches **57% accuracy** on a three-class problem where chance is 33%, "
             "because volatility clusters over time. The decisive result is the ablation: removing "
-            "the sentiment features entirely yielded **57%** — marginally **higher**. Sentiment "
-            "added no predictive value.",
+            "the sentiment features entirely yielded **57.5%** — marginally **higher** than the "
+            "57.1% obtained with sentiment. Sentiment added no predictive value.",
             ("callout", "Not financial advice. This is an educational machine-learning project. "
              "It predicts volatility, not price direction, and nothing here is a recommendation "
              "to buy, sell, or hold any security."),
@@ -467,19 +467,19 @@ STOCK = {
         ]),
         ("Results", [
             ("table", ["Model (on unseen weeks)", "Accuracy"],
-             [["Price + sentiment", "56.3%"],
-              ["Price only", "57.2%"],
+             [["Price + sentiment", "57.1%"],
+              ["Price only", "57.5%"],
               ["Chance baseline", "33.3%"]]),
             "The model clears the chance baseline comfortably, but adding sentiment made it "
-            "**0.9% worse** — no meaningful difference. This is a normal, honest outcome: a "
+            "**0.4% worse** — no meaningful difference. This is a normal, honest outcome: a "
             "once-daily average of headline sentiment is a coarse, sparse signal, and the "
             "rolling-volatility features already capture most of what is predictable about next "
             "week's turbulence. **Reporting the negative result — rather than omitting the "
             "ablation and claiming sentiment 'works' — is what distinguishes an experiment from a "
             "demonstration.**",
             ("h2", "Error analysis"),
-            "The errors fall where expected: the model reads calm weeks (Low, 76% recall) and "
-            "turbulent weeks (High, 60%) reasonably well, but the Medium class is difficult (27% "
+            "The errors fall where expected: the model reads calm weeks (Low, 75% recall) and "
+            "turbulent weeks (High, 57%) reasonably well, but the Medium class is difficult (33% "
             "recall) because intermediate volatility sits on a blurred boundary between the other "
             "two. This is an interpretable failure mode rather than a mysterious one.",
         ]),
