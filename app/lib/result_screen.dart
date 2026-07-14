@@ -139,7 +139,7 @@ class _ProbBar extends StatelessWidget {
       child: LinearProgressIndicator(
         value: malignantProb.clamp(0.0, 1.0),
         minHeight: 14,
-        backgroundColor: const Color(0xFF2E7D32).withValues(alpha: 0.25),
+        backgroundColor: accent.withValues(alpha: 0.2),
         valueColor: AlwaysStoppedAnimation(accent),
       ),
     );

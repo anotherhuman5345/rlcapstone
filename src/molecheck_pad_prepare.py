@@ -62,7 +62,15 @@ def load_rows() -> list[dict]:
 
 def index_images() -> dict[str, Path]:
     """Map img_id (filename) -> full path (images are nested in imgs_part_*/)."""
-    return {p.name: p for p in IMAGE_ROOT.rglob("*.png")}
+    index: dict[str, Path] = {}
+    for p in IMAGE_ROOT.rglob("*.png"):
+        if p.name in index:
+            raise SystemExit(
+                f"Duplicate image filename across imgs_part_* dirs: {p.name} "
+                f"({index[p.name]} vs {p}). Filenames must be unique to map metadata safely."
+            )
+        index[p.name] = p
+    return index
 
 
 def build_index(rows: list[dict], img_index: dict[str, Path]):

@@ -52,7 +52,12 @@ class MoleClassifier {
 
   int get _malignantIndex {
     final i = _labels.indexOf('malignant');
-    return i >= 0 ? i : _labels.length - 1;
+    if (i < 0) {
+      // Fail loudly rather than silently treating the last label as malignant,
+      // which would invert results if labels.txt were ever edited.
+      throw StateError("labels.txt has no 'malignant' entry: $_labels");
+    }
+    return i;
   }
 
   /// Run inference on raw image bytes (JPEG/PNG from the camera or gallery).
@@ -61,10 +66,14 @@ class MoleClassifier {
     if (decoded == null) {
       throw const FormatException('Could not decode the selected image.');
     }
+    // Bilinear (not the package default of nearest-neighbour): downscaling a
+    // multi-megapixel phone photo with nearest-neighbour aliases badly and
+    // feeds the model pixels unlike anything it saw in training.
     final resized = img.copyResize(
       decoded,
       width: _inputSize,
       height: _inputSize,
+      interpolation: img.Interpolation.linear,
     );
 
     // Build the normalised input tensor. Training used pixels / 255.

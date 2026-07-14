@@ -118,7 +118,8 @@ MOLECHECK = {
             "32% — it flagged roughly two-thirds of benign lesions. Fine-tuning the same model on "
             "smartphone photographs restored performance to **ROC-AUC 0.920**, matching v1's "
             "original in-domain figure but now on the images the application actually receives, "
-            "with specificity back to 75%.",
+            "with specificity back to 75%. This smartphone-trained v2 model, with a 0.368 "
+            "decision threshold, is what the application and browser demonstration now run.",
             ("callout", "v2's 0.920 is the more meaningful number because it is measured on the "
              "domain the application operates in. Evaluating a model on the data it will really "
              "face — rather than the most favorable version of the task — is the principle applied "
@@ -160,7 +161,7 @@ MOLECHECK = {
         ("Future work", [
             ("bullets", [
                 "Extend training and evaluation to datasets that include darker skin (Fitzpatrick V–VI), which PAD-UFES-20 barely contains — the fairness audit above cannot assess the group most affected by the equity gap.",
-                "Ship the smartphone-trained v2 model in the application, replacing the dermoscopy-trained v1.",
+                "Fuse the image with the clinical metadata PAD-UFES-20 provides (age, lesion site, whether it changed), the way a dermatologist reasons.",
                 "Add an abstention option so low-quality images are declined rather than classified.",
                 "Complete the iOS build and conduct informal user testing.",
             ]),

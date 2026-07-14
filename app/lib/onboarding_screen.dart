@@ -59,6 +59,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     widget.onDone();
   }
 
+  // "Skip" jumps to the final slide (the medical disclaimer) rather than
+  // finishing — the disclaimer must still be acknowledged before the app opens.
+  void _skipToDisclaimer() {
+    _controller.animateToPage(
+      _slides.length - 1,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -75,7 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: isLast ? null : _finish,
+                onPressed: isLast ? null : _skipToDisclaimer,
                 child: Opacity(opacity: isLast ? 0 : 1, child: const Text('Skip')),
               ),
             ),

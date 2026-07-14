@@ -27,14 +27,20 @@ def main() -> None:
     ap.add_argument("--pt", default=str(WEIGHTS_DIR / "best.pt"))
     ap.add_argument(
         "--tflite",
-        default=str(WEIGHTS_DIR / "tflite_out" / "best_float16.tflite"),
+        default=str(WEIGHTS_DIR / "tflite_out" / "best_float32.tflite"),
+        help="TFLite file to verify and ship (float32 is the canonical export)",
     )
     ap.add_argument("--imgsz", type=int, default=224)
     ap.add_argument("--n", type=int, default=16, help="images per class to check")
+    ap.add_argument("--threshold", type=float, default=0.5,
+                    help="threshold used only for the parity decision-agreement report")
     args = ap.parse_args()
 
     model = YOLO(args.pt)
-    mal_idx = [i for i, n in model.names.items() if n == "malignant"][0]
+    mal_matches = [i for i, n in model.names.items() if n == "malignant"]
+    if not mal_matches:
+        raise SystemExit(f"'malignant' not found in model classes: {model.names}")
+    mal_idx = mal_matches[0]
 
     interp = Interpreter(model_path=args.tflite)
     interp.allocate_tensors()
@@ -59,11 +65,11 @@ def main() -> None:
         tfl = float(interp.get_tensor(out["index"]).flatten()[mal_idx])
         pt = float(model.predict(img, imgsz=args.imgsz, verbose=False)[0].probs.data[mal_idx])
         max_diff = max(max_diff, abs(tfl - pt))
-        if (tfl >= 0.137) == (pt >= 0.137):
+        if (tfl >= args.threshold) == (pt >= args.threshold):
             agree += 1
     print(f"Checked {len(paths)} images")
     print(f"Max abs prob difference (PyTorch vs TFLite): {max_diff:.4f}")
-    print(f"Decision agreement @0.137: {agree}/{len(paths)}")
+    print(f"Decision agreement @{args.threshold:g}: {agree}/{len(paths)}")
 
     if max_diff > 0.05:
         raise SystemExit("Parity check FAILED — difference too large, do not ship this model.")
