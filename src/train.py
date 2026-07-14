@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import torch
 from ultralytics import YOLO
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +33,8 @@ def main() -> None:
     ap.add_argument("--imgsz", type=int, default=224)
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--name", default="mole_cls")
+    ap.add_argument("--device", default=None,
+                    help="CUDA device id or 'cpu' (default: 0 if a GPU is present, else cpu)")
     args = ap.parse_args()
 
     data = Path(args.data)
@@ -41,12 +44,14 @@ def main() -> None:
         )
 
     model = YOLO(args.model)
+    device = args.device if args.device is not None else (0 if torch.cuda.is_available() else "cpu")
+    print(f"Training on device: {device}")
     model.train(
         data=str(data),
         epochs=args.epochs,
         imgsz=args.imgsz,
         batch=args.batch,
-        device=0,  # RTX 5060 Ti
+        device=device,
         project=str(ROOT / "runs" / "classify"),
         name=args.name,
         # Augmentation to fight imbalance + generalise to phone photos.
