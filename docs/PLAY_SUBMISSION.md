@@ -76,8 +76,7 @@ and **≥2 phone screenshots** captured from the app.
 
 ## Step 5 — Privacy policy
 
-Same for all five: **https://rlcapstone.ai/privacy.html** (already live — on-device, collects
-nothing).
+Same for all five: **https://rlcapstone.ai/privacy** (already live — on-device, collects nothing).
 
 ## Step 6 — Data safety form
 
