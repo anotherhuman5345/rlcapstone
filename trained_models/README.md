@@ -17,6 +17,7 @@ our own hardware (an NVIDIA RTX 5060 Ti), with the configs in `../src/`.
 | `adhd/` | multi-channel 1D CNN (EEG) | `adhd.pt` | `report.json` (subject-level metrics) |
 | `leukemia-v1/` | YOLO11s-cls, 4-class | `leukemia_v1.pt` | `results.csv`, confusion, `eval.json` (99.8% — leakage-inflated) |
 | `leukemia-v2/` | YOLO11s-cls, binary, patient-split | `leukemia_v2.pt` | `results.csv`, confusion, `eval.json` (80.8% — honest) |
+| `leukemia-v3/` | YOLO11s-cls, binary, **multi-source** (C-NMC + Aria) | `leukemia_v3.pt` | `ext_eval_v{2,3}.json`, `v3_summary.json`, `gradcam/` — cross-lab generalization: Barcelona-normals specificity 20%→67% |
 | `stock/` | MLP (volatility risk) | `stock.pt` | `report.json` (incl. the sentiment ablation) |
 
 ## Reproduce it
