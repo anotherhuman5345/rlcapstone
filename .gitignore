@@ -5,6 +5,11 @@ __pycache__/
 *.egg-info/
 .ipynb_checkpoints/
 
+# Android signing secrets (NEVER commit)
+*.jks
+*.keystore
+key.properties
+
 # Datasets and model weights (too large for git)
 data/
 *.pt
