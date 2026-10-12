@@ -132,3 +132,5 @@ docs/       study protocol
 Study idea grew out of reading *Cognitive Load Theory* at the suggestion of my
 mentor at the Northwestern Hybrid Intelligence lab. My father and I worked out
 the study design together; he also helped with technical problems.
+The first version of the code was drafted with an AI assistant (Claude); I have
+studied, tested and changed it, and I can explain every part.
