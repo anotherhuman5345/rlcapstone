@@ -2,7 +2,7 @@
 {% block mainclass %}trial{% endblock %}
 {% block content %}
 <header class="trial-head">
-  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% else %}{{ _('trial_of', n=n, total=total) }}{% endif %}</span>
+  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
   <p class="clue" lang="{{ trial.clue_lang }}" id="clue" hidden>{{ clue }}</p>
 </header>
 <div class="stage" id="stage">

@@ -22,28 +22,48 @@ and more educated.
 
 ## Design
 
+The whole session takes **at most 15 minutes**, for everyone.
+
+| Part | What happens | Compared |
+|---|---|---|
+| 1. Surprise image (once, first) | Find a small white ring on a scan. An unannounced gorilla is also in the image. Then: "Anything unusual?", "Did you see a gorilla?", "Had you heard of the invisible-gorilla study?" | **Between people:** half get the clue in L1, half in L2 |
+| 2. Practice | One search scene and one scan, comfortable language, not scored | — |
+| 3. Rounds | Identical rounds of 8 pictures: 4 search scenes (find the red umbrella) and 4 scans (find the planted monkey), half with L1 clues and half with L2 clues | **Within each person:** L1 vs. L2, and change over time |
+
 | Factor | Type | Levels |
 |---|---|---|
-| Clue language | within each person | L1 (most comfortable) vs. L2 (less comfortable) |
-| Task | within each person | Search scene (find the red umbrella) vs. scan (find the planted monkey) |
-| Group | between people | High school students, radiologists (optional: PhD students, professors) |
+| Clue language | within each person (rounds); between people (surprise) | L1 (most comfortable) vs. L2 (less comfortable) |
+| Task | within each person | Search scene vs. scan |
+| Time on task | within each person | Elapsed minutes / round number |
+| Group | between people | High school, university, adult (not a student), PhD student, professor, physician, radiologist |
 
 - **Search scene:** an original cluttered picture; the target is a small red umbrella
   among distractors that share its color or its shape (conjunction search).
-- **Scan:** a grayscale medical image with a small, low-contrast monkey planted in it,
-  inspired by the "invisible gorilla" study in radiology (Drew, Võ & Wolfe, 2013).
+- **Scan:** a grayscale medical image with a small, low-contrast monkey planted in it.
   Everyone does both tasks; nobody is asked to diagnose anything.
+- **Surprise gorilla:** the inattentional-blindness paradigm of Drew, Võ & Wolfe (2013),
+  where 83% of radiologists missed a gorilla in a lung CT. It runs first, before anything
+  mentions animals, because once someone knows about it the surprise is gone. The
+  "unusual?" question gets its own page so the word "gorilla" cannot prompt the answer.
+  Radiologists may know the study, so everyone is asked and the analysis reports
+  results with and without those who knew.
 - **Clue:** names the region of the image and the nearer edge, in English or Turkish.
   Both versions carry identical information.
+- **Time on task:** every round has the same mix, so a change across rounds comes from
+  time, not from a harder task. There are more rounds (12) than most people finish:
+  at 14 minutes from the start page the session moves to the final questions. Every
+  answer carries its elapsed time, so the analysis can look for the minute where
+  slowing starts. If no decay appears within 15 minutes, that is reported as a finding
+  and a longer follow-up can be proposed.
 - **Outcomes:** time to the correct click (ms), whether the target was found within
-  60 s, false clicks, and a 1-9 mental-effort rating (Paas scale) after each picture.
+  30 s, false clicks, and a 1-9 mental-effort rating (Paas scale) after each picture.
 - **Data quality:** reloading a trial page restarts the clock after the image was
   already seen, so reloaded trials are recorded and dropped from analysis. People who
   rate either language below 3 of 7 can finish but are excluded (see protocol). The
   file of target locations is never served to the browser as a file.
 - **Counterbalancing:** each image appears in L1 for half of participants and L2 for
-  the other half; task order alternates; rotation runs separately within each group.
-  Trial order is shuffled per person. One unscored practice trial starts each task.
+  the other half; the surprise clue language alternates too; rotation runs separately
+  within each group. Which images fall in which round is shuffled per person.
 
 See `docs/STUDY_PROTOCOL.md` for hypotheses, sample size, and open questions.
 
@@ -53,7 +73,7 @@ See `docs/STUDY_PROTOCOL.md` for hypotheses, sample size, and open questions.
 pip install -r requirements.txt
 python stimuli/generate_stimuli.py      # makes images + manifest (placeholder scans)
 uvicorn app.main:app --reload           # open http://127.0.0.1:8000
-pytest -q                               # 7 tests
+pytest -q                               # 8 tests
 ```
 
 Admin page: `http://127.0.0.1:8000/admin?key=change-me` (CSV export from there).
@@ -74,7 +94,8 @@ Primary model: mixed-effects regression on log response time,
 
 1. Ethics/IRB approval in writing. Until then the site runs with `IRB_APPROVED=0`,
    shows a "demo only" banner, and marks every session as test data.
-2. Replace placeholder scans with de-identified images provided by the lab:
+2. Replace placeholder scans with 50 de-identified images provided by the lab (48 for
+   the rounds, 1 practice, 1 for the surprise gorilla):
    put them in `stimuli/real_scans/` (git-ignored) and run
    `python stimuli/generate_stimuli.py --real-scans`.
 3. Have a native speaker proofread all Turkish text in `app/i18n.py` and `app/clues.py`.

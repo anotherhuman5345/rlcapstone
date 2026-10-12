@@ -6,6 +6,11 @@ Part A, search scenes: original cluttered scenes (no copyrighted puzzle art).
   "conjunction search": the target cannot pop out on color or shape alone.
 
 Part B, scans: a small, low-contrast monkey is planted in a grayscale image.
+
+Surprise image (seen once, FIRST, before anything mentions animals): a scan
+with a small white ring as the stated target and an unannounced gorilla
+silhouette elsewhere in the image. This is the inattentional-blindness test
+after Drew, Vo & Wolfe (2013). The gorilla appears in no other image.
   By default this script makes SYNTHETIC placeholder "scans" so the platform
   can be built and tested. For the real study, put de-identified images
   supplied by the lab (after IRB approval) in stimuli/real_scans/ and run with
@@ -107,9 +112,45 @@ def plant_monkey(img, rng, size=22, contrast=38):
     return img.filter(ImageFilter.GaussianBlur(0.8)), mx, my, size * 1.3
 
 
+def plant_ring(img, rng, avoid=None, r=9):
+    """The stated target of the surprise trial: a small bright ring."""
+    img = img.convert("L")
+    w, h = img.size
+    while True:
+        x, y = rng.randint(80, w - 80), rng.randint(80, h - 80)
+        if avoid is None or math.hypot(x - avoid[0], y - avoid[1]) > min(w, h) * 0.35:
+            break
+    d = ImageDraw.Draw(img)
+    d.ellipse([x - r, y - r, x + r, y + r], outline=235, width=3)
+    return img, x, y, r * 1.5
+
+
+def plant_gorilla(img, rng, size=40, contrast=30):
+    """An original gorilla silhouette (not copied from any study), toned to blend with the scan
+    the way the original gorilla matched lung tissue. Never mentioned to the participant."""
+    img = img.convert("L")
+    w, h = img.size
+    gx, gy = rng.randint(int(w * .2), int(w * .8)), rng.randint(int(h * .3), int(h * .7))
+    arr = np.asarray(img)
+    local = int(arr[gy - size:gy + size, gx - size:gx + size].mean())
+    tone = min(255, local + contrast)
+    d = ImageDraw.Draw(img)
+    s = size
+    t = max(4, int(s * .38))  # limb thickness
+    d.ellipse([gx - s * .75, gy - s * .8, gx + s * .75, gy + s * .45], fill=tone)        # broad torso
+    d.ellipse([gx - s * .3, gy - s * 1.25, gx + s * .3, gy - s * .6], fill=tone)         # head
+    d.ellipse([gx - s * .5, gy - s * .95, gx + s * .5, gy - s * .45], fill=tone)         # shoulders/neck
+    for side in (-1, 1):
+        d.line([gx + side * s * .6, gy - s * .5, gx + side * s * .95, gy + s * .85], fill=tone, width=t)  # arm
+        d.ellipse([gx + side * s * .95 - t * .7, gy + s * .85 - t * .6,
+                   gx + side * s * .95 + t * .7, gy + s * .85 + t * .6], fill=tone)    # knuckles
+        d.line([gx + side * s * .3, gy + s * .3, gx + side * s * .42, gy + s * .95], fill=tone, width=t)  # leg
+    return img.filter(ImageFilter.GaussianBlur(0.8)), gx, gy
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--n", type=int, default=12, help="scored images per task")
+    ap.add_argument("--n", type=int, default=48, help="scored images per task (12 rounds x 4)")
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--real-scans", action="store_true")
     args = ap.parse_args()
@@ -127,8 +168,9 @@ def main():
                        "target": {"x": x, "y": y, "r": r}, "practice": practice})
 
     sources = sorted(REAL.glob("*.png")) + sorted(REAL.glob("*.jpg")) if args.real_scans else []
-    if args.real_scans and len(sources) < args.n + 1:
-        raise SystemExit(f"Need {args.n + 1} images in {REAL}, found {len(sources)}.")
+    if args.real_scans and len(sources) < args.n + 2:
+        raise SystemExit(f"Need {args.n + 2} images in {REAL} (scored + practice + surprise), "
+                         f"found {len(sources)}.")
     for k in range(args.n + 1):
         base = Image.open(sources[k]) if args.real_scans else synthetic_scan(rng)
         img, x, y, r = plant_monkey(base, rng)
@@ -137,6 +179,15 @@ def main():
         img.save(OUT / f"{iid}.png")
         images.append({"id": iid, "task": "scan", "file": f"{iid}.png", "width": img.width,
                        "height": img.height, "target": {"x": x, "y": y, "r": r}, "practice": practice})
+
+    # Surprise image: ring target + unannounced gorilla, on its own scan.
+    base = Image.open(sources[args.n + 1]) if args.real_scans else synthetic_scan(rng)
+    img, gx, gy = plant_gorilla(base, rng)
+    img, x, y, r = plant_ring(img, rng, avoid=(gx, gy))
+    img.save(OUT / "surprise.png")
+    images.append({"id": "surprise", "task": "surprise", "file": "surprise.png", "width": img.width,
+                   "height": img.height, "target": {"x": x, "y": y, "r": r},
+                   "gorilla": {"x": gx, "y": gy}, "practice": False})
 
     manifest = {"seed": args.seed, "real_scans": args.real_scans, "images": images}
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2))

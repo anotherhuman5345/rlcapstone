@@ -29,6 +29,8 @@ EDGES = {
 TARGET_NAME = {
     "search": {"en": "Find the small red umbrella.", "tr": "Küçük kırmızı şemsiyeyi bulun."},
     "scan": {"en": "Did you see the monkey?", "tr": "Maymunu gördünüz mü?"},
+    # The surprise trial names only the ring. The gorilla is never mentioned.
+    "surprise": {"en": "Find the small white ring.", "tr": "Küçük beyaz halkayı bulun."},
 }
 
 

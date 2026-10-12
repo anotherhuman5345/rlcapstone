@@ -19,13 +19,22 @@ if IRB_APPROVED and ADMIN_KEY == "change-me":
 STIMULI_DIR = Path(os.getenv("STIMULI_DIR", ROOT / "stimuli" / "output"))
 MANIFEST = STIMULI_DIR / "manifest.json"
 
-# Scored trials per task per participant (split evenly between languages).
-TRIALS_PER_TASK = int(os.getenv("TRIALS_PER_TASK", "12"))
-TRIAL_TIMEOUT_MS = int(os.getenv("TRIAL_TIMEOUT_MS", "60000"))
+# Scored trials per task per participant, split into identical rounds so
+# performance can be followed over time on task (12 rounds x 4 per task).
+# That is more than most people finish: the time limit below ends the session,
+# so the rounds fill the whole 15 minutes for fast and slow people alike.
+TRIALS_PER_TASK = int(os.getenv("TRIALS_PER_TASK", "48"))
+ROUNDS = int(os.getenv("ROUNDS", "12"))
+TRIAL_TIMEOUT_MS = int(os.getenv("TRIAL_TIMEOUT_MS", "30000"))
+# Promise to participants: the whole session takes no more than 15 minutes.
+# After this many minutes from the start page, remaining trials are skipped
+# and the person goes straight to the short final questions.
+SESSION_LIMIT_MIN = float(os.getenv("SESSION_LIMIT_MIN", "14"))
 # A click counts as a hit if it lands within target radius * this factor.
 HIT_TOLERANCE = float(os.getenv("HIT_TOLERANCE", "1.6"))
 # Minimum self-rated reading level (1-7) in BOTH languages to be included.
 MIN_READING = 3
 
 LANGUAGES = ("en", "tr")
-GROUPS = ("high_school", "undergraduate", "phd_student", "radiologist", "professor", "other")
+GROUPS = ("high_school", "undergraduate", "adult", "phd_student", "professor",
+          "physician", "radiologist", "other")

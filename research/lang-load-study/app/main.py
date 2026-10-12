@@ -1,8 +1,10 @@
-"""Web app: landing -> consent -> background -> instructions -> trials -> final -> debrief."""
+"""Web app: landing -> consent -> background -> surprise image -> surprise questions
+-> instructions -> practice + rounds -> final -> debrief."""
 import csv
 import io
 import math
 from contextlib import asynccontextmanager
+from datetime import timezone
 
 from fastapi import Depends, FastAPI, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
@@ -13,7 +15,7 @@ from sqlalchemy import func, select
 
 from . import config
 from .clues import make_clue
-from .db import Participant, SessionLocal, TrialResult, init_db
+from .db import Participant, SessionLocal, TrialResult, init_db, now
 from .i18n import t
 from .plan import build_plan, load_manifest
 
@@ -51,6 +53,14 @@ def render(request, name, p=None, lang="en", **ctx):
     return templates.TemplateResponse(request, name, {
         "_": t(lang), "lang": lang, "demo": not config.IRB_APPROVED,
         "irb_number": config.IRB_NUMBER, **ctx})
+
+
+def minutes_since(dt):
+    if dt is None:
+        return 0.0
+    if dt.tzinfo is None:  # SQLite hands datetimes back without a timezone; they are UTC.
+        dt = dt.replace(tzinfo=timezone.utc)
+    return (now() - dt).total_seconds() / 60
 
 
 def current(request, db):
@@ -124,6 +134,48 @@ def background(request: Request, group: str = Form(...), age: int = Form(..., ge
     p.counterbalance = n_in_group % 4
     p.plan = build_plan(p.id, p.counterbalance, p.l1, p.l2)
     db.commit()
+    return RedirectResponse("/surprise", status_code=303)
+
+
+@app.get("/surprise", response_class=HTMLResponse)
+def surprise_intro(request: Request, db=Depends(get_db)):
+    # Deliberately says nothing about animals: the gorilla must be unexpected.
+    return render(request, "surprise.html", current(request, db))
+
+
+@app.get("/notice", response_class=HTMLResponse)
+def notice_page(request: Request, db=Depends(get_db)):
+    return render(request, "notice.html", current(request, db))
+
+
+@app.post("/notice")
+def notice(request: Request, noticed: str = Form(...), db=Depends(get_db)):
+    # Asked on its own page, before the gorilla is named, so the word cannot prompt the answer.
+    p = current(request, db)
+    if p.noticed_unusual is None:
+        p.noticed_unusual = noticed == "yes"
+        db.commit()
+    return RedirectResponse("/notice2", status_code=303)
+
+
+@app.get("/notice2", response_class=HTMLResponse)
+def notice2_page(request: Request, db=Depends(get_db)):
+    p = current(request, db)
+    if p.noticed_unusual is None:
+        return RedirectResponse("/notice", status_code=303)
+    return render(request, "notice2.html", p)
+
+
+@app.post("/notice2")
+def notice2(request: Request, saw_gorilla: str = Form(...), knew_study: str = Form(...),
+            db=Depends(get_db)):
+    p = current(request, db)
+    if p.noticed_unusual is None:
+        return RedirectResponse("/notice", status_code=303)
+    if p.saw_gorilla is None:
+        p.saw_gorilla = saw_gorilla == "yes"
+        p.knew_gorilla_study = knew_study == "yes"
+        db.commit()
     return RedirectResponse("/instructions", status_code=303)
 
 
@@ -137,16 +189,28 @@ def trial_page(request: Request, db=Depends(get_db)):
     p = current(request, db)
     if not p.plan:
         return RedirectResponse("/background", status_code=303)
+    if p.current_trial >= 1 and p.noticed_unusual is None:
+        return RedirectResponse("/notice", status_code=303)
+    if p.current_trial >= 1 and p.saw_gorilla is None:
+        return RedirectResponse("/notice2", status_code=303)
+    if p.current_trial >= 1 and minutes_since(p.created_at) > config.SESSION_LIMIT_MIN:
+        # Keep the 15-minute promise: skip whatever is left.
+        p.time_capped = True
+        p.current_trial = len(p.plan)
+        db.commit()
     if p.current_trial >= len(p.plan):
         return RedirectResponse("/final", status_code=303)
     trial = p.plan[p.current_trial]
     p.trial_views += 1
+    if p.task_started_at is None:
+        p.task_started_at = now()
     db.commit()
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
     clue = make_clue(trial["task"], trial["clue_lang"], tg["x"], tg["y"], img["width"], img["height"])
     return render(request, "trial.html", p, trial=trial, img=img, clue=clue,
-                  n=p.current_trial + 1, total=len(p.plan), timeout=config.TRIAL_TIMEOUT_MS)
+                  n=p.current_trial + 1, total=len(p.plan), rounds=config.ROUNDS,
+                  timeout=config.TRIAL_TIMEOUT_MS)
 
 
 class TrialIn(BaseModel):
@@ -175,11 +239,16 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
                        condition=trial["condition"], practice=trial["practice"],
                        rt_ms=data.rt_ms if hit else None, hit=hit, timed_out=data.timed_out,
                        false_clicks=data.false_clicks, effort=data.effort,
-                       reloads=max(0, p.trial_views - 1)))
+                       reloads=max(0, p.trial_views - 1), round=trial.get("round"),
+                       elapsed_s=round(minutes_since(p.task_started_at) * 60, 1)))
     p.current_trial += 1
     p.trial_views = 0
     db.commit()
-    return {"ok": True, "hit": hit, "next": "/trial" if p.current_trial < len(p.plan) else "/final"}
+    if trial["task"] == "surprise":
+        nxt = "/notice"
+    else:
+        nxt = "/trial" if p.current_trial < len(p.plan) else "/final"
+    return {"ok": True, "hit": hit, "next": nxt}
 
 
 @app.get("/final", response_class=HTMLResponse)
@@ -220,7 +289,9 @@ def admin(request: Request, key: str = "", db=Depends(get_db)):
 
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
                "native_lang", "l2_age_acquired", "en_reading", "tr_reading", "l1", "l2",
-               "eligible", "counterbalance", "attention_ok", "completed", "trial_index", "task", "image_id",
+               "eligible", "counterbalance", "attention_ok", "completed", "time_capped",
+               "noticed_unusual", "saw_gorilla", "knew_gorilla_study",
+               "trial_index", "round", "elapsed_s", "task", "image_id",
                "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort",
                "reloads"]
 
@@ -235,7 +306,9 @@ def export(key: str = "", db=Depends(get_db)):
                             .order_by(Participant.created_at, TrialResult.trial_index)):
         w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.years_reading_images,
                     p.native_lang, p.l2_age_acquired, p.en_reading, p.tr_reading, p.l1, p.l2,
-                    p.eligible, p.counterbalance, p.attention_ok, p.completed, tr.trial_index, tr.task,
+                    p.eligible, p.counterbalance, p.attention_ok, p.completed, p.time_capped,
+                    p.noticed_unusual, p.saw_gorilla, p.knew_gorilla_study,
+                    tr.trial_index, tr.round, tr.elapsed_s, tr.task,
                     tr.image_id, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
                     tr.timed_out, tr.false_clicks, tr.effort, tr.reloads])
     buf.seek(0)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="/notice2">
+  <fieldset>
+    <legend>{{ _('gorilla_q') }}</legend>
+    <label class="choice"><input type="radio" name="saw_gorilla" value="yes" required> {{ _('yes') }}</label>
+    <label class="choice"><input type="radio" name="saw_gorilla" value="no"> {{ _('no') }}</label>
+  </fieldset>
+  <fieldset>
+    <legend>{{ _('knew_q') }}</legend>
+    <label class="choice"><input type="radio" name="knew_study" value="yes" required> {{ _('yes') }}</label>
+    <label class="choice"><input type="radio" name="knew_study" value="no"> {{ _('no') }}</label>
+  </fieldset>
+  <button type="submit">{{ _('continue') }}</button>
+</form>
+{% endblock %}

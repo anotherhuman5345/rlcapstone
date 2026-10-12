@@ -30,7 +30,7 @@ macro-recall over raw accuracy), and negative results reported rather than hidde
 
 | Study | Question | Status |
 |---|---|---|
-| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, and does expertise (students vs. radiologists) change that cost? | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
+| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, make people miss an unexpected object (a hidden gorilla), or wear them down faster within a 15-minute session? Compared across age, education and image-reading expertise (students to radiologists). | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
 
 ## Trained models
 

@@ -55,6 +55,13 @@ class Participant(Base):
     trial_views: Mapped[int] = mapped_column(Integer, default=0)
     completed: Mapped[bool] = mapped_column(Boolean, default=False)
     attention_ok: Mapped[bool | None] = mapped_column(Boolean)
+    # Surprise (inattentional blindness) questions, asked right after the first image.
+    noticed_unusual: Mapped[bool | None] = mapped_column(Boolean)
+    saw_gorilla: Mapped[bool | None] = mapped_column(Boolean)
+    knew_gorilla_study: Mapped[bool | None] = mapped_column(Boolean)
+    # Time on task: clock starts when the first image is shown.
+    task_started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    time_capped: Mapped[bool] = mapped_column(Boolean, default=False)
     overall_difficulty: Mapped[int | None] = mapped_column(Integer)
 
     trials: Mapped[list["TrialResult"]] = relationship(back_populates="participant")
@@ -67,7 +74,9 @@ class TrialResult(Base):
     participant_id: Mapped[str] = mapped_column(ForeignKey("participants.id"))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
     trial_index: Mapped[int] = mapped_column(Integer)
-    task: Mapped[str] = mapped_column(String(10))        # "search" or "scan"
+    task: Mapped[str] = mapped_column(String(10))        # "surprise", "search" or "scan"
+    round: Mapped[int | None] = mapped_column(Integer)   # 1..ROUNDS; None for surprise/practice
+    elapsed_s: Mapped[float | None] = mapped_column(Float)  # seconds since the first image
     image_id: Mapped[str] = mapped_column(String(40))
     clue_lang: Mapped[str] = mapped_column(String(2))    # "en" or "tr"
     condition: Mapped[str] = mapped_column(String(2))    # "L1" or "L2"

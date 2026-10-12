@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<p class="meta">{{ _('instr_reveal') }}</p>
 <h1>{{ _('instr_title') }}</h1>
 <div class="examples">
   <figure><img src="/img/search_practice.png" alt=""><figcaption>{{ _('instr_search') }}</figcaption></figure>
@@ -7,5 +8,6 @@
 </div>
 <p>{{ _('instr_clue') }}</p>
 <p>{{ _('instr_effort') }} {{ _('instr_practice') }}</p>
+<p>{{ _('instr_rounds') }}</p>
 <a class="button" href="/trial">{{ _('begin') }}</a>
 {% endblock %}
