@@ -1,0 +1,344 @@
+{
+  "seed": 2026,
+  "real_scans": false,
+  "images": [
+    {
+      "id": "search_00",
+      "task": "search",
+      "file": "search_00.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 283,
+        "y": 367,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_01",
+      "task": "search",
+      "file": "search_01.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 508,
+        "y": 220,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_02",
+      "task": "search",
+      "file": "search_02.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 742,
+        "y": 302,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_03",
+      "task": "search",
+      "file": "search_03.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 605,
+        "y": 298,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_04",
+      "task": "search",
+      "file": "search_04.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 957,
+        "y": 420,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_05",
+      "task": "search",
+      "file": "search_05.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 1093,
+        "y": 519,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_06",
+      "task": "search",
+      "file": "search_06.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 284,
+        "y": 365,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_07",
+      "task": "search",
+      "file": "search_07.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 400,
+        "y": 652,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_08",
+      "task": "search",
+      "file": "search_08.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 448,
+        "y": 244,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_09",
+      "task": "search",
+      "file": "search_09.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 85,
+        "y": 359,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_10",
+      "task": "search",
+      "file": "search_10.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 461,
+        "y": 625,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_11",
+      "task": "search",
+      "file": "search_11.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 550,
+        "y": 747,
+        "r": 18.2
+      },
+      "practice": false
+    },
+    {
+      "id": "search_practice",
+      "task": "search",
+      "file": "search_practice.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 1074,
+        "y": 583,
+        "r": 18.2
+      },
+      "practice": true
+    },
+    {
+      "id": "scan_00",
+      "task": "scan",
+      "file": "scan_00.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 330,
+        "y": 514,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_01",
+      "task": "scan",
+      "file": "scan_01.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 758,
+        "y": 618,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_02",
+      "task": "scan",
+      "file": "scan_02.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 304,
+        "y": 599,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_03",
+      "task": "scan",
+      "file": "scan_03.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 307,
+        "y": 678,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_04",
+      "task": "scan",
+      "file": "scan_04.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 996,
+        "y": 523,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_05",
+      "task": "scan",
+      "file": "scan_05.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 735,
+        "y": 597,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_06",
+      "task": "scan",
+      "file": "scan_06.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 1006,
+        "y": 721,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_07",
+      "task": "scan",
+      "file": "scan_07.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 969,
+        "y": 729,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_08",
+      "task": "scan",
+      "file": "scan_08.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 943,
+        "y": 409,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_09",
+      "task": "scan",
+      "file": "scan_09.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 771,
+        "y": 509,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_10",
+      "task": "scan",
+      "file": "scan_10.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 265,
+        "y": 675,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_11",
+      "task": "scan",
+      "file": "scan_11.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 748,
+        "y": 144,
+        "r": 28.6
+      },
+      "practice": false
+    },
+    {
+      "id": "scan_practice",
+      "task": "scan",
+      "file": "scan_practice.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 595,
+        "y": 366,
+        "r": 28.6
+      },
+      "practice": true
+    }
+  ]
+}

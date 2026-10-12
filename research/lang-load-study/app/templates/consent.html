@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ _('consent_title') }}</h1>
+<p>{{ _('consent_body') }}</p>
+<p class="meta">{{ _('consent_irb') }}: {{ irb_number }}</p>
+<form method="post" action="/consent">
+  <label class="choice"><input type="checkbox" name="agree" value="yes" required> {{ _('consent_agree') }}</label>
+  <button type="submit">{{ _('continue') }}</button>
+</form>
+{% endblock %}

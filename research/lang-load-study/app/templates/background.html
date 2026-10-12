@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ _('bg_title') }}</h1>
+<form method="post" action="/background" class="stack">
+  <label>{{ _('group') }}
+    <select name="group" required>
+      {% for g in groups %}<option value="{{ g }}">{{ _('group_' ~ g) }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>{{ _('age') }} <input type="number" name="age" min="10" max="99" required></label>
+  <label>{{ _('education_years') }} <input type="number" name="education_years" min="0" max="40" required></label>
+  <label>{{ _('years_reading_images') }} <input type="number" name="years_reading_images" min="0" max="60" step="0.5" value="0" required></label>
+  <label>{{ _('native_lang') }}
+    <select name="native_lang" required>
+      <option value="en">{{ _('lang_en') }}</option>
+      <option value="tr">{{ _('lang_tr') }}</option>
+      <option value="other">{{ _('lang_other') }}</option>
+    </select>
+  </label>
+  <label>{{ _('l2_age') }} <input type="number" name="l2_age_acquired" min="0" max="99" required></label>
+  {% for field in ['en_reading', 'tr_reading'] %}
+  <fieldset class="scale">
+    <legend>{{ _(field) }}</legend>
+    {% for v in range(1, 8) %}<label><input type="radio" name="{{ field }}" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}
+  </fieldset>
+  {% endfor %}
+  <fieldset>
+    <legend>{{ _('comfort') }}</legend>
+    <label class="choice"><input type="radio" name="comfort" value="en" required> {{ _('lang_en') }}</label>
+    <label class="choice"><input type="radio" name="comfort" value="tr"> {{ _('lang_tr') }}</label>
+  </fieldset>
+  <button type="submit">{{ _('continue') }}</button>
+</form>
+{% endblock %}
