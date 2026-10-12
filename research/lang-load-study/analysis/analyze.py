@@ -27,15 +27,22 @@ import statsmodels.formula.api as smf
 
 def load(path, include_test):
     df = pd.read_csv(path)
-    for col in ("is_test", "practice", "hit", "timed_out", "attention_ok", "completed"):
+    # Older exports lack these columns; treat everyone as eligible with no reloads.
+    df["eligible"] = df.get("eligible", True)
+    df["reloads"] = df.get("reloads", 0)
+    for col in ("is_test", "practice", "hit", "timed_out", "attention_ok", "completed", "eligible"):
         if col in df:
             df[col] = df[col].astype(str).str.lower() == "true"
     n0 = df.participant_id.nunique()
     if not include_test:
         df = df[~df.is_test]
-    df = df[~df.practice & df.completed & df.attention_ok]
+    df = df[~df.practice & df.completed & df.attention_ok & df.eligible]
     print(f"Participants: {n0} in file, {df.participant_id.nunique()} after exclusions")
-    return df
+    # A reloaded trial means the image was seen before the clock restarted.
+    reloaded = df.reloads.fillna(0) > 0
+    if reloaded.any():
+        print(f"Dropped {int(reloaded.sum())} trials that were reloaded before answering")
+    return df[~reloaded]
 
 
 def main():

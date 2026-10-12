@@ -29,6 +29,7 @@ def main():
         for k in range(n):
             pid = str(uuid.uuid4())
             person = rng.normal(0, 0.15)
+            person_effort = rng.normal(0, 0.8)
             l1 = rng.choice(["en", "tr"])
             l2 = "tr" if l1 == "en" else "en"
             for task in ("search", "scan"):
@@ -45,13 +46,15 @@ def main():
                         "participant_id": pid, "is_test": True, "group": group,
                         "age": age + int(rng.integers(0, 4)), "education_years": edu,
                         "years_reading_images": yrs, "native_lang": l1, "l2_age_acquired": 6,
-                        "en_reading": 7, "tr_reading": 6, "l1": l1, "l2": l2, "counterbalance": k % 4,
+                        "en_reading": 7, "tr_reading": 6, "l1": l1, "l2": l2, "eligible": True,
+                        "counterbalance": k % 4,
                         "attention_ok": True, "completed": True, "trial_index": i, "task": task,
                         "image_id": f"{task}_{i:02d}", "clue_lang": l1 if cond == "L1" else l2,
                         "condition": cond, "practice": False,
                         "rt_ms": None if timed_out else round(rt), "hit": not timed_out,
                         "timed_out": timed_out, "false_clicks": int(rng.poisson(0.5)),
-                        "effort": int(np.clip(round(4 + (1 if cond == "L2" else 0) + rng.normal(0, 1.3)), 1, 9)),
+                        "effort": int(np.clip(round(4 + person_effort + (1 if cond == "L2" else 0) + rng.normal(0, 1.3)), 1, 9)),
+                        "reloads": 0,
                     })
     pd.DataFrame(rows).to_csv(args.out, index=False)
     print(f"Wrote {len(rows)} SIMULATED rows to {args.out}")

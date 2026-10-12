@@ -5,7 +5,7 @@ import math
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, Form, HTTPException, Request
-from fastapi.responses import HTMLResponse, RedirectResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, Field
@@ -25,9 +25,17 @@ async def lifespan(_app):
 
 app = FastAPI(title="Language & Visual Search Study", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=config.ROOT / "app" / "static"), name="static")
-app.mount("/img", StaticFiles(directory=config.STIMULI_DIR), name="img")
 templates = Jinja2Templates(directory=config.ROOT / "app" / "templates")
 COOKIE = "pid"
+
+
+@app.get("/img/{name}")
+def image(name: str):
+    # Serve only the study images. The manifest (with every target's location)
+    # stays private, so nobody can look up the answers.
+    if name not in {i["file"] for i in load_manifest()["images"]}:
+        raise HTTPException(404)
+    return FileResponse(config.STIMULI_DIR / name)
 
 
 def get_db():
@@ -94,10 +102,11 @@ def background_page(request: Request, db=Depends(get_db)):
 
 
 @app.post("/background")
-def background(request: Request, group: str = Form(...), age: int = Form(...),
-               education_years: int = Form(...), years_reading_images: float = Form(0),
-               native_lang: str = Form(...), l2_age_acquired: int = Form(...),
-               en_reading: int = Form(...), tr_reading: int = Form(...),
+def background(request: Request, group: str = Form(...), age: int = Form(..., ge=10, le=99),
+               education_years: int = Form(..., ge=0, le=40),
+               years_reading_images: float = Form(0, ge=0, le=60),
+               native_lang: str = Form(...), l2_age_acquired: int = Form(..., ge=0, le=99),
+               en_reading: int = Form(..., ge=1, le=7), tr_reading: int = Form(..., ge=1, le=7),
                comfort: str = Form(...), db=Depends(get_db)):
     p = current(request, db)
     if group not in config.GROUPS or comfort not in config.LANGUAGES:
@@ -107,6 +116,7 @@ def background(request: Request, group: str = Form(...), age: int = Form(...),
     p.en_reading, p.tr_reading = en_reading, tr_reading
     p.l1 = comfort
     p.l2 = "tr" if comfort == "en" else "en"
+    p.eligible = min(en_reading, tr_reading) >= config.MIN_READING
 
     # Rotate counterbalance index within each group.
     n_in_group = db.scalar(select(func.count()).select_from(Participant)
@@ -130,6 +140,8 @@ def trial_page(request: Request, db=Depends(get_db)):
     if p.current_trial >= len(p.plan):
         return RedirectResponse("/final", status_code=303)
     trial = p.plan[p.current_trial]
+    p.trial_views += 1
+    db.commit()
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
     clue = make_clue(trial["task"], trial["clue_lang"], tg["x"], tg["y"], img["width"], img["height"])
@@ -162,8 +174,10 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
                        image_id=trial["image_id"], clue_lang=trial["clue_lang"],
                        condition=trial["condition"], practice=trial["practice"],
                        rt_ms=data.rt_ms if hit else None, hit=hit, timed_out=data.timed_out,
-                       false_clicks=data.false_clicks, effort=data.effort))
+                       false_clicks=data.false_clicks, effort=data.effort,
+                       reloads=max(0, p.trial_views - 1)))
     p.current_trial += 1
+    p.trial_views = 0
     db.commit()
     return {"ok": True, "hit": hit, "next": "/trial" if p.current_trial < len(p.plan) else "/final"}
 
@@ -174,7 +188,7 @@ def final_page(request: Request, db=Depends(get_db)):
 
 
 @app.post("/final")
-def final(request: Request, difficulty: int = Form(...), attention: str = Form(...), db=Depends(get_db)):
+def final(request: Request, difficulty: int = Form(..., ge=1, le=9), attention: str = Form(...), db=Depends(get_db)):
     p = current(request, db)
     p.overall_difficulty = difficulty
     p.attention_ok = attention == "red"
@@ -206,8 +220,9 @@ def admin(request: Request, key: str = "", db=Depends(get_db)):
 
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
                "native_lang", "l2_age_acquired", "en_reading", "tr_reading", "l1", "l2",
-               "counterbalance", "attention_ok", "completed", "trial_index", "task", "image_id",
-               "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort"]
+               "eligible", "counterbalance", "attention_ok", "completed", "trial_index", "task", "image_id",
+               "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort",
+               "reloads"]
 
 
 @app.get("/admin/export.csv")
@@ -220,9 +235,9 @@ def export(key: str = "", db=Depends(get_db)):
                             .order_by(Participant.created_at, TrialResult.trial_index)):
         w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.years_reading_images,
                     p.native_lang, p.l2_age_acquired, p.en_reading, p.tr_reading, p.l1, p.l2,
-                    p.counterbalance, p.attention_ok, p.completed, tr.trial_index, tr.task,
+                    p.eligible, p.counterbalance, p.attention_ok, p.completed, tr.trial_index, tr.task,
                     tr.image_id, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
-                    tr.timed_out, tr.false_clicks, tr.effort])
+                    tr.timed_out, tr.false_clicks, tr.effort, tr.reloads])
     buf.seek(0)
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",
                              headers={"Content-Disposition": "attachment; filename=trials.csv"})

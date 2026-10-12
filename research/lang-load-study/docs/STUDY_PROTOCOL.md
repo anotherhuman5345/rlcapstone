@@ -41,7 +41,9 @@ language, age of L2 acquisition, reading proficiency in each language, most
 comfortable reading language). No names, emails, or IP addresses are stored.
 
 ## Exclusions (decided in advance)
-Incomplete sessions; failed attention check; response times under 200 ms.
+Incomplete sessions; failed attention check; self-rated reading below 3/7 in
+either language; response times under 200 ms; trials whose page was reloaded
+before answering (the image had already been seen).
 
 ## Open questions for the lab
 1. IRB: which protocol or pathway should this fall under?

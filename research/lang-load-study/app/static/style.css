@@ -26,7 +26,7 @@ label { display: block; margin: .9rem 0; }
 .choice { display: flex; gap: .5rem; align-items: center; margin: .4rem 0; }
 .scale label { display: inline-block; margin: 0 .2rem .3rem 0; }
 .scale input { position: absolute; opacity: 0; }
-.scale span { display: inline-flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; background: var(--paper); }
+.scale label span { display: inline-flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; background: var(--paper); }
 .scale input:checked + span { background: var(--signal); color: #fff; border-color: var(--signal); }
 .scale input:focus-visible + span, button:focus-visible, a:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
 button, .button { display: inline-block; margin-top: 1rem; padding: .7rem 1.4rem; font: inherit; font-weight: 600; color: #fff; background: var(--signal); border: 0; border-radius: 4px; cursor: pointer; text-decoration: none; }
@@ -42,7 +42,8 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .trial-head { min-height: 5.5rem; }
 .clue { font-size: 1.3rem; line-height: 1.4; margin: .3rem 0 .8rem; max-width: 60rem; }
 .stage { position: relative; display: inline-block; max-width: 100%; }
-#stim { display: block; max-width: 100%; height: auto; cursor: crosshair; visibility: hidden; user-select: none; touch-action: manipulation; }
+/* Whole image must fit on screen: scrolling to reach a target would add time unrelated to language. */
+#stim { display: block; max-width: 100%; max-height: calc(100vh - 11rem); width: auto; height: auto; cursor: crosshair; visibility: hidden; user-select: none; touch-action: manipulation; }
 #stim.live { visibility: visible; }
 .mark { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 3px solid var(--signal); border-radius: 50%; pointer-events: none; }
 .status { min-height: 1.5rem; font-weight: 600; }

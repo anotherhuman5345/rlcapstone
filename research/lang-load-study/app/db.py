@@ -42,11 +42,17 @@ class Participant(Base):
     tr_reading: Mapped[int | None] = mapped_column(Integer)  # 1-7 self-rating
     l1: Mapped[str | None] = mapped_column(String(2))  # most comfortable reading language
     l2: Mapped[str | None] = mapped_column(String(2))  # less comfortable
+    # Protocol inclusion rule: reads both languages at 3+ on the 1-7 scale.
+    # Ineligible people can still finish; they are flagged and excluded in analysis.
+    eligible: Mapped[bool | None] = mapped_column(Boolean)
 
     # Assignment
     counterbalance: Mapped[int | None] = mapped_column(Integer)
     plan: Mapped[list | None] = mapped_column(JSON)
     current_trial: Mapped[int] = mapped_column(Integer, default=0)
+    # How many times the current trial page has been loaded. More than once means
+    # the person saw the image before the clock restarted, so the trial is flagged.
+    trial_views: Mapped[int] = mapped_column(Integer, default=0)
     completed: Mapped[bool] = mapped_column(Boolean, default=False)
     attention_ok: Mapped[bool | None] = mapped_column(Boolean)
     overall_difficulty: Mapped[int | None] = mapped_column(Integer)
@@ -71,6 +77,7 @@ class TrialResult(Base):
     timed_out: Mapped[bool] = mapped_column(Boolean, default=False)
     false_clicks: Mapped[int] = mapped_column(Integer, default=0)
     effort: Mapped[int | None] = mapped_column(Integer)  # Paas 1-9
+    reloads: Mapped[int] = mapped_column(Integer, default=0)  # page reloads before answering
 
     participant: Mapped[Participant] = relationship(back_populates="trials")
 
