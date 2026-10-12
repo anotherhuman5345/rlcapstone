@@ -1,17 +1,38 @@
-# leukemia_check
+# Cell Explorer
 
-A new Flutter project.
+Classifies bundled blood-cell images as `all` (leukemic) or `hem` (normal).
+The current app uses a binary classifier; the original four-class experiment
+is documented separately in the project write-up.
 
-## Getting Started
+Educational demonstration only. This app cannot diagnose leukemia.
 
-This project is a starting point for a Flutter application.
+## Assets
 
-A few resources to get you started if this is your first Flutter project:
+Before building, provide these files under `assets/`:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- `leukemia_classifier.tflite`: binary model with input `[1, 224, 224, 3]`.
+- `labels.txt`: model label order (`all`, `hem`).
+- `leukemia_samples.json`: sample manifest.
+- `cells/`: images referenced by the manifest.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Model and sample-image files are ignored by Git. Use assets from the matching
+model export; the older four-class ONNX export is not a drop-in replacement.
+
+## Run
+
+With Flutter installed and a device or emulator connected:
+
+```sh
+cd app_leukemia
+flutter pub get
+flutter run
+```
+
+Android builds use the Android SDK; iOS builds require macOS and Xcode.
+
+## Code
+
+- `lib/classifier.dart`: image preprocessing and TFLite inference.
+- `lib/samples.dart`: sample manifest loading.
+- `lib/result_screen.dart`: image, prediction, reference label, and limitations.
+- `lib/onboarding_screen.dart`: first-run explanation and disclaimer.

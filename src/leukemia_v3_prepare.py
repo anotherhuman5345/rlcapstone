@@ -2,12 +2,12 @@
 
 v2 (trained on C-NMC alone) collapsed on other labs' images (see
 leukemia_ext_evaluate.py). The diagnosed cause: it over-fit C-NMC's black-
-background / stain style. The principled fix is to train on MORE THAN ONE lab so
+background / stain style. Training uses two labs so
 the model sees black AND real backgrounds and two staining pipelines.
 
 v3 training data = C-NMC (Delhi, patient-split) + Aria (Tehran, both the Original
 real-background and Segmented black-background versions). Validation and test stay
-C-NMC-only and patient-disjoint, so the within-source headline is still honest and
+C-NMC-only and patient-disjoint, so within-source results remain
 directly comparable to v2's held-out 11 patients. Acevedo (Barcelona) is NOT added
 here — it is deliberately held out as an unseen THIRD lab to test generalization.
 

@@ -90,10 +90,8 @@ def main() -> None:
         parts.append(build_ticker(grp, sent[sent.ticker == tk]))
     df = pd.concat(parts, ignore_index=True).dropna()
 
-    # Sort train chronologically so stock_train.py's "last 15% of rows"
-    # validation slice is a true temporal holdout (the latest dates across all
-    # tickers), not the last tickers alphabetically. Normalisation, terciles and
-    # labels are all order-independent, so only the val slice is affected.
+    # stock_train.py uses the final 15% of rows for validation. Sort by date
+    # across tickers so that slice holds out the latest observations.
     train = (df[df.date < TRAIN_END]
              .sort_values(["date", "ticker"]).reset_index(drop=True).copy())
     test = df[df.date >= TEST_START].copy()

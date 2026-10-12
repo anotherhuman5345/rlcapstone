@@ -1,9 +1,9 @@
 """Patient-level split of the C-NMC 2019 leukemia dataset (the v2 experiment).
 
-This is the rigorous follow-up to the v1 leukemia classifier. The v1 dataset
+This is the follow-up to the v1 leukemia classifier. The v1 dataset
 (Aria et al., 2021) has no patient IDs, so cells from one patient can leak across
 the train/test split and inflate accuracy. C-NMC 2019 encodes the subject ID in
-every filename, so here we hold out **entire patients** — the honest protocol.
+every filename, so here we hold out entire patients.
 
 Dataset: andrewmvd/leukemia-classification -> C-NMC_Leukemia/training_data/
     fold_0, fold_1, fold_2, each with:
@@ -90,11 +90,8 @@ def main() -> None:
                     shutil.copy(p, out / p.name)
                     img_counts[split][cls] += 1
 
-    # integrity: the whole point of v2 — verify no patient spans two splits.
-    # Key on the subject token alone (NOT (class, subject), which is unique by
-    # construction and can never fire): if one patient ever landed in two splits
-    # this catches it. Also confirm the all/hem patient sets are disjoint, so no
-    # UID is shared across the two classes.
+    # Check subject IDs across splits and classes; a (class, subject) key would
+    # miss a subject shared by all and hem.
     subj_to_splits = defaultdict(set)
     for (cls, subj), split in assignment.items():
         subj_to_splits[subj].add(split)

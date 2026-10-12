@@ -5,7 +5,7 @@ import 'samples.dart';
 import 'waveform.dart';
 
 /// Shows the beat waveform, the model's prediction vs. the cardiologist's true
-/// label, per-class probabilities, and an honest reminder about the model's
+/// label, per-class probabilities, and a reminder about the model's
 /// limits.
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.sample, required this.result});

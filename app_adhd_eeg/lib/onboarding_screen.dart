@@ -39,7 +39,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       title: 'Trained on other children',
       body: 'The model learned from one group of children and is tested on '
           'different ones. A correct call means the pattern transfers to people '
-          'it has never seen — the honest test.',
+          'it has never seen.',
     ),
     _Slide(
       icon: Icons.info_outline,

@@ -21,7 +21,7 @@ class CellResult {
   double get topProb => probs[topIndex];
 }
 
-/// Wraps the on-device 4-class ALL cell classifier. The TFLite model takes a
+/// Wraps the on-device binary ALL cell classifier. The TFLite model takes a
 /// [1,224,224,3] input, /255 normalised (onnx2tf produced NHWC). Emits per-class
 /// probabilities (YOLO-cls already softmaxes; we guard just in case).
 /// Classes come from labels.txt: [all (leukemic), hem (normal)].

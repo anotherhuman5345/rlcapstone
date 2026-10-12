@@ -1,8 +1,8 @@
 """Train an MLP to classify a stock's next-week risk (Low / Medium / High
 realised volatility) from price + sentiment features.
 
-Honest framing: this predicts VOLATILITY (how much a stock will move), not
-DIRECTION (up or down). Volatility clusters in time, so it is genuinely more
+Prediction target: this predicts VOLATILITY (how much a stock will move), not
+DIRECTION (up or down). Volatility clusters in time, so it is more
 predictable than returns — but this is still an educational model, not advice.
 
 To answer "does the sentiment actually help?", we also train a price-only

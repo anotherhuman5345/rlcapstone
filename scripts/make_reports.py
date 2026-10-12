@@ -1,11 +1,11 @@
-"""Generate a professional PDF capstone report for every project.
+"""Generate a PDF capstone report for every project.
 
 One reusable renderer (reportlab) + a content block per project, so all six
 reports share a clean, consistent look. Output: dist/reports/<slug>.pdf
 
 Body text supports **bold** markup; tables and callouts are styled per project
 accent colour. Written to be readable by a general audience while still
-reporting the honest metrics (including the negative results).
+reporting metrics and negative results.
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ def esc(t: str) -> str:
     return "".join(f"<b>{p}</b>" if i % 2 else p for i, p in enumerate(parts))
 
 
-# ---------------------------------------------------------------- renderer ----
+# Report rendering
 def build(project: dict) -> None:
     accent = colors.HexColor(project["accent"])
     dark = colors.HexColor("#1a2b29")
@@ -43,9 +43,11 @@ def build(project: dict) -> None:
     body = ParagraphStyle("body", parent=styles["Normal"], fontName="Helvetica",
                           fontSize=10.5, leading=15, textColor=dark, spaceAfter=7)
     h1 = ParagraphStyle("h1", fontName="Helvetica-Bold", fontSize=14,
-                        textColor=accent, spaceBefore=6, spaceAfter=4)
+                        textColor=accent, spaceBefore=6, spaceAfter=4,
+                        keepWithNext=True)
     h2 = ParagraphStyle("h2", fontName="Helvetica-Bold", fontSize=11.5,
-                        textColor=dark, spaceBefore=6, spaceAfter=3)
+                        textColor=dark, spaceBefore=6, spaceAfter=3,
+                        keepWithNext=True)
     bullet_style = ParagraphStyle("bul", parent=body, spaceAfter=3)
     callout_style = ParagraphStyle("call", parent=body, textColor=dark, spaceAfter=0)
 
@@ -58,7 +60,7 @@ def build(project: dict) -> None:
         for r in rows:
             data.append([Paragraph(esc(str(c)), ParagraphStyle("td", fontName="Helvetica",
                         fontSize=9.5, textColor=dark, leading=12)) for c in r])
-        t = Table(data, hAlign="LEFT", colWidths=None)
+        t = Table(data, hAlign="LEFT", colWidths=None, repeatRows=1)
         ts = [("BACKGROUND", (0, 0), (-1, 0), accent),
               ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cfd8d6")),
               ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
@@ -110,8 +112,10 @@ def build(project: dict) -> None:
     # sections
     for i, (heading, elements) in enumerate(project["sections"], 1):
         story.append(Paragraph(f"{i}. {esc(heading)}", h1))
-        story.append(HRFlowable(width="100%", thickness=0.7, color=colors.HexColor("#cccccc"),
-                                spaceBefore=1, spaceAfter=6))
+        rule = HRFlowable(width="100%", thickness=0.7, color=colors.HexColor("#cccccc"),
+                          spaceBefore=1, spaceAfter=6)
+        rule.keepWithNext = True
+        story.append(rule)
         for el in elements:
             if isinstance(el, str):
                 story.append(flow_para(el))
@@ -159,7 +163,7 @@ def _tint(hex_color: str):
                         1 - (1 - c.blue) * 0.12)
 
 
-# ---------------------------------------------------------------- content -----
+# Project content
 from report_content import PROJECTS  # noqa: E402
 
 

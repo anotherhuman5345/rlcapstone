@@ -4,7 +4,7 @@ Beats come from the DS2 test set (patients the model never trained on). We keep
 the model-input window (260 samples, z-normalised) plus the cardiologist's true
 label and the source record id. The demo draws the waveform and runs the ONNX
 model live, so we deliberately include the hard classes (S, F) too — the demo
-should show honest results, including the misses.
+includes both correct predictions and errors.
 """
 
 from __future__ import annotations

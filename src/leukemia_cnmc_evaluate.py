@@ -1,6 +1,6 @@
 """Evaluate the C-NMC v2 binary classifier on the patient-held-out test split.
 
-Honest metrics for the binary all-vs-hem task, reported both per image and
+Metrics for the binary all-vs-hem task, reported both per image and
 per patient (the test set is a small number of entirely unseen patients, so the
 per-patient view is the fair one and its denominator is deliberately shown):
     accuracy, sensitivity (recall on malignant 'all'), specificity (recall on

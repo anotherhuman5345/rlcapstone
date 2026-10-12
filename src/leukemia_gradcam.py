@@ -1,9 +1,8 @@
 """Grad-CAM for the leukemia YOLO11s-cls model.
 
-Overlays a heatmap of where the model looks when it calls a cell leukemic. This is
-the interpretability check that the whole project's honesty thesis needs: it shows
-whether the model attends to the cell's nucleus/cytoplasm (real morphology) or to
-the slide background / stain (the artifact that made v1's 99.8% a lie).
+Overlays a heatmap of where the model looks when it calls a cell leukemic. The overlay
+helps inspect whether activation falls on the cell or the slide background.
+It is an exploratory visualization, not proof of which features the model uses.
 
 Hooks the last backbone feature map (model.model[-2], a 7x7x512 map at 224 input),
 takes the gradient of the leukemic logit w.r.t. that map, and forms the standard

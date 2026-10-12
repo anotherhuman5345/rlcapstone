@@ -1,17 +1,39 @@
-# ecg_check
+# ECG Check
 
-A new Flutter project.
+Classifies bundled MIT-BIH heartbeat samples into the N, S, V, and F beat classes.
+Inference runs on the device; the app does not record ECG signals.
 
-## Getting Started
+Educational demonstration only. Results are not medical or financial advice.
 
-This project is a starting point for a Flutter application.
+## Assets
 
-A few resources to get you started if this is your first Flutter project:
+`assets/` must contain `ecg_classifier.tflite`, `labels.txt`, and `ecg_samples.json`.
+The model is ignored by Git. From the repository root, after preparing the dataset
+and training the corresponding model:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```powershell
+python src/ecg_export_tflite.py
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The export script checks predictions against PyTorch before copying the model and
+labels into this app. The sample JSON must also be available before building.
+The TFLite input shape is `[1, 260, 1]`.
+
+## Run
+
+With Flutter installed and a device or emulator connected:
+
+```sh
+cd app_ecg
+flutter pub get
+flutter run
+```
+
+Android builds use the Android SDK; iOS builds require macOS and Xcode.
+
+## Code
+
+- `lib/classifier.dart`: TFLite inference and output probabilities.
+- `lib/samples.dart`: bundled sample loading.
+- `lib/result_screen.dart`: prediction, reference label, and limitations.
+- `lib/onboarding_screen.dart`: first-run explanation and disclaimer.

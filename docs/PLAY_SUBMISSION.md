@@ -1,13 +1,8 @@
-# Google Play submission runbook (RLcapstone apps)
+# Google Play submission runbook
 
 Build and upload the five Flutter apps using the package names and listing copy below.
-Signing keys and Play Console access are managed by the account owner.
-
-> **Framing strategy (important).** Four apps are health-adjacent and one is finance — categories
-> Google reviews strictly. We reduce risk by being unambiguously **educational**: choose the
-> **Education** category (not "Medical"), lead every listing with "educational demonstration, not a
-> medical device," and keep the in-app disclaimers. These apps genuinely are educational demos, so
-> this is honest, not a loophole.
+The apps are educational demonstrations; keep that description consistent with their
+in-app disclaimers. Signing keys and Play Console access are managed by the account owner.
 
 ## App inventory
 
@@ -59,7 +54,8 @@ Once the keystore and all five `key.properties` files exist, build the bundles i
 ## Step 2 — Build the signed App Bundles
 
 For each app: `flutter build appbundle --release` → produces
-`build/app/outputs/bundle/release/app-release.aab`. Upload the `.aab` file from each app.
+`build/app/outputs/bundle/release/app-release.aab`. Upload the `.aab` file from each app,
+rather than a sideload `.apk`.
 
 ## Step 3 — Play Console: create each app
 
@@ -68,7 +64,7 @@ For each of the five (Console → **Create app**):
 - **App or game:** App · **Free or paid:** Free
 - Accept the developer program declarations.
 
-## Step 4 — Store listing  
+## Step 4 — Store listing
 
 Per app, set **Short description** and **Full description** (copy in Step 8), the **app icon**
 (512×512 — use `assets/icon/icon.png`, upscaled), a **feature graphic** (1024×500),
@@ -76,7 +72,7 @@ and **≥2 phone screenshots** captured from the app.
 
 ## Step 5 — Privacy policy
 
-Same for all five: **https://rlcapstone.ai/privacy** (already live — on-device, collects nothing).
+Same for all five: **https://rlcapstone.ai/privacy** (on-device apps, no data collection).
 
 ## Step 6 — Data safety form
 
@@ -118,9 +114,9 @@ What it does: you choose a photo of a single skin lesion and a small neural netw
 the app, estimates whether it looks lower-risk or higher-risk. Everything runs on your phone — your
 photo is never uploaded, and the app works in airplane mode.
 
-How it was built: the model was trained on public dermatology image datasets and evaluated honestly,
+How it was built: the model was trained on public dermatology image datasets and evaluated on held-out images,
 including where it falls short (real smartphone photos are harder than the clinical images models are
-usually trained on). Read the full write-up and honest metrics at https://rlcapstone.ai.
+usually trained on). Read the full write-up and evaluation metrics at https://rlcapstone.ai.
 
 This app is part of a student portfolio of educational AI projects. It is a learning tool, not a
 diagnostic product.
@@ -134,7 +130,7 @@ is NOT a medical device and does not diagnose any heart condition. It classifies
 heartbeats from a public research database — it does not read your own heart.
 
 What it does: pick a sample heartbeat and a 1D convolutional neural network, running on your device,
-sorts it into standard beat categories. The project's real lesson is honest: accuracy that looks high
+sorts it into standard beat categories. Accuracy that looks high
 in validation drops sharply on patients the model has never seen. Full write-up and metrics at
 https://rlcapstone.ai.
 
@@ -150,7 +146,7 @@ from an app — this app classifies research-cohort recordings and nothing about
 
 What it does: choose a sample multi-channel EEG recording and a neural network on your device
 classifies it by study group, using a strict subject-level evaluation so the reported performance
-reflects genuine generalization. Full write-up at https://rlcapstone.ai.
+measures performance on unseen subjects. Full write-up at https://rlcapstone.ai.
 
 Part of a student AI portfolio; educational only.
 
@@ -163,7 +159,7 @@ medical device and does not diagnose leukemia or anything else — real diagnosi
 hematologist, bone-marrow analysis, and genetic testing.
 
 What it does: pick a real single-cell image (the samples come from three different labs) and a neural
-network on your device labels it leukemic or normal. The project is a case study in honest evaluation
+network on your device labels it leukemic or normal. The project is a case study in evaluation across datasets
 — from a leakage-inflated 99.8% to a patient-split result, to a multi-lab model that generalizes
 across microscopes. Full write-up at https://rlcapstone.ai.
 
@@ -178,7 +174,7 @@ financial advice and NOT a recommendation to buy, sell, or hold anything. It pre
 much a stock might move), not direction, on pre-recorded sample data.
 
 What it does: pick a sample stock-week and a small model on your device predicts a Low / Medium /
-High volatility class. The project's honest headline is a negative result: adding news-sentiment
+High volatility class. In the test experiment, adding news-sentiment
 features did not improve the prediction, and the write-up says so. Details at https://rlcapstone.ai.
 
 Part of a student AI portfolio; educational only, not investment advice.
@@ -195,5 +191,5 @@ Part of a student AI portfolio; educational only, not investment advice.
 ## Release assets
 
 - Five signed `.aab` bundles.
-- Feature graphics and phone screenshots.
-- A 512×512 icon per app.
+- A 1024×500 feature graphic and phone screenshots for each app.
+- A 512×512 icon for each listing.

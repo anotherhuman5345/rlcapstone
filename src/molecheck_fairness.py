@@ -5,8 +5,7 @@ sensitivity/specificity per Fitzpatrick group, applying a SINGLE global decision
 threshold to every group (the correct way to test for disparate outcomes: one
 decision rule, measure whether the errors fall unevenly).
 
-Two structural limitations of this dataset shape what can honestly be claimed,
-and the script reports them rather than papering over them:
+Dataset limitations:
   * PAD-UFES-20 is a Brazilian cohort with almost no darker skin (Fitzpatrick V/VI
     are nearly absent), so dark-skin performance cannot be evaluated here — which is
     itself the equity gap dermatology AI is criticised for.

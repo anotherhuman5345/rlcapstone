@@ -38,5 +38,6 @@ account is only needed for TestFlight / App Store distribution.
 
 ## Decision threshold
 `MoleClassifier.decisionThreshold` in `lib/classifier.dart` controls how eagerly
-the app flags a lesion as concerning. Set it to the value that `src/evaluate.py`
-prints for your target sensitivity (defaults to 0.30), then rebuild.
+the app flags a lesion as concerning. The shipped v2
+model uses `0.368`, selected for approximately 90% sensitivity on PAD-UFES-20
+phone photos. A replacement model needs its own evaluated threshold.
