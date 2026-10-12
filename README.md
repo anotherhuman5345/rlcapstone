@@ -26,6 +26,12 @@ A recurring theme across the portfolio is rigorous, honest evaluation: leakage-a
 subject-level train/test splits, metrics chosen to suit the task (sensitivity/specificity, ROC-AUC,
 macro-recall over raw accuracy), and negative results reported rather than hidden.
 
+## Research
+
+| Study | Question | Status |
+|---|---|---|
+| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, and does expertise (students vs. radiologists) change that cost? | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
+
 ## Trained models
 
 The actual trained weights and the raw training logs for every project are published under
