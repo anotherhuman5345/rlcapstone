@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block mainclass %}trial{% endblock %}
+{% block content %}
+<header class="trial-head">
+  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+  <p class="clue" lang="{{ trial.clue_lang }}" id="clue" hidden>{{ clue }}</p>
+</header>
+<div class="stage" id="stage">
+  <img id="stim" src="/img/{{ img.file }}" width="{{ img.width }}" height="{{ img.height }}" alt="" draggable="false">
+  <div id="mark" class="mark" hidden></div>
+</div>
+<p id="status" class="status" role="status"></p>
+<form id="effort" class="scale effort" hidden>
+  <legend>{{ _('effort_q') }}</legend>
+  <div class="ends"><span>{{ _('effort_low') }}</span><span>{{ _('effort_high') }}</span></div>
+  <div class="row">{% for v in range(1, 10) %}<label><input type="radio" name="effort" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}</div>
+  <button type="submit">{{ _('next') }}</button>
+</form>
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = {
+  index: {{ n - 1 }},
+  timeout: {{ timeout }},
+  target: {{ img.target | tojson }},
+  naturalW: {{ img.width }}, naturalH: {{ img.height }},
+  msgFound: {{ _('found') | tojson }}, msgTimeout: {{ _('timeout') | tojson }}
+};
+</script>
+<script src="/static/trial.js"></script>
+{% endblock %}

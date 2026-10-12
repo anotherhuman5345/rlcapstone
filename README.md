@@ -24,6 +24,12 @@ The write-ups explain the splits and report sensitivity, specificity, ROC-AUC, o
 where accuracy alone would hide important errors. They also cover failed experiments, including
 the stock sentiment ablation and the ECG model's poor recall on unseen patients.
 
+## Research
+
+| Study | Question | Status |
+|---|---|---|
+| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, make people miss an unexpected object (a hidden gorilla), or wear them down faster within a 15-minute session? Compared across age, education and image-reading expertise (students to radiologists). | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
+
 ## Trained models
 
 [`trained_models/`](trained_models) contains checkpoints, training logs, confusion matrices, and

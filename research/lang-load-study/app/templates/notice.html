@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="/notice">
+  <fieldset>
+    <legend>{{ _('notice_q') }}</legend>
+    <label class="choice"><input type="radio" name="noticed" value="yes" required> {{ _('yes') }}</label>
+    <label class="choice"><input type="radio" name="noticed" value="no"> {{ _('no') }}</label>
+  </fieldset>
+  <button type="submit">{{ _('continue') }}</button>
+</form>
+{% endblock %}

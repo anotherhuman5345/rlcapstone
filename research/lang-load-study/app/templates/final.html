@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ _('final_title') }}</h1>
+<form method="post" action="/final" class="stack">
+  <fieldset class="scale">
+    <legend>{{ _('difficulty_q') }}</legend>
+    {% for v in range(1, 10) %}<label><input type="radio" name="difficulty" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}
+  </fieldset>
+  <fieldset>
+    <legend>{{ _('attention_q') }}</legend>
+    {% for c in ['blue', 'red', 'green', 'yellow'] %}<label class="choice"><input type="radio" name="attention" value="{{ c }}" required> {{ _(c) }}</label>{% endfor %}
+  </fieldset>
+  <button type="submit">{{ _('finish') }}</button>
+</form>
+{% endblock %}
