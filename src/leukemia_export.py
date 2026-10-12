@@ -47,10 +47,8 @@ def main() -> None:
     if samples_dir.exists():
         shutil.rmtree(samples_dir)
     samples_dir.mkdir()
-    # The browser demo uses the same plain resize+/255 as preprocess() here, so
-    # the check that matters is whether the ONNX path predicts the same class as
-    # the reference YOLO model (small logit diffs come from YOLO's internal
-    # resize differing from a plain resize, not from the export).
+    # Match the browser's resize and /255 preprocessing. Compare classes because
+    # YOLO's internal resize can produce small probability differences.
     manifest, agree, checked = [], 0, 0
     for ci, cls in enumerate(CLASSES):
         files = sorted((TEST / cls).glob("*.jpg"))

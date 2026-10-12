@@ -1,6 +1,6 @@
 """Train a 1D CNN to classify EEG windows as ADHD vs Control.
 
-Honesty notes:
+Evaluation notes:
   * The label is the child's clinical group, not a diagnosis the EEG "proves".
     This is pattern recognition on a small cohort, nothing more.
   * With only 121 subjects, the danger is learning to recognise individuals.

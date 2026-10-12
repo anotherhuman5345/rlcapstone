@@ -5,7 +5,7 @@ import 'montage.dart';
 import 'samples.dart';
 
 /// Shows the EEG montage, the model's call vs. the subject's study group, and
-/// per-class confidence with an honest caveat.
+/// per-class confidence with a caveat.
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.sample, required this.result});
 

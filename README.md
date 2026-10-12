@@ -1,10 +1,8 @@
-# RLcapstone — End-to-End AI Projects in Biomedical Computing
+# RLcapstone
 
-Source code for a portfolio of six end-to-end applied-AI projects, most at the intersection of
-computer science and bioengineering. Each project is built in full — dataset preparation, model
-training on local GPU hardware, rigorous evaluation, and deployment to a working application or
-interactive demonstration — and documented with an emphasis on reproducibility and the honest
-reporting of limitations.
+Six machine-learning projects covering skin images, ECG, EEG, blood cells, stock volatility,
+and a reinforcement-learning security sandbox. This repository contains the data preparation,
+training, evaluation, and model export scripts, plus five Flutter apps.
 
 **Live site and interactive demos:** https://rlcapstone.ai
 
@@ -13,25 +11,24 @@ reporting of limitations.
 
 ## Projects
 
-| Project | Method | Headline result | Live write-up |
+| Project | Method | Result | Live write-up |
 |---|---|---|---|
 | **MoleCheck** — privacy-preserving skin-lesion analysis | YOLO11s-cls (transfer learning), on-device TFLite | ROC-AUC 0.914; 90% sensitivity at 75% specificity | [molecheck](https://rlcapstone.ai/projects/molecheck.html) |
 | **ECG Arrhythmia Classification** | 1D CNN on MIT-BIH, inter-patient split | ~96% validation collapses to **44% macro-recall** on unseen patients — a study of the generalization gap | [ecg](https://rlcapstone.ai/projects/ecg.html) |
 | **ADHD Classification from EEG** | Multi-channel 1D CNN, strict subject-level split | 91.7% subject-level accuracy, ROC-AUC 0.965 on 24 unseen children | [adhd-eeg](https://rlcapstone.ai/projects/adhd-eeg.html) |
-| **Leukemia Cell Subtyping** | YOLO11s-cls on blood smears, multi-source | 99.8% (a **data-leakage** case study) → 81% honest patient-split → **v3** trained on two labs that generalizes across sources | [leukemia](https://rlcapstone.ai/projects/leukemia.html) |
+| **Leukemia Cell Subtyping** | YOLO11s-cls on blood smears, multi-source | 99.8% with possible patient leakage; 81% with a patient split; **v3** trained on two labs and tested on a third | [leukemia](https://rlcapstone.ai/projects/leukemia.html) |
 | **Stock Volatility & Sentiment** | Compact MLP, controlled ablation | 57% on 3 classes; ablation shows **sentiment did not improve** the model | [stock-risk](https://rlcapstone.ai/projects/stock-risk.html) |
 | **Autonomous Pentest Agent** | Tabular Q-learning over a sandboxed web app | Finds all 3 planted vulnerabilities in 4 actions vs. ~25 for random; plus the JADEPUFFER defensive detector | [pentest-agent](https://rlcapstone.ai/projects/pentest-agent.html) |
 
-A recurring theme across the portfolio is rigorous, honest evaluation: leakage-aware and
-subject-level train/test splits, metrics chosen to suit the task (sensitivity/specificity, ROC-AUC,
-macro-recall over raw accuracy), and negative results reported rather than hidden.
+The write-ups explain the splits and report sensitivity, specificity, ROC-AUC, or macro-recall
+where accuracy alone would hide important errors. They also cover failed experiments, including
+the stock sentiment ablation and the ECG model's poor recall on unseen patients.
 
 ## Trained models
 
-The actual trained weights and the raw training logs for every project are published under
-[`trained_models/`](trained_models) — per-epoch `results.csv`, confusion matrices, and evaluation
-reports alongside each checkpoint — so the numbers can be inspected and reproduced, not just taken
-on faith. Everything regenerates from the scripts in [`src/`](src).
+[`trained_models/`](trained_models) contains checkpoints, training logs, confusion matrices, and
+evaluation reports. See [`src/`](src) for the scripts that produced them; rerunning those scripts
+requires the relevant datasets and dependencies.
 
 ## Repository layout
 
@@ -42,11 +39,9 @@ on faith. Everything regenerates from the scripts in [`src/`](src).
 - `notebooks/` — experiment notebooks
 - `docs/` — written reports
 
-Raw datasets, full training runs, build artifacts, and APKs are **not** committed (`data/`, `runs/`,
-`dist/`, `*.apk`, and the model files bundled inside `app*/assets/` — see `.gitignore`). The
-deliberate exception is the curated checkpoints and logs under `trained_models/`, which **are**
-committed for verification (see [Trained models](#trained-models) above). The app-bundled `*.tflite`
-files are regenerated from the export scripts in `src/`.
+Raw datasets, full training runs, build artifacts, APKs, and app-bundled model files are ignored
+(see `.gitignore`). Selected checkpoints and logs are tracked under `trained_models/`.
+The export scripts in `src/` regenerate the apps' `*.tflite` files.
 
 ## Security note (Autonomous Pentest Agent)
 

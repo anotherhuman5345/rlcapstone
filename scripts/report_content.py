@@ -5,7 +5,7 @@ Section element types:
   ("h2", "Sub-heading")        -> a sub-heading
   ("table", [headers], [rows]) -> a table
   ("bullets", [items])         -> a bullet list
-  ("callout", "text")          -> a highlighted note (honesty / disclaimer)
+  ("callout", "text")          -> a highlighted note or disclaimer
 """
 
 MOLECHECK = {
@@ -36,10 +36,10 @@ MOLECHECK = {
             "Skin cancer is among the most curable cancers when detected early and among the most "
             "dangerous when it is not. Access to dermatological screening is uneven, and most "
             "people cannot judge which lesions, if any, warrant professional review. The goal of "
-            "this project was to build a complete pipeline end to end: train a classifier on real "
-            "dermatological images, export it to run on a phone with no server, and deliver it "
-            "inside a functioning mobile application. The project therefore spans machine "
-            "learning, model deployment, and mobile development.",
+            "this project was to build a complete pipeline from training through evaluation: "
+            "train a classifier on real dermatological images, export it to run on a phone with "
+            "no server, and deliver it inside a functioning mobile application. The project "
+            "therefore spans machine learning, model deployment, and mobile development.",
         ]),
         ("Dataset and labeling", [
             "Training used a public ISIC Archive collection of **11,720 dermatoscopic images** (a "
@@ -117,10 +117,9 @@ MOLECHECK = {
             "original in-domain figure but now on the images the application actually receives, "
             "with specificity back to 75%. This smartphone-trained v2 model, with a 0.368 "
             "decision threshold, is what the application and browser demonstration now run.",
-            ("callout", "v2's 0.920 is the more meaningful number because it is measured on the "
-             "domain the application operates in. Evaluating a model on the data it will really "
-             "face — rather than the most favorable version of the task — is the principle applied "
-             "throughout this portfolio."),
+            ("callout", "v2's 0.920 ROC-AUC was measured on smartphone photos, the input used by "
+                        "the application. The dermoscopy result and smartphone result come from "
+                        "different test datasets."),
         ]),
         ("Fairness across skin tones", [
             "A model with strong average performance can still fail unevenly, and in dermatology "
@@ -134,16 +133,15 @@ MOLECHECK = {
               ["V–VI (darker)", "3", "3", "too few to assess"]]),
             "The model catches 94% of malignant lesions on lighter skin but only 78% on medium "
             "skin — a roughly 16-point sensitivity gap in the direction the literature warns of, "
-            "with enough malignant cases in each group (123 and 41) for the difference to be a real "
-            "signal. Two honest limitations bound the audit: the dataset contains almost no darker "
-            "skin (three Fitzpatrick V images, no VI), so performance on the group most affected "
-            "**cannot be evaluated at all**; and skin type was recorded mainly for biopsied, mostly "
-            "malignant lesions, leaving too few labelled benign cases to measure per-group "
-            "specificity honestly.",
-            ("callout", "The uncomfortable but honest conclusion: v2 is measurably better at "
-             "detecting cancer on lighter skin than on darker skin, and the available data cannot "
-             "even test the darkest skin. Closing that gap requires more representative data, not a "
-             "modelling adjustment."),
+            "with enough malignant cases in each group (123 and 41) for the difference to be a "
+            "real signal. Two limitations apply: the dataset contains almost no darker skin "
+            "(three Fitzpatrick V images, no VI), so performance on the group most affected "
+            "**cannot be evaluated at all**; and skin type was recorded mainly for biopsied, "
+            "mostly malignant lesions, leaving too few labelled benign cases to measure per-group "
+            "specificity reliably.",
+            ("callout", "The audit found lower sensitivity on medium skin than lighter skin. It "
+                        "had only three darker-skin images, all malignant, so it cannot assess "
+                        "performance on darker skin. More representative data is needed."),
         ]),
         ("Limitations", [
             ("bullets", [
@@ -171,21 +169,20 @@ ECG = {
     "title": "ECG Arrhythmia Classification",
     "subtitle": "Inter-Patient Generalization in Heartbeat Classification",
     "accent": "#c62828",
-    "tagline": "A 1D convolutional neural network that classifies individual heartbeats into "
-               "four clinical categories, and a rigorous study of the inter-patient "
-               "generalization gap in which ~96% validation performance falls to 44% on "
-               "previously unseen patients.",
+    "tagline": "A 1D convolutional neural network that classifies individual heartbeats into four "
+               "clinical categories, and a study of the inter-patient generalization gap in which "
+               "~96% validation performance falls to 44% on previously unseen patients.",
     "sections": [
         ("Summary", [
             "This project classifies individual heartbeats from an electrocardiogram (ECG) into "
             "four AAMI categories — Normal, Supraventricular, Ventricular, and Fusion — using a "
             "**1D convolutional neural network**. Its central contribution is methodological: a "
-            "rigorous demonstration of the **inter-patient generalization gap**.",
+            "demonstration of the **inter-patient generalization gap**.",
             "During training, validation macro-recall climbs above **96%** and appears excellent. "
-            "Evaluated honestly on patients the model has **never seen**, however, it attains "
-            "**70% accuracy** and only **44% macro-recall** — strong on ventricular beats (86%) "
-            "but nearly blind to supraventricular beats (9%). Explaining that gap is the point of "
-            "the study.",
+            "Evaluated on patients the model has **never seen**, however, it attains **70% "
+            "accuracy** and only **44% macro-recall** — strong on ventricular beats (86%) but "
+            "nearly blind to supraventricular beats (9%). Explaining that gap is the point of the "
+            "study.",
             ("callout", "Not a medical device. This is an educational study of biomedical signal "
              "classification on a public research dataset. It does not diagnose cardiac "
              "conditions and must not inform any medical decision."),
@@ -225,15 +222,15 @@ ECG = {
               ["Fusion", "9%", "Rare and difficult"]]),
             "This corresponds to 70% overall accuracy but only **44% macro-recall** once all four "
             "classes are weighted equally. The gap between the ~96% validation curve and this "
-            "honest figure is the central finding of the project.",
+            "test result is the central finding of the project.",
             ("h2", "Why the model fails on supraventricular beats"),
             "The per-class breakdown is diagnostic. A ventricular beat has a distinctly abnormal "
             "waveform **morphology**, which a shape-sensitive model detects readily. A "
             "supraventricular beat is nearly identical in shape to a normal beat; its defining "
             "feature is **timing** — it occurs prematurely. Because the model processes each beat "
             "in isolation, with no representation of rhythm, it is structurally blind to the one "
-            "feature that distinguishes the class it fails on. This is an honest limitation of "
-            "the chosen design, not a bug.",
+            "feature that distinguishes the class it fails on. The isolated beat windows omit "
+            "this timing information.",
         ]),
         ("Deployment", [
             "The model was exported to ONNX (a 28 KB file) and runs directly in the browser "
@@ -244,7 +241,8 @@ ECG = {
         ("Limitations", [
             ("bullets", [
                 "Not a medical device — an educational study on a research dataset.",
-                "44% macro-recall is not usable performance — demonstrating this honestly is the purpose of the project.",
+                "44% macro-recall is not usable performance — measuring this gap is the purpose "
+                "of the project.",
                 "Real-world ECGs are noisier and more varied than the clean research recordings used here.",
             ]),
         ]),
@@ -274,8 +272,8 @@ ADHD = {
             "**subject-level split**, the model attains **91.7% subject-level accuracy** and a "
             "**ROC-AUC of 0.965** on 24 previously unseen children.",
             "Unlike the ECG project, this result exhibits no collapse from validation to test, "
-            "indicating that the ADHD-vs-control signature in this task genuinely transfers "
-            "across children.",
+            "indicating that the ADHD-vs-control signature in this task transfers across "
+            "children.",
             ("callout", "Not a diagnostic tool. ADHD is a clinical diagnosis made by "
              "professionals, never from a brief EEG. This project classifies research-cohort "
              "group membership and is strictly educational."),
@@ -361,11 +359,10 @@ LEUKEMIA = {
              "features of leukemia."),
         ]),
         ("Motivation", [
-            "Distinguishing a benign look-alike cell (hematogones) from true leukemic blasts — "
-            "and separating the leukemia stages from one another — is genuinely subtle work, even "
-            "for trained hematologists, which makes it a substantive computer-vision problem. It "
-            "is also the most serious subject in the portfolio, so honest reporting of the result "
-            "mattered most here.",
+            "This experiment tests whether a computer-vision classifier can distinguish benign "
+            "look-alike cells from leukemic blasts and separate three labeled maturation stages. "
+            "Patient leakage and differences between laboratories limit what the test results "
+            "establish.",
         ]),
         ("Dataset", [
             "The project uses a public peripheral-blood-smear dataset (Aria et al., 2021) of "
@@ -409,9 +406,9 @@ LEUKEMIA = {
         ("Future work (v2)", [
             "The next iteration moves to the **C-NMC 2019** dataset, which provides patient "
             "identifiers for roughly fifteen thousand cells. This enables holding out entire "
-            "patients — as done in the EEG project — and measuring what the model has genuinely "
-            "learned. The expected outcome is a **lower** accuracy than 99.8%, and that lower "
-            "figure will be substantially more meaningful.",
+            "patients — as done in the EEG project — and measuring what the model has learned. "
+            "The expected outcome is a **lower** accuracy than 99.8%, and that lower figure will "
+            "be substantially more meaningful.",
         ]),
     ],
 }
@@ -467,18 +464,13 @@ STOCK = {
              [["Price + sentiment", "57.1%"],
               ["Price only", "57.5%"],
               ["Chance baseline", "33.3%"]]),
-            "The model clears the chance baseline comfortably, but adding sentiment made it "
-            "**0.4% worse** — no meaningful difference. This is a normal, honest outcome: a "
-            "once-daily average of headline sentiment is a coarse, sparse signal, and the "
-            "rolling-volatility features already capture most of what is predictable about next "
-            "week's turbulence. **Reporting the negative result — rather than omitting the "
-            "ablation and claiming sentiment 'works' — is what distinguishes an experiment from a "
-            "demonstration.**",
+            "Adding sentiment reduced test accuracy by **0.4 percentage points**, from **57.5%** "
+            "to **57.1%**. This experiment found no improvement from the daily sentiment "
+            "features. The result does not establish whether richer sentiment features or a "
+            "different time period would help.",
             ("h2", "Error analysis"),
-            "The errors fall where expected: the model reads calm weeks (Low, 75% recall) and "
-            "turbulent weeks (High, 57%) reasonably well, but the Medium class is difficult (33% "
-            "recall) because intermediate volatility sits on a blurred boundary between the other "
-            "two. This is an interpretable failure mode rather than a mysterious one.",
+            "Recall was **75%** for Low volatility, **57%** for High, and **33%** for Medium. The "
+            "intermediate class was the hardest to distinguish.",
         ]),
         ("Deployment", [
             "The model was exported to ONNX for the browser demonstration and to TensorFlow Lite "
@@ -494,11 +486,9 @@ STOCK = {
             ]),
         ]),
         ("Future work (v2)", [
-            "For sentiment to earn its place it must be richer than a daily average: per-headline "
-            "embeddings rather than a single number, a multi-year history spanning additional "
-            "market regimes, and a test of whether sentiment contributes more to **direction** "
-            "prediction than to volatility. Those results will be reported honestly — including "
-            "if sentiment still does not help.",
+            "Possible follow-ups include per-headline embeddings, several years of data, and a "
+            "comparison of sentiment features for direction prediction and volatility prediction. "
+            "Each would need a new ablation on a later test period.",
         ]),
     ],
 }
@@ -528,8 +518,8 @@ PENTEST = {
         ("Motivation", [
             "Conventional vulnerability scanners are fast but follow a fixed script and cannot "
             "adapt. **Reinforcement learning** can, in principle, learn efficient attack paths, "
-            "so this project applies it at a scale small enough to understand and explain "
-            "end to end.",
+            "so this project applies it at a scale small enough to understand and explain from "
+            "training through evaluation.",
         ]),
         ("The target application", [
             "The target is a ~120-line \"MiniBank\" Flask application on localhost with three "

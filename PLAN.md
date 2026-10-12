@@ -1,7 +1,6 @@
-# RLcapstone — Portfolio Roadmap & Status
+# Project status
 
-Six end-to-end applied-AI projects, each taken from a public dataset through training, honest
-evaluation, and deployment to a live demo and (mostly) an on-device Flutter app.
+Six machine-learning projects with browser demos and five Flutter apps.
 Live site: **https://rlcapstone.ai**
 
 > This file tracks the portfolio as it stands today. The original single-project MoleCheck build
@@ -15,20 +14,19 @@ Live site: **https://rlcapstone.ai**
 | 2 | **ECG arrhythmia** | Live (web + Android) | inter-patient DS1/DS2; the 96% → 44% macro-recall generalization lesson |
 | 3 | **ADHD from EEG** | Live (web + Android) | strict subject-level split; 91.7% on 24 unseen children |
 | 4 | **Leukemia cell subtyping** | Live (web + Android) | v1 leakage 99.8% → **v2** patient-split 81% → **v3** multi-source, cross-lab generalization (unseen-lab specificity 20% → 67%) |
-| 5 | **Stock volatility & sentiment** | Live (web + Android) | temporal split; sentiment ablation = honest negative result (~57%, 3-class) |
+| 5 | **Stock volatility & sentiment** | Live (web + Android) | temporal split; sentiment did not improve accuracy (~57%, 3-class) |
 | 6 | **Autonomous pentest agent** | Live (web) | tabular Q-learning on a sandbox MDP; JADEPUFFER defensive detector |
 
 ## The method every project follows
 
-Public dataset → leakage-aware prep/split → train on local GPU → honest evaluation
+Public dataset → prep/split → train on local GPU → evaluation
 (sensitivity/specificity, ROC-AUC, macro-recall over raw accuracy) → export to ONNX/TFLite →
 ship a browser demo + Flutter app. See the live ["how it's built" pipeline](https://rlcapstone.ai/pipeline).
 
-## The through-line
+## Evaluation
 
-Rigorous, honest evaluation: no data leakage, task-appropriate metrics, and negative results
-reported rather than hidden. A lower honest number beats an inflated one — that principle runs
-through every project and every iteration above.
+Keep patients or subjects together when identifiers are available. Use chronological splits
+for stock data. Report per-class errors and compare with a baseline before adding features.
 
 ## Possible next steps
 

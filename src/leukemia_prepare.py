@@ -6,11 +6,11 @@ images of a single white blood cell each, in four classes:
     Benign        - hematogones (non-cancerous look-alikes)
     Early / Pre / Pro - three maturation stages of B-cell ALL (malignant)
 
-Honest limitation: this public release does not expose patient IDs (filenames
+Dataset limitation: this public release does not expose patient IDs (filenames
 are just sequential per class), so we cannot guarantee that cells from one
 patient stay within one split. The reported accuracy is therefore likely
 optimistic — the C-NMC dataset (v2), which has patient IDs, is where we do the
-rigorous patient-level split.
+patient-level split.
 
 Output: data/leukemia/split/{train,val,test}/{benign,early,pre,pro}/
 """

@@ -53,8 +53,7 @@ class MoleClassifier {
   int get _malignantIndex {
     final i = _labels.indexOf('malignant');
     if (i < 0) {
-      // Fail loudly rather than silently treating the last label as malignant,
-      // which would invert results if labels.txt were ever edited.
+      // Guessing a label index could invert the result.
       throw StateError("labels.txt has no 'malignant' entry: $_labels");
     }
     return i;
@@ -66,9 +65,7 @@ class MoleClassifier {
     if (decoded == null) {
       throw const FormatException('Could not decode the selected image.');
     }
-    // Bilinear (not the package default of nearest-neighbour): downscaling a
-    // multi-megapixel phone photo with nearest-neighbour aliases badly and
-    // feeds the model pixels unlike anything it saw in training.
+    // Bilinear downsampling avoids aliasing in large phone photos.
     final resized = img.copyResize(
       decoded,
       width: _inputSize,

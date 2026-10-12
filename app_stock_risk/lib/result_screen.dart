@@ -11,7 +11,7 @@ const _riskColor = {
 };
 
 /// Shows the price line, the predicted risk vs. what actually happened, and
-/// per-class confidence, with an honest note about the sentiment feature.
+/// per-class confidence, with a note about the sentiment feature.
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.sample, required this.result});
 

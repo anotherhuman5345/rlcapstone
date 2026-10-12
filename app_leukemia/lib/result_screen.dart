@@ -4,7 +4,7 @@ import 'classifier.dart';
 import 'samples.dart';
 
 /// Shows the chosen cell, the model's call vs. the true class, per-class
-/// confidence, and an honest caveat.
+/// confidence, and a caveat.
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.sample, required this.result});
 
