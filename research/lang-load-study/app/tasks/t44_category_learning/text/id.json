@@ -1,0 +1,15 @@
+{
+ "instr": "Memilah: pelajari dari umpan balik ke kelompok mana dari dua kelompok setiap benda termasuk, lalu pilah benda-benda baru tanpa umpan balik.",
+ "clue": "Setiap benda termasuk salah satu dari dua kelompok. Tentukan kelompoknya dengan panah kiri (atau tombol kiri) atau panah kanan (atau tombol kanan). Awalnya Anda harus menebak; setelah setiap jawaban Anda akan diberi tahu kelompok yang benar, sehingga Anda bisa mengetahui apa yang menentukannya. Kemudian benda-benda baru muncul tanpa umpan balik. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "groups": [
+  "Grup A",
+  "Grup B"
+ ],
+ "correct": "Benar",
+ "wrong": "Salah: ini termasuk {group}",
+ "too_slow": "Terlalu lambat: ini termasuk {group}",
+ "transfer_note": "Mulai sekarang tidak ada umpan balik. Terus pilah benda-benda dengan cara yang sama.",
+ "train_of": "Belajar: benda {n} dari {total}",
+ "transfer_of": "Tes: benda {n} dari {total}"
+}

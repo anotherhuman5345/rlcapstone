@@ -1,0 +1,3 @@
+{"instr": "Card sorting: put each card with one of four cards by a hidden rule, which you discover from feedback. The rule can change.",
+ "clue": "A new card appears below four reference cards. Put it with one of them by clicking or tapping that card, or pressing 1-4. Cards can match by color, by shape or by number of figures, but you are not told which: the feedback (correct / wrong) tells you. The rule changes from time to time without warning; then find the new one. Press Start when ready.",
+ "correct": "Correct", "wrong": "Wrong", "too_slow": "Too slow", "start": "Start"}

@@ -1,0 +1,7 @@
+{
+ "instr": "Cifre: premi per ogni numero tranne il 3.",
+ "clue": "I numeri da 1 a 9 compariranno uno dopo l'altro a ritmo costante, ciascuno seguito da una croce cerchiata. Premi la barra spaziatrice (o il pulsante Premi) per ogni numero TRANNE il 3. Quando vedi un 3, non premere. Velocità e precisione sono ugualmente importanti. Premi Inizia quando sei pronto.",
+ "press": "Premi",
+ "start": "Inizia",
+ "stage_label": "Zona in cui compaiono i numeri"
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Cercles et triangles : appuyez pour chaque cercle, ne faites rien pour un triangle.",
+ "clue": "Des formes apparaîtront l'une après l'autre à un rythme régulier. Quand vous voyez un CERCLE, appuyez sur la barre d'espace (ou sur le bouton Appuyer) le plus vite possible. Quand vous voyez un TRIANGLE, n'appuyez sur rien. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "press": "Appuyer",
+ "start": "Démarrer",
+ "stage_label": "Zone où apparaissent les formes"
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Kotak menyala: secepat mungkin, tekan tombol atau kotak yang sesuai dengan kotak yang menyala.",
+ "clue": "Salah satu dari empat kotak akan menyala. Secepat dan setepat mungkin, tekan tombolnya: D, F, J, atau K dari kiri ke kanan (atau 1, 2, 3, 4), atau ketuk kotaknya. Teruskan sampai selesai. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

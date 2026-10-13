@@ -1,0 +1,18 @@
+<div class="maze">
+  <style>
+    .maze .mz-wrap { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+    .maze .mz-pad { display: grid; grid-template-columns: repeat(3, auto); gap: .4rem; }
+    .maze .mz-pad button { margin: 0; min-width: 5.5rem; }
+  </style>
+  <div class="mz-wrap">
+    <svg id="mz-board" width="440" height="440" viewBox="0 0 440 440" aria-hidden="true"
+         style="display:block;background:#fff;border:1px solid var(--line);border-radius:6px;visibility:hidden"></svg>
+    <div class="mz-pad">
+      <span></span><button type="button" data-d="U">↑ {{ text.up }}</button><span></span>
+      <button type="button" data-d="L">← {{ text.left }}</button>
+      <button type="button" data-d="D">↓ {{ text.down }}</button>
+      <button type="button" data-d="R">{{ text.right }} →</button>
+    </div>
+  </div>
+  <p><button type="button" id="mz-start">{{ text.start }}</button></p>
+</div>

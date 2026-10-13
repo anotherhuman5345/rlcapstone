@@ -1,0 +1,4 @@
+{"instr": "Digits: watch a short list of digits, one at a time, then type them in the same order.",
+ "clue": "Press Start and watch the digits appear one at a time. When they stop, type them in the same order with the keypad or your keyboard, then press OK.",
+ "recall": "Type the digits in the order you saw them.",
+ "start": "Start", "done": "OK", "delete": "Delete last digit"}

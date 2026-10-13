@@ -1,0 +1,14 @@
+{
+ "instr": "Kurze Programme: Lesen Sie jedes kurze Programm und geben Sie die Zahl ein, die es ausgibt.",
+ "clue": "Sie sehen drei kurze Programme. Verfolgen Sie sie Schritt für Schritt, Zeile für Zeile, und finden Sie die Zahl heraus, die am Ende ausgegeben wird. Geben Sie sie über das Ziffernfeld oder die Tastatur ein (verwenden Sie − für eine negative Zahl) und drücken Sie dann OK oder Enter. Kein Grund zur Eile. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "program_of": "Programm {n} von {total}",
+ "output": "Ausgegebene Zahl:",
+ "ok": "OK",
+ "erase": "Löschen",
+ "kw_set": "setze {v} auf {e}",
+ "kw_repeat": "wiederhole {n}-mal:",
+ "kw_if": "wenn {c}:",
+ "kw_else": "sonst:",
+ "kw_print": "gib {e} aus"
+}

@@ -1,0 +1,13 @@
+{
+ "instr": "Pagkukuwenta sa isip: kuwentahin sa isip ang bawat problema at i-type ang sagot.",
+ "clue": "Kuwentahin sa isip ang bawat problema, nang hindi nagsusulat ng anuman. I-type ang sagot gamit ang keypad o ang keyboard at pindutin ang OK (o Enter). May 20 segundo ang bawat problema. Buong numero ang mga sagot. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "ok": "OK",
+ "erase": "Burahin ang huling digit",
+ "seconds_left": "{s} s na lang",
+ "progress": "Problema {i} sa {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

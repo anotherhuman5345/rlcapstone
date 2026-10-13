@@ -1,0 +1,8 @@
+{"instr": "Belgeler: bir siparişi irsaliyesiyle karşılaştırın ve uyuşmayan her bilgiyi işaretleyin.",
+ "clue": "İrsaliye (sağda; küçük ekranlarda altta) siparişle satır satır aynı olmalıdır. İrsaliyede siparişten farklı olan her bilgiyi işaretleyin: üzerine tıklayın ya da dokunun veya Tab ile üzerine gelip Enter'a ya da Boşluk tuşuna basın. İşareti kaldırmak için yeniden tıklayın. Bitince Bitti'ye basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "done": "Bitti", "marked_count": "İşaretlenen: {n}",
+ "title_a": "Sipariş", "title_b": "İrsaliye",
+ "col_code": "Satır no.", "col_product": "Ürün", "col_qty": "Miktar", "col_date": "Tarih",
+ "months": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+ "products": ["Çelik cıvata", "Bakır tel", "Boya rulosu", "Bahçe hortumu", "Masa lambası", "Yer karosu", "Kapı menteşesi", "Duvar saati",
+              "Su filtresi", "Alet çantası", "Ahşap vida", "Uzatma kablosu", "Ampul", "İş eldiveni", "Pencere camı", "Boya fırçası"]}

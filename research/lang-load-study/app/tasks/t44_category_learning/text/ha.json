@@ -1,0 +1,6 @@
+{"instr": "Rarrabewa: ku koya daga martani wane rukuni ne cikin biyu kowane abu yake ciki, sannan ku rarraba sabbin abubuwa ba tare da martani ba.",
+ "clue": "Kowane abu yana cikin ɗaya daga cikin rukunai biyu. Ku zaɓi rukunin da kibiyar hagu (ko maɓallin hagu) ko kibiyar dama (ko maɓallin dama). Da farko sai kun yi hasashe; bayan kowace amsa za a gaya muku rukunin da ya dace, don ku gano abin da ke tantance shi. Daga baya, sabbin abubuwa za su bayyana ba tare da martani ba. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "groups": ["Rukunin A", "Rukunin B"],
+ "correct": "Daidai ne", "wrong": "Ba daidai ba: wannan abu yana cikin {group}", "too_slow": "Kun yi jinkiri sosai: wannan abu yana cikin {group}",
+ "transfer_note": "Daga yanzu babu martani. Ku ci gaba da rarraba abubuwan ta hanya ɗaya.",
+ "train_of": "Koyo: abu {n} cikin {total}", "transfer_of": "Gwaji: abu {n} cikin {total}"}

@@ -1,0 +1,12 @@
+{
+ "instr": "Podświetlone pola: jak najszybciej naciśnij klawisz lub pole odpowiadające polu, które się podświetli.",
+ "clue": "Jedno z czterech pól się podświetli. Jak najszybciej i najdokładniej naciśnij jego klawisz: D, F, J lub K od lewej do prawej (albo 1, 2, 3, 4), lub dotknij pola. Kontynuuj do końca. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

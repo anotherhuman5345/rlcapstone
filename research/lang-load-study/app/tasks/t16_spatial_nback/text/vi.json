@@ -1,0 +1,9 @@
+{
+ "instr": "Lưới: các ô trong lưới lần lượt sáng lên; với mỗi ô, hãy cho biết nó có ở cùng vị trí với ô đã sáng trước đó một số bước nhất định hay không.",
+ "clue": "Các ô trong lưới lần lượt sáng lên. Mỗi lần, hãy nhấn Giống (phím mũi tên phải hoặc nút) nếu ô đó ở cùng vị trí với ô mà quy tắc bên dưới chỉ tới, nếu không thì nhấn Khác (phím mũi tên trái hoặc nút). Hãy trả lời nhanh; các ô liên tục sáng lên. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "rule_1": "Quy tắc: ô này có ở cùng vị trí với ô ngay trước nó không?",
+ "rule_2": "Quy tắc: ô này có ở cùng vị trí với ô cách đó hai bước không?",
+ "same": "Giống",
+ "different": "Khác",
+ "start": "Bắt đầu"
+}

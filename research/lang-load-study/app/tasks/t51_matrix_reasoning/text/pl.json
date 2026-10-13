@@ -1,0 +1,7 @@
+{
+ "instr": "Siatki wzorów: wybierz obrazek, który uzupełnia każdą siatkę 3 x 3.",
+ "clue": "Każda siatka stosuje w wierszach i kolumnach jedną lub dwie reguły, na przykład dotyczące liczby, kształtu, odcienia lub wielkości figur. Odkryj reguły i wybierz obrazek, który pasuje do pustego pola: kliknij lub dotknij go albo naciśnij 1-4. Są cztery siatki. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "matrix_of": "Siatka {n} z {total}",
+ "option": "Opcja {n}"
+}

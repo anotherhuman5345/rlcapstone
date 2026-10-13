@@ -1,0 +1,40 @@
+{
+ "instr": "Langkah mesin: pelajari cara mengoperasikan mesin buatan dari langkah-langkah tertulis, lalu operasikan dari ingatan.",
+ "clue": "Pertama, baca langkah-langkah untuk mengoperasikan mesin dan contoh penyelesaiannya; Anda punya waktu sampai 45 detik. Lalu langkah-langkah itu hilang dan Anda mengoperasikan mesin tiga kali dari ingatan: lihat warna lampu dan angkanya, tekan tombol-tombol dengan urutan yang benar (klik, ketuk, atau tombol 1–8), lalu tekan Selesai (Enter). Batalkan (Backspace) menghapus tekanan terakhir Anda. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "study_title": "Cara mengoperasikan mesin:",
+ "example": "Contoh penyelesaian: untuk mesin ini, tekanan yang benar adalah:",
+ "learned": "Saya sudah mempelajarinya",
+ "study_left": "sisa {s} detik",
+ "case_of": "Mesin {n} dari {total}",
+ "lamp": "Lampu",
+ "number": "Angka",
+ "presses": "Tekanan Anda:",
+ "undo": "Batalkan",
+ "done": "Selesai",
+ "colors": [
+  "merah",
+  "biru"
+ ],
+ "step_fixed": "Tekan {a}.",
+ "step_cond": "Jika lampunya {c}, tekan {a}; jika tidak, tekan {b}.",
+ "step_repeat": "Tekan {a} sebanyak angka di layar.",
+ "actions": [
+  "BUKA",
+  "TUTUP",
+  "PANASKAN",
+  "DINGINKAN",
+  "ADUK",
+  "KOCOK",
+  "ISI",
+  "KURAS",
+  "SEGEL",
+  "PRES",
+  "PUTAR",
+  "ANGKAT",
+  "KUNCI",
+  "CUCI",
+  "KERINGKAN",
+  "TIMBANG"
+ ]
+}

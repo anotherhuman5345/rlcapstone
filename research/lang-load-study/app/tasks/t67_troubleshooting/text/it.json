@@ -1,0 +1,28 @@
+{
+ "instr": "Ricerca guasti: una macchina manda corrente attraverso i suoi componenti fino ad alcune lampadine; trova il componente rotto con il minor numero possibile di prove.",
+ "clue": "La corrente scorre da sinistra attraverso i componenti, lungo le linee, fino alle lampadine. Un componente rotto non lascia passare corrente, quindi ogni componente dopo di esso e ogni lampadina che alimenta restano spenti. Esattamente un componente è rotto. Guarda quali lampadine sono accese. Puoi provare un componente (ogni prova costa 1): selezionalo e premi Prova per vedere se ne esce corrente. Quando sai quale componente è rotto, selezionalo e premi Segnala. Ci sono due guasti da trovare. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "power": "Corrente",
+ "lamp": "Lampadina",
+ "test": "Prova il componente selezionato (costo 1)",
+ "report": "Segnala come rotto il componente selezionato",
+ "signal": "esce corrente",
+ "no_signal": "non esce corrente",
+ "tests_used": "Prove usate: {n}",
+ "case_label": "Guasto {n} di {total}",
+ "select_hint": "Clicca un componente per selezionarlo (oppure premi il suo numero, 1–6).",
+ "parts": [
+  "Tamburo",
+  "Bobina",
+  "Paratia",
+  "Ruota",
+  "Filtro",
+  "Pompa",
+  "Lente",
+  "Molla",
+  "Campanello",
+  "Ventola",
+  "Valvola",
+  "Cinghia"
+ ]
+}

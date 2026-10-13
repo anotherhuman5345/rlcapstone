@@ -1,0 +1,9 @@
+{
+ "instr": "Mga arrow na may hudyat na huminto: mabilis na pindutin ang direksiyon ng arrow, pero pigilan ang sarili kapag naging pula ito.",
+ "clue": "May lilitaw na arrow sa gitna. Pindutin ang kaliwa o kanang arrow key (o button) ayon sa direksiyong itinuturo nito, nang pinakamabilis na kaya mo. Kung minsan, pagkalitaw ng arrow, nagiging pula ito sa loob ng pulang singsing (may beep kung naka-on ang tunog): sa ganoong pagkakataon, subukang HUWAG pumindot. Hindi laging magtatagumpay ang paghinto; normal iyon. Huwag bagalan para hintayin ang pulang hudyat. Pindutin ang Simulan kapag handa ka na.",
+ "left": "Kaliwa",
+ "right": "Kanan",
+ "start": "Simulan",
+ "sound": "Beep kasabay ng hudyat na huminto",
+ "stage_label": "Lugar kung saan lumilitaw ang mga arrow"
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Finden Sie die Veränderung: Zwei Versionen eines Bildes wechseln flackernd hin und her; klicken Sie auf das eine Objekt, das anders ist.",
+ "clue": "Das Bild flackert zwischen zwei Versionen hin und her. Ein Objekt verändert sich (Farbe oder Form ändern sich, oder es verschwindet). Klicken oder tippen Sie auf dieses Objekt, sobald Sie es gefunden haben. Tastatur: Bewegen Sie das Kreuz mit den Pfeiltasten und drücken Sie Enter. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "pick": "Hier auswählen",
+ "stage_label": "Flackerndes Bild",
+ "move_left": "Nach links",
+ "move_up": "Nach oben",
+ "move_down": "Nach unten",
+ "move_right": "Nach rechts",
+ "scene": "Bild {n} von {total}"
+}

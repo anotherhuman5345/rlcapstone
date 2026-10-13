@@ -1,0 +1,10 @@
+{
+ "instr": "Mabibilis na letra: napakabilis na kumikislap ang mga letra; pagkatapos, sabihin ang dalawang letrang pula.",
+ "clue": "Napakabilis na kumikislap ang mga letra sa kahon. Pula ang dalawa sa mga ito. Pagkatapos ng bawat sunod-sunod na letra, piliin ang dalawang pulang letra (i-click o i-type ang mga ito), pagkatapos ay pindutin ang OK o Enter. Kung hindi ka sigurado, hulaan ang pinakamalapit sa tingin mo. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "ok": "OK",
+ "undo": "I-undo",
+ "slots": "Mga pulang letra: {a} {b}",
+ "ask": "Aling dalawang letra ang pula?",
+ "progress": "Serye {n} sa {total}"
+}

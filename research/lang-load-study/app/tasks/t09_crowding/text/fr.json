@@ -1,0 +1,10 @@
+{
+ "instr": "T clignotants : gardez les yeux au centre et dites dans quel sens est tourné le T du milieu d'un petit groupe.",
+ "clue": "Gardez les yeux sur la croix au centre pendant tout l'exercice. Un petit groupe de T apparaîtra brièvement sur un côté. Dites de quel côté se trouve la barre plate du T du MILIEU : en haut, à droite, en bas ou à gauche. Utilisez les flèches du clavier ou les boutons. Si vous n'êtes pas sûr(e), donnez votre meilleure réponse. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "up": "Haut",
+ "right": "Droite",
+ "down": "Bas",
+ "left": "Gauche",
+ "start": "Démarrer",
+ "stage_label": "Une croix au milieu d'une zone vide"
+}

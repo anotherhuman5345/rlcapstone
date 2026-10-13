@@ -1,0 +1,9 @@
+{
+ "instr": "Nukta: kundi la nukta linamulika kwa muda mfupi sana; andika idadi unayodhani ilikuwepo.",
+ "clue": "Tazama alama ya msalaba iliyo katikati. Kundi la nukta litaonekana kwa muda mfupi kisha litafunikwa. Hakuna muda wa kuzihesabu: andika makisio yako bora ya idadi ya nukta, ukitumia vitufe vya namba au vitufe vilivyo kwenye skrini, kisha bonyeza Enter au Sawa. Bonyeza Anza ukiwa tayari.",
+ "ask": "Kulikuwa na nukta ngapi?",
+ "erase": "Futa",
+ "ok": "Sawa",
+ "start": "Anza",
+ "stage_label": "Eneo ambapo nukta zinaonekana"
+}

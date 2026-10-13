@@ -1,0 +1,8 @@
+{
+ "instr": "Búsqueda de color: haga clic en el único círculo naranja entre los azules, o responda «Ausente» si no hay ninguno.",
+ "clue": "Encuentre el círculo naranja entre los círculos azules y haga clic en él lo más rápido que pueda (o pulse la tecla →). Si no hay ningún círculo naranja, pulse ← o el botón «Ausente». Pulse Iniciar cuando esté listo/a.",
+ "absent": "Ausente",
+ "present": "Presente",
+ "start": "Iniciar",
+ "stage_label": "Círculos en los que buscar"
+}

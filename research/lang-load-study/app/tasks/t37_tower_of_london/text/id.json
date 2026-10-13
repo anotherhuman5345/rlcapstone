@@ -1,0 +1,13 @@
+{
+ "instr": "Bola: pindahkan bola-bola berwarna satu per satu sampai tiang Anda terlihat persis seperti gambar tujuan.",
+ "clue": "Buat tiang-tiang Anda terlihat persis seperti gambar tujuan. Ambil bola teratas dari sebuah tiang dengan mengkliknya (atau menekan 1, 2, atau 3), lalu klik tiang tempat bola itu harus ditaruh. Tiang-tiang itu memuat paling banyak 3, 2, dan 1 bola. Rencanakan sebelum mulai dan gunakan langkah sesedikit mungkin. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "reset": "Ulangi dari awal",
+ "give_up": "Menyerah",
+ "yours": "Tiang Anda",
+ "target": "Tujuan",
+ "moves_label": "Langkah:",
+ "full_peg": "Tiang itu penuh.",
+ "empty_peg": "Tiang itu kosong.",
+ "solved": "Selesai!"
+}

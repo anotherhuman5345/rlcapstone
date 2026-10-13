@@ -1,0 +1,31 @@
+{
+ "instr": "Procedury: wykonaj listę kroków po kolei, klikając przyciski kroków; jeśli przerwie ci inne zadanie, wróć i kontynuuj od miejsca, w którym przerwano.",
+ "clue": "Wykonaj procedurę: klikaj przyciski kroków w kolejności z listy (albo naciskaj klawisze z ich numerami). Każdy krok wykonaj raz; nic nie pokaże, które kroki są już zrobione. Czasem przerwie ci inne zadanie: powiedz, czy każda liczba jest parzysta, czy nieparzysta. Gdy procedura wróci, kontynuuj od miejsca, w którym przerwano. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "case_label": "Zadanie {n} z {total}",
+ "proc_title": "Procedura",
+ "palette_title": "Przyciski kroków",
+ "interrupt_title": "Parzysta czy nieparzysta?",
+ "interrupt_hint": "Strzałka w lewo = parzysta, strzałka w prawo = nieparzysta",
+ "even": "Parzysta",
+ "odd": "Nieparzysta",
+ "next_case": "Następne zadanie…",
+ "steps": [
+  "Zeskanuj kod",
+  "Zważ paczkę",
+  "Sprawdź plombę",
+  "Wydrukuj etykietę",
+  "Przyklej etykietę",
+  "Zapisz godzinę",
+  "Zrób zdjęcie",
+  "Zmierz wymiary",
+  "Podstempluj formularz",
+  "Posortuj według koloru",
+  "Zapakuj przedmiot",
+  "Powiadom recepcję",
+  "Policz elementy",
+  "Zamknij pokrywę",
+  "Podpisz arkusz",
+  "Wyczyść tacę"
+ ]
+}

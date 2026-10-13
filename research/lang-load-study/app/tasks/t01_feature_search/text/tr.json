@@ -1,0 +1,3 @@
+{"instr": "Renk arama: mavi daireler arasındaki tek turuncu daireye tıklayın, yoksa “yok” deyin.",
+ "clue": "Mavi daireler arasındaki turuncu daireyi bulun ve olabildiğince hızlı tıklayın (ya da → tuşuna basın). Turuncu daire yoksa ← tuşuna ya da “Yok” düğmesine basın. Hazır olunca Başla'ya basın.",
+ "absent": "Yok", "present": "Var", "start": "Başla", "stage_label": "Aranacak daireler"}

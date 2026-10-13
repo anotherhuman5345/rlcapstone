@@ -1,0 +1,14 @@
+{
+ "instr": "Programas curtos: leia cada programa curto e digite o número que ele imprime.",
+ "clue": "Você verá três programas curtos. Siga-os passo a passo, linha por linha, e descubra o número que é impresso no final. Digite-o com o teclado na tela ou o seu teclado (use − para um número negativo) e depois pressione OK ou Enter. Não precisa ter pressa. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "program_of": "Programa {n} de {total}",
+ "output": "Número impresso:",
+ "ok": "OK",
+ "erase": "Apagar",
+ "kw_set": "defina {v} como {e}",
+ "kw_repeat": "repita {n} vezes:",
+ "kw_if": "se {c}:",
+ "kw_else": "senão:",
+ "kw_print": "imprima {e}"
+}

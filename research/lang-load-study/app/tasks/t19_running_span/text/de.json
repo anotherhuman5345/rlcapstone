@@ -1,0 +1,10 @@
+{
+ "instr": "Buchstabenfolge: Buchstaben erscheinen einzeln und hören ohne Vorwarnung auf; geben Sie dann nur die letzten paar Buchstaben in der richtigen Reihenfolge ein.",
+ "clue": "Drücken Sie „Starten“. Buchstaben erscheinen einzeln, und die Folge endet ohne Vorwarnung, also behalten Sie die neuesten Buchstaben im Kopf. Wenn sie endet, geben Sie nur die LETZTEN Buchstaben, die Sie gesehen haben, in der Reihenfolge ihres Erscheinens ein. Verwenden Sie ? für einen Buchstaben, an den Sie sich nicht erinnern, und drücken Sie dann OK.",
+ "keep": "Merken Sie sich die letzten {k} Buchstaben.",
+ "recall": "Geben Sie die letzten {k} Buchstaben in der Reihenfolge ihres Erscheinens ein.",
+ "unknown": "Ich erinnere mich nicht an diesen Buchstaben",
+ "start": "Starten",
+ "done": "OK",
+ "delete": "Letzten Buchstaben löschen"
+}

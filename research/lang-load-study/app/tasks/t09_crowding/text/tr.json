@@ -1,0 +1,4 @@
+{"instr": "Yanıp sönen T'ler: gözünüzü ortada tutun ve küçük bir grubun ortasındaki T'nin hangi yöne baktığını söyleyin.",
+ "clue": "Gözünüzü baştan sona ortadaki artı işaretinde tutun. Bir yanda küçük bir T şekilleri grubu kısa bir an görünüp kaybolacak. ORTADAKİ T'nin düz çizgisinin hangi yöne baktığını söyleyin: yukarı, sağ, aşağı ya da sol. Ok tuşlarını ya da düğmeleri kullanın. Emin değilseniz en iyi tahmininizi yapın. Hazır olunca Başla'ya basın.",
+ "up": "Yukarı", "right": "Sağ", "down": "Aşağı", "left": "Sol", "start": "Başla",
+ "stage_label": "Boş bir alanın ortasında bir artı işareti"}

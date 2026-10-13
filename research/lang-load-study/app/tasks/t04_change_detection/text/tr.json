@@ -1,0 +1,3 @@
+{"instr": "Renk belleği: bir grup renkli kareyi aklınızda tutun; kısa bir aradan sonra herhangi bir karenin renginin değişip değişmediğini söyleyin.",
+ "clue": "Renkli kareler kısa bir süre görünür, kaybolur, sonra yeniden gelir. Karelerden birinin rengi değişti mi? Hiçbiri değişmediyse ← tuşuna ya da “Aynı”ya, biri değiştiyse → tuşuna ya da “Farklı”ya basın. Hazır olunca Başla'ya basın.",
+ "same": "Aynı", "different": "Farklı", "start": "Başla", "stage_label": "Renkli kareler"}

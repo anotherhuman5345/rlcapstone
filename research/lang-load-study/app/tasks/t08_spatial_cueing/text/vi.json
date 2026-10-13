@@ -1,0 +1,8 @@
+{
+ "instr": "Hai khung: hãy giữ mắt ở chính giữa và nhấn trái hoặc phải ngay khi một chấm xuất hiện trong một khung.",
+ "clue": "Hãy giữ mắt nhìn vào dấu chữ thập ở giữa. Một mũi tên sẽ hiện ra ở đó, rồi một chấm xuất hiện trong khung bên trái hoặc bên phải. Hãy nhấn phím mũi tên trái hoặc phải (hoặc nút) theo phía có chấm, nhanh nhất có thể. Mũi tên thường chỉ đúng, nhưng không phải lúc nào cũng vậy. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "left": "Trái",
+ "right": "Phải",
+ "start": "Bắt đầu",
+ "stage_label": "Hai khung với một dấu chữ thập ở giữa"
+}

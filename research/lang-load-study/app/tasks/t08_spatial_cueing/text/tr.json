@@ -1,0 +1,3 @@
+{"instr": "Kutular: gözünüzü ortada tutun, bir kutuda nokta belirir belirmez sol ya da sağa basın.",
+ "clue": "Gözünüzü ortadaki artı işaretinde tutun. Önce orada bir ok, ardından sol ya da sağ kutuda bir nokta belirecek. Noktanın çıktığı tarafa göre sol veya sağ ok tuşuna (ya da düğmeye) olabildiğince hızlı basın. Ok çoğu zaman doğru yeri gösterir ama her zaman değil. Hazır olunca Başla'ya basın.",
+ "left": "Sol", "right": "Sağ", "start": "Başla", "stage_label": "Aralarında artı işareti olan iki kutu"}

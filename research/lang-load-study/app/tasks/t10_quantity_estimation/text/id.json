@@ -1,0 +1,9 @@
+{
+ "instr": "Titik: sekelompok titik muncul sangat singkat; ketik berapa banyak menurut Anda.",
+ "clue": "Pandang tanda silang di tengah. Sekelompok titik akan muncul sesaat lalu ditutup. Tidak ada waktu untuk menghitung: ketik tebakan terbaik Anda tentang jumlah titik, dengan tombol angka atau papan angka di layar, lalu tekan Enter atau OK. Tekan Mulai jika sudah siap.",
+ "ask": "Berapa banyak titik?",
+ "erase": "Hapus",
+ "ok": "OK",
+ "start": "Mulai",
+ "stage_label": "Area tempat titik muncul"
+}

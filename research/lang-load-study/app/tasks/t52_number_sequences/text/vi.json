@@ -1,0 +1,8 @@
+{
+ "instr": "Dãy số: hãy tìm quy tắc và gõ số tiếp theo.",
+ "clue": "Mỗi dãy số tuân theo MỘT trong các quy tắc sau: mỗi lần cộng hoặc trừ cùng một số; mỗi lần nhân với 2; bước nhảy tăng thêm cùng một lượng mỗi lần; hoặc hai dãy xen kẽ nhau, mỗi dãy có bước nhảy riêng. Hãy gõ số tiếp theo bằng bàn phím số trên màn hình hoặc bàn phím và nhấn OK (hoặc Enter). Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "ok": "OK",
+ "erase": "Xóa chữ số cuối",
+ "progress": "Dãy {i} / {n}"
+}

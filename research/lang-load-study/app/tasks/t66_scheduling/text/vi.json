@@ -1,0 +1,64 @@
+{
+ "instr": "Lịch làm việc: hãy giao mỗi việc cho một người vào một ngày sao cho mọi quy tắc đều được tuân thủ.",
+ "clue": "Hãy lên kế hoạch công việc: đặt mỗi việc vào bảng, dưới một người và một ngày. Mỗi người làm tối đa một việc mỗi ngày, và phải tuân thủ mọi quy tắc trong danh sách. Nhấp vào một việc (hoặc dùng Tab để di chuyển đến nó và nhấn Enter), rồi nhấp vào một ô trong bảng. Nhấp vào một ô đã có việc để lấy việc đó ra lại. Mọi kế hoạch tuân thủ tất cả các quy tắc đều đúng. Nhấn Xong khi đã xếp hết các việc. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "done": "Xong",
+ "give_up": "Bỏ cuộc",
+ "setting": "Mỗi người làm tối đa một việc mỗi ngày. Quy tắc:",
+ "plan": "Kế hoạch",
+ "tray": "Các việc chưa được xếp",
+ "templates": {
+  "before": "Việc {a} phải được làm vào một ngày sớm hơn việc {b}.",
+  "same_day": "Việc {a} và việc {b} phải được làm trong cùng một ngày.",
+  "diff_day": "Việc {a} và việc {b} phải được làm vào hai ngày khác nhau.",
+  "by_day": "Việc {a} phải được làm chậm nhất vào {day}.",
+  "off_day": "{w} không rảnh vào {day}.",
+  "only_person": "Chỉ {w} mới làm được việc {a}.",
+  "not_person": "{w} không làm được việc {a}.",
+  "same_person": "Việc {a} và việc {b} phải do cùng một người làm."
+ },
+ "jobs": [
+  {
+   "name": "báo cáo",
+   "cap": "Báo cáo"
+  },
+  {
+   "name": "giao hàng",
+   "cap": "Giao hàng"
+  },
+  {
+   "name": "sửa chữa",
+   "cap": "Sửa chữa"
+  },
+  {
+   "name": "dọn dẹp",
+   "cap": "Dọn dẹp"
+  },
+  {
+   "name": "kiểm kê",
+   "cap": "Kiểm kê"
+  },
+  {
+   "name": "đào tạo",
+   "cap": "Đào tạo"
+  },
+  {
+   "name": "sơn",
+   "cap": "Sơn"
+  },
+  {
+   "name": "kiểm tra",
+   "cap": "Kiểm tra"
+  }
+ ],
+ "people": [
+  "An",
+  "Bình",
+  "Chi"
+ ],
+ "days": [
+  "Thứ Hai",
+  "Thứ Ba",
+  "Thứ Tư"
+ ]
+}

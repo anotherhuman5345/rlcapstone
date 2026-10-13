@@ -1,0 +1,6 @@
+{"instr": "Akwatunan lambobi: ku riƙe lambobin da ke cikin wasu akwatuna a ranku yayin da umarni ke canza su, sannan ku rubuta lambobin ƙarshe.",
+ "clue": "Za ku ga wasu akwatuna da lambobi a cikinsu. Ku tuna da su: za a ɓoye lambobin. Sannan umarni za su bayyana ɗaya bayan ɗaya, suna gaya muku ku ƙara ko ku rage daga wani akwati. Ku riƙa sabunta lambobin a ranku. A ƙarshe, ku rubuta lambar ƙarshe ta kowane akwati (da allon rubutu ko faifan lambobi da ke allo) sannan ku danna Na gama. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "done": "Na gama", "box_labels": ["A", "B", "C", "D"],
+ "op_add": "Ku ƙara {n} a akwati {b}", "op_sub": "Ku rage {n} daga akwati {b}",
+ "phase_study": "Ku tuna da lambobin.", "phase_update": "Ku sabunta lambobin a ranku.",
+ "phase_answer": "Ku rubuta lambar ƙarshe ta kowane akwati. Ku danna akwati don zaɓar shi; Enter yana kai ku akwati na gaba."}

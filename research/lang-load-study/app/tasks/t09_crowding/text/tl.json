@@ -1,0 +1,10 @@
+{
+ "instr": "Kumikislap na mga T: ituon ang tingin sa gitna at sabihin kung saan nakaharap ang T na nasa gitna ng isang maliit na grupo.",
+ "clue": "Ituon ang tingin sa krus sa gitna sa buong panahon. Sandaling kikislap sa isang tabi ang isang maliit na grupo ng mga hugis na T. Sabihin kung saan nakaharap ang patag na guhit ng T na nasa GITNA: pataas, pakanan, pababa o pakaliwa. Gamitin ang mga arrow key o ang mga button. Kung hindi ka sigurado, hulaan ang pinakamalapit sa tingin mo. Pindutin ang Simulan kapag handa ka na.",
+ "up": "Pataas",
+ "right": "Pakanan",
+ "down": "Pababa",
+ "left": "Pakaliwa",
+ "start": "Simulan",
+ "stage_label": "Isang krus sa gitna ng bakanteng lugar"
+}

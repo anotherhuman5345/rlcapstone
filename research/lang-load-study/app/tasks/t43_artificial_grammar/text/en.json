@@ -1,0 +1,4 @@
+{"instr": "Letter patterns: study strings made by a hidden rule, then judge whether new strings follow the same rule.",
+ "clue": "First study the letter strings on the screen; they all follow a hidden pattern. Then you will see new strings one at a time. Press the left arrow (or the left button) if a string follows the same pattern, the right arrow (or the right button) if it breaks it. Go with your first impression. Press Start when ready.",
+ "start": "Start", "legal": "Follows the pattern", "illegal": "Breaks the pattern",
+ "study_left": "Study the strings: {s} s left", "test_of": "String {n} of {total}"}

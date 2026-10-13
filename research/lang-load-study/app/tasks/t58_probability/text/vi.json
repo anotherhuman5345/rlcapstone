@@ -1,0 +1,14 @@
+{
+ "instr": "Khả năng xảy ra: hãy so sánh hai sự kiện và chọn sự kiện có khả năng xảy ra cao hơn, hoặc cho biết khả năng của chúng như nhau.",
+ "clue": "Mỗi màn hình hiển thị hai sự kiện, A và B, bằng lời và bằng hình. Bi được lấy ra mà không nhìn, và viên bi nào cũng có cơ hội được lấy như nhau; xúc xắc là xúc xắc cân đối. Hãy chọn sự kiện có khả năng xảy ra cao hơn, hoặc chọn \"Khả năng như nhau\". Dùng các nút hoặc các phím 1 (A), 2 (như nhau), 3 (B). Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Khả năng như nhau",
+ "question": "Sự kiện nào có khả năng xảy ra cao hơn?",
+ "progress": "Câu hỏi {i} / {n}",
+ "ev_bag1": "Túi {L} có {r} viên bi đỏ và {b} viên bi xanh dương. Bạn lấy ra một viên bi và đó là bi đỏ.",
+ "ev_bag2_replace": "Túi {L} có {r} viên bi đỏ và {b} viên bi xanh dương. Bạn lấy ra một viên bi, bỏ lại vào túi, rồi lấy thêm một lần nữa. Cả hai viên đều là bi đỏ.",
+ "ev_bag2_keep": "Túi {L} có {r} viên bi đỏ và {b} viên bi xanh dương. Bạn lấy ra một viên bi, để riêng ra ngoài, rồi lấy thêm một viên nữa. Cả hai viên đều là bi đỏ.",
+ "ev_dice": "Bạn tung hai con xúc xắc và tổng hai số là {s}."
+}

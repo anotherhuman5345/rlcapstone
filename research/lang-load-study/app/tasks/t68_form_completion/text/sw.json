@@ -1,0 +1,56 @@
+{
+ "instr": "Kujaza fomu: nakili kumbukumbu kwenye fomu, ukifuata kanuni maalum zilizoonyeshwa pamoja nayo.",
+ "clue": "Jaza fomu iliyo upande wa kulia kutoka kwenye kumbukumbu iliyo upande wa kushoto. Nakili majina na namba hasa jinsi zilivyo. Soma kanuni maalum kwanza: kanuni inatumika pale tu sharti lake linapokuwa kweli kwa kumbukumbu hii. Msaada unaonyesha miundo. Bonyeza Wasilisha ukimaliza. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "record_title": "Kumbukumbu",
+ "rules_title": "Kanuni maalum",
+ "form_title": "Fomu",
+ "help": "Msaada",
+ "help_text": "Tarehe: siku.mwezi.mwaka kwa nukta, mfano 05.11.1987. Namba: tarakimu tu, bila herufi. Mpango na njia ya mawasiliano: chagua kimoja. Acha sehemu wazi pale tu kanuni inaposema hivyo.",
+ "submit": "Wasilisha",
+ "choose": "— chagua —",
+ "no_phone": "—",
+ "date_placeholder": "DD.MM.YYYY",
+ "labels": {
+  "family": "Jina la ukoo",
+  "given": "Jina la kwanza",
+  "member": "Namba ya uanachama",
+  "birth": "Tarehe ya kuzaliwa",
+  "postcode": "Msimbo wa posta",
+  "phone": "Simu",
+  "plan": "Mpango",
+  "contact": "Wasiliana kwa",
+  "amount": "Kiasi"
+ },
+ "plans": [
+  "Msingi",
+  "Ziada",
+  "Vijana"
+ ],
+ "contacts": [
+  "Barua pepe",
+  "Simu",
+  "Posta"
+ ],
+ "months": [
+  "Januari",
+  "Februari",
+  "Machi",
+  "Aprili",
+  "Mei",
+  "Juni",
+  "Julai",
+  "Agosti",
+  "Septemba",
+  "Oktoba",
+  "Novemba",
+  "Desemba"
+ ],
+ "rules": [
+  "Ikiwa mtu alizaliwa mwaka {year} au baadaye, chagua mpango wa Vijana, bila kujali kumbukumbu inasema nini.",
+  "Ikiwa kiasi ni zaidi ya 500, andika 500.",
+  "Ikiwa kumbukumbu haina namba ya simu, acha Simu wazi na uchague Posta kama njia ya mawasiliano.",
+  "Ikiwa msimbo wa posta una tarakimu 4 tu, ongeza 0 mwanzoni.",
+  "Ikiwa namba ya uanachama inaishia na 7, andika jina la ukoo kwa herufi KUBWA."
+ ]
+}

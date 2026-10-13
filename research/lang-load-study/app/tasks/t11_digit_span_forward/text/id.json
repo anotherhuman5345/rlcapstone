@@ -1,0 +1,8 @@
+{
+ "instr": "Angka: perhatikan deretan angka pendek yang muncul satu per satu, lalu ketik dengan urutan yang sama.",
+ "clue": "Tekan Mulai dan perhatikan angka-angka muncul satu per satu. Setelah berhenti, ketik angka-angka itu dengan urutan yang sama menggunakan papan angka atau keyboard Anda, lalu tekan OK.",
+ "recall": "Ketik angka-angka sesuai urutan yang Anda lihat.",
+ "start": "Mulai",
+ "done": "OK",
+ "delete": "Hapus angka terakhir"
+}

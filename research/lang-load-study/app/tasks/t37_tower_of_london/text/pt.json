@@ -1,0 +1,13 @@
+{
+ "instr": "Bolas: mova as bolas coloridas uma de cada vez até que os seus pinos fiquem exatamente como a imagem-alvo.",
+ "clue": "Deixe os seus pinos exatamente como a imagem-alvo. Pegue a bola de cima de um pino clicando nele (ou pressionando 1, 2 ou 3) e depois clique no pino para onde ela deve ir. Os pinos comportam no máximo 3, 2 e 1 bola. Planeje antes de começar e use o menor número de movimentos possível. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "reset": "Recomeçar",
+ "give_up": "Desistir",
+ "yours": "Seus pinos",
+ "target": "Alvo",
+ "moves_label": "Movimentos:",
+ "full_peg": "Esse pino está cheio.",
+ "empty_peg": "Esse pino está vazio.",
+ "solved": "Pronto!"
+}

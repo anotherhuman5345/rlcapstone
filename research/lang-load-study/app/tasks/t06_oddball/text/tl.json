@@ -1,0 +1,9 @@
+{
+ "instr": "Bihirang hugis: isa-isang kumikislap ang mga hugis; pindutin ang Space (o ang button) kapag parisukat lang ang nakita mo.",
+ "clue": "Isa-isang kumikislap ang mga hugis sa gitna. Pindutin ang Space (o ang malaking button) nang pinakamabilis na kaya mo tuwing may lilitaw na parisukat. Huwag gumawa ng anuman kapag bilog. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "press": "Parisukat!",
+ "stage_label": "Mga kumikislap na hugis",
+ "target_is": "Pindutin para sa:",
+ "ignore": "huwag pansinin:"
+}

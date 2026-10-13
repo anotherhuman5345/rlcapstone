@@ -1,0 +1,6 @@
+{"instr": "Letters: letters appear one at a time; for each one, say whether it is the same as a letter shown a set number of steps earlier.",
+ "clue": "Letters appear one at a time. For every letter, press Same (right arrow key or button) if it matches the letter the rule below points to, otherwise press Different (left arrow key or button). Answer quickly; the letters keep coming. Press Start when ready.",
+ "rule_1": "Rule: is this letter the same as the letter just before it?",
+ "rule_2": "Rule: is this letter the same as the letter two steps back?",
+ "rule_3": "Rule: is this letter the same as the letter three steps back?",
+ "same": "Same", "different": "Different", "start": "Start"}

@@ -1,0 +1,9 @@
+{
+ "instr": "Flèches et signal d'arrêt : appuyez vite dans la direction de la flèche, mais retenez-vous si elle devient rouge.",
+ "clue": "Une flèche apparaîtra au centre. Appuyez sur la flèche gauche ou droite du clavier (ou sur le bouton) selon sa direction, le plus vite possible. Parfois, juste après son apparition, la flèche devient rouge dans un anneau rouge (avec un bip si le son est activé) : essayez alors de NE PAS appuyer. Vous n'y arriverez pas toujours ; c'est normal. Ne ralentissez pas pour attendre le signal rouge. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "left": "Gauche",
+ "right": "Droite",
+ "start": "Démarrer",
+ "sound": "Bip avec le signal d'arrêt",
+ "stage_label": "Zone où apparaissent les flèches"
+}

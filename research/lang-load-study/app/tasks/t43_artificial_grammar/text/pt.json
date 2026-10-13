@@ -1,0 +1,9 @@
+{
+ "instr": "Padrões de letras: estude sequências criadas por uma regra oculta e depois julgue se novas sequências seguem a mesma regra.",
+ "clue": "Primeiro estude as sequências de letras na tela; todas seguem um padrão oculto. Depois você verá novas sequências, uma de cada vez. Pressione a seta para a esquerda (ou o botão da esquerda) se a sequência seguir o mesmo padrão, e a seta para a direita (ou o botão da direita) se ela o quebrar. Confie na sua primeira impressão. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "legal": "Segue o padrão",
+ "illegal": "Quebra o padrão",
+ "study_left": "Estude as sequências: faltam {s} s",
+ "test_of": "Sequência {n} de {total}"
+}

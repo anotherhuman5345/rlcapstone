@@ -1,0 +1,10 @@
+{
+ "instr": "Seguimiento: recuerde qué círculos se vuelven naranjas, sígalos mientras todos los círculos se mueven y luego señálelos.",
+ "clue": "Algunos círculos se vuelven naranjas por un momento. Recuérdelos y no les quite la vista de encima mientras todos los círculos se mueven. Cuando se detengan, haga clic o toque los círculos que siguió (o pulse sus teclas numéricas) y luego pulse Listo o Enter. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "done": "Listo",
+ "stage_label": "Círculos en movimiento",
+ "round": "Ronda {n} de {total}: recuerde los {k} círculos naranjas.",
+ "track": "Sígalos…",
+ "pick": "Seleccione los {k} círculos que siguió y luego pulse Listo."
+}

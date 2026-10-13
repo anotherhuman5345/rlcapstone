@@ -1,0 +1,10 @@
+{
+ "instr": "Hai hình: hãy thử và rút kinh nghiệm để tìm ra hình nào đúng. Hình đúng có thể thay đổi mà không báo trước.",
+ "clue": "Hai hình xuất hiện. Một trong hai là hình đúng. Hãy chọn một hình bằng cách nhấp hoặc chạm vào nó, hoặc dùng phím mũi tên trái/phải; bạn sẽ thấy mình chọn đúng hay sai. Hãy tiếp tục chọn hình đúng. Không báo trước, hình còn lại có thể trở thành hình đúng: khi đó hãy đổi sang hình kia. Vị trí của hình trên màn hình không quan trọng. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "left": "Trái",
+ "right": "Phải",
+ "correct": "Đúng",
+ "wrong": "Sai",
+ "too_slow": "Quá chậm",
+ "start": "Bắt đầu"
+}

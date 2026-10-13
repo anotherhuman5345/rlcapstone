@@ -1,0 +1,7 @@
+{
+ "instr": "Chữ số: nhấn với mọi số trừ số 3.",
+ "clue": "Các số từ 1 đến 9 sẽ lần lượt xuất hiện theo nhịp đều, sau mỗi số là một dấu chữ thập trong vòng tròn. Hãy nhấn phím cách (hoặc nút Nhấn) với mọi số TRỪ số 3. Khi thấy số 3, đừng nhấn. Tốc độ và độ chính xác đều quan trọng như nhau. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "press": "Nhấn",
+ "start": "Bắt đầu",
+ "stage_label": "Vùng các số xuất hiện"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Memoria dei colori: ricorda un gruppo di quadrati colorati; dopo una breve pausa, indica se un quadrato ha cambiato colore.",
+ "clue": "Dei quadrati colorati compaiono per poco, spariscono e poi ritornano. Un quadrato ha cambiato colore? Premi ← o «Uguale» se non è cambiato niente, → o «Diverso» se uno è cambiato. Premi Inizia quando sei pronto.",
+ "same": "Uguale",
+ "different": "Diverso",
+ "start": "Inizia",
+ "stage_label": "Quadrati colorati"
+}

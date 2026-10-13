@@ -1,0 +1,10 @@
+{
+ "instr": "Dua gambar: cari tahu dengan coba-coba gambar mana yang benar. Gambar yang benar bisa berganti tanpa peringatan.",
+ "clue": "Dua gambar muncul. Salah satunya benar. Pilih satu dengan mengklik atau mengetuknya, atau dengan tombol panah kiri/kanan; Anda akan melihat apakah jawaban Anda benar. Terus pilih yang benar. Tanpa peringatan, gambar yang lain bisa menjadi yang benar: saat itu, beralihlah. Posisinya di layar tidak berpengaruh. Tekan Mulai jika sudah siap.",
+ "left": "Kiri",
+ "right": "Kanan",
+ "correct": "Benar",
+ "wrong": "Salah",
+ "too_slow": "Terlalu lambat",
+ "start": "Mulai"
+}

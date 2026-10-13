@@ -1,0 +1,64 @@
+{
+ "instr": "Ratiba: mpe kila kazi mtu mmoja na siku moja ili kanuni zote zifuatwe.",
+ "clue": "Panga kazi: weka kila kazi kwenye jedwali chini ya mtu mmoja na siku moja. Kila mtu anaweza kufanya kazi isiyozidi moja kwa siku, na kanuni zote zilizo kwenye orodha lazima zifuatwe. Bofya kazi (au ifikie kwa Tab na ubonyeze Enter), kisha bofya kisanduku kwenye jedwali. Bofya kisanduku kilichojazwa ili kuichukua tena kazi iliyo hapo. Mpango wowote unaofuata kanuni zote ni sahihi. Bonyeza Tayari kila kazi ikiwa imewekwa. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "done": "Tayari",
+ "give_up": "Kata tamaa",
+ "setting": "Kila mtu anaweza kufanya kazi isiyozidi moja kwa siku. Kanuni:",
+ "plan": "Mpango",
+ "tray": "Kazi ambazo bado hazijawekwa",
+ "templates": {
+  "before": "Kazi ya {a} lazima ifanywe siku iliyo kabla ya siku ya kazi ya {b}.",
+  "same_day": "Kazi ya {a} na kazi ya {b} lazima zifanywe siku moja.",
+  "diff_day": "Kazi ya {a} na kazi ya {b} lazima zifanywe siku tofauti.",
+  "by_day": "Kazi ya {a} lazima ifanywe siku ya {day} au kabla yake.",
+  "off_day": "{w} hapatikani siku ya {day}.",
+  "only_person": "Ni {w} peke yake anayeweza kufanya kazi ya {a}.",
+  "not_person": "{w} hawezi kufanya kazi ya {a}.",
+  "same_person": "Kazi ya {a} na kazi ya {b} lazima zifanywe na mtu mmoja."
+ },
+ "jobs": [
+  {
+   "name": "ripoti",
+   "cap": "Ripoti"
+  },
+  {
+   "name": "usafirishaji",
+   "cap": "Usafirishaji"
+  },
+  {
+   "name": "ukarabati",
+   "cap": "Ukarabati"
+  },
+  {
+   "name": "usafi",
+   "cap": "Usafi"
+  },
+  {
+   "name": "kuhesabu bidhaa",
+   "cap": "Kuhesabu bidhaa"
+  },
+  {
+   "name": "mafunzo",
+   "cap": "Mafunzo"
+  },
+  {
+   "name": "kupaka rangi",
+   "cap": "Kupaka rangi"
+  },
+  {
+   "name": "ukaguzi",
+   "cap": "Ukaguzi"
+  }
+ ],
+ "people": [
+  "Amina",
+  "Baraka",
+  "Chausiku"
+ ],
+ "days": [
+  "Jumatatu",
+  "Jumanne",
+  "Jumatano"
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Caixas: mantenha os olhos no centro e pressione esquerda ou direita assim que um ponto aparecer em uma caixa.",
+ "clue": "Mantenha os olhos na cruz do centro. Uma seta vai aparecer ali e, em seguida, um ponto na caixa da esquerda ou da direita. Pressione a seta para a esquerda ou para a direita do teclado (ou o botão) do lado em que o ponto apareceu, o mais rápido que puder. A seta geralmente está certa, mas nem sempre. Pressione Começar quando estiver pronto(a).",
+ "left": "Esquerda",
+ "right": "Direita",
+ "start": "Começar",
+ "stage_label": "Duas caixas com uma cruz entre elas"
+}

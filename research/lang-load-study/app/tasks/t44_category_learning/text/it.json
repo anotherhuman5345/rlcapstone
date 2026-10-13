@@ -1,0 +1,15 @@
+{
+ "instr": "Classificazione: impara dalle risposte a quale di due gruppi appartiene ogni oggetto, poi classifica nuovi oggetti senza risposte.",
+ "clue": "Ogni oggetto appartiene a uno di due gruppi. Scegli il gruppo con la freccia sinistra (o il pulsante a sinistra) o con la freccia destra (o il pulsante a destra). All'inizio devi tirare a indovinare; dopo ogni risposta ti verrà detto il gruppo giusto, così potrai capire che cosa lo determina. Più avanti compariranno nuovi oggetti senza risposta. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "groups": [
+  "Gruppo A",
+  "Gruppo B"
+ ],
+ "correct": "Corretto",
+ "wrong": "Sbagliato: il gruppo giusto è {group}",
+ "too_slow": "Troppo lento: il gruppo giusto è {group}",
+ "transfer_note": "Da ora in poi non ci sono più risposte. Continua a classificare gli oggetti nello stesso modo.",
+ "train_of": "Apprendimento: oggetto {n} di {total}",
+ "transfer_of": "Prova: oggetto {n} di {total}"
+}

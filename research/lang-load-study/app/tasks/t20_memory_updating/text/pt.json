@@ -1,0 +1,17 @@
+{
+ "instr": "Caixas de números: acompanhe os números de algumas caixas enquanto instruções os alteram e depois digite os números finais.",
+ "clue": "Você verá algumas caixas com números. Memorize-os: os números serão escondidos. Depois, instruções aparecem uma a uma, pedindo que você some ou subtraia de uma caixa. Mantenha os números atualizados de cabeça. No final, digite o número final de cada caixa (pelo teclado ou pelo teclado na tela) e pressione Concluir. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "done": "Concluir",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Some {n} à caixa {b}",
+ "op_sub": "Subtraia {n} da caixa {b}",
+ "phase_study": "Memorize os números.",
+ "phase_update": "Atualize os números de cabeça.",
+ "phase_answer": "Digite o número final de cada caixa. Toque em uma caixa para escolhê-la; Enter passa para a próxima caixa."
+}

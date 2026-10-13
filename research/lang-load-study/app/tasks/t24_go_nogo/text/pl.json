@@ -1,0 +1,7 @@
+{
+ "instr": "Kółka i trójkąty: naciskaj przy każdym kółku, przy trójkącie nic nie rób.",
+ "clue": "Kształty będą pojawiać się jeden po drugim w stałym tempie. Gdy zobaczysz KÓŁKO, jak najszybciej naciśnij spację (lub przycisk Naciśnij). Gdy zobaczysz TRÓJKĄT, nie naciskaj niczego. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "press": "Naciśnij",
+ "start": "Start",
+ "stage_label": "Obszar, w którym pojawiają się kształty"
+}

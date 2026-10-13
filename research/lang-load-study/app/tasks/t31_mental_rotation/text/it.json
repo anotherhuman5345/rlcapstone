@@ -1,0 +1,7 @@
+{
+ "instr": "Forme: decidi se la forma a destra è la forma a sinistra ruotata, oppure la sua immagine speculare.",
+ "clue": "Ogni volta vedi due forme. Quella a destra può essere ruotata. È la stessa forma, solo ruotata, oppure un'immagine speculare di quella a sinistra? Premi il tasto freccia sinistra (o il pulsante) per Uguale e il tasto freccia destra (o il pulsante) per Speculare. Rispondi nel modo più rapido e preciso possibile. Premi Inizia quando sei pronto.",
+ "same": "Uguale",
+ "mirror": "Speculare",
+ "start": "Inizia"
+}

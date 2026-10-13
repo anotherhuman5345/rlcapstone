@@ -1,0 +1,7 @@
+{
+ "instr": "Kreise und Dreiecke: Drücken Sie bei jedem Kreis, bei einem Dreieck nichts.",
+ "clue": "Formen erscheinen in gleichmäßigem Tempo nacheinander. Wenn Sie einen KREIS sehen, drücken Sie so schnell wie möglich die Leertaste (oder die Schaltfläche „Drücken“). Wenn Sie ein DREIECK sehen, drücken Sie nichts. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "press": "Drücken",
+ "start": "Starten",
+ "stage_label": "Bereich, in dem die Formen erscheinen"
+}

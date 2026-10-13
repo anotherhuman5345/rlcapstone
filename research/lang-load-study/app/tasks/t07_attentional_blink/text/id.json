@@ -1,0 +1,10 @@
+{
+ "instr": "Huruf cepat: huruf-huruf muncul sangat cepat; setelahnya, sebutkan dua huruf yang berwarna merah.",
+ "clue": "Huruf-huruf muncul sangat cepat di dalam kotak. Dua di antaranya berwarna merah. Setelah setiap rangkaian, pilih dua huruf merah itu (klik atau ketik), lalu tekan OK atau Enter. Jika tidak yakin, tebak sebaik mungkin. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "ok": "OK",
+ "undo": "Batalkan",
+ "slots": "Huruf merah: {a} {b}",
+ "ask": "Dua huruf mana yang berwarna merah?",
+ "progress": "Rangkaian {n} dari {total}"
+}

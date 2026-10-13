@@ -1,0 +1,3 @@
+{"instr": "Colour search: click the single orange circle among the blue ones, or answer “absent” if there is none.",
+ "clue": "Find the orange circle among the blue circles and click it as fast as you can (or press the → key). If there is no orange circle, press ← or the “Absent” button. Press Start when ready.",
+ "absent": "Absent", "present": "Present", "start": "Start", "stage_label": "Circles to search"}

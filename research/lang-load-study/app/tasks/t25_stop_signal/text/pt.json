@@ -1,0 +1,9 @@
+{
+ "instr": "Setas com sinal de parar: pressione rapidamente a direção da seta, mas segure-se se ela ficar vermelha.",
+ "clue": "Uma seta vai aparecer no centro. Pressione a seta para a esquerda ou para a direita do teclado (ou o botão) conforme o lado para onde ela aponta, o mais rápido que puder. Às vezes, logo depois de a seta aparecer, ela fica vermelha dentro de um anel vermelho (com um bipe, se o som estiver ligado): então tente NÃO pressionar. Nem sempre vai dar para parar; isso é normal. Não diminua a velocidade para esperar o sinal vermelho. Pressione Começar quando estiver pronto(a).",
+ "left": "Esquerda",
+ "right": "Direita",
+ "start": "Começar",
+ "sound": "Bipe com o sinal de parar",
+ "stage_label": "Área onde as setas aparecem"
+}

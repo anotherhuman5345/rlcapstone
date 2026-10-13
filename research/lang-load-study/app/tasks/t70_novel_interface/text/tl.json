@@ -1,0 +1,23 @@
+{
+ "instr": "Bagong device: alamin kung ano ang ginagawa ng anim na hindi pamilyar na button, pagkatapos ay gamitin ang mga ito para ayusin ang ilang lampara nang walang tulong.",
+ "clue": "May tatlong lampara at anim na hindi pamilyar na button ang device na ito. Unang layunin: ipinaliliwanag ng isang gabay sa ilalim ng mga button ang mga ito, kaya alamin kung ano ang ginagawa ng bawat isa. Sa susunod na dalawang layunin, nakatago ang gabay: abutin ang bawat layunin mula sa memorya. Ang putol-putol na frame sa paligid ng mga lampara ay nangangahulugang naka-on ang edit mode; ipinapakita ng maliit na marka ang napiling lampara. Puwede mo ring pindutin ang 1–6 para sa mga button. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "goal": "Gawing ganito ang mga lampara: kaliwa {l}, gitna {m}, kanan {r}. Pagkatapos, kumpirmahin.",
+ "goal_label": "Layunin {n} sa {total}",
+ "legend_title": "Gabay",
+ "next_goal": "Susunod na layunin…",
+ "colors": [
+  "patay",
+  "pula",
+  "dilaw",
+  "asul"
+ ],
+ "funcs": [
+  "Ilipat ang pagpili nang isang lampara pakaliwa (kapag hindi naka-edit mode lang)",
+  "Ilipat ang pagpili nang isang lampara pakanan (kapag hindi naka-edit mode lang)",
+  "I-on o i-off ang edit mode",
+  "Ibigay sa napiling lampara ang kasunod na kulay: patay, pula, dilaw, asul, patay… (sa edit mode lang)",
+  "Patayin ang lahat ng lampara",
+  "Kumpirmahin at tapusin ang layunin (kapag hindi naka-edit mode lang)"
+ ]
+}

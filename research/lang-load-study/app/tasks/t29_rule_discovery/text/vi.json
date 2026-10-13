@@ -1,0 +1,8 @@
+{
+ "instr": "Xếp thẻ: hãy xếp mỗi thẻ vào cùng một trong bốn thẻ mẫu theo một quy tắc ẩn mà bạn tìm ra nhờ phản hồi. Quy tắc có thể thay đổi.",
+ "clue": "Một thẻ mới xuất hiện bên dưới bốn thẻ mẫu. Hãy xếp nó vào cùng một thẻ mẫu bằng cách nhấp hoặc chạm vào thẻ đó, hoặc nhấn 1-4. Các thẻ có thể khớp nhau theo màu, theo hình dạng hoặc theo số lượng hình, nhưng bạn không được cho biết là theo cách nào: phản hồi (đúng / sai) sẽ cho bạn biết. Thỉnh thoảng quy tắc thay đổi mà không báo trước; khi đó hãy tìm quy tắc mới. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "correct": "Đúng",
+ "wrong": "Sai",
+ "too_slow": "Quá chậm",
+ "start": "Bắt đầu"
+}

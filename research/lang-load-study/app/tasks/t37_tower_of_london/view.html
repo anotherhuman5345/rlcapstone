@@ -1,0 +1,32 @@
+<style>
+.tol .tl-wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-end; margin: 1rem 0; }
+.tol .tl-panel h3 { font-size: 1rem; margin: 0 0 .4rem; color: var(--muted); font-weight: 600; }
+.tol .tl-pegs { display: flex; gap: .6rem; align-items: flex-end; }
+.tol .tl-peg { margin: 0; padding: .3rem .3rem .2rem; width: 6.5rem; display: flex; flex-direction: column-reverse; align-items: center;
+  justify-content: flex-start; gap: 4px; background: var(--paper); color: var(--ink); border: 2px solid var(--line); border-radius: 6px;
+  font-weight: 600; touch-action: manipulation; }
+.tol .tl-peg.sel { border-color: var(--signal); box-shadow: 0 0 0 3px var(--signal) inset; }
+.tol .tl-goal .tl-peg { width: 4.2rem; border-style: dashed; cursor: default; }
+.tol .tl-slot { width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px dashed #c9d1d8; display: flex; align-items: center; justify-content: center; }
+.tol .tl-goal .tl-slot { width: 2rem; height: 2rem; }
+.tol .tl-ball { width: 100%; height: 100%; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.1rem; border: 1px solid rgba(0,0,0,.3); }
+.tol .tl-ball.lift { outline: 3px solid var(--signal); outline-offset: 2px; }
+.tol .tl-goal .tl-ball { font-size: .75rem; }
+.tol .tl-lab { font-size: .95rem; }
+.tol .tl-info { color: var(--muted); }
+</style>
+<div class="tol">
+  <p><button type="button" class="tl-start">{{ text.start }}</button></p>
+  <div class="tl-board" hidden>
+    <div class="tl-wrap">
+      <div class="tl-panel"><h3>{{ text.yours }}</h3><div class="tl-pegs tl-work"></div></div>
+      <div class="tl-panel tl-goal"><h3>{{ text.target }}</h3><div class="tl-pegs tl-target"></div></div>
+    </div>
+    <p class="tl-info"></p>
+    <div class="btn-row">
+      <button type="button" class="tl-reset">{{ text.reset }}</button>
+      <button type="button" class="tl-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

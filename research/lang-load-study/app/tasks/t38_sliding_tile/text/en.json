@@ -1,0 +1,5 @@
+{"instr": "Tiles: slide the numbered tiles into the gap until they are in order from 1 to 8.",
+ "clue": "Put the tiles in order as in the target picture: 1 to 8, with the gap at the bottom right. Click a tile next to the gap to slide it in, or use the arrow keys (or arrow buttons) to move a tile into the gap. Try to use as few moves as you can. Press Start when ready.",
+ "start": "Start", "reset": "Start over", "give_up": "Give up", "yours": "Your board", "target": "Target",
+ "moves_label": "Moves:", "illegal": "Only a tile next to the gap can move.", "solved": "Done!",
+ "left": "Left", "right": "Right", "up": "Up", "down": "Down"}

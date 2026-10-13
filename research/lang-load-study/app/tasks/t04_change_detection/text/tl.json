@@ -1,0 +1,8 @@
+{
+ "instr": "Memorya ng kulay: tandaan ang isang grupo ng mga parisukat na may kulay; pagkatapos ng maikling pagitan, sabihin kung may parisukat na nagbago ng kulay.",
+ "clue": "Sandaling lilitaw ang mga parisukat na may kulay, mawawala, at babalik. May parisukat bang nagbago ng kulay? Pindutin ang ← o “Pareho” kung walang nagbago, → o “Magkaiba” kung may isang nagbago. Pindutin ang Simulan kapag handa ka na.",
+ "same": "Pareho",
+ "different": "Magkaiba",
+ "start": "Simulan",
+ "stage_label": "Mga parisukat na may kulay"
+}

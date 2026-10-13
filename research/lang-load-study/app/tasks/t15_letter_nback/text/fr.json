@@ -1,0 +1,10 @@
+{
+ "instr": "Lettres : des lettres apparaissent une à une ; pour chacune, dites si elle est identique à une lettre montrée un nombre fixe d'étapes plus tôt.",
+ "clue": "Les lettres apparaissent une à une. Pour chaque lettre, appuyez sur Pareil (flèche droite ou bouton) si elle correspond à la lettre indiquée par la règle ci-dessous ; sinon appuyez sur Différent (flèche gauche ou bouton). Répondez vite : les lettres continuent d'arriver. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "rule_1": "Règle : cette lettre est-elle identique à la lettre juste avant ?",
+ "rule_2": "Règle : cette lettre est-elle identique à la lettre d'il y a deux étapes ?",
+ "rule_3": "Règle : cette lettre est-elle identique à la lettre d'il y a trois étapes ?",
+ "same": "Pareil",
+ "different": "Différent",
+ "start": "Démarrer"
+}

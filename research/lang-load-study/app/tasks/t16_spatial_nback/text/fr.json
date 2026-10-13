@@ -1,0 +1,9 @@
+{
+ "instr": "Grille : des cases d'une grille s'allument une à une ; pour chacune, dites si elle est au même endroit qu'une case allumée un nombre fixe d'étapes plus tôt.",
+ "clue": "Les cases de la grille s'allument une à une. Chaque fois, appuyez sur Pareil (flèche droite ou bouton) si elle est au même endroit que la case indiquée par la règle ci-dessous ; sinon appuyez sur Différent (flèche gauche ou bouton). Répondez vite : les cases continuent d'arriver. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "rule_1": "Règle : cette case est-elle au même endroit que celle juste avant ?",
+ "rule_2": "Règle : cette case est-elle au même endroit que celle d'il y a deux étapes ?",
+ "same": "Pareil",
+ "different": "Différent",
+ "start": "Démarrer"
+}

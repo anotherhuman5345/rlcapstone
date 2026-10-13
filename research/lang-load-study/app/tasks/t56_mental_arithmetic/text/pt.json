@@ -1,0 +1,13 @@
+{
+ "instr": "Cálculo mental: resolva cada conta de cabeça e digite o resultado.",
+ "clue": "Resolva cada conta de cabeça, sem anotar nada. Digite o resultado com o teclado na tela ou o seu teclado e pressione OK (ou Enter). Cada conta tem 20 segundos. Os resultados são números inteiros. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "ok": "OK",
+ "erase": "Apagar o último dígito",
+ "seconds_left": "Faltam {s} s",
+ "progress": "Conta {i} de {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

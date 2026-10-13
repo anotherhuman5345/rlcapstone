@@ -12,6 +12,7 @@
   {% if has_reading_task %}<li>{{ _('instr_reading') }}</li>{% endif %}
   <li>{{ _('instr_rule') }}</li>
   <li>{{ _('instr_ospan') }}</li>
+  {% for line in library_instr %}<li>{{ line }}</li>{% endfor %}
 </ul>
 <p>{{ _('instr_clue', l1=l1, l2=l2) }}</p>
 <p>{{ _('instr_effort') }} {{ _('instr_practice') }}</p>

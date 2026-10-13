@@ -1,0 +1,7 @@
+{
+ "instr": "Formas: decida si la forma de la derecha es la de la izquierda girada o su imagen en espejo.",
+ "clue": "Cada vez verá dos formas. La de la derecha puede estar girada. ¿Es la misma forma, solo girada, o una imagen en espejo de la de la izquierda? Pulse la tecla de flecha izquierda (o el botón) para Igual y la tecla de flecha derecha (o el botón) para Espejo. Responda lo más rápido y preciso que pueda. Pulse Iniciar cuando esté listo/a.",
+ "same": "Igual",
+ "mirror": "Espejo",
+ "start": "Iniciar"
+}

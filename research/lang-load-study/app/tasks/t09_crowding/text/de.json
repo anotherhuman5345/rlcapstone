@@ -1,0 +1,10 @@
+{
+ "instr": "Aufblitzende T: Schauen Sie in die Mitte und sagen Sie, in welche Richtung das mittlere T einer kleinen Gruppe zeigt.",
+ "clue": "Schauen Sie die ganze Zeit auf das Kreuz in der Mitte. Seitlich blitzt kurz eine kleine Gruppe von T-Formen auf. Sagen Sie, in welche Richtung der flache Balken des MITTLEREN T zeigt: nach oben, rechts, unten oder links. Benutzen Sie die Pfeiltasten oder die Schaltflächen. Wenn Sie unsicher sind, raten Sie so gut Sie können. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "up": "Oben",
+ "right": "Rechts",
+ "down": "Unten",
+ "left": "Links",
+ "start": "Starten",
+ "stage_label": "Ein Kreuz in der Mitte einer leeren Fläche"
+}

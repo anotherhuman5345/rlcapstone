@@ -1,0 +1,15 @@
+{
+ "instr": "Pag-uuri: alamin mula sa feedback kung saan sa dalawang grupo kabilang ang bawat bagay, pagkatapos ay uriin ang mga bagong bagay nang walang feedback.",
+ "clue": "Kabilang ang bawat bagay sa isa sa dalawang grupo. Pumili ng grupo gamit ang kaliwang arrow (o kaliwang button) o ang kanang arrow (o kanang button). Sa simula, kailangan mong manghula; pagkatapos ng bawat sagot, sasabihin sa iyo ang tamang grupo, para matukoy mo kung ano ang nagpapasya rito. Mamaya, lilitaw ang mga bagong bagay nang walang feedback. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "groups": [
+  "Grupo A",
+  "Grupo B"
+ ],
+ "correct": "Tama",
+ "wrong": "Mali: kabilang ito sa {group}",
+ "too_slow": "Masyadong mabagal: kabilang ito sa {group}",
+ "transfer_note": "Mula ngayon, wala nang feedback. Ituloy ang pag-uuri ng mga bagay sa parehong paraan.",
+ "train_of": "Pag-aaral: bagay {n} sa {total}",
+ "transfer_of": "Pagsusulit: bagay {n} sa {total}"
+}

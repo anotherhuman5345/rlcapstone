@@ -1,0 +1,12 @@
+{
+ "instr": "Turm: Legen Sie alle Scheiben einzeln auf den markierten Zielstab, ohne je eine größere Scheibe auf eine kleinere zu legen.",
+ "clue": "Versetzen Sie den ganzen Scheibenturm auf den Stab mit der Markierung „Ziel“. Nehmen Sie die oberste Scheibe, indem Sie ihren Stab anklicken (oder 1, 2 oder 3 drücken), und klicken Sie dann auf den Stab, auf den sie soll. Bewegen Sie immer nur eine Scheibe und legen Sie nie eine größere Scheibe auf eine kleinere. Versuchen Sie, so wenige Züge wie möglich zu brauchen. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "reset": "Neu beginnen",
+ "give_up": "Aufgeben",
+ "target": "Ziel",
+ "moves_label": "Züge:",
+ "illegal": "Nicht erlaubt: Eine größere Scheibe darf nicht auf eine kleinere.",
+ "empty_peg": "Dieser Stab ist leer.",
+ "solved": "Geschafft!"
+}

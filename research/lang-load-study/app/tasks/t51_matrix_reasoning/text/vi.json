@@ -1,0 +1,7 @@
+{
+ "instr": "Lưới hình mẫu: hãy chọn hình hoàn thành mỗi lưới 3 x 3.",
+ "clue": "Mỗi lưới tuân theo một hoặc hai quy tắc theo hàng và theo cột, ví dụ về số lượng, hình dạng, độ đậm nhạt hoặc kích thước của các hình. Hãy tìm ra các quy tắc và chọn hình phù hợp với ô còn trống: nhấp hoặc chạm vào hình đó, hoặc nhấn 1-4. Có bốn lưới. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "matrix_of": "Lưới {n} / {total}",
+ "option": "Lựa chọn {n}"
+}

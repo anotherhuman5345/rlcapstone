@@ -1,0 +1,4 @@
+{"instr": "Toplar: renkli topları birer birer taşıyarak çubuklarınızı hedef resimdekinin tıpatıp aynısı yapın.",
+ "clue": "Çubuklarınızı hedef resimdekinin tıpatıp aynısı yapın. Bir çubuğun en üstündeki topu almak için o çubuğa tıklayın (ya da 1, 2 veya 3 tuşuna basın), sonra topun gideceği çubuğa tıklayın. Çubuklara en fazla 3, 2 ve 1 top sığar. Başlamadan önce plan yapın ve olabildiğince az hamle kullanın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "reset": "Baştan başla", "give_up": "Vazgeç", "yours": "Sizin çubuklarınız", "target": "Hedef",
+ "moves_label": "Hamle:", "full_peg": "Bu çubuk dolu.", "empty_peg": "Bu çubuk boş.", "solved": "Tamam!"}

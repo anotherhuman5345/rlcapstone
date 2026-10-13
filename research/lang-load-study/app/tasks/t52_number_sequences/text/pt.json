@@ -1,0 +1,8 @@
+{
+ "instr": "Sequências numéricas: descubra a regra e digite o próximo número.",
+ "clue": "Cada linha de números segue UMA destas regras: somar ou subtrair o mesmo número a cada vez; multiplicar por 2 a cada vez; o passo aumenta na mesma quantidade a cada vez; ou duas sequências se alternam, cada uma com o seu próprio passo. Digite o próximo número com o teclado na tela ou o seu teclado e pressione OK (ou Enter). Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "ok": "OK",
+ "erase": "Apagar o último dígito",
+ "progress": "Sequência {i} de {n}"
+}

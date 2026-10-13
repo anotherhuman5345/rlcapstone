@@ -1,0 +1,10 @@
+{
+ "instr": "Seguir y sumar: mantenga el puntero sobre el punto en movimiento mientras responde sumas sencillas que aparecen debajo.",
+ "clue": "Mantenga el puntero sobre el punto azul en movimiento todo el tiempo: mueva el ratón, deslice el dedo o mantenga pulsadas las teclas de flecha (o los botones de flecha). Aparecerán sumas debajo del campo: elija el resultado haciendo clic en él o pulsando 1, 2 o 3. Seguir el punto y responder las sumas importan por igual. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "sum_hint": "Responda con 1, 2, 3 o con un clic",
+ "up": "Arriba",
+ "down": "Abajo",
+ "left": "Izquierda",
+ "right": "Derecha"
+}

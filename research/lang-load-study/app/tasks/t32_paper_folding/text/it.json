@@ -1,0 +1,8 @@
+{
+ "instr": "Piegatura della carta: un foglio viene piegato e bucato; scegli come appare il foglio una volta riaperto.",
+ "clue": "Le immagini mostrano un foglio di carta quadrato che viene piegato (la parte ombreggiata si ripiega lungo la linea tratteggiata, come indica la freccia). Nell'ultima immagine viene fatto un buco attraverso tutti gli strati. Quale dei quattro fogli mostra dove sono i buchi quando la carta viene riaperta? Clicca o tocca un foglio, oppure premi il suo tasto numerico da 1 a 4. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "folds": "Piegatura",
+ "punched": "Foro praticato",
+ "options": "Quale foglio è giusto una volta riaperto?"
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Mga grid ng pattern: piliin ang larawang bubuo sa bawat 3 x 3 na grid.",
+ "clue": "Sumusunod ang bawat grid sa isa o dalawang panuntunan sa mga hanay at kolum nito, halimbawa sa bilang, hugis, lilim o laki ng mga figure. Alamin ang mga panuntunan at piliin ang larawang nababagay sa bakanteng parisukat: i-click o i-tap ito, o pindutin ang 1-4. Apat ang grid. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "matrix_of": "Grid {n} sa {total}",
+ "option": "Pagpipilian {n}"
+}

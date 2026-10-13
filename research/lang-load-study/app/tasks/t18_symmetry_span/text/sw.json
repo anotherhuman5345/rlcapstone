@@ -1,0 +1,12 @@
+{
+ "instr": "Ulinganifu na miraba: amua kama kila mchoro una ulinganifu kama kioo, na ukumbuke mahali miraba myekundu ilipotokea.",
+ "clue": "Kila hatua inaonyesha mchoro wa rangi nyeusi na nyeupe: je, upande wa kushoto na wa kulia ni sawa, kama kioo? Jibu Ndiyo (mshale wa kushoto) au Hapana (mshale wa kulia). Kisha mraba mwekundu unamulika ndani ya gridi: kumbuka mahali ulipo. Mwishoni, gusa miraba kwa mpangilio ilivyotokea, kisha bonyeza Tayari. Bonyeza Anza ukiwa tayari.",
+ "yes": "Ndiyo, una ulinganifu",
+ "no": "Hapana",
+ "start": "Anza",
+ "undo": "Tendua",
+ "done": "Tayari",
+ "phase_judge": "Je, mchoro huu una ulinganifu?",
+ "phase_remember": "Kumbuka mraba huu.",
+ "phase_recall": "Gusa miraba kwa mpangilio ilivyotokea (vitufe vya mishale na Enter pia vinafanya kazi, Backspace inatendua). Kisha bonyeza Tayari."
+}

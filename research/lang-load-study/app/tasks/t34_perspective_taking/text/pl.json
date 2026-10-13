@@ -1,0 +1,12 @@
+{
+ "instr": "Kierunki na mapie: wyobraź sobie, że stoisz przy jednym punkcie orientacyjnym zwrócony/-a w stronę drugiego, i powiedz, w którą stronę jest trzeci.",
+ "clue": "Mapa pokazuje sześć punktów orientacyjnych widzianych z góry. Wyobraź sobie, że stoisz przy pierwszym punkcie, zwrócony/-a w stronę drugiego. Czy trzeci punkt jest przed tobą, po twojej prawej, za tobą, czy po twojej lewej? Nie obracaj ekranu. Odpowiadaj klawiszami strzałek lub przyciskami. Na tej mapie są cztery pytania. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "stand": "Stoisz przy",
+ "face": "Patrzysz w stronę",
+ "where": "Gdzie jest to",
+ "ahead": "Przed tobą",
+ "right": "Po prawej",
+ "behind": "Za tobą",
+ "left": "Po lewej"
+}

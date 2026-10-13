@@ -1,0 +1,8 @@
+{
+ "instr": "Mga serye ng numero: hanapin ang panuntunan at i-type ang kasunod na numero.",
+ "clue": "Sumusunod ang bawat hanay ng mga numero sa ISA sa mga panuntunang ito: idagdag o ibawas ang parehong numero sa bawat pagkakataon; i-multiply sa 2 sa bawat pagkakataon; lumalaki ang hakbang nang parehong dami sa bawat pagkakataon; o nagsasalitan ang dalawang serye, na may kanya-kanyang hakbang. I-type ang kasunod na numero gamit ang keypad o keyboard at pindutin ang OK (o Enter). Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "ok": "OK",
+ "erase": "Burahin ang huling digit",
+ "progress": "Serye {i} sa {n}"
+}

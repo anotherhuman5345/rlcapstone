@@ -1,0 +1,12 @@
+{
+ "instr": "Tìm điểm thay đổi: hai phiên bản của một hình nhấp nháy luân phiên; hãy nhấp vào vật duy nhất khác nhau.",
+ "clue": "Hình nhấp nháy luân phiên giữa hai phiên bản. Có một vật thay đổi (đổi màu, đổi hình dạng, hoặc biến mất). Hãy nhấp hoặc chạm vào vật đó ngay khi bạn tìm thấy. Bàn phím: di chuyển dấu chữ thập bằng các phím mũi tên và nhấn Enter. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "pick": "Chọn chỗ này",
+ "stage_label": "Hình nhấp nháy",
+ "move_left": "Sang trái",
+ "move_up": "Lên trên",
+ "move_down": "Xuống dưới",
+ "move_right": "Sang phải",
+ "scene": "Hình {n} / {total}"
+}

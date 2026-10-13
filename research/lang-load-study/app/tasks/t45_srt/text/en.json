@@ -1,0 +1,3 @@
+{"instr": "Lit boxes: as fast as you can, press the key or box that matches the box that lights up.",
+ "clue": "One of the four boxes will light up. As quickly and accurately as you can, press its key: D, F, J or K from left to right (or 1, 2, 3, 4), or tap the box. Keep going until the end. Press Start when ready.",
+ "start": "Start", "key_labels": ["D / 1", "F / 2", "J / 3", "K / 4"], "progress": "{n} / {total}"}

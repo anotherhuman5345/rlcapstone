@@ -1,0 +1,72 @@
+{
+ "instr": "Kolejność: ustaw zwierzęta w rzędzie tak, aby każde zdanie było prawdziwe.",
+ "clue": "Przeczytaj zdania, a potem umieść każde zwierzę na jednym z ponumerowanych miejsc tak, aby wszystkie zdania były prawdziwe. Miejsce 1 jest na samym lewym końcu. Kliknij zwierzę (albo przejdź do niego klawiszem Tab i naciśnij Enter), a potem kliknij miejsce. Kliknięcie zajętego miejsca zdejmuje z niego zwierzę. Gdy wszystkie miejsca są zajęte, naciśnij Gotowe. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "done": "Gotowe",
+ "give_up": "Poddaję się",
+ "setting": "Zwierzęta stoją w rzędzie na ponumerowanych miejscach, od miejsca 1 po lewej do ostatniego miejsca po prawej.",
+ "row": "Rząd",
+ "tray": "Zwierzęta jeszcze nieustawione",
+ "place": "Miejsce",
+ "templates": {
+  "left_of": "{a.cap} stoi gdzieś na lewo od {b.gen}.",
+  "next_left": "{a.cap} stoi tuż na lewo od {b.gen}.",
+  "adjacent": "{a.cap} i {b} stoją obok siebie.",
+  "not_adjacent": "{a.cap} i {b} nie stoją obok siebie.",
+  "at": "{a.cap} stoi na miejscu {p}.",
+  "not_at": "{a.cap} nie stoi na miejscu {p}.",
+  "end": "{a.cap} stoi na początku albo na końcu rzędu.",
+  "not_end": "{a.cap} nie stoi ani na początku, ani na końcu rzędu.",
+  "between": "{a.cap} stoi gdzieś między {b.ins} a {c.ins}."
+ },
+ "objects": [
+  {
+   "name": "kot",
+   "cap": "Kot",
+   "gen": "kota",
+   "ins": "kotem"
+  },
+  {
+   "name": "pies",
+   "cap": "Pies",
+   "gen": "psa",
+   "ins": "psem"
+  },
+  {
+   "name": "koń",
+   "cap": "Koń",
+   "gen": "konia",
+   "ins": "koniem"
+  },
+  {
+   "name": "królik",
+   "cap": "Królik",
+   "gen": "królika",
+   "ins": "królikiem"
+  },
+  {
+   "name": "koza",
+   "cap": "Koza",
+   "gen": "kozy",
+   "ins": "kozą"
+  },
+  {
+   "name": "kaczka",
+   "cap": "Kaczka",
+   "gen": "kaczki",
+   "ins": "kaczką"
+  },
+  {
+   "name": "lis",
+   "cap": "Lis",
+   "gen": "lisa",
+   "ins": "lisem"
+  },
+  {
+   "name": "niedźwiedź",
+   "cap": "Niedźwiedź",
+   "gen": "niedźwiedzia",
+   "ins": "niedźwiedziem"
+  }
+ ]
+}

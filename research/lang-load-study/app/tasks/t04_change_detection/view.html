@@ -1,0 +1,9 @@
+<div class="change-detection">
+  <svg id="cd-stage" viewBox="0 0 {{ item.w }} {{ item.h }}" width="{{ item.w }}" height="{{ item.h }}"
+       style="background:#9AA5AE;border-radius:6px;user-select:none" role="img" aria-label="{{ text.stage_label }}"></svg>
+  <div class="btn-row">
+    <button type="button" data-key="same">← {{ text.same }}</button>
+    <button type="button" data-key="different">{{ text.different }} →</button>
+  </div>
+  <p><button type="button" id="cd-start">{{ text.start }}</button></p>
+</div>

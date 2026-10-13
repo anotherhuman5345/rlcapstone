@@ -1,0 +1,10 @@
+{
+ "instr": "Letras: las letras aparecen una a una; para cada una, diga si es igual a la letra mostrada un número fijo de pasos antes.",
+ "clue": "Las letras aparecen una a una. Para cada letra, pulse Igual (tecla de flecha derecha o botón) si coincide con la letra que indica la regla de abajo; si no, pulse Diferente (tecla de flecha izquierda o botón). Responda rápido: las letras siguen llegando. Pulse Iniciar cuando esté listo/a.",
+ "rule_1": "Regla: ¿es esta letra igual a la letra justo anterior?",
+ "rule_2": "Regla: ¿es esta letra igual a la letra de dos pasos atrás?",
+ "rule_3": "Regla: ¿es esta letra igual a la letra de tres pasos atrás?",
+ "same": "Igual",
+ "different": "Diferente",
+ "start": "Iniciar"
+}

@@ -1,0 +1,56 @@
+{
+ "instr": "Formulaire : recopiez une fiche dans un formulaire en suivant les règles particulières qui l'accompagnent.",
+ "clue": "Remplissez le formulaire de droite à partir de la fiche de gauche. Recopiez les noms et les nombres exactement. Lisez d'abord les règles particulières : une règle ne s'applique que si sa condition est vraie pour cette fiche. Aide montre les formats. Appuyez sur Envoyer quand vous avez fini. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "record_title": "Fiche",
+ "rules_title": "Règles particulières",
+ "form_title": "Formulaire",
+ "help": "Aide",
+ "help_text": "Date : jour.mois.année avec des points, par ex. 05.11.1987. Nombres : chiffres seulement, sans lettres. Formule et contact : choisissez-en un. Ne laissez un champ vide que si une règle le demande.",
+ "submit": "Envoyer",
+ "choose": "— choisir —",
+ "no_phone": "—",
+ "date_placeholder": "JJ.MM.AAAA",
+ "labels": {
+  "family": "Nom de famille",
+  "given": "Prénom",
+  "member": "Numéro de membre",
+  "birth": "Date de naissance",
+  "postcode": "Code postal",
+  "phone": "Téléphone",
+  "plan": "Formule",
+  "contact": "Contact par",
+  "amount": "Montant"
+ },
+ "plans": [
+  "Basique",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "E-mail",
+  "Téléphone",
+  "Courrier"
+ ],
+ "months": [
+  "janvier",
+  "février",
+  "mars",
+  "avril",
+  "mai",
+  "juin",
+  "juillet",
+  "août",
+  "septembre",
+  "octobre",
+  "novembre",
+  "décembre"
+ ],
+ "rules": [
+  "Si la personne est née en {year} ou après, choisissez la formule Junior, quoi qu'indique la fiche.",
+  "Si le montant est supérieur à 500, saisissez 500.",
+  "Si la fiche n'a pas de numéro de téléphone, laissez Téléphone vide et choisissez Courrier comme contact.",
+  "Si le code postal n'a que 4 chiffres, ajoutez un 0 au début.",
+  "Si le numéro de membre se termine par 7, écrivez le nom de famille en MAJUSCULES."
+ ]
+}

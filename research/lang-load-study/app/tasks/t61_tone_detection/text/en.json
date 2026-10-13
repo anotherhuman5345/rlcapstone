@@ -1,0 +1,16 @@
+{
+ "instr": "Symbols and beeps: learn which word goes with each symbol, and press Space (or the Tone button) whenever you hear a short beep. Use headphones or speakers.",
+ "clue": "Please use headphones or speakers. Six symbols will appear one by one, each with a word: learn which word goes with each symbol. At the same time, short beeps will sound now and then: press Space or the Tone button as soon as you hear one. Both parts matter equally. Afterwards you will pick the word for each symbol. Use Test sound to check the volume, then press Start.",
+ "start": "Start",
+ "test_tone": "Test sound",
+ "tone_button": "Tone",
+ "tone_hint": "Press Space or tap Tone when you hear a beep",
+ "study_label": "Learn the word for this symbol",
+ "test_label": "Which word went with this symbol?",
+ "test_hint": "Click a word, or press its number key",
+ "no_audio": "Sound could not be started on this device.",
+ "words": ["apple", "bridge", "candle", "carpet", "chair", "cloud", "bell", "door", "drum", "egg", "feather", "flag",
+           "fork", "garden", "glove", "hammer", "horse", "island", "jacket", "key", "kettle", "ladder", "lemon", "letter",
+           "mirror", "owl", "needle", "onion", "pencil", "pillow", "rabbit", "river", "rope", "saddle", "shoe", "spoon",
+           "star", "stone", "table", "tiger", "tooth", "tower", "train", "tree", "wallet", "window", "wolf", "basket"]
+}

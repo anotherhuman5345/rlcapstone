@@ -1,0 +1,15 @@
+{
+ "instr": "Tri : apprenez grâce aux retours à quel groupe appartient chaque objet, puis triez de nouveaux objets sans retour.",
+ "clue": "Chaque objet appartient à l'un de deux groupes. Indiquez lequel avec la flèche gauche (ou le bouton de gauche) ou la flèche droite (ou le bouton de droite). Au début, vous devrez deviner ; après chaque réponse, on vous indiquera le bon groupe, et vous pourrez ainsi découvrir ce qui le détermine. Plus tard, de nouveaux objets apparaissent sans retour. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "groups": [
+  "Groupe A",
+  "Groupe B"
+ ],
+ "correct": "Juste",
+ "wrong": "Faux : cet objet appartient au {group}",
+ "too_slow": "Trop lent : cet objet appartient au {group}",
+ "transfer_note": "À partir de maintenant, il n'y a plus de retour. Continuez à trier les objets de la même façon.",
+ "train_of": "Apprentissage : objet {n} sur {total}",
+ "transfer_of": "Test : objet {n} sur {total}"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Tri de cartes : associez chaque carte à l'une de quatre cartes selon une règle cachée, que vous découvrez grâce aux retours. La règle peut changer.",
+ "clue": "Une nouvelle carte apparaît sous quatre cartes de référence. Associez-la à l'une d'elles en cliquant ou en touchant cette carte, ou en appuyant sur 1-4. Les cartes peuvent correspondre par la couleur, par la forme ou par le nombre de figures, mais on ne vous dit pas lequel : le retour (juste / faux) vous l'indique. La règle change de temps en temps sans prévenir ; trouvez alors la nouvelle. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "correct": "Juste",
+ "wrong": "Faux",
+ "too_slow": "Trop lent",
+ "start": "Démarrer"
+}

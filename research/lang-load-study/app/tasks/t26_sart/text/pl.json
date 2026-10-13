@@ -1,0 +1,7 @@
+{
+ "instr": "Cyfry: naciskaj przy każdej liczbie oprócz 3.",
+ "clue": "Liczby od 1 do 9 będą pojawiać się jedna po drugiej w stałym tempie, a po każdej z nich krzyżyk w kółku. Naciskaj spację (lub przycisk Naciśnij) przy każdej liczbie OPRÓCZ 3. Gdy zobaczysz 3, nie naciskaj. Szybkość i dokładność są tak samo ważne. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "press": "Naciśnij",
+ "start": "Start",
+ "stage_label": "Obszar, w którym pojawiają się liczby"
+}

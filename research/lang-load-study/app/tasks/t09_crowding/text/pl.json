@@ -1,0 +1,10 @@
+{
+ "instr": "Migające litery T: patrz na środek i powiedz, w którą stronę zwrócona jest środkowa litera T z małej grupy.",
+ "clue": "Przez cały czas patrz na krzyżyk na środku. Mała grupa liter T mignie krótko z jednej strony. Powiedz, w którą stronę zwrócona jest pozioma kreska ŚRODKOWEJ litery T: w górę, w prawo, w dół czy w lewo. Użyj klawiszy strzałek lub przycisków. Jeśli nie masz pewności, zgaduj najlepiej, jak potrafisz. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "up": "W górę",
+ "right": "W prawo",
+ "down": "W dół",
+ "left": "W lewo",
+ "start": "Start",
+ "stage_label": "Krzyżyk na środku pustego obszaru"
+}

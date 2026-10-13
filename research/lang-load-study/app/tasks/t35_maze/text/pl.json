@@ -1,0 +1,9 @@
+{
+ "instr": "Labirynt: przeprowadź kropkę od startu do wyjścia najkrótszą drogą, jaką znajdziesz.",
+ "clue": "Przeprowadź niebieską kropkę przez labirynt do zielonego pola wyjścia w jak najmniejszej liczbie kroków. Warto najpierw zaplanować trasę. Poruszaj się klawiszami strzałek, przyciskami strzałek lub dotykając pola obok kropki. Przez ściany nie można przechodzić. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "up": "W górę",
+ "down": "W dół",
+ "left": "W lewo",
+ "right": "W prawo"
+}

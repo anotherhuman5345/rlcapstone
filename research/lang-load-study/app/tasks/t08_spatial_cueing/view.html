@@ -1,0 +1,17 @@
+<div class="spatial-cueing">
+  <svg id="sc-stage" viewBox="0 0 900 300" width="900" height="300" role="img" aria-label="{{ text.stage_label }}"
+       style="display:block;margin:0 auto;background:#f7f9fb;border:1px solid #c7d0d8;border-radius:6px">
+    <rect x="90" y="90" width="120" height="120" fill="none" stroke="#5e6c78" stroke-width="4"/>
+    <rect x="690" y="90" width="120" height="120" fill="none" stroke="#5e6c78" stroke-width="4"/>
+    <g id="sc-fix" stroke="#1d2731" stroke-width="4">
+      <line x1="435" y1="150" x2="465" y2="150"/><line x1="450" y1="135" x2="450" y2="165"/>
+    </g>
+    <polygon id="sc-cue" points="410,140 460,140 460,122 492,150 460,178 460,160 410,160" fill="#1d2731" visibility="hidden"/>
+    <circle id="sc-target" cx="150" cy="150" r="26" fill="#1f6e8c" visibility="hidden"/>
+  </svg>
+  <div class="btn-row" style="justify-content:center">
+    <button type="button" data-key="left">← {{ text.left }}</button>
+    <button type="button" data-key="right">{{ text.right }} →</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="sc-start">{{ text.start }}</button></p>
+</div>

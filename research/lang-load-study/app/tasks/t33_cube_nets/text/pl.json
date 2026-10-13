@@ -1,0 +1,6 @@
+{
+ "instr": "Siatki sześcianu: wybierz płaską siatkę, z której da się złożyć pokazany sześcian.",
+ "clue": "Sześcian ma na każdej z sześciu ścian inny znak; widzisz trzy z nich. Każdą płaską siatkę poniżej można złożyć w sześcian, ze znakami na zewnątrz. Tylko jedna z nich daje dokładnie ten sześcian: te same znaki, sąsiadujące ze sobą w ten sam sposób i skierowane w tę samą stronę. Kliknij lub dotknij tej siatki albo naciśnij jej numer od 1 do 4. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "options": "Z której siatki da się złożyć ten sześcian?"
+}

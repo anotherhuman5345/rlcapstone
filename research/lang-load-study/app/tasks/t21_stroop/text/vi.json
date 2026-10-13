@@ -1,0 +1,17 @@
+{
+ "instr": "Từ chỉ màu: với mỗi từ, hãy nhấn nút ứng với màu MỰC của chữ, không phải màu mà từ đó gọi tên.",
+ "clue": "Một từ chỉ màu hiện ra, được viết bằng mực màu. Hãy cho biết màu MỰC và bỏ qua nghĩa của từ. Nhấn các phím 1-4 hoặc chạm vào nút có màu tương ứng. Hãy trả lời nhanh và chính xác. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "words": [
+  "ĐỎ",
+  "XANH DƯƠNG",
+  "XANH LÁ",
+  "VÀNG"
+ ],
+ "color_names": [
+  "Đỏ",
+  "Xanh dương",
+  "Xanh lá",
+  "Vàng"
+ ],
+ "start": "Bắt đầu"
+}

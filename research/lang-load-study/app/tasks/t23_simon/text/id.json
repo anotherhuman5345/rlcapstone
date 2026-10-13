@@ -1,0 +1,7 @@
+{
+ "instr": "Lingkaran berwarna: tekan sisi yang sesuai dengan warna lingkaran, di mana pun lingkaran itu muncul.",
+ "clue": "Sebuah lingkaran muncul di kiri atau kanan. Jawab berdasarkan WARNANYA, bukan posisinya: tekan tombol panah (atau tombol di layar) di sisi yang menampilkan warna itu. Jawab dengan cepat dan tepat. Tekan Mulai jika sudah siap.",
+ "left": "Kiri",
+ "right": "Kanan",
+ "start": "Mulai"
+}

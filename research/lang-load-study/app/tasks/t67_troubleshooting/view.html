@@ -1,0 +1,29 @@
+<div class="trbl-task">
+  <style>
+    .trbl-task .machine { position: relative; width: min(100%, 860px); aspect-ratio: 2 / 1; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+    .trbl-task .machine svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .trbl-task .node { position: absolute; transform: translate(-50%, -50%); margin: 0; padding: .45rem .7rem; min-width: 6.5rem; background: #e8eef3; color: var(--ink); border: 2px solid #8a9aa8; border-radius: 6px; font-weight: 500; font-size: .95rem; line-height: 1.2; text-align: center; }
+    .trbl-task .node.sel { border-color: var(--signal); box-shadow: 0 0 0 3px var(--signal); }
+    .trbl-task .node .n { display: block; font-size: .75rem; color: var(--muted); }
+    .trbl-task .node .res { display: block; font-size: .8rem; font-weight: 700; min-height: 1rem; }
+    .trbl-task .node .res.yes { color: #1e7a3c; }
+    .trbl-task .node .res.no { color: #9b1c1c; }
+    .trbl-task .tag { position: absolute; transform: translate(-50%, -50%); font-size: .85rem; color: var(--muted); text-align: center; }
+    .trbl-task .lamp { width: 1.8rem; height: 1.8rem; border-radius: 50%; margin: 0 auto .1rem; border: 2px solid #555; background: #3a3f44; }
+    .trbl-task .lamp.on { background: #ffd43b; box-shadow: 0 0 12px #ffd43b; }
+    .trbl-task .src { width: 1.8rem; height: 1.8rem; margin: 0 auto .1rem; background: #1F6E8C; border-radius: 4px; }
+    .trbl-task .hint { color: var(--muted); margin: .3rem 0; }
+    @media (max-width: 640px) { .trbl-task .node { min-width: 3.6rem; padding: .3rem .3rem; font-size: .75rem; } .trbl-task .machine { aspect-ratio: 4 / 3; } }
+  </style>
+  <p class="meta" id="tb-case"></p>
+  <div class="machine" id="tb-machine" hidden>
+    <svg id="tb-lines" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true"></svg>
+  </div>
+  <p class="hint" id="tb-hint" hidden>{{ text.select_hint }}</p>
+  <div class="btn-row" id="tb-actions" hidden>
+    <button type="button" id="tb-test">{{ text.test }}</button>
+    <button type="button" id="tb-report">{{ text.report }}</button>
+  </div>
+  <p class="meta" id="tb-count"></p>
+  <p><button type="button" id="tb-start">{{ text.start }}</button></p>
+</div>

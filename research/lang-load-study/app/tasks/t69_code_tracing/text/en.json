@@ -1,0 +1,4 @@
+{"instr": "Short programs: read each short program and type the number it prints.",
+ "clue": "You will see three short programs. Follow them step by step, line by line, and work out the number that is printed at the end. Type it with the keypad or the keyboard (use − for a negative number), then press OK or Enter. No need to hurry. Press Start when ready.",
+ "start": "Start", "program_of": "Program {n} of {total}", "output": "Printed number:", "ok": "OK", "erase": "Erase",
+ "kw_set": "set {v} to {e}", "kw_repeat": "repeat {n} times:", "kw_if": "if {c}:", "kw_else": "otherwise:", "kw_print": "print {e}"}

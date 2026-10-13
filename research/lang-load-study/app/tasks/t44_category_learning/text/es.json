@@ -1,0 +1,15 @@
+{
+ "instr": "Clasificación: aprenda con las respuestas a cuál de dos grupos pertenece cada objeto y luego clasifique objetos nuevos sin respuestas.",
+ "clue": "Cada objeto pertenece a uno de dos grupos. Decida a cuál con la flecha izquierda (o el botón izquierdo) o la flecha derecha (o el botón derecho). Al principio tendrá que adivinar; después de cada respuesta se le dirá el grupo correcto, así podrá descubrir qué lo determina. Más tarde aparecerán objetos nuevos sin respuesta. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "groups": [
+  "Grupo A",
+  "Grupo B"
+ ],
+ "correct": "Correcto",
+ "wrong": "Incorrecto: este objeto es del {group}",
+ "too_slow": "Demasiado lento: este objeto es del {group}",
+ "transfer_note": "A partir de ahora no habrá respuesta. Siga clasificando los objetos de la misma manera.",
+ "train_of": "Aprendizaje: objeto {n} de {total}",
+ "transfer_of": "Prueba: objeto {n} de {total}"
+}

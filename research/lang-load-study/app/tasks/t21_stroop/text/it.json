@@ -1,0 +1,17 @@
+{
+ "instr": "Parole di colore: per ogni parola, premi il pulsante del colore dell'INCHIOSTRO, non del colore che la parola nomina.",
+ "clue": "Compare il nome di un colore scritto con un inchiostro colorato. Indica il colore dell'INCHIOSTRO e ignora ciò che dice la parola. Premi i tasti 1-4 o tocca il pulsante del colore corrispondente. Rispondi in modo rapido e preciso. Premi Inizia quando sei pronto.",
+ "words": [
+  "ROSSO",
+  "BLU",
+  "VERDE",
+  "GIALLO"
+ ],
+ "color_names": [
+  "Rosso",
+  "Blu",
+  "Verde",
+  "Giallo"
+ ],
+ "start": "Inizia"
+}

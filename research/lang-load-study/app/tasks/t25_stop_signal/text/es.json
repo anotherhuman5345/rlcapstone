@@ -1,0 +1,9 @@
+{
+ "instr": "Flechas con señal de alto: pulse rápido la dirección de la flecha, pero conténgase si se vuelve roja.",
+ "clue": "Aparecerá una flecha en el centro. Pulse la tecla de flecha izquierda o derecha (o el botón) según hacia dónde apunte, lo más rápido que pueda. A veces, justo después de aparecer, la flecha se vuelve roja dentro de un anillo rojo (con un pitido si el sonido está activado): entonces intente NO pulsar. No siempre logrará detenerse; es normal. No vaya más despacio para esperar la señal roja. Pulse Iniciar cuando esté listo/a.",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "start": "Iniciar",
+ "sound": "Pitido con la señal de alto",
+ "stage_label": "Zona donde aparecen las flechas"
+}

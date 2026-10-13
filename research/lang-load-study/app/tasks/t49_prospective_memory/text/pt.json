@@ -1,0 +1,9 @@
+{
+ "instr": "Ímpar ou par, com algo para lembrar: classifique os números como ímpares ou pares e pressione Especial sempre que um número aparecer dentro de uma moldura quadrada.",
+ "clue": "Os números aparecem um de cada vez. Pressione Ímpar (seta para a esquerda) ou Par (seta para a direita). Lembre-se: se um número aparecer dentro de uma moldura quadrada grossa, pressione Especial (barra de espaço) em vez disso. Responda rápido. Pressione Começar quando estiver pronto(a).",
+ "odd": "Ímpar",
+ "even": "Par",
+ "special": "Especial",
+ "space": "barra de espaço",
+ "start": "Começar"
+}

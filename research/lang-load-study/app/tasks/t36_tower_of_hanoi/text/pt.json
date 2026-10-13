@@ -1,0 +1,12 @@
+{
+ "instr": "Torre: leve todos os discos para o pino de destino marcado, um disco de cada vez, sem nunca colocar um disco maior sobre um menor.",
+ "clue": "Leve a torre inteira de discos para o pino marcado como “destino”. Pegue o disco de cima clicando no pino dele (ou pressionando 1, 2 ou 3) e depois clique no pino para onde ele deve ir. Mova um disco de cada vez e nunca coloque um disco maior sobre um menor. Tente usar o menor número de movimentos possível. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "reset": "Recomeçar",
+ "give_up": "Desistir",
+ "target": "destino",
+ "moves_label": "Movimentos:",
+ "illegal": "Não permitido: um disco maior não pode ficar sobre um menor.",
+ "empty_peg": "Esse pino está vazio.",
+ "solved": "Pronto!"
+}

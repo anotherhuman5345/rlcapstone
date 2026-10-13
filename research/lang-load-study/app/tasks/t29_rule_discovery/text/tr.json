@@ -1,0 +1,3 @@
+{"instr": "Kart eşleme: her kartı, geri bildirimden çıkaracağınız gizli bir kurala göre dört karttan biriyle eşleyin. Kural değişebilir.",
+ "clue": "Dört örnek kartın altında yeni bir kart görünecek. Onu örnek kartlardan birine tıklayarak, dokunarak ya da 1-4 tuşlarına basarak eşleyin. Kartlar renge, şekle ya da şekil sayısına göre eşleşebilir, ama hangisi olduğu söylenmez: geri bildirim (doğru / yanlış) size gösterir. Kural zaman zaman haber verilmeden değişir; o zaman yenisini bulun. Hazır olunca Başla'ya basın.",
+ "correct": "Doğru", "wrong": "Yanlış", "too_slow": "Çok yavaş", "start": "Başla"}

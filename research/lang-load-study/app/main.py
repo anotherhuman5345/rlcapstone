@@ -13,6 +13,8 @@ from fastapi import Depends, FastAPI, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from typing import Any
+
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 
@@ -24,6 +26,7 @@ from .db import FatigueRating, Participant, SessionLocal, TrialResult, init_db, 
 from .i18n import LANGUAGES, LOCALES, direction, language_name, t, verified
 from .plan import build_plan, load_manifest
 from .reading import has_reading, reading_hash, reading_item
+from .tasks import PLUGINS, ascii_digits
 
 @asynccontextmanager
 async def lifespan(_app):
@@ -35,7 +38,7 @@ async def lifespan(_app):
 
 app = FastAPI(title="Language & Visual Search Study", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=config.ROOT / "app" / "static"), name="static")
-templates = Jinja2Templates(directory=config.ROOT / "app" / "templates")
+templates = Jinja2Templates(directory=[config.ROOT / "app" / "templates", config.ROOT / "app" / "tasks"])
 COOKIE = "pid"
 
 
@@ -49,6 +52,46 @@ def image(name: str):
 
 
 _db_ready = False
+
+
+@app.get("/taskjs/{task_id}.js")
+def task_js(task_id: str):
+    if task_id not in PLUGINS:
+        raise HTTPException(404)
+    return FileResponse(PLUGINS[task_id].js, media_type="text/javascript")
+
+
+@app.get("/try", response_class=HTMLResponse)
+def try_index(request: Request, lang: str = "en"):
+    """Task library: every task, each with a stand-alone demo. Nothing is saved."""
+    lang = lang if lang in LANGUAGES else "en"
+    tasks = sorted(PLUGINS.values(), key=lambda pl: pl.meta.get("card", "99"))
+    return render(request, "try_index.html", lang=lang, tasks=tasks)
+
+
+@app.get("/try/{task_id}", response_class=HTMLResponse)
+def try_task(request: Request, task_id: str, lang: str = "en", k: int = 0):
+    if task_id not in PLUGINS:
+        raise HTTPException(404)
+    plugin = PLUGINS[task_id]
+    lang = lang if plugin.has_language(lang) else "en"
+    items = [i for i in load_manifest()["images"] if i["task"] == task_id]
+    if not items:
+        raise HTTPException(404, "Run the stimulus generator")
+    img = items[k % len(items)]
+    trial = {"task": task_id, "image_id": img["id"], "clue_lang": lang, "practice": True, "round": None}
+    return render(request, "plugin_trial.html", lang=lang, trial=trial, img=img, plugin=plugin,
+                  text=plugin.text[lang], clue_dir=direction(lang), n=1, rounds=config.ROUNDS,
+                  timeout=plugin.timeout_ms, try_mode=True, next_k=k + 1)
+
+
+@app.post("/try/{task_id}/score")
+async def try_score(task_id: str, request: Request):
+    if task_id not in PLUGINS:
+        raise HTTPException(404)
+    body = await request.json()
+    img = next(i for i in load_manifest()["images"] if i["id"] == body.get("image_id"))
+    return PLUGINS[task_id].logic.score(img["target"], ascii_digits(body.get("response")))
 
 
 def get_db():
@@ -163,6 +206,9 @@ def background(request: Request, group: str = Form(...), age: int = Form(..., ge
     p.counterbalance = n_in_group % 4
     # Reading needs passages in both of the person's languages.
     available = set(config.ROUND_MIX) - (set() if has_reading(l1) and has_reading(l2) else {"reading"})
+    # Library tasks run only when their text exists in both of the person's languages.
+    available -= {t for t in available if t in PLUGINS and not (PLUGINS[t].has_language(l1)
+                                                                 and PLUGINS[t].has_language(l2))}
     p.plan = build_plan(p.id, p.counterbalance, p.l1, p.l2, available=available)
     db.commit()
     return RedirectResponse("/fatigue?point=baseline", status_code=303)
@@ -241,7 +287,10 @@ def instructions(request: Request, db=Depends(get_db)):
     p = current(request, db)
     names = {"l1": language_name(p.l1), "l2": language_name(p.l2)} if p.l1 else {"l1": "", "l2": ""}
     has_reading_task = any(t["task"] == "reading" for t in (p.plan or []))
-    return render(request, "instructions.html", p, has_reading_task=has_reading_task, **names)
+    in_plan = list(dict.fromkeys(t["task"] for t in (p.plan or []) if t["task"] in PLUGINS))
+    library_instr = [PLUGINS[t].text.get(p.ui_lang, PLUGINS[t].text["en"])["instr"] for t in in_plan]
+    return render(request, "instructions.html", p, has_reading_task=has_reading_task,
+                  library_instr=library_instr, **names)
 
 
 @app.get("/trial", response_class=HTMLResponse)
@@ -275,6 +324,11 @@ def trial_page(request: Request, db=Depends(get_db)):
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
     clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img.get("width"), img.get("height"))
+    if trial["task"] in PLUGINS:
+        plugin = PLUGINS[trial["task"]]
+        return render(request, "plugin_trial.html", p, trial=trial, img=img, plugin=plugin,
+                      text=plugin.text[trial["clue_lang"]], clue_dir=direction(trial["clue_lang"]),
+                      n=p.current_trial + 1, rounds=config.ROUNDS, timeout=plugin.timeout_ms, try_mode=False)
     template = {"corsi": "trial_corsi.html", "reading": "trial_reading.html", "rule": "trial_rule.html",
                 "ospan": "trial_ospan.html"}.get(trial["task"], "trial.html")
     item = None
@@ -315,7 +369,7 @@ class TrialIn(BaseModel):
     effort: int | None = Field(None, ge=1, le=9)
     # Corsi: squares clicked; reading: option chosen; rule: "A"/"B";
     # operation span: {"recall": [word ids], "sums": [true/false/null per sum]}
-    response: list[int] | int | str | dict | None = None
+    response: Any = None
     focus_lost: int = Field(0, ge=0)
 
 
@@ -329,7 +383,13 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
     tg = img["target"]
     # The server scores every trial itself so the browser cannot claim a hit.
     false_clicks = data.false_clicks
-    if trial["task"] == "corsi":
+    metrics = None
+    if trial["task"] in PLUGINS:
+        result = PLUGINS[trial["task"]].logic.score(tg, ascii_digits(data.response))
+        hit = bool(result["hit"]) and not data.timed_out
+        false_clicks = int(result.get("errors", 0))
+        metrics = json.dumps({"response": data.response, **result.get("metrics", {})})
+    elif trial["task"] == "corsi":
         expected = tg["sequence"] if tg["direction"] == "forward" else tg["sequence"][::-1]
         clicks = data.response if isinstance(data.response, list) else []
         hit = not data.timed_out and clicks == expected
@@ -353,7 +413,8 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
                        condition=trial["condition"], practice=trial["practice"],
                        rt_ms=data.rt_ms if hit else None, hit=hit, timed_out=data.timed_out,
                        false_clicks=false_clicks, effort=data.effort, focus_lost=data.focus_lost,
-                       response=json.dumps(data.response) if data.response is not None else None,
+                       response=(json.dumps(data.response)[:200] if data.response is not None else None),
+                       metrics=metrics,
                        reloads=max(0, p.trial_views - 1), round=trial.get("round"),
                        elapsed_s=round(minutes_since(p.task_started_at) * 60, 1)))
     p.current_trial += 1

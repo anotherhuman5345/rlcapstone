@@ -1,0 +1,26 @@
+<style>
+  .tswitch .field { background: #f3f3f3; border-radius: 6px; min-height: 11rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .tswitch .cue { font-size: 1.8rem; font-weight: 700; letter-spacing: .06em; min-height: 2.4rem; margin: .4rem 0; }
+  .tswitch .stim { width: 5rem; height: 5rem; visibility: hidden; margin: .4rem 0 .8rem; }
+  .tswitch .btn-row { justify-content: space-between; }
+  .tswitch .btn-row button { background: #fff; color: #222; border: 2px solid #555; text-align: left; line-height: 1.6; }
+  .tswitch .map { display: block; font-weight: 500; font-size: .95rem; }
+  .tswitch .sw { display: inline-block; width: 1em; height: 1em; vertical-align: -0.12em; margin-left: .35em; border: 1px solid #0006; }
+</style>
+<div class="tswitch">
+  <div class="field" aria-live="off">
+    <div class="cue" id="ts-cue"></div>
+    <div class="stim" id="ts-stim"></div>
+  </div>
+  <div class="btn-row">
+    <button type="button" data-key="left">← {{ text.left }}
+      <span class="map">{{ text.cue_color }}: <span class="sw" style="background: {{ item.palette[0] }}; border-radius: 3px"></span></span>
+      <span class="map">{{ text.cue_shape }}: <span class="sw" style="background: #555; border-radius: 50%"></span></span>
+    </button>
+    <button type="button" data-key="right">{{ text.right }} →
+      <span class="map">{{ text.cue_color }}: <span class="sw" style="background: {{ item.palette[1] }}; border-radius: 3px"></span></span>
+      <span class="map">{{ text.cue_shape }}: <span class="sw" style="background: #555; border-radius: 0"></span></span>
+    </button>
+  </div>
+  <p><button type="button" id="ts-start">{{ text.start }}</button></p>
+</div>

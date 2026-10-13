@@ -1,0 +1,14 @@
+{
+ "instr": "Peluang: bandingkan dua kejadian dan pilih yang lebih mungkin, atau katakan bahwa keduanya sama mungkin.",
+ "clue": "Setiap layar menampilkan dua kejadian, A dan B, dalam kata-kata dan gambar. Bola diambil tanpa melihat, dan setiap bola punya peluang yang sama untuk terambil; dadunya adil. Pilih kejadian mana yang lebih mungkin, atau \"Sama mungkin\". Gunakan tombol di layar atau tombol 1 (A), 2 (sama mungkin), 3 (B). Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Sama mungkin",
+ "question": "Mana yang lebih mungkin?",
+ "progress": "Pertanyaan {i} dari {n}",
+ "ev_bag1": "Kantong {L} berisi {r} bola merah dan {b} bola biru. Anda mengambil satu bola dan bola itu merah.",
+ "ev_bag2_replace": "Kantong {L} berisi {r} bola merah dan {b} bola biru. Anda mengambil satu bola, mengembalikannya, lalu mengambil lagi. Kedua bola merah.",
+ "ev_bag2_keep": "Kantong {L} berisi {r} bola merah dan {b} bola biru. Anda mengambil satu bola, tidak mengembalikannya, lalu mengambil lagi. Kedua bola merah.",
+ "ev_dice": "Anda melempar dua dadu dan jumlah kedua angkanya {s}."
+}

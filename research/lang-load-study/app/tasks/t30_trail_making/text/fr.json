@@ -1,0 +1,6 @@
+{
+ "instr": "Reliez les cercles : cliquez sur les cercles dans le bon ordre le plus vite possible.",
+ "clue": "Cliquez ou touchez les cercles dans l'ordre le plus vite possible (au clavier : Tab jusqu'à un cercle, puis Entrée). Si les cercles ne contiennent que des nombres, allez 1-2-3-4 et ainsi de suite. S'ils contiennent des nombres et des lettres, alternez : 1-J-2-K-3-L et ainsi de suite. Un mauvais cercle clignote en rouge ; trouvez alors le bon. Les cercles apparaissent quand vous appuyez sur Démarrer.",
+ "go": "Partez !",
+ "start": "Démarrer"
+}

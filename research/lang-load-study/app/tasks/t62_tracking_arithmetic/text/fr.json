@@ -1,0 +1,10 @@
+{
+ "instr": "Suivre et additionner : gardez votre pointeur sur le point qui bouge tout en répondant à des additions simples qui apparaissent en dessous.",
+ "clue": "Gardez le pointeur sur le point bleu qui bouge pendant tout l'exercice : déplacez la souris, faites glisser votre doigt, ou maintenez les flèches du clavier (ou les boutons fléchés). Des additions apparaîtront sous la zone : choisissez la réponse en cliquant dessus ou en appuyant sur 1, 2 ou 3. Suivre le point et répondre aux additions comptent autant. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "sum_hint": "Répondez avec 1, 2, 3 ou un clic",
+ "up": "Haut",
+ "down": "Bas",
+ "left": "Gauche",
+ "right": "Droite"
+}

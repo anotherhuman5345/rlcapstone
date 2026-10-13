@@ -1,0 +1,12 @@
+{
+ "instr": "Direções no mapa: imagine-se em um ponto de referência, de frente para outro, e diga para que lado fica um terceiro.",
+ "clue": "O mapa mostra seis pontos de referência vistos de cima. Imagine que você está no primeiro ponto, de frente para o segundo. O terceiro ponto está à sua frente, à sua direita, atrás de você ou à sua esquerda? Não gire a tela. Responda com as setas do teclado ou os botões. Há quatro perguntas neste mapa. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "stand": "Você está em",
+ "face": "Você está de frente para",
+ "where": "Onde está",
+ "ahead": "À frente",
+ "right": "À direita",
+ "behind": "Atrás",
+ "left": "À esquerda"
+}

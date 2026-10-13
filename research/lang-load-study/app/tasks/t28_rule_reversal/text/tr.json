@@ -1,0 +1,3 @@
+{"instr": "İki şekil: deneyerek hangi şeklin doğru olduğunu bulun. Doğru şekil haber verilmeden değişebilir.",
+ "clue": "İki şekil görünecek. Bunlardan biri doğrudur. Birini tıklayarak, dokunarak ya da sol/sağ ok tuşlarıyla seçin; doğru olup olmadığını göreceksiniz. Doğru olanı seçmeye devam edin. Haber verilmeden diğer şekil doğru olabilir: o zaman ona geçin. Şeklin ekrandaki yeri önemli değildir. Hazır olunca Başla'ya basın.",
+ "left": "Sol", "right": "Sağ", "correct": "Doğru", "wrong": "Yanlış", "too_slow": "Çok yavaş", "start": "Başla"}

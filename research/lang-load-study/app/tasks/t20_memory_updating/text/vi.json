@@ -1,0 +1,17 @@
+{
+ "instr": "Hộp số: hãy theo dõi các con số trong vài hộp trong khi các chỉ dẫn thay đổi chúng, rồi gõ các số cuối cùng.",
+ "clue": "Bạn sẽ thấy vài hộp có số. Hãy nhớ chúng: các con số sẽ bị ẩn đi. Sau đó các chỉ dẫn lần lượt hiện ra, bảo bạn cộng thêm vào hoặc trừ bớt ở một hộp. Hãy cập nhật các con số trong đầu. Cuối cùng, hãy gõ số cuối cùng của mỗi hộp (bằng bàn phím hoặc bàn phím số trên màn hình) và nhấn Xong. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "done": "Xong",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Cộng {n} vào hộp {b}",
+ "op_sub": "Trừ {n} khỏi hộp {b}",
+ "phase_study": "Hãy nhớ các con số.",
+ "phase_update": "Hãy cập nhật các con số trong đầu.",
+ "phase_answer": "Hãy gõ số cuối cùng của mỗi hộp. Chạm vào một hộp để chọn nó; Enter chuyển sang hộp tiếp theo."
+}

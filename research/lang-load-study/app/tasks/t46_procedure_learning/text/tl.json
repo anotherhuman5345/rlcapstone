@@ -1,0 +1,40 @@
+{
+ "instr": "Mga hakbang ng makina: alamin mula sa nakasulat na mga hakbang kung paano paandarin ang isang imbentong makina, pagkatapos ay paandarin ito nang mula sa memorya.",
+ "clue": "Basahin muna ang mga hakbang sa pagpapaandar ng makina at ang halimbawang may sagot; may hanggang 45 segundo ka. Pagkatapos, mawawala ang mga hakbang at tatlong beses mong papaandarin ang makina nang mula sa memorya: tingnan ang kulay ng lampara at ang numero, pindutin ang mga button sa tamang pagkakasunod-sunod (i-click, i-tap, o mga key na 1-8), pagkatapos ay pindutin ang Tapos (Enter). Tinatanggal ng I-undo (Backspace) ang huli mong pindot. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "study_title": "Paano paandarin ang makina:",
+ "example": "Halimbawang may sagot: para sa makinang ito, ang mga tamang pindot ay:",
+ "learned": "Natutuhan ko na",
+ "study_left": "{s} s na lang",
+ "case_of": "Makina {n} sa {total}",
+ "lamp": "Lampara",
+ "number": "Numero",
+ "presses": "Mga pindot mo:",
+ "undo": "I-undo",
+ "done": "Tapos",
+ "colors": [
+  "pula",
+  "asul"
+ ],
+ "step_fixed": "Pindutin ang {a}.",
+ "step_cond": "Kung {c} ang lampara, pindutin ang {a}; kung hindi, pindutin ang {b}.",
+ "step_repeat": "Pindutin ang {a} nang ilang beses ayon sa numero sa display.",
+ "actions": [
+  "BUKSAN",
+  "ISARA",
+  "PAINITIN",
+  "PALAMIGIN",
+  "HALUIN",
+  "ALUGIN",
+  "PUNUIN",
+  "SAIDIN",
+  "SELYUHAN",
+  "DIINAN",
+  "IPIHIT",
+  "IANGAT",
+  "IKANDADO",
+  "HUGASAN",
+  "PATUYUIN",
+  "TIMBANGIN"
+ ]
+}

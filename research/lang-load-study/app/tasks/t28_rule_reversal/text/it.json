@@ -1,0 +1,10 @@
+{
+ "instr": "Due figure: scopri per tentativi quale figura è quella giusta. La figura giusta può cambiare senza preavviso.",
+ "clue": "Compaiono due figure. Una delle due è quella giusta. Scegline una cliccandola o toccandola, oppure con i tasti freccia sinistra/destra: vedrai se hai indovinato. Continua a scegliere quella giusta. Senza preavviso, l'altra figura potrebbe diventare quella giusta: allora cambia. La sua posizione sullo schermo non conta. Premi Inizia quando sei pronto.",
+ "left": "Sinistra",
+ "right": "Destra",
+ "correct": "Corretto",
+ "wrong": "Sbagliato",
+ "too_slow": "Troppo lento",
+ "start": "Inizia"
+}

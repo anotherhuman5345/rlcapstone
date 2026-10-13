@@ -1,0 +1,8 @@
+{
+ "instr": "Trasa dostaw: zaplanuj najkrótszą trasę z magazynu przez wszystkie przystanki i z powrotem.",
+ "clue": "Zacznij w magazynie (ciemny kwadrat), odwiedź raz każdy ponumerowany przystanek i wróć do magazynu. Cała trasa ma być jak najkrótsza (odległość w linii prostej). Klikaj lub dotykaj przystanki w kolejności, w jakiej chcesz je odwiedzić, albo wpisuj ich numery. Cofnij (klawisz Backspace) usuwa ostatni przystanek. Gdy wszystkie przystanki są na trasie, naciśnij Gotowe (klawisz Enter). Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "undo": "Cofnij",
+ "erase": "Wyczyść",
+ "done": "Gotowe"
+}

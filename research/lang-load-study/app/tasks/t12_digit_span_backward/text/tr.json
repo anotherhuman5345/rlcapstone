@@ -1,0 +1,4 @@
+{"instr": "Ters rakamlar: kısa bir rakam dizisini tek tek izleyin, sonra sondan başlayarak ters sırayla yazın.",
+ "clue": "Başla'ya basın ve rakamları tek tek izleyin. Rakamlar bitince onları TERS sırayla, sondakinden ilkine doğru, tuş takımıyla ya da klavyenizle yazın, sonra Tamam'a basın. Örnek: 3 8 1 görürseniz 1 8 3 yazın.",
+ "recall": "Rakamları ters sırayla yazın: önce en son gördüğünüz rakam.",
+ "start": "Başla", "done": "Tamam", "delete": "Son rakamı sil"}

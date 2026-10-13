@@ -1,0 +1,22 @@
+<style>
+  .an-stem { display: grid; grid-template-columns: 1fr auto 1fr; gap: .4rem .6rem; align-items: center; max-width: 34rem; margin: 0 auto; }
+  .an-stem .arrow { font-size: 1.8rem; color: var(--muted); }
+  .an-fig { display: block; width: 100%; height: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
+  .an-fig.q { border-style: dashed; }
+  .an-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; max-width: 34rem; margin: 1rem auto 0; }
+  .an-opts button { margin: 0; padding: .3rem; background: var(--paper); color: var(--ink); border: 2px solid var(--line); display: flex; align-items: center; gap: .4rem; }
+  .an-opts button:hover { border-color: var(--signal); }
+  .an-opts .num { font-weight: 700; min-width: 1.2rem; }
+  .an-opts button svg { flex: 1; min-width: 0; }
+  .an-hidden { visibility: hidden; }
+</style>
+<div class="analogies">
+  <div class="an-stem an-hidden" id="an-stem" dir="ltr">
+    <svg class="an-fig" id="an-a" viewBox="0 0 320 120" aria-hidden="true"></svg><span class="arrow">&rarr;</span><svg class="an-fig" id="an-b" viewBox="0 0 320 120" aria-hidden="true"></svg>
+    <svg class="an-fig" id="an-c" viewBox="0 0 320 120" aria-hidden="true"></svg><span class="arrow">&rarr;</span><svg class="an-fig q" id="an-q" viewBox="0 0 320 120" aria-hidden="true"></svg>
+  </div>
+  <div class="an-opts an-hidden" id="an-opts" dir="ltr">
+    {% for i in range(4) %}<button type="button" data-opt="{{ i }}" aria-label="{{ text.option }} {{ i + 1 }}"><span class="num">{{ i + 1 }}</span><svg class="an-fig" viewBox="0 0 320 120" aria-hidden="true"></svg></button>{% endfor %}
+  </div>
+  <p style="text-align:center"><button type="button" id="an-start">{{ text.start }}</button></p>
+</div>

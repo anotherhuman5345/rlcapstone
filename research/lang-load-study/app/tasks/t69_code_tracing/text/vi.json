@@ -1,0 +1,14 @@
+{
+ "instr": "Chương trình ngắn: hãy đọc từng chương trình ngắn và gõ con số mà nó in ra.",
+ "clue": "Bạn sẽ thấy ba chương trình ngắn. Hãy theo dõi từng chương trình từng bước, từng dòng một, và tìm ra con số được in ra ở cuối. Gõ số đó bằng bàn phím số trên màn hình hoặc bàn phím (dùng − cho số âm), rồi nhấn OK hoặc Enter. Không cần vội. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "program_of": "Chương trình {n} / {total}",
+ "output": "Số được in ra:",
+ "ok": "OK",
+ "erase": "Xóa",
+ "kw_set": "gán {v} = {e}",
+ "kw_repeat": "lặp lại {n} lần:",
+ "kw_if": "nếu {c}:",
+ "kw_else": "ngược lại:",
+ "kw_print": "in ra {e}"
+}

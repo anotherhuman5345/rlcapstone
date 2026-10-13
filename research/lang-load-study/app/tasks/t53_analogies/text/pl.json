@@ -1,0 +1,7 @@
+{
+ "instr": "Analogie obrazkowe: pierwszy obrazek zmienia się w drugi; wybierz obrazek, który zmienia trzeci w ten sam sposób.",
+ "clue": "Górny obrazek po lewej zmienia się w obrazek po jego prawej stronie. Znajdź opcję, która zmienia dolny obrazek dokładnie w ten sam sposób (może się obrócić, odbić, zmienić wypełnienie lub wielkość albo zyskać kopię, albo dwie z tych rzeczy naraz). Kliknij lub dotknij opcji albo naciśnij jej numer 1-4. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "option": "Opcja",
+ "progress": "Zagadka {i} z {n}"
+}

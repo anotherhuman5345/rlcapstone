@@ -1,0 +1,3 @@
+{"instr": "Maze: move the dot from the start to the exit by the shortest way you can find.",
+ "clue": "Move the blue dot through the maze to the green exit square, using as few steps as you can. It helps to plan the route first. Move with the arrow keys, the arrow buttons, or by tapping a square next to the dot. Walls cannot be crossed. Press Start when ready.",
+ "start": "Start", "up": "Up", "down": "Down", "left": "Left", "right": "Right"}

@@ -1,0 +1,14 @@
+{
+ "instr": "Uwezekano: linganisha matukio mawili na uchague lile lenye uwezekano mkubwa zaidi, au useme yana uwezekano sawa.",
+ "clue": "Kila skrini inaonyesha matukio mawili, A na B, kwa maneno na kwa picha. Mipira inatolewa bila kuangalia, na kila mpira una nafasi sawa ya kutolewa; kete hazina hila. Chagua tukio lenye uwezekano mkubwa zaidi, au \"Uwezekano sawa\". Tumia vitufe vilivyo kwenye skrini au vitufe 1 (A), 2 (uwezekano sawa), 3 (B). Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Uwezekano sawa",
+ "question": "Lipi lina uwezekano mkubwa zaidi?",
+ "progress": "Swali {i} kati ya {n}",
+ "ev_bag1": "Mfuko {L} una mipira {r} ya rangi nyekundu na {b} ya rangi ya buluu. Unatoa mpira mmoja, nao ni wa rangi nyekundu.",
+ "ev_bag2_replace": "Mfuko {L} una mipira {r} ya rangi nyekundu na {b} ya rangi ya buluu. Unatoa mpira, unaurudisha, kisha unatoa tena. Mipira yote miwili ni ya rangi nyekundu.",
+ "ev_bag2_keep": "Mfuko {L} una mipira {r} ya rangi nyekundu na {b} ya rangi ya buluu. Unatoa mpira, unauweka nje, kisha unatoa tena. Mipira yote miwili ni ya rangi nyekundu.",
+ "ev_dice": "Unarusha kete mbili na jumla ya namba hizo mbili ni {s}."
+}

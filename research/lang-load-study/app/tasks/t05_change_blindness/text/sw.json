@@ -1,0 +1,12 @@
+{
+ "instr": "Gundua badiliko: matoleo mawili ya picha moja yanapishana kwa kumulika; bofya kitu kimoja kilicho tofauti.",
+ "clue": "Picha inapishana kati ya matoleo mawili. Kitu kimoja kinabadilika (rangi yake au umbo lake linabadilika, au kinatoweka). Bofya au gusa kitu hicho mara tu unapokipata. Kwa kibodi: sogeza alama ya msalaba kwa vitufe vya mishale na ubonyeze Enter. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "pick": "Chagua hapa",
+ "stage_label": "Picha inayomulika",
+ "move_left": "Sogeza kushoto",
+ "move_up": "Sogeza juu",
+ "move_down": "Sogeza chini",
+ "move_right": "Sogeza kulia",
+ "scene": "Picha {n} kati ya {total}"
+}

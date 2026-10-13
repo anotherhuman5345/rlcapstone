@@ -1,0 +1,7 @@
+{
+ "instr": "Carrés à l'envers : regardez des carrés s'allumer un par un, puis cliquez dessus dans l'ordre inverse, en commençant par le dernier.",
+ "clue": "Appuyez sur Démarrer et observez quels carrés s'allument, et dans quel ordre. Ensuite, cliquez ou touchez les mêmes carrés À L'ENVERS : le dernier allumé en premier, et le premier en dernier.",
+ "go": "Cliquez maintenant sur les carrés dans l'ordre inverse.",
+ "start": "Démarrer",
+ "square": "Carré"
+}

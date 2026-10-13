@@ -1,0 +1,52 @@
+<div class="form-task">
+  <style>
+    .form-task .cols { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: flex-start; }
+    .form-task .panel { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .8rem 1.1rem; }
+    .form-task .left { flex: 1 1 18rem; max-width: 26rem; }
+    .form-task .right { flex: 1 1 22rem; max-width: 30rem; }
+    .form-task h3 { margin: 0 0 .5rem; font-size: 1rem; color: var(--muted); font-weight: 600; }
+    .form-task dl { display: grid; grid-template-columns: auto 1fr; gap: .25rem 1rem; margin: 0 0 1rem; }
+    .form-task dt { color: var(--muted); }
+    .form-task dd { margin: 0; font-weight: 600; }
+    .form-task ol { margin: 0; padding-left: 1.3rem; }
+    .form-task ol li { margin-bottom: .4rem; }
+    .form-task .row { display: grid; grid-template-columns: 9.5rem 1fr; gap: .6rem; align-items: center; margin-bottom: .55rem; }
+    .form-task .row input[type=text], .form-task .row select { width: 100%; padding: .45rem; font: inherit; border: 1px solid var(--line); border-radius: 4px; }
+    .form-task fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .3rem .9rem; }
+    .form-task .help { margin-top: .4rem; padding: .6rem .8rem; background: var(--warn-bg); color: var(--warn-ink); border-radius: 4px; }
+    .form-task .btn-row button.secondary { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+  </style>
+  <div id="fc-work" hidden>
+    <div class="cols">
+      <div class="left">
+        <div class="panel">
+          <h3>{{ text.record_title }}</h3>
+          <dl id="fc-record"></dl>
+          <h3>{{ text.rules_title }}</h3>
+          <ol id="fc-rules"></ol>
+        </div>
+      </div>
+      <div class="right">
+        <div class="panel" id="fc-form" role="form" aria-label="{{ text.form_title }}">
+          <h3>{{ text.form_title }}</h3>
+          {% for f in ["family", "given", "member", "birth", "postcode", "phone", "amount"] %}
+          <label class="row"><span>{{ text.labels[f] }}</span>
+            <input type="text" data-f="{{ f }}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                   name="fc-{{ f }}-{{ loop.index }}"{% if f in ["member", "postcode", "amount"] %} inputmode="numeric"{% elif f == "phone" %} inputmode="tel"{% endif %}{% if f == "birth" %} placeholder="{{ text.date_placeholder }}"{% endif %}></label>
+          {% endfor %}
+          <label class="row"><span>{{ text.labels.plan }}</span>
+            <select data-f="plan" autocomplete="off"><option value="">{{ text.choose }}</option>
+              {% for p in text.plans %}<option value="{{ loop.index0 }}">{{ p }}</option>{% endfor %}</select></label>
+          <div class="row"><span>{{ text.labels.contact }}</span>
+            <fieldset>{% for c in text.contacts %}<label><input type="radio" name="fc-contact" value="{{ loop.index0 }}" autocomplete="off"> {{ c }}</label>{% endfor %}</fieldset></div>
+          <div class="btn-row">
+            <button type="button" class="secondary" id="fc-help">{{ text.help }}</button>
+            <button type="button" id="fc-submit">{{ text.submit }}</button>
+          </div>
+          <p class="help" id="fc-help-text" hidden>{{ text.help_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><button type="button" id="fc-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,6 @@
+{
+ "instr": "Una los círculos: haga clic en los círculos en el orden correcto lo más rápido que pueda.",
+ "clue": "Haga clic o toque los círculos en orden lo más rápido que pueda (con el teclado: Tab hasta un círculo y luego Enter). Si los círculos solo tienen números, vaya 1-2-3-4, etc. Si tienen números y letras, altérnelos: 1-J-2-K-3-L, etc. Un círculo equivocado parpadea en rojo; entonces busque el correcto. Los círculos aparecen al pulsar Iniciar.",
+ "go": "¡Ya!",
+ "start": "Iniciar"
+}

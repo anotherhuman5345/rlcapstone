@@ -1,0 +1,10 @@
+{"instr": "Makine adımları: uydurma bir makinenin nasıl çalıştırıldığını yazılı adımlardan öğrenin, sonra onu ezberden çalıştırın.",
+ "clue": "Önce makineyi çalıştırma adımlarını ve çözümlü örneği okuyun; en fazla 45 saniyeniz var. Sonra adımlar kaybolur ve makineyi ezberden üç kez çalıştırırsınız: lambanın rengine ve sayıya bakın, düğmelere doğru sırayla basın (tıklayarak, dokunarak ya da 1-8 tuşlarıyla), sonra Bitti'ye (Enter) basın. Geri al (Backspace) son basışınızı siler. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "study_title": "Makine nasıl çalıştırılır:", "example": "Çözümlü örnek: bu makine için doğru basışlar şunlardır:",
+ "learned": "Öğrendim", "study_left": "{s} sn kaldı", "case_of": "Makine {n} / {total}",
+ "lamp": "Lamba", "number": "Sayı", "presses": "Basışlarınız:", "undo": "Geri al", "done": "Bitti",
+ "colors": ["kırmızı", "mavi"],
+ "step_fixed": "{a} düğmesine basın.",
+ "step_cond": "Lamba {c} ise {a} düğmesine, değilse {b} düğmesine basın.",
+ "step_repeat": "{a} düğmesine ekrandaki sayı kadar basın.",
+ "actions": ["AÇ", "KAPAT", "ISIT", "SOĞUT", "KARIŞTIR", "SALLA", "DOLDUR", "BOŞALT", "MÜHÜRLE", "BASTIR", "ÇEVİR", "KALDIR", "KİLİTLE", "YIKA", "KURUT", "TART"]}

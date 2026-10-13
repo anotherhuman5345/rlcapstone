@@ -1,0 +1,10 @@
+{
+ "instr": "T lampeggianti: tieni lo sguardo al centro e indica verso dove è rivolta la T centrale di un piccolo gruppo.",
+ "clue": "Tieni sempre lo sguardo sulla croce al centro. Un piccolo gruppo di forme a T lampeggerà per un attimo su un lato. Indica verso dove è rivolta la barra piatta della T CENTRALE: in alto, a destra, in basso o a sinistra. Usa i tasti freccia o i pulsanti. Se non sei sicuro, prova a indovinare. Premi Inizia quando sei pronto.",
+ "up": "Su",
+ "right": "Destra",
+ "down": "Giù",
+ "left": "Sinistra",
+ "start": "Inizia",
+ "stage_label": "Una croce al centro di uno spazio vuoto"
+}

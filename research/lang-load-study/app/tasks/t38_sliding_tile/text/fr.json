@@ -1,0 +1,16 @@
+{
+ "instr": "Taquin : faites glisser les pièces numérotées dans la case vide jusqu'à ce qu'elles soient dans l'ordre de 1 à 8.",
+ "clue": "Rangez les pièces comme sur l'image modèle : de 1 à 8, avec la case vide en bas à droite. Cliquez sur une pièce voisine de la case vide pour l'y faire glisser, ou utilisez les flèches du clavier (ou les boutons fléchés) pour déplacer une pièce dans la case vide. Essayez d'utiliser le moins de coups possible. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "reset": "Recommencer",
+ "give_up": "Abandonner",
+ "yours": "Votre plateau",
+ "target": "Modèle",
+ "moves_label": "Coups :",
+ "illegal": "Seule une pièce voisine de la case vide peut bouger.",
+ "solved": "Réussi !",
+ "left": "Gauche",
+ "right": "Droite",
+ "up": "Haut",
+ "down": "Bas"
+}

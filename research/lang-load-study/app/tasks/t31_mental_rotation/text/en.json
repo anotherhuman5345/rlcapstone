@@ -1,0 +1,3 @@
+{"instr": "Shapes: decide whether the right shape is the left shape turned around, or its mirror image.",
+ "clue": "Each time you see two shapes. The right one may be turned. Is it the same shape, only turned, or a mirror image of the left one? Press the left arrow key (or button) for Same and the right arrow key (or button) for Mirror. Answer as quickly and accurately as you can. Press Start when ready.",
+ "same": "Same", "mirror": "Mirror", "start": "Start"}

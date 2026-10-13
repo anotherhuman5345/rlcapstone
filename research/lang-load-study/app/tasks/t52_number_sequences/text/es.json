@@ -1,0 +1,8 @@
+{
+ "instr": "Series numéricas: descubra la regla y escriba el número que sigue.",
+ "clue": "Cada fila de números sigue UNA de estas reglas: sumar o restar el mismo número cada vez; multiplicar por 2 cada vez; el paso crece en la misma cantidad cada vez; o dos series se alternan, cada una con su propio paso. Escriba el número siguiente con el teclado en pantalla o el teclado y pulse Aceptar (o Enter). Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "ok": "Aceptar",
+ "erase": "Borrar el último dígito",
+ "progress": "Serie {i} de {n}"
+}

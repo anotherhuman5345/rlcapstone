@@ -1,0 +1,40 @@
+{
+ "instr": "Passaggi della macchina: impara a far funzionare una macchina inventata da istruzioni scritte, poi falla funzionare a memoria.",
+ "clue": "Prima leggi i passaggi per far funzionare la macchina e l'esempio svolto; hai al massimo 45 secondi. Poi i passaggi spariscono e fai funzionare la macchina tre volte a memoria: guarda il colore della spia e il numero, premi i pulsanti nell'ordine giusto (clic, tocco o tasti 1-8), poi premi Fatto (Invio). Annulla (Backspace) toglie l'ultima pressione. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "study_title": "Come far funzionare la macchina:",
+ "example": "Esempio svolto: per questa macchina, le pressioni corrette sono:",
+ "learned": "Ho imparato",
+ "study_left": "mancano {s} s",
+ "case_of": "Macchina {n} di {total}",
+ "lamp": "Spia",
+ "number": "Numero",
+ "presses": "Le tue pressioni:",
+ "undo": "Annulla",
+ "done": "Fatto",
+ "colors": [
+  "rossa",
+  "blu"
+ ],
+ "step_fixed": "Premi «{a}».",
+ "step_cond": "Se la spia è {c}, premi «{a}»; altrimenti premi «{b}».",
+ "step_repeat": "Premi «{a}» tante volte quanto indica il numero sul display.",
+ "actions": [
+  "APRI",
+  "CHIUDI",
+  "SCALDA",
+  "RAFFREDDA",
+  "MESCOLA",
+  "AGITA",
+  "RIEMPI",
+  "SVUOTA",
+  "SIGILLA",
+  "PREMI",
+  "GIRA",
+  "SOLLEVA",
+  "BLOCCA",
+  "LAVA",
+  "ASCIUGA",
+  "PESA"
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Witiri au shufwa, pamoja na jambo la kukumbuka: panga namba kuwa witiri au shufwa, na ubonyeze Maalum kila namba inapotokea ndani ya fremu ya mraba.",
+ "clue": "Namba zinatokea moja baada ya nyingine. Bonyeza Witiri (mshale wa kushoto) au Shufwa (mshale wa kulia). Kumbuka: kama namba inatokea ndani ya fremu nene ya mraba, bonyeza Maalum (kitufe cha Space) badala yake. Jibu haraka. Bonyeza Anza ukiwa tayari.",
+ "odd": "Witiri",
+ "even": "Shufwa",
+ "special": "Maalum",
+ "space": "kitufe cha Space",
+ "start": "Anza"
+}

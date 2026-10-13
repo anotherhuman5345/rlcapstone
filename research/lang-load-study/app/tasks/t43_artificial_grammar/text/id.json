@@ -1,0 +1,9 @@
+{
+ "instr": "Pola huruf: pelajari untaian yang dibuat dengan aturan tersembunyi, lalu nilai apakah untaian baru mengikuti aturan yang sama.",
+ "clue": "Pertama, pelajari untaian huruf di layar; semuanya mengikuti pola tersembunyi. Lalu Anda akan melihat untaian baru satu per satu. Tekan panah kiri (atau tombol kiri) jika untaian itu mengikuti pola yang sama, panah kanan (atau tombol kanan) jika melanggarnya. Ikuti kesan pertama Anda. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "legal": "Mengikuti pola",
+ "illegal": "Melanggar pola",
+ "study_left": "Pelajari untaiannya: sisa {s} detik",
+ "test_of": "Untaian {n} dari {total}"
+}

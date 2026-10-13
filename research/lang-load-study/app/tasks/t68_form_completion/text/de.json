@@ -1,0 +1,56 @@
+{
+ "instr": "Formular ausfüllen: Übertragen Sie einen Datensatz in ein Formular und beachten Sie dabei die angegebenen Sonderregeln.",
+ "clue": "Füllen Sie das Formular rechts anhand des Datensatzes links aus. Übernehmen Sie Namen und Zahlen genau. Lesen Sie zuerst die Sonderregeln: Eine Regel gilt nur, wenn ihre Bedingung für diesen Datensatz zutrifft. „Hilfe“ zeigt die Formate. Drücken Sie „Absenden“, wenn Sie fertig sind. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "record_title": "Datensatz",
+ "rules_title": "Sonderregeln",
+ "form_title": "Formular",
+ "help": "Hilfe",
+ "help_text": "Datum: Tag.Monat.Jahr mit Punkten, z. B. 05.11.1987. Zahlen: nur Ziffern, keine Buchstaben. Tarif und Kontaktweg: eine Möglichkeit wählen. Lassen Sie ein Feld nur leer, wenn eine Regel es verlangt.",
+ "submit": "Absenden",
+ "choose": "— bitte wählen —",
+ "no_phone": "—",
+ "date_placeholder": "TT.MM.JJJJ",
+ "labels": {
+  "family": "Nachname",
+  "given": "Vorname",
+  "member": "Mitgliedsnummer",
+  "birth": "Geburtsdatum",
+  "postcode": "Postleitzahl",
+  "phone": "Telefon",
+  "plan": "Tarif",
+  "contact": "Kontakt per",
+  "amount": "Betrag"
+ },
+ "plans": [
+  "Basis",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "E-Mail",
+  "Telefon",
+  "Post"
+ ],
+ "months": [
+  "Januar",
+  "Februar",
+  "März",
+  "April",
+  "Mai",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "Dezember"
+ ],
+ "rules": [
+  "Wenn die Person {year} oder später geboren ist, wählen Sie den Tarif „Junior“, egal was im Datensatz steht.",
+  "Wenn der Betrag größer als 500 ist, geben Sie 500 ein.",
+  "Wenn der Datensatz keine Telefonnummer enthält, lassen Sie „Telefon“ leer und wählen Sie „Post“ als Kontaktweg.",
+  "Wenn die Postleitzahl nur 4 Ziffern hat, setzen Sie eine 0 davor.",
+  "Wenn die Mitgliedsnummer auf 7 endet, schreiben Sie den Nachnamen in GROSSBUCHSTABEN."
+ ]
+}

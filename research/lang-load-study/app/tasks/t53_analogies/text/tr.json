@@ -1,0 +1,3 @@
+{"instr": "Resim benzetmeleri: ilk resim ikinciye dönüşüyor; üçüncü resmi aynı şekilde değiştiren seçeneği bulun.",
+ "clue": "Üstte soldaki resim, sağındaki resme dönüşüyor. Alttaki resmi tam olarak aynı şekilde değiştiren seçeneği bulun (resim dönebilir, ters çevrilebilir, içi dolabilir ya da boşalabilir, büyüyüp küçülebilir, bir kopyası eklenebilir ya da bunlardan ikisi birden olabilir). Seçeneğe tıklayın ya da dokunun veya 1-4 arasındaki numara tuşuna basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "option": "Seçenek", "progress": "Bulmaca {i} / {n}"}

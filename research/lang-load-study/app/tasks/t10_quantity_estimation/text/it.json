@@ -1,0 +1,9 @@
+{
+ "instr": "Puntini: un gruppo di puntini compare per un istante; scrivi quanti pensi che fossero.",
+ "clue": "Guarda la croce al centro. Un gruppo di puntini comparirà per un attimo e poi verrà coperto. Non c'è tempo per contarli: scrivi la tua stima di quanti puntini c'erano, con i tasti numerici o il tastierino sullo schermo, poi premi Invio o OK. Premi Inizia quando sei pronto.",
+ "ask": "Quanti puntini?",
+ "erase": "Cancella",
+ "ok": "OK",
+ "start": "Inizia",
+ "stage_label": "Zona in cui compaiono i puntini"
+}

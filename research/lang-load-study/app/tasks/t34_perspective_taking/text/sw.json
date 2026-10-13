@@ -1,0 +1,12 @@
+{
+ "instr": "Mielekeo kwenye ramani: jifikirie umesimama kwenye alama moja ya mahali ukielekea nyingine, na useme ya tatu iko upande gani.",
+ "clue": "Ramani inaonyesha alama sita za mahali zikionekana kutoka juu. Jifikirie umesimama kwenye alama ya kwanza na umeelekea alama ya pili. Je, alama ya tatu iko mbele yako, upande wako wa kulia, nyuma yako, au upande wako wa kushoto? Usizungushe skrini. Jibu kwa vitufe vya mishale au vitufe vilivyo kwenye skrini. Kuna maswali manne kwenye ramani hii. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "stand": "Umesimama kwenye",
+ "face": "Umeelekea",
+ "where": "Iko wapi",
+ "ahead": "Mbele",
+ "right": "Kulia",
+ "behind": "Nyuma",
+ "left": "Kushoto"
+}

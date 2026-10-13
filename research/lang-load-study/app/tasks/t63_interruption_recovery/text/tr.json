@@ -1,0 +1,16 @@
+{
+ "instr": "Prosedürler: adım düğmelerine tıklayarak bir adım listesini sırayla uygulayın; başka bir görev araya girerse geri dönüp kaldığınız yerden devam edin.",
+ "clue": "Prosedürü uygulayın: adım düğmelerine listedeki sırayla tıklayın (ya da numara tuşlarına basın). Her adımı bir kez yapın; hangi adımların yapıldığı gösterilmeyecek. Bazen araya başka bir görev girecek: her sayının çift mi tek mi olduğunu söyleyin. Prosedür geri geldiğinde kaldığınız yerden devam edin. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "case_label": "Görev {n} / {total}",
+ "proc_title": "Prosedür",
+ "palette_title": "Adım düğmeleri",
+ "interrupt_title": "Çift mi, tek mi?",
+ "interrupt_hint": "Sol ok = çift, sağ ok = tek",
+ "even": "Çift",
+ "odd": "Tek",
+ "next_case": "Sıradaki görev…",
+ "steps": ["Kodu tara", "Paketi tart", "Mührü kontrol et", "Etiketi yazdır", "Etiketi yapıştır", "Saati kaydet",
+           "Fotoğraf çek", "Boyutu ölç", "Formu damgala", "Renge göre ayır", "Ürünü sar", "Masaya haber ver",
+           "Parçaları say", "Kapağı kapat", "Tutanağı imzala", "Tepsiyi temizle"]
+}

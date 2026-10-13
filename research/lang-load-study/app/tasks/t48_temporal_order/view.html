@@ -1,0 +1,21 @@
+<style>
+.temporder [hidden] { display: none !important; }
+.temporder .to-event { font-size: 2rem; font-weight: 700; text-align: center; min-height: 6rem; margin: 2rem 0; max-width: 44rem; }
+.temporder .to-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .6rem; max-width: 56rem; margin: 1rem 0; }
+.temporder .to-cards button { margin: 0; text-align: left; background: var(--paper); color: var(--ink); border: 1px solid var(--line); font-weight: 500; min-height: 3.4rem; }
+.temporder .to-cards button .n { color: var(--muted); margin-right: .4rem; }
+.temporder .to-cards button.placed { background: #9ad1ff; }
+.temporder .to-cards button .pos { float: right; font-weight: 700; }
+</style>
+<div class="temporder">
+  <p class="meta" id="to-phase" aria-live="polite"></p>
+  <p class="to-event" id="to-event" aria-live="off"></p>
+  <div class="to-cards" id="to-cards" hidden>
+    {% for c in item.cards %}<button type="button" data-ev="{{ c }}"><span class="n">{{ loop.index }}</span>{{ text.events[item.events[c]] }}<span class="pos"></span></button>{% endfor %}
+  </div>
+  <div class="btn-row" id="to-ctrl" hidden>
+    <button type="button" id="to-undo">{{ text.undo }}</button>
+    <button type="button" id="to-done" disabled>{{ text.done }}</button>
+  </div>
+  <p><button type="button" id="to-start">{{ text.start }}</button></p>
+</div>

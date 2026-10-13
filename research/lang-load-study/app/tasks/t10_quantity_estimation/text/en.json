@@ -1,0 +1,4 @@
+{"instr": "Dots: a group of dots flashes very briefly; type how many you think there were.",
+ "clue": "Look at the cross in the middle. A group of dots will appear for a moment and then be covered. There is no time to count them: type your best guess of how many dots there were, using the number keys or the on-screen keypad, then press Enter or OK. Press Start when ready.",
+ "ask": "How many dots?", "erase": "Erase", "ok": "OK", "start": "Start",
+ "stage_label": "Area where the dots appear"}

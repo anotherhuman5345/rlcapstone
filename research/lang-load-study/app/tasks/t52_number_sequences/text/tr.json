@@ -1,0 +1,3 @@
+{"instr": "Sayı dizileri: kuralı bulun ve sıradaki sayıyı yazın.",
+ "clue": "Her sayı dizisi şu kurallardan YALNIZCA BİRİNE uyar: her seferinde aynı sayıyı ekleme ya da çıkarma; her seferinde 2 ile çarpma; adımın her seferinde aynı miktarda büyümesi; ya da her biri kendi adımıyla ilerleyen iki dizinin sırayla gelmesi. Sıradaki sayıyı tuş takımıyla ya da klavyeyle yazıp Tamam'a (ya da Enter'a) basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "ok": "Tamam", "erase": "Son rakamı sil", "progress": "Dizi {i} / {n}"}

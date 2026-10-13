@@ -1,0 +1,10 @@
+{
+ "instr": "Mfululizo wa herufi: herufi zinatokea moja baada ya nyingine na zinasimama bila taarifa; kisha andika herufi chache za mwisho tu, kwa mpangilio.",
+ "clue": "Bonyeza Anza. Herufi zinatokea moja baada ya nyingine, na orodha inasimama bila taarifa, kwa hiyo weka akilini herufi za karibuni zaidi. Inaposimama, andika herufi za MWISHO tu ulizoziona, kwa mpangilio zilivyotokea. Tumia ? kwa herufi usiyoikumbuka, kisha bonyeza Sawa.",
+ "keep": "Kumbuka herufi {k} za mwisho.",
+ "recall": "Andika herufi {k} za mwisho kwa mpangilio zilivyotokea.",
+ "unknown": "Siikumbuki herufi hii",
+ "start": "Anza",
+ "done": "Sawa",
+ "delete": "Futa herufi ya mwisho"
+}

@@ -1,0 +1,5 @@
+{"instr": "Zihinden işlem: her işlemi aklınızdan yapın ve sonucu yazın.",
+ "clue": "Her işlemi hiçbir şey yazmadan aklınızdan yapın. Sonucu tuş takımıyla ya da klavyeyle yazıp Tamam'a (ya da Enter'a) basın. Her işlem için 20 saniyeniz var. Sonuçlar tam sayıdır. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "ok": "Tamam", "erase": "Son rakamı sil",
+ "seconds_left": "{s} sn kaldı", "progress": "İşlem {i} / {n}",
+ "sym_add": "+", "sym_sub": "−", "sym_mul": "×", "sym_div": "÷"}

@@ -1,0 +1,15 @@
+<div class="agl">
+  <style>
+    .agl .agl-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .5rem 1.5rem; max-width: 46rem; font-family: ui-monospace, monospace; font-size: 1.6rem; letter-spacing: .12em; margin: 1rem 0; }
+    .agl .agl-count { color: var(--muted); }
+    .agl .agl-str { font-family: ui-monospace, monospace; letter-spacing: .18em; }
+  </style>
+  <p class="agl-count" id="agl-count"></p>
+  <div class="agl-list" id="agl-list" hidden></div>
+  <p class="big agl-str" id="agl-str" aria-live="off"></p>
+  <div class="btn-row" id="agl-btns" hidden>
+    <button type="button" data-legal="1">← {{ text.legal }}</button>
+    <button type="button" data-legal="0">{{ text.illegal }} →</button>
+  </div>
+  <p><button type="button" id="agl-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,8 @@
+{
+ "instr": "Dígitos: observe una lista corta de dígitos, uno a uno, y luego escríbalos en el mismo orden.",
+ "clue": "Pulse Iniciar y observe cómo aparecen los dígitos uno a uno. Cuando terminen, escríbalos en el mismo orden con el teclado en pantalla o su teclado, y luego pulse Aceptar.",
+ "recall": "Escriba los dígitos en el orden en que los vio.",
+ "start": "Iniciar",
+ "done": "Aceptar",
+ "delete": "Borrar el último dígito"
+}

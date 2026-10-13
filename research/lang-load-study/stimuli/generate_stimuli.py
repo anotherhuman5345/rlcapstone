@@ -508,6 +508,28 @@ def main():
         images.append({"id": item["id"], "task": "reading", "target": {"object": "passage", "color": None,
                        "answer": item["answer"]}, "practice": item["id"] == "reading_practice"})
 
+    # Task-library items (app/tasks/*): each task gets its own random sequence.
+    import sys
+    import zlib
+    sys.path.insert(0, str(HERE.parent))
+    from app.tasks import PLUGINS
+    for task_id, plugin in PLUGINS.items():
+        prng = random.Random(args.seed + zlib.crc32(task_id.encode()))
+
+        def save_image(name, img, _task=task_id):
+            fname = f"{_task}_{name}.png"
+            img.save(OUT / fname)
+            return fname
+
+        items = plugin.logic.generate(prng, args.n + 1, save_image)
+        for k, item in enumerate(items):
+            practice = k == args.n
+            entry = {"id": f"{task_id}_practice" if practice else f"{task_id}_{k:02d}", "task": task_id,
+                     "target": {k2: v for k2, v in item.items() if k2 != "file"}, "practice": practice}
+            if item.get("file"):
+                entry.update(file=item["file"], width=W, height=H)
+            images.append(entry)
+
     # Surprise image: ring target + unannounced gorilla, on its own scan.
     base = Image.open(sources[args.n + 1]) if args.real_scans else synthetic_scan(rng)
     img, gx, gy = plant_gorilla(base, rng)

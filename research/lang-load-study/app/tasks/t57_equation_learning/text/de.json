@@ -1,0 +1,19 @@
+{
+ "instr": "Symbolregeln: Lernen Sie zwei neue Symbol-Rechenarten und berechnen Sie damit dann neue Ausdrücke.",
+ "clue": "Unten werden zwei erfundene Symbole mit Beispielen erklärt. Lesen Sie sie, drücken Sie dann „Starten“ und berechnen Sie jeden Ausdruck. Geben Sie das Ergebnis über das Ziffernfeld oder die Tastatur ein und drücken Sie OK (oder Enter). Die Regeln bleiben auf dem Bildschirm.",
+ "start": "Starten",
+ "ok": "OK",
+ "erase": "Letzte Ziffer löschen",
+ "progress": "Ausdruck {i} von {n}",
+ "examples": "Beispiele:",
+ "list_sep": ";  ",
+ "precedence": "In einem Ausdruck mit beiden Symbolen rechnen Sie immer zuerst {hi}, dann {lo}.",
+ "rule_dbl_first": "die erste Zahl verdoppeln, dann die zweite Zahl addieren.",
+ "rule_dbl_second": "die zweite Zahl verdoppeln, dann die erste Zahl addieren.",
+ "rule_sum_dbl": "die beiden Zahlen addieren, dann das Ergebnis verdoppeln.",
+ "rule_sum_ten": "die beiden Zahlen addieren, dann 10 addieren.",
+ "rule_mul_minus1": "die beiden Zahlen multiplizieren, dann 1 abziehen.",
+ "rule_mul_plus1": "die beiden Zahlen multiplizieren, dann 1 addieren.",
+ "rule_mul_plus_first": "die beiden Zahlen multiplizieren, dann die erste Zahl addieren.",
+ "rule_mul_plus_second": "die beiden Zahlen multiplizieren, dann die zweite Zahl addieren."
+}

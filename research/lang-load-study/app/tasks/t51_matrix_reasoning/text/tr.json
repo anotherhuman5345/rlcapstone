@@ -1,0 +1,3 @@
+{"instr": "Örüntü tabloları: her 3 x 3 tabloyu tamamlayan resmi seçin.",
+ "clue": "Her tablo satırları ve sütunları boyunca bir ya da iki kurala uyar; örneğin şekillerin sayısında, biçiminde, renk tonunda ya da büyüklüğünde. Kuralları bulun ve boş kareye gelmesi gereken resmi seçin: üzerine tıklayın veya dokunun ya da 1-4 tuşlarına basın. Dört tablo var. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "matrix_of": "Tablo {n} / {total}", "option": "Seçenek {n}"}

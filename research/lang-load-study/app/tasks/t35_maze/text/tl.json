@@ -1,0 +1,9 @@
+{
+ "instr": "Maze: igalaw ang tuldok mula sa simula papunta sa labasan sa pinakamaikling daan na mahahanap mo.",
+ "clue": "Igalaw ang asul na tuldok sa loob ng maze papunta sa berdeng parisukat na labasan, nang may pinakakaunting hakbang na kaya mo. Makatutulong na planuhin muna ang ruta. Gumalaw gamit ang mga arrow key, ang mga arrow button, o sa pag-tap sa parisukat na katabi ng tuldok. Hindi matatawid ang mga pader. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "up": "Pataas",
+ "down": "Pababa",
+ "left": "Pakaliwa",
+ "right": "Pakanan"
+}

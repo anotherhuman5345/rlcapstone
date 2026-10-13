@@ -1,0 +1,4 @@
+{"instr": "Haritada yön: bir yer işaretinde durup başka birine baktığınızı düşünün ve üçüncüsünün hangi yönde olduğunu söyleyin.",
+ "clue": "Harita, yukarıdan görülen altı yer işaretini gösteriyor. Birinci işaretin yanında durduğunuzu ve ikinci işarete doğru baktığınızı düşünün. Üçüncü işaret önünüzde mi, sağınızda mı, arkanızda mı, yoksa solunuzda mı? Ekranı çevirmeyin. Ok tuşlarıyla ya da düğmelerle yanıt verin. Bu haritada dört soru var. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "stand": "Durduğunuz yer", "face": "Baktığınız yer", "where": "Bu nerede",
+ "ahead": "Önde", "right": "Sağda", "behind": "Arkada", "left": "Solda"}

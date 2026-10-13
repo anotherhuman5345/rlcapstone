@@ -1,0 +1,8 @@
+{
+ "instr": "Njia ya usambazaji: panga safari fupi zaidi inayoanzia ghalani, inayopitia kila kituo, na kurudi ghalani.",
+ "clue": "Anza ghalani (mraba wenye rangi nzito), tembelea kila kituo chenye namba mara moja, kisha urudi ghalani. Fanya safari nzima iwe fupi kadiri uwezavyo (umbali hupimwa kwa mstari ulionyooka). Bofya au gusa vituo kwa mpangilio ambao ungevitembelea, au andika namba zake. Tendua (kitufe cha Backspace) huondoa kituo cha mwisho. Bonyeza Tayari (kitufe cha Enter) kila kituo kikiwa kwenye njia yako. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "undo": "Tendua",
+ "erase": "Futa yote",
+ "done": "Tayari"
+}

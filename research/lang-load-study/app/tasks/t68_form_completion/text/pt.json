@@ -1,0 +1,56 @@
+{
+ "instr": "Preenchimento de formulário: passe um registro para um formulário, seguindo as regras especiais mostradas com ele.",
+ "clue": "Preencha o formulário à direita a partir do registro à esquerda. Copie nomes e números exatamente. Leia primeiro as regras especiais: uma regra só se aplica quando a condição dela é verdadeira para este registro. Ajuda mostra os formatos. Pressione Enviar quando terminar. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "record_title": "Registro",
+ "rules_title": "Regras especiais",
+ "form_title": "Formulário",
+ "help": "Ajuda",
+ "help_text": "Data: dia.mês.ano com pontos, por exemplo 05.11.1987. Números: só algarismos, sem letras. Plano e contato: escolha um. Deixe um campo vazio somente se uma regra mandar.",
+ "submit": "Enviar",
+ "choose": "— escolha —",
+ "no_phone": "—",
+ "date_placeholder": "DD.MM.AAAA",
+ "labels": {
+  "family": "Sobrenome",
+  "given": "Nome",
+  "member": "Número de sócio",
+  "birth": "Data de nascimento",
+  "postcode": "CEP",
+  "phone": "Telefone",
+  "plan": "Plano",
+  "contact": "Contato por",
+  "amount": "Valor"
+ },
+ "plans": [
+  "Básico",
+  "Plus",
+  "Júnior"
+ ],
+ "contacts": [
+  "E-mail",
+  "Telefone",
+  "Correio"
+ ],
+ "months": [
+  "janeiro",
+  "fevereiro",
+  "março",
+  "abril",
+  "maio",
+  "junho",
+  "julho",
+  "agosto",
+  "setembro",
+  "outubro",
+  "novembro",
+  "dezembro"
+ ],
+ "rules": [
+  "Se a pessoa nasceu em {year} ou depois, escolha o plano Júnior, não importa o que diga o registro.",
+  "Se o valor for maior que 500, digite 500.",
+  "Se o registro não tiver número de telefone, deixe Telefone vazio e escolha Correio como contato.",
+  "Se o CEP tiver só 4 algarismos, acrescente um 0 no início.",
+  "Se o número de sócio terminar em 7, escreva o sobrenome em letras MAIÚSCULAS."
+ ]
+}

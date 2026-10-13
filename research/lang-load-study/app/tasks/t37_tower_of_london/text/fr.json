@@ -1,0 +1,13 @@
+{
+ "instr": "Boules : déplacez les boules de couleur une à une jusqu'à ce que vos tiges ressemblent exactement à l'image modèle.",
+ "clue": "Faites en sorte que vos tiges ressemblent exactement à l'image modèle. Prenez la boule du dessus d'une tige en cliquant dessus (ou en appuyant sur 1, 2 ou 3), puis cliquez sur la tige où elle doit aller. Les tiges contiennent au plus 3, 2 et 1 boules. Planifiez avant de commencer et utilisez le moins de coups possible. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "reset": "Recommencer",
+ "give_up": "Abandonner",
+ "yours": "Vos tiges",
+ "target": "Modèle",
+ "moves_label": "Coups :",
+ "full_peg": "Cette tige est pleine.",
+ "empty_peg": "Cette tige est vide.",
+ "solved": "Réussi !"
+}

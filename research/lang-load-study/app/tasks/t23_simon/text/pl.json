@@ -1,0 +1,7 @@
+{
+ "instr": "Kolorowe kółka: naciśnij stronę przypisaną do koloru kółka, bez względu na to, gdzie się ono pojawi.",
+ "clue": "Kółko pojawia się po lewej lub po prawej stronie. Odpowiadaj według jego KOLORU, a nie miejsca: naciśnij klawisz strzałki (lub przycisk) po tej stronie, która pokazuje ten kolor. Odpowiadaj szybko i dokładnie. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "left": "W lewo",
+ "right": "W prawo",
+ "start": "Start"
+}

@@ -1,0 +1,16 @@
+{
+ "instr": "Vigae: telezesha vigae vyenye namba kwenye nafasi tupu mpaka viwe kwa mpangilio kuanzia 1 hadi 8.",
+ "clue": "Panga vigae kama kwenye picha ya lengo: 1 hadi 8, nafasi tupu ikiwa chini upande wa kulia. Bofya kigae kilicho kando ya nafasi tupu ili kukitelezesha ndani yake, au tumia vitufe vya mishale (au vitufe vya mishale vilivyo kwenye skrini) kusogeza kigae kwenye nafasi tupu. Jaribu kutumia hatua chache kadiri uwezavyo. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "reset": "Anza upya",
+ "give_up": "Kata tamaa",
+ "yours": "Ubao wako",
+ "target": "Lengo",
+ "moves_label": "Hatua:",
+ "illegal": "Ni kigae kilicho kando ya nafasi tupu pekee kinachoweza kusogea.",
+ "solved": "Umemaliza!",
+ "left": "Kushoto",
+ "right": "Kulia",
+ "up": "Juu",
+ "down": "Chini"
+}

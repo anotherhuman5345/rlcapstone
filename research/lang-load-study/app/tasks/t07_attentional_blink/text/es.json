@@ -1,0 +1,10 @@
+{
+ "instr": "Letras rápidas: las letras aparecen muy rápido; después, diga cuáles fueron las dos letras rojas.",
+ "clue": "Las letras aparecen muy rápido en el recuadro. Dos de ellas son rojas. Después de cada serie, elija las dos letras rojas (haga clic en ellas o escríbalas) y luego pulse Aceptar o Enter. Si no está seguro/a, dé su mejor respuesta. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "ok": "Aceptar",
+ "undo": "Deshacer",
+ "slots": "Letras rojas: {a} {b}",
+ "ask": "¿Qué dos letras eran rojas?",
+ "progress": "Serie {n} de {total}"
+}

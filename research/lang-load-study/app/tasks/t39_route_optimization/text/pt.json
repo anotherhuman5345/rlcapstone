@@ -1,0 +1,8 @@
+{
+ "instr": "Rota de entrega: planeje a viagem de ida e volta mais curta, saindo do depósito, passando por todas as paradas e voltando.",
+ "clue": "Comece no depósito (o quadrado escuro), visite cada parada numerada uma vez e volte ao depósito. Faça a viagem inteira o mais curta possível (distância em linha reta). Clique ou toque nas paradas na ordem em que você as visitaria, ou digite os números delas. Desfazer (tecla Backspace) remove a última parada. Pressione Concluir (tecla Enter) quando todas as paradas estiverem na sua rota. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "undo": "Desfazer",
+ "erase": "Limpar",
+ "done": "Concluir"
+}

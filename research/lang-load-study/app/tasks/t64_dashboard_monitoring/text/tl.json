@@ -1,0 +1,16 @@
+{
+ "instr": "Dashboard: bantayan ang apat na gauge at tumugon lang kapag lumampas ang isang bar sa pulang linya at nanatili roon.",
+ "clue": "Bantayan ang apat na gauge. Kapag lumampas ang isang bar sa pulang linya at NANATILI sa itaas nito, i-click ang gauge na iyon (o pindutin ang numero nito, 1–4) nang pinakamabilis na kaya mo. Huwag pansinin ang maiikling talon na agad bumabalik, at huwag pansinin ang mga bar na bumababa nang husto. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "hint": "I-click ang gauge o pindutin ang 1–4",
+ "gauges": [
+  "Presyon",
+  "Daloy",
+  "Init",
+  "Bilis",
+  "Bigat",
+  "Antas",
+  "Karga",
+  "Signal"
+ ]
+}

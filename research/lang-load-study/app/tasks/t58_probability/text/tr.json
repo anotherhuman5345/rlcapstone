@@ -1,0 +1,8 @@
+{"instr": "Olasılık: iki olayı karşılaştırın ve hangisinin daha olası olduğunu seçin ya da eşit olduğunu belirtin.",
+ "clue": "Her ekranda A ve B olmak üzere iki olay hem sözle hem de resimle gösterilir. Toplar bakmadan çekilir ve her topun çekilme şansı aynıdır; zarlar hilesizdir. Hangi olayın daha olası olduğunu seçin ya da \"Eşit olasılık\"ı seçin. Düğmeleri ya da 1 (A), 2 (eşit), 3 (B) tuşlarını kullanın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "label_a": "A", "label_b": "B", "equal": "Eşit olasılık",
+ "question": "Hangisi daha olası?", "progress": "Soru {i} / {n}",
+ "ev_bag1": "{L} torbasında {r} kırmızı ve {b} mavi top var. Bir top çekiyorsunuz ve top kırmızı çıkıyor.",
+ "ev_bag2_replace": "{L} torbasında {r} kırmızı ve {b} mavi top var. Bir top çekip geri koyuyorsunuz ve yeniden çekiyorsunuz. İki top da kırmızı çıkıyor.",
+ "ev_bag2_keep": "{L} torbasında {r} kırmızı ve {b} mavi top var. Bir top çekip dışarıda bırakıyorsunuz ve yeniden çekiyorsunuz. İki top da kırmızı çıkıyor.",
+ "ev_dice": "İki zar atıyorsunuz ve iki sayının toplamı {s} oluyor."}

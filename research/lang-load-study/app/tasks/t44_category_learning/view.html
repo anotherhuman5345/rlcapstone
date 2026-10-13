@@ -1,0 +1,17 @@
+<div class="cl">
+  <style>
+    .cl .cl-obj { display: block; width: min(60vw, 240px); height: auto; margin: .5rem 0; }
+    .cl .cl-fb { min-height: 1.8rem; font-size: 1.2rem; font-weight: 600; }
+    .cl .cl-fb.good { color: #1e7a3c; }
+    .cl .cl-fb.bad { color: #9b1c1c; }
+    .cl .cl-prog { color: var(--muted); margin: 0; }
+  </style>
+  <p class="cl-prog" id="cl-prog"></p>
+  <svg class="cl-obj" id="cl-obj" viewBox="0 0 200 200" aria-hidden="true"></svg>
+  <p class="cl-fb" id="cl-fb" aria-live="polite"></p>
+  <div class="btn-row">
+    <button type="button" data-cat="0">← {{ text.groups[0] }}</button>
+    <button type="button" data-cat="1">{{ text.groups[1] }} →</button>
+  </div>
+  <p><button type="button" id="cl-start">{{ text.start }}</button></p>
+</div>

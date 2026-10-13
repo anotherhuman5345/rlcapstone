@@ -1,0 +1,6 @@
+{
+ "instr": "Połącz kółka: jak najszybciej klikaj kółka we właściwej kolejności.",
+ "clue": "Jak najszybciej klikaj lub dotykaj kółka po kolei (klawiatura: Tab, aby przejść do kółka, potem Enter). Jeśli w kółkach są tylko liczby, idź 1-2-3-4 i tak dalej. Jeśli są w nich liczby i litery, idź na przemian: 1-J-2-K-3-L i tak dalej. Błędne kółko mignie na czerwono; wtedy znajdź właściwe. Kółka pojawią się po naciśnięciu Start.",
+ "go": "Start!",
+ "start": "Start"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Dwie figury: metodą prób i błędów ustal, która figura jest właściwa. Właściwa figura może się zmienić bez ostrzeżenia.",
+ "clue": "Pojawiają się dwie figury. Jedna z nich jest właściwa. Wybierz jedną, klikając lub dotykając jej albo klawiszami strzałek w lewo/w prawo; zobaczysz, czy masz rację. Wybieraj dalej tę właściwą. Bez ostrzeżenia właściwa może stać się druga figura: wtedy zmień wybór. Jej położenie na ekranie nie ma znaczenia. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "left": "W lewo",
+ "right": "W prawo",
+ "correct": "Dobrze",
+ "wrong": "Źle",
+ "too_slow": "Za wolno",
+ "start": "Start"
+}

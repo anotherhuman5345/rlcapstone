@@ -1,0 +1,17 @@
+{
+ "instr": "Kata warna: untuk setiap kata, tekan tombol warna TINTANYA, bukan warna yang disebut oleh kata itu.",
+ "clue": "Sebuah kata warna muncul dengan tinta berwarna. Sebutkan warna TINTANYA dan abaikan apa yang tertulis. Tekan tombol 1–4 atau ketuk tombol warna yang sesuai. Jawab dengan cepat dan tepat. Tekan Mulai jika sudah siap.",
+ "words": [
+  "MERAH",
+  "BIRU",
+  "HIJAU",
+  "KUNING"
+ ],
+ "color_names": [
+  "Merah",
+  "Biru",
+  "Hijau",
+  "Kuning"
+ ],
+ "start": "Mulai"
+}

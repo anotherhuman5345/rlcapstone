@@ -1,0 +1,12 @@
+{
+ "instr": "Torre: mueva todos los discos a la varilla de destino marcada, de uno en uno, sin poner nunca un disco grande sobre uno más pequeño.",
+ "clue": "Mueva toda la torre de discos a la varilla marcada como «destino». Tome el disco de arriba haciendo clic en su varilla (o pulsando 1, 2 o 3) y luego haga clic en la varilla adonde debe ir. Mueva un disco cada vez y nunca ponga un disco más grande sobre uno más pequeño. Intente usar el menor número de movimientos posible. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "reset": "Empezar de nuevo",
+ "give_up": "Rendirse",
+ "target": "destino",
+ "moves_label": "Movimientos:",
+ "illegal": "No permitido: un disco más grande no puede ir sobre uno más pequeño.",
+ "empty_peg": "Esa varilla está vacía.",
+ "solved": "¡Hecho!"
+}

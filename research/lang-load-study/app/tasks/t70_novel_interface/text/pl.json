@@ -1,0 +1,23 @@
+{
+ "instr": "Nowe urządzenie: dowiedz się, co robi sześć nieznanych przycisków, a potem użyj ich, aby bez pomocy ustawić kilka lampek.",
+ "clue": "To urządzenie ma trzy lampki i sześć nieznanych przycisków. Pierwszy cel: legenda pod przyciskami je objaśnia, więc naucz się, co robi każdy z nich. Przy dwóch kolejnych celach legenda jest ukryta: osiągnij każdy cel z pamięci. Przerywana ramka wokół lampek oznacza, że tryb edycji jest włączony; mały znacznik pokazuje zaznaczoną lampkę. Przyciski możesz też wybierać klawiszami 1–6. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "goal": "Ustaw lampki: lewa – {l}, środkowa – {m}, prawa – {r}. Potem zatwierdź.",
+ "goal_label": "Cel {n} z {total}",
+ "legend_title": "Legenda",
+ "next_goal": "Następny cel…",
+ "colors": [
+  "zgaszona",
+  "czerwona",
+  "żółta",
+  "niebieska"
+ ],
+ "funcs": [
+  "Przesuwa zaznaczenie o jedną lampkę w lewo (tylko poza trybem edycji)",
+  "Przesuwa zaznaczenie o jedną lampkę w prawo (tylko poza trybem edycji)",
+  "Włącza lub wyłącza tryb edycji",
+  "Nadaje zaznaczonej lampce następny kolor: zgaszona, czerwona, żółta, niebieska, zgaszona… (tylko w trybie edycji)",
+  "Gasi wszystkie lampki",
+  "Zatwierdza i kończy cel (tylko poza trybem edycji)"
+ ]
+}

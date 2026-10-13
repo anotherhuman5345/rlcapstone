@@ -1,0 +1,56 @@
+{
+ "instr": "Pagkakasunod-sunod: ihanay ang mga hayop para maging totoo ang bawat pangungusap.",
+ "clue": "Basahin ang mga pangungusap, pagkatapos ay ilagay ang bawat hayop sa isa sa mga puwestong may numero para maging totoo ang lahat ng pangungusap. Nasa pinakakaliwa ang puwesto 1. I-click ang isang hayop (o pumunta rito gamit ang Tab at pindutin ang Enter), pagkatapos ay i-click ang isang puwesto. I-click ang puwestong may laman para kunin ulit ang hayop doon. Pindutin ang Tapos kapag may laman na ang bawat puwesto. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "done": "Tapos",
+ "give_up": "Sumuko",
+ "setting": "Nakahanay ang mga hayop sa mga puwestong may numero, mula puwesto 1 sa kaliwa hanggang sa huling puwesto sa kanan.",
+ "row": "Ang hanay",
+ "tray": "Mga hayop na hindi pa nailalagay",
+ "place": "Puwesto",
+ "templates": {
+  "left_of": "Ang {a} ay nasa isang puwesto sa kaliwa ng {b}.",
+  "next_left": "Ang {a} ay nasa mismong katabing puwesto sa kaliwa ng {b}.",
+  "adjacent": "Magkatabi ang {a} at ang {b}.",
+  "not_adjacent": "Hindi magkatabi ang {a} at ang {b}.",
+  "at": "Ang {a} ay nasa puwesto {p}.",
+  "not_at": "Ang {a} ay wala sa puwesto {p}.",
+  "end": "Ang {a} ay nasa una o nasa huling puwesto ng hanay.",
+  "not_end": "Ang {a} ay wala sa una at wala rin sa huling puwesto ng hanay.",
+  "between": "Ang {a} ay nasa isang puwesto sa pagitan ng {b} at ng {c}."
+ },
+ "objects": [
+  {
+   "name": "pusa",
+   "cap": "Pusa"
+  },
+  {
+   "name": "aso",
+   "cap": "Aso"
+  },
+  {
+   "name": "kabayo",
+   "cap": "Kabayo"
+  },
+  {
+   "name": "kuneho",
+   "cap": "Kuneho"
+  },
+  {
+   "name": "kambing",
+   "cap": "Kambing"
+  },
+  {
+   "name": "pato",
+   "cap": "Pato"
+  },
+  {
+   "name": "sora",
+   "cap": "Sora"
+  },
+  {
+   "name": "oso",
+   "cap": "Oso"
+  }
+ ]
+}

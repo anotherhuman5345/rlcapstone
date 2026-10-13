@@ -1,0 +1,8 @@
+{
+ "instr": "Cifre al contrario: guarda una breve serie di cifre, una alla volta, poi scrivile in ordine inverso, partendo dall'ultima.",
+ "clue": "Premi Inizia e guarda le cifre che compaiono una alla volta. Quando si fermano, scrivile AL CONTRARIO, dall'ultima cifra alla prima, con il tastierino o con la tastiera, poi premi OK. Esempio: se vedi 3 8 1, scrivi 1 8 3.",
+ "recall": "Scrivi le cifre in ordine inverso: prima l'ultima.",
+ "start": "Inizia",
+ "done": "OK",
+ "delete": "Cancella l'ultima cifra"
+}

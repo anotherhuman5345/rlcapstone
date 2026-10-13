@@ -1,0 +1,10 @@
+{
+ "instr": "Lettere veloci: delle lettere lampeggiano molto rapidamente; alla fine indica le due lettere che erano rosse.",
+ "clue": "Nel riquadro lampeggiano delle lettere molto rapidamente. Due di esse sono rosse. Dopo ogni sequenza, scegli le due lettere rosse (cliccandole o digitandole), poi premi OK o Invio. Se non sei sicuro, prova a indovinare. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "ok": "OK",
+ "undo": "Annulla",
+ "slots": "Lettere rosse: {a} {b}",
+ "ask": "Quali due lettere erano rosse?",
+ "progress": "Sequenza {n} di {total}"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Par o impar, con algo que recordar: clasifique los números como pares o impares, y pulse Especial cuando un número aparezca dentro de un marco cuadrado.",
+ "clue": "Los números aparecen uno a uno. Pulse Impar (flecha izquierda) o Par (flecha derecha). Recuerde: si un número aparece dentro de un marco cuadrado grueso, pulse Especial (barra espaciadora) en su lugar. Responda rápido. Pulse Iniciar cuando esté listo/a.",
+ "odd": "Impar",
+ "even": "Par",
+ "special": "Especial",
+ "space": "barra espaciadora",
+ "start": "Iniciar"
+}

@@ -1,0 +1,6 @@
+{"instr": "Bin diddigi: ku tuna da'irorin da suka koma launin ruwan lemu, ku bi su da ido yayin da dukkan da'irori ke motsi, sannan ku zaɓe su.",
+ "clue": "Wasu da'irori za su koma launin ruwan lemu na ɗan lokaci. Ku tuna da su, kada ku ɗauke idanunku daga kansu yayin da dukkan da'irori ke motsi. Idan suka tsaya, ku danna da'irorin da kuka bi (ko ku danna maɓallan lambobinsu), sannan ku danna Na gama ko Enter. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "done": "Na gama", "stage_label": "Da'irori masu motsi",
+ "round": "Zagaye {n} cikin {total}: ku tuna da da'irori {k} masu launin ruwan lemu.",
+ "track": "Ku bi su da ido…",
+ "pick": "Ku zaɓi da'irori {k} da kuka bi, sannan ku danna Na gama."}

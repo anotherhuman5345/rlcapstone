@@ -1,0 +1,8 @@
+{
+ "instr": "Cifre: guarda una breve serie di cifre, una alla volta, poi scrivile nello stesso ordine.",
+ "clue": "Premi Inizia e guarda le cifre che compaiono una alla volta. Quando si fermano, scrivile nello stesso ordine con il tastierino o con la tastiera, poi premi OK.",
+ "recall": "Scrivi le cifre nell'ordine in cui le hai viste.",
+ "start": "Inizia",
+ "done": "OK",
+ "delete": "Cancella l'ultima cifra"
+}

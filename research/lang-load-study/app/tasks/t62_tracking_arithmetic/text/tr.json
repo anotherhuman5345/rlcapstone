@@ -1,0 +1,7 @@
+{
+ "instr": "Takip et ve topla: hareket eden noktanın üzerinde imleci tutarken altında beliren basit toplama işlemlerini cevaplayın.",
+ "clue": "İmleci sürekli hareket eden mavi noktanın üzerinde tutun: fareyi oynatın, parmağınızı kaydırın ya da ok tuşlarını (veya ok düğmelerini) basılı tutun. Alanın altında toplama işlemleri belirecek: cevaba tıklayarak ya da 1, 2 veya 3'e basarak seçin. Noktayı takip etmek de işlemleri cevaplamak da eşit derecede önemli. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "sum_hint": "1, 2, 3 tuşuyla ya da tıklayarak cevaplayın",
+ "up": "Yukarı", "down": "Aşağı", "left": "Sol", "right": "Sağ"
+}

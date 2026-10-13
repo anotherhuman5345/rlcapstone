@@ -1,0 +1,10 @@
+{
+ "instr": "Dos figuras: descubra por ensayo y error qué figura es la correcta. La figura correcta puede cambiar sin aviso.",
+ "clue": "Aparecen dos figuras. Una de ellas es la correcta. Elija una haciendo clic o tocándola, o con las teclas de flecha izquierda/derecha; verá si acertó. Siga eligiendo la correcta. Sin aviso, la otra figura puede pasar a ser la correcta: entonces cambie. Su posición en la pantalla no importa. Pulse Iniciar cuando esté listo/a.",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "correct": "Correcto",
+ "wrong": "Incorrecto",
+ "too_slow": "Demasiado lento",
+ "start": "Iniciar"
+}

@@ -1,0 +1,19 @@
+{
+ "instr": "Kanuni za alama: jifunze operesheni mbili mpya za alama, kisha zitumie kukokotoa semi mpya.",
+ "clue": "Alama mbili za kubuni zimeelezwa hapa chini, pamoja na mifano. Zisome, kisha bonyeza Anza na ukokotoe kila usemi. Andika jibu kwa vitufe vilivyo kwenye skrini au kibodi na ubonyeze Sawa (au Enter). Kanuni zinabaki kwenye skrini.",
+ "start": "Anza",
+ "ok": "Sawa",
+ "erase": "Futa tarakimu ya mwisho",
+ "progress": "Usemi {i} kati ya {n}",
+ "examples": "Mifano:",
+ "list_sep": ";  ",
+ "precedence": "Katika usemi wenye alama zote mbili, daima kokotoa {hi} kwanza, kisha {lo}.",
+ "rule_dbl_first": "zidisha namba ya kwanza mara mbili, kisha ongeza namba ya pili.",
+ "rule_dbl_second": "zidisha namba ya pili mara mbili, kisha ongeza namba ya kwanza.",
+ "rule_sum_dbl": "jumlisha namba hizo mbili, kisha zidisha jibu mara mbili.",
+ "rule_sum_ten": "jumlisha namba hizo mbili, kisha ongeza 10.",
+ "rule_mul_minus1": "zidisha namba hizo mbili, kisha toa 1.",
+ "rule_mul_plus1": "zidisha namba hizo mbili, kisha ongeza 1.",
+ "rule_mul_plus_first": "zidisha namba hizo mbili, kisha ongeza namba ya kwanza.",
+ "rule_mul_plus_second": "zidisha namba hizo mbili, kisha ongeza namba ya pili."
+}

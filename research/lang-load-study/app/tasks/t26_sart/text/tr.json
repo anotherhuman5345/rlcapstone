@@ -1,0 +1,3 @@
+{"instr": "Rakamlar: 3 dışındaki her sayıda basın.",
+ "clue": "1'den 9'a kadar sayılar düzenli bir hızla art arda görünecek; her birinin ardından daire içinde bir çarpı işareti gelecek. 3 DIŞINDAKİ her sayı için boşluk tuşuna (ya da Bas düğmesine) basın. 3 gördüğünüzde basmayın. Hız da doğruluk da aynı derecede önemli. Hazır olunca Başla'ya basın.",
+ "press": "Bas", "start": "Başla", "stage_label": "Sayıların göründüğü alan"}

@@ -1,0 +1,13 @@
+{
+ "instr": "Bolas: mueva las bolas de colores de una en una hasta que sus varillas queden exactamente como en la imagen objetivo.",
+ "clue": "Haga que sus varillas queden exactamente como en la imagen objetivo. Tome la bola de arriba de una varilla haciendo clic en ella (o pulsando 1, 2 o 3) y luego haga clic en la varilla adonde debe ir. Las varillas admiten como máximo 3, 2 y 1 bolas. Planifique antes de empezar y use el menor número de movimientos posible. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "reset": "Empezar de nuevo",
+ "give_up": "Rendirse",
+ "yours": "Sus varillas",
+ "target": "Objetivo",
+ "moves_label": "Movimientos:",
+ "full_peg": "Esa varilla está llena.",
+ "empty_peg": "Esa varilla está vacía.",
+ "solved": "¡Hecho!"
+}

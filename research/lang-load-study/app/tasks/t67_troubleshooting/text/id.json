@@ -1,0 +1,28 @@
+{
+ "instr": "Mencari kerusakan: sebuah mesin mengalirkan listrik melalui bagian-bagiannya ke beberapa lampu; temukan bagian yang rusak dengan tes sesedikit mungkin.",
+ "clue": "Listrik mengalir dari kiri melalui bagian-bagian, mengikuti garis, menuju lampu. Bagian yang rusak tidak meneruskan listrik, sehingga setiap bagian sesudahnya dan setiap lampu yang dialirinya tetap padam. Tepat satu bagian rusak. Perhatikan lampu mana yang menyala. Anda boleh mengetes sebuah bagian (setiap tes berbiaya 1): pilih bagian itu dan tekan Tes untuk melihat apakah listrik keluar darinya. Jika Anda tahu bagian mana yang rusak, pilih bagian itu dan tekan Laporkan. Ada dua kerusakan yang harus ditemukan. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "power": "Listrik",
+ "lamp": "Lampu",
+ "test": "Tes bagian yang dipilih (biaya 1)",
+ "report": "Laporkan bagian yang dipilih sebagai rusak",
+ "signal": "listrik keluar",
+ "no_signal": "listrik tidak keluar",
+ "tests_used": "Tes terpakai: {n}",
+ "case_label": "Kerusakan {n} dari {total}",
+ "select_hint": "Klik sebuah bagian untuk memilihnya (atau tekan nomornya, 1–6).",
+ "parts": [
+  "Drum",
+  "Kumparan",
+  "Gerbang",
+  "Roda",
+  "Filter",
+  "Pompa",
+  "Lensa",
+  "Pegas",
+  "Bel",
+  "Kipas",
+  "Katup",
+  "Sabuk"
+ ]
+}

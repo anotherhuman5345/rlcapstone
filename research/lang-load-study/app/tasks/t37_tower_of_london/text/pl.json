@@ -1,0 +1,13 @@
+{
+ "instr": "Kulki: przekładaj kolorowe kulki po jednej, aż twoje słupki będą wyglądać dokładnie jak na obrazku docelowym.",
+ "clue": "Ułóż swoje słupki dokładnie tak jak na obrazku docelowym. Weź górną kulkę ze słupka, klikając go (lub naciskając 1, 2 lub 3), a potem kliknij słupek, na który ma trafić. Na słupkach mieści się najwyżej 3, 2 i 1 kulka. Zaplanuj ruchy przed rozpoczęciem i wykonaj ich jak najmniej. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "reset": "Od nowa",
+ "give_up": "Poddaję się",
+ "yours": "Twoje słupki",
+ "target": "Cel",
+ "moves_label": "Ruchy:",
+ "full_peg": "Ten słupek jest pełny.",
+ "empty_peg": "Ten słupek jest pusty.",
+ "solved": "Gotowe!"
+}

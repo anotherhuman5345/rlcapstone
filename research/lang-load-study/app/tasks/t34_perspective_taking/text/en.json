@@ -1,0 +1,4 @@
+{"instr": "Map directions: imagine standing at one landmark facing another, and say which way a third one is.",
+ "clue": "The map shows six landmarks seen from above. Imagine you stand at the first landmark and face the second one. Is the third landmark ahead of you, to your right, behind you, or to your left? Do not turn the screen. Answer with the arrow keys or the buttons. There are four questions on this map. Press Start when ready.",
+ "start": "Start", "stand": "You stand at", "face": "You face", "where": "Where is",
+ "ahead": "Ahead", "right": "Right", "behind": "Behind", "left": "Left"}

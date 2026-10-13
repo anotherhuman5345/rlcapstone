@@ -1,0 +1,22 @@
+<div class="dspan">
+  <style>
+    .dspan .ds-show { font-size: 4rem; font-weight: 700; text-align: center; min-height: 6rem; margin: 1rem 0; font-variant-numeric: tabular-nums; user-select: none; }
+    .dspan .ds-entry { font-size: 2rem; font-family: ui-monospace, monospace; letter-spacing: .3em; text-align: center; min-height: 3.2rem; max-width: 22rem; margin: 0 auto 1rem; border-bottom: 2px solid var(--line); }
+    .dspan .ds-pad { display: grid; grid-template-columns: repeat(3, 4.5rem); gap: .5rem; justify-content: center; }
+    .dspan .ds-pad button { margin: 0; padding: .8rem 0; font-size: 1.5rem; background: var(--paper); color: var(--ink); border: 1px solid var(--line); touch-action: manipulation; }
+    .dspan .ds-pad button.ds-ok { background: var(--signal); color: #fff; border-color: var(--signal); font-size: 1.1rem; }
+    .dspan .ds-prompt { text-align: center; }
+  </style>
+  <p class="ds-show" id="ds-show" aria-live="off"></p>
+  <div id="ds-recall" hidden>
+    <p class="ds-prompt">{{ text.recall }}</p>
+    <p class="ds-entry" id="ds-entry" aria-live="polite"></p>
+    <div class="ds-pad">
+      {% for d in "123456789" %}<button type="button" data-d="{{ d }}">{{ d }}</button>{% endfor %}
+      <button type="button" id="ds-del" aria-label="{{ text.delete }}" title="{{ text.delete }}">&#9003;</button>
+      <button type="button" data-d="0">0</button>
+      <button type="button" id="ds-ok" class="ds-ok">{{ text.done }}</button>
+    </div>
+  </div>
+  <p class="ds-prompt"><button type="button" id="ds-start">{{ text.start }}</button></p>
+</div>

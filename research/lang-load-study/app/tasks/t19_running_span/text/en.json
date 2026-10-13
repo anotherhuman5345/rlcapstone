@@ -1,0 +1,6 @@
+{"instr": "Letter stream: letters appear one at a time and stop without warning; then type only the last few letters, in order.",
+ "clue": "Press Start. Letters appear one at a time, and the list stops without warning, so keep the most recent letters in mind. When it stops, type only the LAST letters you saw, in the order they appeared. Use ? for a letter you cannot remember, then press OK.",
+ "keep": "Remember the last {k} letters.",
+ "recall": "Type the last {k} letters in the order they appeared.",
+ "unknown": "I don't remember this letter",
+ "start": "Start", "done": "OK", "delete": "Delete last letter"}

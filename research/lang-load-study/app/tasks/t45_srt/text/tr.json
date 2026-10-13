@@ -1,0 +1,3 @@
+{"instr": "Yanan kutular: yanan kutuya karşılık gelen tuşa ya da kutuya olabildiğince hızlı basın.",
+ "clue": "Dört kutudan biri yanacak. Olabildiğince hızlı ve doğru biçimde onun tuşuna basın: soldan sağa D, F, J veya K (ya da 1, 2, 3, 4) ya da kutuya dokunun. Sonuna kadar devam edin. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "key_labels": ["D / 1", "F / 2", "J / 3", "K / 4"], "progress": "{n} / {total}"}

@@ -1,0 +1,6 @@
+{"instr": "Takip: turuncuya dönen daireleri aklınızda tutun, daireler hareket ederken onları izleyin, sonra onları seçin.",
+ "clue": "Bazı daireler kısa bir süre turuncu olur. Bunları aklınızda tutun ve bütün daireler hareket ederken gözünüzü onlardan ayırmayın. Durduklarında izlediğiniz dairelere tıklayın ya da dokunun (veya numara tuşlarına basın), sonra Tamam'a ya da Enter'a basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "done": "Tamam", "stage_label": "Hareket eden daireler",
+ "round": "Tur {n}/{total}: {k} turuncu daireyi aklınızda tutun.",
+ "track": "Onları izleyin…",
+ "pick": "İzlediğiniz {k} daireyi seçin, sonra Tamam'a basın."}

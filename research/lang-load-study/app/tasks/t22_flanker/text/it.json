@@ -1,0 +1,7 @@
+{
+ "instr": "Frecce: premi il tasto o il pulsante che corrisponde alla freccia centrale e ignora le frecce intorno.",
+ "clue": "Guarda solo la freccia al centro. Premi il tasto freccia sinistra o destra (o il pulsante) per indicare dove punta. Ignora le frecce ai lati. Premi Inizia quando sei pronto.",
+ "left": "Sinistra",
+ "right": "Destra",
+ "start": "Inizia"
+}

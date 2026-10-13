@@ -1,0 +1,9 @@
+{
+ "instr": "Laberinto: lleve el punto desde la salida hasta la meta por el camino más corto que encuentre.",
+ "clue": "Mueva el punto azul por el laberinto hasta la casilla verde de salida, con el menor número de pasos posible. Ayuda planear la ruta primero. Muévase con las teclas de flecha, los botones de flecha o tocando una casilla junto al punto. No se pueden atravesar las paredes. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "up": "Arriba",
+ "down": "Abajo",
+ "left": "Izquierda",
+ "right": "Derecha"
+}

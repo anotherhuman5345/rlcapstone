@@ -1,0 +1,12 @@
+{
+ "instr": "Incastro: fai entrare tutti i pezzi nella tavola in modo che ogni quadrato sia coperto e i pezzi non si sovrappongano.",
+ "clue": "Riempi tutta la tavola con tutti i pezzi, senza sovrapposizioni. Scegli un pezzo (cliccalo o premi il suo numero), ruotalo con «Ruota» (o con il tasto R) se serve, poi clicca il quadrato della tavola dove deve andare il puntino del pezzo. Per spostare un pezzo già posato, cliccalo sulla tavola per riprenderlo. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "board": "Tavola",
+ "pieces": "Pezzi",
+ "rotate": "Ruota",
+ "give_up": "Mi arrendo",
+ "choose_first": "Prima scegli un pezzo.",
+ "no_fit": "Il pezzo non entra lì.",
+ "solved": "Fatto!"
+}

@@ -1,0 +1,17 @@
+{
+ "instr": "Zahlenkästen: Behalten Sie die Zahlen in einigen Kästen im Kopf, während Anweisungen sie verändern, und geben Sie dann die Endzahlen ein.",
+ "clue": "Sie sehen einige Kästen mit Zahlen. Merken Sie sie sich: Die Zahlen werden verdeckt. Dann erscheinen nacheinander Anweisungen, zu einem Kasten etwas zu addieren oder von ihm abzuziehen. Halten Sie die Zahlen im Kopf auf dem neuesten Stand. Geben Sie am Ende die Endzahl jedes Kastens ein (Tastatur oder Ziffernfeld auf dem Bildschirm) und drücken Sie „Fertig“. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "done": "Fertig",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Addieren Sie {n} zu Kasten {b}",
+ "op_sub": "Ziehen Sie {n} von Kasten {b} ab",
+ "phase_study": "Merken Sie sich die Zahlen.",
+ "phase_update": "Aktualisieren Sie die Zahlen im Kopf.",
+ "phase_answer": "Geben Sie die Endzahl jedes Kastens ein. Tippen Sie auf einen Kasten, um ihn auszuwählen; Enter springt zum nächsten Kasten."
+}

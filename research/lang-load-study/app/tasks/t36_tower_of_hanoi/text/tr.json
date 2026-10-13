@@ -1,0 +1,5 @@
+{"instr": "Kule: bütün diskleri, her seferinde bir disk taşıyarak işaretli hedef çubuğa aktarın; büyük bir diski asla küçük bir diskin üstüne koymayın.",
+ "clue": "Disk kulesinin tamamını “hedef” yazan çubuğa taşıyın. En üstteki diski almak için çubuğuna tıklayın (ya da 1, 2 veya 3 tuşuna basın), sonra diskin gideceği çubuğa tıklayın. Her seferinde yalnızca bir disk taşıyın ve büyük bir diski asla küçük bir diskin üstüne koymayın. Olabildiğince az hamle yapmaya çalışın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "reset": "Baştan başla", "give_up": "Vazgeç", "target": "hedef",
+ "moves_label": "Hamle:", "illegal": "Olmaz: büyük bir disk küçük bir diskin üstüne konamaz.",
+ "empty_peg": "Bu çubuk boş.", "solved": "Tamam!"}

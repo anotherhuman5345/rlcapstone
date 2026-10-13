@@ -1,0 +1,10 @@
+{
+ "instr": "Duas figuras: descubra por tentativa e erro qual figura é a certa. A figura certa pode mudar sem aviso.",
+ "clue": "Aparecem duas figuras. Uma delas é a certa. Escolha uma clicando ou tocando nela, ou com as setas para a esquerda/direita; você verá se acertou. Continue escolhendo a certa. Sem aviso, a outra figura pode passar a ser a certa: então troque. A posição dela na tela não importa. Pressione Começar quando estiver pronto(a).",
+ "left": "Esquerda",
+ "right": "Direita",
+ "correct": "Correto",
+ "wrong": "Errado",
+ "too_slow": "Lento demais",
+ "start": "Começar"
+}

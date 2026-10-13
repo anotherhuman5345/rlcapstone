@@ -1,0 +1,8 @@
+{
+ "instr": "Recuadros: mantenga la vista en el centro y pulse izquierda o derecha en cuanto aparezca un punto en un recuadro.",
+ "clue": "Mantenga la vista en la cruz del centro. Allí aparecerá una flecha y después un punto en el recuadro izquierdo o derecho. Pulse la tecla de flecha izquierda o derecha (o el botón) del lado donde apareció el punto, lo más rápido que pueda. La flecha suele acertar, pero no siempre. Pulse Iniciar cuando esté listo/a.",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "start": "Iniciar",
+ "stage_label": "Dos recuadros con una cruz entre ellos"
+}

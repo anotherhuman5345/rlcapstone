@@ -1,0 +1,7 @@
+{
+ "instr": "Lingkaran dan segitiga: tekan untuk setiap lingkaran, jangan lakukan apa pun untuk segitiga.",
+ "clue": "Bentuk-bentuk akan muncul satu per satu dengan tempo tetap. Saat melihat LINGKARAN, tekan spasi (atau tombol Tekan) secepat mungkin. Saat melihat SEGITIGA, jangan tekan apa pun. Tekan Mulai jika sudah siap.",
+ "press": "Tekan",
+ "start": "Mulai",
+ "stage_label": "Area tempat bentuk muncul"
+}

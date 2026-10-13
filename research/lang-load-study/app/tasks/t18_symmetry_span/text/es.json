@@ -1,0 +1,12 @@
+{
+ "instr": "Simetría y cuadrados: decida si cada patrón es simétrico como un espejo y recuerde dónde aparecieron los cuadrados rojos.",
+ "clue": "Cada paso muestra un patrón en blanco y negro: ¿es igual a la izquierda y a la derecha, como en un espejo? Responda Sí (flecha izquierda) o No (flecha derecha). Después, un cuadrado rojo aparece en una cuadrícula: recuerde dónde. Al final, toque los cuadrados en el orden en que aparecieron y pulse Listo. Pulse Iniciar cuando esté listo/a.",
+ "yes": "Sí, simétrico",
+ "no": "No",
+ "start": "Iniciar",
+ "undo": "Deshacer",
+ "done": "Listo",
+ "phase_judge": "¿Es simétrico este patrón?",
+ "phase_remember": "Recuerde este cuadrado.",
+ "phase_recall": "Toque los cuadrados en el orden en que aparecieron (también sirven las teclas de flecha y Enter; Retroceso deshace). Luego pulse Listo."
+}

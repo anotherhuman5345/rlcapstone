@@ -1,0 +1,5 @@
+{"instr": "Mental arithmetic: work out each problem in your head and type the answer.",
+ "clue": "Work out each problem in your head, without writing anything down. Type the answer with the keypad or the keyboard and press OK (or Enter). Each problem has 20 seconds. Answers are whole numbers. Press Start when ready.",
+ "start": "Start", "ok": "OK", "erase": "Erase last digit",
+ "seconds_left": "{s} s left", "progress": "Problem {i} of {n}",
+ "sym_add": "+", "sym_sub": "−", "sym_mul": "×", "sym_div": "÷"}

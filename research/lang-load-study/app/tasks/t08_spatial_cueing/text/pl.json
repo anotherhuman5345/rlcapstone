@@ -1,0 +1,8 @@
+{
+ "instr": "Ramki: patrz na środek i naciśnij w lewo lub w prawo, gdy tylko w jednej z ramek pojawi się kropka.",
+ "clue": "Patrz na krzyżyk na środku. Pojawi się tam strzałka, a potem kropka w lewej lub prawej ramce. Jak najszybciej naciśnij klawisz strzałki w lewo lub w prawo (albo przycisk) odpowiadający stronie, po której pojawiła się kropka. Strzałka zwykle wskazuje dobrze, ale nie zawsze. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "left": "W lewo",
+ "right": "W prawo",
+ "start": "Start",
+ "stage_label": "Dwie ramki z krzyżykiem pośrodku"
+}

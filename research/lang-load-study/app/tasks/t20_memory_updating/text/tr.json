@@ -1,0 +1,6 @@
+{"instr": "Sayı kutuları: talimatlar kutulardaki sayıları değiştirirken sayıları aklınızda güncel tutun, sonra son sayıları yazın.",
+ "clue": "Birkaç kutu ve içlerinde sayılar göreceksiniz. Sayıları aklınızda tutun: birazdan gizlenecekler. Ardından talimatlar tek tek çıkar ve bir kutuya ekleme ya da bir kutudan çıkarma yapmanızı söyler. Sayıları aklınızda güncelleyin. Sonunda her kutunun son sayısını yazın (klavye ya da ekrandaki tuş takımı) ve Bitti'ye basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "done": "Bitti", "box_labels": ["A", "B", "C", "D"],
+ "op_add": "{b} kutusuna {n} ekleyin", "op_sub": "{b} kutusundan {n} çıkarın",
+ "phase_study": "Sayıları aklınızda tutun.", "phase_update": "Sayıları aklınızda güncelleyin.",
+ "phase_answer": "Her kutunun son sayısını yazın. Seçmek için kutuya dokunun; Enter sonraki kutuya geçer."}

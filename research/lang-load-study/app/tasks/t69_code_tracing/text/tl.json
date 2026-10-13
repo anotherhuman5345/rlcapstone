@@ -1,0 +1,14 @@
+{
+ "instr": "Maiikling programa: basahin ang bawat maikling programa at i-type ang numerong ipini-print nito.",
+ "clue": "Makakakita ka ng tatlong maikling programa. Sundan ang mga ito nang hakbang-hakbang, linya por linya, at kuwentahin ang numerong ipini-print sa dulo. I-type ito gamit ang keypad o ang keyboard (gamitin ang − para sa negatibong numero), pagkatapos ay pindutin ang OK o Enter. Hindi kailangang magmadali. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "program_of": "Programa {n} sa {total}",
+ "output": "Numerong ipini-print:",
+ "ok": "OK",
+ "erase": "Burahin",
+ "kw_set": "itakda ang {v} sa {e}",
+ "kw_repeat": "ulitin nang {n} beses:",
+ "kw_if": "kung {c}:",
+ "kw_else": "kung hindi:",
+ "kw_print": "i-print ang {e}"
+}

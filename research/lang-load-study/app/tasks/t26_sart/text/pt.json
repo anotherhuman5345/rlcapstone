@@ -1,0 +1,7 @@
+{
+ "instr": "Dígitos: pressione para cada número, exceto o 3.",
+ "clue": "Números de 1 a 9 vão aparecer um após o outro, em ritmo constante, cada um seguido de uma cruz dentro de um círculo. Pressione a barra de espaço (ou o botão Pressionar) para cada número, EXCETO o 3. Quando vir um 3, não pressione. Velocidade e precisão são igualmente importantes. Pressione Começar quando estiver pronto(a).",
+ "press": "Pressionar",
+ "start": "Começar",
+ "stage_label": "Área onde os números aparecem"
+}

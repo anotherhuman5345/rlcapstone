@@ -1,0 +1,7 @@
+{
+ "instr": "Cuadrados al revés: observe cómo se iluminan los cuadrados uno a uno y luego haga clic en ellos en orden inverso, empezando por el último.",
+ "clue": "Pulse Iniciar y observe qué cuadrados se iluminan y en qué orden. Luego haga clic o toque los mismos cuadrados AL REVÉS: primero el último que se iluminó y al final el primero.",
+ "go": "Ahora haga clic en los cuadrados en orden inverso.",
+ "start": "Iniciar",
+ "square": "Cuadrado"
+}

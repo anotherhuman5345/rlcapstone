@@ -1,0 +1,12 @@
+{
+ "instr": "Umiilaw na mga kahon: nang pinakamabilis na kaya mo, pindutin ang key o kahon na tugma sa kahong umiilaw.",
+ "clue": "Iilaw ang isa sa apat na kahon. Nang pinakamabilis at pinakatama na kaya mo, pindutin ang key nito: D, F, J o K mula kaliwa pakanan (o 1, 2, 3, 4), o i-tap ang kahon. Magpatuloy hanggang sa dulo. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

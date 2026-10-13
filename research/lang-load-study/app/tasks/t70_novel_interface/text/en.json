@@ -1,0 +1,23 @@
+{
+ "instr": "New device: learn what six unfamiliar buttons do, then use them to set some lamps without help.",
+ "clue": "This device has three lamps and six unfamiliar buttons. First goal: a key under the buttons explains them, so learn what each one does. For the next two goals the key is hidden: reach each goal from memory. A dashed frame around the lamps means edit mode is on; the small mark shows the selected lamp. You can also press 1–6 for the buttons. Press Start when ready.",
+ "start": "Start",
+ "goal": "Make the lamps: left {l}, middle {m}, right {r}. Then confirm.",
+ "goal_label": "Goal {n} of {total}",
+ "legend_title": "Key",
+ "next_goal": "Next goal…",
+ "colors": [
+  "off",
+  "red",
+  "yellow",
+  "blue"
+ ],
+ "funcs": [
+  "Move the selection one lamp to the left (only outside edit mode)",
+  "Move the selection one lamp to the right (only outside edit mode)",
+  "Turn edit mode on or off",
+  "Give the selected lamp its next colour: off, red, yellow, blue, off… (only in edit mode)",
+  "Turn all lamps off",
+  "Confirm and finish the goal (only outside edit mode)"
+ ]
+}

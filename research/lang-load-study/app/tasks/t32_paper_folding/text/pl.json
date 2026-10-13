@@ -1,0 +1,8 @@
+{
+ "instr": "Składanie papieru: kartkę składa się i przebija w niej dziurkę; wybierz, jak wygląda kartka po ponownym rozłożeniu.",
+ "clue": "Obrazki pokazują składanie kwadratowej kartki papieru (zacieniowana część zagina się wzdłuż przerywanej linii, tak jak pokazuje strzałka). Na ostatnim obrazku przez wszystkie warstwy przebija się dziurkę. Która z czterech kartek pokazuje, gdzie są dziurki po rozłożeniu papieru? Kliknij lub dotknij kartki albo naciśnij jej numer od 1 do 4. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "folds": "Składanie",
+ "punched": "Przebita dziurka",
+ "options": "Która kartka jest poprawna po rozłożeniu?"
+}

@@ -1,0 +1,28 @@
+{
+ "instr": "Detección de averías: una máquina lleva corriente a través de sus piezas hasta unas lámparas; encuentre la pieza averiada con el menor número de pruebas posible.",
+ "clue": "La corriente entra por la izquierda, pasa por las piezas siguiendo las líneas y llega a las lámparas. Una pieza averiada no deja pasar corriente, así que todas las piezas que vienen después y todas las lámparas que alimenta quedan apagadas. Exactamente una pieza está averiada. Fíjese en qué lámparas están encendidas. Puede probar una pieza (cada prueba cuesta 1): selecciónela y pulse Probar para ver si sale corriente de ella. Cuando sepa qué pieza está averiada, selecciónela y pulse Informar. Hay dos averías que encontrar. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "power": "Corriente",
+ "lamp": "Lámpara",
+ "test": "Probar la pieza seleccionada (cuesta 1)",
+ "report": "Informar de que la pieza seleccionada está averiada",
+ "signal": "sale corriente",
+ "no_signal": "no sale corriente",
+ "tests_used": "Pruebas usadas: {n}",
+ "case_label": "Avería {n} de {total}",
+ "select_hint": "Haga clic en una pieza para seleccionarla (o pulse su número, 1–6).",
+ "parts": [
+  "Tambor",
+  "Bobina",
+  "Compuerta",
+  "Rueda",
+  "Filtro",
+  "Bomba",
+  "Lente",
+  "Muelle",
+  "Timbre",
+  "Ventilador",
+  "Válvula",
+  "Correa"
+ ]
+}

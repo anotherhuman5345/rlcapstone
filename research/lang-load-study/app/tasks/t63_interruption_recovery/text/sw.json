@@ -1,0 +1,31 @@
+{
+ "instr": "Taratibu: fanya orodha ya hatua kwa mpangilio kwa kubofya vitufe vya hatua; kazi nyingine ikikukatiza, rudi na uendelee pale ulipoachia.",
+ "clue": "Tekeleza utaratibu: bofya vitufe vya hatua kwa mpangilio wa orodha (au bonyeza vitufe vya namba zake). Fanya kila hatua mara moja; hakuna kitakachoonyesha ni hatua zipi zimefanyika. Wakati mwingine kazi tofauti itakukatiza: sema kama kila namba ni shufwa au witiri. Utaratibu ukirudi, endelea kutoka pale ulipoachia. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "case_label": "Kazi {n} kati ya {total}",
+ "proc_title": "Utaratibu",
+ "palette_title": "Vitufe vya hatua",
+ "interrupt_title": "Shufwa au witiri?",
+ "interrupt_hint": "Mshale wa kushoto = shufwa, mshale wa kulia = witiri",
+ "even": "Shufwa",
+ "odd": "Witiri",
+ "next_case": "Kazi inayofuata…",
+ "steps": [
+  "Changanua msimbo",
+  "Pima uzito wa kifurushi",
+  "Kagua lakiri",
+  "Chapisha lebo",
+  "Bandika lebo",
+  "Andika muda",
+  "Piga picha",
+  "Pima ukubwa",
+  "Gonga muhuri fomu",
+  "Panga kwa rangi",
+  "Fungasha bidhaa",
+  "Arifu mapokezi",
+  "Hesabu vipande",
+  "Funga kifuniko",
+  "Saini karatasi",
+  "Safisha trei"
+ ]
+}

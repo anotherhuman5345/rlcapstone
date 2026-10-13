@@ -1,0 +1,12 @@
+{
+ "instr": "Mga direksiyon sa mapa: isipin na nakatayo ka sa isang palatandaan at nakaharap sa isa pa, at sabihin kung nasaang direksiyon ang ikatlo.",
+ "clue": "Ipinapakita ng mapa ang anim na palatandaan na nakikita mula sa itaas. Isipin na nakatayo ka sa unang palatandaan at nakaharap sa pangalawa. Ang ikatlong palatandaan ba ay nasa harap mo, sa kanan mo, sa likod mo, o sa kaliwa mo? Huwag ipihit ang screen. Sumagot gamit ang mga arrow key o ang mga button. May apat na tanong sa mapang ito. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "stand": "Nakatayo ka sa",
+ "face": "Nakaharap ka sa",
+ "where": "Nasaan ito",
+ "ahead": "Harap",
+ "right": "Kanan",
+ "behind": "Likod",
+ "left": "Kaliwa"
+}

@@ -1,0 +1,3 @@
+{"instr": "Delivery route: plan the shortest round trip from the depot through every stop and back.",
+ "clue": "Start at the depot (the dark square), visit every numbered stop once, and come back to the depot. Make the whole trip as short as you can (distance in a straight line). Click or tap the stops in the order you would visit them, or type their numbers. Undo (Backspace key) removes the last stop. Press Done (Enter key) when every stop is in your route. Press Start when ready.",
+ "start": "Start", "undo": "Undo", "erase": "Clear", "done": "Done"}

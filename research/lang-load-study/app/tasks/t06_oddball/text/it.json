@@ -1,0 +1,9 @@
+{
+ "instr": "Forma rara: delle forme lampeggiano una alla volta; premi Spazio (o il pulsante) solo quando vedi il quadrato.",
+ "clue": "Al centro lampeggiano delle forme, una alla volta. Premi Spazio (o il pulsante grande) il più velocemente possibile ogni volta che compare un quadrato. Non fare niente per i cerchi. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "press": "Quadrato!",
+ "stage_label": "Forme che lampeggiano",
+ "target_is": "Premi per:",
+ "ignore": "ignora:"
+}

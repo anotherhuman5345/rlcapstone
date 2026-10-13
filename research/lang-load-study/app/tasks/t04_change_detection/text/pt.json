@@ -1,0 +1,8 @@
+{
+ "instr": "Memória de cores: memorize um grupo de quadrados coloridos; após um breve intervalo, diga se algum quadrado mudou de cor.",
+ "clue": "Quadrados coloridos aparecem rapidamente, somem e depois voltam. Algum quadrado mudou de cor? Pressione ← ou “Igual” se nada mudou, → ou “Diferente” se um deles mudou. Pressione Começar quando estiver pronto(a).",
+ "same": "Igual",
+ "different": "Diferente",
+ "start": "Começar",
+ "stage_label": "Quadrados coloridos"
+}

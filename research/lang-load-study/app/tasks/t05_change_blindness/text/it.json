@@ -1,0 +1,12 @@
+{
+ "instr": "Trova il cambiamento: due versioni di un'immagine si alternano rapidamente; clicca sull'unico oggetto che è diverso.",
+ "clue": "L'immagine alterna rapidamente due versioni. Un oggetto cambia (cambia colore o forma, oppure scompare). Clicca o tocca quell'oggetto appena lo trovi. Da tastiera: sposta la croce con i tasti freccia e premi Invio. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "pick": "Scegli qui",
+ "stage_label": "Immagine che lampeggia",
+ "move_left": "Sposta a sinistra",
+ "move_up": "Sposta in alto",
+ "move_down": "Sposta in basso",
+ "move_right": "Sposta a destra",
+ "scene": "Immagine {n} di {total}"
+}

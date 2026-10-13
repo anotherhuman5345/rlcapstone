@@ -1,0 +1,12 @@
+{
+ "instr": "Symmetrie und Quadrate: Entscheiden Sie, ob jedes Muster spiegelsymmetrisch ist, und merken Sie sich, wo die roten Quadrate erschienen sind.",
+ "clue": "Jeder Schritt zeigt ein schwarz-weißes Muster: Ist es links und rechts gleich, wie ein Spiegelbild? Antworten Sie mit Ja (linker Pfeil) oder Nein (rechter Pfeil). Dann blitzt in einem Raster ein rotes Quadrat auf: Merken Sie sich, wo. Tippen Sie am Ende die Quadrate in der Reihenfolge an, in der sie erschienen sind, und drücken Sie dann „Fertig“. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "yes": "Ja, symmetrisch",
+ "no": "Nein",
+ "start": "Starten",
+ "undo": "Rückgängig",
+ "done": "Fertig",
+ "phase_judge": "Ist dieses Muster symmetrisch?",
+ "phase_remember": "Merken Sie sich dieses Quadrat.",
+ "phase_recall": "Tippen Sie die Quadrate in der Reihenfolge an, in der sie erschienen sind (Pfeiltasten und Enter funktionieren auch, die Rücktaste macht rückgängig). Drücken Sie dann „Fertig“."
+}

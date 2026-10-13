@@ -1,0 +1,14 @@
+<div class="go-nogo">
+  <svg id="gn-stage" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="{{ text.stage_label }}"
+       style="display:block;margin:0 auto;background:#f7f9fb;border:1px solid #c7d0d8;border-radius:6px">
+    <g id="gn-fix" stroke="#1d2731" stroke-width="4">
+      <line x1="185" y1="150" x2="215" y2="150"/><line x1="200" y1="135" x2="200" y2="165"/>
+    </g>
+    <circle id="gn-circle" cx="200" cy="150" r="70" fill="#1f6e8c" visibility="hidden"/>
+    <polygon id="gn-triangle" points="200,41.3 294.3,204.4 105.7,204.4" fill="#1f6e8c" visibility="hidden"/>
+  </svg>
+  <div class="btn-row" style="justify-content:center">
+    <button type="button" id="gn-press" style="min-width:12rem;min-height:4rem" disabled>{{ text.press }}</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="gn-start">{{ text.start }}</button></p>
+</div>

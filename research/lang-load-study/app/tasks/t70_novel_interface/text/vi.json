@@ -1,0 +1,23 @@
+{
+ "instr": "Thiết bị mới: hãy học xem sáu nút lạ dùng để làm gì, rồi dùng chúng để chỉnh các bóng đèn mà không cần trợ giúp.",
+ "clue": "Thiết bị này có ba bóng đèn và sáu nút lạ. Mục tiêu đầu tiên: bảng chú giải bên dưới các nút giải thích chúng, vì vậy hãy học xem mỗi nút làm gì. Ở hai mục tiêu tiếp theo, bảng chú giải bị ẩn: hãy đạt từng mục tiêu theo trí nhớ. Khung nét đứt quanh các bóng đèn nghĩa là chế độ chỉnh sửa đang bật; dấu nhỏ cho biết bóng đèn đang được chọn. Bạn cũng có thể nhấn 1–6 thay cho các nút. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "goal": "Hãy chỉnh các bóng đèn thành: trái – {l}, giữa – {m}, phải – {r}. Sau đó xác nhận.",
+ "goal_label": "Mục tiêu {n} / {total}",
+ "legend_title": "Chú giải",
+ "next_goal": "Mục tiêu tiếp theo…",
+ "colors": [
+  "tắt",
+  "đỏ",
+  "vàng",
+  "xanh dương"
+ ],
+ "funcs": [
+  "Chọn bóng đèn bên trái (chỉ khi không ở chế độ chỉnh sửa)",
+  "Chọn bóng đèn bên phải (chỉ khi không ở chế độ chỉnh sửa)",
+  "Bật hoặc tắt chế độ chỉnh sửa",
+  "Chuyển bóng đèn đang chọn sang màu kế tiếp: tắt, đỏ, vàng, xanh dương, tắt… (chỉ trong chế độ chỉnh sửa)",
+  "Tắt tất cả các bóng đèn",
+  "Xác nhận và hoàn thành mục tiêu (chỉ khi không ở chế độ chỉnh sửa)"
+ ]
+}

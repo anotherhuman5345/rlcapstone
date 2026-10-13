@@ -1,0 +1,9 @@
+{
+ "instr": "Farbe oder Form: Ein Hinweiswort sagt Ihnen, ob Sie die FARBE oder die FORM der folgenden Figur beurteilen sollen.",
+ "clue": "Zuerst erscheint ein Hinweis: FARBE oder FORM. Dann erscheint ein blauer oder orangefarbener Kreis oder ein Quadrat. Bei FARBE: blau = links, orange = rechts. Bei FORM: Kreis = links, Quadrat = rechts. Benutzen Sie die Pfeiltasten oder die Schaltflächen. Antworten Sie schnell und genau. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "cue_color": "FARBE",
+ "cue_shape": "FORM",
+ "left": "Links",
+ "right": "Rechts",
+ "start": "Starten"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Chẵn hay lẻ, kèm một việc cần nhớ: hãy phân loại các số là lẻ hay chẵn, và nhấn Đặc biệt mỗi khi một số xuất hiện bên trong khung vuông.",
+ "clue": "Các số lần lượt hiện ra. Nhấn Lẻ (mũi tên trái) hoặc Chẵn (mũi tên phải). Hãy nhớ: nếu một số xuất hiện bên trong khung vuông viền dày, hãy nhấn Đặc biệt (phím cách) thay vào đó. Hãy trả lời nhanh. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "odd": "Lẻ",
+ "even": "Chẵn",
+ "special": "Đặc biệt",
+ "space": "phím cách",
+ "start": "Bắt đầu"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Kästen: Schauen Sie in die Mitte und drücken Sie links oder rechts, sobald in einem Kasten ein Punkt erscheint.",
+ "clue": "Schauen Sie auf das Kreuz in der Mitte. Dort erscheint ein Pfeil, dann ein Punkt im linken oder rechten Kasten. Drücken Sie so schnell wie möglich die linke oder rechte Pfeiltaste (oder Schaltfläche) für die Seite, auf der der Punkt erschienen ist. Der Pfeil zeigt meistens richtig, aber nicht immer. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "left": "Links",
+ "right": "Rechts",
+ "start": "Starten",
+ "stage_label": "Zwei Kästen mit einem Kreuz dazwischen"
+}

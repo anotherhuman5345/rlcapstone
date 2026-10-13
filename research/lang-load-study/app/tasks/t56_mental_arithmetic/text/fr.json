@@ -1,0 +1,13 @@
+{
+ "instr": "Calcul mental : faites chaque calcul de tête et tapez le résultat.",
+ "clue": "Faites chaque calcul de tête, sans rien écrire. Tapez le résultat avec le pavé ou le clavier et appuyez sur OK (ou Entrée). Chaque calcul dispose de 20 secondes. Les résultats sont des nombres entiers. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "ok": "OK",
+ "erase": "Effacer le dernier chiffre",
+ "seconds_left": "Encore {s} s",
+ "progress": "Calcul {i} sur {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

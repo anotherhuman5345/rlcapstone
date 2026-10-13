@@ -1,0 +1,10 @@
+{
+ "instr": "Huruf T yang berkedip: pandang bagian tengah dan katakan ke arah mana huruf T tengah dari sebuah kelompok kecil menghadap.",
+ "clue": "Pandang terus tanda silang di tengah. Sekelompok kecil bentuk T akan muncul sekilas di satu sisi. Katakan ke arah mana batang datar huruf T yang DI TENGAH menghadap: atas, kanan, bawah, atau kiri. Gunakan tombol panah atau tombol di layar. Jika tidak yakin, tebak sebaik mungkin. Tekan Mulai jika sudah siap.",
+ "up": "Atas",
+ "right": "Kanan",
+ "down": "Bawah",
+ "left": "Kiri",
+ "start": "Mulai",
+ "stage_label": "Tanda silang di tengah area kosong"
+}

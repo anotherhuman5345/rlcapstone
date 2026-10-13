@@ -1,0 +1,10 @@
+{
+ "instr": "Śledzenie: zapamiętaj, które kółka zmieniają kolor na pomarańczowy, śledź je, gdy wszystkie kółka się poruszają, a potem je wskaż.",
+ "clue": "Niektóre kółka na chwilę zmieniają kolor na pomarańczowy. Zapamiętaj je i nie spuszczaj ich z oczu, gdy wszystkie kółka się poruszają. Gdy się zatrzymają, kliknij lub dotknij śledzonych kółek (albo naciśnij klawisze z ich numerami), a potem naciśnij Gotowe lub Enter. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "done": "Gotowe",
+ "stage_label": "Poruszające się kółka",
+ "round": "Runda {n} z {total}: zapamiętaj pomarańczowe kółka (liczba: {k}).",
+ "track": "Śledź je…",
+ "pick": "Wybierz śledzone kółka (liczba: {k}), a potem naciśnij Gotowe."
+}

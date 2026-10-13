@@ -1,0 +1,10 @@
+{
+ "instr": "Deux figures : trouvez par essais et erreurs quelle figure est la bonne. La bonne figure peut changer sans prévenir.",
+ "clue": "Deux figures apparaissent. L'une d'elles est la bonne. Choisissez-en une en cliquant ou en la touchant, ou avec les flèches gauche/droite ; vous verrez si vous aviez raison. Continuez à choisir la bonne. Sans prévenir, l'autre figure peut devenir la bonne : changez alors. Sa position à l'écran ne compte pas. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "left": "Gauche",
+ "right": "Droite",
+ "correct": "Juste",
+ "wrong": "Faux",
+ "too_slow": "Trop lent",
+ "start": "Démarrer"
+}

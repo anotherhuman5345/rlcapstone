@@ -1,0 +1,10 @@
+<div class="sspan">
+  <style>
+    .sspan .corsi-block { touch-action: manipulation; }
+    .sspan .corsi-block:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  </style>
+  <div class="corsi-board" id="ss-board">
+    {% for b in item.blocks %}<button type="button" class="corsi-block" data-i="{{ loop.index0 }}" aria-label="{{ text.square }} {{ loop.index }}" style="left: {{ b[0] * 100 }}%; top: {{ b[1] * 100 }}%" disabled></button>{% endfor %}
+  </div>
+  <p><button type="button" id="ss-start">{{ text.start }}</button></p>
+</div>

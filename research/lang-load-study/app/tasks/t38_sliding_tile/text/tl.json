@@ -1,0 +1,16 @@
+{
+ "instr": "Mga tile: idausdos ang mga tile na may numero papunta sa puwang hanggang magkasunod-sunod ang mga ito mula 1 hanggang 8.",
+ "clue": "Ayusin ang mga tile gaya ng nasa target na larawan: 1 hanggang 8, at nasa kanang ibaba ang puwang. I-click ang tile na katabi ng puwang para idausdos ito roon, o gamitin ang mga arrow key (o mga arrow button) para ilipat ang isang tile sa puwang. Subukang gumamit ng pinakakaunting galaw na kaya mo. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "reset": "Magsimula ulit",
+ "give_up": "Sumuko",
+ "yours": "Ang iyong board",
+ "target": "Target",
+ "moves_label": "Mga galaw:",
+ "illegal": "Ang tile lang na katabi ng puwang ang puwedeng gumalaw.",
+ "solved": "Tapos na!",
+ "left": "Pakaliwa",
+ "right": "Pakanan",
+ "up": "Pataas",
+ "down": "Pababa"
+}

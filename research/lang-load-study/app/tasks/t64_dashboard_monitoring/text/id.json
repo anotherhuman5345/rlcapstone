@@ -1,0 +1,16 @@
+{
+ "instr": "Dasbor: awasi empat indikator dan bereaksilah hanya jika sebuah batang naik melewati garis merah dan tetap di sana.",
+ "clue": "Awasi keempat indikator. Jika sebuah batang naik melewati garis merah dan TETAP di atasnya, klik indikator itu (atau tekan nomornya, 1–4) secepat mungkin. Abaikan lonjakan singkat yang langsung turun lagi, dan abaikan batang yang turun rendah. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "hint": "Klik indikator atau tekan 1–4",
+ "gauges": [
+  "Tekanan",
+  "Aliran",
+  "Panas",
+  "Kecepatan",
+  "Beban",
+  "Ketinggian",
+  "Muatan",
+  "Sinyal"
+ ]
+}

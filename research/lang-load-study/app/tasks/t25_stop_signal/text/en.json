@@ -1,0 +1,4 @@
+{"instr": "Arrows with a stop sign: press the arrow's direction quickly, but hold back if it turns red.",
+ "clue": "An arrow will appear in the middle. Press the left or right arrow key (or button) for the way it points, as fast as you can. Sometimes, just after the arrow appears, it turns red inside a red ring (with a beep if sound is on): then try NOT to press. Stopping will not always work; that is normal. Do not slow down to wait for the red signal. Press Start when ready.",
+ "left": "Left", "right": "Right", "start": "Start", "sound": "Beep with the stop signal",
+ "stage_label": "Area where the arrows appear"}

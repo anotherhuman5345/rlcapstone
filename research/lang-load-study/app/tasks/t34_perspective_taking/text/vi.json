@@ -1,0 +1,12 @@
+{
+ "instr": "Phương hướng trên bản đồ: hãy tưởng tượng bạn đứng ở một địa điểm, nhìn về phía một địa điểm khác, và cho biết địa điểm thứ ba nằm ở hướng nào.",
+ "clue": "Bản đồ cho thấy sáu địa điểm nhìn từ trên xuống. Hãy tưởng tượng bạn đứng ở địa điểm thứ nhất và nhìn về phía địa điểm thứ hai. Địa điểm thứ ba ở phía trước, bên phải, phía sau hay bên trái bạn? Đừng xoay màn hình. Trả lời bằng các phím mũi tên hoặc các nút. Có bốn câu hỏi trên bản đồ này. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "stand": "Bạn đứng ở",
+ "face": "Bạn nhìn về phía",
+ "where": "Địa điểm này ở hướng nào",
+ "ahead": "Phía trước",
+ "right": "Bên phải",
+ "behind": "Phía sau",
+ "left": "Bên trái"
+}

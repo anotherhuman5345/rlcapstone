@@ -1,0 +1,9 @@
+{
+ "instr": "Strzałki z sygnałem stopu: szybko naciśnij kierunek strzałki, ale powstrzymaj się, jeśli zmieni kolor na czerwony.",
+ "clue": "Na środku pojawi się strzałka. Jak najszybciej naciśnij klawisz strzałki w lewo lub w prawo (albo przycisk) zgodnie z jej kierunkiem. Czasami, zaraz po pojawieniu się, strzałka staje się czerwona w czerwonym pierścieniu (z sygnałem dźwiękowym, jeśli dźwięk jest włączony): wtedy postaraj się NIE naciskać. Zatrzymanie nie zawsze się uda; to normalne. Nie zwalniaj, żeby czekać na czerwony sygnał. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "left": "W lewo",
+ "right": "W prawo",
+ "start": "Start",
+ "sound": "Sygnał dźwiękowy przy sygnale stopu",
+ "stage_label": "Obszar, w którym pojawiają się strzałki"
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Cercles de couleur : appuyez du côté qui correspond à la couleur du cercle, où que le cercle apparaisse.",
+ "clue": "Un cercle apparaît à gauche ou à droite. Répondez selon sa COULEUR, pas selon sa position : appuyez sur la flèche (ou le bouton) du côté qui montre cette couleur. Répondez vite et sans erreur. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "left": "Gauche",
+ "right": "Droite",
+ "start": "Démarrer"
+}

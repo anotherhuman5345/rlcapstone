@@ -1,0 +1,36 @@
+<div class="pl">
+  <style>
+    .pl .pl-steps { font-size: 1.15rem; line-height: 1.5; max-width: 44rem; }
+    .pl .pl-machine { display: inline-flex; align-items: center; gap: 1.2rem; padding: .8rem 1.2rem; border: 2px solid var(--line); border-radius: 8px; background: var(--paper); margin: .5rem 0; }
+    .pl .pl-lamp { display: inline-block; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 2px solid #333; vertical-align: middle; }
+    .pl .pl-num { display: inline-block; min-width: 2.6rem; padding: .1rem .5rem; font-size: 2rem; font-weight: 700; text-align: center; background: #222; color: #7CFC9A; border-radius: 4px; font-family: ui-monospace, monospace; }
+    .pl .pl-chips { min-height: 2.2rem; display: flex; flex-wrap: wrap; gap: .3rem; margin: .4rem 0; }
+    .pl .pl-chip { padding: .15rem .55rem; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); font-weight: 600; }
+    .pl .pl-acts { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: .5rem; max-width: 44rem; }
+    .pl .pl-acts button { margin: 0; }
+    .pl .pl-acts .k { font-weight: 400; opacity: .8; margin-right: .3rem; }
+    .pl .pl-ctrl button.sec { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+    .pl .pl-prog { color: var(--muted); }
+  </style>
+  <div id="pl-study" hidden>
+    <p><strong>{{ text.study_title }}</strong></p>
+    <ol class="pl-steps" id="pl-steps"></ol>
+    <p>{{ text.example }}</p>
+    <div class="pl-machine" id="pl-demo-machine"></div>
+    <div class="pl-chips" id="pl-demo-chips"></div>
+    <p class="pl-prog" id="pl-study-left"></p>
+    <p><button type="button" id="pl-learned">{{ text.learned }}</button></p>
+  </div>
+  <div id="pl-test" hidden>
+    <p class="pl-prog" id="pl-prog"></p>
+    <div class="pl-machine" id="pl-machine"></div>
+    <p>{{ text.presses }}</p>
+    <div class="pl-chips" id="pl-chips"></div>
+    <div class="pl-acts" id="pl-acts"></div>
+    <div class="btn-row pl-ctrl">
+      <button type="button" class="sec" id="pl-undo">{{ text.undo }}</button>
+      <button type="button" id="pl-done">{{ text.done }}</button>
+    </div>
+  </div>
+  <p><button type="button" id="pl-start">{{ text.start }}</button></p>
+</div>

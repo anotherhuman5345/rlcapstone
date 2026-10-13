@@ -1,0 +1,7 @@
+{
+ "instr": "Angka: tekan untuk setiap angka kecuali 3.",
+ "clue": "Angka 1 sampai 9 akan muncul satu per satu dengan tempo tetap, masing-masing diikuti tanda silang dalam lingkaran. Tekan spasi (atau tombol Tekan) untuk setiap angka KECUALI 3. Saat melihat 3, jangan tekan. Kecepatan dan ketepatan sama pentingnya. Tekan Mulai jika sudah siap.",
+ "press": "Tekan",
+ "start": "Mulai",
+ "stage_label": "Area tempat angka muncul"
+}

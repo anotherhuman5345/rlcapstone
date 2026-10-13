@@ -1,0 +1,7 @@
+{
+ "instr": "Strzałki: naciśnij klawisz lub przycisk zgodny ze środkową strzałką i nie zwracaj uwagi na strzałki wokół niej.",
+ "clue": "Patrz tylko na strzałkę na środku. Naciśnij klawisz strzałki w lewo lub w prawo (albo przycisk), aby wskazać, w którą stronę jest skierowana. Nie zwracaj uwagi na strzałki po obu stronach. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "left": "W lewo",
+ "right": "W prawo",
+ "start": "Start"
+}

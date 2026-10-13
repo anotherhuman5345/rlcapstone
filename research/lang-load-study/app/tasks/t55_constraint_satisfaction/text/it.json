@@ -1,0 +1,88 @@
+{
+ "instr": "Ordine: metti gli animali in fila in modo che tutte le frasi siano vere.",
+ "clue": "Leggi le frasi, poi metti ogni animale in uno dei posti numerati in modo che tutte le frasi siano vere. Il posto 1 è quello più a sinistra. Clicca un animale (oppure raggiungilo con Tab e premi Invio), poi clicca un posto. Clicca un posto occupato per riprendere il suo animale. Premi Fatto quando tutti i posti sono occupati. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "done": "Fatto",
+ "give_up": "Mi arrendo",
+ "setting": "Gli animali stanno in fila in posti numerati, dal posto 1 a sinistra fino all'ultimo posto a destra.",
+ "row": "La fila",
+ "tray": "Animali non ancora posizionati",
+ "place": "Posto",
+ "templates": {
+  "left_of": "{a.Art} si trova da qualche parte a sinistra {b.di}.",
+  "next_left": "{a.Art} si trova subito a sinistra {b.di}.",
+  "adjacent": "{a.Art} si trova accanto {b.a}.",
+  "not_adjacent": "{a.Art} non si trova accanto {b.a}.",
+  "at": "{a.Art} si trova al posto {p}.",
+  "not_at": "{a.Art} non si trova al posto {p}.",
+  "end": "{a.Art} occupa il primo o l'ultimo posto della fila.",
+  "not_end": "{a.Art} non occupa né il primo né l'ultimo posto della fila.",
+  "between": "{a.Art} si trova da qualche parte tra {b.art} e {c.art}."
+ },
+ "objects": [
+  {
+   "name": "gatto",
+   "cap": "Gatto",
+   "art": "il gatto",
+   "Art": "Il gatto",
+   "di": "del gatto",
+   "a": "al gatto"
+  },
+  {
+   "name": "cane",
+   "cap": "Cane",
+   "art": "il cane",
+   "Art": "Il cane",
+   "di": "del cane",
+   "a": "al cane"
+  },
+  {
+   "name": "cavallo",
+   "cap": "Cavallo",
+   "art": "il cavallo",
+   "Art": "Il cavallo",
+   "di": "del cavallo",
+   "a": "al cavallo"
+  },
+  {
+   "name": "coniglio",
+   "cap": "Coniglio",
+   "art": "il coniglio",
+   "Art": "Il coniglio",
+   "di": "del coniglio",
+   "a": "al coniglio"
+  },
+  {
+   "name": "capra",
+   "cap": "Capra",
+   "art": "la capra",
+   "Art": "La capra",
+   "di": "della capra",
+   "a": "alla capra"
+  },
+  {
+   "name": "anatra",
+   "cap": "Anatra",
+   "art": "l'anatra",
+   "Art": "L'anatra",
+   "di": "dell'anatra",
+   "a": "all'anatra"
+  },
+  {
+   "name": "volpe",
+   "cap": "Volpe",
+   "art": "la volpe",
+   "Art": "La volpe",
+   "di": "della volpe",
+   "a": "alla volpe"
+  },
+  {
+   "name": "orso",
+   "cap": "Orso",
+   "art": "l'orso",
+   "Art": "L'orso",
+   "di": "dell'orso",
+   "a": "all'orso"
+  }
+ ]
+}

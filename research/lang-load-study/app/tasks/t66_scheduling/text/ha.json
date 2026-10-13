@@ -1,0 +1,40 @@
+{
+ "instr": "Tsarin aiki: ku ba kowane aiki ga wani mutum a wata rana ta yadda za a kiyaye dukkan dokoki.",
+ "clue": "Ku tsara aikin: ku sa kowane aiki a cikin teburin a ƙarƙashin mutum ɗaya da rana ɗaya. Kowane mutum zai iya yin aiki ɗaya kawai a rana a mafi yawa, kuma dole a kiyaye dukkan dokokin da ke cikin jerin. Ku danna aiki (ko ku je kansa da Tab ku danna Enter), sannan ku danna akwati a cikin teburin. Ku danna akwatin da ke da aiki don sake ɗaukar aikin. Duk tsarin da ya kiyaye dukkan dokoki daidai ne. Ku danna Na gama idan an ajiye kowane aiki. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "done": "Na gama",
+ "give_up": "Na haƙura",
+ "setting": "Kowane mutum zai iya yin aiki ɗaya kawai a rana a mafi yawa. Dokoki:",
+ "plan": "Tsari",
+ "tray": "Ayyukan da ba a ajiye ba tukuna",
+ "templates": {
+  "before": "Dole a yi aikin {a} a ranar da ta gabaci ranar aikin {b}.",
+  "same_day": "Dole a yi aikin {a} da aikin {b} a rana ɗaya.",
+  "diff_day": "Dole a yi aikin {a} da aikin {b} a ranaku daban-daban.",
+  "by_day": "Dole a yi aikin {a} a ranar {day} ko kafin ta.",
+  "off_day": "A ranar {day} babu {w} a wurin aiki.",
+  "only_person": "Sai {w} kaɗai ke iya yin aikin {a}.",
+  "not_person": "Kada a ba {w} aikin {a}.",
+  "same_person": "Dole mutum ɗaya ya yi aikin {a} da aikin {b} duka."
+ },
+ "jobs": [
+  {"name": "rahoto", "cap": "Rahoto"},
+  {"name": "isar da kaya", "cap": "Isar da kaya"},
+  {"name": "gyara", "cap": "Gyara"},
+  {"name": "tsaftacewa", "cap": "Tsaftacewa"},
+  {"name": "ƙidayar kaya", "cap": "Ƙidayar kaya"},
+  {"name": "horo", "cap": "Horo"},
+  {"name": "fenti", "cap": "Fenti"},
+  {"name": "bincike", "cap": "Bincike"}
+ ],
+ "people": [
+  "Amina",
+  "Bello",
+  "Danjuma"
+ ],
+ "days": [
+  "Litinin",
+  "Talata",
+  "Laraba"
+ ]
+}

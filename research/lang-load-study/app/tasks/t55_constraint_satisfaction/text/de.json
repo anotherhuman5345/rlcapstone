@@ -1,0 +1,80 @@
+{
+ "instr": "Reihenfolge: Stellen Sie die Tiere so in eine Reihe, dass jeder Satz stimmt.",
+ "clue": "Lesen Sie die Sätze und stellen Sie dann jedes Tier so auf einen der nummerierten Plätze, dass alle Sätze stimmen. Platz 1 ist ganz links. Klicken Sie auf ein Tier (oder gehen Sie mit Tab dorthin und drücken Sie Enter) und klicken Sie dann auf einen Platz. Klicken Sie auf einen besetzten Platz, um sein Tier wieder aufzunehmen. Drücken Sie „Fertig“, wenn jeder Platz besetzt ist. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "done": "Fertig",
+ "give_up": "Aufgeben",
+ "setting": "Die Tiere stehen in einer Reihe nummerierter Plätze, von Platz 1 links bis zum letzten Platz rechts.",
+ "row": "Die Reihe",
+ "tray": "Noch nicht platzierte Tiere",
+ "place": "Platz",
+ "templates": {
+  "left_of": "{a.nomcap} steht irgendwo links {b.vondat}.",
+  "next_left": "{a.nomcap} steht direkt links {b.vondat}.",
+  "adjacent": "{a.nomcap} und {b} stehen nebeneinander.",
+  "not_adjacent": "{a.nomcap} und {b} stehen nicht nebeneinander.",
+  "at": "{a.nomcap} steht auf Platz {p}.",
+  "not_at": "{a.nomcap} steht nicht auf Platz {p}.",
+  "end": "{a.nomcap} steht entweder ganz am Anfang oder ganz am Ende der Reihe.",
+  "not_end": "{a.nomcap} steht weder am Anfang noch am Ende der Reihe.",
+  "between": "{a.nomcap} steht irgendwo zwischen {b.dat} und {c.dat}."
+ },
+ "objects": [
+  {
+   "name": "die Katze",
+   "cap": "Katze",
+   "nomcap": "Die Katze",
+   "dat": "der Katze",
+   "vondat": "von der Katze"
+  },
+  {
+   "name": "der Hund",
+   "cap": "Hund",
+   "nomcap": "Der Hund",
+   "dat": "dem Hund",
+   "vondat": "vom Hund"
+  },
+  {
+   "name": "das Pferd",
+   "cap": "Pferd",
+   "nomcap": "Das Pferd",
+   "dat": "dem Pferd",
+   "vondat": "vom Pferd"
+  },
+  {
+   "name": "das Kaninchen",
+   "cap": "Kaninchen",
+   "nomcap": "Das Kaninchen",
+   "dat": "dem Kaninchen",
+   "vondat": "vom Kaninchen"
+  },
+  {
+   "name": "die Ziege",
+   "cap": "Ziege",
+   "nomcap": "Die Ziege",
+   "dat": "der Ziege",
+   "vondat": "von der Ziege"
+  },
+  {
+   "name": "die Ente",
+   "cap": "Ente",
+   "nomcap": "Die Ente",
+   "dat": "der Ente",
+   "vondat": "von der Ente"
+  },
+  {
+   "name": "der Fuchs",
+   "cap": "Fuchs",
+   "nomcap": "Der Fuchs",
+   "dat": "dem Fuchs",
+   "vondat": "vom Fuchs"
+  },
+  {
+   "name": "der Bär",
+   "cap": "Bär",
+   "nomcap": "Der Bär",
+   "dat": "dem Bären",
+   "vondat": "vom Bären"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+{
+ "instr": "Hubungkan lingkaran: klik lingkaran-lingkaran dengan urutan yang benar secepat mungkin.",
+ "clue": "Klik atau ketuk lingkaran-lingkaran sesuai urutan secepat mungkin (keyboard: Tab ke sebuah lingkaran, lalu Enter). Jika lingkaran hanya berisi angka, lanjutkan 1-2-3-4 dan seterusnya. Jika berisi angka dan huruf, berselang-selinglah: 1-J-2-K-3-L dan seterusnya. Lingkaran yang salah berkedip merah; lalu cari yang benar. Lingkaran muncul saat Anda menekan Mulai.",
+ "go": "Ayo!",
+ "start": "Mulai"
+}

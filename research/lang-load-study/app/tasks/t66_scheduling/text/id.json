@@ -1,0 +1,64 @@
+{
+ "instr": "Jadwal: berikan setiap pekerjaan kepada seseorang pada suatu hari sehingga semua aturan dipatuhi.",
+ "clue": "Rencanakan pekerjaannya: taruh setiap pekerjaan di tabel di bawah satu orang dan satu hari. Setiap orang paling banyak mengerjakan satu pekerjaan per hari, dan semua aturan dalam daftar harus dipatuhi. Klik sebuah pekerjaan (atau pindah ke sana dengan Tab dan tekan Enter), lalu klik sebuah kotak di tabel. Klik kotak yang sudah terisi untuk mengambil pekerjaannya lagi. Rencana apa pun yang mematuhi semua aturan dianggap benar. Tekan Selesai setelah semua pekerjaan ditempatkan. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "done": "Selesai",
+ "give_up": "Menyerah",
+ "setting": "Setiap orang paling banyak mengerjakan satu pekerjaan per hari. Aturan:",
+ "plan": "Rencana",
+ "tray": "Pekerjaan yang belum ditempatkan",
+ "templates": {
+  "before": "Pekerjaan {a} harus dikerjakan pada hari yang lebih awal daripada pekerjaan {b}.",
+  "same_day": "Pekerjaan {a} dan pekerjaan {b} harus dikerjakan pada hari yang sama.",
+  "diff_day": "Pekerjaan {a} dan pekerjaan {b} harus dikerjakan pada hari yang berbeda.",
+  "by_day": "Pekerjaan {a} harus dikerjakan paling lambat hari {day}.",
+  "off_day": "{w} tidak bisa bekerja pada hari {day}.",
+  "only_person": "Hanya {w} yang bisa mengerjakan pekerjaan {a}.",
+  "not_person": "{w} tidak bisa mengerjakan pekerjaan {a}.",
+  "same_person": "Pekerjaan {a} dan pekerjaan {b} harus dikerjakan oleh orang yang sama."
+ },
+ "jobs": [
+  {
+   "name": "laporan",
+   "cap": "Laporan"
+  },
+  {
+   "name": "pengiriman",
+   "cap": "Pengiriman"
+  },
+  {
+   "name": "perbaikan",
+   "cap": "Perbaikan"
+  },
+  {
+   "name": "pembersihan",
+   "cap": "Pembersihan"
+  },
+  {
+   "name": "penghitungan stok",
+   "cap": "Penghitungan stok"
+  },
+  {
+   "name": "pelatihan",
+   "cap": "Pelatihan"
+  },
+  {
+   "name": "pengecatan",
+   "cap": "Pengecatan"
+  },
+  {
+   "name": "inspeksi",
+   "cap": "Inspeksi"
+  }
+ ],
+ "people": [
+  "Anna",
+  "Budi",
+  "Citra"
+ ],
+ "days": [
+  "Senin",
+  "Selasa",
+  "Rabu"
+ ]
+}

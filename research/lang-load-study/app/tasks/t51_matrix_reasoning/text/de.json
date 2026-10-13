@@ -1,0 +1,7 @@
+{
+ "instr": "Musterraster: Wählen Sie das Bild, das jedes 3-x-3-Raster vervollständigt.",
+ "clue": "Jedes Raster folgt in seinen Zeilen und Spalten einer oder zwei Regeln, zum Beispiel bei Anzahl, Form, Schattierung oder Größe der Figuren. Finden Sie die Regeln heraus und wählen Sie das Bild, das in das leere Feld gehört: anklicken, antippen oder 1–4 drücken. Es gibt vier Raster. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "matrix_of": "Raster {n} von {total}",
+ "option": "Möglichkeit {n}"
+}

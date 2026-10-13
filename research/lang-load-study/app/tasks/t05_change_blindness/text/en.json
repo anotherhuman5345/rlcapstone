@@ -1,0 +1,5 @@
+{"instr": "Spot the change: two versions of a picture flicker back and forth; click the one object that is different.",
+ "clue": "The picture flickers between two versions. One object changes (its colour or shape changes, or it disappears). Click or tap that object as soon as you find it. Keyboard: move the cross with the arrow keys and press Enter. Press Start when ready.",
+ "start": "Start", "pick": "Choose here", "stage_label": "Flickering picture",
+ "move_left": "Move left", "move_up": "Move up", "move_down": "Move down", "move_right": "Move right",
+ "scene": "Picture {n} of {total}"}

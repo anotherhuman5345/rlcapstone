@@ -1,0 +1,16 @@
+{
+ "instr": "Dashibodi: tazama vipimo vinne na uitikie pale tu mwambaa unapopanda juu ya mstari mwekundu na kubaki hapo.",
+ "clue": "Tazama vipimo vinne. Mwambaa ukipanda juu ya mstari mwekundu na KUBAKI juu yake, bofya kipimo hicho (au bonyeza namba yake, 1–4) haraka uwezavyo. Puuza miruko mifupi inayorudi chini mara moja, na puuza miambaa inayoshuka chini. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "hint": "Bofya kipimo au bonyeza 1–4",
+ "gauges": [
+  "Shinikizo",
+  "Mtiririko",
+  "Joto",
+  "Kasi",
+  "Mzigo",
+  "Kiwango",
+  "Chaji",
+  "Ishara"
+ ]
+}

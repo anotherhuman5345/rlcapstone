@@ -1,0 +1,9 @@
+{
+ "instr": "Chấm: một nhóm chấm lóe lên rất nhanh; hãy gõ số chấm bạn nghĩ là đã thấy.",
+ "clue": "Hãy nhìn vào dấu chữ thập ở giữa. Một nhóm chấm sẽ hiện ra trong chốc lát rồi bị che đi. Không có thời gian để đếm: hãy gõ con số bạn đoán là gần đúng nhất, bằng các phím số hoặc bàn phím số trên màn hình, rồi nhấn Enter hoặc OK. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "ask": "Có bao nhiêu chấm?",
+ "erase": "Xóa",
+ "ok": "OK",
+ "start": "Bắt đầu",
+ "stage_label": "Vùng các chấm xuất hiện"
+}

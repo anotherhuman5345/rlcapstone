@@ -1,0 +1,6 @@
+{
+ "instr": "Sviluppi del cubo: scegli lo schema piatto che, piegato, forma il cubo mostrato.",
+ "clue": "Il cubo ha un segno diverso su ciascuna delle sue sei facce; ne vedi tre. Ogni schema piatto qui sotto può essere piegato in un cubo, con i segni all'esterno. Solo uno forma esattamente questo cubo: gli stessi segni, accostati nello stesso modo e orientati nello stesso verso. Clicca o tocca quello schema, oppure premi il suo tasto numerico da 1 a 4. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "options": "Quale schema forma questo cubo?"
+}

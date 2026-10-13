@@ -1,0 +1,7 @@
+{
+ "instr": "Griglie di figure: scegli la figura che completa ogni griglia 3 x 3.",
+ "clue": "Ogni griglia segue una o due regole lungo le righe e le colonne, per esempio nel numero, nella forma, nel colore o nella grandezza delle figure. Scopri le regole e scegli la figura che va nel quadrato vuoto: cliccala o toccala, oppure premi 1-4. Ci sono quattro griglie. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "matrix_of": "Griglia {n} di {total}",
+ "option": "Opzione {n}"
+}

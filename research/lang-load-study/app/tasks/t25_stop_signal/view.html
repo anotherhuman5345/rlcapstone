@@ -1,0 +1,18 @@
+<div class="stop-signal">
+  <svg id="ss-stage" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="{{ text.stage_label }}"
+       style="display:block;margin:0 auto;background:#f7f9fb;border:1px solid #c7d0d8;border-radius:6px">
+    <g id="ss-fix" stroke="#1d2731" stroke-width="4" visibility="hidden">
+      <line x1="185" y1="150" x2="215" y2="150"/><line x1="200" y1="135" x2="200" y2="165"/>
+    </g>
+    <circle id="ss-ring" cx="200" cy="150" r="95" fill="none" stroke="#c62828" stroke-width="12" visibility="hidden"/>
+    <polygon id="ss-arrow" points="130,135 210,135 210,105 270,150 210,195 210,165 130,165" fill="#1d2731" visibility="hidden"/>
+  </svg>
+  <div class="btn-row" style="justify-content:center">
+    <button type="button" data-key="left" disabled>← {{ text.left }}</button>
+    <button type="button" data-key="right" disabled>{{ text.right }} →</button>
+  </div>
+  <p style="text-align:center">
+    <label style="display:inline-flex;gap:.4rem;align-items:center;margin:.5rem 0"><input type="checkbox" id="ss-sound" checked> {{ text.sound }}</label><br>
+    <button type="button" id="ss-start">{{ text.start }}</button>
+  </p>
+</div>

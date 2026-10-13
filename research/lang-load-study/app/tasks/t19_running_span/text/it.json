@@ -1,0 +1,10 @@
+{
+ "instr": "Flusso di lettere: le lettere compaiono una alla volta e si fermano senza preavviso; poi scrivi solo le ultime lettere, in ordine.",
+ "clue": "Premi Inizia. Le lettere compaiono una alla volta e la serie si ferma senza preavviso, quindi tieni a mente le lettere più recenti. Quando si ferma, scrivi solo le ULTIME lettere che hai visto, nell'ordine in cui sono comparse. Usa ? per una lettera che non ricordi, poi premi OK.",
+ "keep": "Ricorda le ultime {k} lettere.",
+ "recall": "Scrivi le ultime {k} lettere nell'ordine in cui sono comparse.",
+ "unknown": "Non ricordo questa lettera",
+ "start": "Inizia",
+ "done": "OK",
+ "delete": "Cancella l'ultima lettera"
+}

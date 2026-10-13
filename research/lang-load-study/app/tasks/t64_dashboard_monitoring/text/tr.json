@@ -1,0 +1,7 @@
+{
+ "instr": "Gösterge paneli: dört göstergeyi izleyin; yalnızca bir çubuk kırmızı çizginin üstüne çıkıp orada kaldığında tepki verin.",
+ "clue": "Dört göstergeyi izleyin. Bir çubuk kırmızı çizginin üstüne çıkıp ORADA KALIRSA, olabildiğince hızlı o göstergeye tıklayın (ya da numarasına, 1–4, basın). Hemen geri düşen kısa sıçramaları ve aşağı inen çubukları dikkate almayın. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "hint": "Göstergeye tıklayın ya da 1–4 tuşuna basın",
+ "gauges": ["Basınç", "Akış", "Isı", "Hız", "Yük", "Seviye", "Şarj", "Sinyal"]
+}

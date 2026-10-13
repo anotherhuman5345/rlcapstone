@@ -1,0 +1,13 @@
+<div class="change-blindness">
+  <svg id="cb-stage" viewBox="0 0 {{ item.w }} {{ item.h }}" width="{{ item.w }}" height="{{ item.h }}"
+       style="background:#FFFFFF;border:1px solid #C7D0D8;border-radius:6px;user-select:none;cursor:crosshair"
+       role="img" aria-label="{{ text.stage_label }}"></svg>
+  <div class="btn-row" id="cb-keys" hidden>
+    <button type="button" data-move="-1,0" aria-label="{{ text.move_left }}">←</button>
+    <button type="button" data-move="0,-1" aria-label="{{ text.move_up }}">↑</button>
+    <button type="button" data-move="0,1" aria-label="{{ text.move_down }}">↓</button>
+    <button type="button" data-move="1,0" aria-label="{{ text.move_right }}">→</button>
+    <button type="button" id="cb-pick">{{ text.pick }}</button>
+  </div>
+  <p><button type="button" id="cb-start">{{ text.start }}</button></p>
+</div>

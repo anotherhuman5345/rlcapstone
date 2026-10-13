@@ -1,0 +1,5 @@
+{"instr": "Color words: for each word, press the button for the color of its INK, not the color the word names.",
+ "clue": "A color word appears in colored ink. Report the INK color and ignore what the word says. Press keys 1-4 or tap the matching color button. Answer quickly and accurately. Press Start when ready.",
+ "words": ["RED", "BLUE", "GREEN", "YELLOW"],
+ "color_names": ["Red", "Blue", "Green", "Yellow"],
+ "start": "Start"}

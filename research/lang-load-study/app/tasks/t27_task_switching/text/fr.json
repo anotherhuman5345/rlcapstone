@@ -1,0 +1,9 @@
+{
+ "instr": "Couleur ou forme : un mot-indice vous dit s'il faut juger la COULEUR ou la FORME de la figure qui suit.",
+ "clue": "D'abord un indice apparaît : COULEUR ou FORME. Ensuite apparaît un cercle ou un carré, bleu ou orange. Si l'indice est COULEUR : bleu = gauche, orange = droite. Si l'indice est FORME : cercle = gauche, carré = droite. Utilisez les flèches du clavier ou les boutons. Répondez vite et sans erreur. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "cue_color": "COULEUR",
+ "cue_shape": "FORME",
+ "left": "Gauche",
+ "right": "Droite",
+ "start": "Démarrer"
+}

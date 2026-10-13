@@ -1,0 +1,18 @@
+<style>
+  .reversal .pair { display: flex; justify-content: center; gap: 2rem; margin: 1rem 0; }
+  .reversal .pick { margin: 0; padding: .6rem; background: #fff; border: 3px solid #888; border-radius: 8px; width: 9rem; height: 9rem; }
+  .reversal .pick svg { width: 100%; height: 100%; }
+  .reversal .fb { text-align: center; font-size: 1.4rem; font-weight: 700; min-height: 2rem; margin: .3rem 0; }
+  .reversal .fb.good { color: #1a7f37; }
+  .reversal .fb.bad { color: #b42318; }
+  .reversal .keys { text-align: center; color: #666; font-size: .9rem; }
+</style>
+<div class="reversal">
+  <div class="pair">
+    <button type="button" class="pick" data-key="left" aria-label="{{ text.left }}"></button>
+    <button type="button" class="pick" data-key="right" aria-label="{{ text.right }}"></button>
+  </div>
+  <p class="keys">← {{ text.left }} · {{ text.right }} →</p>
+  <p class="fb" id="rr-fb" aria-live="polite"></p>
+  <p><button type="button" id="rr-start">{{ text.start }}</button></p>
+</div>

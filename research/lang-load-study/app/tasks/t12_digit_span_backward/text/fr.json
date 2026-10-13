@@ -1,0 +1,8 @@
+{
+ "instr": "Chiffres à l'envers : regardez une courte liste de chiffres, un par un, puis tapez-les dans l'ordre inverse, en commençant par le dernier.",
+ "clue": "Appuyez sur Démarrer et regardez les chiffres apparaître un par un. Quand ils s'arrêtent, tapez-les À L'ENVERS, du dernier au premier, avec le pavé ou votre clavier, puis appuyez sur OK. Exemple : si vous voyez 3 8 1, tapez 1 8 3.",
+ "recall": "Tapez les chiffres dans l'ordre inverse : le dernier d'abord.",
+ "start": "Démarrer",
+ "done": "OK",
+ "delete": "Effacer le dernier chiffre"
+}

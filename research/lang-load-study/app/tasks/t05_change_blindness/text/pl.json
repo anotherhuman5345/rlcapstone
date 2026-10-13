@@ -1,0 +1,12 @@
+{
+ "instr": "Znajdź zmianę: dwie wersje obrazu migają na przemian; kliknij ten jeden obiekt, który się różni.",
+ "clue": "Obraz miga na przemian w dwóch wersjach. Jeden obiekt się zmienia (zmienia kolor lub kształt albo znika). Kliknij lub dotknij tego obiektu, gdy tylko go znajdziesz. Klawiatura: przesuwaj krzyżyk strzałkami i naciśnij Enter. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "pick": "Wybierz tutaj",
+ "stage_label": "Migający obraz",
+ "move_left": "Przesuń w lewo",
+ "move_up": "Przesuń w górę",
+ "move_down": "Przesuń w dół",
+ "move_right": "Przesuń w prawo",
+ "scene": "Obraz {n} z {total}"
+}

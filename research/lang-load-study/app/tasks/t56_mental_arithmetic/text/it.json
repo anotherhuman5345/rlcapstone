@@ -1,0 +1,13 @@
+{
+ "instr": "Calcolo mentale: risolvi ogni problema a mente e scrivi il risultato.",
+ "clue": "Risolvi ogni problema a mente, senza scrivere niente. Scrivi il risultato con il tastierino o la tastiera e premi OK (o Invio). Hai 20 secondi per ogni problema. I risultati sono numeri interi. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "ok": "OK",
+ "erase": "Cancella l'ultima cifra",
+ "seconds_left": "mancano {s} s",
+ "progress": "Problema {i} di {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

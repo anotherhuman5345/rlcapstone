@@ -1,0 +1,64 @@
+{
+ "instr": "Dienstplan: Teilen Sie jeden Auftrag einer Person an einem Tag zu, sodass alle Regeln eingehalten werden.",
+ "clue": "Planen Sie die Arbeit: Setzen Sie jeden Auftrag in der Tabelle unter eine Person und einen Tag. Jede Person kann höchstens einen Auftrag pro Tag erledigen, und alle Regeln in der Liste müssen eingehalten werden. Klicken Sie auf einen Auftrag (oder gehen Sie mit Tab dorthin und drücken Sie Enter) und klicken Sie dann auf ein Feld in der Tabelle. Klicken Sie auf ein belegtes Feld, um seinen Auftrag wieder aufzunehmen. Jeder Plan, der alle Regeln einhält, ist richtig. Drücken Sie „Fertig“, wenn jeder Auftrag platziert ist. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "done": "Fertig",
+ "give_up": "Aufgeben",
+ "setting": "Jede Person kann höchstens einen Auftrag pro Tag erledigen. Regeln:",
+ "plan": "Plan",
+ "tray": "Noch nicht verteilte Aufträge",
+ "templates": {
+  "before": "Der Auftrag „{a}“ muss an einem früheren Tag erledigt werden als der Auftrag „{b}“.",
+  "same_day": "Die Aufträge „{a}“ und „{b}“ müssen am selben Tag erledigt werden.",
+  "diff_day": "Die Aufträge „{a}“ und „{b}“ müssen an verschiedenen Tagen erledigt werden.",
+  "by_day": "Der Auftrag „{a}“ muss spätestens am {day} erledigt werden.",
+  "off_day": "{w} hat am {day} keine Zeit.",
+  "only_person": "Nur {w} kann den Auftrag „{a}“ erledigen.",
+  "not_person": "{w} kann den Auftrag „{a}“ nicht erledigen.",
+  "same_person": "Die Aufträge „{a}“ und „{b}“ müssen von derselben Person erledigt werden."
+ },
+ "jobs": [
+  {
+   "name": "Bericht",
+   "cap": "Bericht"
+  },
+  {
+   "name": "Lieferung",
+   "cap": "Lieferung"
+  },
+  {
+   "name": "Reparatur",
+   "cap": "Reparatur"
+  },
+  {
+   "name": "Reinigung",
+   "cap": "Reinigung"
+  },
+  {
+   "name": "Inventur",
+   "cap": "Inventur"
+  },
+  {
+   "name": "Schulung",
+   "cap": "Schulung"
+  },
+  {
+   "name": "Anstrich",
+   "cap": "Anstrich"
+  },
+  {
+   "name": "Prüfung",
+   "cap": "Prüfung"
+  }
+ ],
+ "people": [
+  "Anna",
+  "Ben",
+  "Clara"
+ ],
+ "days": [
+  "Montag",
+  "Dienstag",
+  "Mittwoch"
+ ]
+}

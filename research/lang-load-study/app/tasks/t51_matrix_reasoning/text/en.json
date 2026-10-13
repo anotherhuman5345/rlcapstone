@@ -1,0 +1,3 @@
+{"instr": "Pattern grids: choose the picture that completes each 3 x 3 grid.",
+ "clue": "Each grid follows one or two rules across its rows and columns, for example in the number, shape, shade or size of the figures. Work out the rules and choose the picture that belongs in the empty square: click or tap it, or press 1-4. There are four grids. Press Start when ready.",
+ "start": "Start", "matrix_of": "Grid {n} of {total}", "option": "Option {n}"}

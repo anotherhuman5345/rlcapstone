@@ -1,0 +1,16 @@
+{
+ "instr": "Semboller ve bip sesleri: her sembolle hangi kelimenin eşleştiğini öğrenin; kısa bir bip sesi duyduğunuzda Boşluk tuşuna (ya da Ses düğmesine) basın. Kulaklık veya hoparlör kullanın.",
+ "clue": "Lütfen kulaklık veya hoparlör kullanın. Altı sembol sırayla, her biri bir kelimeyle birlikte görünecek: hangi kelimenin hangi sembolle eşleştiğini öğrenin. Bu sırada arada bir kısa bip sesleri duyulacak: duyar duymaz Boşluk tuşuna ya da Ses düğmesine basın. İki bölüm de eşit derecede önemli. Sonunda her sembolün kelimesini seçeceksiniz. Sesi kontrol etmek için Sesi dene'ye, hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "test_tone": "Sesi dene",
+ "tone_button": "Ses",
+ "tone_hint": "Bip sesini duyunca Boşluk tuşuna basın ya da Ses'e dokunun",
+ "study_label": "Bu sembolün kelimesini öğrenin",
+ "test_label": "Bu sembolle hangi kelime eşleşmişti?",
+ "test_hint": "Bir kelimeye tıklayın ya da numarasının tuşuna basın",
+ "no_audio": "Bu cihazda ses başlatılamadı.",
+ "words": ["elma", "köprü", "mum", "halı", "sandalye", "bulut", "zil", "kapı", "davul", "yumurta", "tüy", "bayrak",
+           "çatal", "bahçe", "eldiven", "çekiç", "at", "ada", "ceket", "anahtar", "çaydanlık", "merdiven", "limon", "mektup",
+           "ayna", "baykuş", "iğne", "soğan", "kalem", "yastık", "tavşan", "nehir", "ip", "eyer", "ayakkabı", "kaşık",
+           "yıldız", "taş", "masa", "kaplan", "diş", "kule", "tren", "ağaç", "cüzdan", "pencere", "kurt", "sepet"]
+}

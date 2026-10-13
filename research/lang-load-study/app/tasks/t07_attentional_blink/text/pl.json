@@ -1,0 +1,10 @@
+{
+ "instr": "Szybkie litery: litery migają bardzo szybko; potem podaj dwie litery, które były czerwone.",
+ "clue": "W ramce bardzo szybko migają litery. Dwie z nich są czerwone. Po każdej serii wybierz dwie czerwone litery (kliknij je lub wpisz), a potem naciśnij OK lub Enter. Jeśli nie masz pewności, zgaduj najlepiej, jak potrafisz. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "ok": "OK",
+ "undo": "Cofnij",
+ "slots": "Czerwone litery: {a} {b}",
+ "ask": "Które dwie litery były czerwone?",
+ "progress": "Seria {n} z {total}"
+}

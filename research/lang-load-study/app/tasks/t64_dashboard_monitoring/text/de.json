@@ -1,0 +1,16 @@
+{
+ "instr": "Anzeigetafel: Beobachten Sie vier Anzeigen und reagieren Sie nur, wenn ein Balken über die rote Linie steigt und dort bleibt.",
+ "clue": "Beobachten Sie die vier Anzeigen. Wenn ein Balken über die rote Linie steigt und darüber BLEIBT, klicken Sie so schnell wie möglich auf diese Anzeige (oder drücken Sie ihre Nummer, 1–4). Ignorieren Sie kurze Sprünge, die sofort zurückfallen, und Balken, die tief absinken. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "hint": "Klicken Sie auf die Anzeige oder drücken Sie 1–4",
+ "gauges": [
+  "Druck",
+  "Durchfluss",
+  "Wärme",
+  "Drehzahl",
+  "Last",
+  "Füllstand",
+  "Ladung",
+  "Signal"
+ ]
+}

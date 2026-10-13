@@ -1,0 +1,31 @@
+{
+ "instr": "Procédures : exécutez une liste d'étapes dans l'ordre en cliquant sur les boutons d'étape ; si une autre tâche vous interrompt, revenez et reprenez là où vous vous étiez arrêté(e).",
+ "clue": "Exécutez la procédure : cliquez sur les boutons d'étape dans l'ordre de la liste (ou appuyez sur leurs touches numériques). Faites chaque étape une fois ; rien n'indiquera quelles étapes sont faites. Parfois, une autre tâche vous interrompra : dites si chaque nombre est pair ou impair. Quand la procédure revient, reprenez là où vous vous étiez arrêté(e). Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "case_label": "Tâche {n} sur {total}",
+ "proc_title": "Procédure",
+ "palette_title": "Boutons d'étape",
+ "interrupt_title": "Pair ou impair ?",
+ "interrupt_hint": "Flèche gauche = pair, flèche droite = impair",
+ "even": "Pair",
+ "odd": "Impair",
+ "next_case": "Tâche suivante…",
+ "steps": [
+  "Scanner le code",
+  "Peser le colis",
+  "Vérifier le scellé",
+  "Imprimer l'étiquette",
+  "Coller l'étiquette",
+  "Noter l'heure",
+  "Prendre une photo",
+  "Mesurer la taille",
+  "Tamponner le formulaire",
+  "Trier par couleur",
+  "Emballer l'article",
+  "Prévenir l'accueil",
+  "Compter les pièces",
+  "Fermer le couvercle",
+  "Signer la feuille",
+  "Nettoyer le plateau"
+ ]
+}

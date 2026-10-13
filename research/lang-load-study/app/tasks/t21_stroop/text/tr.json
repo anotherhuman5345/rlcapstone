@@ -1,0 +1,5 @@
+{"instr": "Renk kelimeleri: her kelimede, kelimenin söylediği rengi değil, MÜREKKEBİNİN rengini gösteren düğmeye basın.",
+ "clue": "Renkli mürekkeple yazılmış bir renk adı görünecek. Kelimenin ne yazdığını dikkate almadan MÜREKKEBİN rengini belirtin. 1-4 tuşlarına basın ya da aynı renkteki düğmeye dokunun. Hızlı ve doğru cevap verin. Hazır olunca Başla'ya basın.",
+ "words": ["KIRMIZI", "MAVİ", "YEŞİL", "SARI"],
+ "color_names": ["Kırmızı", "Mavi", "Yeşil", "Sarı"],
+ "start": "Başla"}

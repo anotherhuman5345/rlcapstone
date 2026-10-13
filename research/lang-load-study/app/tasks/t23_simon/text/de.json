@@ -1,0 +1,7 @@
+{
+ "instr": "Farbige Kreise: Drücken Sie die Seite, die zur Farbe des Kreises gehört, egal wo der Kreis erscheint.",
+ "clue": "Links oder rechts erscheint ein Kreis. Antworten Sie nach seiner FARBE, nicht nach seiner Position: Drücken Sie die Pfeiltaste (oder Schaltfläche) der Seite, auf der diese Farbe angezeigt wird. Antworten Sie schnell und genau. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "left": "Links",
+ "right": "Rechts",
+ "start": "Starten"
+}

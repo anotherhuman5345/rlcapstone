@@ -1,0 +1,40 @@
+{
+ "instr": "Étapes d'une machine : apprenez à utiliser une machine imaginaire à partir d'étapes écrites, puis utilisez-la de mémoire.",
+ "clue": "Lisez d'abord les étapes pour utiliser une machine et l'exemple corrigé ; vous avez jusqu'à 45 secondes. Ensuite, les étapes disparaissent et vous utilisez la machine trois fois de mémoire : regardez la couleur du voyant et le nombre, appuyez sur les boutons dans le bon ordre (clic, toucher, ou touches 1-8), puis appuyez sur Terminé (Entrée). Annuler (Retour arrière) retire votre dernier appui. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "study_title": "Comment utiliser la machine :",
+ "example": "Exemple corrigé : pour cette machine, les bons appuis sont :",
+ "learned": "J'ai appris",
+ "study_left": "Encore {s} s",
+ "case_of": "Machine {n} sur {total}",
+ "lamp": "Voyant",
+ "number": "Nombre",
+ "presses": "Vos appuis :",
+ "undo": "Annuler",
+ "done": "Terminé",
+ "colors": [
+  "rouge",
+  "bleu"
+ ],
+ "step_fixed": "Appuyez sur {a}.",
+ "step_cond": "Si le voyant est {c}, appuyez sur {a} ; sinon, appuyez sur {b}.",
+ "step_repeat": "Appuyez sur {a} autant de fois que le nombre affiché.",
+ "actions": [
+  "OUVRIR",
+  "FERMER",
+  "CHAUFFER",
+  "REFROIDIR",
+  "REMUER",
+  "SECOUER",
+  "REMPLIR",
+  "VIDER",
+  "SCELLER",
+  "PRESSER",
+  "TOURNER",
+  "SOULEVER",
+  "VERROUILLER",
+  "LAVER",
+  "SÉCHER",
+  "PESER"
+ ]
+}

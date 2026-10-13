@@ -1,0 +1,14 @@
+{
+ "instr": "Probabilidades: compare dos sucesos y elija el más probable, o indique que son igual de probables.",
+ "clue": "Cada pantalla muestra dos sucesos, A y B, con palabras y con un dibujo. Las bolas se sacan sin mirar y todas tienen la misma probabilidad de salir; los dados no están trucados. Elija qué suceso es más probable, o \"Igual de probables\". Use los botones o las teclas 1 (A), 2 (igual de probables), 3 (B). Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Igual de probables",
+ "question": "¿Cuál es más probable?",
+ "progress": "Pregunta {i} de {n}",
+ "ev_bag1": "La bolsa {L} contiene bolas rojas: {r}, y azules: {b}. Usted saca una bola y es roja.",
+ "ev_bag2_replace": "La bolsa {L} contiene bolas rojas: {r}, y azules: {b}. Usted saca una bola, la devuelve y vuelve a sacar. Las dos bolas son rojas.",
+ "ev_bag2_keep": "La bolsa {L} contiene bolas rojas: {r}, y azules: {b}. Usted saca una bola, la deja fuera y vuelve a sacar. Las dos bolas son rojas.",
+ "ev_dice": "Usted lanza dos dados y los dos números suman {s}."
+}

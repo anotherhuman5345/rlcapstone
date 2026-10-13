@@ -1,0 +1,10 @@
+{
+ "instr": "Fuatilia na ujumlishe: weka kiashiria chako juu ya nukta inayosogea huku ukijibu hesabu rahisi za kujumlisha zinazotokea chini yake.",
+ "clue": "Weka kiashiria juu ya nukta ya buluu inayosogea muda wote: sogeza kipanya, telezesha kidole chako, au shikilia vitufe vya mishale (au vitufe vya mishale vilivyo kwenye skrini). Hesabu za kujumlisha zitatokea chini ya eneo hilo: chagua jibu kwa kulibofya au kwa kubonyeza 1, 2 au 3. Kufuatilia nukta na kujibu hesabu ni muhimu kwa kiwango sawa. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "sum_hint": "Jibu kwa 1, 2, 3 au kwa kubofya",
+ "up": "Juu",
+ "down": "Chini",
+ "left": "Kushoto",
+ "right": "Kulia"
+}

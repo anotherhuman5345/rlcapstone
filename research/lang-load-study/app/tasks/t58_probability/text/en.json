@@ -1,0 +1,8 @@
+{"instr": "Chances: compare two events and choose the one that is more likely, or say they are equally likely.",
+ "clue": "Each screen shows two events, A and B, in words and in a picture. Balls are drawn without looking, and every ball is equally likely to be drawn; dice are fair. Choose which event is more likely, or \"Equally likely\". Use the buttons or the keys 1 (A), 2 (equally likely), 3 (B). Press Start when ready.",
+ "start": "Start", "label_a": "A", "label_b": "B", "equal": "Equally likely",
+ "question": "Which is more likely?", "progress": "Question {i} of {n}",
+ "ev_bag1": "Bag {L} holds {r} red and {b} blue balls. You draw one ball and it is red.",
+ "ev_bag2_replace": "Bag {L} holds {r} red and {b} blue balls. You draw a ball, put it back, and draw again. Both balls are red.",
+ "ev_bag2_keep": "Bag {L} holds {r} red and {b} blue balls. You draw a ball, keep it out, and draw again. Both balls are red.",
+ "ev_dice": "You roll two dice and the two numbers add up to {s}."}

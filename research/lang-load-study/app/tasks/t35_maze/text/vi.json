@@ -1,0 +1,9 @@
+{
+ "instr": "Mê cung: hãy di chuyển chấm từ điểm xuất phát đến lối ra theo đường ngắn nhất bạn tìm được.",
+ "clue": "Hãy di chuyển chấm xanh dương qua mê cung đến ô lối ra màu xanh lá, với ít bước nhất có thể. Lên kế hoạch đường đi trước sẽ giúp ích. Di chuyển bằng các phím mũi tên, các nút mũi tên, hoặc chạm vào một ô bên cạnh chấm. Không thể đi xuyên qua tường. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "up": "Lên",
+ "down": "Xuống",
+ "left": "Trái",
+ "right": "Phải"
+}

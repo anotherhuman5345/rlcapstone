@@ -1,0 +1,13 @@
+{
+ "instr": "Bóng: hãy di chuyển từng quả bóng màu cho đến khi các cọc của bạn giống hệt hình mục tiêu.",
+ "clue": "Hãy làm cho các cọc của bạn giống hệt hình mục tiêu. Lấy quả bóng trên cùng của một cọc bằng cách nhấp vào cọc đó (hoặc nhấn 1, 2 hoặc 3), rồi nhấp vào cọc muốn đặt bóng. Các cọc chứa được tối đa lần lượt 3, 2 và 1 quả bóng. Hãy lên kế hoạch trước khi bắt đầu và dùng ít nước đi nhất có thể. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "reset": "Làm lại",
+ "give_up": "Bỏ cuộc",
+ "yours": "Cọc của bạn",
+ "target": "Mục tiêu",
+ "moves_label": "Số nước đi:",
+ "full_peg": "Cọc đó đã đầy.",
+ "empty_peg": "Cọc đó đang trống.",
+ "solved": "Xong!"
+}

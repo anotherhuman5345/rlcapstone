@@ -1,0 +1,15 @@
+{
+ "instr": "Phân loại: hãy học qua phản hồi xem mỗi vật thuộc nhóm nào trong hai nhóm, rồi phân loại các vật mới mà không có phản hồi.",
+ "clue": "Mỗi vật thuộc một trong hai nhóm. Hãy chọn nhóm bằng mũi tên trái (hoặc nút bên trái) hoặc mũi tên phải (hoặc nút bên phải). Lúc đầu bạn phải đoán; sau mỗi câu trả lời bạn sẽ được cho biết nhóm đúng, nhờ đó bạn có thể tìm ra điều gì quyết định nhóm. Về sau, các vật mới xuất hiện mà không có phản hồi. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "groups": [
+  "Nhóm A",
+  "Nhóm B"
+ ],
+ "correct": "Đúng",
+ "wrong": "Sai: vật này thuộc {group}",
+ "too_slow": "Quá chậm: vật này thuộc {group}",
+ "transfer_note": "Từ bây giờ sẽ không có phản hồi. Hãy tiếp tục phân loại các vật theo cùng một cách.",
+ "train_of": "Học: vật {n} / {total}",
+ "transfer_of": "Kiểm tra: vật {n} / {total}"
+}

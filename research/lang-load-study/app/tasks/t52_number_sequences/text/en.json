@@ -1,0 +1,3 @@
+{"instr": "Number sequences: find the rule and type the number that comes next.",
+ "clue": "Each row of numbers follows ONE of these rules: add or subtract the same number each time; multiply by 2 each time; the step grows by the same amount each time; or two sequences take turns, each with its own step. Type the next number with the keypad or keyboard and press OK (or Enter). Press Start when ready.",
+ "start": "Start", "ok": "OK", "erase": "Erase last digit", "progress": "Sequence {i} of {n}"}

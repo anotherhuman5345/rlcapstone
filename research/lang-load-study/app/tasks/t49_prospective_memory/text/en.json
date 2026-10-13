@@ -1,0 +1,3 @@
+{"instr": "Odd or even, with something to remember: sort numbers as odd or even, and press Special whenever a number appears inside a square frame.",
+ "clue": "Numbers appear one at a time. Press Odd (left arrow) or Even (right arrow). Remember: if a number appears inside a thick square frame, press Special (space bar) instead. Answer quickly. Press Start when ready.",
+ "odd": "Odd", "even": "Even", "special": "Special", "space": "space bar", "start": "Start"}

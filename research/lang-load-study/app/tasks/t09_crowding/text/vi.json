@@ -1,0 +1,10 @@
+{
+ "instr": "Chữ T lóe lên: hãy giữ mắt ở chính giữa và cho biết chữ T ở giữa một nhóm nhỏ quay về hướng nào.",
+ "clue": "Hãy luôn giữ mắt nhìn vào dấu chữ thập ở giữa. Một nhóm nhỏ hình chữ T sẽ lóe lên thoáng qua ở một bên. Hãy cho biết thanh ngang của chữ T Ở GIỮA quay về hướng nào: lên trên, sang phải, xuống dưới hay sang trái. Dùng các phím mũi tên hoặc các nút. Nếu không chắc, hãy đoán theo khả năng tốt nhất của bạn. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "up": "Trên",
+ "right": "Phải",
+ "down": "Dưới",
+ "left": "Trái",
+ "start": "Bắt đầu",
+ "stage_label": "Một dấu chữ thập ở giữa một vùng trống"
+}

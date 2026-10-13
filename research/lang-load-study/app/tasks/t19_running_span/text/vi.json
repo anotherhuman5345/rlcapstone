@@ -1,0 +1,10 @@
+{
+ "instr": "Dòng chữ cái: các chữ cái hiện ra lần lượt và dừng lại bất ngờ; sau đó chỉ gõ vài chữ cái cuối cùng, theo đúng thứ tự.",
+ "clue": "Hãy nhấn Bắt đầu. Các chữ cái hiện ra lần lượt và danh sách dừng lại bất ngờ, vì vậy hãy luôn nhớ những chữ cái gần nhất. Khi dừng, chỉ gõ những chữ cái CUỐI CÙNG bạn đã thấy, theo thứ tự chúng xuất hiện. Dùng ? cho chữ cái bạn không nhớ, rồi nhấn OK.",
+ "keep": "Hãy nhớ {k} chữ cái cuối cùng.",
+ "recall": "Hãy gõ {k} chữ cái cuối cùng theo thứ tự chúng xuất hiện.",
+ "unknown": "Tôi không nhớ chữ cái này",
+ "start": "Bắt đầu",
+ "done": "OK",
+ "delete": "Xóa chữ cái cuối"
+}

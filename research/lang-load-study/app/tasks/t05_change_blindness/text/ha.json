@@ -1,0 +1,5 @@
+{"instr": "Gano canji: siffofi biyu na hoto ɗaya suna ta musanya; ku danna abu ɗaya tilo da ya bambanta.",
+ "clue": "Hoton yana ta musanya tsakanin siffofinsa biyu. Abu ɗaya yana canzawa (launinsa ko kamanninsa yana canzawa, ko kuma yana ɓacewa). Ku danna wannan abin da zarar kun gano shi. Da allon rubutu: ku matsar da alamar ƙari da maɓallan kibiya, sannan ku danna Enter. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "pick": "Zaɓi nan", "stage_label": "Hoto mai musanya",
+ "move_left": "Matsa hagu", "move_up": "Matsa sama", "move_down": "Matsa ƙasa", "move_right": "Matsa dama",
+ "scene": "Hoto {n} cikin {total}"}

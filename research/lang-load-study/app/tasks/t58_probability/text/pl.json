@@ -1,0 +1,14 @@
+{
+ "instr": "Szanse: porównaj dwa zdarzenia i wybierz to, które jest bardziej prawdopodobne, albo zaznacz, że są jednakowo prawdopodobne.",
+ "clue": "Każdy ekran pokazuje dwa zdarzenia, A i B, opisane słowami i na obrazku. Kule losuje się bez patrzenia i każda kula ma taką samą szansę wylosowania; kostki są uczciwe. Wybierz, które zdarzenie jest bardziej prawdopodobne, albo „Jednakowo prawdopodobne”. Użyj przycisków lub klawiszy 1 (A), 2 (jednakowo prawdopodobne), 3 (B). Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Jednakowo prawdopodobne",
+ "question": "Co jest bardziej prawdopodobne?",
+ "progress": "Pytanie {i} z {n}",
+ "ev_bag1": "W worku {L} są kule – czerwone: {r}, niebieskie: {b}. Losujesz jedną kulę i jest ona czerwona.",
+ "ev_bag2_replace": "W worku {L} są kule – czerwone: {r}, niebieskie: {b}. Losujesz kulę, odkładasz ją z powrotem i losujesz ponownie. Obie kule są czerwone.",
+ "ev_bag2_keep": "W worku {L} są kule – czerwone: {r}, niebieskie: {b}. Losujesz kulę, nie odkładasz jej i losujesz ponownie. Obie kule są czerwone.",
+ "ev_dice": "Rzucasz dwiema kostkami, a suma wyrzuconych oczek wynosi {s}."
+}

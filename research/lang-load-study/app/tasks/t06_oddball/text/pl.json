@@ -1,0 +1,9 @@
+{
+ "instr": "Rzadki kształt: kształty migają jeden po drugim; naciśnij spację (lub przycisk) tylko wtedy, gdy zobaczysz kwadrat.",
+ "clue": "Kształty migają po kolei na środku. Za każdym razem, gdy pojawi się kwadrat, jak najszybciej naciśnij spację (lub duży przycisk). Przy kółkach nic nie rób. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "press": "Kwadrat!",
+ "stage_label": "Migające kształty",
+ "target_is": "Naciskaj przy:",
+ "ignore": "pomijaj:"
+}

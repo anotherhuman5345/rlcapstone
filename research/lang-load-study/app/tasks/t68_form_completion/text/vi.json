@@ -1,0 +1,56 @@
+{
+ "instr": "Điền biểu mẫu: hãy chép một hồ sơ vào biểu mẫu, theo các quy tắc đặc biệt đi kèm.",
+ "clue": "Hãy điền biểu mẫu bên phải dựa vào hồ sơ bên trái. Chép tên và các con số chính xác như trong hồ sơ. Hãy đọc các quy tắc đặc biệt trước: một quy tắc chỉ áp dụng khi điều kiện của nó đúng với hồ sơ này. Nút Trợ giúp cho biết các định dạng. Nhấn Gửi khi bạn làm xong. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "record_title": "Hồ sơ",
+ "rules_title": "Quy tắc đặc biệt",
+ "form_title": "Biểu mẫu",
+ "help": "Trợ giúp",
+ "help_text": "Ngày: ngày.tháng.năm, ngăn cách bằng dấu chấm, ví dụ 05.11.1987. Số: chỉ gồm chữ số, không có chữ cái. Gói và cách liên hệ: chọn một. Chỉ để trống một ô khi có quy tắc yêu cầu.",
+ "submit": "Gửi",
+ "choose": "— chọn —",
+ "no_phone": "—",
+ "date_placeholder": "NN.TT.NNNN",
+ "labels": {
+  "family": "Họ",
+  "given": "Tên",
+  "member": "Mã số hội viên",
+  "birth": "Ngày sinh",
+  "postcode": "Mã bưu chính",
+  "phone": "Điện thoại",
+  "plan": "Gói",
+  "contact": "Liên hệ qua",
+  "amount": "Số tiền"
+ },
+ "plans": [
+  "Cơ bản",
+  "Nâng cao",
+  "Thiếu niên"
+ ],
+ "contacts": [
+  "Email",
+  "Điện thoại",
+  "Bưu điện"
+ ],
+ "months": [
+  "tháng 1 năm",
+  "tháng 2 năm",
+  "tháng 3 năm",
+  "tháng 4 năm",
+  "tháng 5 năm",
+  "tháng 6 năm",
+  "tháng 7 năm",
+  "tháng 8 năm",
+  "tháng 9 năm",
+  "tháng 10 năm",
+  "tháng 11 năm",
+  "tháng 12 năm"
+ ],
+ "rules": [
+  "Nếu người đó sinh năm {year} hoặc muộn hơn, hãy chọn gói Thiếu niên, bất kể hồ sơ ghi gì.",
+  "Nếu số tiền lớn hơn 500, hãy nhập 500.",
+  "Nếu hồ sơ không có số điện thoại, hãy để trống ô Điện thoại và chọn Bưu điện làm cách liên hệ.",
+  "Nếu mã bưu chính chỉ có 4 chữ số, hãy thêm một số 0 vào đầu.",
+  "Nếu mã số hội viên kết thúc bằng 7, hãy viết họ bằng chữ IN HOA."
+ ]
+}

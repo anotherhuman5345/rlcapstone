@@ -1,0 +1,10 @@
+{
+ "instr": "Vielelezo viwili: tafuta kwa kujaribu ni kielelezo kipi kilicho sahihi. Kielelezo sahihi kinaweza kubadilika bila taarifa.",
+ "clue": "Vielelezo viwili vinatokea. Kimoja kati ya hivyo ni sahihi. Chagua kimoja kwa kukibofya au kukigusa, au kwa vitufe vya mishale ya kushoto/kulia; utaona kama ulikuwa sahihi. Endelea kuchagua kilicho sahihi. Bila taarifa, kielelezo kingine kinaweza kuwa ndicho sahihi: hapo badilisha. Mahali kilipo kwenye skrini hapajalishi. Bonyeza Anza ukiwa tayari.",
+ "left": "Kushoto",
+ "right": "Kulia",
+ "correct": "Sahihi",
+ "wrong": "Si sahihi",
+ "too_slow": "Polepole mno",
+ "start": "Anza"
+}

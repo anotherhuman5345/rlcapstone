@@ -1,0 +1,10 @@
+{
+ "instr": "Rangkaian huruf: huruf muncul satu per satu dan berhenti tanpa peringatan; lalu ketik hanya beberapa huruf terakhir, sesuai urutan.",
+ "clue": "Tekan Mulai. Huruf muncul satu per satu, dan daftarnya berhenti tanpa peringatan, jadi ingatlah huruf-huruf terbaru. Saat berhenti, ketik hanya huruf-huruf TERAKHIR yang Anda lihat, sesuai urutan kemunculannya. Gunakan ? untuk huruf yang tidak Anda ingat, lalu tekan OK.",
+ "keep": "Ingat {k} huruf terakhir.",
+ "recall": "Ketik {k} huruf terakhir sesuai urutan kemunculannya.",
+ "unknown": "Saya tidak ingat huruf ini",
+ "start": "Mulai",
+ "done": "OK",
+ "delete": "Hapus huruf terakhir"
+}

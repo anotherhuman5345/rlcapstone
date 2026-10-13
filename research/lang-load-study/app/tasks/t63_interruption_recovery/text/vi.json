@@ -1,0 +1,31 @@
+{
+ "instr": "Quy trình: hãy thực hiện một danh sách các bước theo thứ tự bằng cách nhấp vào các nút bước; nếu một nhiệm vụ khác chen ngang, hãy quay lại và tiếp tục từ chỗ bạn đã dừng.",
+ "clue": "Hãy thực hiện quy trình: nhấp vào các nút bước theo thứ tự của danh sách (hoặc nhấn phím số của chúng). Mỗi bước chỉ làm một lần; sẽ không có gì cho biết bước nào đã xong. Đôi khi một nhiệm vụ khác sẽ chen ngang: hãy cho biết mỗi số là chẵn hay lẻ. Khi quy trình quay lại, hãy tiếp tục từ chỗ bạn đã dừng. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "case_label": "Nhiệm vụ {n} / {total}",
+ "proc_title": "Quy trình",
+ "palette_title": "Các nút bước",
+ "interrupt_title": "Chẵn hay lẻ?",
+ "interrupt_hint": "Mũi tên trái = chẵn, mũi tên phải = lẻ",
+ "even": "Chẵn",
+ "odd": "Lẻ",
+ "next_case": "Nhiệm vụ tiếp theo…",
+ "steps": [
+  "Quét mã",
+  "Cân bưu kiện",
+  "Kiểm tra niêm phong",
+  "In nhãn",
+  "Dán nhãn",
+  "Ghi lại thời gian",
+  "Chụp ảnh",
+  "Đo kích thước",
+  "Đóng dấu vào phiếu",
+  "Phân loại theo màu",
+  "Gói món hàng",
+  "Báo cho quầy",
+  "Đếm số món",
+  "Đóng nắp",
+  "Ký vào tờ phiếu",
+  "Lau sạch khay"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Simetria e quadrados: decida se cada padrão é simétrico como um espelho e memorize onde os quadrados vermelhos apareceram.",
+ "clue": "Cada etapa mostra um padrão preto e branco: ele é igual na esquerda e na direita, como um espelho? Responda Sim (seta para a esquerda) ou Não (seta para a direita). Depois, um quadrado vermelho pisca em uma grade: memorize onde. No final, toque nos quadrados na ordem em que apareceram e pressione Concluir. Pressione Começar quando estiver pronto(a).",
+ "yes": "Sim, simétrico",
+ "no": "Não",
+ "start": "Começar",
+ "undo": "Desfazer",
+ "done": "Concluir",
+ "phase_judge": "Este padrão é simétrico?",
+ "phase_remember": "Memorize este quadrado.",
+ "phase_recall": "Toque nos quadrados na ordem em que apareceram (as setas e o Enter também funcionam; Backspace desfaz). Depois pressione Concluir."
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Mémoire des couleurs : retenez un groupe de carrés colorés ; après une courte pause, dites si un carré a changé de couleur.",
+ "clue": "Des carrés colorés apparaissent brièvement, disparaissent, puis reviennent. Un carré a-t-il changé de couleur ? Appuyez sur ← ou « Pareil » si rien n'a changé, sur → ou « Différent » si un carré a changé. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "same": "Pareil",
+ "different": "Différent",
+ "start": "Démarrer",
+ "stage_label": "Carrés colorés"
+}

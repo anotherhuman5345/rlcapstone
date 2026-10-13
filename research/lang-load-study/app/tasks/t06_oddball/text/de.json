@@ -1,0 +1,9 @@
+{
+ "instr": "Seltene Form: Formen blitzen einzeln auf; drücken Sie die Leertaste (oder die Schaltfläche) nur, wenn Sie das Quadrat sehen.",
+ "clue": "In der Mitte blitzen nacheinander Formen auf. Drücken Sie jedes Mal, wenn ein Quadrat erscheint, so schnell wie möglich die Leertaste (oder die große Schaltfläche). Bei Kreisen tun Sie nichts. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "press": "Quadrat!",
+ "stage_label": "Aufblitzende Formen",
+ "target_is": "Drücken bei:",
+ "ignore": "ignorieren:"
+}

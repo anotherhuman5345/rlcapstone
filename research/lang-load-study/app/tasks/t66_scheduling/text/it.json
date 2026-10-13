@@ -1,0 +1,64 @@
+{
+ "instr": "Calendario: assegna ogni lavoro a una persona in un giorno in modo da rispettare tutte le regole.",
+ "clue": "Pianifica il lavoro: metti ogni lavoro nella tabella sotto una persona e un giorno. Ogni persona può fare al massimo un lavoro al giorno, e tutte le regole dell'elenco vanno rispettate. Clicca un lavoro (oppure raggiungilo con Tab e premi Invio), poi clicca una casella della tabella. Clicca una casella occupata per riprendere il suo lavoro. Qualsiasi piano che rispetti tutte le regole è corretto. Premi Fatto quando tutti i lavori sono assegnati. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "done": "Fatto",
+ "give_up": "Mi arrendo",
+ "setting": "Ogni persona può fare al massimo un lavoro al giorno. Regole:",
+ "plan": "Piano",
+ "tray": "Lavori non ancora assegnati",
+ "templates": {
+  "before": "Il lavoro «{a.cap}» va fatto in un giorno precedente al lavoro «{b.cap}».",
+  "same_day": "Il lavoro «{a.cap}» e il lavoro «{b.cap}» vanno fatti lo stesso giorno.",
+  "diff_day": "Il lavoro «{a.cap}» e il lavoro «{b.cap}» vanno fatti in giorni diversi.",
+  "by_day": "Il lavoro «{a.cap}» va fatto al più tardi {day}.",
+  "off_day": "{w} non è disponibile {day}.",
+  "only_person": "Solo {w} può fare il lavoro «{a.cap}».",
+  "not_person": "{w} non può fare il lavoro «{a.cap}».",
+  "same_person": "Il lavoro «{a.cap}» e il lavoro «{b.cap}» vanno fatti dalla stessa persona."
+ },
+ "jobs": [
+  {
+   "name": "relazione",
+   "cap": "Relazione"
+  },
+  {
+   "name": "consegna",
+   "cap": "Consegna"
+  },
+  {
+   "name": "riparazione",
+   "cap": "Riparazione"
+  },
+  {
+   "name": "pulizia",
+   "cap": "Pulizia"
+  },
+  {
+   "name": "inventario",
+   "cap": "Inventario"
+  },
+  {
+   "name": "formazione",
+   "cap": "Formazione"
+  },
+  {
+   "name": "tinteggiatura",
+   "cap": "Tinteggiatura"
+  },
+  {
+   "name": "ispezione",
+   "cap": "Ispezione"
+  }
+ ],
+ "people": [
+  "Anna",
+  "Bruno",
+  "Chiara"
+ ],
+ "days": [
+  "lunedì",
+  "martedì",
+  "mercoledì"
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Schnelle Buchstaben: Buchstaben blitzen sehr schnell auf; nennen Sie danach die beiden Buchstaben, die rot waren.",
+ "clue": "Im Kasten blitzen sehr schnell Buchstaben auf. Zwei davon sind rot. Wählen Sie nach jeder Folge die beiden roten Buchstaben aus (anklicken oder eintippen) und drücken Sie dann OK oder Enter. Wenn Sie unsicher sind, raten Sie so gut Sie können. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "ok": "OK",
+ "undo": "Rückgängig",
+ "slots": "Rote Buchstaben: {a} {b}",
+ "ask": "Welche beiden Buchstaben waren rot?",
+ "progress": "Folge {n} von {total}"
+}

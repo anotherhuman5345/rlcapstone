@@ -1,0 +1,14 @@
+{
+ "instr": "Brevi programmi: leggi ogni breve programma e scrivi il numero che stampa.",
+ "clue": "Vedrai tre brevi programmi. Seguili passo per passo, riga per riga, e trova il numero che viene stampato alla fine. Scrivilo con il tastierino o la tastiera (usa − per un numero negativo), poi premi OK o Invio. Non c'è fretta. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "program_of": "Programma {n} di {total}",
+ "output": "Numero stampato:",
+ "ok": "OK",
+ "erase": "Cancella",
+ "kw_set": "imposta {v} a {e}",
+ "kw_repeat": "ripeti {n} volte:",
+ "kw_if": "se {c}:",
+ "kw_else": "altrimenti:",
+ "kw_print": "stampa {e}"
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Tương tự hình ảnh: hình thứ nhất biến đổi thành hình thứ hai; hãy chọn hình biến đổi hình thứ ba theo cùng cách đó.",
+ "clue": "Hình phía trên bên trái biến đổi thành hình bên phải nó. Hãy tìm lựa chọn biến đổi hình phía dưới theo đúng cách như vậy (hình có thể được xoay, lật, đổi kiểu tô, đổi kích thước hoặc được nhân đôi, hoặc kết hợp hai trong số đó). Nhấp hoặc chạm vào lựa chọn, hoặc nhấn phím số 1-4 của nó. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "option": "Lựa chọn",
+ "progress": "Câu đố {i} / {n}"
+}

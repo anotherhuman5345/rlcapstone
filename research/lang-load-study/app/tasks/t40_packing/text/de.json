@@ -1,0 +1,12 @@
+{
+ "instr": "Packen: Legen Sie alle Teile so auf das Brett, dass jedes Feld bedeckt ist und sich keine Teile überlappen.",
+ "clue": "Füllen Sie das ganze Brett mit allen Teilen, ohne Überlappungen. Wählen Sie ein Teil (anklicken oder seine Nummer drücken), drehen Sie es bei Bedarf mit „Drehen“ (oder der Taste R) und klicken Sie dann auf das Feld des Bretts, auf das der Punkt des Teils kommen soll. Um ein gelegtes Teil zu verschieben, klicken Sie es auf dem Brett an, um es zurückzunehmen. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "board": "Brett",
+ "pieces": "Teile",
+ "rotate": "Drehen",
+ "give_up": "Aufgeben",
+ "choose_first": "Wählen Sie zuerst ein Teil.",
+ "no_fit": "Das Teil passt dort nicht.",
+ "solved": "Geschafft!"
+}

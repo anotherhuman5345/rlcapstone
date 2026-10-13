@@ -1,0 +1,8 @@
+{
+ "instr": "Trí nhớ màu sắc: hãy nhớ một nhóm ô màu; sau một khoảng trống ngắn, hãy cho biết có ô nào đổi màu hay không.",
+ "clue": "Các ô màu hiện ra trong chốc lát, biến mất, rồi hiện lại. Có ô nào đổi màu không? Nhấn ← hoặc “Giống nhau” nếu không có gì thay đổi, nhấn → hoặc “Khác” nếu có một ô đã đổi màu. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "same": "Giống nhau",
+ "different": "Khác",
+ "start": "Bắt đầu",
+ "stage_label": "Các ô màu"
+}

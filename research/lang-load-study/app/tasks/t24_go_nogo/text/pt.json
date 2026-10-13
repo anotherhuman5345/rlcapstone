@@ -1,0 +1,7 @@
+{
+ "instr": "Círculos e triângulos: pressione para cada círculo e não faça nada para um triângulo.",
+ "clue": "Formas vão aparecer uma após a outra, em ritmo constante. Quando você vir um CÍRCULO, pressione a barra de espaço (ou o botão Pressionar) o mais rápido que puder. Quando vir um TRIÂNGULO, não pressione nada. Pressione Começar quando estiver pronto(a).",
+ "press": "Pressionar",
+ "start": "Começar",
+ "stage_label": "Área onde as formas aparecem"
+}

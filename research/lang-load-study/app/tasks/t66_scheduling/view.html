@@ -1,0 +1,28 @@
+<style>
+.sched .sc-rules { font-size: 1.15rem; line-height: 1.5; max-width: 44rem; padding-left: 1.6rem; }
+.sched .sc-rules li { margin: .25rem 0; }
+.sched .sc-grid { display: grid; gap: .4rem; margin: 1rem 0; max-width: 40rem; align-items: stretch; }
+.sched .sc-head { font-weight: 600; color: var(--muted); align-self: end; padding: .2rem; }
+.sched .sc-cell { margin: 0; min-height: 3.6rem; padding: .3rem; background: var(--paper); color: var(--ink); border: 2px dashed var(--line);
+  border-radius: 6px; font-weight: 600; touch-action: manipulation; }
+.sched .sc-cell.filled { border-style: solid; background: #f6e7c1; border-color: #c9a95c; }
+.sched .sc-chip { margin: 0; padding: .55rem .9rem; background: #f6e7c1; color: var(--ink); border: 2px solid #c9a95c; border-radius: 6px; font-weight: 600; touch-action: manipulation; }
+.sched .sel { border-color: var(--signal) !important; box-shadow: 0 0 0 3px var(--signal) inset; }
+.sched .sc-tray { display: flex; flex-wrap: wrap; gap: .5rem; min-height: 3rem; }
+.sched h3 { font-size: 1rem; margin: .8rem 0 .4rem; color: var(--muted); font-weight: 600; }
+</style>
+<div class="sched">
+  <p><button type="button" class="sc-start">{{ text.start }}</button></p>
+  <div class="sc-area" hidden>
+    <p>{{ text.setting }}</p>
+    <ol class="sc-rules"></ol>
+    <h3>{{ text.plan }}</h3>
+    <div class="sc-grid"></div>
+    <h3>{{ text.tray }}</h3>
+    <div class="sc-tray"></div>
+    <div class="btn-row">
+      <button type="button" class="sc-done" disabled>{{ text.done }}</button>
+      <button type="button" class="sc-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

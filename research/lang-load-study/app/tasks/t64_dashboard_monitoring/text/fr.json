@@ -1,0 +1,16 @@
+{
+ "instr": "Tableau de bord : surveillez quatre jauges et réagissez seulement quand une barre dépasse la ligne rouge et y reste.",
+ "clue": "Surveillez les quatre jauges. Quand une barre dépasse la ligne rouge et RESTE au-dessus, cliquez sur cette jauge (ou appuyez sur son numéro, 1–4) le plus vite possible. Ne tenez pas compte des pics brefs qui retombent aussitôt, ni des barres qui descendent bas. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "hint": "Cliquez sur la jauge ou appuyez sur 1–4",
+ "gauges": [
+  "Pression",
+  "Débit",
+  "Chaleur",
+  "Vitesse",
+  "Charge",
+  "Niveau",
+  "Batterie",
+  "Signal"
+ ]
+}

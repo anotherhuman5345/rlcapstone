@@ -1,0 +1,10 @@
+{
+ "instr": "Siga e some: mantenha o ponteiro sobre o ponto em movimento enquanto responde a somas simples que aparecem abaixo dele.",
+ "clue": "Mantenha o ponteiro sobre o ponto azul em movimento o tempo todo: mova o mouse, deslize o dedo ou segure as setas do teclado (ou os botões de seta). Somas vão aparecer abaixo da área: escolha a resposta clicando nela ou pressionando 1, 2 ou 3. Seguir o ponto e responder às somas são igualmente importantes. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "sum_hint": "Responda com 1, 2, 3 ou com um clique",
+ "up": "Para cima",
+ "down": "Para baixo",
+ "left": "Para a esquerda",
+ "right": "Para a direita"
+}

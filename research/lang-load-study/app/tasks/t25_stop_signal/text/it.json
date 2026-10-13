@@ -1,0 +1,9 @@
+{
+ "instr": "Frecce con segnale di stop: premi in fretta la direzione della freccia, ma trattieniti se diventa rossa.",
+ "clue": "Al centro comparirà una freccia. Premi il tasto freccia sinistra o destra (o il pulsante) nella direzione in cui punta, il più velocemente possibile. A volte, subito dopo la comparsa, la freccia diventa rossa dentro un anello rosso (con un bip se l'audio è attivo): allora cerca di NON premere. Non sempre riuscirai a fermarti; è normale. Non rallentare per aspettare il segnale rosso. Premi Inizia quando sei pronto.",
+ "left": "Sinistra",
+ "right": "Destra",
+ "start": "Inizia",
+ "sound": "Bip con il segnale di stop",
+ "stage_label": "Zona in cui compaiono le frecce"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Pencarian warna: klik satu-satunya lingkaran oranye di antara lingkaran biru, atau jawab “Tidak ada” jika tidak ada.",
+ "clue": "Temukan lingkaran oranye di antara lingkaran biru dan klik secepat mungkin (atau tekan tombol →). Jika tidak ada lingkaran oranye, tekan ← atau tombol “Tidak ada”. Tekan Mulai jika sudah siap.",
+ "absent": "Tidak ada",
+ "present": "Ada",
+ "start": "Mulai",
+ "stage_label": "Lingkaran yang dicari"
+}

@@ -1,0 +1,5 @@
+{"instr": "Grid: squares in a grid light up one at a time; for each one, say whether it is in the same place as a square lit a set number of steps earlier.",
+ "clue": "Squares in the grid light up one at a time. Each time, press Same (right arrow key or button) if it is in the same place as the square the rule below points to, otherwise press Different (left arrow key or button). Answer quickly; the squares keep coming. Press Start when ready.",
+ "rule_1": "Rule: is this square in the same place as the one just before it?",
+ "rule_2": "Rule: is this square in the same place as the one two steps back?",
+ "same": "Same", "different": "Different", "start": "Start"}

@@ -1,0 +1,16 @@
+{
+ "instr": "Schiebepuzzle: Schieben Sie die nummerierten Plättchen in die Lücke, bis sie von 1 bis 8 geordnet sind.",
+ "clue": "Ordnen Sie die Plättchen wie im Zielbild: 1 bis 8, mit der Lücke unten rechts. Klicken Sie auf ein Plättchen neben der Lücke, um es hineinzuschieben, oder bewegen Sie mit den Pfeiltasten (oder Pfeilschaltflächen) ein Plättchen in die Lücke. Versuchen Sie, so wenige Züge wie möglich zu brauchen. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "reset": "Neu beginnen",
+ "give_up": "Aufgeben",
+ "yours": "Ihr Brett",
+ "target": "Ziel",
+ "moves_label": "Züge:",
+ "illegal": "Nur ein Plättchen neben der Lücke kann bewegt werden.",
+ "solved": "Geschafft!",
+ "left": "Nach links",
+ "right": "Nach rechts",
+ "up": "Nach oben",
+ "down": "Nach unten"
+}

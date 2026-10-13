@@ -1,0 +1,23 @@
+{
+ "instr": "Kifaa kipya: jifunze vitufe sita visivyozoeleka vinafanya nini, kisha vitumie kuweka taa kadhaa bila msaada.",
+ "clue": "Kifaa hiki kina taa tatu na vitufe sita visivyozoeleka. Lengo la kwanza: maelezo yaliyo chini ya vitufe yanavieleza, kwa hiyo jifunze kila kimoja kinafanya nini. Kwa malengo mawili yanayofuata maelezo yamefichwa: fikia kila lengo kwa kumbukumbu. Fremu ya vistari inayozunguka taa inamaanisha hali ya kuhariri imewashwa; alama ndogo inaonyesha taa iliyochaguliwa. Unaweza pia kubonyeza 1–6 kwa vitufe. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "goal": "Weka taa hivi: kushoto — {l}, katikati — {m}, kulia — {r}. Kisha thibitisha.",
+ "goal_label": "Lengo {n} kati ya {total}",
+ "legend_title": "Maelezo",
+ "next_goal": "Lengo linalofuata…",
+ "colors": [
+  "imezimwa",
+  "nyekundu",
+  "njano",
+  "buluu"
+ ],
+ "funcs": [
+  "Chagua taa iliyo upande wa kushoto (nje ya hali ya kuhariri tu)",
+  "Chagua taa iliyo upande wa kulia (nje ya hali ya kuhariri tu)",
+  "Washa au zima hali ya kuhariri",
+  "Ipe taa iliyochaguliwa rangi yake inayofuata: imezimwa, nyekundu, njano, buluu, imezimwa… (katika hali ya kuhariri tu)",
+  "Zima taa zote",
+  "Thibitisha na umalize lengo (nje ya hali ya kuhariri tu)"
+ ]
+}

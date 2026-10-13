@@ -1,0 +1,4 @@
+{"instr": "Kısa programlar: her kısa programı okuyun ve programın yazdırdığı sayıyı girin.",
+ "clue": "Üç kısa program göreceksiniz. Her birini satır satır, adım adım izleyin ve sonunda yazdırılan sayıyı bulun. Sayıyı tuş takımıyla ya da klavyeyle girin (eksi sayı için − kullanın), sonra Tamam'a ya da Enter'a basın. Acele etmenize gerek yok. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "program_of": "Program {n} / {total}", "output": "Yazdırılan sayı:", "ok": "Tamam", "erase": "Sil",
+ "kw_set": "{v} değerini {e} yap", "kw_repeat": "{n} kez tekrarla:", "kw_if": "eğer {c} ise:", "kw_else": "değilse:", "kw_print": "{e} değerini yazdır"}

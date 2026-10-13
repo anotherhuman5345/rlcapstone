@@ -1,0 +1,8 @@
+{
+ "instr": "Paghahanap ng kulay: i-click ang nag-iisang kulay-kahel na bilog sa gitna ng mga asul, o sagutin ng “wala” kung walang ganoon.",
+ "clue": "Hanapin ang kulay-kahel na bilog sa gitna ng mga asul na bilog at i-click ito nang pinakamabilis na kaya mo (o pindutin ang → key). Kung walang kulay-kahel na bilog, pindutin ang ← o ang button na “Wala”. Pindutin ang Simulan kapag handa ka na.",
+ "absent": "Wala",
+ "present": "Mayroon",
+ "start": "Simulan",
+ "stage_label": "Mga bilog na hahanapan"
+}

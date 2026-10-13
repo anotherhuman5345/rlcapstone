@@ -1,0 +1,8 @@
+{
+ "instr": "Tuyến giao hàng: hãy lập lộ trình khép kín ngắn nhất từ kho, đi qua mọi điểm dừng rồi quay về.",
+ "clue": "Xuất phát từ kho (ô vuông màu sẫm), ghé qua mỗi điểm dừng có đánh số đúng một lần, rồi quay về kho. Hãy làm cho cả chuyến đi ngắn nhất có thể (tính theo khoảng cách đường thẳng). Nhấp hoặc chạm vào các điểm dừng theo thứ tự bạn sẽ ghé qua, hoặc gõ số của chúng. Hoàn tác (phím Backspace) bỏ điểm dừng cuối cùng. Nhấn Xong (phím Enter) khi mọi điểm dừng đã có trong lộ trình. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "undo": "Hoàn tác",
+ "erase": "Xóa hết",
+ "done": "Xong"
+}

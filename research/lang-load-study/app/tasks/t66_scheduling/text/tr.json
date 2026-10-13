@@ -1,0 +1,64 @@
+{
+ "instr": "Planlama: kuralların hepsine uyarak her işi bir güne ve bir kişiye verin.",
+ "clue": "İşleri planlayın: her işi tabloda bir kişinin ve bir günün altına yerleştirin. Bir kişi bir günde en fazla bir iş yapabilir ve listedeki bütün kurallara uyulmalıdır. Bir işe tıklayın (ya da Tab ile üzerine gelip Enter'a basın), sonra tablodaki bir kutuya tıklayın. Dolu bir kutuya tıklarsanız oradaki işi yeniden alırsınız. Bütün kurallara uyan her plan doğrudur. Bütün işler yerleşince Bitti'ye basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "done": "Bitti",
+ "give_up": "Vazgeç",
+ "setting": "Bir kişi bir günde en fazla bir iş yapabilir. Kurallar:",
+ "plan": "Plan",
+ "tray": "Henüz yerleştirilmemiş işler",
+ "templates": {
+  "before": "{a.cap} işi, {b} işinden daha önceki bir günde yapılmalıdır.",
+  "same_day": "{a.cap} ve {b} işleri aynı gün yapılmalıdır.",
+  "diff_day": "{a.cap} ve {b} işleri farklı günlerde yapılmalıdır.",
+  "by_day": "{a.cap} işi en geç {day} günü yapılmalıdır.",
+  "off_day": "{w}, {day} günü çalışamaz.",
+  "only_person": "{a.cap} işini yalnızca {w} yapabilir.",
+  "not_person": "{w}, {a} işini yapamaz.",
+  "same_person": "{a.cap} ve {b} işlerini aynı kişi yapmalıdır."
+ },
+ "jobs": [
+  {
+   "name": "rapor",
+   "cap": "Rapor"
+  },
+  {
+   "name": "teslimat",
+   "cap": "Teslimat"
+  },
+  {
+   "name": "tamir",
+   "cap": "Tamir"
+  },
+  {
+   "name": "temizlik",
+   "cap": "Temizlik"
+  },
+  {
+   "name": "sayım",
+   "cap": "Sayım"
+  },
+  {
+   "name": "eğitim",
+   "cap": "Eğitim"
+  },
+  {
+   "name": "boya",
+   "cap": "Boya"
+  },
+  {
+   "name": "denetim",
+   "cap": "Denetim"
+  }
+ ],
+ "people": [
+  "Ayşe",
+  "Bora",
+  "Ceren"
+ ],
+ "days": [
+  "Pazartesi",
+  "Salı",
+  "Çarşamba"
+ ]
+}

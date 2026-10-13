@@ -1,0 +1,6 @@
+{"instr": "Tracking: remember which circles turn orange, follow them while all circles move, then pick them out.",
+ "clue": "Some circles turn orange for a moment. Remember them and keep your eyes on them while all the circles move. When they stop, click or tap the circles you tracked (or press their number keys), then press Done or Enter. Press Start when ready.",
+ "start": "Start", "done": "Done", "stage_label": "Moving circles",
+ "round": "Round {n} of {total}: remember the {k} orange circles.",
+ "track": "Follow them…",
+ "pick": "Select the {k} circles you followed, then press Done."}

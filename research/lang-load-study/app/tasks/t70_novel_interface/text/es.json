@@ -1,0 +1,23 @@
+{
+ "instr": "Aparato nuevo: aprenda qué hacen seis botones desconocidos y luego úselos para ajustar unas lámparas sin ayuda.",
+ "clue": "Este aparato tiene tres lámparas y seis botones desconocidos. Primer objetivo: una leyenda debajo de los botones los explica, así que aprenda qué hace cada uno. En los dos objetivos siguientes la leyenda está oculta: alcance cada objetivo de memoria. Un marco discontinuo alrededor de las lámparas indica que el modo de edición está activado; la pequeña marca muestra la lámpara seleccionada. También puede pulsar 1–6 para los botones. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "goal": "Deje las lámparas así: izquierda {l}, centro {m}, derecha {r}. Luego confirme.",
+ "goal_label": "Objetivo {n} de {total}",
+ "legend_title": "Leyenda",
+ "next_goal": "Siguiente objetivo…",
+ "colors": [
+  "apagada",
+  "roja",
+  "amarilla",
+  "azul"
+ ],
+ "funcs": [
+  "Seleccionar la lámpara de la izquierda (solo fuera del modo de edición)",
+  "Seleccionar la lámpara de la derecha (solo fuera del modo de edición)",
+  "Activar o desactivar el modo de edición",
+  "Dar a la lámpara seleccionada su siguiente color: apagada, roja, amarilla, azul, apagada… (solo en modo de edición)",
+  "Apagar todas las lámparas",
+  "Confirmar y terminar el objetivo (solo fuera del modo de edición)"
+ ]
+}

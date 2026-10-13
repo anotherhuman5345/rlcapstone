@@ -1,0 +1,25 @@
+<style>
+  .dr-docs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 760px) { .dr-docs { grid-template-columns: 1fr; } }
+  .dr-doc { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: .4rem .6rem; overflow-x: auto; }
+  .dr-doc h3 { margin: .2rem 0; font-size: 1.05rem; }
+  .dr-doc table { margin: .3rem 0; font-size: .95rem; }
+  .dr-doc th, .dr-doc td { padding: .25rem .35rem; }
+  .dr-cell { display: block; margin: 0; padding: .25rem .4rem; width: 100%; text-align: inherit; font: inherit; line-height: 1.4; font-weight: 400; color: var(--ink); background: transparent; border: 2px solid transparent; border-radius: 3px; }
+  button.dr-cell { cursor: pointer; }
+  .dr-cell:hover { border-color: var(--line); }
+  .dr-cell[aria-pressed="true"] { background: var(--warn-bg); border-color: var(--warn-ink); font-weight: 700; }
+  .dr-hidden { visibility: hidden; }
+</style>
+<div class="docrec">
+  <div class="dr-docs dr-hidden" id="dr-docs">
+    <div class="dr-doc"><h3>{{ text.title_a }}</h3>
+      <table><thead><tr><th>{{ text.col_code }}</th><th>{{ text.col_product }}</th><th>{{ text.col_qty }}</th><th>{{ text.col_date }}</th></tr></thead><tbody id="dr-a"></tbody></table></div>
+    <div class="dr-doc"><h3>{{ text.title_b }}</h3>
+      <table><thead><tr><th>{{ text.col_code }}</th><th>{{ text.col_product }}</th><th>{{ text.col_qty }}</th><th>{{ text.col_date }}</th></tr></thead><tbody id="dr-b"></tbody></table></div>
+  </div>
+  <p style="text-align:center">
+    <button type="button" id="dr-start">{{ text.start }}</button>
+    <button type="button" id="dr-done" hidden>{{ text.done }}</button>
+  </p>
+</div>

@@ -1,0 +1,6 @@
+{
+ "instr": "Planificações do cubo: escolha o molde plano que, dobrado, forma o cubo mostrado.",
+ "clue": "O cubo tem uma marca diferente em cada uma das seis faces; você vê três delas. Cada molde plano abaixo pode ser dobrado em um cubo, com as marcas do lado de fora. Só um deles forma exatamente este cubo: as mesmas marcas, vizinhas da mesma maneira e apontando para o mesmo lado. Clique ou toque nesse molde, ou pressione a tecla do número dele, de 1 a 4. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "options": "Qual molde forma este cubo quando dobrado?"
+}

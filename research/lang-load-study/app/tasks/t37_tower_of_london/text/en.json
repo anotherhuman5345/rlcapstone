@@ -1,0 +1,4 @@
+{"instr": "Balls: move the coloured balls one at a time until your pegs look exactly like the target picture.",
+ "clue": "Make your pegs look exactly like the target picture. Take the top ball from a peg by clicking it (or pressing 1, 2 or 3), then click the peg where it should go. The pegs hold at most 3, 2 and 1 balls. Plan before you start and use as few moves as you can. Press Start when ready.",
+ "start": "Start", "reset": "Start over", "give_up": "Give up", "yours": "Your pegs", "target": "Target",
+ "moves_label": "Moves:", "full_peg": "That peg is full.", "empty_peg": "That peg is empty.", "solved": "Done!"}

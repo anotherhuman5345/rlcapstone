@@ -1,0 +1,8 @@
+{
+ "instr": "Pag-uuri ng kard: itabi ang bawat kard sa isa sa apat na kard ayon sa isang nakatagong panuntunan, na matutuklasan mo mula sa feedback. Puwedeng magbago ang panuntunan.",
+ "clue": "May lilitaw na bagong kard sa ilalim ng apat na reference card. Itabi ito sa isa sa mga iyon sa pamamagitan ng pag-click o pag-tap sa kard na iyon, o pagpindot sa 1-4. Puwedeng magtugma ang mga kard ayon sa kulay, sa hugis o sa bilang ng mga figure, pero hindi sasabihin sa iyo kung alin: ang feedback (tama / mali) ang magsasabi sa iyo. Paminsan-minsan, nagbabago ang panuntunan nang walang babala; kung gayon, hanapin ang bago. Pindutin ang Simulan kapag handa ka na.",
+ "correct": "Tama",
+ "wrong": "Mali",
+ "too_slow": "Masyadong mabagal",
+ "start": "Simulan"
+}

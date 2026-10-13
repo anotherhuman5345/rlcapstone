@@ -1,0 +1,4 @@
+{"instr": "Seyrek şekil: şekiller tek tek yanıp söner; yalnızca kareyi gördüğünüzde Boşluk tuşuna (ya da düğmeye) basın.",
+ "clue": "Ortada şekiller birer birer belirip kaybolur. Her kare göründüğünde olabildiğince hızlı Boşluk tuşuna (ya da büyük düğmeye) basın. Dairelerde hiçbir şey yapmayın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "press": "Kare!", "stage_label": "Yanıp sönen şekiller",
+ "target_is": "Basın:", "ignore": "basmayın:"}

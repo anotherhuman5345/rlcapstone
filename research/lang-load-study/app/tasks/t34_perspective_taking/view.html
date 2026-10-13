@@ -1,0 +1,26 @@
+<div class="ptake">
+  <style>
+    .ptake .pt-wrap { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: flex-start; }
+    .ptake .pt-q { min-width: 15rem; font-size: 1.15rem; }
+    .ptake .pt-q p { display: flex; align-items: center; gap: .6rem; margin: .5rem 0; }
+    .ptake .pt-q svg { width: 40px; height: 40px; flex: none; }
+    .ptake .pt-pad { display: grid; grid-template-columns: repeat(3, auto); gap: .4rem; justify-content: start; margin-top: .8rem; }
+    .ptake .pt-pad button { margin: 0; min-width: 6.5rem; }
+  </style>
+  <div class="pt-wrap">
+    <svg id="pt-map" width="460" height="460" viewBox="0 0 460 460" aria-hidden="true"
+         style="display:block;background:#F7F4EC;border:1px solid var(--line);border-radius:6px"></svg>
+    <div class="pt-q" id="pt-q" hidden>
+      <p><span>{{ text.stand }}:</span> <svg id="pt-at" viewBox="-20 -20 40 40"></svg></p>
+      <p><span>{{ text.face }}:</span> <svg id="pt-face" viewBox="-20 -20 40 40"></svg></p>
+      <p><span>{{ text.where }}?</span> <svg id="pt-to" viewBox="-20 -20 40 40"></svg></p>
+      <div class="pt-pad">
+        <span></span><button type="button" data-dir="ahead">↑ {{ text.ahead }}</button><span></span>
+        <button type="button" data-dir="left">← {{ text.left }}</button>
+        <button type="button" data-dir="behind">↓ {{ text.behind }}</button>
+        <button type="button" data-dir="right">{{ text.right }} →</button>
+      </div>
+    </div>
+  </div>
+  <p><button type="button" id="pt-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,10 @@
+{
+ "instr": "Chữ cái chạy nhanh: các chữ cái lóe lên rất nhanh; sau đó, hãy cho biết hai chữ cái màu đỏ.",
+ "clue": "Các chữ cái lóe lên rất nhanh trong khung. Hai trong số đó có màu đỏ. Sau mỗi chuỗi, hãy chọn hai chữ cái màu đỏ (nhấp vào chúng hoặc gõ chúng), rồi nhấn OK hoặc Enter. Nếu không chắc, hãy đoán theo khả năng tốt nhất của bạn. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "ok": "OK",
+ "undo": "Hoàn tác",
+ "slots": "Chữ cái màu đỏ: {a} {b}",
+ "ask": "Hai chữ cái nào có màu đỏ?",
+ "progress": "Chuỗi {n} / {total}"
+}

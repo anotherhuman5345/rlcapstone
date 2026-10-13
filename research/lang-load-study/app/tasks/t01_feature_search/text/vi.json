@@ -1,0 +1,8 @@
+{
+ "instr": "Tìm màu: hãy nhấp vào hình tròn màu cam duy nhất giữa các hình tròn màu xanh dương, hoặc trả lời “Không có” nếu không có hình nào như vậy.",
+ "clue": "Hãy tìm hình tròn màu cam giữa các hình tròn màu xanh dương và nhấp vào nó nhanh nhất có thể (hoặc nhấn phím →). Nếu không có hình tròn màu cam, hãy nhấn ← hoặc nút “Không có”. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "absent": "Không có",
+ "present": "Có",
+ "start": "Bắt đầu",
+ "stage_label": "Các hình tròn cần tìm"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Letras T piscando: mantenha os olhos no centro e diga para que lado está virado o T do meio de um pequeno grupo.",
+ "clue": "Mantenha os olhos na cruz do centro o tempo todo. Um pequeno grupo de formas em T vai piscar rapidamente de um dos lados. Diga para que lado está a barra reta do T do MEIO: para cima, para a direita, para baixo ou para a esquerda. Use as setas do teclado ou os botões. Se não tiver certeza, dê o seu melhor palpite. Pressione Começar quando estiver pronto(a).",
+ "up": "Para cima",
+ "right": "Para a direita",
+ "down": "Para baixo",
+ "left": "Para a esquerda",
+ "start": "Começar",
+ "stage_label": "Uma cruz no meio de uma área vazia"
+}

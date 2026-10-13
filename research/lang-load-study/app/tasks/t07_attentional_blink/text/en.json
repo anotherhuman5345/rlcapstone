@@ -1,0 +1,5 @@
+{"instr": "Fast letters: letters flash very quickly; afterwards, name the two letters that were red.",
+ "clue": "Letters flash very quickly in the box. Two of them are red. After each stream, pick the two red letters (click them or type them), then press OK or Enter. If you are not sure, take your best guess. Press Start when ready.",
+ "start": "Start", "ok": "OK", "undo": "Undo",
+ "slots": "Red letters: {a} {b}", "ask": "Which two letters were red?",
+ "progress": "Stream {n} of {total}"}

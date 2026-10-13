@@ -1,0 +1,10 @@
+{
+ "instr": "T parpadeantes: mantenga la vista en el centro y diga hacia dónde mira la T central de un pequeño grupo.",
+ "clue": "Mantenga la vista en la cruz del centro todo el tiempo. Un pequeño grupo de formas de T aparecerá brevemente a un lado. Diga hacia dónde apunta la barra plana de la T CENTRAL: arriba, derecha, abajo o izquierda. Use las teclas de flecha o los botones. Si no está seguro/a, dé su mejor respuesta. Pulse Iniciar cuando esté listo/a.",
+ "up": "Arriba",
+ "right": "Derecha",
+ "down": "Abajo",
+ "left": "Izquierda",
+ "start": "Iniciar",
+ "stage_label": "Una cruz en medio de una zona vacía"
+}

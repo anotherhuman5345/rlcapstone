@@ -1,0 +1,8 @@
+{
+ "instr": "Mga digit: panoorin ang isang maikling listahan ng mga digit, isa-isa, pagkatapos ay i-type ang mga ito sa parehong pagkakasunod-sunod.",
+ "clue": "Pindutin ang Simulan at panoorin ang mga digit habang isa-isang lumilitaw. Kapag tumigil na, i-type ang mga ito sa parehong pagkakasunod-sunod gamit ang keypad o ang iyong keyboard, pagkatapos ay pindutin ang OK.",
+ "recall": "I-type ang mga digit ayon sa pagkakasunod-sunod na nakita mo.",
+ "start": "Simulan",
+ "done": "OK",
+ "delete": "Burahin ang huling digit"
+}

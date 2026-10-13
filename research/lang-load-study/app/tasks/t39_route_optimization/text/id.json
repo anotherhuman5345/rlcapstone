@@ -1,0 +1,8 @@
+{
+ "instr": "Rute pengiriman: rencanakan perjalanan pulang-pergi terpendek dari gudang melewati setiap perhentian dan kembali.",
+ "clue": "Mulai dari gudang (kotak gelap), kunjungi setiap perhentian bernomor satu kali, lalu kembali ke gudang. Buat seluruh perjalanan sependek mungkin (jarak garis lurus). Klik atau ketuk perhentian sesuai urutan Anda akan mengunjunginya, atau ketik nomornya. Batalkan (tombol Backspace) menghapus perhentian terakhir. Tekan Selesai (tombol Enter) setelah semua perhentian masuk ke rute Anda. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "undo": "Batalkan",
+ "erase": "Kosongkan",
+ "done": "Selesai"
+}

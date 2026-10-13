@@ -1,0 +1,23 @@
+{
+ "instr": "Nouvel appareil : apprenez ce que font six boutons inconnus, puis utilisez-les pour régler des lampes sans aide.",
+ "clue": "Cet appareil a trois lampes et six boutons inconnus. Premier objectif : une légende sous les boutons les explique ; apprenez ce que fait chacun. Pour les deux objectifs suivants, la légende est cachée : atteignez chaque objectif de mémoire. Un cadre en pointillés autour des lampes signifie que le mode édition est activé ; la petite marque indique la lampe sélectionnée. Vous pouvez aussi appuyer sur 1–6 pour les boutons. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "goal": "Réglez les lampes ainsi : gauche {l}, milieu {m}, droite {r}. Puis confirmez.",
+ "goal_label": "Objectif {n} sur {total}",
+ "legend_title": "Légende",
+ "next_goal": "Objectif suivant…",
+ "colors": [
+  "éteinte",
+  "rouge",
+  "jaune",
+  "bleue"
+ ],
+ "funcs": [
+  "Sélectionner la lampe de gauche (seulement hors du mode édition)",
+  "Sélectionner la lampe de droite (seulement hors du mode édition)",
+  "Activer ou désactiver le mode édition",
+  "Passer la lampe sélectionnée à sa couleur suivante : éteinte, rouge, jaune, bleue, éteinte… (seulement en mode édition)",
+  "Éteindre toutes les lampes",
+  "Confirmer et terminer l'objectif (seulement hors du mode édition)"
+ ]
+}

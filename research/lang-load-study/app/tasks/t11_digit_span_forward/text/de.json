@@ -1,0 +1,8 @@
+{
+ "instr": "Ziffern: Sehen Sie sich eine kurze Folge von Ziffern an, die einzeln erscheinen, und geben Sie sie dann in derselben Reihenfolge ein.",
+ "clue": "Drücken Sie „Starten“ und sehen Sie zu, wie die Ziffern einzeln erscheinen. Wenn sie aufhören, geben Sie sie in derselben Reihenfolge über das Ziffernfeld oder Ihre Tastatur ein und drücken Sie dann OK.",
+ "recall": "Geben Sie die Ziffern in der Reihenfolge ein, in der Sie sie gesehen haben.",
+ "start": "Starten",
+ "done": "OK",
+ "delete": "Letzte Ziffer löschen"
+}

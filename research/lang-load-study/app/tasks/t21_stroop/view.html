@@ -1,0 +1,15 @@
+<style>
+  .stroop .panel { background: #2b2b2b; border-radius: 6px; min-height: 7rem; display: flex; align-items: center; justify-content: center; }
+  .stroop .panel .big { margin: 1.5rem 0; color: #f4f4f4; font-size: 2.8rem; }
+  .stroop .sw { display: inline-block; width: 1.1em; height: 1.1em; border-radius: 3px; vertical-align: -0.15em; margin-right: .4em; border: 1px solid #0006; }
+  .stroop .btn-row button { background: #fff; color: #222; border: 2px solid #555; }
+</style>
+<div class="stroop">
+  <div class="panel"><p class="big" id="st-display" aria-live="off">+</p></div>
+  <div class="btn-row">
+    {% for name in text.color_names %}
+    <button type="button" data-key="{{ loop.index0 }}"><span class="sw" style="background: {{ item.palette[loop.index0] }}"></span>{{ loop.index }} · {{ name }}</button>
+    {% endfor %}
+  </div>
+  <p><button type="button" id="st-start">{{ text.start }}</button></p>
+</div>

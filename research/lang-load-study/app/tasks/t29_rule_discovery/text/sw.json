@@ -1,0 +1,8 @@
+{
+ "instr": "Kupanga kadi: weka kila kadi pamoja na moja ya kadi nne kwa kanuni iliyofichwa, ambayo unaigundua kutokana na mrejesho. Kanuni inaweza kubadilika.",
+ "clue": "Kadi mpya inatokea chini ya kadi nne za mfano. Iweke pamoja na moja kati ya hizo kwa kubofya au kugusa kadi hiyo, au kwa kubonyeza 1-4. Kadi zinaweza kulingana kwa rangi, kwa umbo au kwa idadi ya vielelezo, lakini hauambiwi ni ipi: mrejesho (sahihi / si sahihi) ndio unaokuambia. Kanuni hubadilika mara kwa mara bila taarifa; hapo tafuta kanuni mpya. Bonyeza Anza ukiwa tayari.",
+ "correct": "Sahihi",
+ "wrong": "Si sahihi",
+ "too_slow": "Polepole mno",
+ "start": "Anza"
+}

@@ -1,0 +1,13 @@
+{
+ "instr": "Cálculo mental: resuelva cada operación mentalmente y escriba el resultado.",
+ "clue": "Resuelva cada operación mentalmente, sin escribir nada. Escriba el resultado con el teclado en pantalla o el teclado y pulse Aceptar (o Enter). Cada operación tiene 20 segundos. Los resultados son números enteros. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "ok": "Aceptar",
+ "erase": "Borrar el último dígito",
+ "seconds_left": "Quedan {s} s",
+ "progress": "Operación {i} de {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

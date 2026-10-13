@@ -1,0 +1,9 @@
+{
+ "instr": "Panah dengan tanda berhenti: tekan arah panah dengan cepat, tetapi tahan jika panahnya berubah merah.",
+ "clue": "Sebuah panah akan muncul di tengah. Tekan tombol panah kiri atau kanan (atau tombol di layar) sesuai arahnya, secepat mungkin. Kadang-kadang, sesaat setelah muncul, panah berubah merah di dalam cincin merah (dengan bunyi bip jika suara aktif): saat itu usahakan TIDAK menekan. Berhenti tidak selalu berhasil; itu normal. Jangan memperlambat diri untuk menunggu tanda merah. Tekan Mulai jika sudah siap.",
+ "left": "Kiri",
+ "right": "Kanan",
+ "start": "Mulai",
+ "sound": "Bunyi bip bersama tanda berhenti",
+ "stage_label": "Area tempat panah muncul"
+}

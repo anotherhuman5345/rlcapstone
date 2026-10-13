@@ -1,0 +1,5 @@
+{"instr": "Faifan lambobi: ku zamar da faifan masu lambobi zuwa gurbin har sai sun jeru daga 1 zuwa 8.",
+ "clue": "Ku jera faifan kamar yadda suke a hoton manufa: daga 1 zuwa 8, gurbin yana ƙasa a dama. Ku danna faifan da ke kusa da gurbin don zamar da shi ciki, ko ku yi amfani da maɓallan kibiya (ko maɓallan kibiya da ke allo) don matsar da faifai zuwa gurbin. Ku yi ƙoƙari ku yi motsi kaɗan gwargwadon iko. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "reset": "Sake farawa", "give_up": "Na haƙura", "yours": "Allonku", "target": "Manufa",
+ "moves_label": "Motsi:", "illegal": "Faifan da ke kusa da gurbin kawai ke iya motsi.", "solved": "An gama!",
+ "left": "Hagu", "right": "Dama", "up": "Sama", "down": "Ƙasa"}

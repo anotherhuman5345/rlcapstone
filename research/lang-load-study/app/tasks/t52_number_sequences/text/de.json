@@ -1,0 +1,8 @@
+{
+ "instr": "Zahlenfolgen: Finden Sie die Regel und geben Sie die nächste Zahl ein.",
+ "clue": "Jede Zahlenreihe folgt EINER dieser Regeln: jedes Mal dieselbe Zahl addieren oder abziehen; jedes Mal mit 2 multiplizieren; der Schritt wächst jedes Mal um denselben Betrag; oder zwei Folgen wechseln sich ab, jede mit eigenem Schritt. Geben Sie die nächste Zahl über das Ziffernfeld oder die Tastatur ein und drücken Sie OK (oder Enter). Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "ok": "OK",
+ "erase": "Letzte Ziffer löschen",
+ "progress": "Folge {i} von {n}"
+}

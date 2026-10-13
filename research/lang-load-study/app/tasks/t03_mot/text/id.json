@@ -1,0 +1,10 @@
+{
+ "instr": "Pelacakan: ingat lingkaran mana yang berubah menjadi oranye, ikuti lingkaran itu saat semua lingkaran bergerak, lalu pilih lingkaran itu.",
+ "clue": "Beberapa lingkaran berubah menjadi oranye sesaat. Ingat lingkaran itu dan terus perhatikan saat semua lingkaran bergerak. Saat berhenti, klik atau ketuk lingkaran yang Anda ikuti (atau tekan tombol angkanya), lalu tekan Selesai atau Enter. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "done": "Selesai",
+ "stage_label": "Lingkaran yang bergerak",
+ "round": "Putaran {n} dari {total}: ingat {k} lingkaran oranye.",
+ "track": "Ikuti lingkaran itu…",
+ "pick": "Pilih {k} lingkaran yang Anda ikuti, lalu tekan Selesai."
+}

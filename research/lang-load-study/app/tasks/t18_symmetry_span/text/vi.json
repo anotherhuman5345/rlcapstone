@@ -1,0 +1,12 @@
+{
+ "instr": "Đối xứng và ô vuông: hãy quyết định mỗi họa tiết có đối xứng như qua gương hay không, và nhớ vị trí các ô màu đỏ đã xuất hiện.",
+ "clue": "Mỗi bước hiện một họa tiết đen trắng: bên trái và bên phải có giống nhau như qua gương không? Trả lời Có (mũi tên trái) hoặc Không (mũi tên phải). Sau đó một ô màu đỏ lóe lên trong lưới: hãy nhớ vị trí của nó. Cuối cùng, hãy chạm vào các ô theo thứ tự chúng đã xuất hiện, rồi nhấn Xong. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "yes": "Có, đối xứng",
+ "no": "Không",
+ "start": "Bắt đầu",
+ "undo": "Hoàn tác",
+ "done": "Xong",
+ "phase_judge": "Họa tiết này có đối xứng không?",
+ "phase_remember": "Hãy nhớ ô này.",
+ "phase_recall": "Hãy chạm vào các ô theo thứ tự chúng đã xuất hiện (cũng có thể dùng phím mũi tên và Enter, Backspace để hoàn tác). Sau đó nhấn Xong."
+}

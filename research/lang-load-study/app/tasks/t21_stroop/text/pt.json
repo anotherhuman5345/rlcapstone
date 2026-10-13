@@ -1,0 +1,17 @@
+{
+ "instr": "Nomes de cores: para cada palavra, pressione o botão da cor da TINTA, não da cor que a palavra diz.",
+ "clue": "Aparece o nome de uma cor escrito com tinta colorida. Indique a cor da TINTA e ignore o que a palavra diz. Pressione as teclas 1-4 ou toque no botão da cor correspondente. Responda com rapidez e precisão. Pressione Começar quando estiver pronto(a).",
+ "words": [
+  "VERMELHO",
+  "AZUL",
+  "VERDE",
+  "AMARELO"
+ ],
+ "color_names": [
+  "Vermelho",
+  "Azul",
+  "Verde",
+  "Amarelo"
+ ],
+ "start": "Começar"
+}

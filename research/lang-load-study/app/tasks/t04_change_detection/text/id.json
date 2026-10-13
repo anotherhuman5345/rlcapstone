@@ -1,0 +1,8 @@
+{
+ "instr": "Ingatan warna: ingat sekelompok kotak berwarna; setelah jeda singkat, katakan apakah ada kotak yang berubah warna.",
+ "clue": "Kotak-kotak berwarna muncul sebentar, menghilang, lalu muncul lagi. Apakah ada satu kotak yang berubah warna? Tekan ← atau “Sama” jika tidak ada yang berubah, → atau “Berbeda” jika ada yang berubah. Tekan Mulai jika sudah siap.",
+ "same": "Sama",
+ "different": "Berbeda",
+ "start": "Mulai",
+ "stage_label": "Kotak berwarna"
+}

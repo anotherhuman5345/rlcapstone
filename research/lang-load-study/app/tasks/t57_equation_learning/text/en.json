@@ -1,0 +1,13 @@
+{"instr": "Symbol rules: learn two new symbol operations, then work out new expressions with them.",
+ "clue": "Two made-up symbols are explained below, with examples. Read them, then press Start and work out each expression. Type the answer with the keypad or keyboard and press OK (or Enter). The rules stay on screen.",
+ "start": "Start", "ok": "OK", "erase": "Erase last digit", "progress": "Expression {i} of {n}",
+ "examples": "Examples:", "list_sep": ";  ",
+ "precedence": "In an expression with both symbols, always work out {hi} first, then {lo}.",
+ "rule_dbl_first": "double the first number, then add the second number.",
+ "rule_dbl_second": "double the second number, then add the first number.",
+ "rule_sum_dbl": "add the two numbers, then double the result.",
+ "rule_sum_ten": "add the two numbers, then add 10.",
+ "rule_mul_minus1": "multiply the two numbers, then subtract 1.",
+ "rule_mul_plus1": "multiply the two numbers, then add 1.",
+ "rule_mul_plus_first": "multiply the two numbers, then add the first number.",
+ "rule_mul_plus_second": "multiply the two numbers, then add the second number."}

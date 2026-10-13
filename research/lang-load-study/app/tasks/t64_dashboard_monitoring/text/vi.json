@@ -1,0 +1,16 @@
+{
+ "instr": "Bảng theo dõi: hãy quan sát bốn đồng hồ đo và chỉ phản ứng khi một cột vượt lên trên vạch đỏ và ở yên đó.",
+ "clue": "Hãy quan sát bốn đồng hồ đo. Khi một cột vượt lên trên vạch đỏ và VẪN Ở trên đó, hãy nhấp vào đồng hồ đo đó (hoặc nhấn số của nó, 1–4) nhanh nhất có thể. Bỏ qua những lần vọt lên ngắn rồi tụt xuống ngay, và bỏ qua những cột tụt xuống thấp. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "hint": "Nhấp vào đồng hồ đo hoặc nhấn 1–4",
+ "gauges": [
+  "Áp suất",
+  "Lưu lượng",
+  "Nhiệt",
+  "Tốc độ",
+  "Tải",
+  "Mức",
+  "Sạc",
+  "Tín hiệu"
+ ]
+}

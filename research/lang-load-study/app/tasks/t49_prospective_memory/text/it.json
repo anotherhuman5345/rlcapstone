@@ -1,0 +1,9 @@
+{
+ "instr": "Pari o dispari, con qualcosa da ricordare: classifica i numeri come pari o dispari e premi Speciale ogni volta che un numero compare dentro una cornice quadrata.",
+ "clue": "I numeri compaiono uno alla volta. Premi Dispari (freccia sinistra) o Pari (freccia destra). Ricorda: se un numero compare dentro una spessa cornice quadrata, premi invece Speciale (barra spaziatrice). Rispondi in fretta. Premi Inizia quando sei pronto.",
+ "odd": "Dispari",
+ "even": "Pari",
+ "special": "Speciale",
+ "space": "barra spaziatrice",
+ "start": "Inizia"
+}

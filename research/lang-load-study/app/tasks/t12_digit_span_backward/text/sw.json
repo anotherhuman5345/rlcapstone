@@ -1,0 +1,8 @@
+{
+ "instr": "Tarakimu kinyume: tazama orodha fupi ya tarakimu, moja baada ya nyingine, kisha uziandike kwa mpangilio wa kinyume, ukianza na ya mwisho.",
+ "clue": "Bonyeza Anza na utazame tarakimu zikitokea moja baada ya nyingine. Zikisimama, ziandike KINYUME, kuanzia tarakimu ya mwisho hadi ya kwanza, ukitumia vitufe vilivyo kwenye skrini au kibodi yako, kisha bonyeza Sawa. Mfano: ukiona 3 8 1, andika 1 8 3.",
+ "recall": "Andika tarakimu kwa mpangilio wa kinyume: ya mwisho kwanza.",
+ "start": "Anza",
+ "done": "Sawa",
+ "delete": "Futa tarakimu ya mwisho"
+}

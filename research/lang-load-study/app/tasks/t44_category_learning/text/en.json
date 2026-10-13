@@ -1,0 +1,6 @@
+{"instr": "Sorting: learn from feedback which of two groups each object belongs to, then sort new objects without feedback.",
+ "clue": "Each object belongs to one of two groups. Decide which group with the left arrow (or left button) or the right arrow (or right button). At first you have to guess; after each answer you will be told the right group, so you can work out what decides it. Later, new objects appear without feedback. Press Start when ready.",
+ "start": "Start", "groups": ["Group A", "Group B"],
+ "correct": "Correct", "wrong": "Wrong: this belongs to {group}", "too_slow": "Too slow: this belongs to {group}",
+ "transfer_note": "From now on there is no feedback. Keep sorting the objects in the same way.",
+ "train_of": "Learning: object {n} of {total}", "transfer_of": "Test: object {n} of {total}"}

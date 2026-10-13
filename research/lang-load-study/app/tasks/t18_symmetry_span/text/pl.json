@@ -1,0 +1,12 @@
+{
+ "instr": "Symetria i kwadraty: oceń, czy każdy wzór jest symetryczny jak w lustrze, i zapamiętaj, gdzie pojawiały się czerwone kwadraty.",
+ "clue": "Na każdym kroku widać czarno-biały wzór: czy po lewej i po prawej stronie jest taki sam, jak w lustrze? Odpowiedz Tak (strzałka w lewo) lub Nie (strzałka w prawo). Potem w siatce mignie czerwony kwadrat: zapamiętaj, gdzie. Na końcu dotknij kwadratów w kolejności, w jakiej się pojawiały, a potem naciśnij Gotowe. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "yes": "Tak, symetryczny",
+ "no": "Nie",
+ "start": "Start",
+ "undo": "Cofnij",
+ "done": "Gotowe",
+ "phase_judge": "Czy ten wzór jest symetryczny?",
+ "phase_remember": "Zapamiętaj ten kwadrat.",
+ "phase_recall": "Dotknij kwadratów w kolejności, w jakiej się pojawiały (działają też strzałki i Enter, Backspace cofa). Potem naciśnij Gotowe."
+}

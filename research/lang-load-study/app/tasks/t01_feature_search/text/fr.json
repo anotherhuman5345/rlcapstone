@@ -1,0 +1,8 @@
+{
+ "instr": "Recherche de couleur : cliquez sur l'unique cercle orange parmi les bleus, ou répondez « Absent » s'il n'y en a pas.",
+ "clue": "Trouvez le cercle orange parmi les cercles bleus et cliquez dessus le plus vite possible (ou appuyez sur la touche →). S'il n'y a pas de cercle orange, appuyez sur ← ou sur le bouton « Absent ». Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "absent": "Absent",
+ "present": "Présent",
+ "start": "Démarrer",
+ "stage_label": "Cercles à examiner"
+}

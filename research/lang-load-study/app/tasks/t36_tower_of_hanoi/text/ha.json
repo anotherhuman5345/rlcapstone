@@ -1,0 +1,5 @@
+{"instr": "Hasumiya: ku kai dukkan faya-fayan zuwa sandar da aka yi wa alama, faifai ɗaya a lokaci ɗaya, kuma kada ku taɓa ɗora babban faifai a kan ƙarami.",
+ "clue": "Ku kai dukkan hasumiyar faya-fayai zuwa sandar da aka rubuta “manufa”. Ku ɗauki faifan da ke sama ta hanyar danna sandarsa (ko ku danna 1, 2 ko 3), sannan ku danna sandar da ya kamata ya je. Ku matsar da faifai ɗaya a lokaci ɗaya, kuma kada ku taɓa ɗora babban faifai a kan ƙarami. Ku yi ƙoƙari ku yi motsi kaɗan gwargwadon iko. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "reset": "Sake farawa", "give_up": "Na haƙura", "target": "manufa",
+ "moves_label": "Motsi:", "illegal": "Ba a yarda ba: babban faifai ba zai hau kan ƙarami ba.",
+ "empty_peg": "Babu komai a kan wannan sandar.", "solved": "An gama!"}

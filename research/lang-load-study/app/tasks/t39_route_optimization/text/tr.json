@@ -1,0 +1,3 @@
+{"instr": "Teslimat rotası: depodan başlayıp her duraktan geçen ve depoya dönen en kısa turu planlayın.",
+ "clue": "Depodan (koyu kare) başlayın, numaralı her durağa bir kez uğrayın ve depoya geri dönün. Tüm yolculuğu olabildiğince kısa tutun (mesafe düz çizgiyle ölçülür). Durakları uğrayacağınız sırayla tıklayın ya da dokunun veya numaralarını yazın. Geri Al (Backspace tuşu) son durağı kaldırır. Tüm duraklar rotanıza girince Bitti'ye (Enter tuşu) basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "undo": "Geri Al", "erase": "Temizle", "done": "Bitti"}

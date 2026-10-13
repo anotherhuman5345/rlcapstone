@@ -1,0 +1,30 @@
+<div class="tone-task">
+  <style>
+    .tone-task .sym { display: block; margin: 1rem auto .5rem; width: 160px; height: 160px; }
+    .tone-task .word { text-align: center; font-size: 2rem; font-weight: 700; min-height: 3rem; margin: .3rem 0 1rem; }
+    .tone-task .label, .tone-task .hint { text-align: center; color: var(--muted); margin: .2rem 0; }
+    .tone-task .tone-btn { display: block; margin: 1rem auto; min-width: 12rem; padding: 1.1rem 2rem; font-size: 1.3rem; }
+    .tone-task .opts { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+    .tone-task .opts button { margin: 0; background: var(--paper); color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
+    .tone-task .opts button .n { color: var(--muted); font-size: .8rem; margin-right: .4rem; }
+  </style>
+  <div id="td-setup">
+    <div class="btn-row">
+      <button type="button" id="td-test">{{ text.test_tone }}</button>
+      <button type="button" id="td-start">{{ text.start }}</button>
+    </div>
+  </div>
+  <div id="td-study" hidden>
+    <p class="label">{{ text.study_label }}</p>
+    <svg class="sym" id="td-sym" viewBox="0 0 100 100" aria-hidden="true"></svg>
+    <p class="word" id="td-word"></p>
+    <button type="button" class="tone-btn" id="td-tone" tabindex="-1">{{ text.tone_button }}</button>
+    <p class="hint">{{ text.tone_hint }}</p>
+  </div>
+  <div id="td-test-phase" hidden>
+    <p class="label">{{ text.test_label }}</p>
+    <svg class="sym" id="td-tsym" viewBox="0 0 100 100" aria-hidden="true"></svg>
+    <div class="opts" id="td-opts"></div>
+    <p class="hint">{{ text.test_hint }}</p>
+  </div>
+</div>

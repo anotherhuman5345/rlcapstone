@@ -1,0 +1,17 @@
+{
+ "instr": "Caselle con numeri: tieni traccia dei numeri in alcune caselle mentre delle istruzioni li cambiano, poi scrivi i numeri finali.",
+ "clue": "Vedrai alcune caselle con dei numeri. Ricordali: i numeri verranno nascosti. Poi compaiono delle istruzioni, una alla volta, che ti dicono di aggiungere o togliere qualcosa a una casella. Tieni aggiornati i numeri a mente. Alla fine scrivi il numero finale di ogni casella (tastiera o tastierino sullo schermo) e premi Fatto. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "done": "Fatto",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Aggiungi {n} alla casella {b}",
+ "op_sub": "Togli {n} dalla casella {b}",
+ "phase_study": "Ricorda i numeri.",
+ "phase_update": "Aggiorna i numeri a mente.",
+ "phase_answer": "Scrivi il numero finale di ogni casella. Tocca una casella per sceglierla; Invio passa alla casella successiva."
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Kisi pola: pilih gambar yang melengkapi setiap kisi 3 x 3.",
+ "clue": "Setiap kisi mengikuti satu atau dua aturan di sepanjang baris dan kolomnya, misalnya dalam jumlah, bentuk, arsiran, atau ukuran gambarnya. Temukan aturannya dan pilih gambar yang seharusnya ada di kotak kosong: klik atau ketuk, atau tekan 1–4. Ada empat kisi. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "matrix_of": "Kisi {n} dari {total}",
+ "option": "Pilihan {n}"
+}

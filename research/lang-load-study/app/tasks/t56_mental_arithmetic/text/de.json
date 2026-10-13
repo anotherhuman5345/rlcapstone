@@ -1,0 +1,13 @@
+{
+ "instr": "Kopfrechnen: Rechnen Sie jede Aufgabe im Kopf aus und geben Sie das Ergebnis ein.",
+ "clue": "Rechnen Sie jede Aufgabe im Kopf aus, ohne etwas aufzuschreiben. Geben Sie das Ergebnis über das Ziffernfeld oder die Tastatur ein und drücken Sie OK (oder Enter). Jede Aufgabe hat 20 Sekunden. Die Ergebnisse sind ganze Zahlen. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "ok": "OK",
+ "erase": "Letzte Ziffer löschen",
+ "seconds_left": "noch {s} s",
+ "progress": "Aufgabe {i} von {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

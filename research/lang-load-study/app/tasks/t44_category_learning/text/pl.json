@@ -1,0 +1,15 @@
+{
+ "instr": "Sortowanie: dzięki informacjom zwrotnym naucz się, do której z dwóch grup należy każdy obiekt, a potem sortuj nowe obiekty bez informacji zwrotnych.",
+ "clue": "Każdy obiekt należy do jednej z dwóch grup. Wybierz grupę strzałką w lewo (lub lewym przyciskiem) albo strzałką w prawo (lub prawym przyciskiem). Na początku musisz zgadywać; po każdej odpowiedzi poznasz właściwą grupę, więc możesz odkryć, co o niej decyduje. Później pojawią się nowe obiekty, już bez informacji zwrotnych. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "groups": [
+  "Grupa A",
+  "Grupa B"
+ ],
+ "correct": "Dobrze",
+ "wrong": "Źle: właściwa grupa to {group}",
+ "too_slow": "Za wolno: właściwa grupa to {group}",
+ "transfer_note": "Od teraz nie ma informacji zwrotnych. Sortuj obiekty dalej w ten sam sposób.",
+ "train_of": "Nauka: obiekt {n} z {total}",
+ "transfer_of": "Test: obiekt {n} z {total}"
+}

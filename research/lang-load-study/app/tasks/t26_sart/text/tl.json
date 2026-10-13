@@ -1,0 +1,7 @@
+{
+ "instr": "Mga digit: pumindot para sa bawat numero maliban sa 3.",
+ "clue": "Sunod-sunod na lilitaw sa pantay na bilis ang mga numero mula 1 hanggang 9, at may kasunod ang bawat isa na ekis na nasa loob ng bilog. Pindutin ang space bar (o ang button na Pindot) para sa bawat numero MALIBAN sa 3. Kapag nakakita ka ng 3, huwag pumindot. Parehong mahalaga ang bilis at ang katumpakan. Pindutin ang Simulan kapag handa ka na.",
+ "press": "Pindot",
+ "start": "Simulan",
+ "stage_label": "Lugar kung saan lumilitaw ang mga numero"
+}

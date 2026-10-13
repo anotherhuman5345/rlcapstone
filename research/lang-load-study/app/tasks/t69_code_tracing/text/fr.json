@@ -1,0 +1,14 @@
+{
+ "instr": "Programmes courts : lisez chaque programme court et tapez le nombre qu'il affiche.",
+ "clue": "Vous verrez trois programmes courts. Suivez-les étape par étape, ligne par ligne, et trouvez le nombre affiché à la fin. Tapez-le avec le pavé ou le clavier (utilisez − pour un nombre négatif), puis appuyez sur OK ou Entrée. Rien ne presse. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "program_of": "Programme {n} sur {total}",
+ "output": "Nombre affiché :",
+ "ok": "OK",
+ "erase": "Effacer",
+ "kw_set": "mettre {v} à {e}",
+ "kw_repeat": "répéter {n} fois :",
+ "kw_if": "si {c} :",
+ "kw_else": "sinon :",
+ "kw_print": "afficher {e}"
+}
