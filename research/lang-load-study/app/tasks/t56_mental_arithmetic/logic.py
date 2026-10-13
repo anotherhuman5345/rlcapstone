@@ -12,13 +12,18 @@ decimal-comma / thousands-separator conventions never matter. The two items of a
 (k, k+1) have the same kinds in the same order with different numbers. The answer key is
 computed by a small expression parser over the displayed tokens (not stored in the item).
 """
-import statistics
 import unicodedata
 from fractions import Fraction
+
+from app.tasks import _guard as G
 
 KINDS = ["add", "sub", "mul", "two"]
 STEPS = {"add": 1, "sub": 1, "mul": 1, "two": 2}
 DEADLINE_MS = 20000
+TIMING = "limit"      # each answer must be entered before its deadline (see _guard.py)
+LIMIT_MS = DEADLINE_MS  # view.js ask(): setTimeout(() => submit(true), item.deadline_ms), per problem
+TIME_SLACK_MS = 1000  # timer tolerance at the deadline
+CEILING_MS = G.trial_ceiling(__file__)
 
 
 def _problem(rng, kind):
@@ -115,30 +120,74 @@ def parse_int(s):
     return -v if neg else v
 
 
+@G.safe
 def score(item, response):
-    """response: [{"answer": "56" | null, "rt": ms | null, "timed_out": bool}] in problem order.
-    A problem is correct when the typed whole number equals the parser's value and it was
-    entered before the deadline. hit = at least 3 of the 4 problems correct.
+    """response: [{"answer": "56" | null, "rt": ms | null, "timed_out": bool}] in problem
+    order, one entry per problem (missing entries are omissions, extra ones ignored; both
+    flagged). The view sends timed_out=true with rt=null when the 20 s deadline ran out.
+    A problem is correct only when the typed whole number (a digit string) equals the
+    parser's value AND its rt is a valid time inside the deadline (finite, >= 100 ms,
+    <= deadline + 1 s timer slack, see view.js); the browser's timed_out flag is not
+    trusted to establish timeliness: timed_out=true always rejects the answer, and a
+    timed_out=false answer with a missing / non-finite / negative / impossible /
+    anticipatory / late rt is rejected too. A timed_out flag that contradicts the rt
+    (timed_out=true with an rt, or timed_out=false without one) is flagged.
+    hit = at least 3 of the 4 problems correct.
     Omissions (nothing entered in time) count as errors and are reported separately."""
-    probs = item.get("problems", []) if isinstance(item, dict) else []
-    resp = response if isinstance(response, list) else []
+    a = G.Audit(CEILING_MS)
+    probs = item["problems"]
+    if not isinstance(response, list):
+        return a.junk(len(probs))
     rows = []
-    for k, p in enumerate(probs):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
+    for k, (p, r) in enumerate(zip(probs, a.entries(response, len(probs)))):
         key = evaluate(p["tokens"])
-        given = None if r.get("timed_out") else parse_int(r.get("answer"))
-        rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
-        rows.append({"kind": p["kind"], "ok": given is not None and given == key, "rt": rt, "omit": given is None})
+        ev = a.obj(r)
+        given, rt, status = None, None, G.INVALID
+        if ev is None:
+            a.record(G.INVALID)
+        else:
+            raw = ev.get("answer", G.MISSING)
+            if raw is G.MISSING:
+                a.malformed("missing_answer")
+            elif raw is not None:
+                given = parse_int(raw) if isinstance(raw, str) else None
+                if given is None:
+                    a.malformed("invalid_answer")
+            timed_out = a.opt_bool(ev, "timed_out")
+            if timed_out is True:
+                if ev.get("rt") is not None:
+                    a.malformed("timed_out_with_rt")
+                status = a.record(G.ABSENT)        # deadline ran out: an omission
+                given = None
+            else:
+                if timed_out is False and "rt" in ev and ev["rt"] is None:
+                    a.flag("rt_null_not_timed_out")    # contradiction: answered but no time
+                st, t = a.time(ev.get("rt", G.MISSING), field="rt", window=DEADLINE_MS,
+                               slack=TIME_SLACK_MS, required=True)
+                if raw is None and st != G.INVALID:
+                    a.malformed("answer_null_not_timed_out")   # OK needs a typed answer
+                    st = G.INVALID
+                status = a.record(st)
+                if st == G.TIMELY:
+                    rt = t
+                else:
+                    if given is not None:
+                        a.flag("answer_outside_deadline")
+                    given = None
+        rows.append({"kind": p["kind"], "ok": given is not None and given == key, "rt": rt,
+                     "omit": given is None, "status": status})
     n = len(rows) or 1
     n_ok = sum(r["ok"] for r in rows)
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
-    return {"hit": bool(rows) and n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(n_ok / n, 3),
-                        "correct_by_kind": {r["kind"]: r["ok"] for r in rows},
-                        "accuracy_1_step": _acc([r for r in rows if STEPS[r["kind"]] == 1]),
-                        "accuracy_2_step": _acc([r for r in rows if STEPS[r["kind"]] == 2]),
-                        "median_rt_correct": round(statistics.median(rts), 1) if rts else None,
-                        "omissions": sum(r["omit"] for r in rows)}}
+    rts = [r["rt"] for r in rows if r["ok"] and r["rt"] is not None]
+    return a.finish(bool(rows) and n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": round(n_ok / n, 3),
+        "correct_by_kind": {r["kind"]: r["ok"] for r in rows},
+        "accuracy_1_step": _acc([r for r in rows if STEPS[r["kind"]] == 1]),
+        "accuracy_2_step": _acc([r for r in rows if STEPS[r["kind"]] == 2]),
+        "median_rt_correct": G.median(rts),
+        "omissions": sum(r["omit"] for r in rows),
+        "events": [{"i": k, "kind": r["kind"], "status": r["status"], "correct": r["ok"], "rt": r["rt"]}
+                   for k, r in enumerate(rows)]})
 
 
 def _acc(rows):

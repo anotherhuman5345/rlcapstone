@@ -7,7 +7,13 @@ objects and the size of the changed object; only layout, colours and shapes diff
 
 Hitbox of an object: circle around its centre with radius size * HIT_SCALE + HIT_PAD."""
 import math
-import statistics
+
+from app.tasks import _guard as G
+
+TIMING = "limit"        # a find must come inside the scene's LIMIT_MS
+CEILING_MS = G.trial_ceiling(__file__)
+TIME_SLACK_MS = 100     # frame tolerance at the limit (the old scorer's +100 ms)
+MAX_CLICKS = 1000       # per scene
 
 W, H = 800, 533
 N_OBJ = 14
@@ -18,7 +24,7 @@ BACKGROUNDS = ["#F4F1EA", "#EEF3F7", "#F3EEF5", "#EFF5EE"]
 CHANGES = ("colour", "remove", "shape")
 HIT_SCALE, HIT_PAD = 0.6, 10
 CHANGED_SIZE = 62
-SCENE_MS, BLANK_MS, LIMIT_MS = 240, 80, 20000
+SCENE_MS, BLANK_MS, LIMIT_MS = 240, 80, 20000   # view.js tick(): if (el >= it.limit_ms) end()
 
 
 def _scene(rng, change):
@@ -60,43 +66,80 @@ def changed_object(scene):
     return diff[0] if len(diff) == 1 else None
 
 
-def _num(x):
-    return float(x) if isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x) else None
+def _frac(v):
+    """A click coordinate: a finite fraction of the scene size in [0, 1], else None."""
+    return float(v) if G.is_num(v) and 0 <= v <= 1 else None
 
 
+def _scene_row(a, k, sc, entry, item):
+    """Score one scene. Malformed clicks (not an object, x/y not a fraction 0..1, a missing
+    or invalid time) are flagged and not used. The first well-formed click inside the
+    changed object's hitbox ends the scene in the browser: it is a find only when its time
+    is valid and inside the limit; any click after it is flagged and ignored."""
+    tgt = changed_object(sc)
+    rad = tgt["s"] * item["hit_scale"] + item["hit_pad"] if tgt else 0
+    d = a.obj(entry, "scene")
+    if d is None:
+        a.record(G.INVALID)
+        return {"change": sc["change"], "found": False, "t": None, "wrong": 0, "status": G.INVALID}
+    clicks = a.stream(d.get("clicks", G.MISSING), "clicks", cap=MAX_CLICKS)
+    status, found_t, wrong, times, after = G.ABSENT, None, 0, [], 0
+    ended = False
+    for c in clicks:
+        if ended:
+            after += 1
+            continue
+        if not isinstance(c, dict):
+            a.malformed("click_not_object")
+            continue
+        st, t = a.time(c.get("t", G.MISSING), field="t", window=item["limit_ms"], slack=TIME_SLACK_MS,
+                       required=True)
+        times.append(t if st != G.INVALID else None)
+        x, y = _frac(c.get("x")), _frac(c.get("y"))
+        if x is None or y is None:
+            a.malformed("invalid_xy")
+            continue
+        if tgt and math.hypot(x * item["w"] - tgt["x"], y * item["h"] - tgt["y"]) <= rad:
+            ended, status = True, st
+            if st == G.TIMELY:
+                found_t = t
+            else:
+                a.flag("find_outside_time_limit")
+            continue
+        wrong += 1
+    if after:
+        a.flag("clicks_after_find", after)
+    a.monotonic(times, "t")
+    a.record(status)
+    return {"change": sc["change"], "found": found_t is not None, "t": found_t, "wrong": wrong,
+            "status": status}
+
+
+@G.safe
 def score(item, response):
     """response: [{"clicks": [{"x": 0..1, "y": 0..1, "t": ms}, ...]}] per scene, x/y as
     fractions of the scene width/height, t from flicker start. A scene is found when a click
-    lands inside the changed object's hitbox within the time limit; time to find = that
-    click's t; incorrect clicks = clicks before it (or all clicks when not found).
+    lands inside the changed object's hitbox AND that click has a valid time inside the 20 s
+    limit (a missing, non-finite, negative, anticipatory or late time is never a find);
+    time to find = that click's t; incorrect clicks = clicks before it (or all clicks when
+    not found). Missing / extra scene entries, malformed clicks, clicks after the find and
+    click times that go backwards are flagged.
     hit = changed object found in at least 2 of the 3 scenes."""
-    resp = response if isinstance(response, list) else []
-    rows = []
-    for k, sc in enumerate(item["scenes"]):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        clicks = r.get("clicks") if isinstance(r.get("clicks"), list) else []
-        tgt = changed_object(sc)
-        rad = tgt["s"] * item["hit_scale"] + item["hit_pad"] if tgt else 0
-        found_t, wrong = None, 0
-        for c in clicks:
-            if not isinstance(c, dict):
-                continue
-            x, y, t = _num(c.get("x")), _num(c.get("y")), _num(c.get("t"))
-            if x is None or y is None:
-                continue
-            if tgt and math.hypot(x * item["w"] - tgt["x"], y * item["h"] - tgt["y"]) <= rad \
-                    and (t is None or t <= item["limit_ms"] + 100):
-                found_t = t if t is not None else float(item["limit_ms"])
-                break
-            wrong += 1
-        rows.append({"change": sc["change"], "found": found_t is not None, "t": found_t, "wrong": wrong})
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, list):
+        return a.junk()
+    scenes = item["scenes"]
+    entries = a.entries(response, len(scenes), "scenes")
+    rows = [_scene_row(a, k, sc, entries[k], item) for k, sc in enumerate(scenes)]
     found = [r for r in rows if r["found"]]
     times = [r["t"] for r in found]
-    return {"hit": len(found) >= 2, "errors": sum(r["wrong"] for r in rows) + len(rows) - len(found),
-            "metrics": {"found": len(found), "failures": len(rows) - len(found),
-                        "incorrect_clicks": sum(r["wrong"] for r in rows),
-                        "median_time_to_find_ms": round(statistics.median(times), 1) if times else None,
-                        "time_to_find_by_change": {r["change"]: (round(r["t"], 1) if r["found"] else None) for r in rows}}}
+    return a.finish(len(found) >= 2, sum(r["wrong"] for r in rows) + len(rows) - len(found), {
+        "found": len(found), "failures": len(rows) - len(found),
+        "incorrect_clicks": sum(r["wrong"] for r in rows),
+        "median_time_to_find_ms": G.median(times),
+        "time_to_find_by_change": {r["change"]: (round(r["t"], 1) if r["found"] else None) for r in rows},
+        "events": [{"i": k, "change": r["change"], "status": r["status"], "correct": r["found"],
+                    "rt": round(r["t"], 1) if r["found"] else None} for k, r in enumerate(rows)]})
 
 
 def example_response(item, correct=True):

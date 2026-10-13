@@ -13,8 +13,12 @@ but never share a rule. The symbols carry no arithmetic meaning.
 Answer key (oracle, in score()): a shunting-yard parser over the shown tokens with the
 item's stated precedence (HI binds tighter, left-associative), then the rule formulas.
 """
-import statistics
 import unicodedata
+
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js ask() has no time limit; rt / study_ms are descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 
 RULES = {  # rule id -> formula; the words for each id are in text/<lang>.json "rule_<id>"
     "dbl_first": lambda a, b: 2 * a + b,
@@ -134,30 +138,46 @@ def parse_int(s):
     return -v if neg else v
 
 
+@G.safe
 def score(item, response):
-    """response: {"study_ms": ms, "answers": [{"answer": "23" | null, "rt": ms}]} in problem order.
+    """response: {"study_ms": ms, "answers": [{"answer": "23" | null, "rt": ms}]} in problem
+    order, one answer per problem (missing entries are omissions, extra ones ignored; both
+    flagged). The answer must be a digit string (what was typed); anything else is flagged
+    and scored wrong, null is an omission.
     A problem is correct when the typed number equals the parser's value.
-    hit = at least 3 of the 4 problems correct (so a transfer item must be solved)."""
-    probs = item.get("problems", []) if isinstance(item, dict) else []
-    resp = response if isinstance(response, dict) else {}
-    ans = resp.get("answers") if isinstance(resp.get("answers"), list) else []
+    hit = at least 3 of the 4 problems correct (so a transfer item must be solved).
+    Untimed: rt and study_ms are descriptive, checked (finite, >= 100 ms, below the trial
+    timeout) and null when bad (flagged); correctness stands."""
+    a = G.Audit(CEILING_MS)
+    probs = item["problems"]
+    if not isinstance(response, dict):
+        return a.junk(len(probs))
+    ans = a.entries(response.get("answers", G.MISSING), len(probs), "answers")
     rows = []
-    for k, p in enumerate(probs):
-        r = ans[k] if k < len(ans) and isinstance(ans[k], dict) else {}
+    for k, (p, r) in enumerate(zip(probs, ans)):
         key = evaluate(p["tokens"], item["hi"], item["lo"], item["rules"])
-        given = parse_int(r.get("answer"))
-        rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
+        ev = a.obj(r)
+        given, rt = None, None
+        if ev is not None:
+            raw = ev.get("answer", G.MISSING)
+            if raw is G.MISSING:
+                a.malformed("missing_answer")
+            elif raw is not None:
+                given = parse_int(raw) if isinstance(raw, str) else None
+                if given is None:
+                    a.malformed("invalid_answer")
+            rt = a.duration(ev, "rt")
         rows.append({"kind": p["kind"], "ok": given is not None and given == key, "rt": rt, "omit": given is None})
     n_ok = sum(r["ok"] for r in rows)
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
-    study = resp.get("study_ms")
-    return {"hit": bool(rows) and n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(n_ok / (len(rows) or 1), 3),
-                        "single_accuracy": _acc([r for r in rows if r["kind"] == "single"]),
-                        "transfer_accuracy": _acc([r for r in rows if r["kind"] == "transfer"]),
-                        "median_rt_correct": round(statistics.median(rts), 1) if rts else None,
-                        "study_ms": study if isinstance(study, (int, float)) and not isinstance(study, bool) else None,
-                        "omissions": sum(r["omit"] for r in rows)}}
+    rts = [r["rt"] for r in rows if r["ok"] and r["rt"] is not None]
+    study = a.duration(response, "study_ms")
+    return a.finish(bool(rows) and n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": round(n_ok / (len(rows) or 1), 3),
+        "single_accuracy": _acc([r for r in rows if r["kind"] == "single"]),
+        "transfer_accuracy": _acc([r for r in rows if r["kind"] == "transfer"]),
+        "median_rt_correct": G.median(rts),
+        "study_ms": study,
+        "omissions": sum(r["omit"] for r in rows)})
 
 
 def _acc(rows):

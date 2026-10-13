@@ -15,7 +15,15 @@ swapped, or two faces exchanged), so a distractor is never just a turned copy of
 The key is not stored; score() folds the chosen net and compares it with the view.
 All items have the same structure, so pairs (k, k+1) are matched by construction."""
 
+import functools
+import json
 from itertools import permutations, product
+
+from app.tasks import _guard as G
+
+TIMING = "limit"        # the choice (rt) must come inside LIMIT_MS
+LIMIT_MS = 100000       # view.js: timer = setTimeout(() => end({choice: null, rt: null}, true), 100000)
+CEILING_MS = G.trial_ceiling(__file__)
 
 VIEW = ((1, 0, 0), (0, -1, 0), (0, 0, 1))  # faces seen from the corner (1, -1, 1)
 MARKS = 6
@@ -205,19 +213,36 @@ def _view(item):
     return {tuple(n): (m, tuple(up)) for n, m, up in item["view"]}
 
 
+@functools.lru_cache(maxsize=256)
+def _fits(key):
+    """For one item: a tuple, per option, of whether its folded net matches the view
+    (3D solver), memoized on a JSON key (view, options)."""
+    view, options = json.loads(key)
+    v = _view({"view": view})
+    return tuple(matches(fold(o), v) for o in options)
+
+
+@G.safe
 def score(item, response):
-    """response: {"choice": option index 0-3 or null, "rt": ms from Start}.
+    """response: {"choice": option index 0-3 or null, "rt": ms from Start} (both null when
+    the 100 s limit runs out).
     hit = the chosen net folds (3D solver) into a cube that some rotation turns into the
-    shown view. Metrics: correct, rt (correct only), rt_any, omission, valid_options (how
-    many of the four nets fit the view; always 1 for a well-formed item)."""
-    view = _view(item)
-    c, rt = (response.get("choice"), response.get("rt")) if isinstance(response, dict) else (None, None)
-    c = c if isinstance(c, int) and not isinstance(c, bool) and 0 <= c < len(item["options"]) else None
-    rt = rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
-    ok = c is not None and matches(fold(item["options"][c]), view)
-    return {"hit": ok, "errors": 0 if ok else 1,
-            "metrics": {"correct": ok, "rt": rt if ok else None, "rt_any": rt, "omission": c is None,
-                        "valid_options": sum(matches(fold(o), view) for o in item["options"])}}
+    shown view AND the choice was made with a valid rt inside the 100 s limit (a missing,
+    non-finite, negative, anticipatory or late time never counts; a choice without an rt,
+    an rt without a choice or a choice that is not an option index is flagged).
+    Metrics: correct, rt (correct only), rt_any, omission, valid_options (how many of the
+    four nets fit the view; always 1 for a well-formed item)."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    fits = _fits(json.dumps([item["view"], item["options"]]))
+    st, c, rt = a.keyed(response, range(len(item["options"])), key="choice", rt="rt", window=LIMIT_MS)
+    if st != G.TIMELY and c is not None:
+        a.flag("choice_outside_time_limit")
+    ok = st == G.TIMELY and fits[c]
+    return a.finish(ok, 0 if ok else 1, {
+        "correct": ok, "rt": rt if ok else None, "rt_any": rt, "omission": st == G.ABSENT,
+        "valid_options": sum(fits), "rt_status": st})
 
 
 def example_response(item, correct=True):

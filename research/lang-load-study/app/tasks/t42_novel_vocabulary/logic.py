@@ -14,6 +14,12 @@ no Turkish suffix look-alikes such as -mek/-lar). The two items of a pair use di
 labels and disjoint meanings with the same 4 + 4 test structure.
 """
 
+from app.tasks import _guard as G
+
+TIMING = "window"      # each question: up to 20000 ms (view.js ask(): setTimeout(() => done(null), 20000))
+WINDOW_MS = 20000
+RT_SLACK_MS = 50       # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
 N_WORDS = 4
 N_MEANINGS = 16  # length of "meanings"/"examples" in the text files
 STUDY_MS = 6000
@@ -55,43 +61,54 @@ def _key(q):
     return q["word"]
 
 
+@G.safe
 def score(item, response):
-    """response: [{"q": question index, "choice": word index or null, "rt": ms}] in order.
-    hit = at least 6 of the 8 test questions correct (75 %); omissions count as wrong.
+    """response: [{"q": question index, "choice": word index or null, "rt": ms}] in order,
+    one entry per question (missing entries are invalid, extra ones flagged; an entry whose
+    "q" is not its position is flagged and invalid).
+    Every answer is classified (app/tasks/_guard.py): absent (no choice within the 20 s
+    limit, view.js ask(): setTimeout(..., 20000)), invalid (choice not a word index 0-3,
+    choice without rt or rt without choice, non-finite / negative / impossible rt),
+    anticipatory (< 100 ms), late (beyond the limit + 50 ms timer tolerance) or timely. Only
+    a timely answer can be correct; the key is recomputed from the question (oracle).
+    hit = at least 6 of the 8 test questions correct (75 %); omissions and answers that are
+    not timely count as wrong.
     metrics: overall accuracy, meaning-recognition accuracy, application accuracy,
     median correct RT, omissions."""
-    try:
-        qs = item["questions"]
-        resp = response if isinstance(response, list) else []
-        by_q = {}
-        for r in resp:
-            if isinstance(r, dict) and isinstance(r.get("q"), int) and r["q"] not in by_q:
-                by_q[r["q"]] = r
-        ok, rts, omis = [], [], 0
-        acc_kind = {"meaning": [], "apply": []}
-        for k, q in enumerate(qs):
-            r = by_q.get(k, {})
-            ch = r.get("choice")
-            if ch is None:
-                omis += 1
-            good = isinstance(ch, int) and not isinstance(ch, bool) and ch == _key(q)
-            ok.append(good)
-            acc_kind[q["kind"]].append(good)
-            rt = r.get("rt")
-            if good and isinstance(rt, (int, float)) and rt > 0:
-                rts.append(rt)
-        n = len(qs)
-        rts.sort()
-        med = rts[len(rts) // 2] if len(rts) % 2 else (sum(rts[len(rts) // 2 - 1:len(rts) // 2 + 1]) / 2 if rts else None)
+    a = G.Audit(CEILING_MS)
+    qs = item["questions"]
+    n = len(qs)
+    if not isinstance(response, list):
+        return a.junk(n)
+    ok, rts, omis, not_timely = [], [], 0, 0
+    acc_kind = {"meaning": [], "apply": []}
+    for k, (q, r) in enumerate(zip(qs, a.entries(response, n, "answers"))):
+        if isinstance(r, dict) and r.get("q", G.MISSING) != k:
+            if "q" not in r:
+                a.malformed("missing_q")
+            elif not G.is_int(r["q"]):
+                a.malformed("invalid_q")
+            else:
+                a.malformed("q_out_of_order")
+            a.record(G.INVALID)
+            st, ch, rt = G.INVALID, None, None
+        else:
+            st, ch, rt = a.keyed(r, range(N_WORDS), key="choice", window=WINDOW_MS, slack=RT_SLACK_MS)
+        omis += st == G.ABSENT
+        not_timely += st in (G.INVALID, G.ANTICIPATORY, G.LATE)
+        good = st == G.TIMELY and ch == _key(q)
+        ok.append(good)
+        acc_kind[q["kind"]].append(good)
+        if good:
+            rts.append(rt)
 
-        def acc(v):
-            return round(sum(v) / len(v), 3) if v else None
-        return {"hit": n > 0 and sum(ok) >= 0.75 * n, "errors": n - sum(ok),
-                "metrics": {"accuracy": acc(ok), "recognition_accuracy": acc(acc_kind["meaning"]),
-                            "application_accuracy": acc(acc_kind["apply"]),
-                            "median_rt_correct": med, "valid_rt_n": len(rts), "omissions": omis}}
-    except Exception:
-        return {"hit": False, "errors": 0, "metrics": {}}
+    def acc(v):
+        return round(sum(v) / len(v), 3) if v else None
+    return a.finish(n > 0 and sum(ok) >= 0.75 * n, n - sum(ok), {
+        "accuracy": acc(ok), "recognition_accuracy": acc(acc_kind["meaning"]),
+        "application_accuracy": acc(acc_kind["apply"]),
+        "median_rt_correct": G.median(rts), "valid_rt_n": len(rts), "omissions": omis,
+        "not_timely": not_timely})
 
 
 def example_response(item, correct=True):

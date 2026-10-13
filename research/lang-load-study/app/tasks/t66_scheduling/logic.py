@@ -10,12 +10,18 @@ Pairs (k, k+1) have the same people/days/jobs, the same multiset of rule types a
 same number of valid schedules; pairs alternate 2 people x 3 days x 4 jobs and
 3 people x 3 days x 5 jobs. score() checks the submitted schedule against every rule
 itself, so any valid schedule is accepted."""
+import functools
+import json
 from itertools import permutations
 
+from app.tasks import _guard as G
+
+TIMING = "limit"         # the Done press (rt_ms) must come inside LIMIT_MS
+CEILING_MS = G.trial_ceiling(__file__)
 N_JOBS_TEXT = 8          # job names in text/<lang>.json "jobs" (3 "people", 3 "days")
 LEVELS = ((2, 3, 4, 3, 5), (3, 3, 5, 4, 6))   # people, days, jobs, min rules, max rules
 MAX_VALID = 4
-LIMIT_MS = 90000
+LIMIT_MS = 90000         # view.js: setTimeout(() => end(true, false), it.limit_ms || 90000)
 TYPES = ("before", "same_day", "diff_day", "by_day", "off_day", "only_person", "not_person", "same_person")
 
 
@@ -152,53 +158,80 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
-def _num(v):
-    return round(float(v), 1) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+@functools.lru_cache(maxsize=256)
+def _solver_summary(key):
+    """(number of valid schedules, fewest days any of them needs) for one item, memoized on
+    a JSON key of the item fields the solver reads."""
+    people, days, jobs, rules = json.loads(key)
+    valid = valid_schedules({"people": people, "days": days, "jobs": jobs, "rules": rules})
+    return len(valid), (min(max(d for _, d in s) + 1 for s in valid) if valid else None)
 
 
-def _is_int(v):
-    return isinstance(v, int) and not isinstance(v, bool)
+def _assign(a, assign, P, D, J):
+    """The submitted schedule: (list of (person, day) or None per job, complete). null =
+    an unplaced job (the browser sends it on time-out / give up). A value that is not a
+    list of J entries, or an entry that is not null or a real [person, day] cell, is
+    malformed (flagged)."""
+    if assign is G.MISSING:
+        a.malformed("missing_assign")
+        return None, False
+    if not isinstance(assign, list):
+        a.malformed("invalid_assign")
+        return None, False
+    if len(assign) != J:
+        a.malformed("missing_assign_entries" if len(assign) < J else "extra_assign_entries")
+        return None, False
+    sched = []
+    for x in assign:
+        if x is None:
+            sched.append(None)
+        elif (isinstance(x, list) and len(x) == 2 and G.member(x[0], range(P))
+              and G.member(x[1], range(D))):
+            sched.append((x[0], x[1]))
+        else:
+            a.malformed("invalid_assign_entry")
+            return None, False
+    return sched, all(c is not None for c in sched)
 
 
+@G.safe
 def score(item, response):
     """response: {"assign": [[person, day] for job 0..jobs-1], "changes", "first_move_ms",
     "rt_ms", "gave_up"} (0-based person and day indices; null for an unplaced job).
     hit = every job is placed in a real (person, day) cell, no cell holds two jobs
-    (one job per person per day) and every rule holds; any such schedule counts.
+    (one job per person per day), every rule holds (any such schedule counts) AND the
+    schedule was sent with a valid rt_ms inside the 90 s limit (a missing, non-finite,
+    negative or late time never counts).
     errors = number of broken rules (all rules if the schedule is incomplete or has a
     clash). Metrics also hold the solver's count of valid schedules, the days used
     (last day with a job) against the fewest days any valid schedule needs (descriptive
-    only: participants are not asked to minimise days), changes and times."""
-    miss = {"hit": False, "errors": 0, "metrics": {}}
-    try:
-        if not isinstance(response, dict):
-            return miss
-        P, D, J, rules = item["people"], item["days"], item["jobs"], item["rules"]
-        assign = response.get("assign")
-        ok = isinstance(assign, list) and len(assign) == J
-        sched = []
-        if ok:
-            for a in assign:
-                if not (isinstance(a, list) and len(a) == 2 and _is_int(a[0]) and _is_int(a[1])
-                        and 0 <= a[0] < P and 0 <= a[1] < D):
-                    ok = False
-                    break
-                sched.append((a[0], a[1]))
-        complete = ok
-        clash = ok and len(set(sched)) != len(sched)
-        broken = sum(1 for r in rules if not holds(r, sched)) if ok and not clash else len(rules)
-        hit = ok and not clash and broken == 0
-        valid = valid_schedules(item)
-        return {"hit": hit, "errors": broken,
-                "metrics": {"complete": complete, "clash": bool(clash), "broken_rules": broken,
-                            "rules": len(rules), "n_valid": len(valid),
-                            "days_used": max(d for _, d in sched) + 1 if hit else None,
-                            "min_days": min(max(d for _, d in s) + 1 for s in valid) if valid else None,
-                            "changes": response.get("changes") if _is_int(response.get("changes")) else None,
-                            "first_move_ms": _num(response.get("first_move_ms")),
-                            "rt_ms": _num(response.get("rt_ms")), "gave_up": response.get("gave_up") is True}}
-    except Exception:
-        return miss
+    only: participants are not asked to minimise days), changes and times. A clash (two
+    jobs in one cell, which the browser cannot send) and malformed fields are flagged."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    P, D, J, rules = item["people"], item["days"], item["jobs"], item["rules"]
+    sched, complete = _assign(a, response.get("assign", G.MISSING), P, D, J)
+    placed = [c for c in sched if c is not None] if sched else []
+    clash = len(set(placed)) != len(placed)
+    if clash:
+        a.malformed("clash")
+    ok = complete and not clash
+    broken = sum(1 for r in rules if not holds(r, sched)) if ok else len(rules)
+    st, rt = a.time(response.get("rt_ms"), field="rt_ms", window=LIMIT_MS, required=True)
+    correct = ok and broken == 0
+    if correct and st != G.TIMELY:
+        a.flag("solved_outside_time_limit")
+    hit = correct and st == G.TIMELY
+    n_valid, min_days = _solver_summary(json.dumps([P, D, J, rules], sort_keys=True))
+    return a.finish(hit, broken, {
+        "complete": complete, "clash": bool(clash), "broken_rules": broken,
+        "rules": len(rules), "n_valid": n_valid,
+        "days_used": max(d for _, d in sched) + 1 if hit else None,
+        "min_days": min_days,
+        "changes": a.opt_int(response, "changes"),
+        "first_move_ms": a.duration(response, "first_move_ms", window=LIMIT_MS),
+        "rt_ms": rt, "rt_status": st, "gave_up": a.opt_bool(response, "gave_up")})
 
 
 def example_response(item, correct=True):

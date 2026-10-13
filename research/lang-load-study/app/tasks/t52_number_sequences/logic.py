@@ -16,8 +16,12 @@ the prediction of EVERY family that fits exactly is accepted (documented alterna
 The generator additionally rejects sequences where two families predict different
 numbers, so in practice the accepted set has one value.
 """
-import statistics
 import unicodedata
+
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js ask() has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 
 FAMILIES = ["add", "mul", "grow", "alt"]
 SHOWN = 6
@@ -111,29 +115,47 @@ def parse_int(s):
     return -v if neg else v
 
 
+@G.safe
 def score(item, response):
-    """response: [{"answer": "29" | null, "rt": ms}] in sequence order.
+    """response: [{"answer": "29" | null, "rt": ms}] in sequence order, one entry per
+    sequence (missing entries are omissions, extra ones are ignored; both flagged).
+    The answer must be a string of digits (the view sends what was typed); anything else
+    (numbers, unparsable text) is flagged and scored wrong; null is an omission.
     A sequence is correct when the typed number equals the prediction of any stated rule
-    family that fits the shown numbers exactly. hit = at least 3 of the 4 correct."""
-    seqs = item.get("sequences", []) if isinstance(item, dict) else []
-    resp = response if isinstance(response, list) else []
+    family that fits the shown numbers exactly. hit = at least 3 of the 4 correct.
+    Answering is unspeeded: rt is descriptive, checked (finite, >= 100 ms, below the trial
+    timeout) and reported as null when bad (flagged); correctness stands."""
+    a = G.Audit(CEILING_MS)
+    seqs = item["sequences"]
+    if not isinstance(response, list):
+        return a.junk(len(seqs))
     rows = []
-    for k, s in enumerate(seqs):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
+    for k, (s, r) in enumerate(zip(seqs, a.entries(response, len(seqs)))):
         accepted = set(fits(s["terms"]).values())
-        given = parse_int(r.get("answer"))
-        rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
+        ev = a.obj(r)
+        given, rt, omit = None, None, True
+        if ev is not None:
+            raw = ev.get("answer", G.MISSING)
+            if raw is G.MISSING:
+                a.malformed("missing_answer")
+            elif raw is not None:
+                given = parse_int(raw) if isinstance(raw, str) else None
+                if given is None:
+                    a.malformed("invalid_answer")
+                else:
+                    omit = False
+            rt = a.duration(ev, "rt")
         rows.append({"family": s["family"], "ok": given is not None and given in accepted, "rt": rt,
-                     "omit": given is None, "n_accepted": len(accepted)})
+                     "omit": omit, "n_accepted": len(accepted)})
     n_ok = sum(r["ok"] for r in rows)
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
-    return {"hit": bool(rows) and n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(n_ok / (len(rows) or 1), 3),
-                        "correct_by_family": {r["family"]: r["ok"] for r in rows},
-                        "rt_by_family": {r["family"]: r["rt"] for r in rows},
-                        "median_rt_correct": round(statistics.median(rts), 1) if rts else None,
-                        "omissions": sum(r["omit"] for r in rows),
-                        "sequences_with_alternatives": sum(r["n_accepted"] > 1 for r in rows)}}
+    rts = [r["rt"] for r in rows if r["ok"] and r["rt"] is not None]
+    return a.finish(bool(rows) and n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": round(n_ok / (len(rows) or 1), 3),
+        "correct_by_family": {r["family"]: r["ok"] for r in rows},
+        "rt_by_family": {r["family"]: r["rt"] for r in rows},
+        "median_rt_correct": G.median(rts),
+        "omissions": sum(r["omit"] for r in rows),
+        "sequences_with_alternatives": sum(r["n_accepted"] > 1 for r in rows)})
 
 
 def example_response(item, correct=True):

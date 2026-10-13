@@ -13,7 +13,14 @@ Difficulty: pairs (k, k+1) share the fold count and the axis pattern (e.g. verti
 horizontal); the fold count cycles 1, 2, 3 across pairs. Distractors have the same number
 of holes as the key: one unfolded about a wrong line, one punched in a neighbouring spot,
 one mirror image of the key (whichever exist and differ)."""
+import functools
+import json
 
+from app.tasks import _guard as G
+
+TIMING = "limit"        # the choice (rt) must come inside LIMIT_MS
+LIMIT_MS = 75000        # view.js: timer = setTimeout(() => end({choice: null, rt: null}, true), 75000)
+CEILING_MS = G.trial_ceiling(__file__)
 N = 8
 AXIS = {"L": "x", "R": "x", "T": "y", "B": "y"}
 
@@ -116,30 +123,38 @@ def generate(rng, n, save_image):
     return items
 
 
-def _choice(response):
-    if not isinstance(response, dict):
-        return None, None
-    c, rt = response.get("choice"), response.get("rt")
-    c = c if isinstance(c, int) and not isinstance(c, bool) else None
-    rt = rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
-    return c, rt
+@functools.lru_cache(maxsize=256)
+def _key(key):
+    """unfold(folds, hole) for one item, memoized on a JSON key."""
+    folds, hole = json.loads(key)
+    return frozenset(tuple(c) for c in unfold(folds, hole))
 
 
+@G.safe
 def score(item, response):
-    """response: {"choice": option index 0-3 or null, "rt": ms from Start}.
-    hit = the chosen sheet has exactly the holes the reflection simulator produces.
+    """response: {"choice": option index 0-3 or null, "rt": ms from Start} (both null when
+    the 75 s limit runs out).
+    hit = the chosen sheet has exactly the holes the reflection simulator produces AND the
+    choice was made with a valid rt inside the 75 s limit (a missing, non-finite, negative,
+    anticipatory or late time never counts; a choice without an rt, an rt without a choice
+    or a choice that is not an option index is flagged).
     Metrics: correct, rt, fold count, holes on the key, how many key holes the chosen
     sheet got right (partial credit, for error analysis only)."""
-    key = unfold(item["folds"], item["hole"])
-    choice, rt = _choice(response)
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    key = _key(json.dumps([item["folds"], item["hole"]]))
+    st, choice, rt = a.keyed(response, range(len(item["options"])), key="choice", rt="rt", window=LIMIT_MS)
     picked = None
-    if choice is not None and 0 <= choice < len(item["options"]):
+    if st == G.TIMELY:
         picked = frozenset(tuple(c) for c in item["options"][choice])
+    elif choice is not None:
+        a.flag("choice_outside_time_limit")
     ok = picked == key
-    return {"hit": ok, "errors": 0 if ok else 1,
-            "metrics": {"correct": ok, "rt": rt if ok else None, "rt_any": rt, "folds": len(item["folds"]),
-                        "omission": picked is None, "key_holes": len(key),
-                        "holes_matched": len(key & picked) if picked else 0}}
+    return a.finish(ok, 0 if ok else 1, {
+        "correct": ok, "rt": rt if ok else None, "rt_any": rt, "folds": len(item["folds"]),
+        "omission": st == G.ABSENT, "key_holes": len(key),
+        "holes_matched": len(key & picked) if picked else 0, "rt_status": st})
 
 
 def example_response(item, correct=True):

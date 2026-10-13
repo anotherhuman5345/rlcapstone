@@ -9,10 +9,16 @@ participant's own picks, so score() replays the picks with the same rules (the o
 rather than trusting the browser. Both items of a pair use the same schedule constants
 and different figures/positions, so they are equally hard."""
 
+from app.tasks import _guard as G
+
+TIMING = "window"     # each pick has a 3000 ms window (view.js answer(it.window_ms), item window_ms)
 CRITERION = 4
 REVERSALS = 2
 MAX_TRIALS = 36
 WINDOW_MS = 3000
+RT_SLACK_MS = 50      # timer tolerance at the window end
+SIDES = ("left", "right")
+CEILING_MS = G.trial_ceiling(__file__)
 FIGURES = ["triangle", "circle", "square", "star", "diamond", "cross"]
 COLORS = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00", "#56B4E9"]
 
@@ -54,23 +60,48 @@ def replay(item, choices):
     return rows, done
 
 
+def _rule_field(a, r, active):
+    """The browser's "rule" (figure index active before the pick): a mismatch metric only,
+    never used for scoring. Missing / invalid values are flagged; returns True on mismatch."""
+    v = r.get("rule", G.MISSING)
+    if v is G.MISSING:
+        a.malformed("missing_rule")
+        return False
+    if not G.member(v, (0, 1)):
+        a.malformed("invalid_rule")
+        return False
+    return v != active
+
+
+@G.safe
 def score(item, response):
     """response: [{"choice": "left"|"right"|null, "rt": ms, "rule": figure index the
     browser had active before the pick}] in pick order.
+    Every pick is classified (app/tasks/_guard.py): absent (no choice: the 3000 ms window,
+    view.js answer(it.window_ms), ran out), invalid (unknown side, choice without rt or rt
+    without choice, non-finite / negative / impossible rt), anticipatory (< 100 ms), late
+    (beyond the window + 50 ms timer tolerance) or timely. The server replays the picks with
+    the task rules (oracle); only a timely pick counts as made, every other one is replayed as
+    an omission. The browser's "rule" field is only compared (rule_mismatch), never trusted.
+    Picks after the replay ended (criterion reached or MAX_TRIALS) are flagged.
     hit = all three phases reached criterion (both reversals learned) within MAX_TRIALS.
-    errors = wrong picks + omissions. Metrics: trials to criterion per phase, errors after
-    the first reversal, perseverative picks (old-rule figure chosen after a reversal before
-    the first correct pick), median RT, and whether the browser's active rule ever differed
-    from the server replay (rule_mismatch)."""
-    try:
-        resp = response if isinstance(response, list) else []
-        choices = []
-        for r in resp:
-            c = r.get("choice") if isinstance(r, dict) else None
-            choices.append(c if c in ("left", "right") else None)
-        rows, done = replay(item, choices)
-    except (TypeError, KeyError, IndexError):
-        return {"hit": False, "errors": 0, "metrics": {}}
+    errors = wrong picks + omissions (incl. picks that were not timely). Metrics: trials to
+    criterion per phase, errors after the first reversal, perseverative picks (old-rule figure
+    chosen after a reversal before the first correct pick), median RT (timely picks), and
+    whether the browser's active rule ever differed from the server replay (rule_mismatch)."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, list):
+        return a.junk()
+    raw = a.stream(response, "picks", cap=item["max_trials"])
+    evs = [a.keyed(r, SIDES, key="choice", window=WINDOW_MS, slack=RT_SLACK_MS) for r in raw]
+    choices = [k if st == G.TIMELY else None for st, k, _ in evs]
+    rows, done = replay(item, choices)
+    if len(raw) > len(rows):
+        a.flag("picks_after_end", len(raw) - len(rows))
+    mismatch = False
+    for r, row in zip(raw, rows):
+        if isinstance(r, dict) and _rule_field(a, r, row["rule"]):
+            mismatch = True
     n_phases = item["reversals"] + 1
     to_crit = []
     for p in range(n_phases):
@@ -84,21 +115,20 @@ def score(item, response):
                 break
             if r["chosen"] == 1 - r["rule"]:
                 persev += 1
-    rts = sorted(float(r["rt"]) for r in resp[: len(rows)] if isinstance(r, dict)
-                 and isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) and r["rt"] > 0)
-    mismatch = any(isinstance(r, dict) and r.get("rule") is not None and r.get("rule") != row["rule"]
-                   for r, row in zip(resp, rows))
+    rts = [rt for (st, _, rt) in evs[: len(rows)] if st == G.TIMELY]
     errors = sum(not r["ok"] for r in rows)
-    return {"hit": bool(done) and len(rows) > 0, "errors": errors,
-            "metrics": {"completed": bool(done), "picks": len(rows),
-                        "accuracy": round(sum(r["ok"] for r in rows) / len(rows), 3) if rows else 0.0,
-                        "trials_to_criterion": to_crit,
-                        "reversals_reached": sum(1 for p in range(1, n_phases) if any(r["phase"] >= p for r in rows)),
-                        "errors_after_reversal": sum(1 for r in rows if r["phase"] > 0 and not r["ok"]),
-                        "perseverative_picks": persev,
-                        "omissions": sum(1 for r in rows if r["chosen"] is None),
-                        "median_rt": round(rts[len(rts) // 2], 1) if rts else None,
-                        "rule_mismatch": mismatch}}
+    not_timely = sum(1 for (st, _, _) in evs[: len(rows)] if st in (G.INVALID, G.ANTICIPATORY, G.LATE))
+    return a.finish(bool(done) and len(rows) > 0, errors, {
+        "completed": bool(done), "picks": len(rows),
+        "accuracy": round(sum(r["ok"] for r in rows) / len(rows), 3) if rows else 0.0,
+        "trials_to_criterion": to_crit,
+        "reversals_reached": sum(1 for p in range(1, n_phases) if any(r["phase"] >= p for r in rows)),
+        "errors_after_reversal": sum(1 for r in rows if r["phase"] > 0 and not r["ok"]),
+        "perseverative_picks": persev,
+        "omissions": sum(1 for r in rows if r["chosen"] is None),
+        "not_timely_picks": not_timely,
+        "median_rt": G.median(rts),
+        "rule_mismatch": mismatch})
 
 
 def example_response(item, correct=True):

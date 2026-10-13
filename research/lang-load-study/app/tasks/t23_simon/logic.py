@@ -6,7 +6,12 @@ across pairs (both items of a pair use the same mapping, so they are equally har
 the response buttons show the color assigned to each side, so the mapping is always
 visible. Colors are blue/orange (distinguishable with common color-vision deficiencies)."""
 
+from app.tasks import _guard as G
+
+TIMING = "window"
 BLOCK = 24
+WINDOW_MS = 2000        # view.js: out.push(await answer(2000)) - each circle waits at most 2000 ms
+CEILING_MS = G.trial_ceiling(__file__)
 PALETTE = ["#0072B2", "#E69F00"]  # 0 blue, 1 orange
 
 
@@ -25,52 +30,54 @@ def _answer(item, d):
     return "left" if d["color"] == item["left_color"] else "right"
 
 
-def _median(xs):
-    xs = sorted(xs)
-    if not xs:
-        return None
-    m = len(xs) // 2
-    return round(float(xs[m] if len(xs) % 2 else (xs[m - 1] + xs[m]) / 2), 1)
+def _cond(sel):
+    rts = [r["rt"] for r in sel if r["ok"]]
+    k = sum(r["ok"] for r in sel)
+    return {"n": len(sel), "correct": k, "accuracy": G.rate(k, len(sel)),
+            "error_rate": G.rate(len(sel) - k, len(sel)),
+            "omissions": sum(1 for r in sel if r["status"] == G.ABSENT),
+            "rt_mean": G.mean(rts), "rt_median": G.median(rts), "rt_n": len(rts)}
 
 
+@G.safe
 def score(item, response):
     """response: [{"key": "left"|"right"|null, "rt": ms}] in display order.
     Compatible = the assigned side equals the stimulus side (uses the item's mapping).
-    hit = accuracy >= 0.75 over the 24 displays (omissions count as errors).
+    Each display is classified (app/tasks/_guard.py) as absent, invalid, anticipatory
+    (< 100 ms), late (> the 2000 ms response window) or timely; only a TIMELY key equal to
+    the assigned side is correct (an anticipatory, late or malformed press never is).
+    hit = accuracy >= 0.75 over the 24 displays (omissions and invalid entries are errors).
     Metrics: Simon RT cost (incompatible - compatible median correct RT), error rates per
-    condition and their difference, omissions."""
-    try:
-        displays = item["displays"]
-        item["left_color"]
-    except (TypeError, KeyError):
-        return {"hit": False, "errors": 0, "metrics": {}}
-    resp = response if isinstance(response, list) else []
+    condition and their difference, omissions, per-condition measures in by_condition and
+    every display's status in metrics["events"]."""
+    a = G.Audit(CEILING_MS)
+    displays = item["displays"]
+    if not isinstance(response, list):
+        return a.junk(len(displays))
     rows = []
-    for k, d in enumerate(displays):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        key = r.get("key") if r.get("key") in ("left", "right") else None
-        rt = r.get("rt")
-        rt = float(rt) if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
+    for k, (d, r) in enumerate(zip(displays, a.entries(response, len(displays)))):
         ans = _answer(item, d)
-        rows.append({"compat": ans == d["side"], "key": key, "rt": rt, "ok": key == ans})
+        status, key, rt = a.keyed(r, ("left", "right"), window=WINDOW_MS)
+        ok = status == G.TIMELY and key == ans
+        rows.append({"i": k, "compatible": ans == d["side"], "status": status, "rt": rt if ok else None, "ok": ok})
     n = len(rows)
     n_ok = sum(r["ok"] for r in rows)
-
-    def cond(c):
-        sel = [r for r in rows if r["compat"] == c]
-        err = round(1 - sum(r["ok"] for r in sel) / len(sel), 3) if sel else None
-        return _median([r["rt"] for r in sel if r["ok"] and r["rt"]]), err
-
-    rt_c, err_c = cond(True)
-    rt_i, err_i = cond(False)
+    c = _cond([r for r in rows if r["compatible"]])
+    i = _cond([r for r in rows if not r["compatible"]])
     acc = n_ok / n if n else 0.0
-    return {"hit": n > 0 and acc >= 0.75, "errors": n - n_ok,
-            "metrics": {"accuracy": round(acc, 3), "median_rt_compatible": rt_c, "median_rt_incompatible": rt_i,
-                        "simon_cost_ms": round(rt_i - rt_c, 1) if rt_c and rt_i else None,
-                        "error_rate_compatible": err_c, "error_rate_incompatible": err_i,
-                        "simon_error_cost": round(err_i - err_c, 3) if err_c is not None and err_i is not None else None,
-                        "valid_rt_trials": sum(1 for r in rows if r["ok"] and r["rt"]),
-                        "omissions": sum(1 for r in rows if r["key"] is None)}}
+    return a.finish(n > 0 and acc >= 0.75, n - n_ok, {
+        "accuracy": round(acc, 3), "median_rt_compatible": c["rt_median"], "median_rt_incompatible": i["rt_median"],
+        "simon_cost_ms": round(i["rt_median"] - c["rt_median"], 1)
+        if c["rt_median"] is not None and i["rt_median"] is not None else None,
+        "mean_rt_compatible": c["rt_mean"], "mean_rt_incompatible": i["rt_mean"],
+        "error_rate_compatible": c["error_rate"], "error_rate_incompatible": i["error_rate"],
+        "simon_error_cost": round(i["error_rate"] - c["error_rate"], 3)
+        if c["error_rate"] is not None and i["error_rate"] is not None else None,
+        "valid_rt_trials": c["rt_n"] + i["rt_n"],
+        "omissions": sum(1 for r in rows if r["status"] == G.ABSENT),
+        "by_condition": {"compatible": c, "incompatible": i},
+        "events": [{"i": r["i"], "compatible": r["compatible"], "status": r["status"], "correct": r["ok"],
+                    "rt": r["rt"]} for r in rows]})
 
 
 def example_response(item, correct=True):

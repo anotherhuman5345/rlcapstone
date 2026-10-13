@@ -11,11 +11,19 @@ The other case is the no-interruption control.
 Step names come from text "steps" by index. Pairs (k, k+1) share the case order and
 interruption stage; step names and orders differ.
 """
+from app.tasks import _guard as G
 
+TIMING = "limit"
 N_STEPS_POOL = 16      # length of text "steps"
 PROC_LEN, PALETTE = 6, 8
 INTERRUPT_AFTER = 3
 PARITY_N, PARITY_MS = 6, 1500
+LIMIT_MS = 140000      # item limit_ms: view.js ends the trial with setTimeout(end, it.limit_ms) from Start
+BETWEEN_MS = 1500      # view.js: pause between the cases (setTimeout(startCase, 1500))
+TIME_SLACK_MS = 1000   # timer tolerance at the limit
+RESUME_SLACK_MS = 50   # resume_at comes from a setTimeout that never fires early
+MAX_CLICKS = 50
+CEILING_MS = G.trial_ceiling(__file__)
 
 
 def _case(rng, interrupted):
@@ -33,60 +41,143 @@ def generate(rng, n, save_image):
             cases = [_case(rng, first_interrupted), _case(rng, not first_interrupted)]
             digits = [rng.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]) for _ in range(PARITY_N)]
             items.append({"cases": cases, "parity_digits": digits, "parity_ms": PARITY_MS,
-                          "limit_ms": 140000})
+                          "limit_ms": LIMIT_MS})
     return items[:n]
 
 
-def _num(x):
-    return float(x) if isinstance(x, (int, float)) and not isinstance(x, bool) else None
+def _case_clicks(a, case, r, limit):
+    """Validated clicks of one case -> (seq, times, ok). A click must be [step_id, t] with
+    step_id on the case's palette and t a finite time 0..limit from the case start; times
+    must increase. Malformed clicks are flagged and not applied (ok = False)."""
+    raw = a.stream(r.get("clicks", G.MISSING), "clicks", cap=MAX_CLICKS)
+    if len(raw) > PROC_LEN:
+        a.malformed("extra_clicks")          # the case ends after 6 clicks
+    seq, times, ok = [], [], True
+    for c in raw[:PROC_LEN]:
+        if not isinstance(c, list) or len(c) != 2:
+            a.malformed("invalid_click")
+            ok = False
+            continue
+        sid = a.choice(c[0], case["palette"], "click_step")
+        st, t = a.time(c[1], field="click_t", window=limit, slack=TIME_SLACK_MS, floor=0, required=True)
+        if sid is None:
+            a.malformed("missing_click_step")
+        if sid is None or sid is G.BAD or st == G.INVALID:
+            ok = False
+            continue
+        if st == G.LATE:
+            ok = False
+        seq.append(sid)
+        times.append(t)
+    if not a.monotonic(times, "click_t"):
+        ok = False
+    if len(set(times)) < len(times):
+        a.malformed("duplicate_click_t")
+        ok = False
+    return seq, times, ok and len(raw) <= PROC_LEN
 
 
+@G.safe
 def score(item, response):
     """response: {"cases": [{"clicks": [[step_id, t_ms], ...], "resume_at": t_ms or null}, ...]
-    (one per case, times from the case start), "parity": [{"key": "even"|"odd"|null,
-    "rt": ms}, ...]}.
-    Per case the clicked sequence is compared with the procedure position by position.
+    (one per started case, times from the case start), "parity": [{"key": "even"|"odd"|null,
+    "rt": ms}, ...] (one per digit)}.
+    Clicks are validated: step_id on the case's palette, t finite, >= 0, inside the
+    140 s limit (item limit_ms, view.js), strictly increasing, at most 6 per case; resume_at
+    must be a valid time in the interrupted case (at least the 9 s digit task after click 3,
+    and before click 4) and null in the control case. Malformed clicks are flagged and not
+    applied. Per case the clicked sequence is compared with the procedure position by position.
+    A case counts as carried out only when its clicks are all well formed and its final
+    (6th) click is inside the limit; the two cases together (+ the 1.5 s pause) must end
+    inside the limit too.
     Resumption lag = time of the first click after the interruption minus resume_at;
     its cost = lag minus the same inter-click interval (click 3 -> 4) in the control case.
-    hit = both cases carried out exactly (all 6 steps, right order, nothing extra)."""
-    miss = {"hit": False, "errors": 2 * PROC_LEN, "metrics": {}}
-    if not isinstance(response, dict) or not isinstance(response.get("cases"), list):
-        return miss
-    rc = response["cases"]
-    exact, errors, post_err, lag, ctrl_gap, completed = [], 0, None, None, None, 0
+    Parity answers are classified (absent / invalid / anticipatory / late beyond the 1.5 s
+    digit / timely); only timely answers equal to the digit's parity count.
+    hit = both cases carried out exactly (all 6 steps, right order, nothing extra) with
+    valid timing."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk(2 * PROC_LEN)
+    limit = item.get("limit_ms", LIMIT_MS)
+    rc = a.stream(response.get("cases", G.MISSING), "cases", cap=len(item["cases"]) + 5)
+    if len(rc) > len(item["cases"]):
+        a.malformed("extra_cases")
+    exact, timing_ok, errors, post_err, lag, ctrl_gap, completed, ends = [], [], 0, None, None, None, 0, []
     for k, case in enumerate(item["cases"]):
-        r = rc[k] if k < len(rc) and isinstance(rc[k], dict) else {}
-        clicks = [c for c in (r.get("clicks") or []) if isinstance(c, list) and len(c) == 2] \
-            if isinstance(r.get("clicks"), list) else []
-        seq = [c[0] for c in clicks]
-        times = [_num(c[1]) for c in clicks]
+        r = rc[k] if k < len(rc) else {}
+        if not isinstance(r, dict):
+            a.malformed("case_not_object")
+            r = {}
+        seq, times, ok = _case_clicks(a, case, r, limit) if k < len(rc) else ([], [], False)
         proc = case["procedure"]
         wrong = [i for i in range(PROC_LEN) if i >= len(seq) or seq[i] != proc[i]]
         errors += len(wrong) + max(0, len(seq) - PROC_LEN)
-        exact.append(seq == proc)
-        completed += len(seq) >= PROC_LEN
         s = INTERRUPT_AFTER
+        if k < len(rc):
+            ra_raw = r.get("resume_at", G.MISSING)
+            if ra_raw is G.MISSING:
+                a.malformed("missing_resume_at")
+                ok = False
+            elif case["interrupt_after"] is None:
+                if ra_raw is not None:
+                    a.malformed("resume_at_in_control_case")
+                    ok = False
+            else:
+                need = len(times) > s
+                st, ra = a.time(ra_raw, field="resume_at", window=limit, slack=TIME_SLACK_MS, floor=0,
+                                required=need)
+                if st in (G.INVALID, G.LATE):
+                    ok = False
+                    ra = None
+                if ra is not None:
+                    busy = PARITY_N * item.get("parity_ms", PARITY_MS)
+                    if len(times) < s or ra < times[s - 1] + busy - RESUME_SLACK_MS:
+                        a.malformed("resume_before_interruption_end")
+                        ok = False
+                    elif len(times) > s and times[s] < ra:
+                        a.malformed("click_during_interruption")
+                        ok = False
+                    elif len(times) > s:
+                        lag = times[s] - ra
         if case["interrupt_after"] is not None:
             post_err = sum(1 for i in wrong if i >= s)
-            ra = _num(r.get("resume_at"))
-            if ra is not None and len(times) > s and times[s] is not None:
-                lag = times[s] - ra
-        elif len(times) > s and times[s] is not None and times[s - 1] is not None:
+        elif len(times) > s:
             ctrl_gap = times[s] - times[s - 1]
-    pr = response.get("parity") if isinstance(response.get("parity"), list) else []
-    par_ok = 0
-    for k, d in enumerate(item["parity_digits"]):
-        p = pr[k] if k < len(pr) and isinstance(pr[k], dict) else {}
-        par_ok += p.get("key") == ("even" if d % 2 == 0 else "odd")
+        done = len(seq) >= PROC_LEN
+        completed += done
+        exact.append(seq == proc)
+        timing_ok.append(ok and done)
+        ends.append(times[-1] if done and times else None)
+    if all(t is not None for t in ends) and sum(ends) + BETWEEN_MS > limit + TIME_SLACK_MS:
+        a.malformed("cases_exceed_limit")
+        timing_ok = [False] * len(timing_ok)
+    for e, t in zip(exact, timing_ok):
+        if e and not t:
+            a.flag("exact_case_with_invalid_timing")
+
+    raw_p = response.get("parity", G.MISSING)
+    if raw_p is G.MISSING:
+        a.malformed("missing_parity")
+        raw_p = []
+    par_ok, par_rts = 0, []
+    p_ms = item.get("parity_ms", PARITY_MS)
+    for d, p in zip(item["parity_digits"], a.entries(raw_p, len(item["parity_digits"]), "parity")):
+        st, key, rt = a.keyed(p, ("even", "odd"), window=p_ms)
+        if st == G.TIMELY and key == ("even" if d % 2 == 0 else "odd"):
+            par_ok += 1
+            par_rts.append(rt)
     i_int = 0 if item["cases"][0]["interrupt_after"] is not None else 1
-    return {"hit": all(exact) and len(exact) == 2,
-            "errors": errors,
-            "metrics": {"interrupted_case_exact": exact[i_int], "control_case_exact": exact[1 - i_int],
-                        "cases_completed": completed, "post_interruption_errors": post_err,
-                        "resumption_lag_ms": round(lag, 1) if lag is not None else None,
-                        "control_interval_ms": round(ctrl_gap, 1) if ctrl_gap is not None else None,
-                        "resumption_cost_ms": round(lag - ctrl_gap, 1) if lag is not None and ctrl_gap is not None else None,
-                        "parity_accuracy": round(par_ok / len(item["parity_digits"]), 3)}}
+    good = [e and t for e, t in zip(exact, timing_ok)]
+    return a.finish(all(good) and len(good) == 2, errors, {
+        "interrupted_case_exact": exact[i_int], "control_case_exact": exact[1 - i_int],
+        "interrupted_case_ok": good[i_int], "control_case_ok": good[1 - i_int],
+        "cases_completed": completed, "post_interruption_errors": post_err,
+        "resumption_lag_ms": round(lag, 1) if lag is not None else None,
+        "control_interval_ms": round(ctrl_gap, 1) if ctrl_gap is not None else None,
+        "resumption_cost_ms": round(lag - ctrl_gap, 1) if lag is not None and ctrl_gap is not None else None,
+        "parity_accuracy": round(par_ok / len(item["parity_digits"]), 3),
+        "parity_rt_mean": G.mean(par_rts)})
 
 
 def example_response(item, correct=True):
