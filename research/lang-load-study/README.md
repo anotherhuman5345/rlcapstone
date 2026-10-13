@@ -28,7 +28,7 @@ The whole session takes **at most 15 minutes**, for everyone.
 |---|---|---|
 | 1. Surprise image (once, first) | Find a small white ring on a scan. An unannounced gorilla is also in the image. Then: "Anything unusual?", "Did you see a gorilla?", "Had you heard of the invisible-gorilla study?" | **Between people:** half get the clue in L1, half in L2 |
 | 2. Practice | One search scene and one scan, comfortable language, not scored | — |
-| 3. Rounds | Rounds of 12 pictures: 4 search scenes (find the named object), 4 scans (find what is out of the ordinary) and 4 dice boards (follow the moves), half with L1 clues and half with L2 clues. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
+| 3. Rounds | Rounds of 10 items, 2 of each task (one L1, one L2): search scene, scan, dice board, Corsi blocks and a reading passage. The mix is set in `config.ROUND_MIX`. A 0-100 fatigue rating follows every round. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
 
 | Factor | Type | Levels |
 |---|---|---|
@@ -53,6 +53,13 @@ The whole session takes **at most 15 minutes**, for everyone.
     right as many as die B shows"); the numbers are only on the dice. Holding the
     numbers while reading the directions loads working memory, so this task is
     especially sensitive to the clue's language (instruction execution).
+  - **Corsi blocks:** nine squares light up one by one; the clue says whether to click
+    them back in the same or the reverse order. Both items of an L1/L2 pair have the same
+    length and direction.
+  - **Reading passage:** a short original passage and a question that needs two sentences
+    combined (instructions and content both in the assigned language). Passages exist in
+    English and Turkish so far (`app/reading/`); people whose two languages do not both
+    have passages simply skip this task.
   - **Wording:** each clue uses one of several equivalent sentence patterns, the same
     pattern in both languages for a given picture.
 - **Surprise gorilla:** the inattentional-blindness paradigm of Drew, Võ & Wolfe (2013),
@@ -71,6 +78,12 @@ The whole session takes **at most 15 minutes**, for everyone.
   answer carries its elapsed time, so the analysis can look for the minute where
   slowing starts. If no decay appears within 15 minutes, that is reported as a finding
   and a longer follow-up can be proposed.
+- **Fatigue:** "How mentally tired do you feel right now?" (0-100) at the start, after
+  every round and at the end, kept separate from performance (`/admin/fatigue.csv`).
+- **Equal comfort:** people can say they read both languages equally comfortably; the
+  tie is stored rather than forcing a preference.
+- **Quality flags:** reloaded trials and trials where the tab was hidden are recorded and
+  dropped in analysis; every data row carries the study, stimulus and translation versions.
 - **Outcomes:** time to the correct click (ms), whether the target was found within
   30 s, false clicks, and a 1-9 mental-effort rating (Paas scale) after each picture.
 - **Data quality:** reloading a trial page restarts the clock after the image was

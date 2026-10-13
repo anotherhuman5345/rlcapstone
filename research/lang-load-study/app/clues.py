@@ -75,6 +75,11 @@ def object_name(kind: str, lang: str) -> str:
 
 def make_clue(task: str, lang: str, image_id: str, target: dict, w: int, h: int) -> str:
     spec = LOCALES[lang]["clue"]
+    if task == "corsi":
+        # Only the clue says whether to click in the same or the reverse order.
+        return upper_first(spec["corsi"][target["direction"]], lang)
+    if task == "reading":
+        return ""  # passage and question are shown in full; see app/reading.py
     if task == "dice":
         # The moves ARE the instruction, so there is no separate "where" sentence.
         # Directions are in words; the numbers are only on the dice in the picture.

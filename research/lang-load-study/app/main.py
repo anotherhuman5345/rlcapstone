@@ -1,7 +1,9 @@
 """Web app: landing -> consent -> background -> surprise image -> surprise questions
 -> instructions -> practice + rounds -> final -> debrief."""
 import csv
+import hashlib
 import io
+import json
 import math
 from contextlib import asynccontextmanager
 from datetime import timezone
@@ -17,9 +19,10 @@ from . import config
 import random
 
 from .clues import DECOY_OBJECTS, make_clue, object_name
-from .db import Participant, SessionLocal, TrialResult, init_db, now
+from .db import FatigueRating, Participant, SessionLocal, TrialResult, init_db, now
 from .i18n import LANGUAGES, direction, language_name, t, verified
 from .plan import build_plan, load_manifest
+from .reading import has_reading, reading_hash, reading_item
 
 @asynccontextmanager
 async def lifespan(_app):
@@ -39,7 +42,7 @@ COOKIE = "pid"
 def image(name: str):
     # Serve only the study images. The manifest (with every target's location)
     # stays private, so nobody can look up the answers.
-    if name not in {i["file"] for i in load_manifest()["images"]}:
+    if name not in {i["file"] for i in load_manifest()["images"] if i.get("file")}:
         raise HTTPException(404)
     return FileResponse(config.STIMULI_DIR / name)
 
@@ -138,7 +141,7 @@ def background(request: Request, group: str = Form(...), age: int = Form(..., ge
                native_lang: str = Form(...), l2_age_acquired: int = Form(..., ge=0, le=99),
                l1: str = Form(...), l2: str = Form(...),
                l1_reading: int = Form(..., ge=1, le=7), l2_reading: int = Form(..., ge=1, le=7),
-               db=Depends(get_db)):
+               equal_comfort: str = Form(None), db=Depends(get_db)):
     p = current(request, db)
     allowed = {c for c, _ in language_choices()}
     if group not in config.GROUPS or l1 not in allowed or l2 not in allowed:
@@ -151,14 +154,43 @@ def background(request: Request, group: str = Form(...), age: int = Form(..., ge
     p.l1, p.l2 = l1, l2
     p.l1_reading, p.l2_reading = l1_reading, l2_reading
     p.eligible = min(l1_reading, l2_reading) >= config.MIN_READING
+    p.equal_comfort = equal_comfort == "yes"
 
     # Rotate counterbalance index within each group.
     n_in_group = db.scalar(select(func.count()).select_from(Participant)
                            .where(Participant.group == group, Participant.plan.is_not(None)))
     p.counterbalance = n_in_group % 4
-    p.plan = build_plan(p.id, p.counterbalance, p.l1, p.l2)
+    # Reading needs passages in both of the person's languages.
+    available = set(config.ROUND_MIX) - (set() if has_reading(l1) and has_reading(l2) else {"reading"})
+    p.plan = build_plan(p.id, p.counterbalance, p.l1, p.l2, available=available)
     db.commit()
-    return RedirectResponse("/surprise", status_code=303)
+    return RedirectResponse("/fatigue?point=baseline", status_code=303)
+
+
+def _fatigue_done(db, p, point):
+    return db.scalar(select(func.count()).select_from(FatigueRating)
+                     .where(FatigueRating.participant_id == p.id, FatigueRating.point == point)) > 0
+
+
+@app.get("/fatigue", response_class=HTMLResponse)
+def fatigue_page(request: Request, point: str = "baseline", db=Depends(get_db)):
+    p = current(request, db)
+    done_round = int(point.rsplit("_", 1)[1]) if point.startswith("after_round_") else None
+    return render(request, "fatigue.html", p, point=point, done_round=done_round)
+
+
+@app.post("/fatigue")
+def fatigue(request: Request, point: str = Form(...), value: int = Form(..., ge=0, le=100),
+            db=Depends(get_db)):
+    p = current(request, db)
+    if not (point == "baseline" or point.startswith("after_round_")):
+        raise HTTPException(400, "Invalid point")
+    if not _fatigue_done(db, p, point):
+        db.add(FatigueRating(participant_id=p.id, point=point, value=value,
+                             elapsed_s=round(minutes_since(p.task_started_at) * 60, 1)
+                             if p.task_started_at else None))
+        db.commit()
+    return RedirectResponse("/surprise" if point == "baseline" else "/trial", status_code=303)
 
 
 @app.get("/surprise", response_class=HTMLResponse)
@@ -207,7 +239,8 @@ def notice2(request: Request, saw_gorilla: str = Form(...), knew_study: str = Fo
 def instructions(request: Request, db=Depends(get_db)):
     p = current(request, db)
     names = {"l1": language_name(p.l1), "l2": language_name(p.l2)} if p.l1 else {"l1": "", "l2": ""}
-    return render(request, "instructions.html", p, **names)
+    has_reading_task = any(t["task"] == "reading" for t in (p.plan or []))
+    return render(request, "instructions.html", p, has_reading_task=has_reading_task, **names)
 
 
 @app.get("/trial", response_class=HTMLResponse)
@@ -215,6 +248,8 @@ def trial_page(request: Request, db=Depends(get_db)):
     p = current(request, db)
     if not p.plan:
         return RedirectResponse("/background", status_code=303)
+    if p.current_trial == 0 and not _fatigue_done(db, p, "baseline"):
+        return RedirectResponse("/fatigue?point=baseline", status_code=303)
     if p.current_trial >= 1 and p.noticed_unusual is None:
         return RedirectResponse("/notice", status_code=303)
     if p.current_trial >= 1 and p.saw_gorilla is None:
@@ -227,14 +262,21 @@ def trial_page(request: Request, db=Depends(get_db)):
     if p.current_trial >= len(p.plan):
         return RedirectResponse("/final", status_code=303)
     trial = p.plan[p.current_trial]
+    prev = p.plan[p.current_trial - 1] if p.current_trial else None
+    if trial.get("round") and prev and prev.get("round") and prev["round"] < trial["round"]:
+        point = f"after_round_{prev['round']}"
+        if not _fatigue_done(db, p, point):
+            return RedirectResponse(f"/fatigue?point={point}", status_code=303)
     p.trial_views += 1
     if p.task_started_at is None:
         p.task_started_at = now()
     db.commit()
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
-    clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img["width"], img["height"])
-    return render(request, "trial.html", p, trial=trial, img=img, clue=clue,
+    clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img.get("width"), img.get("height"))
+    template = {"corsi": "trial_corsi.html", "reading": "trial_reading.html"}.get(trial["task"], "trial.html")
+    item = reading_item(trial["clue_lang"], img["id"]) if trial["task"] == "reading" else None
+    return render(request, template, p, trial=trial, img=img, clue=clue, item=item,
                   n=p.current_trial + 1, total=len(p.plan), rounds=config.ROUNDS,
                   clue_dir=direction(trial["clue_lang"]),
                   timeout=config.TRIAL_TIMEOUT_MS)
@@ -248,6 +290,8 @@ class TrialIn(BaseModel):
     false_clicks: int = Field(0, ge=0)
     timed_out: bool = False
     effort: int | None = Field(None, ge=1, le=9)
+    response: list[int] | int | None = None  # Corsi: squares clicked; reading: option chosen
+    focus_lost: int = Field(0, ge=0)
 
 
 @app.post("/api/trial")
@@ -258,15 +302,25 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
     trial = p.plan[p.current_trial]
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
-    # The server re-checks the hit so the browser cannot claim one.
-    hit = (not data.timed_out and data.click_x is not None and data.click_y is not None
-           and math.hypot(data.click_x - tg["x"], data.click_y - tg["y"]) <= tg["r"] * config.HIT_TOLERANCE)
+    # The server scores every trial itself so the browser cannot claim a hit.
+    false_clicks = data.false_clicks
+    if trial["task"] == "corsi":
+        expected = tg["sequence"] if tg["direction"] == "forward" else tg["sequence"][::-1]
+        clicks = data.response if isinstance(data.response, list) else []
+        hit = not data.timed_out and clicks == expected
+        false_clicks = sum(1 for a, b in zip(clicks, expected) if a != b) + abs(len(clicks) - len(expected))
+    elif trial["task"] == "reading":
+        hit = not data.timed_out and data.response == tg["answer"]
+    else:
+        hit = (not data.timed_out and data.click_x is not None and data.click_y is not None
+               and math.hypot(data.click_x - tg["x"], data.click_y - tg["y"]) <= tg["r"] * config.HIT_TOLERANCE)
     db.add(TrialResult(participant_id=p.id, trial_index=p.current_trial, task=trial["task"],
                        image_id=trial["image_id"], target_object=tg.get("object"),
                        clue_lang=trial["clue_lang"],
                        condition=trial["condition"], practice=trial["practice"],
                        rt_ms=data.rt_ms if hit else None, hit=hit, timed_out=data.timed_out,
-                       false_clicks=data.false_clicks, effort=data.effort,
+                       false_clicks=false_clicks, effort=data.effort, focus_lost=data.focus_lost,
+                       response=json.dumps(data.response) if data.response is not None else None,
                        reloads=max(0, p.trial_views - 1), round=trial.get("round"),
                        elapsed_s=round(minutes_since(p.task_started_at) * 60, 1)))
     p.current_trial += 1
@@ -316,8 +370,13 @@ def final_page(request: Request, db=Depends(get_db)):
 
 
 @app.post("/final")
-def final(request: Request, difficulty: int = Form(..., ge=1, le=9), attention: str = Form(...), db=Depends(get_db)):
+def final(request: Request, difficulty: int = Form(..., ge=1, le=9), attention: str = Form(...),
+          fatigue: int = Form(..., ge=0, le=100), db=Depends(get_db)):
     p = current(request, db)
+    if not _fatigue_done(db, p, "final"):
+        db.add(FatigueRating(participant_id=p.id, point="final", value=fatigue,
+                             elapsed_s=round(minutes_since(p.task_started_at) * 60, 1)
+                             if p.task_started_at else None))
     p.overall_difficulty = difficulty
     p.attention_ok = attention == attention_options(p)[0]
     p.completed = True
@@ -346,14 +405,30 @@ def admin(request: Request, key: str = "", db=Depends(get_db)):
     return render(request, "admin.html", rows=rows, key=key, irb=config.IRB_APPROVED)
 
 
+def _short_hash(path):
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()[:10]
+    except OSError:
+        return ""
+
+
+def versions_for(lang):
+    """Version stamps for one data row: study code, stimulus set, and the exact
+    translation files used for that row's clue language."""
+    from .i18n import LOCALE_DIR
+    loc = _short_hash(LOCALE_DIR / f"{lang}.json") if lang else ""
+    read = reading_hash(lang) if lang else ""
+    return config.STUDY_VERSION, _short_hash(config.MANIFEST), f"{loc}{'+' + read if read else ''}"
+
+
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
                "native_lang", "l2_age_acquired", "l1", "l2", "l1_reading", "l2_reading",
-               "eligible", "counterbalance", "attention_ok", "completed", "time_capped",
+               "eligible", "equal_comfort", "counterbalance", "attention_ok", "completed", "time_capped",
                "quit_early", "quit_elapsed_s", "quit_trial",
                "noticed_unusual", "saw_gorilla", "knew_gorilla_study",
                "trial_index", "round", "elapsed_s", "task", "image_id", "target_object",
                "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort",
-               "reloads"]
+               "reloads", "focus_lost", "response", "study_version", "stimuli_version", "translation_version"]
 
 
 @app.get("/admin/export.csv")
@@ -366,12 +441,29 @@ def export(key: str = "", db=Depends(get_db)):
                             .order_by(Participant.created_at, TrialResult.trial_index)):
         w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.years_reading_images,
                     p.native_lang, p.l2_age_acquired, p.l1, p.l2, p.l1_reading, p.l2_reading,
-                    p.eligible, p.counterbalance, p.attention_ok, p.completed, p.time_capped,
+                    p.eligible, p.equal_comfort, p.counterbalance, p.attention_ok, p.completed, p.time_capped,
                     p.quit_early, p.quit_elapsed_s, p.quit_trial,
                     p.noticed_unusual, p.saw_gorilla, p.knew_gorilla_study,
                     tr.trial_index, tr.round, tr.elapsed_s, tr.task,
                     tr.image_id, tr.target_object, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
-                    tr.timed_out, tr.false_clicks, tr.effort, tr.reloads])
+                    tr.timed_out, tr.false_clicks, tr.effort, tr.reloads, tr.focus_lost, tr.response,
+                    *versions_for(tr.clue_lang)])
     buf.seek(0)
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",
                              headers={"Content-Disposition": "attachment; filename=trials.csv"})
+
+
+@app.get("/admin/fatigue.csv")
+def export_fatigue(key: str = "", db=Depends(get_db)):
+    require_admin(key)
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["participant_id", "is_test", "group", "age", "education_years", "l1", "l2",
+                "equal_comfort", "point", "value", "elapsed_s", "study_version"])
+    for f, p in db.execute(select(FatigueRating, Participant).join(Participant)
+                           .order_by(Participant.created_at, FatigueRating.created_at)):
+        w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.l1, p.l2,
+                    p.equal_comfort, f.point, f.value, f.elapsed_s, config.STUDY_VERSION])
+    buf.seek(0)
+    return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",
+                             headers={"Content-Disposition": "attachment; filename=fatigue.csv"})

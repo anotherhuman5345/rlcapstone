@@ -13,12 +13,7 @@
   <div id="mark" class="mark" hidden></div>
 </div>
 <p id="status" class="status" role="status"></p>
-<form id="effort" class="scale effort" hidden>
-  <legend>{{ _('effort_q') }}</legend>
-  <div class="ends"><span>{{ _('effort_low') }}</span><span>{{ _('effort_high') }}</span></div>
-  <div class="row">{% for v in range(1, 10) %}<label><input type="radio" name="effort" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}</div>
-  <button type="submit">{{ _('next') }}</button>
-</form>
+{% include "_effort.html" %}
 
 {% endblock %}
 {% block scripts %}

@@ -51,6 +51,9 @@ class Participant(Base):
     # Protocol inclusion rule: reads both languages at 3+ on the 1-7 scale.
     # Ineligible people can still finish; they are flagged and excluded in analysis.
     eligible: Mapped[bool | None] = mapped_column(Boolean)
+    # True when the person says both languages are equally comfortable; L1/L2 then
+    # only mark which language they listed first, and analysis keeps the tie.
+    equal_comfort: Mapped[bool] = mapped_column(Boolean, default=False)
 
     # Assignment
     counterbalance: Mapped[int | None] = mapped_column(Integer)
@@ -98,8 +101,23 @@ class TrialResult(Base):
     false_clicks: Mapped[int] = mapped_column(Integer, default=0)
     effort: Mapped[int | None] = mapped_column(Integer)  # Paas 1-9
     reloads: Mapped[int] = mapped_column(Integer, default=0)  # page reloads before answering
+    focus_lost: Mapped[int] = mapped_column(Integer, default=0)  # times the tab was hidden mid-trial
+    response: Mapped[str | None] = mapped_column(String(200))  # Corsi clicks / reading choice, as JSON
 
     participant: Mapped[Participant] = relationship(back_populates="trials")
+
+
+class FatigueRating(Base):
+    """'How mentally tired do you feel right now?' 0-100, at the start, after each
+    round, and at the end. Same wording every time."""
+    __tablename__ = "fatigue_ratings"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    participant_id: Mapped[str] = mapped_column(ForeignKey("participants.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
+    point: Mapped[str] = mapped_column(String(20))  # "baseline", "after_round_3", "final"
+    value: Mapped[int] = mapped_column(Integer)
+    elapsed_s: Mapped[float | None] = mapped_column(Float)  # seconds since the first image
 
 
 def init_db():

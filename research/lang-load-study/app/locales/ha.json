@@ -70,7 +70,18 @@
   "bg_l2": "Wane harshe kuma kuke iya karantawa?",
   "bg_l1_reading": "Yaya kuke iya karanta harshen da kuka fi jin daɗinsa? (1 = kaɗan ƙwarai, 7 = kamar harshen uwa)",
   "bg_l2_reading": "Yaya kuke iya karanta wancan harshen? (1 = kaɗan ƙwarai, 7 = kamar harshen uwa)",
-  "bg_same_lang": "Don Allah ku zaɓi harsuna biyu daban-daban."
+  "bg_same_lang": "Don Allah ku zaɓi harsuna biyu daban-daban.",
+  "fatigue_title": "Ɗan dubawa",
+  "fatigue_q": "Yaya gajiyar tunani kuke ji a yanzu?",
+  "fatigue_low": "ko kaɗan",
+  "fatigue_high": "matuƙa",
+  "round_done": "An gama zagaye {r}.",
+  "bg_equal": "Ina jin daɗin karanta harsunan biyu daidai wa daida",
+  "instr_corsi": "Murabba'ai masu haskakawa: ku lura da jerinsu, sannan ku danna su yadda ishara ta ce, a jeri ɗaya ko a jeri na baya-baya.",
+  "instr_reading": "Gajerun rubutu: ku karanta rubutun ku zaɓi amsar da ta fi dacewa.",
+  "corsi_start": "Fara",
+  "corsi_go": "Lokacinku ne: ku danna murabba'an.",
+  "reading_answer": "Amsa"
  },
  "clue": {
   "np": "{small} {noun} mai launin {color}",
@@ -214,6 +225,10 @@
    "Ku fara daga tauraron. Ku matsa {dir_a} murabba'ai gwargwadon abin da ɗan lido A ya nuna, sannan ku matsa {dir_b} gwargwadon abin da ɗan lido B ya nuna. Ku danna inda kuka tsaya.",
    "Daga tauraron, ku tafi {dir_a} gwargwadon lambar da ke kan ɗan lido A, sannan {dir_b} gwargwadon lambar da ke kan ɗan lido B, ku danna wannan murabba'in.",
    "Ku fara a kan tauraron: ɗan lido A yana faɗin murabba'ai nawa za ku matsa {dir_a}, sannan ɗan lido B yana faɗin nawa za ku matsa {dir_b}. Ku danna murabba'in ƙarshe."
-  ]
+  ],
+  "corsi": {
+   "forward": "Ku kalli murabba'ai suna haskakawa ɗaya bayan ɗaya. Sannan ku danna su a jeri ɗaya.",
+   "backward": "Ku kalli murabba'ai suna haskakawa ɗaya bayan ɗaya. Sannan ku danna su a jeri na baya-baya, ku fara da na ƙarshe."
+  }
  }
 }

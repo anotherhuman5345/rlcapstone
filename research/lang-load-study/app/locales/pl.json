@@ -70,7 +70,18 @@
   "bg_l2": "W jakim innym języku także potrafisz czytać?",
   "bg_l1_reading": "Jak dobrze czytasz w języku, w którym czujesz się najswobodniej? (1 = bardzo słabo, 7 = jak rodzimy użytkownik)",
   "bg_l2_reading": "Jak dobrze czytasz w tym drugim języku? (1 = bardzo słabo, 7 = jak rodzimy użytkownik)",
-  "bg_same_lang": "Wybierz dwa różne języki."
+  "bg_same_lang": "Wybierz dwa różne języki.",
+  "fatigue_title": "Krótkie pytanie",
+  "fatigue_q": "Jak bardzo czujesz się teraz zmęczony/-a psychicznie?",
+  "fatigue_low": "wcale",
+  "fatigue_high": "skrajnie",
+  "round_done": "Runda {r} zakończona.",
+  "bg_equal": "Czytam w obu językach równie swobodnie",
+  "instr_corsi": "Podświetlane kwadraty: zapamiętaj kolejność, a potem kliknij je tak, jak mówi wskazówka — w tej samej albo w odwrotnej kolejności.",
+  "instr_reading": "Krótkie teksty: przeczytaj tekst i wybierz najlepszą odpowiedź.",
+  "corsi_start": "Start",
+  "corsi_go": "Twoja kolej: kliknij kwadraty.",
+  "reading_answer": "Odpowiedz"
  },
  "clue": {
   "np": "{small} {color} {noun}",
@@ -233,6 +244,10 @@
    "Zacznij od gwiazdki. Przesuń się {dir_a} o tyle pól, ile pokazuje kostka A, a potem {dir_b} o tyle, ile pokazuje kostka B. Kliknij pole, na którym skończysz.",
    "Od gwiazdki idź {dir_a} o liczbę pól wskazaną przez kostkę A, potem {dir_b} o liczbę wskazaną przez kostkę B i kliknij to pole.",
    "Zacznij na gwiazdce: kostka A mówi, o ile pól przesunąć się {dir_a}, a potem kostka B mówi, o ile przesunąć się {dir_b}. Kliknij pole końcowe."
-  ]
+  ],
+  "corsi": {
+   "forward": "Patrz, jak kwadraty podświetlają się jeden po drugim. Potem kliknij je w tej samej kolejności.",
+   "backward": "Patrz, jak kwadraty podświetlają się jeden po drugim. Potem kliknij je w odwrotnej kolejności, zaczynając od ostatniego."
+  }
  }
 }

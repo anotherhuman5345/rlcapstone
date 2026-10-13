@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% if done_round %}<p class="meta">{{ _('round_done', r=done_round) }}</p>{% endif %}
+<h1>{{ _('fatigue_title') }}</h1>
+<form method="post" action="/fatigue" class="stack">
+  <input type="hidden" name="point" value="{{ point }}">
+  {% set name = 'value' %}
+  <fieldset class="fatigue">
+    <legend>{{ _('fatigue_q') }}</legend>
+    <input type="range" name="value" min="0" max="100" step="1" value="50">
+    <div class="ends"><span>0 · {{ _('fatigue_low') }}</span><output>–</output><span>100 · {{ _('fatigue_high') }}</span></div>
+  </fieldset>
+  <button type="submit">{{ _('continue') }}</button>
+</form>
+<script>
+document.querySelectorAll('.fatigue').forEach(fs => {
+  const range = fs.querySelector('input'), out = fs.querySelector('output');
+  const btn = fs.closest('form').querySelector('button[type=submit]');
+  btn.disabled = true;
+  range.addEventListener('input', () => { out.textContent = range.value; btn.disabled = false; });
+});
+</script>
+{% endblock %}

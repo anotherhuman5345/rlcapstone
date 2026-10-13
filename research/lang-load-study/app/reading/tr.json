@@ -1,0 +1,282 @@
+{
+ "code": "tr",
+ "verified": false,
+ "note": "Original passages written for this study. Item k in every language must carry the same meaning and the same option order; check with a bilingual reviewer before real use.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Lena'nın fırını saat yedide açılır. Pazar geceleri fırın temizlendiği için pazartesileri bir saat geç açılır. Bugün pazartesi.",
+   "question": "Fırın bugün saat kaçta açılıyor?",
+   "options": [
+    "Yedide",
+    "Sekizde",
+    "Altıda"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Okul servisi kütüphanenin önünden kalkar. Mira servise her zaman yetişir, ama bu sabah bir komşusunun kutularını taşımasına yardım ettiği için kaçırdı. Bir sonraki servis yirmi dakika sonra geliyor.",
+   "question": "Mira neden her zamankinden geç varacak?",
+   "options": [
+    "Komşusuna yardım edip servisi kaçırdı",
+    "Servis bozuldu",
+    "Kütüphane kapalıydı"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Ömer domatesleri her akşam sular. Dün gece şiddetli yağmur yağdı, bu yüzden sulamadı. Bu sabah toprak hâlâ ıslaktı.",
+   "question": "Ömer dün gece domatesleri neden sulamadı?",
+   "options": [
+    "Domatesler toplanmıştı",
+    "Yağmur onları zaten sulamıştı",
+    "Unuttu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Müzede mavi salonda tablolar, yeşil salonda heykeller var. Rehber, müzedeki en eski eserin taştan yapıldığını ve yeşil salonda durduğunu söyledi.",
+   "question": "En eski eser ne tür bir nesne?",
+   "options": [
+    "Bir tablo",
+    "Bir fotoğraf",
+    "Bir heykel"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Deniz'in tren bileti hafta içi daha ucuz. Teyzesini cumartesi ziyaret etmek istiyordu ama para biriktirmek için yolculuğu cumaya aldı.",
+   "question": "Deniz neden cuma günü yolculuk etti?",
+   "options": [
+    "Bilet hafta içi daha ucuz",
+    "Cumartesi tren yoktu",
+    "Teyzesi cumartesi meşguldü"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Kulüp, yirmiden fazla kişi kaydolmadıkça 4 numaralı odada toplanır. Daha fazla kişi kaydolursa salona taşınır. Bu hafta yirmi altı kişi kaydoldu.",
+   "question": "Kulüp bu hafta nerede toplanacak?",
+   "options": [
+    "Toplanmayacak",
+    "4 numaralı odada",
+    "Salonda"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Kemal'in telefonunun şarjı bütün gün yeter. Dün öğleden sonra boyunca haritayı kullandı; harita şarjı hızla bitirir. Telefon akşam yemeğinden önce kapandı.",
+   "question": "Telefon neden erken kapandı?",
+   "options": [
+    "Harita çok şarj harcadı",
+    "Telefon yeniydi",
+    "Telefonu açmayı unuttu"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Bir dükkân, iki sandviç alan herkese bedava kahve veriyor. Ana bir sandviç ve bir meyve suyu aldı. Arkadaşı iki sandviç aldı.",
+   "question": "Kim bedava kahve aldı?",
+   "options": [
+    "Ana'nın arkadaşı",
+    "İkisi de",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Parkın kapısı gün batımında kapanır. Kışın güneş saat beş civarında, yazın sekiz civarında batar. Tom aralık ayında saat altıda parka geldi.",
+   "question": "Tom parka girebildi mi?",
+   "options": [
+    "Sadece arka kapıdan",
+    "Evet, açıktı",
+    "Hayır, kapı çoktan kapanmıştı"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Kaya Hanım'ın sınıfındaki her öğrenci sınava hesap makinesi getirmek zorunda. Selim onun sınıfında. Sınav günü hesap makinesi evdeydi.",
+   "question": "Selim neyi unuttu?",
+   "options": [
+    "Sınav kâğıdını",
+    "Sınav için gereken bir şeyi",
+    "Öğretmeninin adını"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Bahçedeki yaşlı meşenin yaprakları, bahçedeki diğer bütün ağaçlardan önce sararır. Bu yıl bahçedeki ilk sarı yapraklar ekim başında görüldü.",
+   "question": "Meşenin yaprakları ne zaman sararmaya başladı?",
+   "options": [
+    "Aralıkta",
+    "Diğer bütün ağaçlardan sonra",
+    "Ekim başında"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Kütüphane kitapları iki haftalığına ödünç verir. Geciken kitaplar için günlük küçük bir ücret alınır. Sam bir kitabı iki hafta dolduktan üç gün sonra iade etti.",
+   "question": "Sam kitabı iade ettiğinde ne oldu?",
+   "options": [
+    "Hiçbir şey, zamanındaydı",
+    "Gecikme ücreti ödedi",
+    "Yeni bir kart aldı"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana çayı yalnızca şekersiz içer. Kafede garson, içine iki kaşık şeker karıştırılmış bir çay getirdi. Hana çayı geri gönderdi.",
+   "question": "Hana çayı neden geri gönderdi?",
+   "options": [
+    "Soğuktu",
+    "İçinde zaten şeker vardı",
+    "Çay değil kahveydi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Kasabanın en yüksek binası on iki katlıdır. Klinik o binanın en üst katında ve asansör bugün bozuk.",
+   "question": "Ziyaretçiler bugün kliniğe nasıl ulaşacak?",
+   "options": [
+    "Merdivenle on ikinci kata çıkarak",
+    "Klinik taşındı",
+    "Asansörle"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Evin kuzey tarafındaki bitkiler az güneş alır. Ayla fesleğenini kuzey tarafından güney tarafına taşıdı ve bir hafta içinde fesleğen çok daha hızlı büyüdü.",
+   "question": "Fesleğenin büyümesine büyük olasılıkla ne yardım etti?",
+   "options": [
+    "Yeni bir saksı",
+    "Daha fazla güneş ışığı",
+    "Daha az su"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Bir tarif, bir kek için üç yumurta istiyor. Burak iki kek yapmak istiyor ve dört yumurtası var.",
+   "question": "Burak'ın neye ihtiyacı var?",
+   "options": [
+    "Hiçbir şeye, yeterince var",
+    "İki yumurta daha",
+    "Bir yumurta daha"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Konser saat sekizde başlıyor. Kapılar konserden bir saat önce açılıyor. Lara yediyi çeyrek geçe geldi.",
+   "question": "Lara geldiğinde kapılar açık mıydı?",
+   "options": [
+    "Evet, yedide açılmıştı",
+    "Konserden sonra geldi",
+    "Hayır, sekizde açıldı"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Barınaktaki kediler sabahları beslenir. Köpekler sabah ve akşam olmak üzere iki kez beslenir. Max adlı bir köpek öğlen sahiplenildi.",
+   "question": "Max o gün barınakta kaç öğün yedi?",
+   "options": [
+    "Hiç",
+    "Bir",
+    "İki"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Göldeki buzun üzerinde yürümek ancak buz en az on santim kalınlığındaysa güvenlidir. Pazartesi buz sekiz santimdi ve çarşambaya kadar iki santim kalınlaştı.",
+   "question": "Çarşamba günü buz güvenli miydi?",
+   "options": [
+    "Hayır, hâlâ çok inceydi",
+    "Evet, on santime ulaştı",
+    "Göl erimişti"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Emre'nin saati beş dakika ileri gidiyor. Sınıfa girdiğinde saati 9.05'i gösteriyordu; ders tam o anda başladı.",
+   "question": "Ders saat kaçta başladı?",
+   "options": [
+    "9.05'te",
+    "9.10'da",
+    "9.00'da"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Kulübün teknelerini yalnızca üyeler ödünç alabilir. Üyelik yıllık bir ücretle olur. Nadia ücreti geçen hafta ödedi.",
+   "question": "Nadia şimdi tekne ödünç alabilir mi?",
+   "options": [
+    "Sadece hafta sonları",
+    "Hayır, üye değil",
+    "Evet, artık üye"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Kuzey yolu onarım için kapalı. Güney yolu daha uzun ama açık. Bir kamyonun bugün köye teslimat yapması gerekiyordu.",
+   "question": "Kamyon büyük olasılıkla hangi yolu kullandı?",
+   "options": [
+    "Kuzey yolunu",
+    "Güney yolunu",
+    "Hiçbirini, gitmedi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Bir bitkinin üç günde bir sulanması gerekiyor. Bitki pazartesi sulandı.",
+   "question": "Bir sonraki sulama hangi gün?",
+   "options": [
+    "Perşembe",
+    "Cumartesi",
+    "Çarşamba"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Kırmızı dosyada ödenmemiş faturalar durur. Ödenen faturalar siyah dosyaya konur. Yusuf bu sabah elektrik faturasını ödedi.",
+   "question": "Elektrik faturası şimdi nerede olmalı?",
+   "options": [
+    "Çöpte",
+    "Kırmızı dosyada",
+    "Siyah dosyada"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Kafesteki kuşların hepsi öter, en küçüğü hariç. Sarı kuş kafesteki en küçük kuş.",
+   "question": "Sarı kuş hakkında ne biliyoruz?",
+   "options": [
+    "En çok o öter",
+    "Ötemez",
+    "En yaşlısı o"
+   ],
+   "answer": 1
+  }
+ ]
+}

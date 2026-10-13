@@ -323,6 +323,31 @@ def dice_board(rng):
     return img, tx, ty, CELL * .3, {"a": a, "b": b, "dir_a": dir_a, "dir_b": dir_b}
 
 
+# Corsi blocks: nine squares at fixed, irregular positions (fractions of the board).
+# Each item is a sequence to watch and click back, in the same order ("forward") or
+# in reverse ("backward"); which one is said only in the written clue.
+CORSI_BLOCKS = [(.12, .70), (.30, .20), (.48, .55), (.70, .15), (.86, .62),
+                (.22, .44), (.62, .86), (.38, .88), (.78, .38)]
+
+
+def corsi_items(rng, n):
+    """n items in pairs; both items of a pair share length and direction, so the
+    pair's L1 and L2 trials are equally hard."""
+    items = []
+    for k in range(n):
+        m = k // 2
+        length = 4 if m % 2 == 0 else 5
+        direction = "forward" if (m // 2) % 2 == 0 else "backward"
+        seq = []
+        while len(seq) < length:
+            b = rng.randrange(len(CORSI_BLOCKS))
+            if not seq or b != seq[-1]:  # never the same square twice in a row
+                if b not in seq:
+                    seq.append(b)
+        items.append({"sequence": seq, "direction": direction})
+    return items
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=48, help="scored images per task (12 rounds x 4)")
@@ -381,6 +406,21 @@ def main():
         images.append({"id": iid, "task": "dice", "file": f"{iid}.png", "width": W, "height": H,
                        "target": {"x": x, "y": y, "r": r, "object": "square", "color": None, **move},
                        "practice": practice})
+
+    # Corsi items (data only, drawn by the browser) with their own random sequence.
+    crng = random.Random(args.seed + 11)
+    for k, item in enumerate(corsi_items(crng, args.n) + corsi_items(crng, 1)):
+        practice = k == args.n
+        images.append({"id": "corsi_practice" if practice else f"corsi_{k:02d}", "task": "corsi",
+                       "blocks": CORSI_BLOCKS, "target": {"object": "sequence", "color": None, **item},
+                       "practice": practice})
+
+    # Reading items: the passages live per language in app/reading/<code>.json; the
+    # manifest only records which option is correct (the same in every language).
+    reading = json.loads((HERE.parent / "app" / "reading" / "en.json").read_text(encoding="utf-8"))
+    for item in reading["items"]:
+        images.append({"id": item["id"], "task": "reading", "target": {"object": "passage", "color": None,
+                       "answer": item["answer"]}, "practice": item["id"] == "reading_practice"})
 
     # Surprise image: ring target + unannounced gorilla, on its own scan.
     base = Image.open(sources[args.n + 1]) if args.real_scans else synthetic_scan(rng)

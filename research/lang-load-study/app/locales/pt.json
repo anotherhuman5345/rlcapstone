@@ -70,7 +70,18 @@
   "bg_l2": "Que outro idioma você também consegue ler?",
   "bg_l1_reading": "Quão bem você lê o idioma em que se sente mais à vontade? (1 = muito pouco, 7 = como um falante nativo)",
   "bg_l2_reading": "Quão bem você lê esse outro idioma? (1 = muito pouco, 7 = como um falante nativo)",
-  "bg_same_lang": "Por favor, escolha dois idiomas diferentes."
+  "bg_same_lang": "Por favor, escolha dois idiomas diferentes.",
+  "fatigue_title": "Verificação rápida",
+  "fatigue_q": "Quão cansado(a) mentalmente você se sente agora?",
+  "fatigue_low": "nada",
+  "fatigue_high": "extremamente",
+  "round_done": "Rodada {r} concluída.",
+  "bg_equal": "Sinto-me igualmente à vontade lendo os dois idiomas",
+  "instr_corsi": "Quadrados que acendem: observe a ordem e depois clique neles como a pista indicar, na mesma ordem ou na ordem inversa.",
+  "instr_reading": "Textos curtos: leia o texto e escolha a melhor resposta.",
+  "corsi_start": "Começar",
+  "corsi_go": "Sua vez: clique nos quadrados.",
+  "reading_answer": "Responder"
  },
  "clue": {
   "np": "{small} {noun} {color}",
@@ -216,6 +227,10 @@
    "Comece na estrela. Mova-se {dir_a} tantas casas quanto mostra o dado A e, depois, {dir_b} tantas quanto mostra o dado B. Clique onde você parar.",
    "A partir da estrela, avance {dir_a} o número de casas do dado A, depois {dir_b} o número do dado B, e clique nessa casa.",
    "Parta da estrela: o dado A diz quantas casas andar {dir_a}, depois o dado B diz quantas andar {dir_b}. Clique na casa final."
-  ]
+  ],
+  "corsi": {
+   "forward": "Observe os quadrados acenderem um por um. Depois clique neles na mesma ordem.",
+   "backward": "Observe os quadrados acenderem um por um. Depois clique neles na ordem inversa, começando pelo último."
+  }
  }
 }

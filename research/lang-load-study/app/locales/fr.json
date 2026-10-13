@@ -70,7 +70,18 @@
   "bg_l2": "Quelle autre langue savez-vous aussi lire ?",
   "bg_l1_reading": "Dans quelle mesure lisez-vous bien la langue où vous êtes le plus à l'aise ? (1 = très peu, 7 = comme un locuteur natif)",
   "bg_l2_reading": "Dans quelle mesure lisez-vous bien cette autre langue ? (1 = très peu, 7 = comme un locuteur natif)",
-  "bg_same_lang": "Veuillez choisir deux langues différentes."
+  "bg_same_lang": "Veuillez choisir deux langues différentes.",
+  "fatigue_title": "Petite vérification",
+  "fatigue_q": "À quel point vous sentez-vous mentalement fatigué(e) en ce moment ?",
+  "fatigue_low": "pas du tout",
+  "fatigue_high": "extrêmement",
+  "round_done": "La série {r} est terminée.",
+  "bg_equal": "Je suis aussi à l'aise pour lire dans les deux langues",
+  "instr_corsi": "Carrés qui s'allument : observez l'ordre, puis cliquez dessus comme l'indique l'indice, dans le même ordre ou dans l'ordre inverse.",
+  "instr_reading": "Courts textes : lisez le texte et choisissez la meilleure réponse.",
+  "corsi_start": "Commencer",
+  "corsi_go": "À vous : cliquez sur les carrés.",
+  "reading_answer": "Répondre"
  },
  "clue": {
   "np": "{small} {noun} {color}",
@@ -216,6 +227,10 @@
    "Partez de l'étoile. Déplacez-vous {dir_a} d'autant de cases que l'indique le dé A, puis {dir_b} d'autant de cases que l'indique le dé B. Cliquez sur la case d'arrivée.",
    "Depuis l'étoile, allez {dir_a} du nombre de cases indiqué par le dé A, puis {dir_b} du nombre indiqué par le dé B, et cliquez sur cette case.",
    "Commencez sur l'étoile : le dé A indique de combien de cases aller {dir_a}, puis le dé B de combien de cases aller {dir_b}. Cliquez sur la case finale."
-  ]
+  ],
+  "corsi": {
+   "forward": "Regardez les carrés s'allumer un par un. Cliquez ensuite dessus dans le même ordre.",
+   "backward": "Regardez les carrés s'allumer un par un. Cliquez ensuite dessus dans l'ordre inverse, en commençant par le dernier."
+  }
  }
 }
