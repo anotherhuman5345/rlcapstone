@@ -3,14 +3,20 @@ import uuid
 from datetime import datetime, timezone
 
 from sqlalchemy import (JSON, Boolean, DateTime, Float, ForeignKey, Integer,
-                        String, create_engine)
+                        String, create_engine, inspect, text)
 from sqlalchemy.orm import (DeclarativeBase, Mapped, mapped_column,
                             relationship, sessionmaker)
+from sqlalchemy.pool import NullPool
 
 from .config import DATABASE_URL
 
-connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    # Postgres behind a transaction pooler (Supabase), used from short-lived serverless
+    # functions: no client-side pool and no prepared statements.
+    engine = create_engine(DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1),
+                           poolclass=NullPool, connect_args={"prepare_threshold": None})
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
 
@@ -29,7 +35,7 @@ class Participant(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=now)
     is_test: Mapped[bool] = mapped_column(Boolean, default=True)
     consented: Mapped[bool] = mapped_column(Boolean, default=False)
-    ui_lang: Mapped[str] = mapped_column(String(2), default="en")
+    ui_lang: Mapped[str] = mapped_column(String(5), default="en")
 
     # Background questionnaire
     group: Mapped[str | None] = mapped_column(String(20))
@@ -38,10 +44,10 @@ class Participant(Base):
     years_reading_images: Mapped[float | None] = mapped_column(Float)
     native_lang: Mapped[str | None] = mapped_column(String(10))
     l2_age_acquired: Mapped[int | None] = mapped_column(Integer)
-    en_reading: Mapped[int | None] = mapped_column(Integer)  # 1-7 self-rating
-    tr_reading: Mapped[int | None] = mapped_column(Integer)  # 1-7 self-rating
-    l1: Mapped[str | None] = mapped_column(String(2))  # most comfortable reading language
-    l2: Mapped[str | None] = mapped_column(String(2))  # less comfortable
+    l1: Mapped[str | None] = mapped_column(String(5))  # most comfortable reading language
+    l2: Mapped[str | None] = mapped_column(String(5))  # the other language they read
+    l1_reading: Mapped[int | None] = mapped_column(Integer)  # 1-7 self-rating
+    l2_reading: Mapped[int | None] = mapped_column(Integer)  # 1-7 self-rating
     # Protocol inclusion rule: reads both languages at 3+ on the 1-7 scale.
     # Ineligible people can still finish; they are flagged and excluded in analysis.
     eligible: Mapped[bool | None] = mapped_column(Boolean)
@@ -83,7 +89,7 @@ class TrialResult(Base):
     elapsed_s: Mapped[float | None] = mapped_column(Float)  # seconds since the first image
     image_id: Mapped[str] = mapped_column(String(40))
     target_object: Mapped[str | None] = mapped_column(String(20))  # e.g. "fish"; varies per picture
-    clue_lang: Mapped[str] = mapped_column(String(2))    # "en" or "tr"
+    clue_lang: Mapped[str] = mapped_column(String(5))    # language code, e.g. "en", "tr", "ja"
     condition: Mapped[str] = mapped_column(String(2))    # "L1" or "L2"
     practice: Mapped[bool] = mapped_column(Boolean, default=False)
     rt_ms: Mapped[float | None] = mapped_column(Float)   # time to correct click
@@ -98,3 +104,17 @@ class TrialResult(Base):
 
 def init_db():
     Base.metadata.create_all(engine)
+    _add_missing_columns()
+
+
+def _add_missing_columns():
+    """Tiny migration: when a new version adds columns, add them to an existing
+    database instead of failing. Old columns are left alone, so no data is lost."""
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table in Base.metadata.sorted_tables:
+            have = {c["name"] for c in insp.get_columns(table.name)}
+            for col in table.columns:
+                if col.name not in have:
+                    ddl = col.type.compile(dialect=engine.dialect)
+                    conn.execute(text(f'ALTER TABLE {table.name} ADD COLUMN "{col.name}" {ddl}'))

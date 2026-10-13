@@ -134,9 +134,14 @@ def draw_object(d, kind, cx, cy, s, fill, outline=OUTLINE):
         raise ValueError(kind)
 
 
-def search_scene(rng, target_kind, target_color, n_distractors=260, target_size=13):
-    """Conjunction search: distractors share the target's shape OR its color, never both."""
-    img = Image.new("RGB", (W, H), (236, 232, 222))
+BACKGROUNDS = [(236, 232, 222), (226, 232, 236), (232, 236, 226), (240, 236, 236), (222, 222, 222)]
+
+
+def search_scene(rng, target_kind, target_color, n_distractors=None, target_size=13):
+    """Conjunction search: distractors share the target's shape OR its color, never both.
+    Background tone and amount of clutter vary from scene to scene."""
+    n_distractors = n_distractors or rng.randint(220, 300)
+    img = Image.new("RGB", (W, H), rng.choice(BACKGROUNDS))
     d = ImageDraw.Draw(img)
     rgb = COLORS[target_color]
     others = [c for name, c in COLORS.items() if name != target_color] + EXTRA_COLORS
@@ -159,19 +164,45 @@ def search_scene(rng, target_kind, target_color, n_distractors=260, target_size=
     return img, tx, ty, target_size * 1.4
 
 
-def synthetic_scan(rng):
-    """A placeholder that looks vaguely like a chest image. Not a real scan."""
+SCAN_KINDS = ("chest", "head", "abdomen", "limb")
+
+
+def synthetic_scan(rng, kind=None):
+    """A placeholder that looks vaguely like a medical image. Not a real scan.
+    Four kinds of anatomy, with brightness, noise and left-right mirroring varied,
+    so the scans do not all look the same."""
     nrng = np.random.default_rng(rng.randint(0, 2**31))
-    base = nrng.normal(60, 25, (H, W))
+    kind = kind or rng.choice(SCAN_KINDS)
+    base = nrng.normal(rng.uniform(40, 75), rng.uniform(18, 30), (H, W))
     yy, xx = np.mgrid[0:H, 0:W]
-    for cx in (W * 0.33, W * 0.67):  # two "lung fields"
-        mask = ((xx - cx) / (W * 0.17)) ** 2 + ((yy - H * 0.5) / (H * 0.38)) ** 2 < 1
-        base[mask] += 70
-    for _ in range(25):  # soft structures
+
+    def ellipse(cx, cy, rx, ry):
+        return ((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2 < 1
+
+    if kind == "chest":      # two lung fields
+        for cx in (W * 0.33, W * 0.67):
+            base[ellipse(cx, H * 0.5, W * rng.uniform(.15, .19), H * rng.uniform(.33, .4))] += 70
+    elif kind == "head":     # skull ring, brain, two ventricles
+        rx, ry = W * .3, H * .44
+        base[ellipse(W / 2, H / 2, rx, ry)] += 110
+        base[ellipse(W / 2, H / 2, rx * .9, ry * .9)] -= 45
+        for dx in (-1, 1):
+            base[ellipse(W / 2 + dx * W * .05, H * .47, W * .03, H * .1)] -= 40
+    elif kind == "abdomen":  # body outline, liver, spine, organs
+        base[ellipse(W / 2, H / 2, W * .42, H * .45)] += 55
+        base[ellipse(W * .35, H * .42, W * .16, H * .2)] += 30
+        base[ellipse(W / 2, H * .72, W * .04, H * .06)] += 90
+    else:                    # limb: two long bones side by side
+        for cx in (W * rng.uniform(.38, .44), W * rng.uniform(.56, .62)):
+            base[ellipse(cx, H / 2, W * .045, H * .48)] += 90
+            base[ellipse(cx, H / 2, W * .02, H * .44)] -= 40
+    for _ in range(rng.randint(15, 35)):  # soft structures
         bx, by, r = nrng.integers(0, W), nrng.integers(0, H), nrng.integers(10, 60)
         base[((xx - bx) ** 2 + (yy - by) ** 2) < r ** 2] += nrng.normal(25, 10)
+    if rng.random() < .5:
+        base = base[:, ::-1]
     img = Image.fromarray(np.clip(base, 0, 255).astype("uint8"), "L")
-    return img.filter(ImageFilter.GaussianBlur(4))
+    return img.filter(ImageFilter.GaussianBlur(rng.uniform(3, 5)))
 
 
 def plant_object(img, rng, kind, size=None, contrast=None):

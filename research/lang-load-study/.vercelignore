@@ -1,0 +1,8 @@
+analysis/
+tests/
+docs/
+tools/
+stimuli/real_scans/
+*.db
+.venv/
+__pycache__/

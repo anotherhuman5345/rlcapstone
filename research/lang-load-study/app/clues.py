@@ -10,91 +10,19 @@ The clue must be READ to be useful, every single time:
   - The location part names the region and the nearer edge.
 Both languages of a given picture use the same pattern and carry exactly the
 same information, so the only difference between conditions is the language.
-Have a native speaker proofread all Turkish text before real data collection.
+Each language's words and sentence patterns live in app/locales/<code>.json.
 """
 import zlib
 
-REGIONS = {
-    # (row, col) on a 3x3 grid
-    "en": {
-        (0, 0): "upper-left", (0, 1): "top-center", (0, 2): "upper-right",
-        (1, 0): "middle-left", (1, 1): "center", (1, 2): "middle-right",
-        (2, 0): "lower-left", (2, 1): "bottom-center", (2, 2): "lower-right",
-    },
-    "tr": {
-        (0, 0): "sol üst", (0, 1): "üst orta", (0, 2): "sağ üst",
-        (1, 0): "sol orta", (1, 1): "orta", (1, 2): "sağ orta",
-        (2, 0): "sol alt", (2, 1): "alt orta", (2, 2): "sağ alt",
-    },
-}
+from .i18n import LOCALES
 
-EDGES = {
-    "en": {"top": "top", "bottom": "bottom", "left": "left", "right": "right"},
-    "tr": {"top": "üst", "bottom": "alt", "left": "sol", "right": "sağ"},
-}
-
-COLORS = {
-    "en": {"red": "red", "blue": "blue", "green": "green", "yellow": "yellow",
-           "purple": "purple", "orange": "orange"},
-    "tr": {"red": "kırmızı", "blue": "mavi", "green": "yeşil", "yellow": "sarı",
-           "purple": "mor", "orange": "turuncu"},
-}
-
-# English noun; Turkish (nominative, accusative).
-OBJECTS = {
-    "umbrella": ("umbrella", "şemsiye", "şemsiyeyi"),
-    "star": ("star", "yıldız", "yıldızı"),
-    "heart": ("heart", "kalp", "kalbi"),
-    "moon": ("crescent moon", "hilal", "hilali"),
-    "arrow": ("arrow", "ok", "oku"),
-    "cross": ("plus sign", "artı işareti", "artı işaretini"),
-    "diamond": ("diamond", "karo", "karoyu"),
-    "house": ("house", "ev", "evi"),
-    "fish": ("fish", "balık", "balığı"),
-    "key": ("key", "anahtar", "anahtarı"),
-    "monkey": ("monkey", "maymun", "maymunu"),
-    "cat": ("cat", "kedi", "kediyi"),
-    "bird": ("bird", "kuş", "kuşu"),
-    # Used only as wrong answers in the attention check; never a target.
-    "car": ("car", "araba", "arabayı"),
-    "tree": ("tree", "ağaç", "ağacı"),
-    "guitar": ("guitar", "gitar", "gitarı"),
-    "elephant": ("elephant", "fil", "fili"),
-}
+# Kinds of object, for checking that every language file covers them all.
+TARGET_OBJECTS = ("umbrella", "star", "heart", "moon", "arrow", "cross", "diamond", "house",
+                  "fish", "key", "monkey", "cat", "bird")
+# Used only as wrong answers in the attention check; never a target.
 DECOY_OBJECTS = ("car", "tree", "guitar", "elephant")
-
-SEARCH_LEADS = {
-    "en": ["Find the small {color} {obj}.",
-           "Look for a small {color} {obj}.",
-           "Your target: a small {color} {obj}.",
-           "Somewhere there is a small {color} {obj}. Click it."],
-    "tr": ["Küçük {color} {acc} bulun.",
-           "Küçük bir {color} {nom} arayın.",
-           "Hedefiniz: küçük bir {color} {nom}.",
-           "Bir yerde küçük bir {color} {nom} var. Üzerine tıklayın."],
-}
-
-SCAN_LEADS = {
-    "en": ["Something in this image is out of the ordinary. Find it.",
-           "One thing here does not belong. Click on it.",
-           "Look for anything that does not match the rest of the image.",
-           "There is something unusual in this image."],
-    "tr": ["Bu görüntüde olağan dışı bir şey var. Onu bulun.",
-           "Burada bir şey yerine ait değil. Üzerine tıklayın.",
-           "Görüntünün geri kalanıyla uyuşmayan bir şey arayın.",
-           "Bu görüntüde alışılmadık bir şey var."],
-}
-
-SURPRISE_LEAD = {"en": "Find the small white ring.", "tr": "Küçük beyaz halkayı bulun."}
-
-WHERE = {
-    "en": ["It is in the {region} area of the image, closer to the {near} edge than to the {far} edge.",
-           "Check the {region} part, nearer the {near} edge than the {far} edge.",
-           "Search the {region} area; it sits closer to the {near} edge than to the {far} edge."],
-    "tr": ["Görüntünün {region} bölgesinde; {far} kenardan çok {near} kenara yakın.",
-           "{Region} kısma bakın; {far} kenardan çok {near} kenara yakın.",
-           "{Region} bölgeyi arayın; {near} kenara, {far} kenardan daha yakın."],
-}
+COLOR_NAMES = ("red", "blue", "green", "yellow", "purple", "orange")
+N_SEARCH_LEADS, N_SCAN_LEADS, N_WHERE = 4, 4, 3
 
 
 def nearest_two_edges(x, y, w, h):
@@ -115,27 +43,53 @@ def variant(image_id: str, n: int, salt: str = "") -> int:
     return zlib.crc32((salt + image_id).encode()) % n
 
 
+def upper_first(text: str, lang: str) -> str:
+    if not text:
+        return text
+    first = text[0]
+    if lang == "tr" and first == "i":
+        first = "İ"  # Turkish dotted capital I
+    return first.upper() + text[1:]
+
+
+def _agree(table: dict, gender: str) -> str:
+    """Pick the form that agrees with the noun's gender or class ('*' = any)."""
+    return table.get(gender, table.get("*", ""))
+
+
+def noun_phrase(lang: str, kind: str, color: str | None, form: str = "nom") -> str:
+    """'small green fish' in the language's own word order and agreement."""
+    spec = LOCALES[lang]["clue"]
+    obj = spec["objects"][kind]
+    gender = obj.get("g", "*")
+    noun = obj.get(form, obj["nom"])
+    color_word = _agree(spec["colors"][color], gender) if color else ""
+    phrase = spec["np"].format(small=_agree(spec["small"], gender), color=color_word, noun=noun)
+    return " ".join(phrase.split()) if " " in spec["np"] else phrase
+
+
 def object_name(kind: str, lang: str) -> str:
-    en, nom, _ = OBJECTS[kind]
-    return en if lang == "en" else nom
+    return LOCALES[lang]["clue"]["objects"][kind]["nom"]
 
 
 def make_clue(task: str, lang: str, image_id: str, target: dict, w: int, h: int) -> str:
+    spec = LOCALES[lang]["clue"]
     x, y = target["x"], target["y"]
     if task == "surprise":
-        lead = SURPRISE_LEAD[lang]
+        lead = spec["surprise_lead"]
     elif task == "scan":
-        leads = SCAN_LEADS[lang]
-        lead = leads[variant(image_id, len(leads), "lead")]
+        lead = spec["scan_leads"][variant(image_id, N_SCAN_LEADS, "lead")]
     else:
-        en, nom, acc = OBJECTS[target["object"]]
-        leads = SEARCH_LEADS[lang]
-        lead = leads[variant(image_id, len(leads), "lead")].format(
-            color=COLORS[lang][target["color"]], obj=en, nom=nom, acc=acc)
-    region = REGIONS[lang][region_of(x, y, w, h)]
+        template = spec["search_leads"][variant(image_id, N_SEARCH_LEADS, "lead")]
+        lead = template.format(np=noun_phrase(lang, target["object"], target["color"]),
+                               np_acc=noun_phrase(lang, target["object"], target["color"], "acc"))
+        lead = upper_first(lead, lang)
+    row, col = region_of(x, y, w, h)
+    region = spec["regions"][f"{row},{col}"]
     near, far = nearest_two_edges(x, y, w, h)
-    templates = WHERE[lang]
-    where = templates[variant(image_id, len(templates), "where")].format(
-        region=region, Region=region[0].upper() + region[1:],
-        near=EDGES[lang][near], far=EDGES[lang][far])
-    return f"{lead} {where}"
+    where = spec["where"][variant(image_id, N_WHERE, "where")].format(
+        region=region, Region=upper_first(region, lang),
+        near=spec["edges"][near], far=spec["edges"][far])
+    # Chinese and Japanese do not put a space after a full stop.
+    sep = "" if lead.endswith(("。", "！", "？")) else " "
+    return f"{lead}{sep}{where}"

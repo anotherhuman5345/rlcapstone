@@ -1,150 +1,50 @@
-"""Interface text in English and Turkish.
+"""Interface text and clue vocabulary for every language, loaded from app/locales/*.json.
 
-The interface is shown in the participant's chosen language. Only the CLUE on
-each trial switches language; that switch is the experimental manipulation.
-Have a native Turkish speaker proofread every string before real data
-collection.
+Each file holds:
+  - "ui": every interface string (same keys in every language),
+  - "clue": the words and sentence patterns used to build clues, including the
+    grammar each language needs (word order, and gender/class agreement of
+    "small" and the color with the noun),
+  - "verified": whether a native speaker has checked the file. Until it is true,
+    the language can be used in demo mode but not for real data collection.
+
+Only the CLUE on each trial switches language; that switch is the experimental
+manipulation. The interface stays in the language the participant picked.
 """
+import json
+from pathlib import Path
 
-STRINGS = {
-    "en": {
-        "title": "How fast can you find it?",
-        "intro": "A short study on how the language of a written clue changes visual search. It takes no more than 15 minutes.",
-        "start": "Start",
-        "choose_lang": "Show the study in",
-        "demo_banner": "Demo only. This study is awaiting ethics approval, and nothing recorded here is research data.",
-        "consent_title": "Before you begin",
-        "consent_body": "You will look at pictures and click on a target as quickly as you can, using a written clue. We record your clicks, timings, and answers to a short questionnaire. We never ask for your name, email, or location. You can stop at any time by closing the page. If you are under 18, a parent or guardian must have given permission before you take part.",
-        "consent_irb": "Ethics approval number",
-        "consent_agree": "I agree to take part",
-        "bg_title": "About you",
-        "group": "Which describes you best?",
-        "group_high_school": "High school student",
-        "group_undergraduate": "University student",
-        "group_phd_student": "PhD student",
-        "group_radiologist": "Radiologist or radiology resident",
-        "group_professor": "Professor or researcher",
-        "group_other": "Other",
-        "age": "Age",
-        "education_years": "Total years of education, counting from first grade",
-        "years_reading_images": "Years of experience reading medical images (0 if none)",
-        "native_lang": "First language you learned",
-        "lang_en": "English",
-        "lang_tr": "Turkish",
-        "lang_other": "Another language",
-        "l2_age": "Age when you started learning your second language (English or Turkish)",
-        "en_reading": "How well do you read English? (1 = barely, 7 = like a native speaker)",
-        "tr_reading": "How well do you read Turkish? (1 = barely, 7 = like a native speaker)",
-        "comfort": "Which language are you most comfortable reading?",
-        "continue": "Continue",
-        "instr_title": "How it works",
-        "instr_search": "Busy pictures: the clue names a small object to find, and it is different every time.",
-        "instr_scan": "Grayscale medical images: something in each one is out of the ordinary. Find it and click on it. The two kinds of picture are mixed together.",
-        "instr_clue": "Above each picture is a clue telling you what to look for and where. Read every clue carefully: it changes each time, sometimes in English and sometimes in Turkish. Then click the target as fast as you can.",
-        "instr_effort": "After each picture, rate how much mental effort it took.",
-        "instr_practice": "The first two pictures are practice.",
-        "begin": "Begin",
-        "practice": "Practice",
-        "trial_of": "Picture {n} of {total}",
-        "timeout": "Time is up. Moving on.",
-        "found": "Found it.",
-        "effort_q": "How much mental effort did that take?",
-        "effort_low": "Very, very low",
-        "effort_high": "Very, very high",
-        "next": "Next",
-        "final_title": "Almost done",
-        "difficulty_q": "Overall, how difficult was this study? (1 = very easy, 9 = very difficult)",
-        "attention_q": "To show you were reading carefully: which of these did you search for in a busy picture?",
-        "finish": "Finish",
-        "debrief_title": "Thank you",
-        "debrief_body": "This study asks whether reading a clue in your less comfortable language slows down visual search, whether that changes over the session, and whether experience and education change it. The very first image also tested something else: when your attention is on one job (finding the ring), do you notice something unexpected (the gorilla)? Many people, including experts, do not. We are testing whether the clue's language changes that.",
-        "group_adult": "Adult (not a student)",
-        "group_physician": "Physician (not radiology)",
-        "surprise_title": "First, a quick one",
-        "surprise_body": "In the next image, find the small white ring and click on it. A written clue above the image tells you where to look.",
-        "notice_q": "Did you notice anything unusual in that image?",
-        "gorilla_q": "Did you see a gorilla in that image?",
-        "knew_q": "Before today, had you heard of the \"invisible gorilla\" study, where people miss a gorilla hidden in an image?",
-        "yes": "Yes", "no": "No",
-        "instr_reveal": "Thank you. There was a small gorilla in that image; many people miss it, and that is part of what we study. Nothing else in the study is a trick.",
-        "instr_rounds": "The pictures come in short rounds. Work quickly but carefully. The study stops by itself before 15 minutes, wherever you are; you do not need to finish every round.",
-        "round_of": "Round {r}",
-        "quit_button": "I'm exhausted — finish now",
-        "quit_confirm": "Finish the picture part now and go to the last two questions?",
-        "instr_quit": "If you feel exhausted, use the \"I'm exhausted\" button under any picture. That is completely fine, and it helps the study.",
-        "already_done": "This session is complete. Thank you for taking part.",
-    },
-    "tr": {
-        "title": "Ne kadar hızlı bulabilirsiniz?",
-        "intro": "Yazılı bir ipucunun dilinin görsel aramayı nasıl etkilediğine dair kısa bir çalışma. En fazla 15 dakika sürer.",
-        "start": "Başla",
-        "choose_lang": "Çalışmayı şu dilde göster",
-        "demo_banner": "Yalnızca deneme sürümü. Bu çalışma etik kurul onayını bekliyor; burada kaydedilen hiçbir şey araştırma verisi değildir.",
-        "consent_title": "Başlamadan önce",
-        "consent_body": "Resimlere bakacak ve yazılı bir ipucunu kullanarak hedefe olabildiğince hızlı tıklayacaksınız. Tıklamalarınızı, sürelerinizi ve kısa bir anketteki cevaplarınızı kaydediyoruz. Adınızı, e-postanızı veya konumunuzu asla sormuyoruz. Sayfayı kapatarak istediğiniz zaman bırakabilirsiniz. 18 yaşından küçükseniz, katılmadan önce bir ebeveyninizin veya velinizin izin vermiş olması gerekir.",
-        "consent_irb": "Etik kurul onay numarası",
-        "consent_agree": "Katılmayı kabul ediyorum",
-        "bg_title": "Hakkınızda",
-        "group": "Sizi en iyi hangisi tanımlıyor?",
-        "group_high_school": "Lise öğrencisi",
-        "group_undergraduate": "Üniversite öğrencisi",
-        "group_phd_student": "Doktora öğrencisi",
-        "group_radiologist": "Radyolog veya radyoloji asistanı",
-        "group_professor": "Profesör veya araştırmacı",
-        "group_other": "Diğer",
-        "age": "Yaş",
-        "education_years": "Birinci sınıftan itibaren toplam eğitim yılı",
-        "years_reading_images": "Tıbbi görüntü okuma deneyimi, yıl olarak (yoksa 0)",
-        "native_lang": "Öğrendiğiniz ilk dil",
-        "lang_en": "İngilizce",
-        "lang_tr": "Türkçe",
-        "lang_other": "Başka bir dil",
-        "l2_age": "İkinci dilinizi (İngilizce veya Türkçe) öğrenmeye başladığınız yaş",
-        "en_reading": "İngilizceyi ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
-        "tr_reading": "Türkçeyi ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
-        "comfort": "Okurken en rahat olduğunuz dil hangisi?",
-        "continue": "Devam",
-        "instr_title": "Nasıl işliyor",
-        "instr_search": "Kalabalık resimler: ipucu bulmanız gereken küçük bir nesneyi söyler ve bu nesne her seferinde farklıdır.",
-        "instr_scan": "Gri tonlu tıbbi görüntüler: her birinde olağan dışı bir şey var. Onu bulun ve üzerine tıklayın. İki tür resim karışık olarak gelir.",
-        "instr_clue": "Her resmin üstünde neyi ve nerede arayacağınızı söyleyen bir ipucu var. Her ipucunu dikkatle okuyun: her seferinde değişir, bazen İngilizce bazen Türkçedir. Sonra hedefe olabildiğince hızlı tıklayın.",
-        "instr_effort": "Her resimden sonra ne kadar zihinsel çaba harcadığınızı puanlayın.",
-        "instr_practice": "İlk iki resim alıştırmadır.",
-        "begin": "Başla",
-        "practice": "Alıştırma",
-        "trial_of": "Resim {n} / {total}",
-        "timeout": "Süre doldu. Devam ediliyor.",
-        "found": "Buldunuz.",
-        "effort_q": "Bu ne kadar zihinsel çaba gerektirdi?",
-        "effort_low": "Çok, çok düşük",
-        "effort_high": "Çok, çok yüksek",
-        "next": "Sonraki",
-        "final_title": "Neredeyse bitti",
-        "difficulty_q": "Genel olarak bu çalışma ne kadar zordu? (1 = çok kolay, 9 = çok zor)",
-        "attention_q": "Dikkatle okuduğunuzu göstermek için: kalabalık bir resimde bunlardan hangisini aradınız?",
-        "finish": "Bitir",
-        "debrief_title": "Teşekkürler",
-        "debrief_body": "Bu çalışma, bir ipucunu daha az rahat olduğunuz dilde okumanın görsel aramayı yavaşlatıp yavaşlatmadığını, bunun oturum boyunca değişip değişmediğini ve deneyim ile eğitimin bunu etkileyip etkilemediğini araştırıyor. İlk görüntü başka bir şeyi de test etti: dikkatiniz bir işe (halkayı bulmaya) yönelmişken beklenmedik bir şeyi (gorili) fark ediyor musunuz? Uzmanlar dahil pek çok kişi fark etmiyor. İpucunun dilinin bunu değiştirip değiştirmediğini test ediyoruz.",
-        "group_adult": "Yetişkin (öğrenci değil)",
-        "group_physician": "Hekim (radyoloji dışı)",
-        "surprise_title": "Önce kısa bir tane",
-        "surprise_body": "Sıradaki görüntüde küçük beyaz halkayı bulun ve üzerine tıklayın. Görüntünün üstündeki yazılı ipucu nereye bakacağınızı söyler.",
-        "notice_q": "O görüntüde olağan dışı bir şey fark ettiniz mi?",
-        "gorilla_q": "O görüntüde bir goril gördünüz mü?",
-        "knew_q": "Bugünden önce, insanların bir görüntüde saklanan gorili fark etmediği \"görünmez goril\" çalışmasını duymuş muydunuz?",
-        "yes": "Evet", "no": "Hayır",
-        "instr_reveal": "Teşekkürler. O görüntüde küçük bir goril vardı; pek çok kişi onu fark etmiyor ve bu, araştırdığımız şeyin bir parçası. Çalışmanın geri kalanında başka bir hile yok.",
-        "instr_rounds": "Resimler kısa turlar halinde gelir. Hızlı ama dikkatli çalışın. Çalışma, nerede olursanız olun 15 dakika dolmadan kendiliğinden biter; her turu bitirmeniz gerekmez.",
-        "round_of": "Tur {r}",
-        "quit_button": "Çok yoruldum — şimdi bitir",
-        "quit_confirm": "Resim bölümünü şimdi bitirip son iki soruya geçilsin mi?",
-        "instr_quit": "Çok yorulursanız, herhangi bir resmin altındaki \"Çok yoruldum\" düğmesini kullanın. Bu tamamen normaldir ve çalışmaya yardımcı olur.",
-        "already_done": "Bu oturum tamamlandı. Katıldığınız için teşekkürler.",
-    },
-}
+LOCALE_DIR = Path(__file__).resolve().parent / "locales"
+
+# The 30 most widely spoken languages that have a standard written form, in
+# roughly descending order of total speakers.
+ORDER = ("en", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "mr", "te",
+         "tr", "ha", "ta", "sw", "vi", "tl", "ko", "fa", "it", "pa", "gu", "th", "am", "kn", "pl")
+
+LOCALES = {}
+for _code in ORDER:
+    _path = LOCALE_DIR / f"{_code}.json"
+    if _path.exists():
+        LOCALES[_code] = json.loads(_path.read_text(encoding="utf-8"))
+
+LANGUAGES = tuple(c for c in ORDER if c in LOCALES)
+
+
+def language_name(code: str) -> str:
+    """The language's name in its own script, e.g. 'Türkçe', '日本語'."""
+    return LOCALES[code]["name"]
+
+
+def direction(code: str) -> str:
+    return LOCALES.get(code, LOCALES["en"])["dir"]
+
+
+def verified(code: str) -> bool:
+    return bool(LOCALES[code].get("verified"))
 
 
 def t(lang: str):
     """Return a lookup function for one language, falling back to English."""
-    table = STRINGS.get(lang, STRINGS["en"])
-    return lambda key, **kw: table.get(key, STRINGS["en"].get(key, key)).format(**kw)
+    table = LOCALES.get(lang, LOCALES["en"])["ui"]
+    english = LOCALES["en"]["ui"]
+    return lambda key, **kw: table.get(key, english.get(key, key)).format(**kw)

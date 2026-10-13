@@ -1,0 +1,188 @@
+{
+ "code": "en",
+ "name": "English",
+ "dir": "ltr",
+ "verified": true,
+ "ui": {
+  "title": "How fast can you find it?",
+  "intro": "A short study on how the language of a written clue changes visual search. It takes no more than 15 minutes.",
+  "start": "Start",
+  "choose_lang": "Show the study in",
+  "demo_banner": "Demo only. This study is awaiting ethics approval, and nothing recorded here is research data.",
+  "consent_title": "Before you begin",
+  "consent_body": "You will look at pictures and click on a target as quickly as you can, using a written clue. We record your clicks, timings, and answers to a short questionnaire. We never ask for your name, email, or location. You can stop at any time by closing the page. If you are under 18, a parent or guardian must have given permission before you take part.",
+  "consent_irb": "Ethics approval number",
+  "consent_agree": "I agree to take part",
+  "bg_title": "About you",
+  "group": "Which describes you best?",
+  "group_high_school": "High school student",
+  "group_undergraduate": "University student",
+  "group_phd_student": "PhD student",
+  "group_radiologist": "Radiologist or radiology resident",
+  "group_professor": "Professor or researcher",
+  "group_other": "Other",
+  "age": "Age",
+  "education_years": "Total years of education, counting from first grade",
+  "years_reading_images": "Years of experience reading medical images (0 if none)",
+  "native_lang": "First language you learned",
+  "lang_other": "Another language",
+  "l2_age": "Age when you started learning that other language",
+  "continue": "Continue",
+  "instr_title": "How it works",
+  "instr_search": "Busy pictures: the clue names a small object to find, and it is different every time.",
+  "instr_scan": "Grayscale medical images: something in each one is out of the ordinary. Find it and click on it. The two kinds of picture are mixed together.",
+  "instr_clue": "Above each picture is a clue telling you what to look for and where. Read every clue carefully: it changes each time, sometimes in {l1} and sometimes in {l2}. Then click the target as fast as you can.",
+  "instr_effort": "After each picture, rate how much mental effort it took.",
+  "instr_practice": "The first two pictures are practice.",
+  "begin": "Begin",
+  "practice": "Practice",
+  "trial_of": "Picture {n} of {total}",
+  "timeout": "Time is up. Moving on.",
+  "found": "Found it.",
+  "effort_q": "How much mental effort did that take?",
+  "effort_low": "Very, very low",
+  "effort_high": "Very, very high",
+  "next": "Next",
+  "final_title": "Almost done",
+  "difficulty_q": "Overall, how difficult was this study? (1 = very easy, 9 = very difficult)",
+  "attention_q": "To show you were reading carefully: which of these did you search for in a busy picture?",
+  "finish": "Finish",
+  "debrief_title": "Thank you",
+  "debrief_body": "This study asks whether reading a clue in your less comfortable language slows down visual search, whether that changes over the session, and whether experience and education change it. The very first image also tested something else: when your attention is on one job (finding the ring), do you notice something unexpected (the gorilla)? Many people, including experts, do not. We are testing whether the clue's language changes that.",
+  "group_adult": "Adult (not a student)",
+  "group_physician": "Physician (not radiology)",
+  "surprise_title": "First, a quick one",
+  "surprise_body": "In the next image, find the small white ring and click on it. A written clue above the image tells you where to look.",
+  "notice_q": "Did you notice anything unusual in that image?",
+  "gorilla_q": "Did you see a gorilla in that image?",
+  "knew_q": "Before today, had you heard of the \"invisible gorilla\" study, where people miss a gorilla hidden in an image?",
+  "yes": "Yes",
+  "no": "No",
+  "instr_reveal": "Thank you. There was a small gorilla in that image; many people miss it, and that is part of what we study. Nothing else in the study is a trick.",
+  "instr_rounds": "The pictures come in short rounds. Work quickly but carefully. The study stops by itself before 15 minutes, wherever you are; you do not need to finish every round.",
+  "round_of": "Round {r}",
+  "quit_button": "I'm exhausted — finish now",
+  "quit_confirm": "Finish the picture part now and go to the last two questions?",
+  "instr_quit": "If you feel exhausted, use the \"I'm exhausted\" button under any picture. That is completely fine, and it helps the study.",
+  "already_done": "This session is complete. Thank you for taking part.",
+  "bg_l1": "Which language are you most comfortable reading?",
+  "bg_l2": "Which other language can you also read?",
+  "bg_l1_reading": "How well do you read your most comfortable language? (1 = very little, 7 = like a native speaker)",
+  "bg_l2_reading": "How well do you read that other language? (1 = very little, 7 = like a native speaker)",
+  "bg_same_lang": "Please choose two different languages."
+ },
+ "clue": {
+  "np": "{small} {color} {noun}",
+  "small": {
+   "*": "small"
+  },
+  "colors": {
+   "red": {
+    "*": "red"
+   },
+   "blue": {
+    "*": "blue"
+   },
+   "green": {
+    "*": "green"
+   },
+   "yellow": {
+    "*": "yellow"
+   },
+   "purple": {
+    "*": "purple"
+   },
+   "orange": {
+    "*": "orange"
+   }
+  },
+  "objects": {
+   "umbrella": {
+    "nom": "umbrella"
+   },
+   "star": {
+    "nom": "star"
+   },
+   "heart": {
+    "nom": "heart"
+   },
+   "moon": {
+    "nom": "crescent moon"
+   },
+   "arrow": {
+    "nom": "arrow"
+   },
+   "cross": {
+    "nom": "plus sign"
+   },
+   "diamond": {
+    "nom": "diamond"
+   },
+   "house": {
+    "nom": "house"
+   },
+   "fish": {
+    "nom": "fish"
+   },
+   "key": {
+    "nom": "key"
+   },
+   "monkey": {
+    "nom": "monkey"
+   },
+   "cat": {
+    "nom": "cat"
+   },
+   "bird": {
+    "nom": "bird"
+   },
+   "car": {
+    "nom": "car"
+   },
+   "tree": {
+    "nom": "tree"
+   },
+   "guitar": {
+    "nom": "guitar"
+   },
+   "elephant": {
+    "nom": "elephant"
+   }
+  },
+  "regions": {
+   "0,0": "upper-left",
+   "0,1": "top-center",
+   "0,2": "upper-right",
+   "1,0": "middle-left",
+   "1,1": "center",
+   "1,2": "middle-right",
+   "2,0": "lower-left",
+   "2,1": "bottom-center",
+   "2,2": "lower-right"
+  },
+  "edges": {
+   "top": "top",
+   "bottom": "bottom",
+   "left": "left",
+   "right": "right"
+  },
+  "search_leads": [
+   "Find the {np}.",
+   "Look for a {np}.",
+   "Your target: a {np}.",
+   "Somewhere there is a {np}. Click it."
+  ],
+  "scan_leads": [
+   "Something in this image is out of the ordinary. Find it.",
+   "One thing here does not belong. Click on it.",
+   "Look for anything that does not match the rest of the image.",
+   "There is something unusual in this image."
+  ],
+  "surprise_lead": "Find the small white ring.",
+  "where": [
+   "It is in the {region} area of the image, closer to the {near} edge than to the {far} edge.",
+   "Check the {region} part, nearer the {near} edge than the {far} edge.",
+   "Search the {region} area; it sits closer to the {near} edge than to the {far} edge."
+  ]
+ }
+}
