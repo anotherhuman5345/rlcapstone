@@ -1,0 +1,17 @@
+{# A language choice as a grid of buttons instead of a long dropdown, which some phones and
+   browsers cut off. One radio per language; the list scrolls inside its own box. #}
+{% macro lang_picker(name, legend, options, selected=None, other=None, navigate=False) %}
+<fieldset class="lang-picker">
+  <legend>{{ legend }}</legend>
+  <div class="lang-grid">
+    {% for code, label in options %}<label><input type="radio" name="{{ name }}" value="{{ code }}" required
+      {% if code == selected %}checked{% endif %}{% if navigate %} onchange="location.href='/?lang=' + this.value"{% endif %}><span>{{ label }}</span></label>{% endfor %}
+    {% if other %}<label><input type="radio" name="{{ name }}" value="other" required><span>{{ other }}</span></label>{% endif %}
+  </div>
+</fieldset>
+{% if selected %}<script>
+  // Show the chosen language inside the box (scrolls only the box, not the page).
+  (function (grid) { const c = grid && grid.querySelector("input:checked");
+    if (c) grid.scrollTop = c.closest("label").offsetTop - grid.offsetTop - 8; })(document.currentScript.previousElementSibling.querySelector(".lang-grid"));
+</script>{% endif %}
+{% endmacro %}
