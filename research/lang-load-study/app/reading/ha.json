@@ -1,0 +1,546 @@
+{
+ "code": "ha",
+ "verified": false,
+ "note": "Waɗannan rubuce-rubuce an rubuta su ne musamman don wannan bincike. Abu na k a kowane harshe dole ya ɗauki ma'ana ɗaya da tsarin zaɓuɓɓuka ɗaya; a sa mai bita da ya iya harsunan biyu ya duba su kafin a yi amfani da su a zahiri.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Gidan burodin Lena yana buɗewa da ƙarfe bakwai. A ranakun Litinin yana buɗewa awa ɗaya bayan haka, saboda ana goge tanderun gasa burodi a daren Lahadi. Yau Litinin ce.",
+   "question": "Da ƙarfe nawa gidan burodin zai buɗe yau?",
+   "options": [
+    "Da ƙarfe bakwai",
+    "Da ƙarfe takwas",
+    "Da ƙarfe shida"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Motar makaranta tana tashi daga ɗakin karatu. Mira kullum tana samun motar, amma da safiyar nan ta rasa ta saboda ta tsaya don taimaka wa wani maƙwabci ɗaukar kwalaye. Mota ta gaba tana zuwa bayan minti ashirin.",
+   "question": "Me ya sa Mira za ta isa a makare fiye da yadda ta saba?",
+   "options": [
+    "Ta taimaka wa maƙwabci kuma motar ta wuce ta",
+    "Motar ta lalace",
+    "Ɗakin karatun a rufe yake"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar yana yi wa tumatur ruwa kowace yamma. A daren jiya an yi ruwan sama mai yawa, don haka bai yi musu ruwa ba. Da safiyar yau ƙasar tana nan da danshi.",
+   "question": "Me ya sa Omar bai yi wa tumatur ruwa ba a daren jiya?",
+   "options": [
+    "An riga an girbe tumaturin",
+    "Ruwan sama ya riga ya shayar da su",
+    "Ya manta"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "A gidan tarihi, ɗakin shuɗi yana ɗauke da zane-zane, ɗakin kore kuma yana ɗauke da mutum-mutumi. Jagoran ya ce abu mafi tsufa a gidan tarihin an yi shi ne da dutse, kuma yana tsaye a ɗakin kore.",
+   "question": "Wane irin abu ne mafi tsufan?",
+   "options": [
+    "Zane",
+    "Hoton kyamara",
+    "Mutum-mutumi"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Tikitin jirgin ƙasa na Deniz ya fi araha a ranakun aiki. Ta so ta ziyarci innarta ranar Asabar, amma ta mayar da tafiyar zuwa ranar Juma'a don ta rage kashe kuɗi.",
+   "question": "Me ya sa Deniz ta yi tafiya ranar Juma'a?",
+   "options": [
+    "Tikiti ya fi araha a ranakun aiki",
+    "Babu jirgin ƙasa ranar Asabar",
+    "Innarta tana da aiki ranar Asabar"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Ƙungiyar tana taro a ɗaki na 4, sai dai idan mutane fiye da ashirin sun yi rajista. A lokacin sai ta koma babban zaure. A wannan makon, mutane ashirin da shida sun yi rajista.",
+   "question": "A ina ƙungiyar za ta yi taro a wannan makon?",
+   "options": [
+    "Ba za ta yi taro ba",
+    "A ɗaki na 4",
+    "A babban zaure"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Batirin wayar Kemal yana ɗaukar yini guda cur. Jiya ya yi amfani da taswira tun daga rana har yamma, abin da ke shanye batiri da sauri, kuma wayar ta mutu kafin cin abincin dare.",
+   "question": "Me ya sa wayar ta mutu da wuri?",
+   "options": [
+    "Taswirar ta cinye batiri sosai",
+    "Wayar sabuwa ce",
+    "Ya manta ya kunna ta"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Wani shago yana ba da kofi kyauta ga duk wanda ya sayi sanwici biyu. Ana ta sayi sanwici ɗaya da lemo. Abokiyarta ta sayi sanwici biyu.",
+   "question": "Wa ya samu kofi kyauta?",
+   "options": [
+    "Abokiyar Ana",
+    "Dukansu biyu",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Ana rufe ƙofar wurin shaƙatawa idan rana ta faɗi. A lokacin sanyi rana tana faɗuwa wajen ƙarfe biyar, a lokacin zafi kuma wajen ƙarfe takwas. Tom ya isa wurin shaƙatawar da ƙarfe shida, a wata yamma ta lokacin sanyi.",
+   "question": "Tom ya iya shiga wurin shaƙatawar?",
+   "options": [
+    "Ta ƙofar baya kaɗai",
+    "Eh, a buɗe take",
+    "A'a, an riga an rufe ƙofar"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Kowane ɗalibi a ajin Malama Kaya dole ya kawo na'urar lissafi a ranar jarrabawa. Selim yana cikin ajinta. A ranar jarrabawar, na'urar lissafinsa tana gida.",
+   "question": "Me Selim ya manta?",
+   "options": [
+    "Takardar jarrabawarsa",
+    "Wani abu da jarrabawar take buƙata",
+    "Sunan malamarsa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Ganyen tsohon itacen oak suna yin rawaya kafin na kowane itace a lambun. A bana, ganye na farko masu rawaya a lambun sun bayyana a farkon watan Oktoba.",
+   "question": "Yaushe ganyen itacen oak suka fara yin rawaya?",
+   "options": [
+    "A watan Disamba",
+    "Bayan duk sauran itatuwa",
+    "A farkon watan Oktoba"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Ɗakin karatu yana ba da aron littattafai na mako biyu. Ana biyan ɗan kuɗi kaɗan a kowace rana idan an makara wajen dawo da littafi. Sam ya dawo da littafi kwana uku bayan mako biyun sun ƙare.",
+   "question": "Me ya faru lokacin da Sam ya dawo da littafin?",
+   "options": [
+    "Babu komai, ya dawo da shi a kan lokaci",
+    "Ya biya kuɗin makara",
+    "Ya samu sabon kati"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana tana shan shayi ne kawai ba tare da sukari ba. A gidan shayi, mai hidima ya kawo mata shayi wanda aka riga aka zuba cokali biyu na sukari aka juya. Ta mayar da shi.",
+   "question": "Me ya sa Hana ta mayar da shayin?",
+   "options": [
+    "Ya yi sanyi",
+    "An riga an saka masa sukari",
+    "Kofi ne"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Gini mafi tsawo a garin yana da hawa goma sha biyu. Asibitin yana a hawa na ƙarshe na sama a ginin, kuma lif ɗin ya lalace yau.",
+   "question": "Ta yaya masu ziyara za su isa asibitin yau?",
+   "options": [
+    "Ta hanyar hawa matakala har zuwa hawa na goma sha biyu",
+    "Asibitin ya koma wani wuri",
+    "Ta lif"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Tsire-tsiren da ke bayan doguwar katangar lambun suna samun hasken rana kaɗan. Ayla ta mayar da daddoyarta daga bayan katangar zuwa baranda a buɗe, kuma cikin mako guda ta yi girma da sauri sosai.",
+   "question": "Me ya fi yiwuwa ya taimaka wa daddoyar ta girma?",
+   "options": [
+    "Sabuwar tukunya",
+    "Ƙarin hasken rana",
+    "Rage ruwa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Girke-girke yana buƙatar ƙwai uku don kek ɗaya. Burak yana so ya gasa kek biyu, kuma yana da ƙwai huɗu.",
+   "question": "Me Burak yake buƙata?",
+   "options": [
+    "Babu komai, yana da isasshe",
+    "Ƙarin ƙwai biyu",
+    "Ƙarin ƙwai ɗaya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Bikin kaɗe-kaɗe zai fara da ƙarfe takwas. Ana buɗe ƙofofi awa ɗaya kafin a fara. Lara ta isa da ƙarfe bakwai da kwata.",
+   "question": "Ƙofofin suna a buɗe lokacin da Lara ta isa?",
+   "options": [
+    "Eh, an buɗe su da ƙarfe bakwai",
+    "Ta isa bayan an gama bikin",
+    "A'a, an buɗe su da ƙarfe takwas"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "A gidan kula da dabbobi, ana ba kuliyoyi abinci da safe. Karnuka kuma ana ba su abinci da safe, sannan a sake ba su da yamma. Wani ya ɗauki Max, wanda kare ne, don ya rene shi da tsakar rana.",
+   "question": "Sau nawa aka ba Max abinci a gidan kula da dabbobin a ranar?",
+   "options": [
+    "Babu ko sau ɗaya",
+    "Sau ɗaya",
+    "Sau biyu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Ƙanƙarar da ke kan tafki tana da lafiyar tafiya a kai ne kawai idan kaurinta ya kai aƙalla santimita goma. A ranar Litinin kaurinta santimita takwas ne, kuma zuwa ranar Laraba ta ƙaru da santimita biyu.",
+   "question": "Ƙanƙarar tana da lafiya a ranar Laraba?",
+   "options": [
+    "A'a, har yanzu ta yi sirara sosai",
+    "Eh, ta kai santimita goma",
+    "Tafkin ya narke"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Agogon Emre yana gaba da minti biyar. Agogonsa ya nuna 9:05 lokacin da ya shiga aji, daidai lokacin da aka fara darasi.",
+   "question": "Da ƙarfe nawa aka fara darasi?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Membobi ne kawai za su iya aron kwale-kwalen ƙungiyar. Zama memba yana da kuɗin shekara. Nadia ta biya kuɗin a makon da ya gabata.",
+   "question": "Nadia za ta iya aron kwale-kwale yanzu?",
+   "options": [
+    "Sai a ƙarshen mako kawai",
+    "A'a, ita ba memba ba ce",
+    "Eh, yanzu ita memba ce"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Hanyar arewa a rufe take saboda gyara. Hanyar kudu ta fi tsawo amma a buɗe take. Wata babbar motar kai kaya dole ta isa ƙauyen yau.",
+   "question": "Wace hanya ce motar ta fi yiwuwa ta bi?",
+   "options": [
+    "Hanyar arewa",
+    "Hanyar kudu",
+    "Babu ko ɗaya; ta tsaya a inda take"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Wani tsiro yana buƙatar ruwa kowace kwana uku. An yi masa ruwa ranar Litinin.",
+   "question": "A wace rana zai sake buƙatar ruwa?",
+   "options": [
+    "Alhamis",
+    "Asabar",
+    "Laraba"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Fayil ja yana ɗauke da bil-bil ɗin da ba a biya ba. Ana saka bil-bil ɗin da aka biya a fayil baƙi. Yusuf ya biya bil ɗin wutar lantarki da safiyar yau.",
+   "question": "A ina ya kamata bil ɗin wutar lantarki ya kasance yanzu?",
+   "options": [
+    "A kwandon shara",
+    "A fayil ja",
+    "A fayil baƙi"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Duk tsuntsayen da ke cikin keji suna iya yin waƙa sai dai mafi ƙanƙanta. Tsuntsun mai launin rawaya shi ne mafi ƙanƙanta a kejin.",
+   "question": "Me muka sani game da tsuntsun mai launin rawaya?",
+   "options": [
+    "Shi ne ya fi kowa yawan waƙa",
+    "Ba ya iya yin waƙa",
+    "Shi ne mafi tsufa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Gidan burodin yana sayar da burodi har zuwa tsakar rana. Bayan tsakar rana, kek kawai yake sayarwa. Eda ta je gidan burodin da ƙarfe biyu na rana don ta sayi burodi.",
+   "question": "Me Eda za ta iya saya da ƙarfe biyu?",
+   "options": [
+    "Burodi",
+    "Kek kawai",
+    "Babu komai"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Tayar keken Selin ta zube. Shagon gyara yana rufewa da ƙarfe biyar, kuma tafiya da ƙafa zuwa can tana ɗaukar awa ɗaya. Selin ta bar gida da ƙarfe huɗu da rabi.",
+   "question": "Selin za ta isa shagon kafin a rufe shi?",
+   "options": [
+    "A'a, za ta isa bayan ƙarfe biyar",
+    "Shagon a buɗe yake tsawon dare",
+    "Eh, cikin sauƙi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Duk littattafan da ke kan shiryayye na sama-sama da Faransanci suke. Ƙamus ɗin yana kan shiryayye na sama-sama.",
+   "question": "Da wane harshe ƙamus ɗin yake?",
+   "options": [
+    "Ba za mu iya sani ba",
+    "Turanci",
+    "Faransanci"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali yana ba mage abinci idan 'yar'uwarsa ba ta nan. A wannan makon 'yar'uwarsa tana ziyartar kakarsu.",
+   "question": "Wa yake ba mage abinci a wannan makon?",
+   "options": [
+    "Ali",
+    "'Yar'uwarsa",
+    "Kakarsu"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Wurin ninƙaya yana rufe a ranakun da ake ruwan sama. Ranar Talata an yi ruwan sama tsawon yini.",
+   "question": "Wurin ninƙayar yana a buɗe ranar Talata?",
+   "options": [
+    "A'a",
+    "Da safe kawai",
+    "Eh"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Duk ɗalibin da ya kammala aikinsa na bincike zai samu takardar shaida. Mert ya kammala aikinsa ranar Juma'ar da ta gabata.",
+   "question": "Mert zai samu takardar shaida?",
+   "options": [
+    "Sai shekara mai zuwa",
+    "A'a",
+    "Eh"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Bas mai launin kore tana zuwa filin jirgin sama. Bas mai launin shuɗi tana zuwa filin wasa. Leyla tana buƙatar ta kama jirgin sama.",
+   "question": "Wace bas ya kamata Leyla ta hau?",
+   "options": [
+    "Bas mai launin shuɗi",
+    "Bas mai launin kore",
+    "Ko wacce daga cikinsu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Ayis kirim yana narkewa da sauri a rana. Can ya bar ayis kirim ɗinsa a kan tebur cikin rana na tsawon minti ashirin.",
+   "question": "Me ya fi yiwuwa ya faru da ayis kirim ɗin?",
+   "options": [
+    "Ya narke",
+    "Ya ɓace cikin akwati",
+    "Ya ƙara daskarewa"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Shiga gidan tarihin kyauta ne ga yara 'yan ƙasa da shekara goma sha biyu. Zeynep tana da shekara goma.",
+   "question": "Nawa Zeynep za ta biya don shiga?",
+   "options": [
+    "Rabin kuɗi",
+    "Babu komai",
+    "Cikakken kuɗi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Jirgin ƙasa yana tashi kowane minti talatin, farawa daga ƙarfe shida. Arda ya isa tasha da ƙarfe shida da minti arba'in.",
+   "question": "Yaushe jirgi na gaba zai tashi bayan Arda ya iso?",
+   "options": [
+    "Ƙarfe shida da rabi",
+    "Ƙarfe bakwai",
+    "Ƙarfe bakwai da rabi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "'Yan wasan da suka zo atisaye ne kawai za su iya buga wasan. Burcu ba ta je atisaye ba saboda ba ta da lafiya.",
+   "question": "Burcu za ta iya buga wasan?",
+   "options": [
+    "A'a",
+    "Sai a matsayin kyaftin kawai",
+    "Eh"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Manomin yana ajiye tumakinsa a rumfar dabbobi idan ana dusar ƙanƙara. A daren jiya an yi dusar ƙanƙara mai yawa.",
+   "question": "A ina tumakin suka kasance a daren jiya?",
+   "options": [
+    "A kan hanya",
+    "A makiyaya",
+    "A rumfar dabbobi"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "A wannan gidan shayi, shayi ya fi kofi araha. Ece ta sha kofi, Kaan kuma ya sha shayi.",
+   "question": "Wa ya biya kuɗi ƙasa da ɗayan?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Sun biya daidai"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Ƙofar hagu ta ginin ta shiga ce. Ƙofar dama ta fita ce. Murat yana shiga cikin ginin.",
+   "question": "Wace ƙofa ya kamata Murat ya bi?",
+   "options": [
+    "Ƙofar dama",
+    "Ko wacce ƙofa",
+    "Ƙofar hagu"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Ana yi wa tsire-tsiren da ke cikin gidan gilashi ruwa a ranakun da kwanan watan lamba ce mai rabuwa biyu daidai. Yau kwanan wata goma sha huɗu ne.",
+   "question": "Ana yi wa tsire-tsiren ruwa yau?",
+   "options": [
+    "Rabinsu kawai",
+    "Eh",
+    "A'a"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora kullum tana ɗaukar laima idan hasashen yanayi ya ce za a yi ruwan sama. Hasashen yanayin yau ya ce za a yi rana tsawon yini.",
+   "question": "Shin Nora ta fi yiwuwa ta ɗauki laima yau?",
+   "options": [
+    "Eh",
+    "A'a",
+    "Ta ɗauki guda biyu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Rangwamen shagon ya shafi takalma ne kawai. Efe ya sayi jaket ɗaya da takalmi kafa biyu.",
+   "question": "Wane abu ne ya samu rangwame?",
+   "options": [
+    "Takalmin",
+    "Duka biyun",
+    "Jaket ɗin"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Mai gudu dole ya kammala tseren cikin ƙasa da awa ɗaya don ya samu lambar yabo. Deniz ta kammala cikin minti hamsin da biyu.",
+   "question": "Deniz ta samu lambar yabo?",
+   "options": [
+    "An soke tseren",
+    "Eh",
+    "A'a"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Girke-girken ya ce a saka gishiri bayan ruwa ya tafasa. Oya ta saka gishiri kafin ta kunna murhu.",
+   "question": "Oya ta bi girke-girken?",
+   "options": [
+    "Eh",
+    "A'a",
+    "Girke-girken ba shi da gishiri"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Ana kulle ƙofar lambun kowane dare da ƙarfe goma. Sena ta dawo gida da ƙarfe goma sha ɗaya ba tare da makulli ba.",
+   "question": "Sena ta iya buɗe ƙofar?",
+   "options": [
+    "A'a",
+    "Tuni a buɗe take",
+    "Eh"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "'Yan tsuntsaye suna barin sheƙa idan gashin jikinsu ya kammala girma. Gashin jikin tsuntsayen da ke cikin sheƙar itacen oak ya kammala girma.",
+   "question": "Me tsuntsayen da ke cikin sheƙar itacen oak za su yi?",
+   "options": [
+    "Gina sabon itace",
+    "Zama a can har abada",
+    "Barin sheƙar"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "An sayar da duk tikitin wasan maraice. Kerem ya so ya sayi tikitin wasan maraice.",
+   "question": "Kerem ya iya sayen wannan tikitin?",
+   "options": [
+    "Eh",
+    "A'a",
+    "Ta intanet kawai"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Jiragen ruwa ba sa iya barin tashar jiragen ruwa idan iska ta yi ƙarfi sosai. Yau iska tana da ƙarfi sosai.",
+   "question": "Jiragen ruwan za su iya barin tashar yau?",
+   "options": [
+    "A'a",
+    "Ƙanana kawai",
+    "Eh"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Malamin yana karɓar aikin gida a ranakun Alhamis. Yau Laraba ce, kuma Pelin ta gama aikinta na gida.",
+   "question": "Yaushe Pelin za ta miƙa aikinta na gida?",
+   "options": [
+    "Mako mai zuwa",
+    "Yau",
+    "Gobe"
+   ],
+   "answer": 2
+  }
+ ]
+}

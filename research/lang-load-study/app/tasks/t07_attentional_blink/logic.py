@@ -10,12 +10,22 @@ and Turkish-only letters, so the stimulus is the same in both languages.
 Pairs (k, k+1) share the lag order and T1 positions; letters differ."""
 from collections import defaultdict
 
+from app.tasks import _guard as G
+
+# The report is unspeeded; the timed quantity is the presentation drift "late" (view.js
+# play(): largest observed-minus-intended letter onset). A drift beyond one SOA means a
+# letter slot was skipped, so the window is the 100 ms SOA (item.soa_ms in view.js).
+TIMING = "window"
+
 LETTERS = list("ABCDEFGHJKLMNPRSTUVYZ")   # 21 letters
 STREAM_LEN = 18
 LAGS = (1, 2, 3, 5, 7)
 REPEATS = 2
 SOA_MS = 100
 T1_POS = (4, 5, 6, 7)
+WINDOW_MS = SOA_MS
+DRIFT_FLAG_MS = 25     # drift above this (but within one SOA) is flagged, the stream still counts
+CEILING_MS = G.trial_ceiling(__file__)
 
 
 def _stream(rng, t1, lag, a, b):
@@ -47,39 +57,73 @@ def generate(rng, n, save_image):
     return items
 
 
-def _letter(x):
-    return x if isinstance(x, str) and x in LETTERS else None
+def _letter(x, a, field):
+    """An answer letter: a member of LETTERS, else None (flagged invalid_/missing_<field>)."""
+    if x is G.MISSING:
+        a.malformed(f"missing_{field}")
+        return None
+    if G.member(x, LETTERS):
+        return x
+    a.malformed(f"invalid_{field}")
+    return None
 
 
+@G.safe
 def score(item, response):
     """response: [{"r1": letter, "r2": letter, "late": ms}] per stream (r1/r2 in the order
     given; scored order-free: a target counts as reported if either answer names it).
-    "late" = largest observed-minus-intended letter onset in the stream (flag if > 25 ms).
+    "late" = largest observed-minus-intended letter onset in the stream (presentation drift,
+    view.js play()). The report itself is unspeeded.
+
+    Presentation validity: drift must be a finite number in [0, SOA] (100 ms). A drift above
+    one SOA means a whole letter slot was skipped (a target may never have been shown); a
+    missing, non-numeric, negative or impossible drift means the presentation is unknown.
+    Such a stream is flagged and can never count as reported (T1, T2 or both); drift > 25 ms
+    but within one SOA is only flagged (timing_flagged_streams).
+    r1/r2 must be letters of the choice set (missing / invalid letters are flagged and never
+    match). Exactly one entry per stream (missing entries count as not reported, extra ones
+    are flagged).
     Metrics: T1 accuracy, T2 accuracy given correct T1 (T2|T1) overall and by lag, both-correct
-    rate. hit = both targets reported in at least half of the streams."""
-    resp = response if isinstance(response, list) else []
+    rate. hit = both targets reported, with a valid presentation, in at least half of the
+    streams."""
+    a = G.Audit(CEILING_MS)
+    streams = item["streams"]
+    if not isinstance(response, list):
+        return a.junk(2 * len(streams))
     rows = []
-    for k, st in enumerate(item["streams"]):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        said = {_letter(r.get("r1")), _letter(r.get("r2"))} - {None}
-        a, b = st["letters"][st["t1"]], st["letters"][st["t2"]]
-        late = r.get("late")
-        flag = isinstance(late, (int, float)) and not isinstance(late, bool) and abs(late) > 25
-        rows.append({"lag": st["lag"], "t1": a in said, "t2": b in said, "flag": flag})
+    for k, (st, r) in enumerate(zip(streams, a.entries(response, len(streams), "streams"))):
+        d = a.obj(r, "stream")
+        if d is None:
+            a.record(G.INVALID)
+            rows.append({"lag": st["lag"], "t1": False, "t2": False, "flag": False, "valid": False})
+            continue
+        said = {_letter(d.get("r1", G.MISSING), a, "r1"), _letter(d.get("r2", G.MISSING), a, "r2")} - {None}
+        status, late = a.time(d.get("late", G.MISSING), field="late", window=SOA_MS, floor=0, required=True)
+        a.record(status)
+        valid = status == G.TIMELY
+        if status == G.LATE:
+            a.invalid_events += 1           # a skipped letter slot: the presentation is invalid
+        flag = late is not None and late > DRIFT_FLAG_MS
+        if flag and valid:
+            a.flag("timing_drift")
+        x, y = st["letters"][st["t1"]], st["letters"][st["t2"]]
+        rows.append({"lag": st["lag"], "t1": valid and x in said, "t2": valid and y in said,
+                     "flag": flag or not valid, "valid": valid})
     n = len(rows)
     t1_ok = [r for r in rows if r["t1"]]
     by_lag = defaultdict(list)
     for r in t1_ok:
         by_lag[r["lag"]].append(r["t2"])
     both = sum(r["t1"] and r["t2"] for r in rows)
-    return {"hit": n > 0 and both / n >= 0.5,
-            "errors": sum((not r["t1"]) + (not r["t2"]) for r in rows),
-            "metrics": {"t1_accuracy": round(len(t1_ok) / n, 3) if n else None,
-                        "t2_given_t1": round(sum(r["t2"] for r in t1_ok) / len(t1_ok), 3) if t1_ok else None,
-                        "t2_given_t1_by_lag": {str(l): round(sum(v) / len(v), 3) for l, v in sorted(by_lag.items())},
-                        "n_t1_correct_by_lag": {str(l): len(v) for l, v in sorted(by_lag.items())},
-                        "both_correct": both, "streams": n,
-                        "timing_flagged_streams": sum(r["flag"] for r in rows)}}
+    return a.finish(n > 0 and both / n >= 0.5,
+                    sum((not r["t1"]) + (not r["t2"]) for r in rows),
+                    {"t1_accuracy": round(len(t1_ok) / n, 3) if n else None,
+                     "t2_given_t1": round(sum(r["t2"] for r in t1_ok) / len(t1_ok), 3) if t1_ok else None,
+                     "t2_given_t1_by_lag": {str(l): round(sum(v) / len(v), 3) for l, v in sorted(by_lag.items())},
+                     "n_t1_correct_by_lag": {str(l): len(v) for l, v in sorted(by_lag.items())},
+                     "both_correct": both, "streams": n,
+                     "timing_flagged_streams": sum(r["flag"] for r in rows),
+                     "invalid_presentation_streams": sum(not r["valid"] for r in rows)})
 
 
 def example_response(item, correct=True):

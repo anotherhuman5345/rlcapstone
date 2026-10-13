@@ -6,7 +6,12 @@ full 2 (switch/repeat) x 2 (cue-stimulus interval 200/800 ms) x 2 (congruent/inc
 both rules give the same / different keys) design with 3 events per cell, shuffled.
 Every item has this exact composition, so the two items of a pair are equally hard."""
 
+from app.tasks import _guard as G
+
+TIMING = "window"
 EVENTS_PER_CELL = 3
+WINDOW_MS = 2000        # view.js: out.push(await answer(2000)) - each stimulus waits at most 2000 ms
+CEILING_MS = G.trial_ceiling(__file__)
 PALETTE = ["#0072B2", "#E69F00"]  # 0 blue -> left, 1 orange -> right
 SHAPES = ["circle", "square"]     # circle -> left, square -> right
 
@@ -42,68 +47,84 @@ def _answer(ev):
 
 
 def _congruent(ev):
+    """Both rules give the same key (recomputed from the stimulus features)."""
     return (ev["color"] == 0) == (ev["shape"] == "circle")
 
 
-def _median(xs):
-    xs = sorted(xs)
-    if not xs:
-        return None
-    m = len(xs) // 2
-    return round(float(xs[m] if len(xs) % 2 else (xs[m - 1] + xs[m]) / 2), 1)
+def _switches(events):
+    """Switch labels recomputed from the cued tasks: None for the first event, else whether
+    its task differs from the previous event's task (the stored "switch" label is not used)."""
+    return [None if k == 0 else ev["task"] != events[k - 1]["task"] for k, ev in enumerate(events)]
 
 
+def _cond(sel):
+    rts = [r["rt"] for r in sel if r["ok"]]
+    k = sum(r["ok"] for r in sel)
+    return {"n": len(sel), "correct": k, "accuracy": G.rate(k, len(sel)),
+            "error_rate": G.rate(len(sel) - k, len(sel)),
+            "omissions": sum(1 for r in sel if r["status"] == G.ABSENT),
+            "rt_mean": G.mean(rts), "rt_median": G.median(rts), "rt_n": len(rts)}
+
+
+def _diff(a, b, nd=1):
+    return round(a - b, nd) if a is not None and b is not None else None
+
+
+@G.safe
 def score(item, response):
     """response: [{"key": "left"|"right"|null, "rt": ms from stimulus onset}] per event.
-    hit = accuracy >= 0.75 over all 25 events (omissions count as errors).
+    The correct key applies the cued rule to the stimulus; switch/repeat is recomputed from
+    the previous event's task and congruency from the stimulus features.
+    Each event is classified (app/tasks/_guard.py) as absent, invalid, anticipatory
+    (< 100 ms), late (> the 2000 ms response window) or timely; only a TIMELY correct key
+    counts (an anticipatory, late or malformed press never is correct).
+    hit = accuracy >= 0.75 over all 25 events (omissions and invalid entries are errors).
     Metrics (event 1 excluded from switch/repeat): switch cost in median correct RT and in
     error rate, the RT switch cost separately at 200 and 800 ms preparation (and their
-    difference = preparation effect), RT congruency cost, omissions."""
-    try:
-        events = item["events"]
-        [_answer(ev) for ev in events]
-    except (TypeError, KeyError, IndexError):
-        return {"hit": False, "errors": 0, "metrics": {}}
-    resp = response if isinstance(response, list) else []
+    difference = preparation effect), RT congruency cost, omissions, per-condition measures
+    (switch / repeat / congruent / incongruent) in by_condition, every event in events."""
+    a = G.Audit(CEILING_MS)
+    events = item["events"]
+    if not isinstance(response, list):
+        return a.junk(len(events))
+    sw = _switches(events)
     rows = []
-    for k, ev in enumerate(events):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        key = r.get("key") if r.get("key") in ("left", "right") else None
-        rt = r.get("rt")
-        rt = float(rt) if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
-        rows.append({"ev": ev, "key": key, "rt": rt, "ok": key == _answer(ev)})
+    for k, (ev, r) in enumerate(zip(events, a.entries(response, len(events)))):
+        status, key, rt = a.keyed(r, ("left", "right"), window=WINDOW_MS)
+        ok = status == G.TIMELY and key == _answer(ev)
+        rows.append({"i": k, "switch": sw[k], "csi": ev["csi"], "congruent": _congruent(ev), "status": status,
+                     "rt": rt if ok else None, "ok": ok})
     n = len(rows)
     n_ok = sum(r["ok"] for r in rows)
 
     def sel(**kw):
-        return [r for r in rows if all((r["ev"]["switch"] if f == "switch" else
-                                        r["ev"]["csi"] if f == "csi" else _congruent(r["ev"])) == v
-                                       for f, v in kw.items())]
+        return [r for r in rows if all(r[f] == v for f, v in kw.items())]
 
     def mrt(rs):
-        return _median([r["rt"] for r in rs if r["ok"] and r["rt"]])
+        return G.median([r["rt"] for r in rs if r["ok"]])
 
-    def err(rs):
-        return round(1 - sum(r["ok"] for r in rs) / len(rs), 3) if rs else None
-
-    def diff(a, b, nd=1):
-        return round(a - b, nd) if a is not None and b is not None else None
-
-    rt_sw, rt_rep = mrt(sel(switch=True)), mrt(sel(switch=False))
-    cost200 = diff(mrt(sel(switch=True, csi=200)), mrt(sel(switch=False, csi=200)))
-    cost800 = diff(mrt(sel(switch=True, csi=800)), mrt(sel(switch=False, csi=800)))
+    cond = {"switch": _cond(sel(switch=True)), "repeat": _cond(sel(switch=False)),
+            "congruent": _cond(sel(congruent=True)), "incongruent": _cond(sel(congruent=False))}
+    rt_sw, rt_rep = cond["switch"]["rt_median"], cond["repeat"]["rt_median"]
+    err_sw, err_rep = cond["switch"]["error_rate"], cond["repeat"]["error_rate"]
+    cost200 = _diff(mrt(sel(switch=True, csi=200)), mrt(sel(switch=False, csi=200)))
+    cost800 = _diff(mrt(sel(switch=True, csi=800)), mrt(sel(switch=False, csi=800)))
     acc = n_ok / n if n else 0.0
-    return {"hit": n > 0 and acc >= 0.75, "errors": n - n_ok,
-            "metrics": {"accuracy": round(acc, 3),
-                        "median_rt_switch": rt_sw, "median_rt_repeat": rt_rep,
-                        "switch_cost_ms": diff(rt_sw, rt_rep),
-                        "error_rate_switch": err(sel(switch=True)), "error_rate_repeat": err(sel(switch=False)),
-                        "switch_error_cost": diff(err(sel(switch=True)), err(sel(switch=False)), 3),
-                        "switch_cost_ms_csi200": cost200, "switch_cost_ms_csi800": cost800,
-                        "preparation_effect_ms": diff(cost200, cost800),
-                        "congruency_cost_ms": diff(mrt(sel(congruent=False)), mrt(sel(congruent=True))),
-                        "valid_rt_trials": sum(1 for r in rows if r["ok"] and r["rt"]),
-                        "omissions": sum(1 for r in rows if r["key"] is None)}}
+    return a.finish(n > 0 and acc >= 0.75, n - n_ok, {
+        "accuracy": round(acc, 3),
+        "median_rt_switch": rt_sw, "median_rt_repeat": rt_rep,
+        "switch_cost_ms": _diff(rt_sw, rt_rep),
+        "error_rate_switch": err_sw, "error_rate_repeat": err_rep,
+        "switch_error_cost": _diff(err_sw, err_rep, 3),
+        "switch_cost_ms_csi200": cost200, "switch_cost_ms_csi800": cost800,
+        "preparation_effect_ms": _diff(cost200, cost800),
+        "congruency_cost_ms": _diff(cond["incongruent"]["rt_median"], cond["congruent"]["rt_median"]),
+        "congruency_error_cost": _diff(cond["incongruent"]["error_rate"], cond["congruent"]["error_rate"], 3),
+        "valid_rt_trials": sum(1 for r in rows if r["ok"]),
+        "omissions": sum(1 for r in rows if r["status"] == G.ABSENT),
+        "by_condition": cond,
+        "events": [{"i": r["i"], "switch": r["switch"], "csi": r["csi"], "congruent": r["congruent"],
+                    "status": r["status"], "correct": r["ok"], "rt": r["rt"]} for r in rows]})
 
 
 def example_response(item, correct=True):

@@ -11,12 +11,18 @@ Tab order does not reveal the sequence; score() derives the order from the label
 This is not the normed clinical Trail Making Test."""
 import math
 
+from app.tasks import _guard as G
+
+TIMING = "limit"        # the click that connects the last node must come inside LIMIT_MS
+CEILING_MS = G.trial_ceiling(__file__)
+TIME_SLACK_MS = 1000    # timer tolerance at the limit
+MAX_CLICKS = 2000
 N_NODES = 13
 LETTERS = ["J", "K", "L", "M", "N", "O"]
 W, H = 1200, 800
 MIN_DIST = 165
 PATH_CLEAR = 60
-LIMIT_MS = 100000
+LIMIT_MS = 100000       # item["limit_ms"]; view.js: deadline = setTimeout(() => end(true), it.limit_ms)
 
 
 def expected_labels(condition, n=N_NODES):
@@ -79,46 +85,70 @@ def _path(nodes, idxs):
                      for a, b in zip(idxs, idxs[1:])), 1)
 
 
+@G.safe
 def score(item, response):
-    """response: {"clicks": [{"node": index into item["nodes"], "t": ms since Start}], ...}.
+    """response: {"clicks": [{"node": index into item["nodes"], "t": ms since Start}],
+    "finished": bool}.
     Oracle: the next correct node is the one whose label is next in expected_labels().
-    A click on any other node is a wrong click (not advancing), except a repeat click on
-    the node just connected, which is ignored. Clicks after completion are ignored.
-    hit = all 13 nodes connected in order (within the time limit).
+    A click on any other node is a wrong click (not advancing). The browser never records a
+    repeat click on the node just connected, nor any click after the last node is connected:
+    such clicks are flagged and ignored. Malformed clicks (not an object, a node that is not
+    an index into item["nodes"], a missing/invalid time) are flagged and not applied; click
+    times must not go backwards (flagged).
+    hit = all 13 nodes connected in order AND the click that connected the last node has a
+    valid time inside the 100 s limit (a missing, non-finite, negative or late time never
+    counts). The browser's own "finished" field is not trusted (a mismatch is flagged).
     Metrics: completion time (ms to last correct click), wrong clicks, nodes connected,
     ideal path length and the participant's click-path length (both in 1200x800 px)."""
-    try:
-        nodes = item["nodes"]
-        order_labels = expected_labels(item["condition"], len(nodes))
-        by_label = {d["label"]: i for i, d in enumerate(nodes)}
-        order = [by_label[lab] for lab in order_labels]
-    except (TypeError, KeyError):
-        return {"hit": False, "errors": 0, "metrics": {}}
-    clicks = response.get("clicks") if isinstance(response, dict) else None
-    clicks = clicks if isinstance(clicks, list) else []
-    ptr, wrong, last_t, visited = 0, 0, None, []
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    nodes = item["nodes"]
+    order_labels = expected_labels(item["condition"], len(nodes))
+    by_label = {d["label"]: i for i, d in enumerate(nodes)}
+    order = [by_label[lab] for lab in order_labels]
+    clicks = a.stream(response.get("clicks", G.MISSING), "clicks", cap=MAX_CLICKS)
+    ptr, wrong, last, visited, times, after = 0, 0, None, [], [], 0
     for c in clicks:
         if ptr >= len(order):
-            break
-        node = c.get("node") if isinstance(c, dict) else None
-        if not (isinstance(node, int) and not isinstance(node, bool) and 0 <= node < len(nodes)):
+            after += 1
             continue
-        t = c.get("t")
+        if not isinstance(c, dict):
+            a.malformed("click_not_object")
+            continue
+        st, t = a.time(c.get("t", G.MISSING), field="t", window=LIMIT_MS, slack=TIME_SLACK_MS,
+                       required=True)
+        times.append(t if st != G.INVALID else None)
+        node = c.get("node")
+        if not G.member(node, range(len(nodes))):
+            a.malformed("invalid_node")
+            continue
         if ptr > 0 and node == order[ptr - 1]:
+            a.flag("repeat_click")
             continue
         visited.append(node)
         if node == order[ptr]:
             ptr += 1
-            last_t = float(t) if isinstance(t, (int, float)) and not isinstance(t, bool) else None
+            last = (st, t)
         else:
             wrong += 1
-    done = ptr == len(order)
-    return {"hit": done, "errors": wrong,
-            "metrics": {"condition": item["condition"], "completed": done, "nodes_connected": ptr,
-                        "completion_time_ms": round(last_t, 1) if done and last_t is not None else None,
-                        "wrong_clicks": wrong,
-                        "ideal_path_px": _path(nodes, order),
-                        "click_path_px": _path(nodes, visited) if len(visited) > 1 else 0.0}}
+    if after:
+        a.flag("clicks_after_completion", after)
+    a.monotonic(times, "t")
+    connected = ptr == len(order)
+    timely = last is not None and last[0] == G.TIMELY
+    done = connected and timely
+    if connected and not timely:
+        a.flag("completed_outside_time_limit")
+    finished = a.opt_bool(response, "finished")
+    if finished is not None and finished != connected:
+        a.flag("finished_mismatch")
+    return a.finish(done, wrong, {
+        "condition": item["condition"], "completed": done, "nodes_connected": ptr,
+        "completion_time_ms": round(last[1], 1) if done else None,
+        "wrong_clicks": wrong,
+        "ideal_path_px": _path(nodes, order),
+        "click_path_px": _path(nodes, visited) if len(visited) > 1 else 0.0})
 
 
 def example_response(item, correct=True):
@@ -127,7 +157,7 @@ def example_response(item, correct=True):
     order = [by_label[lab] for lab in labels]
     if correct:
         clicks = [{"node": i, "t": 1500 * (k + 1)} for k, i in enumerate(order)]
-        clicks.insert(3, {"node": order[5], "t": 4000})  # one wrong click still completes
+        clicks.insert(3, {"node": order[5], "t": 5000})  # one wrong click still completes
     else:
         clicks = [{"node": i, "t": 1500 * (k + 1)} for k, i in enumerate(order[:6])]
     return {"clicks": clicks, "finished": correct}

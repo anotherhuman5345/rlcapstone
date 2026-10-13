@@ -11,6 +11,11 @@ different patterns with the same structure.
 Do not read a pattern effect as implicit learning without a separate awareness measure.
 """
 
+from app.tasks import _guard as G
+
+TIMING = "window"
+WINDOW_MS = 2000        # view.js: const a = await answer(2000) - 2 s limit per target
+CEILING_MS = G.trial_ceiling(__file__)
 N_POS = 4
 SEG = [("random", 2), ("pattern", 4), ("random", 2)]  # (kind, number of 12-element cycles)
 
@@ -77,44 +82,48 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
+@G.safe
 def score(item, response):
     """response: [{"key": 0-3 or null, "rt": ms}] in target order.
-    hit = overall accuracy >= 85 % (omissions wrong) - the trial counts as properly done.
+    Each target is classified (app/tasks/_guard.py) as absent, invalid, anticipatory
+    (< 100 ms), late (> the 2000 ms response window) or timely; only a TIMELY key equal to
+    the target position is correct (an anticipatory, late or malformed press never is).
+    hit = overall accuracy >= 85 % (omissions and invalid entries wrong) - the trial counts
+    as properly done.
     metrics: accuracy; median correct RT in the last two pattern cycles and in the two
     random segments (first and last); pattern_effect_ms = mean of the two random medians
-    minus the late-pattern median (positive = faster on the pattern); omissions."""
-    try:
-        targets, kinds = item["targets"], item["kinds"]
-        resp = response if isinstance(response, list) else []
-        rows = []
-        for k, t in enumerate(targets):
-            r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-            key, rt = r.get("key"), r.get("rt")
-            good = isinstance(key, int) and not isinstance(key, bool) and key == t
-            rows.append((kinds[k], good, rt if isinstance(rt, (int, float)) and rt > 0 else None, key is None))
-        n = len(rows)
-        acc = sum(g for _, g, _, _ in rows) / n
+    minus the late-pattern median (positive = faster on the pattern); omissions;
+    anticipations; every target's status in events."""
+    a = G.Audit(CEILING_MS)
+    targets, kinds = item["targets"], item["kinds"]
+    if not isinstance(response, list):
+        return a.junk(len(targets))
+    rows = []
+    for k, (t, r) in enumerate(zip(targets, a.entries(response, len(targets)))):
+        status, key, rt = a.keyed(r, range(N_POS), window=WINDOW_MS)
+        good = status == G.TIMELY and key == t
+        rows.append({"i": k, "kind": kinds[k], "status": status, "ok": good, "rt": rt if good else None})
+    n = len(rows)
+    acc = sum(r["ok"] for r in rows) / n if n else 0.0
 
-        def med(sel):
-            v = sorted(rt for (kd, g, rt, _) in sel if g and rt is not None)
-            if not v:
-                return None
-            m = len(v) // 2
-            return float(v[m]) if len(v) % 2 else (v[m - 1] + v[m]) / 2
-        idx = [k for k, kd in enumerate(kinds) if kd == "pattern"]
+    def med(sel):
+        return G.median([r["rt"] for r in sel if r["ok"]])
+
+    idx = [k for k, kd in enumerate(kinds) if kd == "pattern"]
+    m1 = m2 = mp = None
+    if idx:
         first_pat, last_pat = idx[0], idx[-1]
-        rand1 = rows[:first_pat]
-        rand2 = rows[last_pat + 1:]
-        late = rows[last_pat + 1 - 24:last_pat + 1]
-        m1, m2, mp = med(rand1), med(rand2), med(late)
-        effect = round((m1 + m2) / 2 - mp, 1) if None not in (m1, m2, mp) else None
-        return {"hit": acc >= 0.85, "errors": sum(not g for _, g, _, _ in rows),
-                "metrics": {"accuracy": round(acc, 3), "rt_random_first": m1, "rt_random_last": m2,
-                            "rt_pattern_late": mp, "pattern_effect_ms": effect,
-                            "valid_rt_n": sum(1 for _, g, rt, _ in rows if g and rt is not None),
-                            "omissions": sum(om for _, _, _, om in rows)}}
-    except Exception:
-        return {"hit": False, "errors": 0, "metrics": {}}
+        m1, m2 = med(rows[:first_pat]), med(rows[last_pat + 1:])
+        mp = med(rows[max(0, last_pat + 1 - 24):last_pat + 1])
+    effect = round((m1 + m2) / 2 - mp, 1) if None not in (m1, m2, mp) else None
+    return a.finish(n > 0 and acc >= 0.85, sum(not r["ok"] for r in rows), {
+        "accuracy": round(acc, 3), "rt_random_first": m1, "rt_random_last": m2,
+        "rt_pattern_late": mp, "pattern_effect_ms": effect,
+        "valid_rt_n": sum(1 for r in rows if r["ok"]),
+        "omissions": sum(r["status"] == G.ABSENT for r in rows),
+        "anticipations": sum(r["status"] == G.ANTICIPATORY for r in rows),
+        "events": [{"i": r["i"], "kind": r["kind"], "status": r["status"], "correct": r["ok"], "rt": r["rt"]}
+                   for r in rows]})
 
 
 def example_response(item, correct=True):

@@ -6,10 +6,15 @@ with both items of the pair at the same breadth-first-search optimum. The browse
 illegal moves but reports every attempt; the server replays the whole event list itself."""
 from collections import deque
 
+from app.tasks import _guard as G
+
+TIMING = "limit"      # the solving move must come inside LIMIT_MS (see _guard.py)
 DISKS = 3
 PEGS = 3
 LIMIT_MS = 90000      # the view ends the puzzle itself after this (task.json timeout is larger)
 MAX_EVENTS = 1000
+TIME_SLACK_MS = 1000  # timer tolerance at the limit
+CEILING_MS = G.trial_ceiling(__file__)
 
 
 def _tops(state):
@@ -87,60 +92,78 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
-def _replay(item, response):
-    start, goal = tuple(item["start"]), tuple(item["goal"])
-    events = response.get("events")
-    if not isinstance(events, list):
-        events = []
-    state, moves, illegal, resets, since_reset = start, 0, 0, 0, 0
-    solved_at = None
-    for ev in events[:MAX_EVENTS]:
+def _replay(item, events, a):
+    """Replay the event list from the start position. Malformed events (not an object, pegs
+    that are not integers 0-2, a bad reset marker, a missing/invalid time) are flagged and
+    not applied; well-formed moves that break the rules are illegal attempts.
+    Returns (state, moves, illegal, malformed, resets, since_reset, final_t) where final_t
+    is the time of the event that produced the final position (None if unknown)."""
+    start = tuple(item["start"])
+    state, moves, illegal, malformed, resets, since_reset = start, 0, 0, 0, 0, 0
+    final_t, times = None, []
+    for ev in events:
         if not isinstance(ev, dict):
-            illegal += 1
+            a.malformed("event_not_object")
+            malformed += 1
             continue
-        if ev.get("reset") is True:
+        st, t = a.time(ev.get("t", G.MISSING), field="t", window=LIMIT_MS, slack=TIME_SLACK_MS, required=True)
+        times.append(t if st != G.INVALID else None)
+        if "reset" in ev:
+            if ev.get("reset") is not True or "from" in ev or "to" in ev:
+                a.malformed("invalid_reset")
+                malformed += 1
+                continue
             state, resets, since_reset = start, resets + 1, 0
+            final_t = (st, t)
             continue
-        a, b = ev.get("from"), ev.get("to")
-        nxt = _move(state, a, b) if isinstance(a, int) and isinstance(b, int) else None
+        f, to = ev.get("from"), ev.get("to")
+        if not (G.member(f, range(PEGS)) and G.member(to, range(PEGS))):
+            a.malformed("invalid_move")
+            malformed += 1
+            continue
+        nxt = _move(state, f, to)
         if nxt is None:
             illegal += 1
             continue
         state, moves, since_reset = nxt, moves + 1, since_reset + 1
-        if state == goal and solved_at is None:
-            solved_at = ev.get("t") if isinstance(ev.get("t"), (int, float)) else None
-    return state == goal, moves, illegal, resets, since_reset, solved_at
+        final_t = (st, t)
+    a.monotonic(times, "t")
+    return state, moves, illegal, malformed, resets, since_reset, final_t
 
 
-def _num(v):
-    return round(float(v), 1) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
-
-
+@G.safe
 def score(item, response):
     """response: {"events": [{"from": peg, "to": peg, "t": ms} | {"reset": true, "t": ms}],
     "first_move_ms", "rt_ms", "gave_up"}; pegs are 0-2, times from the Start press.
     The server replays the events from the start position: illegal attempts (empty source
     peg, larger disk onto smaller, same peg) are counted and not applied; a reset returns
-    to the start position. hit = the final position is the goal position (the tower is
-    complete on the target peg), regardless of how many moves it took; efficiency is in
-    the metrics (moves, excess over the BFS optimum, illegal attempts, resets, times).
-    errors = illegal attempts."""
-    miss = {"hit": False, "errors": 0, "metrics": {}}
-    try:
-        if not isinstance(response, dict):
-            return miss
-        optimal = len(_bfs(item["start"], item["goal"]))
-        solved, moves, illegal, resets, since_reset, solved_at = _replay(item, response)
-        return {"hit": bool(solved), "errors": illegal,
-                "metrics": {"solved": bool(solved), "moves": moves, "optimal": optimal,
-                            "excess_moves": moves - optimal if solved else None,
-                            "moves_after_last_reset": since_reset,
-                            "illegal_attempts": illegal, "resets": resets,
-                            "first_move_ms": _num(response.get("first_move_ms")),
-                            "solve_ms": _num(solved_at), "rt_ms": _num(response.get("rt_ms")),
-                            "gave_up": response.get("gave_up") is True}}
-    except Exception:
-        return miss
+    to the start position; malformed events are flagged and not applied.
+    hit = the final position is the goal position (the tower is complete on the target
+    peg) AND the move that completed it has a valid time inside the 90 s limit (a solve
+    with a missing, non-finite, negative or late time does not count), regardless of how
+    many moves it took; efficiency is in the metrics (moves, excess over the BFS optimum,
+    illegal attempts, resets, times).
+    errors = illegal attempts + malformed events."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    optimal = len(_bfs(item["start"], item["goal"]))
+    events = a.stream(response.get("events", G.MISSING), "events", cap=MAX_EVENTS)
+    state, moves, illegal, malformed, resets, since_reset, final_t = _replay(item, events, a)
+    at_goal = state == tuple(item["goal"])
+    timely = final_t is not None and final_t[0] == G.TIMELY
+    solved = at_goal and timely
+    if at_goal and not timely:
+        a.flag("solved_outside_time_limit")
+    return a.finish(solved, illegal + malformed, {
+        "solved": solved, "moves": moves, "optimal": optimal,
+        "excess_moves": moves - optimal if solved else None,
+        "moves_after_last_reset": since_reset,
+        "illegal_attempts": illegal, "malformed_events": malformed, "resets": resets,
+        "first_move_ms": a.duration(response, "first_move_ms", window=LIMIT_MS + TIME_SLACK_MS),
+        "solve_ms": final_t[1] if solved else None,
+        "rt_ms": a.duration(response, "rt_ms", window=LIMIT_MS + TIME_SLACK_MS),
+        "gave_up": a.opt_bool(response, "gave_up")})
 
 
 def example_response(item, correct=True):

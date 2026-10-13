@@ -10,6 +10,15 @@ about every 4 pairs), so a "new" word in a long form may have been seen in an ea
 distant trial. The answer key is rebuilt here from the study list."""
 import json
 from pathlib import Path
+from statistics import NormalDist
+
+from app.tasks import _guard as G
+
+TIMING = "window"      # each test word: up to 6000 ms (view.js answer(6000))
+WINDOW_MS = 6000
+RT_SLACK_MS = 50       # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
+ANSWERS = ("circle", "square", "new")
 
 N_OLD, N_NEW = 8, 4
 SOURCES = ("circle", "square")
@@ -52,23 +61,32 @@ def _key(item):
     return [src.get(w, "new") for w in item["test"]]
 
 
+@G.safe
 def score(item, response):
-    """response: {"answers": [{"answer": "circle"|"square"|"new"|null, "rt": ms}]} in test order.
-    hit = at least 75% of the 12 test words get the fully right answer (old word with its
-    correct shape, or "new" for a new word); omissions count as wrong.
+    """response: {"answers": [{"answer": "circle"|"square"|"new"|null, "rt": ms}]} in test
+    order, one entry per test word (missing entries invalid, extra ones flagged).
+    Every answer is classified (app/tasks/_guard.py): absent (no answer within the 6000 ms
+    limit, view.js answer(6000)), invalid (unknown answer, answer without rt or rt without
+    answer, non-finite / negative / impossible rt), anticipatory (< 100 ms), late (beyond
+    the limit + 50 ms timer tolerance) or timely. Only a timely answer counts as given; any
+    other entry is scored as no answer (omission). Keys come from the item (_key).
+    hit = at least 75% of the 12 test words get a timely, fully right answer (old word with
+    its correct shape, or "new" for a new word); omissions count as wrong.
     errors = test words not answered fully right.
     metrics: item recognition (hits/misses/false alarms/correct rejections, corrected d'),
     and source accuracy CONDITIONAL on recognised old words, with its denominator."""
     key = _key(item)
-    resp = response if isinstance(response, dict) else {}
-    ans = resp.get("answers") if isinstance(resp.get("answers"), list) else []
-    hits = misses = fa = cr = omit = src_ok = 0
+    au = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return au.junk(len(key))
+    hits = misses = fa = cr = omit = src_ok = not_timely = 0
     exact, rts = 0, []
-    for j, truth in enumerate(key):
-        r = ans[j] if j < len(ans) and isinstance(ans[j], dict) else {}
-        a = r.get("answer") if r.get("answer") in ("circle", "square", "new") else None
-        if a is None:
+    for truth, r in zip(key, au.entries(response.get("answers", G.MISSING), len(key), "answers")):
+        st, a, rt = au.keyed(r, ANSWERS, key="answer", window=WINDOW_MS, slack=RT_SLACK_MS)
+        if st != G.TIMELY:
+            a = None
             omit += 1
+            not_timely += st != G.ABSENT
         said_old = a in SOURCES
         if truth == "new":
             fa += said_old
@@ -79,23 +97,20 @@ def score(item, response):
             src_ok += a == truth
         if a == truth:
             exact += 1
-            rt = r.get("rt")
-            if isinstance(rt, (int, float)) and not isinstance(rt, bool):
-                rts.append(rt)
+            rts.append(rt)
     n_old = sum(1 for t in key if t != "new")
     n_new = len(key) - n_old
-    from statistics import NormalDist
     z = NormalDist().inv_cdf
     hr, far = (hits + 0.5) / (n_old + 1), (fa + 0.5) / (n_new + 1)
     acc = exact / len(key)
-    return {"hit": acc >= 0.75, "errors": len(key) - exact,
-            "metrics": {"accuracy": round(acc, 3), "item_hits": hits, "item_misses": misses,
-                        "false_alarms": fa, "correct_rejections": cr, "omissions": omit,
-                        "hit_rate": round(hits / n_old, 3), "false_alarm_rate": round(fa / n_new, 3),
-                        "d_prime_corrected": round(z(hr) - z(far), 3),
-                        "source_correct": src_ok, "source_denominator": hits,
-                        "source_accuracy_given_recognised": round(src_ok / hits, 3) if hits else None,
-                        "rt_correct_mean": round(sum(rts) / len(rts), 1) if rts else None}}
+    return au.finish(acc >= 0.75, len(key) - exact, {
+        "accuracy": round(acc, 3), "item_hits": hits, "item_misses": misses,
+        "false_alarms": fa, "correct_rejections": cr, "omissions": omit, "not_timely": not_timely,
+        "hit_rate": round(hits / n_old, 3), "false_alarm_rate": round(fa / n_new, 3),
+        "d_prime_corrected": round(z(hr) - z(far), 3),
+        "source_correct": src_ok, "source_denominator": hits,
+        "source_accuracy_given_recognised": round(src_ok / hits, 3) if hits else None,
+        "rt_correct_mean": G.mean(rts)})
 
 
 def example_response(item, correct=True):

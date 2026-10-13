@@ -11,7 +11,12 @@ relevant feature but use a different split of its values (and different objects)
 have the same structure and difficulty. Answer keys come from `category()` (rule engine),
 not from the browser.
 """
+from app.tasks import _guard as G
 
+TIMING = "window"      # every answer (training and transfer): 5000 ms limit (view.js answer(5000))
+WINDOW_MS = 5000
+RT_SLACK_MS = 50       # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
 DIMS = 3
 PARTITIONS = [(0, 1), (0, 2), (0, 3)]  # group-0 values; the other two values are group 1
 N_TRAIN, N_TRANSFER = 16, 8
@@ -58,47 +63,47 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
-def _rows(objs, part):
-    part = part if isinstance(part, list) else []
-    return [part[k] if k < len(part) and isinstance(part[k], dict) else {} for k in range(len(objs))]
-
-
+@G.safe
 def score(item, response):
-    """response: {"train": [{"choice": 0|1|null, "rt": ms}], "transfer": [same]}.
-    hit = transfer accuracy >= 75 % (at least 6 of 8 new objects right); omissions are
-    wrong. metrics: training accuracy in the first and second half, learning slope
-    (second minus first half), final-block (last 8) and transfer accuracy, median
-    correct transfer RT, omissions."""
-    try:
-        rule = item["rule"]
-        resp = response if isinstance(response, dict) else {}
+    """response: {"train": [{"choice": 0|1|null, "rt": ms}], "transfer": [same]}, one entry
+    per object in display order (missing entries invalid, extra ones flagged).
+    Every answer is classified (app/tasks/_guard.py): absent (no choice within the 5000 ms
+    limit, view.js answer(5000), training and transfer), invalid (choice not 0/1, choice
+    without rt or rt without choice, non-finite / negative / impossible rt), anticipatory
+    (< 100 ms), late (beyond the limit + 50 ms timer tolerance) or timely. Only a timely
+    answer can be correct; keys come from the rule engine category(), not the browser.
+    hit = transfer accuracy >= 75 % (at least 6 of 8 new objects right); omissions and
+    answers that are not timely are wrong. metrics: training accuracy in the first and
+    second half, learning slope (second minus first half), final-block (last 8) and transfer
+    accuracy, median correct transfer RT, omissions."""
+    a = G.Audit(CEILING_MS)
+    rule = item["rule"]
+    if not isinstance(response, dict):
+        return a.junk(len(item["train"]) + len(item["transfer"]))
 
-        def judge(objs, part):
-            out = []
-            for o, r in zip(objs, _rows(objs, part)):
-                ch = r.get("choice")
-                good = ch in (0, 1) and not isinstance(ch, bool) and ch == category(rule, o["f"])
-                out.append((good, r.get("rt"), ch is None))
-            return out
-        tr = judge(item["train"], resp.get("train"))
-        tf = judge(item["transfer"], resp.get("transfer"))
+    def judge(objs, field):
+        out = []
+        for o, r in zip(objs, a.entries(response.get(field, G.MISSING), len(objs), field)):
+            st, ch, rt = a.keyed(r, (0, 1), key="choice", window=WINDOW_MS, slack=RT_SLACK_MS)
+            good = st == G.TIMELY and ch == category(rule, o["f"])
+            out.append((good, rt if good else None, st))
+        return out
+    tr = judge(item["train"], "train")
+    tf = judge(item["transfer"], "transfer")
 
-        def acc(rows):
-            return round(sum(g for g, _, _ in rows) / len(rows), 3) if rows else None
-        half = len(tr) // 2
-        a1, a2 = acc(tr[:half]), acc(tr[half:])
-        t_acc = acc(tf)
-        rts = sorted(rt for g, rt, _ in tf if g and isinstance(rt, (int, float)) and rt > 0)
-        med = rts[len(rts) // 2] if rts else None
-        errors = sum(not g for g, _, _ in tr + tf)
-        return {"hit": t_acc is not None and t_acc >= 0.75, "errors": errors,
-                "metrics": {"train_acc_first_half": a1, "train_acc_second_half": a2,
-                            "learning_slope": round(a2 - a1, 3) if a1 is not None else None,
-                            "final_block_acc": a2, "transfer_acc": t_acc,
-                            "transfer_median_rt_correct": med,
-                            "omissions": sum(om for _, _, om in tr + tf)}}
-    except Exception:
-        return {"hit": False, "errors": 0, "metrics": {}}
+    def acc(rows):
+        return round(sum(g for g, _, _ in rows) / len(rows), 3) if rows else None
+    half = len(tr) // 2
+    a1, a2 = acc(tr[:half]), acc(tr[half:])
+    t_acc = acc(tf)
+    errors = sum(not g for g, _, _ in tr + tf)
+    return a.finish(t_acc is not None and t_acc >= 0.75, errors, {
+        "train_acc_first_half": a1, "train_acc_second_half": a2,
+        "learning_slope": round(a2 - a1, 3) if a1 is not None else None,
+        "final_block_acc": a2, "transfer_acc": t_acc,
+        "transfer_median_rt_correct": G.median([rt for g, rt, _ in tf if g]),
+        "omissions": sum(st == G.ABSENT for _, _, st in tr + tf),
+        "not_timely": sum(st in (G.INVALID, G.ANTICIPATORY, G.LATE) for _, _, st in tr + tf)})
 
 
 def example_response(item, correct=True):

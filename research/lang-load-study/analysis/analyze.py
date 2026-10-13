@@ -1,27 +1,39 @@
 """Analyze the exported trials CSV.
 
-1. Language of the clue (primary). Does a clue in the less comfortable
-   language (L2) slow visual search, and does that cost differ between groups?
-   Mixed-effects model on log response time (correct trials only):
+1. Language of the clue (primary, core tasks). Does a clue in the less
+   comfortable language (L2) slow responses, and does that cost differ between
+   groups? Mixed-effects model on log response time (correct trials only):
        log_rt ~ condition * group * task, random intercept per participant.
-   log is used because response times are right-skewed.
+   Outcomes are labelled per task: for search/scan/dice "accuracy" is the share
+   of targets found; for corsi/reading/rule/ospan it is the share of trials
+   answered fully correctly. The meaning of rt_ms also differs by task.
    Secondary: mental effort (Paas 1-9) with the same structure.
 
-2. Surprise gorilla (inattentional blindness). One image per person, so this
-   is compared BETWEEN people: share who saw the gorilla, by group and by the
-   language of the surprise clue. Reported with and without people who already
-   knew the invisible-gorilla study.
+1b. Library (plugin) tasks. Their block `hit` is a task-specific pass threshold,
+   not accuracy, so they are excluded from the models above and summarised per
+   task from the export's `metrics` JSON column when present.
 
-3. Time on task. Every round has the same mix, so changes across rounds come
-   from time on task. Reports speed, accuracy and the L2 cost per round, and
-   searches for the minute where slowing starts (piecewise-linear model).
-   Caution: practice makes people faster over time and can hide fatigue.
+2. Surprise gorilla (inattentional blindness). One image per person, compared
+   BETWEEN people.
+
+3. Time on task. Reports speed, accuracy and the L2 cost per round, time to
+   self-declared exhaustion (Kaplan-Meier with tied times grouped), and an
+   EXPLORATORY change-point search whose uncertainty re-runs the breakpoint
+   selection inside a participant bootstrap.
+
+Eligibility is outcome-specific (see analysis/eligibility.py) and every
+exclusion/missingness reason is printed. A missing final questionnaire does not
+remove anyone.
+
+Model fitting warnings are shown, not suppressed; a model that fails or does
+not converge has its inferential output withheld.
 
 Usage:
     python analysis/analyze.py trials.csv
     python analysis/analyze.py trials.csv --include-test   # for pilot/simulated data
 """
 import argparse
+import os
 import sys
 import warnings
 
@@ -29,137 +41,235 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-BOOL_COLS = ("is_test", "practice", "hit", "timed_out", "attention_ok", "completed", "eligible",
-             "noticed_unusual", "saw_gorilla", "knew_gorilla_study", "time_capped", "quit_early")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from changepoint import bend_search, describe  # noqa: E402
+from eligibility import ANALYSES, eligibility, tri_bool, trial_exclusions, trial_validity  # noqa: E402
+from library import CORE_TASKS, OUTCOME_LABEL, library_summary  # noqa: E402
+from survival import format_median, km_median  # noqa: E402
+
+# Columns where a missing value simply means "no".
+FALSE_IF_MISSING = ("is_test", "practice", "hit", "timed_out", "time_capped", "quit_early")
+# Columns where missing must stay missing (unknown), e.g. no final questionnaire.
+TRI_STATE = ("attention_ok", "completed", "eligible", "noticed_unusual", "saw_gorilla",
+             "knew_gorilla_study")
 L2 = "C(condition, Treatment('L1'))"
+DEFAULT_SESSION_LIMIT_MIN = 60.0
 
 
-def load(path, include_test):
+def load(path):
+    """Read the export and normalise types. No participant is excluded here:
+    eligibility is decided per analysis."""
     df = pd.read_csv(path)
     # Older exports lack these columns; treat everyone as eligible with no reloads.
-    df["eligible"] = df.get("eligible", True)
-    df["reloads"] = df.get("reloads", 0)
-    df["focus_lost"] = df.get("focus_lost", 0)
-    for col in BOOL_COLS:
+    if "eligible" not in df:
+        df["eligible"] = True
+    for col, default in (("reloads", 0), ("focus_lost", 0)):
+        if col not in df:
+            df[col] = default
+    for col in FALSE_IF_MISSING:
         if col in df:
-            df[col] = df[col].astype(str).str.lower() == "true"
-    n0 = df.participant_id.nunique()
-    if not include_test:
-        df = df[~df.is_test]
-    df = df[df.completed & df.attention_ok & df.eligible]
-    print(f"Participants: {n0} in file, {df.participant_id.nunique()} after exclusions")
+            df[col] = tri_bool(df[col]).fillna(False).astype(bool)
+    for col in TRI_STATE:
+        if col in df:
+            df[col] = tri_bool(df[col])
+    if "is_test" not in df:
+        df["is_test"] = False
+    if "practice" not in df:
+        df["practice"] = False
     return df
 
 
-def language_effect(trials):
-    print("\n" + "=" * 70 + "\n1. LANGUAGE OF THE CLUE\n" + "=" * 70)
-    print("\nAccuracy (share of targets found) by group, task, condition:")
-    print(trials.groupby(["group", "task", "condition"]).hit.mean().unstack().round(3).to_string())
+def fit(formula, data, reml=True, label=None):
+    """Fit a mixed model; print every warning; return None (and say so) if the fit
+    fails or does not converge, so no inferential output is shown for it."""
+    label = label or formula
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        try:
+            m = smf.mixedlm(formula, data, groups=data["participant_id"]).fit(reml=reml)
+        except Exception as exc:  # noqa: BLE001 - report any fitting failure
+            print(f"MODEL FAILED ({label}): {type(exc).__name__}: {exc}. No inferential results reported.")
+            return None
+    msgs = sorted({f"{w.category.__name__}: {w.message}" for w in caught})
+    for msg in msgs:
+        print(f"  warning while fitting {label}: {msg}")
+    if not getattr(m, "converged", True):
+        print(f"MODEL DID NOT CONVERGE ({label}). No inferential results reported.")
+        return None
+    return m
 
-    rt = correct_rts(trials)
-    print("\nMedian time to find (ms):")
+
+def report(model):
+    if model is not None:
+        print(model.summary())
+
+
+def print_eligibility(table, trials_dropped):
+    print("\n" + "=" * 70 + "\n0. ELIGIBILITY AND MISSINGNESS (per analysis)\n" + "=" * 70)
+    for name, desc in ANALYSES.items():
+        sub = table[table.analysis == name]
+        print(f"\n{desc} [{name}]")
+        for r in sub.itertuples():
+            print(f"  {r.reason:<55} {r.n:>6}")
+    if len(trials_dropped):
+        print("\nScored trials dropped from performance analyses (per-trial validity):")
+        print(trials_dropped.to_string())
+
+
+def correct_rts(trials):
+    rt = trials[trials.hit & trials.rt_ms.notna()].copy()
+    rt = rt[rt.rt_ms >= 200]  # under 200 ms is anticipation, not search
+    rt["log_rt"] = np.log(rt.rt_ms)
+    return rt
+
+
+def language_effect(trials):
+    print("\n" + "=" * 70 + "\n1. LANGUAGE OF THE CLUE (core tasks)\n" + "=" * 70)
+    core = trials[trials.task.isin(CORE_TASKS)]
+    if core.empty:
+        print("No core-task trials.")
+        return
+    print("\nOutcome definitions by task:")
+    for task in sorted(core.task.unique()):
+        print(f"  {task}: {OUTCOME_LABEL[task]}; rt_ms = time to the scored response")
+    print("\nAccuracy (task-specific definition above) by group, task, condition:")
+    print(core.groupby(["group", "task", "condition"]).hit.mean().unstack().round(3).to_string())
+
+    rt = correct_rts(core)
+    print("\nMedian response time on correct trials (ms):")
     print(rt.groupby(["group", "task", "condition"]).rt_ms.median().unstack().round(0).to_string())
 
-    print(f"\n--- Model: log_rt ~ condition * group * task ---")
-    print(fit(f"log_rt ~ {L2} * C(group) * C(task)", rt).summary())
+    print("\n--- Model: log_rt ~ condition * group * task ---")
+    report(fit(f"log_rt ~ {L2} * C(group) * C(task)", rt))
 
-    eff = trials[trials.effort.notna()]
-    print(f"\n--- Model: effort ~ condition * group * task ---")
-    print(fit(f"effort ~ {L2} * C(group) * C(task)", eff).summary())
+    eff = core[core.effort.notna()]
+    print("\n--- Model: effort ~ condition * group * task ---")
+    report(fit(f"effort ~ {L2} * C(group) * C(task)", eff))
 
     if rt.education_years.nunique() > 1:
         print("\n--- Exploratory: does education moderate the L2 cost? ---")
-        print(fit(f"log_rt ~ {L2} * education_years + C(task)", rt).summary())
-    print("A positive L2 coefficient means slower search with an L2 clue; "
+        report(fit(f"log_rt ~ {L2} * education_years + C(task)", rt))
+    print("A positive L2 coefficient means slower responses with an L2 clue; "
           "exp(coef) - 1 is the approximate percent slow-down.")
+
+
+def library_tasks(trials):
+    print("\n" + "=" * 70 + "\n1b. LIBRARY TASKS (per-task outcomes)\n" + "=" * 70)
+    pass_table, metric_table, note = library_summary(trials)
+    if note:
+        print(note)
+    if pass_table is not None:
+        print("\nBlock pass flag (task-specific threshold; a quality/descriptive field, NOT accuracy):")
+        print(pass_table.round(3).to_string())
+    if metric_table is not None:
+        print("\nTask metrics from the 'metrics' column (mean of per-person means; booleans are shares):")
+        print(metric_table.unstack("condition").round(3).to_string())
 
 
 def gorilla(df):
     print("\n" + "=" * 70 + "\n2. SURPRISE GORILLA (one image per person)\n" + "=" * 70)
     s = df[df.task == "surprise"].drop_duplicates("participant_id")
-    if s.empty:
-        print("No surprise trials in this file.")
-        return
     s = s[s.reloads.fillna(0) == 0]  # a reloaded surprise image was seen twice
-    for label, sub in (("Everyone", s), ("Excluding people who knew the study", s[~s.knew_gorilla_study])):
+    s = s[s.saw_gorilla.notna()] if "saw_gorilla" in s else s.iloc[0:0]
+    if s.empty:
+        print("No usable surprise trials in this file.")
+        return
+    s = s.assign(saw_gorilla=s.saw_gorilla.astype(bool))
+    knew = s.knew_gorilla_study.fillna(False).astype(bool)
+    naive_mask = s.knew_gorilla_study.astype("boolean").fillna(True) == False  # noqa: E712
+    for label, sub in (("Everyone", s), ("Excluding people who knew (or did not answer)", s[naive_mask])):
         print(f"\n{label}: share who saw the gorilla (n in brackets)")
         tab = sub.groupby(["group", "condition"]).saw_gorilla.agg(["mean", "size"])
         print(tab.apply(lambda r: f"{r['mean']:.2f} [{int(r['size'])}]", axis=1).unstack().to_string())
-    print(f"\nKnew the invisible-gorilla study, by group:")
-    print(s.groupby("group").knew_gorilla_study.mean().round(2).to_string())
-    print(f"\nSaid they noticed something unusual vs. said they saw a gorilla:")
+    print("\nKnew the invisible-gorilla study, by group:")
+    print(s.assign(knew=knew).groupby("group").knew.mean().round(2).to_string())
+    print("\nSaid they noticed something unusual vs. said they saw a gorilla:")
     print(pd.crosstab(s.noticed_unusual, s.saw_gorilla).to_string())
 
-    naive = s[~s.knew_gorilla_study].copy()
+    naive = s[naive_mask].copy()
     naive["saw"] = naive.saw_gorilla.astype(int)
     if naive.saw.nunique() == 2 and len(naive) >= 20:
-        print(f"\n--- Logistic model (people who did not know the study): saw ~ condition + group ---")
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            m = smf.logit(f"saw ~ {L2} + C(group)", naive).fit(disp=False)
+        print("\n--- Logistic model (people who did not know the study): saw ~ condition + group ---")
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always")
+            try:
+                m = smf.logit(f"saw ~ {L2} + C(group)", naive).fit(disp=False)
+            except Exception as exc:  # noqa: BLE001
+                print(f"MODEL FAILED: {type(exc).__name__}: {exc}. No inferential results reported.")
+                return
+        for msg in sorted({f"{w.category.__name__}: {w.message}" for w in caught}):
+            print(f"  warning while fitting logistic model: {msg}")
+        if not m.mle_retvals.get("converged", True):
+            print("MODEL DID NOT CONVERGE. No inferential results reported.")
+            return
         print(m.summary())
         print("A negative L2 coefficient means FEWER people saw the gorilla with an L2 clue; "
               "exp(coef) is the odds ratio.")
 
 
-def time_on_task(trials):
+def stopping(df, people_ids, session_limit_min):
+    """Time to self-declared exhaustion. Uses everyone eligible for the stopping
+    analysis, including people who never reached the final questionnaire."""
+    d = df[df.participant_id.isin(people_ids)]
+    print(f"\nTime to self-declared exhaustion ({len(people_ids)} people, incl. those without a final "
+          "questionnaire):")
+    if d.empty:
+        print("  no data")
+        return None
+    scored = d[d["round"].notna() & ~d.practice]
+    # Person-level flags: true if set on any row; first non-missing stop time.
+    people = d.groupby("participant_id").agg(group=("group", "first"), quit=("quit_early", "max"),
+                                             quit_s=("quit_elapsed_s", "first"),
+                                             capped=("time_capped", "max"))
+    people["last_min"] = scored.groupby("participant_id").elapsed_s.max().reindex(people.index) / 60
+    people["quit_min"] = people.quit_s / 60
+    print(f"Share of people stopped by the {session_limit_min:g}-minute limit: {people.capped.mean():.2f}")
+    summary = people.groupby("group").agg(share=("quit", "mean"), n=("quit", "size"),
+                                          median_minute=("quit_min", "median"))
+    print("Pressed \"I'm exhausted\": share of people and median minute among those who pressed, by group:")
+    print(summary.round(2).to_string())
+    # Event = pressed the button. Everyone else is censored at their last recorded time
+    # (or the session limit if capped and no later timestamp exists).
+    people["time"] = np.where(people.quit, people.quit_min.fillna(people.last_min),
+                              np.where(people.capped, people.last_min.fillna(session_limit_min),
+                                       people.last_min))
+    people = people[people.time.notna()]
+    print("\nMedian minutes to self-declared exhaustion (Kaplan-Meier; tied times grouped; "
+          "non-pressers censored at their last recorded time):")
+    for group, g in people.groupby("group"):
+        print(f"  {group}: {format_median(km_median(g.time.values, g.quit.values))} (n = {len(g)})")
+    return people
+
+
+def time_on_task(trials, df, stopping_ids, session_limit_min, n_boot, seed):
     print("\n" + "=" * 70 + "\n3. TIME ON TASK\n" + "=" * 70)
-    rt = correct_rts(trials)
+    core = trials[trials.task.isin(CORE_TASKS)]
+    rt = correct_rts(core)
     rt["elapsed_min"] = rt.elapsed_s / 60
-    print("\nMedian time to find (ms) per round, by group:")
+    print("\nMedian response time on correct core-task trials (ms) per round, by group:")
     print(rt.groupby(["group", "round"]).rt_ms.median().unstack().round(0).to_string())
-    print("\nAccuracy per round, by group:")
-    print(trials.groupby(["group", "round"]).hit.mean().unstack().round(3).to_string())
+    print("\nAccuracy per round, by task (task-specific definitions, see section 1):")
+    print(core.groupby(["task", "round"]).hit.mean().unstack().round(3).to_string())
     print("\nL2 cost per round (median L2 time / median L1 time):")
     med = rt.groupby(["round", "condition"]).rt_ms.median().unstack()
-    print((med.L2 / med.L1).round(3).to_string())
-    capped = trials.groupby("participant_id").time_capped.first().mean()
-    print(f"\nShare of people stopped by the 15-minute limit: {capped:.2f}")
-    if "quit_early" in trials:
-        # The "I'm exhausted" button: a direct, self-reported measure of fatigue.
-        people = trials.groupby("participant_id").agg(group=("group", "first"), quit=("quit_early", "first"),
-                                                     quit_min=("quit_elapsed_s", "first"))
-        people["quit_min"] = people.quit_min / 60
-        print("\nPressed \"I'm exhausted\": share of people and median minute, by group:")
-        summary = people.groupby("group").agg(share=("quit", "mean"), n=("quit", "size"),
-                                             median_minute=("quit_min", "median"))
-        print(summary.round(2).to_string())
-        # Time to exhaustion as survival data: pressing the button is the event; people who
-        # reached the safety maximum (or ran out of items) are censored at their last answer.
-        last = trials.groupby("participant_id").elapsed_s.max() / 60
-        people["time"] = people.quit_min.fillna(last)
-        print("\nMedian minutes to self-declared exhaustion (Kaplan-Meier, censored at the end):")
-        for group, g in people.groupby("group"):
-            print(f"  {group}: {km_median(g.time.values, g.quit.values)}")
+    if {"L1", "L2"} <= set(med.columns):
+        print((med.L2 / med.L1).round(3).to_string())
+
+    people = stopping(df, stopping_ids, session_limit_min)
 
     print("\n--- Model: does the L2 cost change with time on task? ---")
-    print(fit(f"log_rt ~ {L2} * elapsed_min + C(group) + C(task)", rt).summary())
+    report(fit(f"log_rt ~ {L2} * elapsed_min + C(group) + C(task)", rt))
 
-    # Where does slowing start? Try each candidate minute as a bend point and keep the
-    # best-fitting one. Compare against no bend (straight line) before believing it.
-    # log(elapsed) soaks up the early practice speed-up, so the end of learning
-    # is not mistaken for the start of fatigue.
-    lo, hi = rt.elapsed_min.quantile([.1, .9])
-    base = fit(f"log_rt ~ elapsed_min + np.log(elapsed_min) + {L2} + C(group) + C(task)", rt, reml=False)
-    best = None
-    for k in np.arange(np.ceil(lo), np.floor(hi) + .01, 0.5):
-        rt["after"] = np.clip(rt.elapsed_min - k, 0, None)
-        m = fit(f"log_rt ~ elapsed_min + np.log(elapsed_min) + after + {L2} + C(group) + C(task)",
-                rt, reml=False)
-        if best is None or m.llf > best[1].llf:
-            best = (k, m)
-    if best:
-        k, m = best
-        lr = 2 * (m.llf - base.llf)
-        print(f"\nBest bend point: {k:.1f} min. Slope before: {m.params['elapsed_min']:+.4f} log-ms/min, "
-              f"change after: {m.params['after']:+.4f} (likelihood-ratio vs. straight line: {lr:.1f}).")
-        print("A positive change after the bend means people slow down from that minute on. "
-              "A likelihood ratio below ~6 is not convincing evidence of a bend; "
-              "report it as 'no clear decay within 15 minutes'.")
+    print("\n--- Change-point search ---")
+    res = bend_search(rt, n_boot=n_boot, seed=seed)
+    for line in describe(res, session_limit_min):
+        print(line)
+    return res, people
 
 
 def retention(df):
-    """End-of-session word recognition (operation-span words seen ~10 minutes earlier).
+    """End-of-session word recognition (operation-span words seen earlier).
     Hits = seen words ticked; false alarms = never-shown words ticked. Compared within
     person: words from L1 trials vs. words from L2 trials."""
     cols = ["ret_l1_hits", "ret_l1_false_alarms", "ret_l2_hits", "ret_l2_false_alarms"]
@@ -178,11 +288,10 @@ def retention(df):
           "positive means words seen in the comfortable language were remembered better.")
 
 
-def fatigue(path, people):
+def fatigue(f, people):
     """Self-rated mental fatigue (0-100). Kept separate from performance: the two need not
     move together. Reports raw ratings and change from each person's own baseline."""
     print("\n" + "=" * 70 + "\n4. SELF-RATED FATIGUE (0-100)\n" + "=" * 70)
-    f = pd.read_csv(path)
     f = f[f.participant_id.isin(people)]
     if f.empty:
         print("No fatigue ratings for the included participants.")
@@ -195,38 +304,46 @@ def fatigue(path, people):
     keep = f[f.step.isin([0, 1, 2, 3, 999])]
     print(keep.pivot_table(index="group", columns="point", values="value", aggfunc="median")
           .reindex(columns=["baseline", "after_round_1", "after_round_2", "after_round_3", "final"]).round(0).to_string())
-    rounds = f[f.point.str.startswith("after_round_") & f.elapsed_s.notna()].copy()
+    rounds = f[f.point.str.startswith("after_round_") & f.elapsed_s.notna() & f.change.notna()].copy()
     if rounds.participant_id.nunique() > 3:
         rounds["elapsed_min"] = rounds.elapsed_s / 60
         print("\n--- Model: change from baseline ~ elapsed minutes + group ---")
-        print(fit("change ~ elapsed_min + C(group)", rounds).summary())
+        report(fit("change ~ elapsed_min + C(group)", rounds))
 
 
-def km_median(times, events):
-    """Kaplan-Meier median survival time; 'not reached' if fewer than half pressed the button."""
-    order = np.argsort(times)
-    times, events = np.asarray(times)[order], np.asarray(events)[order]
-    at_risk, surv = len(times), 1.0
-    for t, e in zip(times, events):
-        if e:
-            surv *= 1 - 1 / at_risk
-            if surv <= .5:
-                return f"{t:.1f} min"
-        at_risk -= 1
-    return "not reached"
-
-
-def correct_rts(trials):
-    rt = trials[trials.hit & trials.rt_ms.notna()].copy()
-    rt = rt[rt.rt_ms >= 200]  # under 200 ms is anticipation, not search
-    rt["log_rt"] = np.log(rt.rt_ms)
-    return rt
-
-
-def fit(formula, data, reml=True):
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        return smf.mixedlm(formula, data, groups=data["participant_id"]).fit(reml=reml)
+def run(df, include_test=False, attention_policy="exclude", fatigue_df=None,
+        session_limit_min=DEFAULT_SESSION_LIMIT_MIN, n_boot=200, seed=0):
+    """Run every analysis on a loaded frame. Returns a dict of intermediate results (for tests)."""
+    fatigue_ids = set(fatigue_df.participant_id) if fatigue_df is not None else None
+    included, table = eligibility(df, include_test, attention_policy, fatigue_ids)
+    print(f"Participants in file: {df.participant_id.nunique()}")
+    if include_test and df.is_test.any():
+        print("\n*** WARNING: includes TEST/SIMULATED data. Not reportable as findings. ***")
+    perf = df[df.participant_id.isin(included["performance"])]
+    scored = perf[perf["round"].notna() & ~perf.practice]
+    dropped = trial_exclusions(scored) if len(scored) else pd.Series(dtype=int)
+    print_eligibility(table, dropped)
+    trials = trial_validity(scored) if len(scored) else scored
+    trials = trials[trials.valid] if len(trials) else trials
+    out = {"included": included, "eligibility": table, "trials": trials}
+    if trials.empty:
+        print("\nNo valid scored trials for the performance analyses.")
+    else:
+        print("\nParticipants per group (performance analyses):")
+        print(trials.groupby("group").participant_id.nunique().to_string())
+        language_effect(trials)
+        library_tasks(trials)
+    gorilla(df[df.participant_id.isin(included["gorilla"])])
+    if not trials.empty:
+        out["bend"], out["stopping"] = time_on_task(trials, df, included["stopping"], session_limit_min,
+                                                    n_boot, seed)
+    else:
+        print("\n" + "=" * 70 + "\n3. TIME ON TASK\n" + "=" * 70)
+        out["stopping"] = stopping(df, included["stopping"], session_limit_min)
+    retention(df[df.participant_id.isin(included["retention"])])
+    if fatigue_df is not None:
+        fatigue(fatigue_df, included["fatigue_ratings"])
+    return out
 
 
 def main():
@@ -234,32 +351,23 @@ def main():
     ap.add_argument("csv")
     ap.add_argument("--include-test", action="store_true")
     ap.add_argument("--fatigue", help="fatigue.csv export (0-100 ratings at start, after rounds, end)")
+    ap.add_argument("--attention-policy", choices=("exclude", "keep"), default="exclude",
+                    help="what to do with an explicit wrong end-of-session attention answer in the "
+                         "performance analyses (a missing answer never excludes anyone)")
+    ap.add_argument("--session-limit-min", type=float, default=DEFAULT_SESSION_LIMIT_MIN,
+                    help="session length from the frozen protocol (minutes), used in report wording")
+    ap.add_argument("--bootstrap", type=int, default=200, help="bootstrap resamples for the change-point CI")
+    ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
 
-    df = load(args.csv, args.include_test)
+    df = load(args.csv)
     if df.empty:
-        sys.exit("No usable rows. Did you mean --include-test?")
-    if df.is_test.any():
-        print("\n*** WARNING: includes TEST/SIMULATED data. Not reportable as findings. ***")
-    print("\nParticipants per group:")
-    print(df.groupby("group").participant_id.nunique().to_string())
-
-    # Scored round trials only. A reloaded trial means the image was seen before the clock
-    # restarted; a trial where the tab was hidden was interrupted. Both are dropped (and counted).
-    trials = df[df["round"].notna() & ~df.practice]
-    reloaded = trials.reloads.fillna(0) > 0
-    hidden = trials.focus_lost.fillna(0) > 0
-    if reloaded.any() or hidden.any():
-        print(f"Dropped {int(reloaded.sum())} reloaded and {int((hidden & ~reloaded).sum())} "
-              "interrupted (tab hidden) round trials")
-    trials = trials[~reloaded & ~hidden]
-
-    language_effect(trials)
-    gorilla(df)
-    time_on_task(trials)
-    retention(df)
-    if args.fatigue:
-        fatigue(args.fatigue, set(df.participant_id))
+        sys.exit("No rows in file.")
+    if not args.include_test and df.is_test.all():
+        sys.exit("Only test/simulated rows in this file. Did you mean --include-test?")
+    fatigue_df = pd.read_csv(args.fatigue) if args.fatigue else None
+    run(df, args.include_test, args.attention_policy, fatigue_df, args.session_limit_min,
+        args.bootstrap, args.seed)
 
 
 if __name__ == "__main__":

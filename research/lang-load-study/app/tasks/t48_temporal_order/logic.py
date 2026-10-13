@@ -11,6 +11,12 @@ order (positions into "events")."""
 import json
 from pathlib import Path
 
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js test phase has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
+MAX_ORDER = 100      # order entries read (6 or 8 expected)
+
 N_EVENTS = len(json.loads((Path(__file__).parent / "text" / "en.json").read_text(encoding="utf-8"))["events"])
 
 
@@ -41,34 +47,49 @@ def generate(rng, n, save_image):
     return items
 
 
+@G.safe
 def score(item, response):
     """response: {"order": [study position of each card tapped, first to last], "rt": ms}.
     Truth is 0, 1, ..., n-1 (study order). Pairwise accuracy = share of all n(n-1)/2 event
     pairs whose relative order is right (an event left out makes its pairs wrong).
+    The view lets each card be placed once and Done only when all n are placed: positions
+    that are not integers 0..n-1 are flagged and dropped, repeated positions are flagged
+    and only the first counts, an incomplete order is flagged (and is a miss).
     hit = every event placed AND pairwise-order accuracy >= 0.8.
-    errors = events not in their exact position (missing ones included)."""
+    errors = events not in their exact position (missing ones included).
+    Ordering is unspeeded: rt is descriptive, checked (finite, >= 100 ms, below the trial
+    timeout) and null when bad (flagged); correctness stands."""
     n = len(item["events"])
-    resp = response if isinstance(response, dict) else {}
-    raw = resp.get("order") if isinstance(resp.get("order"), list) else []
-    order = []
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk(n)
+    raw = a.stream(response.get("order", G.MISSING), "order", cap=MAX_ORDER)
+    order, seen = [], set()
     for p in raw:
-        if isinstance(p, int) and not isinstance(p, bool) and 0 <= p < n and p not in order:
+        if not G.member(p, range(n)):
+            a.malformed("invalid_order_entry")
+        elif p in seen:
+            a.malformed("duplicate_order_entry")
+        else:
+            seen.add(p)
             order.append(p)
+    if len(order) < n:
+        a.flag("incomplete_order")
     pos = {e: i for i, e in enumerate(order)}
-    pairs = [(a, b) for a in range(n) for b in range(a + 1, n)]
-    right = sum(1 for a, b in pairs if a in pos and b in pos and pos[a] < pos[b])
+    pairs = [(x, y) for x in range(n) for y in range(x + 1, n)]
+    right = sum(1 for x, y in pairs if x in pos and y in pos and pos[x] < pos[y])
     pairwise = right / len(pairs)
     exact_pos = sum(1 for e, i in pos.items() if e == i)
     disp = [abs(i - e) for e, i in pos.items()]
     complete = len(order) == n
-    rt = resp.get("rt")
-    return {"hit": complete and pairwise >= 0.8, "errors": n - exact_pos,
-            "metrics": {"length": n, "exact_order": complete and exact_pos == n,
-                        "pairwise_accuracy": round(pairwise, 3), "positions_correct": exact_pos,
-                        "mean_displacement": round(sum(disp) / len(disp), 3) if disp else None,
-                        "placed": len(order),
-                        "first_event_first": bool(order) and order[0] == 0,
-                        "rt": rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) else None}}
+    rt = a.duration(response, "rt")
+    return a.finish(complete and pairwise >= 0.8, n - exact_pos, {
+        "length": n, "exact_order": complete and exact_pos == n,
+        "pairwise_accuracy": round(pairwise, 3), "positions_correct": exact_pos,
+        "mean_displacement": round(sum(disp) / len(disp), 3) if disp else None,
+        "placed": len(order),
+        "first_event_first": bool(order) and order[0] == 0,
+        "rt": rt})
 
 
 def example_response(item, correct=True):
