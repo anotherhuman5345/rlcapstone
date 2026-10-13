@@ -1,0 +1,546 @@
+{
+ "code": "sw",
+ "verified": false,
+ "note": "Vifungu asili vilivyoandikwa kwa ajili ya utafiti huu. Kipengele k katika kila lugha lazima kibebe maana ileile na mpangilio uleule wa majibu; kikaguliwe na mkaguzi anayejua lugha zote mbili kabla ya kutumika kwa kweli.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Duka la mikate la Lena hufunguliwa saa 1:00 asubuhi. Siku za Jumatatu huchelewa kufunguliwa kwa saa moja kwa sababu tanuri husafishwa Jumapili usiku. Leo ni Jumatatu.",
+   "question": "Leo duka litafunguliwa saa ngapi?",
+   "options": [
+    "Saa 1:00 asubuhi",
+    "Saa 2:00 asubuhi",
+    "Saa 12:00 asubuhi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Basi la shule huondoka kutoka maktaba. Mira huwahi basi hilo kila mara, lakini asubuhi hii alilikosa kwa sababu alisimama kumsaidia jirani kubeba masanduku. Basi linalofuata linakuja dakika ishirini baadaye.",
+   "question": "Kwa nini Mira atafika baadaye kuliko kawaida?",
+   "options": [
+    "Alimsaidia jirani na akakosa basi",
+    "Basi liliharibika",
+    "Maktaba ilikuwa imefungwa"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar humwagilia nyanya kila jioni. Jana usiku mvua ilinyesha kwa wingi, kwa hiyo hakumwagilia. Asubuhi hii udongo ulikuwa bado na unyevu.",
+   "question": "Kwa nini Omar hakumwagilia nyanya jana usiku?",
+   "options": [
+    "Nyanya zilikuwa zimeshavunwa",
+    "Mvua ilikuwa imeshazipa maji",
+    "Alisahau"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Katika jumba la makumbusho, chumba cha bluu kina picha za kuchorwa na chumba cha kijani kina sanamu. Mwongozaji alisema kitu cha zamani zaidi katika jumba hilo kimetengenezwa kwa jiwe na kimesimama katika chumba cha kijani.",
+   "question": "Kitu cha zamani zaidi ni cha aina gani?",
+   "options": [
+    "Picha ya kuchorwa",
+    "Picha ya kamera",
+    "Sanamu"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Tiketi ya treni ya Deniz ni nafuu zaidi siku za kazi. Alitaka kumtembelea shangazi yake Jumamosi, lakini alihamisha safari hadi Ijumaa ili kuokoa pesa.",
+   "question": "Kwa nini Deniz alisafiri Ijumaa?",
+   "options": [
+    "Tiketi ni nafuu zaidi siku za kazi",
+    "Hapakuwa na treni Jumamosi",
+    "Shangazi yake alikuwa na shughuli Jumamosi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Klabu hukutana katika chumba namba 4 isipokuwa watu zaidi ya ishirini wakijiandikisha. Hapo huhamia ukumbini. Wiki hii, watu ishirini na sita wamejiandikisha.",
+   "question": "Klabu itakutana wapi wiki hii?",
+   "options": [
+    "Haitakutana",
+    "Katika chumba namba 4",
+    "Ukumbini"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Betri ya simu ya Kemal hudumu siku nzima. Jana alitumia ramani mchana wote, jambo linalomaliza betri haraka, na simu ilizimika kabla ya chakula cha jioni.",
+   "question": "Kwa nini simu ilizimika mapema?",
+   "options": [
+    "Ramani ilitumia betri nyingi",
+    "Simu ilikuwa mpya",
+    "Alisahau kuiwasha"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Duka moja humpa kahawa ya bure mtu yeyote anayenunua sandwichi mbili. Ana alinunua sandwichi moja na juisi. Rafiki yake alinunua sandwichi mbili.",
+   "question": "Nani alipata kahawa ya bure?",
+   "options": [
+    "Rafiki wa Ana",
+    "Wote wawili",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Lango la bustani hufungwa jua linapozama. Wakati wa baridi jua huzama karibu saa 11:00 jioni, na wakati wa joto karibu saa 2:00 usiku. Tom alifika bustanini saa 12:00 jioni, siku moja wakati wa baridi.",
+   "question": "Je, Tom aliweza kuingia bustanini?",
+   "options": [
+    "Kupitia lango la nyuma tu",
+    "Ndiyo, lilikuwa wazi",
+    "Hapana, lango lilikuwa limeshafungwa"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Kila mwanafunzi katika darasa la Bi. Kaya lazima alete kikokotoo kwenye mtihani. Selim yuko katika darasa lake. Siku ya mtihani, kikokotoo chake kilikuwa nyumbani.",
+   "question": "Selim alisahau nini?",
+   "options": [
+    "Karatasi yake ya mtihani",
+    "Kitu ambacho mtihani ulihitaji",
+    "Jina la mwalimu wake"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Majani ya mwaloni mzee hugeuka manjano kabla ya mti mwingine wowote bustanini. Mwaka huu, majani ya kwanza ya manjano bustanini yalionekana mwanzoni mwa Oktoba.",
+   "question": "Majani ya mwaloni yalianza kugeuka manjano lini?",
+   "options": [
+    "Mwezi Desemba",
+    "Baada ya miti mingine yote",
+    "Mwanzoni mwa Oktoba"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Maktaba huazima vitabu kwa wiki mbili. Vitabu vinavyochelewa kurudishwa hutozwa ada ndogo kwa kila siku. Sam alirudisha kitabu siku tatu baada ya wiki mbili kwisha.",
+   "question": "Nini kilitokea Sam aliporudisha kitabu?",
+   "options": [
+    "Hakuna, alikirudisha kwa wakati",
+    "Alilipa ada ya kuchelewa",
+    "Alipata kadi mpya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana hunywa chai isiyo na sukari tu. Kwenye mkahawa, mhudumu alimletea chai iliyokwisha kukorogwa na vijiko viwili vya sukari. Aliirudisha.",
+   "question": "Kwa nini Hana aliirudisha chai?",
+   "options": [
+    "Ilikuwa baridi",
+    "Ilikuwa tayari na sukari ndani yake",
+    "Ilikuwa kahawa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Jengo refu zaidi mjini lina ghorofa kumi na mbili. Kliniki iko kwenye ghorofa ya juu kabisa ya jengo hilo, na lifti imeharibika leo.",
+   "question": "Wageni watafikaje kliniki leo?",
+   "options": [
+    "Kwa kupanda ngazi hadi ghorofa ya kumi na mbili",
+    "Kliniki imehamia mahali pengine",
+    "Kwa lifti"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Mimea iliyo nyuma ya ukuta mrefu wa bustani hupata jua kidogo. Ayla alihamisha mrehani wake kutoka nyuma ya ukuta hadi kwenye roshani iliyo wazi, na ndani ya wiki moja ulikua kwa kasi zaidi sana.",
+   "question": "Ni nini huenda kilisaidia mrehani kukua?",
+   "options": [
+    "Chungu kipya",
+    "Mwanga zaidi wa jua",
+    "Maji kidogo zaidi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Mapishi yanahitaji mayai matatu kwa keki moja. Burak anataka kuoka keki mbili na ana mayai manne.",
+   "question": "Burak anahitaji nini?",
+   "options": [
+    "Hakuna, ana ya kutosha",
+    "Mayai mawili zaidi",
+    "Yai moja zaidi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Tamasha linaanza saa 2:00 usiku. Milango hufunguliwa saa moja kabla ya tamasha. Lara alifika saa 1:15 usiku.",
+   "question": "Je, milango ilikuwa wazi Lara alipofika?",
+   "options": [
+    "Ndiyo, ilikuwa imefunguliwa saa 1:00 usiku",
+    "Alifika baada ya tamasha kwisha",
+    "Hapana, ilifunguliwa saa 2:00 usiku"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Paka katika makazi ya wanyama hulishwa asubuhi. Mbwa hulishwa asubuhi na tena jioni. Max, ambaye ni mbwa, alichukuliwa na mtu wa kumlea saa 6:00 mchana.",
+   "question": "Max alipata milo mingapi kwenye makazi siku hiyo?",
+   "options": [
+    "Hakuna",
+    "Mmoja",
+    "Miwili"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Barafu juu ya ziwa ni salama kutembea juu yake tu ikiwa ina unene wa angalau sentimita kumi. Jumatatu ilikuwa na unene wa sentimita nane, na iliongezeka sentimita mbili kufikia Jumatano.",
+   "question": "Je, barafu ilikuwa salama Jumatano?",
+   "options": [
+    "Hapana, bado ilikuwa nyembamba mno",
+    "Ndiyo, ilifikia sentimita kumi",
+    "Ziwa lilikuwa limeyeyuka"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Saa ya mkononi ya Emre iko mbele kwa dakika tano. Saa yake ilionyesha 9:05 alipoingia darasani, wakati uleule ambao kipindi kilianza.",
+   "question": "Kipindi kilianza saa ngapi?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Wanachama pekee ndio wanaoweza kuazima mashua za klabu. Uanachama hulipiwa ada ya kila mwaka. Nadia alilipa ada hiyo wiki iliyopita.",
+   "question": "Je, Nadia anaweza kuazima mashua sasa?",
+   "options": [
+    "Mwishoni mwa wiki tu",
+    "Hapana, si mwanachama",
+    "Ndiyo, sasa ni mwanachama"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Barabara ya kaskazini imefungwa kwa matengenezo. Barabara ya kusini ni ndefu zaidi lakini iko wazi. Lori la kusafirisha mizigo lilihitaji kufika kijijini leo.",
+   "question": "Huenda lori hilo lilitumia barabara gani?",
+   "options": [
+    "Barabara ya kaskazini",
+    "Barabara ya kusini",
+    "Hakuna; lilibaki palepale"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Mmea mmoja unahitaji kumwagiliwa maji kila baada ya siku tatu. Ulimwagiliwa Jumatatu.",
+   "question": "Utahitaji kumwagiliwa tena siku gani?",
+   "options": [
+    "Alhamisi",
+    "Jumamosi",
+    "Jumatano"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Faili nyekundu huhifadhi bili ambazo hazijalipwa. Bili zilizolipwa huwekwa kwenye faili nyeusi. Yusuf alilipa bili ya umeme asubuhi hii.",
+   "question": "Bili ya umeme inapaswa kuwa wapi sasa?",
+   "options": [
+    "Kwenye pipa la taka",
+    "Kwenye faili nyekundu",
+    "Kwenye faili nyeusi"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Kila ndege aliye ndani ya tundu anaweza kuimba isipokuwa yule mdogo kuliko wote. Ndege wa manjano ndiye mdogo kuliko wote tunduni.",
+   "question": "Tunajua nini kuhusu ndege wa manjano?",
+   "options": [
+    "Anaimba kuliko wote",
+    "Hawezi kuimba",
+    "Ndiye mzee kuliko wote"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Duka la mikate huuza mkate hadi saa 6:00 mchana. Baada ya saa 6:00 mchana, huuza keki tu. Eda alikwenda dukani saa 8:00 mchana kununua mkate.",
+   "question": "Eda angeweza kununua nini saa 8:00 mchana?",
+   "options": [
+    "Mkate",
+    "Keki tu",
+    "Hakuna kitu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Tairi la baiskeli ya Selin limepasuka. Duka la matengenezo hufungwa saa 11:00 jioni, na inachukua saa moja kutembea hadi huko. Selin aliondoka nyumbani saa 10:30 jioni.",
+   "question": "Je, Selin atafika dukani kabla halijafungwa?",
+   "options": [
+    "Hapana, atafika baada ya saa 11:00 jioni",
+    "Duka liko wazi usiku kucha",
+    "Ndiyo, kwa urahisi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Vitabu vyote kwenye rafu ya juu kabisa viko kwa Kifaransa. Kamusi iko kwenye rafu ya juu kabisa.",
+   "question": "Kamusi iko kwa lugha gani?",
+   "options": [
+    "Hatuwezi kujua",
+    "Kiingereza",
+    "Kifaransa"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali humlisha paka dada yake anapokuwa hayupo. Wiki hii dada yake anamtembelea bibi yao.",
+   "question": "Nani anamlisha paka wiki hii?",
+   "options": [
+    "Ali",
+    "Dada yake",
+    "Bibi yao"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Bwawa la kuogelea hufungwa siku ambazo mvua inanyesha. Jumanne mvua ilinyesha siku nzima.",
+   "question": "Je, bwawa lilikuwa wazi Jumanne?",
+   "options": [
+    "Hapana",
+    "Asubuhi tu",
+    "Ndiyo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Kila mwanafunzi aliyemaliza mradi anapata cheti. Mert alimaliza mradi wake Ijumaa iliyopita.",
+   "question": "Je, Mert atapata cheti?",
+   "options": [
+    "Mwaka ujao tu",
+    "Hapana",
+    "Ndiyo"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Basi la kijani huenda uwanja wa ndege. Basi la bluu huenda uwanja wa michezo. Leyla anahitaji kuwahi ndege.",
+   "question": "Leyla anapaswa kupanda basi gani?",
+   "options": [
+    "Basi la bluu",
+    "Basi la kijani",
+    "Basi lolote kati ya hayo"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Aiskrimu huyeyuka haraka juani. Can aliacha aiskrimu yake juu ya meza iliyo juani kwa dakika ishirini.",
+   "question": "Huenda nini kiliipata aiskrimu?",
+   "options": [
+    "Iliyeyuka",
+    "Ilitoweka ndani ya sanduku",
+    "Iliganda zaidi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Kuingia katika jumba la makumbusho ni bure kwa watoto walio chini ya umri wa miaka kumi na miwili. Zeynep ana umri wa miaka kumi.",
+   "question": "Zeynep analipa kiasi gani ili kuingia?",
+   "options": [
+    "Nusu bei",
+    "Hakuna kitu",
+    "Bei kamili"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Treni huondoka kila baada ya dakika thelathini, kuanzia saa 12:00 asubuhi. Arda alifika stesheni saa 12:40 asubuhi.",
+   "question": "Treni inayofuata baada ya Arda kufika ni saa ngapi?",
+   "options": [
+    "Saa 12:30 asubuhi",
+    "Saa 1:00 asubuhi",
+    "Saa 1:30 asubuhi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Ni wachezaji wanaohudhuria mazoezi tu wanaoweza kucheza katika mechi. Burcu alikosa mazoezi kwa sababu alikuwa mgonjwa.",
+   "question": "Je, Burcu anaweza kucheza katika mechi?",
+   "options": [
+    "Hapana",
+    "Kama nahodha tu",
+    "Ndiyo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Mkulima huwaweka kondoo zizini theluji inaponyesha. Jana usiku theluji ilinyesha kwa wingi.",
+   "question": "Kondoo walikuwa wapi jana usiku?",
+   "options": [
+    "Barabarani",
+    "Malishoni",
+    "Zizini"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Katika mkahawa huu chai ni nafuu kuliko kahawa. Ece alikunywa kahawa na Kaan alikunywa chai.",
+   "question": "Nani alilipa kidogo zaidi?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Walilipa sawa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Mlango wa kushoto wa jengo ni wa kuingilia. Mlango wa kulia ni wa kutokea. Murat anaingia ndani ya jengo.",
+   "question": "Murat anapaswa kutumia mlango gani?",
+   "options": [
+    "Mlango wa kulia",
+    "Mlango wowote",
+    "Mlango wa kushoto"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Mimea iliyo katika nyumba ya kioo humwagiliwa maji katika tarehe zenye namba shufwa. Leo ni tarehe kumi na nne.",
+   "question": "Je, mimea inamwagiliwa leo?",
+   "options": [
+    "Nusu yake tu",
+    "Ndiyo",
+    "Hapana"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora huchukua mwavuli kila mara utabiri wa hali ya hewa unaposema mvua itanyesha. Utabiri wa leo unasema kutakuwa na jua siku nzima.",
+   "question": "Je, huenda Nora alichukua mwavuli leo?",
+   "options": [
+    "Ndiyo",
+    "Hapana",
+    "Alichukua miwili"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Punguzo la bei la duka linahusu viatu tu. Efe alinunua koti na jozi moja ya viatu.",
+   "question": "Ni bidhaa gani iliyopata punguzo?",
+   "options": [
+    "Viatu",
+    "Vyote viwili",
+    "Koti"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Mkimbiaji lazima amalize mbio kwa muda wa chini ya saa moja ili kushinda medali. Deniz alimaliza kwa dakika hamsini na mbili.",
+   "question": "Je, Deniz alishinda medali?",
+   "options": [
+    "Mbio zilifutwa",
+    "Ndiyo",
+    "Hapana"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Mapishi yanasema chumvi iongezwe baada ya maji kuchemka. Oya aliongeza chumvi kabla ya kuwasha jiko.",
+   "question": "Je, Oya alifuata mapishi?",
+   "options": [
+    "Ndiyo",
+    "Hapana",
+    "Mapishi hayana chumvi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Lango la bustani hufungwa kwa kufuli kila usiku saa 4:00 usiku. Sena alirudi nyumbani saa 5:00 usiku bila ufunguo.",
+   "question": "Je, Sena aliweza kufungua lango?",
+   "options": [
+    "Hapana",
+    "Lilikuwa wazi tayari",
+    "Ndiyo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Makinda ya ndege huondoka kiotani manyoya yao yanapokuwa yamekua kikamilifu. Manyoya ya ndege walio katika kiota cha mwaloni yamekua kikamilifu.",
+   "question": "Ndege walio katika kiota cha mwaloni watafanya nini?",
+   "options": [
+    "Watajenga mti mpya",
+    "Watabaki humo milele",
+    "Wataondoka kiotani"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Tiketi za onyesho la jioni zimekwisha kuuzwa zote. Kerem alitaka kununua tiketi ya onyesho la jioni.",
+   "question": "Je, Kerem aliweza kununua tiketi hiyo?",
+   "options": [
+    "Ndiyo",
+    "Hapana",
+    "Mtandaoni tu"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Meli haziwezi kuondoka bandarini upepo unapokuwa mkali sana. Leo upepo ni mkali sana.",
+   "question": "Je, meli zinaweza kuondoka bandarini leo?",
+   "options": [
+    "Hapana",
+    "Zile ndogo tu",
+    "Ndiyo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Mwalimu hukusanya kazi za nyumbani kila Alhamisi. Leo ni Jumatano, na kazi ya nyumbani ya Pelin imekamilika.",
+   "question": "Pelin atawasilisha kazi yake ya nyumbani lini?",
+   "options": [
+    "Wiki ijayo",
+    "Leo",
+    "Kesho"
+   ],
+   "answer": 2
+  }
+ ]
+}

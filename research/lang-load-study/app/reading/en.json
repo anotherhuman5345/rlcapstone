@@ -93,7 +93,7 @@
   },
   {
    "id": "reading_07",
-   "passage": "The park gate closes at sunset. In winter the sun sets around five, and in summer around eight. Tom arrived at the park at six in December.",
+   "passage": "The park gate closes at sunset. In winter the sun sets around five, and in summer around eight. Tom arrived at the park at six on a winter evening.",
    "question": "Could Tom enter the park?",
    "options": [
     "Only through the back gate",
@@ -159,7 +159,7 @@
   },
   {
    "id": "reading_13",
-   "passage": "Plants on the north side of the house get little sun. Ayla moved her basil from the north side to the south side, and within a week it grew much faster.",
+   "passage": "Plants behind the tall wall of the garden get little sun. Ayla moved her basil from behind the wall to the open balcony, and within a week it grew much faster.",
    "question": "What most likely helped the basil grow?",
    "options": [
     "A new pot",

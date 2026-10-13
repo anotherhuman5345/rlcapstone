@@ -1,0 +1,546 @@
+{
+ "code": "tl",
+ "verified": false,
+ "note": "Mga orihinal na tekstong isinulat para sa pag-aaral na ito. Ang item k sa bawat wika ay dapat may parehong kahulugan at parehong pagkakasunod-sunod ng mga pagpipilian; ipasuri muna ito sa isang taong bihasa sa dalawang wika bago gamitin nang totohanan.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Nagbubukas ang panaderya ni Lena nang alas-siyete. Tuwing Lunes, isang oras itong mas huling nagbubukas dahil nililinis ang oven tuwing Linggo ng gabi. Lunes ngayon.",
+   "question": "Anong oras magbubukas ang panaderya ngayon?",
+   "options": [
+    "Alas-siyete",
+    "Alas-otso",
+    "Alas-sais"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Umaalis ang school bus mula sa aklatan. Lagi itong naaabutan ni Mira, pero kaninang umaga ay naiwan siya nito dahil huminto siya para tulungan ang isang kapitbahay na magbuhat ng mga kahon. Darating ang susunod na bus pagkalipas ng dalawampung minuto.",
+   "question": "Bakit mas mahuhuli si Mira kaysa sa karaniwan?",
+   "options": [
+    "Tinulungan niya ang isang kapitbahay at naiwan siya ng bus",
+    "Nasira ang bus",
+    "Sarado ang aklatan"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Dinidiligan ni Omar ang mga kamatis tuwing gabi. Kagabi ay malakas ang ulan, kaya hindi na siya nagdilig. Kaninang umaga ay basa pa rin ang lupa.",
+   "question": "Bakit hindi diniligan ni Omar ang mga kamatis kagabi?",
+   "options": [
+    "Napitas na ang mga kamatis",
+    "Nadiligan na sila ng ulan",
+    "Nakalimutan niya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Sa museo, nasa asul na silid ang mga pinta at nasa berdeng silid ang mga eskultura. Sinabi ng gabay na ang pinakamatandang piraso sa museo ay gawa sa bato at nakatayo sa berdeng silid.",
+   "question": "Anong uri ng bagay ang pinakamatandang piraso?",
+   "options": [
+    "Isang pinta",
+    "Isang litrato",
+    "Isang eskultura"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Mas mababa ang presyo ng tiket ni Deniz sa tren tuwing karaniwang araw. Gusto sana niyang dalawin ang kanyang tiya sa Sabado, pero inilipat niya ang biyahe sa Biyernes para makatipid.",
+   "question": "Bakit bumiyahe si Deniz noong Biyernes?",
+   "options": [
+    "Mas mura ang tiket tuwing karaniwang araw",
+    "Walang tren noong Sabado",
+    "Abala ang kanyang tiya noong Sabado"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Nagkikita ang club sa silid 4, maliban kung mahigit dalawampung tao ang magpalista. Kapag ganoon, lumilipat ito sa bulwagan. Ngayong linggo, dalawampu't anim na tao ang nagpalista.",
+   "question": "Saan magkikita ang club ngayong linggo?",
+   "options": [
+    "Hindi ito magkikita",
+    "Sa silid 4",
+    "Sa bulwagan"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Tumatagal nang buong araw ang baterya ng telepono ni Kemal. Kahapon, ginamit niya ang mapa buong hapon, na mabilis umubos ng baterya, at namatay ang telepono bago maghapunan.",
+   "question": "Bakit maagang namatay ang telepono?",
+   "options": [
+    "Malakas kumain ng baterya ang mapa",
+    "Bago ang telepono",
+    "Nakalimutan niyang buksan ito"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Nagbibigay ang isang tindahan ng libreng kape sa sinumang bibili ng dalawang sandwich. Isang sandwich at isang juice ang binili ni Ana. Dalawang sandwich ang binili ng kaibigan niya.",
+   "question": "Sino ang nakakuha ng libreng kape?",
+   "options": [
+    "Ang kaibigan ni Ana",
+    "Silang dalawa",
+    "Si Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Nagsasara ang gate ng parke paglubog ng araw. Sa taglamig, lumulubog ang araw bandang alas-singko, at sa tag-araw bandang alas-otso. Dumating si Tom sa parke nang alas-sais isang gabi ng taglamig.",
+   "question": "Nakapasok ba si Tom sa parke?",
+   "options": [
+    "Sa likurang gate lang",
+    "Oo, bukas ito",
+    "Hindi, sarado na ang gate"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Kailangang magdala ng calculator sa exam ang bawat estudyante sa klase ni Gng. Kaya. Nasa klase niya si Selim. Noong araw ng exam, nasa bahay ang calculator niya.",
+   "question": "Ano ang nakalimutan ni Selim?",
+   "options": [
+    "Ang papel niya para sa exam",
+    "Isang bagay na kailangan sa exam",
+    "Ang pangalan ng guro niya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Mas nauunang manilaw ang mga dahon ng matandang oak kaysa sa alinmang ibang puno sa hardin. Ngayong taon, lumitaw ang mga unang dilaw na dahon sa hardin noong unang bahagi ng Oktubre.",
+   "question": "Kailan nagsimulang manilaw ang mga dahon ng oak?",
+   "options": [
+    "Noong Disyembre",
+    "Pagkatapos ng lahat ng ibang puno",
+    "Noong unang bahagi ng Oktubre"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Nagpapahiram ang aklatan ng mga libro nang dalawang linggo. May maliit na multa bawat araw para sa mga librong huli nang ibinalik. Ibinalik ni Sam ang isang libro tatlong araw pagkatapos ng dalawang linggo.",
+   "question": "Ano ang nangyari nang ibalik ni Sam ang libro?",
+   "options": [
+    "Wala, nasa oras ito",
+    "Nagbayad siya ng multa sa pagkahuli",
+    "Nakakuha siya ng bagong card"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Tsaang walang asukal lang ang iniinom ni Hana. Sa café, dinalhan siya ng waiter ng tsaa na may nakahalo nang dalawang kutsarang asukal. Ibinalik niya ito.",
+   "question": "Bakit ibinalik ni Hana ang tsaa?",
+   "options": [
+    "Malamig ito",
+    "May asukal na ito",
+    "Kape ito"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "May labindalawang palapag ang pinakamataas na gusali sa bayan. Nasa pinakamataas na palapag ng gusaling iyon ang klinika, at sira ang elevator ngayon.",
+   "question": "Paano makararating ang mga bisita sa klinika ngayon?",
+   "options": [
+    "Aakyat sila sa hagdan hanggang ikalabindalawang palapag",
+    "Lumipat na ang klinika",
+    "Sa elevator"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Kaunting araw lang ang natatanggap ng mga halamang nasa likod ng mataas na pader ng hardin. Inilipat ni Ayla ang kanyang basil mula sa likod ng pader papunta sa bukas na balkonahe, at sa loob ng isang linggo ay mas bumilis nang husto ang paglaki nito.",
+   "question": "Ano ang malamang na nakatulong sa paglaki ng basil?",
+   "options": [
+    "Isang bagong paso",
+    "Mas maraming sikat ng araw",
+    "Mas kaunting tubig"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Ayon sa isang recipe, kailangan ng tatlong itlog para sa isang cake. Gustong maghurno ni Burak ng dalawang cake at may apat siyang itlog.",
+   "question": "Ano ang kailangan ni Burak?",
+   "options": [
+    "Wala, sapat na ang mayroon siya",
+    "Dalawa pang itlog",
+    "Isa pang itlog"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Magsisimula ang konsiyerto nang alas-otso. Bumubukas ang mga pinto isang oras bago ang konsiyerto. Dumating si Lara nang alas-siyete y kinse.",
+   "question": "Bukas na ba ang mga pinto nang dumating si Lara?",
+   "options": [
+    "Oo, bumukas ang mga ito nang alas-siyete",
+    "Dumating siya pagkatapos ng konsiyerto",
+    "Hindi, bumukas ang mga ito nang alas-otso"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Pinakakain ang mga pusa sa shelter tuwing umaga. Ang mga aso ay pinakakain sa umaga at muli sa gabi. Si Max, isang aso, ay inampon nang tanghali.",
+   "question": "Ilang beses pinakain si Max sa shelter noong araw na iyon?",
+   "options": [
+    "Ni minsan",
+    "Isang beses",
+    "Dalawang beses"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Ligtas lang lakaran ang yelo sa lawa kapag hindi bababa sa sampung sentimetro ang kapal nito. Noong Lunes, walong sentimetro ito, at nadagdagan ito ng dalawang sentimetro pagsapit ng Miyerkoles.",
+   "question": "Ligtas ba ang yelo noong Miyerkoles?",
+   "options": [
+    "Hindi, masyado pa itong manipis",
+    "Oo, umabot ito sa sampung sentimetro",
+    "Natunaw na ang lawa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Limang minutong nauuna ang relo ni Emre. 9:05 ang ipinakita ng relo niya nang pumasok siya sa klase, eksaktong pagsisimula ng klase.",
+   "question": "Anong oras nagsimula ang klase?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Mga miyembro lang ang puwedeng humiram ng mga bangka ng club. May taunang bayad ang pagiging miyembro. Binayaran ni Nadia ang bayad noong isang linggo.",
+   "question": "Puwede na bang humiram ng bangka si Nadia ngayon?",
+   "options": [
+    "Tuwing Sabado at Linggo lang",
+    "Hindi, hindi siya miyembro",
+    "Oo, miyembro na siya ngayon"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Sarado ang hilagang kalsada dahil may kinukumpuni. Mas mahaba ang timog na kalsada pero bukas ito. Kailangang makarating ng isang delivery truck sa nayon ngayong araw.",
+   "question": "Aling kalsada ang malamang na dinaanan ng truck?",
+   "options": [
+    "Ang hilagang kalsada",
+    "Ang timog na kalsada",
+    "Wala; hindi ito umalis"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Kailangang diligan ang isang halaman kada tatlong araw. Diniligan ito noong Lunes.",
+   "question": "Anong araw ito susunod na kailangang diligan?",
+   "options": [
+    "Huwebes",
+    "Sabado",
+    "Miyerkoles"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Nasa pulang folder ang mga bill na hindi pa bayad. Sa itim na folder inilalagay ang mga bill na bayad na. Binayaran ni Yusuf ang bill sa kuryente kaninang umaga.",
+   "question": "Saan dapat nakalagay ngayon ang bill sa kuryente?",
+   "options": [
+    "Sa basurahan",
+    "Sa pulang folder",
+    "Sa itim na folder"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Marunong kumanta ang lahat ng ibon sa hawla maliban sa pinakamaliit. Ang dilaw na ibon ang pinakamaliit sa hawla.",
+   "question": "Ano ang alam natin tungkol sa dilaw na ibon?",
+   "options": [
+    "Ito ang pinakamadalas kumanta",
+    "Hindi ito marunong kumanta",
+    "Ito ang pinakamatanda"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Nagbebenta ng tinapay ang panaderya hanggang tanghali. Pagkatapos ng tanghali, cake na lang ang ibinebenta nito. Pumunta si Eda sa panaderya nang alas-dos para bumili ng tinapay.",
+   "question": "Ano ang puwedeng mabili ni Eda nang alas-dos?",
+   "options": [
+    "Tinapay",
+    "Cake lang",
+    "Wala"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Flat ang gulong ng bisikleta ni Selin. Nagsasara ang repair shop nang alas-singko, at isang oras ang lakad papunta roon. Umalis si Selin sa bahay nang alas-kuwatro y medya.",
+   "question": "Makararating ba si Selin sa shop bago ito magsara?",
+   "options": [
+    "Hindi, darating siya pagkalipas ng alas-singko",
+    "Bukas ang shop buong gabi",
+    "Oo, madali lang"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Nakasulat sa wikang Pranses ang lahat ng libro sa pinakamataas na istante. Nasa pinakamataas na istante ang diksiyonaryo.",
+   "question": "Sa anong wika nakasulat ang diksiyonaryo?",
+   "options": [
+    "Hindi natin malalaman",
+    "Ingles",
+    "Pranses"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Si Ali ang nagpapakain sa pusa kapag wala ang kapatid niyang babae. Dinadalaw ng kapatid niya ang kanilang lola ngayong linggo.",
+   "question": "Sino ang nagpapakain sa pusa ngayong linggo?",
+   "options": [
+    "Si Ali",
+    "Ang kapatid niyang babae",
+    "Ang kanilang lola"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Sarado ang swimming pool sa mga araw na umuulan. Buong araw na umulan noong Martes.",
+   "question": "Bukas ba ang pool noong Martes?",
+   "options": [
+    "Hindi",
+    "Sa umaga lang",
+    "Oo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Bawat estudyanteng nakatapos ng proyekto ay makatatanggap ng sertipiko. Natapos ni Mert ang kanyang proyekto noong nakaraang Biyernes.",
+   "question": "Makatatanggap ba si Mert ng sertipiko?",
+   "options": [
+    "Sa susunod na taon pa",
+    "Hindi",
+    "Oo"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Papuntang airport ang berdeng bus. Papuntang stadium ang asul na bus. Kailangang umabot ni Leyla sa isang flight.",
+   "question": "Aling bus ang dapat sakyan ni Leyla?",
+   "options": [
+    "Ang asul na bus",
+    "Ang berdeng bus",
+    "Kahit alin"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Mabilis matunaw ang ice cream sa araw. Iniwan ni Can ang ice cream niya sa isang mesang naaarawan nang dalawampung minuto.",
+   "question": "Ano ang malamang na nangyari sa ice cream?",
+   "options": [
+    "Natunaw ito",
+    "Naglaho ito sa loob ng isang kahon",
+    "Lalo pa itong tumigas sa lamig"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Libre ang pagpasok sa museo para sa mga batang wala pang labindalawang taong gulang. Sampung taong gulang si Zeynep.",
+   "question": "Magkano ang babayaran ni Zeynep para makapasok?",
+   "options": [
+    "Kalahati ng presyo",
+    "Wala",
+    "Buong presyo"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "May umaalis na tren kada tatlumpung minuto, simula alas-sais. Dumating si Arda sa istasyon nang alas-sais kuwarenta.",
+   "question": "Kailan ang susunod na tren pagdating ni Arda?",
+   "options": [
+    "Alas-sais y medya",
+    "Alas-siyete",
+    "Alas-siyete y medya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Puwede lang maglaro sa laban ang mga manlalarong pumupunta sa ensayo. Hindi nakapunta si Burcu sa ensayo dahil may sakit siya.",
+   "question": "Puwede bang maglaro si Burcu sa laban?",
+   "options": [
+    "Hindi",
+    "Bilang kapitan lang",
+    "Oo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Sa kamalig pinananatili ng magsasaka ang mga tupa kapag umuulan ng niyebe. Malakas ang ulan ng niyebe kagabi.",
+   "question": "Nasaan ang mga tupa kagabi?",
+   "options": [
+    "Sa kalsada",
+    "Sa bukid",
+    "Sa kamalig"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Sa café na ito, mas mababa ang presyo ng tsaa kaysa sa kape. Kape ang kinuha ni Ece at tsaa naman ang kay Kaan.",
+   "question": "Sino ang mas kaunti ang ibinayad?",
+   "options": [
+    "Si Ece",
+    "Si Kaan",
+    "Pareho ang ibinayad nila"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Ang kaliwang pinto ng gusali ay para sa pagpasok. Ang kanang pinto ay para sa paglabas. Papasok si Murat sa gusali.",
+   "question": "Aling pinto ang dapat gamitin ni Murat?",
+   "options": [
+    "Ang kanang pinto",
+    "Kahit alin",
+    "Ang kaliwang pinto"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Dinidiligan ang mga halaman sa greenhouse sa mga araw na even ang petsa. Ika-14 ng buwan ngayon.",
+   "question": "Didiligan ba ang mga halaman ngayon?",
+   "options": [
+    "Kalahati lang ng mga ito",
+    "Oo",
+    "Hindi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Laging nagdadala ng payong si Nora kapag sinasabi ng taya ng panahon na uulan. Ayon sa taya ng panahon ngayon, maaraw buong araw.",
+   "question": "Malamang bang nagdala ng payong si Nora ngayon?",
+   "options": [
+    "Oo",
+    "Hindi",
+    "Dalawa ang dinala niya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Sa sapatos lang may diskuwento ang tindahan. Bumili si Efe ng jacket at isang pares ng sapatos.",
+   "question": "Aling binili ang may diskuwento?",
+   "options": [
+    "Ang sapatos",
+    "Pareho",
+    "Ang jacket"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Para manalo ng medalya, kailangang matapos ng mananakbo ang karera nang wala pang isang oras. Natapos ni Deniz ang karera sa loob ng limampu't dalawang minuto.",
+   "question": "Nanalo ba ng medalya si Deniz?",
+   "options": [
+    "Kinansela ang karera",
+    "Oo",
+    "Hindi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Sabi ng recipe, ilagay ang asin pagkatapos kumulo ng tubig. Naglagay si Oya ng asin bago niya binuksan ang kalan.",
+   "question": "Sinunod ba ni Oya ang recipe?",
+   "options": [
+    "Oo",
+    "Hindi",
+    "Walang asin sa recipe"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Ikinakandado ang gate ng hardin gabi-gabi nang alas-diyes. Umuwi si Sena nang alas-onse nang walang susi.",
+   "question": "Nabuksan ba ni Sena ang gate?",
+   "options": [
+    "Hindi",
+    "Bukas na ito",
+    "Oo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Umaalis sa pugad ang mga batang ibon kapag buo nang tumubo ang kanilang mga balahibo. Buo nang tumubo ang mga balahibo ng mga ibon sa pugad sa puno ng oak.",
+   "question": "Ano ang gagawin ng mga ibon sa pugad sa oak?",
+   "options": [
+    "Gagawa ng bagong puno",
+    "Mananatili roon habambuhay",
+    "Aalis sa pugad"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Ubos na ang mga tiket para sa palabas sa gabi. Gustong bumili ni Kerem ng tiket para sa palabas sa gabi.",
+   "question": "Nakabili ba si Kerem ng tiket na iyon?",
+   "options": [
+    "Oo",
+    "Hindi",
+    "Online lang"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Hindi makaaalis sa daungan ang mga barko kapag napakalakas ng hangin. Napakalakas ng hangin ngayon.",
+   "question": "Makaaalis ba ang mga barko sa daungan ngayon?",
+   "options": [
+    "Hindi",
+    "Ang maliliit lang",
+    "Oo"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Tuwing Huwebes kinukuha ng guro ang mga takdang-aralin. Miyerkoles ngayon, at tapos na ang takdang-aralin ni Pelin.",
+   "question": "Kailan ipapasa ni Pelin ang takdang-aralin niya?",
+   "options": [
+    "Sa susunod na linggo",
+    "Ngayon",
+    "Bukas"
+   ],
+   "answer": 2
+  }
+ ]
+}
