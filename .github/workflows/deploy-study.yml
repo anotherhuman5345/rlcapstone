@@ -1,0 +1,40 @@
+# Deploys the study app to Vercel (study.rlcapstone.ai) whenever main changes under
+# research/lang-load-study. Needs one repository secret: VERCEL_TOKEN.
+name: Deploy study
+
+on:
+  push:
+    branches: [main]
+    paths: ["research/lang-load-study/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-study
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/lang-load-study
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/lang-load-study
+    env:
+      VERCEL_ORG_ID: team_v1iiAMt5EcIRh3GQteRIft8C
+      VERCEL_PROJECT_ID: prj_fQ360ae76DNiVqtSsN2Tpt4azDiT
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx -y vercel@63.1.2 deploy --prod --yes --token "${{ secrets.VERCEL_TOKEN }}"
