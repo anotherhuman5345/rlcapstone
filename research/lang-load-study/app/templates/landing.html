@@ -1,13 +1,10 @@
 {% extends "base.html" %}
+{% from "_lang_picker.html" import lang_picker %}
 {% block content %}
 <h1>{{ _('title') }}</h1>
 <p class="lede">{{ _('intro') }}</p>
 <form method="post" action="/start" class="stack">
-  <label>{{ _('choose_lang') }}
-    <select name="ui_lang" onchange="location.href='/?lang=' + this.value">
-      {% for code, name in languages %}<option value="{{ code }}" {% if code == lang %}selected{% endif %}>{{ name }}</option>{% endfor %}
-    </select>
-  </label>
+  {{ lang_picker('ui_lang', _('choose_lang'), languages, selected=lang, navigate=True) }}
   <button type="submit">{{ _('start') }}</button>
 </form>
 {% endblock %}
