@@ -62,6 +62,10 @@ class Participant(Base):
     # Time on task: clock starts when the first image is shown.
     task_started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     time_capped: Mapped[bool] = mapped_column(Boolean, default=False)
+    # "I'm exhausted" button: when and where the person chose to stop.
+    quit_early: Mapped[bool] = mapped_column(Boolean, default=False)
+    quit_elapsed_s: Mapped[float | None] = mapped_column(Float)
+    quit_trial: Mapped[int | None] = mapped_column(Integer)
     overall_difficulty: Mapped[int | None] = mapped_column(Integer)
 
     trials: Mapped[list["TrialResult"]] = relationship(back_populates="participant")
@@ -78,6 +82,7 @@ class TrialResult(Base):
     round: Mapped[int | None] = mapped_column(Integer)   # 1..ROUNDS; None for surprise/practice
     elapsed_s: Mapped[float | None] = mapped_column(Float)  # seconds since the first image
     image_id: Mapped[str] = mapped_column(String(40))
+    target_object: Mapped[str | None] = mapped_column(String(20))  # e.g. "fish"; varies per picture
     clue_lang: Mapped[str] = mapped_column(String(2))    # "en" or "tr"
     condition: Mapped[str] = mapped_column(String(2))    # "L1" or "L2"
     practice: Mapped[bool] = mapped_column(Boolean, default=False)

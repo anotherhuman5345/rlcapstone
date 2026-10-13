@@ -23,7 +23,7 @@
 - H2: Fewer people notice the gorilla when the surprise clue is in L2 (more of their
   working memory goes to decoding the clue).
 - H3: Performance declines late in the session, and the L2 cost grows with time on task.
-- H4 (exploratory): Radiologists find the planted monkey faster than novices, but may
+- H4 (exploratory): Radiologists find the planted object in scans faster than novices, but may
   be no better at noticing the gorilla (Drew et al., 2013). Effects of age and education
   are exploratory.
 
@@ -40,7 +40,11 @@ surprise only works once.)
    Then, on separate pages: "Did you notice anything unusual?"; "Did you see a gorilla?";
    "Had you heard of the invisible-gorilla study?". Then a one-line explanation.
 3. Two practice pictures.
-4. Identical rounds of 8 pictures until 14 minutes from the start, then final questions.
+4. Rounds of 8 pictures until 14 minutes from the start, then final questions. Every
+   search scene has its own named target and every scan its own unnamed, faint object
+   ("something is out of the ordinary"); clue wording rotates, so nothing becomes
+   automatic. An "I'm exhausted" button under every picture ends the picture part at
+   any time; when people use it is recorded.
 
 ## Participants
 - Inclusion: reads both English and Turkish (self-rated 3+ on 1-7 in each).
@@ -58,8 +62,9 @@ surprise only works once.)
 ## Measures
 Time to correct click; found vs. timed out (30 s); false clicks; mental effort
 (Paas 1-9) per picture; elapsed time of every answer; round number; whether the
-session hit the time limit; the three surprise questions; overall difficulty;
-attention check; background questionnaire (group, age, years of education, years
+session hit the time limit; whether and when the person pressed "I'm exhausted";
+the three surprise questions; overall difficulty; attention check (which object they
+searched for, against objects that never appeared); background questionnaire (group, age, years of education, years
 reading medical images, first language, age of L2 acquisition, reading proficiency in
 each language, most comfortable reading language). No names, emails, or IP addresses
 are stored.
@@ -67,7 +72,9 @@ are stored.
 ## Exclusions (decided in advance)
 Incomplete sessions; failed attention check; self-rated reading below 3/7 in
 either language; response times under 200 ms; trials whose page was reloaded
-before answering (the image had already been seen). For the gorilla, results are
+before answering (the image had already been seen). Pressing "I'm exhausted" is not
+an exclusion: those people answer the final questions and their trials up to that
+point are kept. For the gorilla, results are
 reported both with and without people who already knew the study.
 
 ## Analysis plan
@@ -83,7 +90,7 @@ reported both with and without people who already knew the study.
 
 ## Open questions for the lab
 1. IRB: which protocol or pathway should this fall under?
-2. Images: can the lab provide ~100 de-identified scans (monkey trials, practice and
+2. Images: can the lab provide ~50 de-identified scans (rounds, practice and
    the surprise image)?
 3. Recruitment of radiologists and physicians: appropriate channel and approvals.
 4. Eye-tracking: would gaze data for the gorilla trial be useful and possible? (In the

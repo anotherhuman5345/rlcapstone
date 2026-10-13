@@ -14,7 +14,9 @@ from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 
 from . import config
-from .clues import make_clue
+import random
+
+from .clues import DECOY_OBJECTS, make_clue, object_name
 from .db import Participant, SessionLocal, TrialResult, init_db, now
 from .i18n import t
 from .plan import build_plan, load_manifest
@@ -207,7 +209,7 @@ def trial_page(request: Request, db=Depends(get_db)):
     db.commit()
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
-    clue = make_clue(trial["task"], trial["clue_lang"], tg["x"], tg["y"], img["width"], img["height"])
+    clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img["width"], img["height"])
     return render(request, "trial.html", p, trial=trial, img=img, clue=clue,
                   n=p.current_trial + 1, total=len(p.plan), rounds=config.ROUNDS,
                   timeout=config.TRIAL_TIMEOUT_MS)
@@ -235,7 +237,8 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
     hit = (not data.timed_out and data.click_x is not None and data.click_y is not None
            and math.hypot(data.click_x - tg["x"], data.click_y - tg["y"]) <= tg["r"] * config.HIT_TOLERANCE)
     db.add(TrialResult(participant_id=p.id, trial_index=p.current_trial, task=trial["task"],
-                       image_id=trial["image_id"], clue_lang=trial["clue_lang"],
+                       image_id=trial["image_id"], target_object=tg.get("object"),
+                       clue_lang=trial["clue_lang"],
                        condition=trial["condition"], practice=trial["practice"],
                        rt_ms=data.rt_ms if hit else None, hit=hit, timed_out=data.timed_out,
                        false_clicks=data.false_clicks, effort=data.effort,
@@ -251,16 +254,47 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
     return {"ok": True, "hit": hit, "next": nxt}
 
 
+class QuitIn(BaseModel):
+    trial_index: int
+
+
+@app.post("/api/quit")
+def quit_early(request: Request, data: QuitIn, db=Depends(get_db)):
+    """The "I'm exhausted" button. Stopping is always allowed; when it happens is data."""
+    p = current(request, db)
+    if p.plan and p.current_trial < len(p.plan) and not p.quit_early:
+        p.quit_early = True
+        p.quit_trial = p.current_trial
+        p.quit_elapsed_s = round(minutes_since(p.task_started_at) * 60, 1)
+        p.current_trial = len(p.plan)
+        db.commit()
+    return {"ok": True, "next": "/final"}
+
+
+def attention_options(p):
+    """Correct answer: the target of the practice search scene, which everyone saw.
+    Wrong answers: objects that never appear as a target anywhere in the study."""
+    images = {i["id"]: i for i in load_manifest()["images"]}
+    practice = next(t for t in p.plan if t["practice"] and t["task"] == "search")
+    correct = images[practice["image_id"]]["target"]["object"]
+    options = [correct, *DECOY_OBJECTS[:3]]
+    random.Random(p.id).shuffle(options)
+    return correct, options
+
+
 @app.get("/final", response_class=HTMLResponse)
 def final_page(request: Request, db=Depends(get_db)):
-    return render(request, "final.html", current(request, db))
+    p = current(request, db)
+    _, options = attention_options(p)
+    return render(request, "final.html", p,
+                  options=[(o, object_name(o, p.ui_lang)) for o in options])
 
 
 @app.post("/final")
 def final(request: Request, difficulty: int = Form(..., ge=1, le=9), attention: str = Form(...), db=Depends(get_db)):
     p = current(request, db)
     p.overall_difficulty = difficulty
-    p.attention_ok = attention == "red"
+    p.attention_ok = attention == attention_options(p)[0]
     p.completed = True
     db.commit()
     return RedirectResponse("/debrief", status_code=303)
@@ -290,8 +324,9 @@ def admin(request: Request, key: str = "", db=Depends(get_db)):
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
                "native_lang", "l2_age_acquired", "en_reading", "tr_reading", "l1", "l2",
                "eligible", "counterbalance", "attention_ok", "completed", "time_capped",
+               "quit_early", "quit_elapsed_s", "quit_trial",
                "noticed_unusual", "saw_gorilla", "knew_gorilla_study",
-               "trial_index", "round", "elapsed_s", "task", "image_id",
+               "trial_index", "round", "elapsed_s", "task", "image_id", "target_object",
                "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort",
                "reloads"]
 
@@ -307,9 +342,10 @@ def export(key: str = "", db=Depends(get_db)):
         w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.years_reading_images,
                     p.native_lang, p.l2_age_acquired, p.en_reading, p.tr_reading, p.l1, p.l2,
                     p.eligible, p.counterbalance, p.attention_ok, p.completed, p.time_capped,
+                    p.quit_early, p.quit_elapsed_s, p.quit_trial,
                     p.noticed_unusual, p.saw_gorilla, p.knew_gorilla_study,
                     tr.trial_index, tr.round, tr.elapsed_s, tr.task,
-                    tr.image_id, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
+                    tr.image_id, tr.target_object, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
                     tr.timed_out, tr.false_clicks, tr.effort, tr.reloads])
     buf.seek(0)
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",

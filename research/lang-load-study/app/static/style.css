@@ -43,7 +43,7 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .clue { font-size: 1.3rem; line-height: 1.4; margin: .3rem 0 .8rem; max-width: 60rem; }
 .stage { position: relative; display: inline-block; max-width: 100%; }
 /* Whole image must fit on screen: scrolling to reach a target would add time unrelated to language. */
-#stim { display: block; max-width: 100%; max-height: calc(100vh - 11rem); width: auto; height: auto; cursor: crosshair; visibility: hidden; user-select: none; touch-action: manipulation; }
+#stim { display: block; max-width: 100%; max-height: calc(100vh - 12rem); width: auto; height: auto; cursor: crosshair; visibility: hidden; user-select: none; touch-action: manipulation; }
 #stim.live { visibility: visible; }
 .mark { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 3px solid var(--signal); border-radius: 50%; pointer-events: none; }
 .status { min-height: 1.5rem; font-weight: 600; }
@@ -51,3 +51,6 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .effort .ends { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); max-width: 27rem; }
 @media (max-width: 600px) { .examples { grid-template-columns: 1fr; } .page { margin: 0; border-radius: 0; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.trial-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.quit { background: none; color: var(--muted); border: 1px solid var(--line); font-weight: 400; font-size: .9rem; padding: .45rem .9rem; margin-top: 0; }
+.quit:hover { color: var(--ink); border-color: var(--muted); }
