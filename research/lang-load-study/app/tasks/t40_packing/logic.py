@@ -10,10 +10,17 @@ Geometry convention, shared with view.js: rotating once turns a piece 90 degrees
 (r, c) -> (c, -r), then cells are shifted so the smallest row and column are 0 and sorted
 row-major; the piece's "anchor" is its first cell in that order, and placing a piece at
 (row, col) puts the anchor on that board cell."""
+import functools
+import json
 
+from app.tasks import _guard as G
+
+TIMING = "limit"      # the placement that fills the board must come inside LIMIT_MS
 LEVELS = ((3, 4, (4, 4, 4)), (4, 4, (4, 4, 4, 4)), (4, 5, (5, 5, 5, 5)))
-LIMIT_MS = 90000
+LIMIT_MS = 90000      # view.js: setTimeout(() => end(true, false), it.limit_ms || 90000)
 MAX_EVENTS = 1000
+TIME_SLACK_MS = 1000  # timer tolerance at the limit
+CEILING_MS = G.trial_ceiling(__file__)
 MAX_SOLUTIONS = 5000
 MAX_PAIR_SOLUTIONS = 8   # counts include board symmetries and swaps of identical pieces
 
@@ -142,73 +149,111 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
-def _num(v):
-    return round(float(v), 1) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+@functools.lru_cache(maxsize=256)
+def _n_solutions(key):
+    """count_solutions for one item, memoized on a JSON key (rows, cols, pieces)."""
+    rows, cols, pieces = json.loads(key)
+    return count_solutions(rows, cols, [tuple(map(tuple, p)) for p in pieces])
 
 
-def _is_int(v):
-    return isinstance(v, int) and not isinstance(v, bool)
+def _replay(rows, cols, pieces, events, a):
+    """Replay the events on an empty board. Malformed events (not an object, an unknown op,
+    a piece index that is not an integer in range, a rotation that is not 0-3, an anchor
+    cell outside the board, a missing/invalid time, placing a piece that is already placed
+    or removing one that is not, which the browser cannot send) are flagged and not applied.
+    A well-formed placement whose footprint leaves the board or overlaps a placed piece is
+    an invalid attempt (counted, not applied). The browser locks the board once it is full,
+    so events after that are flagged."""
+    where, occ = {}, {}
+    placements = invalid = removals = malformed = 0
+    final_t, reached, times, after_solve = None, False, [], 0
+    for ev in events:
+        if reached:
+            after_solve += 1
+        if not isinstance(ev, dict):
+            a.malformed("event_not_object")
+            malformed += 1
+            continue
+        st, t = a.time(ev.get("t", G.MISSING), field="t", window=LIMIT_MS, slack=TIME_SLACK_MS, required=True)
+        times.append(t if st != G.INVALID else None)
+        op, i = ev.get("op"), ev.get("piece")
+        if not G.member(op, ("place", "remove")):
+            a.malformed("invalid_op")
+            malformed += 1
+            continue
+        if not G.member(i, range(len(pieces))):
+            a.malformed("invalid_piece")
+            malformed += 1
+            continue
+        if op == "remove":
+            if i not in where:
+                a.malformed("remove_unplaced_piece")
+                malformed += 1
+                continue
+            for cell in where.pop(i):
+                occ.pop(cell, None)
+            removals += 1
+            final_t = (st, t)
+            continue
+        rot, r, c = ev.get("rot"), ev.get("row"), ev.get("col")
+        if not (G.member(rot, range(4)) and G.member(r, range(rows)) and G.member(c, range(cols))):
+            a.malformed("invalid_placement")
+            malformed += 1
+            continue
+        if i in where:
+            a.malformed("place_placed_piece")
+            malformed += 1
+            continue
+        cells = _placed(pieces[i], rot, r, c)
+        if not all(0 <= rr < rows and 0 <= cc < cols and (rr, cc) not in occ for rr, cc in cells):
+            invalid += 1
+            continue
+        where[i] = cells
+        for cell in cells:
+            occ[cell] = i
+        placements += 1
+        final_t = (st, t)
+        reached = reached or len(where) == len(pieces)
+    if after_solve:
+        a.flag("events_after_solve", after_solve)
+    a.monotonic(times, "t")
+    return where, occ, placements, invalid, removals, malformed, final_t
 
 
+@G.safe
 def score(item, response):
     """response: {"events": [{"op": "place", "piece": i, "rot": 0-3, "row": r, "col": c, "t": ms}
     | {"op": "remove", "piece": i, "t": ms}], "first_move_ms", "rt_ms", "gave_up"}.
-    The server replays the events on an empty board: a placement that is off the board,
-    overlaps a placed piece, or uses an already-placed piece is an invalid attempt (counted,
-    not applied); "remove" takes a placed piece back. hit = after the replay every piece is
-    on the board and every cell is covered exactly once (any valid solution counts).
-    errors = invalid placement attempts. Metrics: placements, removals, time."""
-    miss = {"hit": False, "errors": 0, "metrics": {}}
-    try:
-        if not isinstance(response, dict):
-            return miss
-        rows, cols = item["rows"], item["cols"]
-        pieces = [tuple(map(tuple, p)) for p in item["pieces"]]
-        events = response.get("events")
-        events = events if isinstance(events, list) else []
-        where = {}          # piece -> list of cells
-        occ = {}            # cell -> piece
-        placements = invalid = removals = 0
-        solved_at = None
-        for ev in events[:MAX_EVENTS]:
-            if not isinstance(ev, dict):
-                invalid += 1
-                continue
-            i = ev.get("piece")
-            if not _is_int(i) or not 0 <= i < len(pieces):
-                invalid += 1
-                continue
-            if ev.get("op") == "remove":
-                if i in where:
-                    for cell in where.pop(i):
-                        occ.pop(cell, None)
-                    removals += 1
-                continue
-            rot, r, c = ev.get("rot"), ev.get("row"), ev.get("col")
-            if ev.get("op") != "place" or not (_is_int(rot) and _is_int(r) and _is_int(c)) or i in where:
-                invalid += 1
-                continue
-            cells = _placed(pieces[i], rot, r, c)
-            if not all(0 <= rr < rows and 0 <= cc < cols and (rr, cc) not in occ for rr, cc in cells):
-                invalid += 1
-                continue
-            where[i] = cells
-            for cell in cells:
-                occ[cell] = i
-            placements += 1
-            if len(occ) == rows * cols and solved_at is None:
-                solved_at = _num(ev.get("t"))
-        solved = len(where) == len(pieces) and len(occ) == rows * cols
-        return {"hit": solved, "errors": invalid,
-                "metrics": {"solved": solved, "placements": placements, "invalid_attempts": invalid,
-                            "removals": removals, "pieces_placed": len(where), "pieces": len(pieces),
-                            "cells_covered": len(occ), "cells": rows * cols,
-                            "n_solutions": count_solutions(rows, cols, pieces),
-                            "first_move_ms": _num(response.get("first_move_ms")),
-                            "solve_ms": solved_at, "rt_ms": _num(response.get("rt_ms")),
-                            "gave_up": response.get("gave_up") is True}}
-    except Exception:
-        return miss
+    The server replays the events on an empty board: a placement whose footprint is off the
+    board or overlaps a placed piece is an invalid attempt (counted, not applied); "remove"
+    takes a placed piece back; malformed events are flagged and not applied.
+    hit = after the replay every piece is on the board and every cell is covered exactly
+    once (any valid solution counts) AND the event that produced that final board has a
+    valid time inside the 90 s limit (a missing, non-finite, negative or late time does not
+    count). errors = invalid placement attempts + malformed events. Metrics: placements,
+    removals, time."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    rows, cols = item["rows"], item["cols"]
+    pieces = [tuple(map(tuple, p)) for p in item["pieces"]]
+    events = a.stream(response.get("events", G.MISSING), "events", cap=MAX_EVENTS)
+    where, occ, placements, invalid, removals, malformed, final_t = _replay(rows, cols, pieces, events, a)
+    full = len(where) == len(pieces) and len(occ) == rows * cols
+    timely = final_t is not None and final_t[0] == G.TIMELY
+    solved = full and timely
+    if full and not timely:
+        a.flag("solved_outside_time_limit")
+    return a.finish(solved, invalid + malformed, {
+        "solved": solved, "placements": placements, "invalid_attempts": invalid,
+        "malformed_events": malformed,
+        "removals": removals, "pieces_placed": len(where), "pieces": len(pieces),
+        "cells_covered": len(occ), "cells": rows * cols,
+        "n_solutions": _n_solutions(json.dumps([rows, cols, item["pieces"]])),
+        "first_move_ms": a.duration(response, "first_move_ms", window=LIMIT_MS + TIME_SLACK_MS),
+        "solve_ms": final_t[1] if solved else None,
+        "rt_ms": a.duration(response, "rt_ms", window=LIMIT_MS + TIME_SLACK_MS),
+        "gave_up": a.opt_bool(response, "gave_up")})
 
 
 def _one_solution(rows, cols, pieces):

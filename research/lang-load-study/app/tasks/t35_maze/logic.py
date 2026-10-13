@@ -16,6 +16,14 @@ BFS shortest path; nothing the browser claims about position or success is trust
 import math
 from collections import deque
 
+from app.tasks import _guard as G
+
+TIMING = "limit"        # the move that reaches the exit must come inside LIMIT_MS
+LIMIT_MS = 120000       # view.js: timer = setTimeout(() => end(true), 120000)
+TIME_SLACK_MS = 1000    # timer tolerance at the limit
+MAX_MOVES = 3000
+CEILING_MS = G.trial_ceiling(__file__)
+
 DIRS = {"U": (-1, 0, 1, 4), "R": (0, 1, 2, 8), "D": (1, 0, 4, 1), "L": (0, -1, 8, 2)}
 SIZES = (8, 12)
 
@@ -129,36 +137,92 @@ def replay(item, moves):
     return (r, c) == goal, steps, bumps
 
 
+@G.safe
 def score(item, response):
-    """response: {"moves": [{"d": "U"|"R"|"D"|"L", "t": ms since Start}, ...]} (every key or
-    tap, including ones that hit a wall).
+    """response: {"moves": [{"d": "U"|"R"|"D"|"L", "t": ms since Start}, ...], "reached"} (every
+    key or tap, including ones that hit a wall).
+    The server replays the moves against the walls. Malformed moves (not an object, a
+    direction that is not U/R/D/L, a missing/invalid time) are flagged and not applied; move
+    times must not go backwards (flagged). The browser stops recording at the exit, so moves
+    after it are flagged and ignored. The browser's "reached" is not trusted (a mismatch is
+    flagged).
     hit = the replayed moves reach the exit using at most shortest + ceil(25% of shortest)
-    steps. errors = wall bumps + excess steps. Metrics: reached, steps, shortest, excess
-    steps, bumps, planning time (first move), movement time (first to last move), total."""
-    raw = response.get("moves") if isinstance(response, dict) else None
-    raw = raw if isinstance(raw, list) else []
-    moves, times = [], []
+    steps AND the move that reached the exit has a valid time inside the 120 s limit (a
+    missing, non-finite, negative or late time never counts). errors = wall bumps + excess
+    steps + malformed moves. Metrics: reached, steps, shortest, excess steps, bumps,
+    planning time (first move), movement time (first to last move), total."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    raw = a.stream(response.get("moves", G.MISSING), "moves", cap=MAX_MOVES)
+    size, opened = item["size"], item["open"]
+    r, c = item["start"]
+    goal = tuple(item["exit"])
+    steps = bumps = malformed = after = 0
+    times, ts, exit_t = [], [], None
     for m in raw:
-        if isinstance(m, dict):
-            moves.append(m.get("d") if isinstance(m.get("d"), str) else None)
-            t = m.get("t")
-            times.append(t if isinstance(t, (int, float)) and not isinstance(t, bool) else None)
-    best = shortest(item)
-    reached, steps, bumps = replay(item, moves)
+        if (r, c) == goal:
+            after += 1
+            continue
+        if not isinstance(m, dict):
+            a.malformed("move_not_object")
+            malformed += 1
+            continue
+        st, t = a.time(m.get("t", G.MISSING), field="t", window=LIMIT_MS, slack=TIME_SLACK_MS, required=True)
+        times.append(t if st != G.INVALID else None)
+        d = m.get("d")
+        if not G.member(d, DIRS):
+            a.malformed("invalid_d")
+            malformed += 1
+            continue
+        if st != G.INVALID:
+            ts.append(t)
+        dr, dc, bit, _ = DIRS[d]
+        if opened[r * size + c] & bit:
+            r, c = r + dr, c + dc
+            steps += 1
+            if (r, c) == goal:
+                exit_t = (st, t)
+        else:
+            bumps += 1
+    if after:
+        a.flag("moves_after_exit", after)
+    a.monotonic(times, "t")
+    best = _shortest_cached(item)
+    at_exit = (r, c) == goal
+    timely = exit_t is not None and exit_t[0] == G.TIMELY
+    reached = at_exit and timely
+    if at_exit and not timely:
+        a.flag("reached_outside_time_limit")
+    claimed = a.opt_bool(response, "reached")
+    if claimed is not None and claimed != at_exit:
+        a.flag("reached_mismatch")
     excess = steps - best if reached else None
     limit = best + math.ceil(0.25 * best)
-    ts = [t for t in times if t is not None]
     hit = bool(reached and steps <= limit)
-    return {"hit": hit, "errors": bumps + (excess if excess else 0),
-            "metrics": {"reached": reached, "steps": steps, "shortest": best, "excess_steps": excess,
-                        "bumps": bumps, "size": item["size"],
-                        "plan_ms": ts[0] if ts else None,
-                        "move_ms": round(ts[-1] - ts[0], 1) if len(ts) > 1 else None,
-                        "total_ms": ts[-1] if ts else None}}
+    return a.finish(hit, bumps + (excess if excess else 0) + malformed, {
+        "reached": reached, "steps": steps, "shortest": best, "excess_steps": excess,
+        "bumps": bumps, "malformed_moves": malformed, "size": size,
+        "plan_ms": ts[0] if ts else None,
+        "move_ms": round(ts[-1] - ts[0], 1) if len(ts) > 1 else None,
+        "total_ms": ts[-1] if ts else None})
+
+
+_SHORTEST = {}
+
+
+def _shortest_cached(item):
+    """shortest(item), memoized per maze (the harness scores each item many times)."""
+    key = (item["size"], tuple(item["open"]), tuple(item["start"]), tuple(item["exit"]))
+    if key not in _SHORTEST:
+        if len(_SHORTEST) > 512:
+            _SHORTEST.clear()
+        _SHORTEST[key] = shortest(item)
+    return _SHORTEST[key]
 
 
 def example_response(item, correct=True):
     moves = _path(item)
     if not correct:
         moves = moves[: len(moves) // 2]
-    return {"moves": [{"d": d, "t": 3000 + 400 * i} for i, d in enumerate(moves)]}
+    return {"moves": [{"d": d, "t": 3000 + 400 * i} for i, d in enumerate(moves)], "reached": correct}

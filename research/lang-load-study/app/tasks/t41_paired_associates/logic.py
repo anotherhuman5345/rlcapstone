@@ -12,6 +12,13 @@ Pairs (k, k+1) have identical structure (6 pairs, 2 lures, 2 cycles)."""
 import json
 from pathlib import Path
 
+from app.tasks import _guard as G
+
+TIMING = "window"     # each test answer: up to 6000 ms (view.js choose(6000))
+WINDOW_MS = 6000
+RT_SLACK_MS = 50      # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
+
 N_PAIRS, N_LURES, CYCLES = 6, 2, 2
 N_WORDS = len(json.loads((Path(__file__).parent / "text" / "en.json").read_text(encoding="utf-8"))["words"])
 STEPS = [(dx, dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
@@ -79,47 +86,50 @@ def generate(rng, n, save_image):
     return items
 
 
-def _num(x):
-    return x if isinstance(x, (int, float)) and not isinstance(x, bool) else None
-
-
+@G.safe
 def score(item, response):
     """response: {"cycles": [[{"choice": word index or null, "rt": ms}, ...], ...]}: one list
-    per test cycle, in that cycle's test_orders order. Symbol s is correct when the choice is
-    item["words"][s]. Errors are split into intrusions (another studied word), lure errors
-    (an unstudied word) and omissions (no choice within the time limit).
+    per test cycle, in that cycle's test_orders order. Every answer is classified
+    (app/tasks/_guard.py): absent (no choice within the 6000 ms limit, view.js choose(6000)),
+    invalid (a choice that is not one of the eight offered words, choice without rt or rt
+    without choice, non-finite / negative / impossible rt, entry missing), anticipatory
+    (< 100 ms), late (beyond the window + 50 ms timer tolerance) or timely. Only a timely
+    answer can be correct. Symbol s is correct when the timely choice is item["words"][s].
+    Errors are split into intrusions (another studied word), lure errors (an unstudied word)
+    and omissions (no choice, or no timely / valid choice; not_timely counts the latter).
     hit = the last cycle has at least 5 of 6 symbols right (accuracy >= 0.8).
     errors = wrong or missing answers over both cycles."""
-    resp = response if isinstance(response, dict) else {}
-    cyc = resp.get("cycles") if isinstance(resp.get("cycles"), list) else []
+    a = G.Audit(CEILING_MS)
     words, lures = item["words"], set(item["lures"])
-    accs, intr, lure_err, omit, rts = [], 0, 0, 0, []
-    for c, order in enumerate(item["test_orders"]):
-        rows = cyc[c] if c < len(cyc) and isinstance(cyc[c], list) else []
+    orders = item["test_orders"]
+    total = sum(len(o) for o in orders)
+    if not isinstance(response, dict):
+        return a.junk(total)
+    allowed = set(item["options"])
+    cyc = a.entries(response.get("cycles", G.MISSING), len(orders), "cycles")
+    accs, intr, lure_err, omit, not_timely, rts, right_all = [], 0, 0, 0, 0, [], 0
+    for c, order in enumerate(orders):
+        rows = a.entries(cyc[c], len(order), "answers") if cyc[c] is not G.MISSING else [G.MISSING] * len(order)
         right = 0
-        for j, s in enumerate(order):
-            r = rows[j] if j < len(rows) and isinstance(rows[j], dict) else {}
-            ch = r.get("choice")
-            ch = ch if isinstance(ch, int) and not isinstance(ch, bool) else None
-            if ch == words[s]:
-                right += 1
-                if _num(r.get("rt")):
-                    rts.append(r["rt"])
-            elif ch is None:
+        for s, r in zip(order, rows):
+            st, ch, rt = a.keyed(r, allowed, key="choice", window=WINDOW_MS, slack=RT_SLACK_MS)
+            if st != G.TIMELY:
                 omit += 1
+                not_timely += st != G.ABSENT
+            elif ch == words[s]:
+                right += 1
+                rts.append(rt)
             elif ch in words:
                 intr += 1
             elif ch in lures:
                 lure_err += 1
-            else:
-                omit += 1   # not an offered option: treated as no answer
         accs.append(right / len(order))
-    total = sum(len(o) for o in item["test_orders"])
-    return {"hit": accs[-1] >= 0.8, "errors": total - round(sum(a * len(o) for a, o in zip(accs, item["test_orders"]))),
-            "metrics": {"accuracy_by_cycle": [round(a, 3) for a in accs], "final_accuracy": round(accs[-1], 3),
-                        "learning_gain": round(accs[-1] - accs[0], 3), "intrusions": intr,
-                        "lure_errors": lure_err, "omissions": omit,
-                        "rt_correct_mean": round(sum(rts) / len(rts), 1) if rts else None}}
+        right_all += right
+    return a.finish(accs[-1] >= 0.8, total - right_all, {
+        "accuracy_by_cycle": [round(x, 3) for x in accs], "final_accuracy": round(accs[-1], 3),
+        "learning_gain": round(accs[-1] - accs[0], 3), "intrusions": intr,
+        "lure_errors": lure_err, "omissions": omit, "not_timely": not_timely,
+        "rt_correct_mean": G.mean(rts)})
 
 
 def example_response(item, correct=True):

@@ -8,7 +8,12 @@ The instruction wording lives in text/<lang>.json ("op_add", "op_sub" with {n} a
 update count and the add/subtract sequence; values, boxes and amounts differ. Values
 stay within 0..20 (never negative). The answer key comes from the simulator below."""
 
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js answer phase has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 LIMIT = 20
+MAX_VALUE = 99       # the answer inputs take at most 2 digits (view.js maxLength = 2)
 PLAN = {2: 5, 3: 6, 4: 8}   # boxes -> updates per trial
 
 
@@ -55,34 +60,40 @@ def generate(rng, n, save_image):
     return items
 
 
-def _int(x):
-    if isinstance(x, bool):
-        return None
-    if isinstance(x, int):
-        return x
-    if isinstance(x, str) and x.strip().isdigit() and x.strip().isascii():
-        return int(x.strip())
-    return None
-
-
+@G.safe
 def score(item, response):
-    """response: {"values": [final value typed per box, int or null], "rt": ms (recall time)}.
+    """response: {"values": [final value typed per box, int 0..99 or null], "rt": ms (recall
+    time, answer screen to Done)}. One value per box: missing entries are omissions and
+    extra ones are ignored (both flagged); a value that is not an integer 0..99 (the input
+    takes at most 2 digits; strings, floats and booleans are not coerced) is flagged and
+    scored wrong. The key comes from simulate().
     hit = every box's final value is exactly right.
-    errors = number of boxes wrong or left empty."""
+    errors = number of boxes wrong or left empty.
+    Recall is unspeeded: rt is descriptive, checked (finite, >= 100 ms, below the trial
+    timeout) and null when bad (flagged); correctness stands."""
     truth = simulate(item["start"], item["updates"])
-    resp = response if isinstance(response, dict) else {}
-    vals = resp.get("values") if isinstance(resp.get("values"), list) else []
-    got = [_int(vals[b]) if b < len(vals) else None for b in range(len(truth))]
-    ok = [g == t for g, t in zip(got, truth)]
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk(len(truth))
+    got = []
+    for v in a.entries(response.get("values", G.MISSING), len(truth), "values"):
+        if v is G.MISSING or v is None:
+            got.append(None)
+        elif G.member(v, range(MAX_VALUE + 1)):
+            got.append(v)
+        else:
+            a.malformed("invalid_value")
+            got.append(None)
+    ok = [g is not None and g == t for g, t in zip(got, truth)]
     per_box_updates = [sum(1 for u in item["updates"] if u["box"] == b) for b in range(len(truth))]
-    rt = resp.get("rt")
-    return {"hit": all(ok), "errors": len(ok) - sum(ok),
-            "metrics": {"boxes": len(truth), "updates": len(item["updates"]),
-                        "subtractions": sum(1 for u in item["updates"] if u["op"] == "sub"),
-                        "box_accuracy": round(sum(ok) / len(ok), 3), "boxes_correct": sum(ok),
-                        "correct_by_box": ok, "updates_by_box": per_box_updates,
-                        "omissions": sum(1 for g in got if g is None),
-                        "recall_rt": rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) else None}}
+    rt = a.duration(response, "rt")
+    return a.finish(all(ok), len(ok) - sum(ok), {
+        "boxes": len(truth), "updates": len(item["updates"]),
+        "subtractions": sum(1 for u in item["updates"] if u["op"] == "sub"),
+        "box_accuracy": round(sum(ok) / len(ok), 3), "boxes_correct": sum(ok),
+        "correct_by_box": ok, "updates_by_box": per_box_updates,
+        "omissions": sum(1 for g in got if g is None),
+        "recall_rt": rt})
 
 
 def example_response(item, correct=True):

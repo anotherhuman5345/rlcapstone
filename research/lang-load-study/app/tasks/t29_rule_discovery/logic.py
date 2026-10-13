@@ -8,9 +8,14 @@ rules always point to three different reference cards and one reference card is 
 right: no card makes the rules agree. Both items of a pair share the rule order (the
 main source of difficulty) and differ in card order. Original drawn stimuli."""
 
+from app.tasks import _guard as G
+
+TIMING = "window"     # each sort has a 5000 ms window (view.js answer(it.window_ms), item window_ms)
 CRITERION = 4
 MAX_TRIALS = 36
 WINDOW_MS = 5000
+RT_SLACK_MS = 50      # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
 RULES = ["color", "shape", "count"]
 FEATURE = {"color": 0, "shape": 1, "count": 2}
 COLORS = ["#D55E00", "#009E73", "#F0E442", "#0072B2"]  # vermillion, green, yellow, blue
@@ -62,40 +67,64 @@ def replay(item, choices):
     return rows, phase
 
 
+def _rule_field(a, r, active):
+    """The browser's "rule" (rule name active before the sort): a mismatch metric only,
+    never used for scoring. Missing / invalid values are flagged; returns True on mismatch."""
+    v = r.get("rule", G.MISSING)
+    if v is G.MISSING:
+        a.malformed("missing_rule")
+        return False
+    if not G.member(v, RULES):
+        a.malformed("invalid_rule")
+        return False
+    return v != active
+
+
+@G.safe
 def score(item, response):
     """response: [{"choice": 0-3 | null, "rt": ms, "rule": rule name active before the
     sort}] in sort order.
+    Every sort is classified (app/tasks/_guard.py): absent (no choice: the 5000 ms window,
+    view.js answer(it.window_ms), ran out), invalid (choice not an integer 0-3, choice without
+    rt or rt without choice, non-finite / negative / impossible rt), anticipatory (< 100 ms),
+    late (beyond the window + 50 ms timer tolerance) or timely. The server replays the sorts
+    with the task rules (oracle); only a timely sort counts as made, every other one is
+    replayed as an omission. The browser's "rule" field is only compared (rule_mismatch),
+    never trusted. Sorts after the replay ended are flagged.
     hit = all three rules found (criterion reached in every phase) within MAX_TRIALS.
-    errors = wrong sorts + omissions. Metrics: categories completed, trials to criterion
-    per rule, trials to first category, perseverative errors (sorted by the previous,
-    now-wrong rule), other errors, total correct, median RT, rule_mismatch (the browser's
-    active rule differed from the server replay)."""
-    try:
-        resp = response if isinstance(response, list) else []
-        choices = []
-        for r in resp:
-            c = r.get("choice") if isinstance(r, dict) else None
-            choices.append(c if isinstance(c, int) and not isinstance(c, bool) and 0 <= c <= 3 else None)
-        rows, cats = replay(item, choices)
-    except (TypeError, KeyError, IndexError):
-        return {"hit": False, "errors": 0, "metrics": {}}
+    errors = wrong sorts + omissions (incl. sorts that were not timely). Metrics: categories
+    completed, trials to criterion per rule, trials to first category, perseverative errors
+    (sorted by the previous, now-wrong rule), other errors, total correct, median RT (timely
+    sorts), rule_mismatch (the browser's active rule differed from the server replay)."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, list):
+        return a.junk()
+    raw = a.stream(response, "sorts", cap=item["max_trials"])
+    evs = [a.keyed(r, range(4), key="choice", window=WINDOW_MS, slack=RT_SLACK_MS) for r in raw]
+    choices = [k if st == G.TIMELY else None for st, k, _ in evs]
+    rows, cats = replay(item, choices)
+    if len(raw) > len(rows):
+        a.flag("sorts_after_end", len(raw) - len(rows))
+    mismatch = False
+    for r, row in zip(raw, rows):
+        if isinstance(r, dict) and _rule_field(a, r, item["rules"][row["phase"]]):
+            mismatch = True
     n_rules = len(item["rules"])
     to_crit = [sum(1 for r in rows if r["phase"] == p) if cats > p else None for p in range(n_rules)]
-    rts = sorted(float(r["rt"]) for r in resp[: len(rows)] if isinstance(r, dict)
-                 and isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) and r["rt"] > 0)
-    mismatch = any(isinstance(r, dict) and r.get("rule") is not None and r.get("rule") != item["rules"][row["phase"]]
-                   for r, row in zip(resp, rows))
+    rts = [rt for (st, _, rt) in evs[: len(rows)] if st == G.TIMELY]
     persev = sum(r["persev"] for r in rows)
     errors = sum(not r["ok"] for r in rows)
-    return {"hit": cats >= n_rules and len(rows) > 0, "errors": errors,
-            "metrics": {"categories_completed": cats, "sorts": len(rows),
-                        "total_correct": sum(r["ok"] for r in rows),
-                        "trials_to_criterion": to_crit, "trials_to_first_category": to_crit[0] if to_crit else None,
-                        "perseverative_errors": persev,
-                        "other_errors": errors - persev - sum(1 for r in rows if r["choice"] is None),
-                        "omissions": sum(1 for r in rows if r["choice"] is None),
-                        "median_rt": round(rts[len(rts) // 2], 1) if rts else None,
-                        "rule_mismatch": mismatch}}
+    omissions = sum(1 for r in rows if r["choice"] is None)
+    not_timely = sum(1 for (st, _, _) in evs[: len(rows)] if st in (G.INVALID, G.ANTICIPATORY, G.LATE))
+    return a.finish(cats >= n_rules and len(rows) > 0, errors, {
+        "categories_completed": cats, "sorts": len(rows),
+        "total_correct": sum(r["ok"] for r in rows),
+        "trials_to_criterion": to_crit, "trials_to_first_category": to_crit[0] if to_crit else None,
+        "perseverative_errors": persev,
+        "other_errors": errors - persev - omissions,
+        "omissions": omissions, "not_timely_sorts": not_timely,
+        "median_rt": G.median(rts),
+        "rule_mismatch": mismatch})
 
 
 def example_response(item, correct=True):

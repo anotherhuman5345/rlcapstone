@@ -11,7 +11,14 @@ shapes with different numbers (results kept in a similar range).
 Prior programming experience is not measured here; collect it in the questionnaire.
 """
 
-LIMIT_MS = 45000
+from app.tasks import _guard as G
+
+TIMING = "limit"      # each program must be answered within its limit (see _guard.py)
+LIMIT_MS = 45000      # view.js ask(): setTimeout(() => done(null), it.limit_ms), per program
+TIME_SLACK_MS = 1000  # timer tolerance at the limit
+MAX_ENTRIES = 100     # entries read from the response list (3 expected)
+ANSWERS = range(-9999, 10000)  # the keypad allows a sign and at most 4 digits
+CEILING_MS = G.trial_ceiling(__file__)
 
 
 def _ev(e, env):
@@ -116,41 +123,73 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
-def score(item, response):
-    """response: [{"p": program index, "answer": integer or null, "rt": ms}].
-    hit = at least 2 of the 3 printed values right (omissions wrong).
-    metrics: accuracy, accuracy for one-level and two-level programs, mean correct RT,
-    omissions. Keys come from run()."""
-    try:
-        progs, levels = item["programs"], item["levels"]
-        resp = response if isinstance(response, list) else []
-        by_p = {}
-        for r in resp:
-            if isinstance(r, dict) and isinstance(r.get("p"), int) and r["p"] not in by_p:
-                by_p[r["p"]] = r
-        ok, rts, omis = [], [], 0
-        lv = {1: [], 2: []}
-        for k, prog in enumerate(progs):
-            key = run(prog)[-1]
-            r = by_p.get(k, {})
-            ans = r.get("answer")
-            if ans is None:
-                omis += 1
-            good = isinstance(ans, int) and not isinstance(ans, bool) and ans == key
-            ok.append(good)
-            lv.setdefault(levels[k], []).append(good)
-            rt = r.get("rt")
-            if good and isinstance(rt, (int, float)) and rt > 0:
-                rts.append(rt)
+def _by_index(seq, n, a, key="p"):
+    """Entries keyed by program index: {index: entry}. The first entry for an index wins;
+    later duplicates (duplicate_p), unknown / non-integer indices (invalid_p), entries that
+    are not objects and entries out of presentation order are flagged; an index with no
+    entry is flagged missing_p (and is an invalid event, scored as an omission)."""
+    by, last = {}, -1
+    for r in seq:
+        if not isinstance(r, dict):
+            a.malformed("event_not_object")
+            continue
+        k = r.get(key, G.MISSING)
+        if not G.is_int(k) or not 0 <= k < n:
+            a.malformed(f"invalid_{key}" if k is not G.MISSING else f"missing_{key}")
+            continue
+        if k in by:
+            a.malformed(f"duplicate_{key}")
+            continue
+        if k < last:
+            a.flag(f"out_of_order_{key}")
+        last = k
+        by[k] = r
+    missing = n - len(by)
+    if missing:
+        a.flag(f"missing_{key}", missing)
+    return by
 
-        def acc(v):
-            return round(sum(v) / len(v), 3) if v else None
-        return {"hit": sum(ok) >= 2, "errors": len(progs) - sum(ok),
-                "metrics": {"accuracy": acc(ok), "acc_level1": acc(lv[1]), "acc_level2": acc(lv[2]),
-                            "mean_rt_correct": round(sum(rts) / len(rts), 1) if rts else None,
-                            "omissions": omis}}
-    except Exception:
-        return {"hit": False, "errors": 0, "metrics": {}}
+
+@G.safe
+def score(item, response):
+    """response: [{"p": program index, "answer": integer or null, "rt": ms}] in program
+    order, one entry per program (the first entry for an index counts; duplicate, unknown
+    and missing indices are flagged). answer null with rt null = the 45 s limit ran out.
+    An answer counts only when it is an integer (-9999..9999, what the keypad allows) and
+    its rt is a valid time inside the per-program limit (finite, >= 100 ms, <= LIMIT_MS +
+    1 s timer slack, see view.js); otherwise it is never correct (flagged).
+    hit = at least 2 of the 3 printed values right in time (omissions wrong).
+    metrics: accuracy, accuracy for one-level and two-level programs, mean correct RT,
+    omissions, per-program events. Keys come from run()."""
+    a = G.Audit(CEILING_MS)
+    progs, levels = item["programs"], item["levels"]
+    if not isinstance(response, list):
+        return a.junk(len(progs))
+    by_p = _by_index(a.stream(response, "events", cap=MAX_ENTRIES), len(progs), a)
+    ok, rts, omis, events = [], [], 0, []
+    lv = {1: [], 2: []}
+    for k, prog in enumerate(progs):
+        key = run(prog)[-1]
+        r = by_p.get(k)
+        if r is None:
+            status, ans, rt = a.record(G.INVALID), None, None
+        else:
+            status, ans, rt = a.keyed(r, ANSWERS, key="answer", rt="rt", window=LIMIT_MS, slack=TIME_SLACK_MS)
+        if ans is None:
+            omis += 1
+        good = status == G.TIMELY and ans == key
+        ok.append(good)
+        lv.setdefault(levels[k], []).append(good)
+        if good:
+            rts.append(rt)
+        events.append({"i": k, "level": levels[k], "status": status, "correct": good,
+                       "rt": rt if status == G.TIMELY else None})
+
+    def acc(v):
+        return round(sum(v) / len(v), 3) if v else None
+    return a.finish(sum(ok) >= 2, len(progs) - sum(ok), {
+        "accuracy": acc(ok), "acc_level1": acc(lv[1]), "acc_level2": acc(lv[2]),
+        "mean_rt_correct": G.mean(rts), "omissions": omis, "events": events})
 
 
 def example_response(item, correct=True):

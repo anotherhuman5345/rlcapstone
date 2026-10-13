@@ -15,6 +15,13 @@ different maps, so the two languages get equally hard questions."""
 
 import math
 
+from app.tasks import _guard as G
+
+TIMING = "window"      # each question: up to 20000 ms (view.js answer(20000))
+WINDOW_MS = 20000
+RT_SLACK_MS = 50       # timer tolerance at the window end
+CEILING_MS = G.trial_ceiling(__file__)
+
 LANDMARKS = 6
 VIEWPOINTS = (0, 90, 180, 270)
 CATS = ("ahead", "right", "behind", "left")
@@ -102,33 +109,42 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
+@G.safe
 def score(item, response):
-    """response: [{"dir": "ahead"|"right"|"behind"|"left"|null, "rt": ms}] in question order.
-    hit = at least 3 of the 4 questions right (omissions are wrong). Metrics: accuracy,
-    accuracy and mean correct RT per viewpoint (0/90/180/270), omissions."""
-    resp = response if isinstance(response, list) else []
+    """response: [{"dir": "ahead"|"right"|"behind"|"left"|null, "rt": ms}] in question order,
+    one entry per question (missing entries invalid, extra ones flagged).
+    Every answer is classified (app/tasks/_guard.py): absent (no answer within the 20 s
+    limit, view.js answer(20000)), invalid (unknown direction, answer without rt or rt
+    without answer, non-finite / negative / impossible rt), anticipatory (< 100 ms), late
+    (beyond the limit + 50 ms timer tolerance) or timely. Only a timely answer can be
+    correct; the answer is recomputed from the map geometry (direction()).
+    hit = at least 3 of the 4 questions right (omissions and answers that are not timely are
+    wrong). Metrics: accuracy, accuracy and mean correct RT per viewpoint (0/90/180/270),
+    omissions."""
+    a = G.Audit(CEILING_MS)
+    qs = item["questions"]
+    if not isinstance(response, list):
+        return a.junk(len(qs))
     pts = [tuple(p) for p in item["landmarks"]]
     rows = []
-    for k, q in enumerate(item["questions"]):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        rt = r.get("rt")
-        rt = rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
+    for q, r in zip(qs, a.entries(response, len(qs), "answers")):
+        st, d, rt = a.keyed(r, CATS, key="dir", window=WINDOW_MS, slack=RT_SLACK_MS)
         heading, _ = _geometry(pts, q["at"], q["face"], q["to"])
         ans = direction(pts, q["at"], q["face"], q["to"])
-        rows.append({"vp": _viewpoint(heading), "ok": r.get("dir") == ans, "rt": rt, "dir": r.get("dir")})
+        ok = st == G.TIMELY and d == ans
+        rows.append({"vp": _viewpoint(heading), "ok": ok, "rt": rt if ok else None, "status": st})
     n_ok = sum(r["ok"] for r in rows)
     by_vp_acc, by_vp_rt = {}, {}
     for vp in VIEWPOINTS:
         sel = [r for r in rows if r["vp"] == vp]
         if sel:
             by_vp_acc[str(vp)] = round(sum(r["ok"] for r in sel) / len(sel), 3)
-            rts = [r["rt"] for r in sel if r["ok"] and r["rt"]]
-            by_vp_rt[str(vp)] = round(sum(rts) / len(rts), 1) if rts else None
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
-    return {"hit": n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(n_ok / len(rows), 3), "accuracy_by_viewpoint": by_vp_acc,
-                        "rt_by_viewpoint": by_vp_rt, "rt_correct_mean": round(sum(rts) / len(rts), 1) if rts else None,
-                        "omissions": sum(1 for r in rows if r["dir"] is None)}}
+            by_vp_rt[str(vp)] = G.mean([r["rt"] for r in sel if r["ok"]])
+    return a.finish(n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": round(n_ok / len(rows), 3), "accuracy_by_viewpoint": by_vp_acc,
+        "rt_by_viewpoint": by_vp_rt, "rt_correct_mean": G.mean([r["rt"] for r in rows if r["ok"]]),
+        "omissions": sum(1 for r in rows if r["status"] == G.ABSENT),
+        "not_timely": sum(1 for r in rows if r["status"] in (G.INVALID, G.ANTICIPATORY, G.LATE))})
 
 
 def example_response(item, correct=True):

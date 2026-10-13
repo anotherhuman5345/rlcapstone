@@ -17,7 +17,11 @@ results. The generator only keeps problems where exactly one option is correct. 
 are C with other operations (for two-operation problems, including each single half).
 """
 import itertools
-import statistics
+
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js answer() has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 
 BASE = {  # original polygons in [-1, 1]^2, screen coordinates (y down)
     "flag": [(-0.6, 1.0), (-0.6, -1.0), (0.8, -0.55), (-0.3, -0.05), (-0.3, 1.0)],
@@ -169,18 +173,30 @@ def correct_options(p):
     return [i for i, o in enumerate(p["options"]) if key(o["state"]) in acc]
 
 
+@G.safe
 def score(item, response):
-    """response: [{"choice": 0-3 | null, "rt": ms}] in problem order (choice = option index).
-    hit = at least 3 of the 4 problems correct (chance is 1/4 per problem)."""
-    probs = item.get("problems", []) if isinstance(item, dict) else []
-    resp = response if isinstance(response, list) else []
+    """response: [{"choice": 0-3 | null, "rt": ms}] in problem order (choice = option index),
+    one entry per problem (missing entries are omissions, extra ones ignored; both flagged).
+    A choice that is not an integer option index is flagged and scored wrong.
+    hit = at least 3 of the 4 problems correct (chance is 1/4 per problem); the key is
+    recomputed by accepted() from the figures. Answering is unspeeded: rt is descriptive,
+    checked (finite, >= 100 ms, below the trial timeout) and null when bad (flagged)."""
+    a = G.Audit(CEILING_MS)
+    probs = item["problems"]
+    if not isinstance(response, list):
+        return a.junk(len(probs))
     rows = []
-    for k, p in enumerate(probs):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        ch = r.get("choice")
-        ch = ch if isinstance(ch, int) and not isinstance(ch, bool) and 0 <= ch < len(p["options"]) else None
+    for k, (p, r) in enumerate(zip(probs, a.entries(response, len(probs)))):
+        ev = a.obj(r)
+        ch, rt = None, None
+        if ev is not None:
+            if "choice" not in ev:
+                a.malformed("missing_choice")
+            else:
+                ch = a.choice(ev["choice"], range(len(p["options"])), "choice")
+                ch = None if ch is G.BAD else ch
+            rt = a.duration(ev, "rt")
         ok = ch is not None and ch in correct_options(p)
-        rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
         partial = False
         if ch is not None and not ok and len(p["ops"]) == 2:
             ck = key(p["options"][ch]["state"])
@@ -188,18 +204,18 @@ def score(item, response):
         rows.append({"n_ops": len(p["ops"]), "ops": "+".join(p["ops"]), "ok": ok, "rt": rt,
                      "omit": ch is None, "partial": partial})
     n_ok = sum(r["ok"] for r in rows)
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
+    rts = [r["rt"] for r in rows if r["ok"] and r["rt"] is not None]
 
     def acc(sel):
         return round(sum(r["ok"] for r in sel) / len(sel), 3) if sel else None
-    return {"hit": bool(rows) and n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": acc(rows),
-                        "accuracy_one_op": acc([r for r in rows if r["n_ops"] == 1]),
-                        "accuracy_two_ops": acc([r for r in rows if r["n_ops"] == 2]),
-                        "correct_by_relation": {r["ops"]: r["ok"] for r in rows},
-                        "partial_errors": sum(r["partial"] for r in rows),
-                        "median_rt_correct": round(statistics.median(rts), 1) if rts else None,
-                        "omissions": sum(r["omit"] for r in rows)}}
+    return a.finish(bool(rows) and n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": acc(rows),
+        "accuracy_one_op": acc([r for r in rows if r["n_ops"] == 1]),
+        "accuracy_two_ops": acc([r for r in rows if r["n_ops"] == 2]),
+        "correct_by_relation": {r["ops"]: r["ok"] for r in rows},
+        "partial_errors": sum(r["partial"] for r in rows),
+        "median_rt_correct": G.median(rts),
+        "omissions": sum(r["omit"] for r in rows)})
 
 
 def example_response(item, correct=True):
