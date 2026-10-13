@@ -2,7 +2,10 @@
 {% block mainclass %}trial{% endblock %}
 {% block content %}
 <header class="trial-head">
-  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+  <div class="trial-top">
+    <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+    {% if trial.task != 'surprise' %}<button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>{% endif %}
+  </div>
   <p class="clue" lang="{{ trial.clue_lang }}" id="clue" hidden>{{ clue }}</p>
 </header>
 <div class="stage" id="stage">
@@ -16,6 +19,7 @@
   <div class="row">{% for v in range(1, 10) %}<label><input type="radio" name="effort" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}</div>
   <button type="submit">{{ _('next') }}</button>
 </form>
+
 {% endblock %}
 {% block scripts %}
 <script>
@@ -24,7 +28,8 @@ window.TRIAL = {
   timeout: {{ timeout }},
   target: {{ img.target | tojson }},
   naturalW: {{ img.width }}, naturalH: {{ img.height }},
-  msgFound: {{ _('found') | tojson }}, msgTimeout: {{ _('timeout') | tojson }}
+  msgFound: {{ _('found') | tojson }}, msgTimeout: {{ _('timeout') | tojson }},
+  msgQuitConfirm: {{ _('quit_confirm') | tojson }}
 };
 </script>
 <script src="/static/trial.js"></script>

@@ -43,10 +43,35 @@ def test_surprise_language_counterbalanced():
 
 
 def test_clues_carry_same_information():
-    en = make_clue("scan", "en", 100, 50, 1200, 800)
-    tr = make_clue("scan", "tr", 100, 50, 1200, 800)
-    assert "upper-left" in en and "top edge" in en
-    assert "sol üst" in tr and "üst kenara" in tr
+    tg = {"x": 100, "y": 50, "object": "fish", "color": "green"}
+    en = make_clue("search", "en", "search_07", tg, 1200, 800)
+    tr = make_clue("search", "tr", "search_07", tg, 1200, 800)
+    assert "upper-left" in en and "top edge" in en and "green fish" in en
+    assert "sol üst" in tr.lower() and "üst kenar" in tr and "yeşil" in tr and "balı" in tr
+
+
+def test_scan_clues_never_name_the_target():
+    from app.clues import OBJECTS
+    m = load_manifest()
+    for img in (i for i in m["images"] if i["task"] == "scan"):
+        for lang in ("en", "tr"):
+            clue = make_clue("scan", lang, img["id"], img["target"], img["width"], img["height"]).lower()
+            en, nom, acc = OBJECTS[img["target"]["object"]]
+            assert en not in clue and acc not in clue, (img["id"], clue)
+
+
+def test_targets_and_wording_do_not_repeat():
+    from collections import Counter as C
+    m = load_manifest()
+    search = [i["target"] for i in m["images"] if i["task"] == "search"]
+    assert len({(t["object"], t["color"]) for t in search}) == len(search)  # every search target unique
+    scans = [i["target"]["object"] for i in m["images"] if i["task"] == "scan"]
+    assert "gorilla" not in scans and len(set(scans)) >= 10
+    # no scan object comes back before the others have had their turn
+    assert max(C(scans).values()) - min(C(scans).values()) <= 1
+    leads = {make_clue("search", "en", i["id"], i["target"], 1200, 800).split(".")[0][:12]
+             for i in m["images"] if i["task"] == "search"}
+    assert len(leads) >= 3  # several sentence patterns in use
 
 
 def _answer(c, m, i, **extra):
@@ -84,7 +109,10 @@ def test_full_session_flow():
             _, res = _answer(c, m, i)
             assert res["hit"] is True
         assert c.get("/trial").url.path == "/final"
-        c.post("/final", data={"difficulty": 5, "attention": "red"})
+        final = c.get("/final").text
+        practice_obj = next(i for i in m.values() if i["id"] == "search_practice")["target"]["object"]
+        assert 'value="%s"' % practice_obj in final and 'value="car"' in final
+        c.post("/final", data={"difficulty": 5, "attention": practice_obj})
         rows = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()
         header = rows[0].split(",")
         mine = [dict(zip(header, r.split(","))) for r in rows[1:]]
@@ -158,3 +186,24 @@ def test_out_of_range_answers_rejected_and_eligibility_flagged():
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
             assert p.eligible is False
+
+
+def test_exhausted_button_ends_session_and_is_recorded():
+    from app.db import Participant, SessionLocal
+    c = TestClient(app)
+    with c:
+        _start(c)
+        m = {i["id"]: i for i in load_manifest()["images"]}
+        _answer(c, m, 0)
+        c.post("/notice", data={"noticed": "no"})
+        c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "no"})
+        for i in range(1, 6):
+            _answer(c, m, i)
+        assert 'id="quit"' in c.get("/trial").text
+        assert c.post("/api/quit", json={"trial_index": 6}).json()["next"] == "/final"
+        assert c.get("/trial").url.path == "/final"
+        c.post("/final", data={"difficulty": 8, "attention": "car"})  # a decoy: never a target
+        with SessionLocal() as db:
+            p = db.get(Participant, c.cookies.get("pid"))
+            assert p.quit_early and p.quit_trial == 6 and p.quit_elapsed_s is not None
+            assert p.completed and p.attention_ok is False

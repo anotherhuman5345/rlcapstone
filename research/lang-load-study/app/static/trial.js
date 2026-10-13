@@ -77,6 +77,22 @@
     }
   });
 
+  // "I'm exhausted": stop now and go to the last questions. When people stop is data.
+  const quit = document.getElementById("quit");
+  if (quit) {
+    quit.addEventListener("click", async () => {
+      if (!window.confirm(T.msgQuitConfirm)) return;
+      done = true;
+      clearTimeout(timer);
+      const res = await fetch("/api/quit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ trial_index: T.index })
+      });
+      window.location.href = res.ok ? (await res.json()).next : "/final";
+    });
+  }
+
   if (img.complete && img.naturalWidth) begin();
   else img.addEventListener("load", begin, { once: true });
 })();

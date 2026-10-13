@@ -47,6 +47,7 @@ def main():
                 "years_reading_images": yrs, "native_lang": l1, "l2_age_acquired": 6,
                 "en_reading": 7, "tr_reading": 6, "l1": l1, "l2": l2, "eligible": True,
                 "counterbalance": k % 4, "attention_ok": True, "completed": True, "time_capped": False,
+                "quit_early": False, "quit_elapsed_s": None, "quit_trial": None,
                 "noticed_unusual": saw or bool(rng.random() < 0.1), "saw_gorilla": saw,
                 "knew_gorilla_study": knew,
             }
@@ -60,8 +61,11 @@ def main():
                          "false_clicks": 0, "effort": 3, "reloads": 0})
             clock += 60  # surprise questions + instructions + 2 practice trials
             i = 3
+            # Assumed: about 1 in 4 people press "I'm exhausted", somewhere after minute 6.
+            quit_at = rng.uniform(6, 13) if rng.random() < 0.25 else None
+            first_row = len(rows)
             for r in range(1, ROUNDS + 1):
-                if common["time_capped"]:
+                if common["time_capped"] or common["quit_early"]:
                     break
                 trials = [(task, j) for task in ("search", "scan") for j in range(PER_TASK_PER_ROUND)]
                 rng.shuffle(trials)
@@ -76,6 +80,9 @@ def main():
                     decay = args.decay_slope * max(0.0, minutes - args.decay_start)
                     log_rt = base + person + cost + learning + decay + rng.normal(0, 0.35)
                     rt = float(np.exp(log_rt))
+                    if quit_at and clock / 60 > quit_at:
+                        common.update(quit_early=True, quit_elapsed_s=round(clock, 1), quit_trial=i)
+                        break
                     if clock > 14 * 60 - 60:  # session time limit (counted from the start page)
                         common["time_capped"] = True
                         break
@@ -92,9 +99,10 @@ def main():
                         "reloads": 0,
                     })
                     i += 1
+            for row in rows[first_row:]:  # person-level flags apply to all of this person's rows
+                row.update(time_capped=common["time_capped"], quit_early=common["quit_early"],
+                           quit_elapsed_s=common["quit_elapsed_s"], quit_trial=common["quit_trial"])
     df = pd.DataFrame(rows)
-    # time_capped is a per-person flag; make every row of a person agree.
-    df["time_capped"] = df.groupby("participant_id").time_capped.transform("max")
     df.to_csv(args.out, index=False)
     print(f"Wrote {len(rows)} SIMULATED rows to {args.out}")
 

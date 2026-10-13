@@ -28,7 +28,7 @@ The whole session takes **at most 15 minutes**, for everyone.
 |---|---|---|
 | 1. Surprise image (once, first) | Find a small white ring on a scan. An unannounced gorilla is also in the image. Then: "Anything unusual?", "Did you see a gorilla?", "Had you heard of the invisible-gorilla study?" | **Between people:** half get the clue in L1, half in L2 |
 | 2. Practice | One search scene and one scan, comfortable language, not scored | — |
-| 3. Rounds | Identical rounds of 8 pictures: 4 search scenes (find the red umbrella) and 4 scans (find the planted monkey), half with L1 clues and half with L2 clues | **Within each person:** L1 vs. L2, and change over time |
+| 3. Rounds | Rounds of 8 pictures: 4 search scenes (find the named object) and 4 scans (find what is out of the ordinary), half with L1 clues and half with L2 clues. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
 
 | Factor | Type | Levels |
 |---|---|---|
@@ -37,18 +37,29 @@ The whole session takes **at most 15 minutes**, for everyone.
 | Time on task | within each person | Elapsed minutes / round number |
 | Group | between people | High school, university, adult (not a student), PhD student, professor, physician, radiologist |
 
-- **Search scene:** an original cluttered picture; the target is a small red umbrella
-  among distractors that share its color or its shape (conjunction search).
-- **Scan:** a grayscale medical image with a small, low-contrast monkey planted in it.
-  Everyone does both tasks; nobody is asked to diagnose anything.
+- **No autopilot.** Pilot testers said that with a fixed target (always a red umbrella,
+  always a monkey) the task became automatic after a few pictures and they stopped
+  reading the clue. An unread clue cannot show a language effect, so nothing repeats:
+  - **Search scene:** an original cluttered picture with its own target, a unique
+    object-and-color pair (a green fish, a purple key, ...), among distractors that share
+    its shape or its color (conjunction search). The clue names the target.
+  - **Scan:** a grayscale medical image with a small, faint silhouette planted in it
+    (cat, bird, key, house, ...). Object, size and contrast vary per picture; contrast
+    is +16 to +22 gray levels over the background, half of the first version's +38.
+    The clue never names it: it says something is out of the ordinary, the way a
+    reader of a real scan looks for an abnormality. Nobody is asked to diagnose anything.
+  - **Wording:** each clue uses one of several equivalent sentence patterns, the same
+    pattern in both languages for a given picture.
 - **Surprise gorilla:** the inattentional-blindness paradigm of Drew, Võ & Wolfe (2013),
   where 83% of radiologists missed a gorilla in a lung CT. It runs first, before anything
   mentions animals, because once someone knows about it the surprise is gone. The
   "unusual?" question gets its own page so the word "gorilla" cannot prompt the answer.
   Radiologists may know the study, so everyone is asked and the analysis reports
   results with and without those who knew.
-- **Clue:** names the region of the image and the nearer edge, in English or Turkish.
-  Both versions carry identical information.
+- **Clue:** names what to find (search scenes only), the region of the image and the
+  nearer edge, in English or Turkish. Both versions carry identical information.
+- **"I'm exhausted" button:** under every picture. Stopping is always allowed; the
+  minute and round where someone stops is recorded as a direct measure of fatigue.
 - **Time on task:** every round has the same mix, so a change across rounds comes from
   time, not from a harder task. There are more rounds (12) than most people finish:
   at 14 minutes from the start page the session moves to the final questions. Every
@@ -121,7 +132,7 @@ The server refuses to start with `IRB_APPROVED=1` while `ADMIN_KEY` is still the
 ```
 app/        web app (FastAPI): routes, database, bilingual text, clue builder, trial planner
 app/templates, app/static   pages, styling, browser timing script
-stimuli/    image generator (search scenes, scans with planted monkey)
+stimuli/    image generator (search scenes with varied targets, scans with faint planted objects)
 analysis/   simulate.py (fake data), analyze.py (statistics)
 tests/      automated tests
 docs/       study protocol

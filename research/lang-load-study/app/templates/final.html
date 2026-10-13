@@ -8,7 +8,7 @@
   </fieldset>
   <fieldset>
     <legend>{{ _('attention_q') }}</legend>
-    {% for c in ['blue', 'red', 'green', 'yellow'] %}<label class="choice"><input type="radio" name="attention" value="{{ c }}" required> {{ _(c) }}</label>{% endfor %}
+    {% for value, label in options %}<label class="choice"><input type="radio" name="attention" value="{{ value }}" required> {{ label }}</label>{% endfor %}
   </fieldset>
   <button type="submit">{{ _('finish') }}</button>
 </form>

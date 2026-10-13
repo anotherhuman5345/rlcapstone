@@ -1,20 +1,27 @@
 """Generate all study images and the manifest that records where each target is.
 
-Part A, search scenes: original cluttered scenes (no copyrighted puzzle art).
-  The target is a small RED UMBRELLA. Distractors share its color (red circles,
-  red triangles) or its shape (umbrellas in other colors), which makes this a
-  "conjunction search": the target cannot pop out on color or shape alone.
+Every picture has its OWN target, named in its clue. Pilot testers said a fixed
+target (always a red umbrella, always a monkey) became automatic after a few
+pictures, so they stopped reading the clue -- and an unread clue cannot show a
+language effect.
 
-Part B, scans: a small, low-contrast monkey is planted in a grayscale image.
+Search scenes: original cluttered scenes (no copyrighted puzzle art). Each has a
+unique (object, color) target, e.g. a small green fish. Distractors share its
+shape (fish in other colors) or its color (other green objects), which makes it a
+"conjunction search": the target cannot pop out on color or shape alone.
+
+Scans: a small, faint silhouette (cat, bird, key, house, ...) is planted in a
+grayscale image. Object, size and contrast vary from picture to picture.
 
 Surprise image (seen once, FIRST, before anything mentions animals): a scan
 with a small white ring as the stated target and an unannounced gorilla
 silhouette elsewhere in the image. This is the inattentional-blindness test
 after Drew, Vo & Wolfe (2013). The gorilla appears in no other image.
-  By default this script makes SYNTHETIC placeholder "scans" so the platform
-  can be built and tested. For the real study, put de-identified images
-  supplied by the lab (after IRB approval) in stimuli/real_scans/ and run with
-  --real-scans; the monkey is planted into those instead.
+
+By default this script makes SYNTHETIC placeholder "scans" so the platform can
+be built and tested. For the real study, put de-identified images supplied by
+the lab (after IRB approval) in stimuli/real_scans/ and run with --real-scans;
+the targets are planted into those instead.
 
 Usage:
     python stimuli/generate_stimuli.py               # placeholders
@@ -34,31 +41,106 @@ OUT = HERE / "output"
 REAL = HERE / "real_scans"
 
 W, H = 1200, 800
-SEARCH_COLORS = [(214, 40, 40), (40, 90, 200), (40, 150, 70), (235, 190, 30),
-                 (140, 70, 170), (240, 130, 40), (90, 90, 90), (30, 160, 170)]
-RED = (214, 40, 40)
 
 
-def draw_umbrella(d, cx, cy, s, color):
-    d.pieslice([cx - s, cy - s, cx + s, cy + s], 180, 360, fill=color, outline=(30, 30, 30))
-    d.line([cx, cy, cx, cy + s * 1.1], fill=(30, 30, 30), width=max(2, s // 6))
-    d.arc([cx, cy + s * 0.8, cx + s * 0.5, cy + s * 1.3], 0, 180, fill=(30, 30, 30), width=max(2, s // 6))
+# Every picture gets its own target so people must read the clue each time.
+# (Pilot testers reported that a fixed target -- always a red umbrella, always a
+# monkey -- became automatic after a few pictures and they stopped reading.)
+COLORS = {"red": (214, 40, 40), "blue": (40, 90, 200), "green": (40, 150, 70),
+          "yellow": (235, 190, 30), "purple": (140, 70, 170), "orange": (240, 130, 40)}
+EXTRA_COLORS = [(90, 90, 90), (30, 160, 170), (150, 100, 60)]  # distractor-only colors
+SEARCH_OBJECTS = ["umbrella", "star", "heart", "moon", "arrow", "cross", "diamond",
+                  "house", "fish", "key"]
+# Scan targets: faint silhouettes. The gorilla is NOT here: it only ever appears
+# in the surprise image.
+SCAN_OBJECTS = ["monkey", "cat", "bird", "fish", "star", "key", "house", "heart",
+                "moon", "arrow", "cross", "umbrella"]
+FILLER_SHAPES = ["circle", "triangle", "square"]
+OUTLINE = (30, 30, 30)
 
 
-def draw_shape(d, kind, cx, cy, s, color):
+def _poly(d, pts, fill, outline):
+    d.polygon(pts, fill=fill, outline=outline)
+
+
+def draw_object(d, kind, cx, cy, s, fill, outline=OUTLINE):
+    """Draw one object centred at (cx, cy), about 2*s across."""
+    w = max(2, int(s // 6))
+    line = outline or fill
     if kind == "circle":
-        d.ellipse([cx - s, cy - s, cx + s, cy + s], fill=color, outline=(30, 30, 30))
+        d.ellipse([cx - s, cy - s, cx + s, cy + s], fill=fill, outline=outline)
     elif kind == "triangle":
-        d.polygon([(cx, cy - s), (cx - s, cy + s), (cx + s, cy + s)], fill=color, outline=(30, 30, 30))
+        _poly(d, [(cx, cy - s), (cx - s, cy + s), (cx + s, cy + s)], fill, outline)
     elif kind == "square":
-        d.rectangle([cx - s, cy - s, cx + s, cy + s], fill=color, outline=(30, 30, 30))
+        d.rectangle([cx - s, cy - s, cx + s, cy + s], fill=fill, outline=outline)
     elif kind == "umbrella":
-        draw_umbrella(d, cx, cy, s, color)
+        d.pieslice([cx - s, cy - s, cx + s, cy + s], 180, 360, fill=fill, outline=outline)
+        d.line([cx, cy, cx, cy + s * 1.1], fill=line, width=w)
+        d.arc([cx, cy + s * .8, cx + s * .5, cy + s * 1.3], 0, 180, fill=line, width=w)
+    elif kind == "star":
+        pts = [(cx + (s if k % 2 == 0 else s * .45) * math.sin(k * math.pi / 5),
+                cy - (s if k % 2 == 0 else s * .45) * math.cos(k * math.pi / 5)) for k in range(10)]
+        _poly(d, pts, fill, outline)
+    elif kind == "heart":
+        r = s * .52
+        d.ellipse([cx - s, cy - s * .7, cx - s + 2 * r, cy - s * .7 + 2 * r], fill=fill)
+        d.ellipse([cx + s - 2 * r, cy - s * .7, cx + s, cy - s * .7 + 2 * r], fill=fill)
+        _poly(d, [(cx - s * .98, cy - s * .1), (cx + s * .98, cy - s * .1), (cx, cy + s)], fill, None)
+    elif kind == "moon":
+        outer = [(cx + s * math.cos(a), cy + s * math.sin(a))
+                 for a in [math.pi / 2 + k * math.pi / 16 for k in range(17)]]
+        inner = [(cx - s * .35 + s * .75 * math.cos(a), cy + s * .95 * math.sin(a))
+                 for a in [3 * math.pi / 2 - k * math.pi / 16 for k in range(17)]]
+        _poly(d, outer + inner, fill, outline)
+    elif kind == "arrow":
+        _poly(d, [(cx - s, cy - s * .3), (cx + s * .2, cy - s * .3), (cx + s * .2, cy - s * .8),
+                  (cx + s, cy), (cx + s * .2, cy + s * .8), (cx + s * .2, cy + s * .3),
+                  (cx - s, cy + s * .3)], fill, outline)
+    elif kind == "cross":
+        t = s * .35
+        _poly(d, [(cx - t, cy - s), (cx + t, cy - s), (cx + t, cy - t), (cx + s, cy - t),
+                  (cx + s, cy + t), (cx + t, cy + t), (cx + t, cy + s), (cx - t, cy + s),
+                  (cx - t, cy + t), (cx - s, cy + t), (cx - s, cy - t), (cx - t, cy - t)], fill, outline)
+    elif kind == "diamond":
+        _poly(d, [(cx, cy - s), (cx + s * .7, cy), (cx, cy + s), (cx - s * .7, cy)], fill, outline)
+    elif kind == "house":
+        _poly(d, [(cx - s * .75, cy - s * .1), (cx, cy - s), (cx + s * .75, cy - s * .1),
+                  (cx + s * .75, cy + s), (cx - s * .75, cy + s)], fill, outline)
+    elif kind == "fish":
+        d.ellipse([cx - s * .8, cy - s * .45, cx + s * .5, cy + s * .45], fill=fill, outline=outline)
+        _poly(d, [(cx + s * .35, cy), (cx + s, cy - s * .5), (cx + s, cy + s * .5)], fill, outline)
+    elif kind == "key":
+        d.ellipse([cx - s, cy - s * .4, cx - s * .2, cy + s * .4], outline=fill, width=max(2, int(s // 3.5)))
+        d.rectangle([cx - s * .25, cy - s * .12, cx + s, cy + s * .12], fill=fill)
+        d.rectangle([cx + s * .55, cy, cx + s * .7, cy + s * .45], fill=fill)
+        d.rectangle([cx + s * .8, cy, cx + s * .95, cy + s * .35], fill=fill)
+    elif kind == "monkey":
+        d.ellipse([cx - s * .45, cy - s, cx + s * .45, cy - s * .1], fill=fill)
+        d.ellipse([cx - s * .75, cy - s * .85, cx - s * .35, cy - s * .45], fill=fill)
+        d.ellipse([cx + s * .35, cy - s * .85, cx + s * .75, cy - s * .45], fill=fill)
+        d.ellipse([cx - s * .5, cy - s * .2, cx + s * .5, cy + s * .9], fill=fill)
+        d.arc([cx + s * .2, cy + s * .2, cx + s * 1.2, cy + s * 1.2], 270, 120, fill=fill, width=w)
+    elif kind == "cat":
+        d.ellipse([cx - s * .5, cy - s * .8, cx + s * .5, cy + s * .1], fill=fill)
+        _poly(d, [(cx - s * .5, cy - s * .45), (cx - s * .4, cy - s * 1.05), (cx - s * .1, cy - s * .7)], fill, None)
+        _poly(d, [(cx + s * .5, cy - s * .45), (cx + s * .4, cy - s * 1.05), (cx + s * .1, cy - s * .7)], fill, None)
+        d.ellipse([cx - s * .55, cy - s * .1, cx + s * .55, cy + s], fill=fill)
+    elif kind == "bird":
+        d.ellipse([cx - s * .8, cy - s * .4, cx + s * .4, cy + s * .45], fill=fill)
+        d.ellipse([cx + s * .1, cy - s * .7, cx + s * .7, cy - s * .1], fill=fill)
+        _poly(d, [(cx + s * .65, cy - s * .5), (cx + s, cy - s * .38), (cx + s * .65, cy - s * .28)], fill, None)
+        _poly(d, [(cx - s * .7, cy - s * .1), (cx - s, cy - s * .55), (cx - s * .9, cy + s * .1)], fill, None)
+    else:
+        raise ValueError(kind)
 
 
-def search_scene(rng, n_distractors=260, target_size=13):
+def search_scene(rng, target_kind, target_color, n_distractors=260, target_size=13):
+    """Conjunction search: distractors share the target's shape OR its color, never both."""
     img = Image.new("RGB", (W, H), (236, 232, 222))
     d = ImageDraw.Draw(img)
+    rgb = COLORS[target_color]
+    others = [c for name, c in COLORS.items() if name != target_color] + EXTRA_COLORS
+    shapes = [k for k in SEARCH_OBJECTS if k != target_kind] + FILLER_SHAPES
     margin = 40
     tx, ty = rng.randint(margin, W - margin), rng.randint(margin, H - margin)
     for _ in range(n_distractors):
@@ -68,13 +150,12 @@ def search_scene(rng, n_distractors=260, target_size=13):
         s = rng.randint(9, 18)
         roll = rng.random()
         if roll < 0.30:      # same shape, wrong color
-            draw_shape(d, "umbrella", x, y, s, rng.choice([c for c in SEARCH_COLORS if c != RED]))
+            draw_object(d, target_kind, x, y, s, rng.choice(others))
         elif roll < 0.55:    # right color, wrong shape
-            draw_shape(d, rng.choice(["circle", "triangle", "square"]), x, y, s, RED)
+            draw_object(d, rng.choice(shapes), x, y, s, rgb)
         else:                # everything else
-            draw_shape(d, rng.choice(["circle", "triangle", "square"]), x, y, s,
-                       rng.choice([c for c in SEARCH_COLORS if c != RED]))
-    draw_umbrella(d, tx, ty, target_size, RED)
+            draw_object(d, rng.choice(shapes), x, y, s, rng.choice(others))
+    draw_object(d, target_kind, tx, ty, target_size, rgb)
     return img, tx, ty, target_size * 1.4
 
 
@@ -93,22 +174,22 @@ def synthetic_scan(rng):
     return img.filter(ImageFilter.GaussianBlur(4))
 
 
-def plant_monkey(img, rng, size=22, contrast=38):
-    """Draw a small original monkey silhouette, slightly brighter than its surroundings."""
+def plant_object(img, rng, kind, size=None, contrast=None):
+    """Draw a small, faint silhouette, only slightly brighter than its surroundings.
+    Size and contrast vary from picture to picture so no target pops out the same way."""
     img = img.convert("L")
+    size = size or rng.randint(15, 22)
+    # Brightness above the local background, in gray levels (0-255). The first
+    # version used a fixed +38, which testers found too obvious; this is half of
+    # that on average (16-22, mean 19), varied per picture.
+    contrast = contrast or rng.randint(16, 22)
     w, h = img.size
     margin = size * 3
     mx, my = rng.randint(margin, w - margin), rng.randint(margin, h - margin)
     arr = np.asarray(img)
     local = int(arr[my - size:my + size, mx - size:mx + size].mean())
     tone = min(255, local + contrast)
-    d = ImageDraw.Draw(img)
-    s = size
-    d.ellipse([mx - s * .45, my - s * 1.0, mx + s * .45, my - s * .1], fill=tone)        # head
-    d.ellipse([mx - s * .75, my - s * .85, mx - s * .35, my - s * .45], fill=tone)       # left ear
-    d.ellipse([mx + s * .35, my - s * .85, mx + s * .75, my - s * .45], fill=tone)       # right ear
-    d.ellipse([mx - s * .5, my - s * .2, mx + s * .5, my + s * .9], fill=tone)           # body
-    d.arc([mx + s * .2, my + s * .2, mx + s * 1.2, my + s * 1.2], 270, 120, fill=tone, width=max(2, s // 6))  # tail
+    draw_object(ImageDraw.Draw(img), kind, mx, my, size, tone, outline=None)
     return img.filter(ImageFilter.GaussianBlur(0.8)), mx, my, size * 1.3
 
 
@@ -159,26 +240,42 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     images = []
 
+    # Unique (object, color) pair for every search scene.
+    combos = [(k, c) for k in SEARCH_OBJECTS for c in COLORS]
+    rng.shuffle(combos)
+    if args.n + 1 > len(combos):
+        raise SystemExit(f"Only {len(combos)} distinct search targets; lower --n.")
     for k in range(args.n + 1):  # last one is practice
-        img, x, y, r = search_scene(rng)
+        kind, color = combos[k]
+        img, x, y, r = search_scene(rng, kind, color)
         practice = k == args.n
         iid = "search_practice" if practice else f"search_{k:02d}"
         img.save(OUT / f"{iid}.png")
         images.append({"id": iid, "task": "search", "file": f"{iid}.png", "width": W, "height": H,
-                       "target": {"x": x, "y": y, "r": r}, "practice": practice})
+                       "target": {"x": x, "y": y, "r": r, "object": kind, "color": color},
+                       "practice": practice})
 
     sources = sorted(REAL.glob("*.png")) + sorted(REAL.glob("*.jpg")) if args.real_scans else []
     if args.real_scans and len(sources) < args.n + 2:
         raise SystemExit(f"Need {args.n + 2} images in {REAL} (scored + practice + surprise), "
                          f"found {len(sources)}.")
+    # Scan targets cycle through the object list in a shuffled order, so the same
+    # object comes back only after every other one has been used.
+    scan_kinds = []
+    while len(scan_kinds) < args.n + 1:
+        batch = SCAN_OBJECTS[:]
+        rng.shuffle(batch)
+        scan_kinds += batch
     for k in range(args.n + 1):
         base = Image.open(sources[k]) if args.real_scans else synthetic_scan(rng)
-        img, x, y, r = plant_monkey(base, rng)
+        img, x, y, r = plant_object(base, rng, scan_kinds[k])
         practice = k == args.n
         iid = "scan_practice" if practice else f"scan_{k:02d}"
         img.save(OUT / f"{iid}.png")
         images.append({"id": iid, "task": "scan", "file": f"{iid}.png", "width": img.width,
-                       "height": img.height, "target": {"x": x, "y": y, "r": r}, "practice": practice})
+                       "height": img.height,
+                       "target": {"x": x, "y": y, "r": r, "object": scan_kinds[k], "color": None},
+                       "practice": practice})
 
     # Surprise image: ring target + unannounced gorilla, on its own scan.
     base = Image.open(sources[args.n + 1]) if args.real_scans else synthetic_scan(rng)
@@ -186,7 +283,7 @@ def main():
     img, x, y, r = plant_ring(img, rng, avoid=(gx, gy))
     img.save(OUT / "surprise.png")
     images.append({"id": "surprise", "task": "surprise", "file": "surprise.png", "width": img.width,
-                   "height": img.height, "target": {"x": x, "y": y, "r": r},
+                   "height": img.height, "target": {"x": x, "y": y, "r": r, "object": "ring", "color": None},
                    "gorilla": {"x": gx, "y": gy}, "practice": False})
 
     manifest = {"seed": args.seed, "real_scans": args.real_scans, "images": images}

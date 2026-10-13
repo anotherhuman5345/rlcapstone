@@ -30,7 +30,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 
 BOOL_COLS = ("is_test", "practice", "hit", "timed_out", "attention_ok", "completed", "eligible",
-             "noticed_unusual", "saw_gorilla", "knew_gorilla_study", "time_capped")
+             "noticed_unusual", "saw_gorilla", "knew_gorilla_study", "time_capped", "quit_early")
 L2 = "C(condition, Treatment('L1'))"
 
 
@@ -114,6 +114,15 @@ def time_on_task(trials):
     print((med.L2 / med.L1).round(3).to_string())
     capped = trials.groupby("participant_id").time_capped.first().mean()
     print(f"\nShare of people stopped by the 15-minute limit: {capped:.2f}")
+    if "quit_early" in trials:
+        # The "I'm exhausted" button: a direct, self-reported measure of fatigue.
+        people = trials.groupby("participant_id").agg(group=("group", "first"), quit=("quit_early", "first"),
+                                                     quit_min=("quit_elapsed_s", "first"))
+        people["quit_min"] = people.quit_min / 60
+        print("\nPressed \"I'm exhausted\": share of people and median minute, by group:")
+        summary = people.groupby("group").agg(share=("quit", "mean"), n=("quit", "size"),
+                                             median_minute=("quit_min", "median"))
+        print(summary.round(2).to_string())
 
     print("\n--- Model: does the L2 cost change with time on task? ---")
     print(fit(f"log_rt ~ {L2} * elapsed_min + C(group) + C(task)", rt).summary())
