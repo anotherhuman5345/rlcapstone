@@ -20,6 +20,12 @@ only in the picture. Reading the directions and holding the numbers at the
 same time loads working memory, so this task is especially sensitive to the
 language of the clue. Dice values and directions change every time.
 
+Rule cards: one card with 1-4 shapes of one color; the clue states which cards go
+to group A (by color, not-color, count, and/or combinations).
+
+Operation-span sets: sums to check plus words to remember (data only; the words are
+translated per language in app/locales).
+
 Surprise image (seen once, FIRST, before anything mentions animals): a scan
 with a small white ring as the stated target and an unannounced gorilla
 silhouette elsewhere in the image. This is the inattentional-blindness test
@@ -348,6 +354,72 @@ def corsi_items(rng, n):
     return items
 
 
+# Rule learning: the clue states a sorting rule in words; the card shows 1-4 shapes
+# of one color. Five rule types, from a single feature to negation and and/or.
+RULE_TYPES = ("color", "not_color", "more_than", "color_and_more", "color_or_more")
+
+
+def rule_answer(rule, color, count):
+    is_c, more = color == rule["color"], count > rule["n"]
+    return "A" if {"color": is_c, "not_color": not is_c, "more_than": more,
+                   "color_and_more": is_c and more, "color_or_more": is_c or more}[rule["type"]] else "B"
+
+
+def rule_card(rng, rule, want):
+    """Draw a card whose correct group is `want` under `rule`."""
+    while True:
+        color, count = rng.choice(list(COLORS)), rng.randint(1, 4)
+        if rule_answer(rule, color, count) == want:
+            break
+    img = Image.new("RGB", (W, H), rng.choice(BACKGROUNDS))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([W * .3, H * .12, W * .7, H * .88], radius=28, fill=(252, 252, 250),
+                        outline=OUTLINE, width=4)
+    kind = rng.choice(["circle", "triangle", "square", "diamond", "cross"])
+    slots = {1: [(.5, .5)], 2: [(.5, .32), (.5, .68)], 3: [(.5, .27), (.5, .5), (.5, .73)],
+             4: [(.4, .32), (.6, .32), (.4, .68), (.6, .68)]}[count]
+    for fx, fy in slots:
+        draw_object(d, kind, W * fx, H * fy, 48, COLORS[color])
+    return img, {"object": "card", "color": color, "count": count, "rule": rule, "answer": want}
+
+
+def rule_items(rng, n):
+    """Pairs share the rule type and the correct answer, so L1 and L2 trials match."""
+    items = []
+    for k in range(n):
+        m = k // 2
+        rtype = RULE_TYPES[m % len(RULE_TYPES)]
+        want = "A" if (m // len(RULE_TYPES)) % 2 == 0 else "B"
+        rule = {"type": rtype, "color": rng.choice(list(COLORS)), "n": rng.randint(1, 3)}
+        items.append(rule_card(rng, rule, want))
+    return items
+
+
+# Operation span with words: verify a sum, then see a word; after 3-5 of these,
+# click the words back in order. Words come from a pool translated in every language.
+N_WORDS = 60
+# The last 10 words never appear in operation span: they are the "never shown" words
+# in the end-of-session retention check, however long the session lasts.
+N_FOILS = 10
+
+
+def ospan_items(rng, n):
+    items = []
+    for k in range(n):
+        length = (3, 4, 5)[(k // 2) % 3]  # pairs share length
+        words = rng.sample(range(N_WORDS - N_FOILS), length)
+        sums = []
+        for _ in range(length):
+            a, b = rng.randint(2, 9), rng.randint(2, 9)
+            op = rng.choice(["+", "×"])
+            true_val = a + b if op == "+" else a * b
+            correct = rng.random() < .5
+            shown = true_val if correct else true_val + rng.choice([-2, -1, 1, 2])
+            sums.append({"text": f"{a} {op} {b} = {shown}", "true": correct})
+        items.append({"object": "words", "color": None, "words": words, "sums": sums})
+    return items
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=48, help="scored images per task (12 rounds x 4)")
@@ -414,6 +486,20 @@ def main():
         images.append({"id": "corsi_practice" if practice else f"corsi_{k:02d}", "task": "corsi",
                        "blocks": CORSI_BLOCKS, "target": {"object": "sequence", "color": None, **item},
                        "practice": practice})
+
+    # Rule cards and operation-span sets, each with their own random sequence.
+    rrng = random.Random(args.seed + 13)
+    for k, (img, tgt) in enumerate(rule_items(rrng, args.n) + rule_items(rrng, 1)):
+        practice = k == args.n
+        iid = "rule_practice" if practice else f"rule_{k:02d}"
+        img.save(OUT / f"{iid}.png")
+        images.append({"id": iid, "task": "rule", "file": f"{iid}.png", "width": W, "height": H,
+                       "target": tgt, "practice": practice})
+    orng = random.Random(args.seed + 17)
+    for k, tgt in enumerate(ospan_items(orng, args.n) + ospan_items(orng, 1)):
+        practice = k == args.n
+        images.append({"id": "ospan_practice" if practice else f"ospan_{k:02d}", "task": "ospan",
+                       "target": tgt, "practice": practice})
 
     # Reading items: the passages live per language in app/reading/<code>.json; the
     # manifest only records which option is correct (the same in every language).

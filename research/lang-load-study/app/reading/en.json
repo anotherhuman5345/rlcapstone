@@ -277,6 +277,270 @@
     "It is the oldest"
    ],
    "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "The bakery sells bread until noon. After noon, it sells only cakes. Eda went to the bakery at two o'clock to buy bread.",
+   "question": "What could Eda buy at two o'clock?",
+   "options": [
+    "Bread",
+    "Only cakes",
+    "Nothing"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Selin's bike has a flat tire. The repair shop closes at five, and it takes an hour to walk there. Selin left home at four thirty.",
+   "question": "Will Selin reach the shop before it closes?",
+   "options": [
+    "No, she will arrive after five",
+    "The shop is open all night",
+    "Yes, easily"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "All the books on the top shelf are in French. The dictionary is on the top shelf.",
+   "question": "In which language is the dictionary?",
+   "options": [
+    "We cannot know",
+    "English",
+    "French"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali feeds the cat when his sister is away. His sister is visiting their grandmother this week.",
+   "question": "Who feeds the cat this week?",
+   "options": [
+    "Ali",
+    "His sister",
+    "Their grandmother"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "The swimming pool is closed on days when it rains. It rained all day on Tuesday.",
+   "question": "Was the pool open on Tuesday?",
+   "options": [
+    "No",
+    "Only in the morning",
+    "Yes"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Every student who finished the project gets a certificate. Mert finished his project last Friday.",
+   "question": "Will Mert get a certificate?",
+   "options": [
+    "Only next year",
+    "No",
+    "Yes"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "The green bus goes to the airport. The blue bus goes to the stadium. Leyla needs to catch a flight.",
+   "question": "Which bus should Leyla take?",
+   "options": [
+    "The blue bus",
+    "The green bus",
+    "Either bus"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Ice cream melts quickly in the sun. Can left his ice cream on a sunny table for twenty minutes.",
+   "question": "What most likely happened to the ice cream?",
+   "options": [
+    "It melted",
+    "It disappeared into a box",
+    "It froze harder"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "The museum is free for children under twelve. Zeynep is ten years old.",
+   "question": "How much does Zeynep pay to enter?",
+   "options": [
+    "Half price",
+    "Nothing",
+    "Full price"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "A train leaves every thirty minutes, starting at six. Arda arrived at the station at six forty.",
+   "question": "When is the next train after Arda arrives?",
+   "options": [
+    "Six thirty",
+    "Seven",
+    "Seven thirty"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Only players who come to practice can play in the match. Burcu missed practice because she was sick.",
+   "question": "Can Burcu play in the match?",
+   "options": [
+    "No",
+    "Only as a captain",
+    "Yes"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "The farmer keeps the sheep in the barn when it snows. It snowed heavily last night.",
+   "question": "Where were the sheep last night?",
+   "options": [
+    "On the road",
+    "In the field",
+    "In the barn"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Tea in this café costs less than coffee. Ece had a coffee and Kaan had a tea.",
+   "question": "Who paid less?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "They paid the same"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "The left door of the building is for entering. The right door is for leaving. Murat is going into the building.",
+   "question": "Which door should Murat use?",
+   "options": [
+    "The right door",
+    "Either door",
+    "The left door"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Plants in the greenhouse are watered on even-numbered days. Today is the fourteenth.",
+   "question": "Are the plants watered today?",
+   "options": [
+    "Only half of them",
+    "Yes",
+    "No"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora always takes an umbrella when the forecast says rain. Today's forecast says sunshine all day.",
+   "question": "Did Nora most likely take an umbrella today?",
+   "options": [
+    "Yes",
+    "No",
+    "She took two"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "The store's discount applies only to shoes. Efe bought a jacket and a pair of shoes.",
+   "question": "Which item got the discount?",
+   "options": [
+    "The shoes",
+    "Both",
+    "The jacket"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "A runner must finish the race in under one hour to win a medal. Deniz finished in fifty-two minutes.",
+   "question": "Did Deniz win a medal?",
+   "options": [
+    "The race was cancelled",
+    "Yes",
+    "No"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "The recipe says to add salt after the water boils. Oya added salt before turning on the stove.",
+   "question": "Did Oya follow the recipe?",
+   "options": [
+    "Yes",
+    "No",
+    "The recipe has no salt"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "The garden gate is locked every night at ten. Sena came home at eleven without a key.",
+   "question": "Could Sena open the gate?",
+   "options": [
+    "No",
+    "It was already open",
+    "Yes"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "The young birds leave the nest when their feathers are fully grown. The feathers of the birds in the oak nest are fully grown.",
+   "question": "What will the birds in the oak nest do?",
+   "options": [
+    "Build a new tree",
+    "Stay forever",
+    "Leave the nest"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Tickets for the evening show are sold out. Kerem wanted to buy a ticket for the evening show.",
+   "question": "Could Kerem buy that ticket?",
+   "options": [
+    "Yes",
+    "No",
+    "Only online"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Ships cannot leave the harbor when the wind is very strong. Today the wind is very strong.",
+   "question": "Can the ships leave the harbor today?",
+   "options": [
+    "No",
+    "Only the small ones",
+    "Yes"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "The teacher collects homework on Thursdays. Today is Wednesday, and Pelin's homework is finished.",
+   "question": "When will Pelin hand in her homework?",
+   "options": [
+    "Next week",
+    "Today",
+    "Tomorrow"
+   ],
+   "answer": 2
   }
  ]
 }

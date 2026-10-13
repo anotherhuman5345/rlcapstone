@@ -124,6 +124,13 @@ def time_on_task(trials):
         summary = people.groupby("group").agg(share=("quit", "mean"), n=("quit", "size"),
                                              median_minute=("quit_min", "median"))
         print(summary.round(2).to_string())
+        # Time to exhaustion as survival data: pressing the button is the event; people who
+        # reached the safety maximum (or ran out of items) are censored at their last answer.
+        last = trials.groupby("participant_id").elapsed_s.max() / 60
+        people["time"] = people.quit_min.fillna(last)
+        print("\nMedian minutes to self-declared exhaustion (Kaplan-Meier, censored at the end):")
+        for group, g in people.groupby("group"):
+            print(f"  {group}: {km_median(g.time.values, g.quit.values)}")
 
     print("\n--- Model: does the L2 cost change with time on task? ---")
     print(fit(f"log_rt ~ {L2} * elapsed_min + C(group) + C(task)", rt).summary())
@@ -151,6 +158,26 @@ def time_on_task(trials):
               "report it as 'no clear decay within 15 minutes'.")
 
 
+def retention(df):
+    """End-of-session word recognition (operation-span words seen ~10 minutes earlier).
+    Hits = seen words ticked; false alarms = never-shown words ticked. Compared within
+    person: words from L1 trials vs. words from L2 trials."""
+    cols = ["ret_l1_hits", "ret_l1_false_alarms", "ret_l2_hits", "ret_l2_false_alarms"]
+    if not set(cols) <= set(df.columns):
+        return
+    people = df.groupby("participant_id").agg(group=("group", "first"),
+                                              **{c: (c, "first") for c in cols}).dropna()
+    print("\n" + "=" * 70 + "\n5. WORD RETENTION (operation-span words, end of session)\n" + "=" * 70)
+    if people.empty:
+        print("No retention data.")
+        return
+    print("\nMean hit and false-alarm rates by group:")
+    print(people.groupby("group")[cols].mean().round(2).to_string())
+    diff = people.ret_l1_hits - people.ret_l2_hits
+    print(f"\nL1 minus L2 hit rate: mean {diff.mean():+.3f} (n = {len(diff)}); "
+          "positive means words seen in the comfortable language were remembered better.")
+
+
 def fatigue(path, people):
     """Self-rated mental fatigue (0-100). Kept separate from performance: the two need not
     move together. Reports raw ratings and change from each person's own baseline."""
@@ -173,6 +200,20 @@ def fatigue(path, people):
         rounds["elapsed_min"] = rounds.elapsed_s / 60
         print("\n--- Model: change from baseline ~ elapsed minutes + group ---")
         print(fit("change ~ elapsed_min + C(group)", rounds).summary())
+
+
+def km_median(times, events):
+    """Kaplan-Meier median survival time; 'not reached' if fewer than half pressed the button."""
+    order = np.argsort(times)
+    times, events = np.asarray(times)[order], np.asarray(events)[order]
+    at_risk, surv = len(times), 1.0
+    for t, e in zip(times, events):
+        if e:
+            surv *= 1 - 1 / at_risk
+            if surv <= .5:
+                return f"{t:.1f} min"
+        at_risk -= 1
+    return "not reached"
 
 
 def correct_rts(trials):
@@ -216,6 +257,7 @@ def main():
     language_effect(trials)
     gorilla(df)
     time_on_task(trials)
+    retention(df)
     if args.fatigue:
         fatigue(args.fatigue, set(df.participant_id))
 

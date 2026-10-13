@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block mainclass %}trial{% endblock %}
+{% block content %}
+<header class="trial-head">
+  <div class="trial-top">
+    <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+    <button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+  </div>
+  <p class="clue" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}" id="clue">{{ clue }}</p>
+</header>
+<div class="stage rule-stage" data-item="{{ img.id }}">
+  <img id="stim" class="live" src="/img/{{ img.file }}" width="{{ img.width }}" height="{{ img.height }}" alt="" draggable="false">
+</div>
+<div class="rule-answer" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}">
+  <p><strong>{{ item.question }}</strong></p>
+  <button type="button" class="pick" data-v="A">{{ item.group_a }}</button>
+  <button type="button" class="pick" data-v="B">{{ item.group_b }}</button>
+</div>
+<p id="status" class="status" role="status"></p>
+{% include "_effort.html" %}
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = { index: {{ n - 1 }}, timeout: {{ timeout }},
+  msgTimeout: {{ _('timeout') | tojson }}, msgQuitConfirm: {{ _('quit_confirm') | tojson }} };
+</script>
+<script src="/static/common.js"></script>
+<script src="/static/rule.js"></script>
+{% endblock %}

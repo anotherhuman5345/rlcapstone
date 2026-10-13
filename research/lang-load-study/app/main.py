@@ -5,6 +5,7 @@ import hashlib
 import io
 import json
 import math
+import random
 from contextlib import asynccontextmanager
 from datetime import timezone
 
@@ -18,9 +19,9 @@ from sqlalchemy import func, select
 from . import config
 import random
 
-from .clues import DECOY_OBJECTS, make_clue, object_name
+from .clues import DECOY_OBJECTS, N_FOILS, make_clue, object_name
 from .db import FatigueRating, Participant, SessionLocal, TrialResult, init_db, now
-from .i18n import LANGUAGES, direction, language_name, t, verified
+from .i18n import LANGUAGES, LOCALES, direction, language_name, t, verified
 from .plan import build_plan, load_manifest
 from .reading import has_reading, reading_hash, reading_item
 
@@ -255,7 +256,7 @@ def trial_page(request: Request, db=Depends(get_db)):
     if p.current_trial >= 1 and p.saw_gorilla is None:
         return RedirectResponse("/notice2", status_code=303)
     if p.current_trial >= 1 and minutes_since(p.created_at) > config.SESSION_LIMIT_MIN:
-        # Keep the 15-minute promise: skip whatever is left.
+        # Safety maximum reached (stated in the consent text): skip whatever is left.
         p.time_capped = True
         p.current_trial = len(p.plan)
         db.commit()
@@ -274,12 +275,34 @@ def trial_page(request: Request, db=Depends(get_db)):
     img = {i["id"]: i for i in load_manifest()["images"]}[trial["image_id"]]
     tg = img["target"]
     clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img.get("width"), img.get("height"))
-    template = {"corsi": "trial_corsi.html", "reading": "trial_reading.html"}.get(trial["task"], "trial.html")
-    item = reading_item(trial["clue_lang"], img["id"]) if trial["task"] == "reading" else None
+    template = {"corsi": "trial_corsi.html", "reading": "trial_reading.html", "rule": "trial_rule.html",
+                "ospan": "trial_ospan.html"}.get(trial["task"], "trial.html")
+    item = None
+    if trial["task"] == "reading":
+        item = reading_item(trial["clue_lang"], img["id"])
+    elif trial["task"] == "rule":
+        item = LOCALES[trial["clue_lang"]]["clue"]["rule"]
+    elif trial["task"] == "ospan":
+        item = ospan_view(trial["clue_lang"], img)
     return render(request, template, p, trial=trial, img=img, clue=clue, item=item,
                   n=p.current_trial + 1, total=len(p.plan), rounds=config.ROUNDS,
                   clue_dir=direction(trial["clue_lang"]),
                   timeout=config.TRIAL_TIMEOUT_MS)
+
+
+def ospan_view(lang, img):
+    """What the browser needs for one operation-span set, in the trial's language: the
+    sums, the words to remember, and the recall choices (the words plus three others)."""
+    words = LOCALES[lang]["clue"]["words"]
+    target = img["target"]["words"]
+    rng = random.Random(img["id"])
+    others = rng.sample([k for k in range(len(words)) if k not in target], 3)
+    choices = target + others
+    rng.shuffle(choices)
+    return {"sums": [s["text"] for s in img["target"]["sums"]],
+            "words": [words[k] for k in target],
+            "choices": [[k, words[k]] for k in choices],
+            "labels": LOCALES[lang]["clue"]["ospan"]}
 
 
 class TrialIn(BaseModel):
@@ -290,7 +313,9 @@ class TrialIn(BaseModel):
     false_clicks: int = Field(0, ge=0)
     timed_out: bool = False
     effort: int | None = Field(None, ge=1, le=9)
-    response: list[int] | int | None = None  # Corsi: squares clicked; reading: option chosen
+    # Corsi: squares clicked; reading: option chosen; rule: "A"/"B";
+    # operation span: {"recall": [word ids], "sums": [true/false/null per sum]}
+    response: list[int] | int | str | dict | None = None
     focus_lost: int = Field(0, ge=0)
 
 
@@ -311,6 +336,14 @@ def record_trial(request: Request, data: TrialIn, db=Depends(get_db)):
         false_clicks = sum(1 for a, b in zip(clicks, expected) if a != b) + abs(len(clicks) - len(expected))
     elif trial["task"] == "reading":
         hit = not data.timed_out and data.response == tg["answer"]
+    elif trial["task"] == "rule":
+        hit = not data.timed_out and data.response == tg["answer"]
+    elif trial["task"] == "ospan":
+        resp = data.response if isinstance(data.response, dict) else {}
+        hit = not data.timed_out and resp.get("recall") == tg["words"]
+        sums = resp.get("sums") or []
+        # Wrong or missing sum judgements, counted separately from memory.
+        false_clicks = sum(1 for k, sm in enumerate(tg["sums"]) if k >= len(sums) or sums[k] != sm["true"])
     else:
         hit = (not data.timed_out and data.click_x is not None and data.click_y is not None
                and math.hypot(data.click_x - tg["x"], data.click_y - tg["y"]) <= tg["r"] * config.HIT_TOLERANCE)
@@ -361,9 +394,63 @@ def attention_options(p):
     return correct, options
 
 
+def _seen_words(db, p):
+    """Words this person saw in completed operation-span trials: {word id: (lang, L1/L2)}."""
+    images = {i["id"]: i for i in load_manifest()["images"]}
+    seen = {}
+    for tr in db.scalars(select(TrialResult).where(TrialResult.participant_id == p.id,
+                                                   TrialResult.task == "ospan",
+                                                   TrialResult.practice.is_(False))):
+        for k in images[tr.image_id]["target"]["words"]:
+            seen.setdefault(k, (tr.clue_lang, tr.condition))
+    return seen
+
+
+@app.get("/retention", response_class=HTMLResponse)
+def retention_page(request: Request, db=Depends(get_db)):
+    """About ten minutes after the words were shown: which do you recognise? Up to four
+    seen words per language plus the same number never shown, in random order."""
+    p = current(request, db)
+    seen = _seen_words(db, p)
+    if not seen or p.retention is not None:
+        return RedirectResponse("/final", status_code=303)
+    rng = random.Random(p.id + "retention")
+    items = []
+    n_words = len(LOCALES[p.l1]["clue"]["words"])
+    foils = list(range(n_words - N_FOILS, n_words))  # never shown in operation span
+    rng.shuffle(foils)
+    for cond, lang in (("L1", p.l1), ("L2", p.l2)):
+        mine = [k for k, (_, c) in seen.items() if c == cond]
+        old = rng.sample(mine, min(4, len(mine)))
+        new = [foils.pop() for _ in old]  # different foil words for each language
+        items += [{"word": k, "lang": lang, "cond": cond, "seen": True} for k in old]
+        items += [{"word": k, "lang": lang, "cond": cond, "seen": False} for k in new]
+    rng.shuffle(items)
+    p.retention = items  # fixed now, so a reload shows the same list
+    db.commit()
+    shown = [(n, LOCALES[it["lang"]]["clue"]["words"][it["word"]], it["lang"], direction(it["lang"]))
+             for n, it in enumerate(items)]
+    return render(request, "retention.html", p, shown=shown)
+
+
+@app.post("/retention")
+async def retention(request: Request, db=Depends(get_db)):
+    p = current(request, db)
+    form = await request.form()
+    checked = {int(v) for v in form.getlist("checked")}
+    if p.retention and not any("checked" in it for it in p.retention):
+        p.retention = [{**it, "checked": n in checked} for n, it in enumerate(p.retention)]
+        db.commit()
+    return RedirectResponse("/final", status_code=303)
+
+
 @app.get("/final", response_class=HTMLResponse)
 def final_page(request: Request, db=Depends(get_db)):
     p = current(request, db)
+    if p.retention is None and _seen_words(db, p):
+        return RedirectResponse("/retention", status_code=303)
+    if p.retention is not None and not any("checked" in it for it in p.retention):
+        return RedirectResponse("/retention", status_code=303)
     _, options = attention_options(p)
     return render(request, "final.html", p,
                   options=[(o, object_name(o, p.ui_lang)) for o in options])
@@ -421,6 +508,18 @@ def versions_for(lang):
     return config.STUDY_VERSION, _short_hash(config.MANIFEST), f"{loc}{'+' + read if read else ''}"
 
 
+def retention_summary(p):
+    """Hit and false-alarm rates for words from L1 and from L2 trials (None if not asked)."""
+    out = []
+    for cond in ("L1", "L2"):
+        items = [it for it in (p.retention or []) if it["cond"] == cond and "checked" in it]
+        old = [it for it in items if it["seen"]]
+        new = [it for it in items if not it["seen"]]
+        out.append(round(sum(it["checked"] for it in old) / len(old), 3) if old else None)
+        out.append(round(sum(it["checked"] for it in new) / len(new), 3) if new else None)
+    return out
+
+
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
                "native_lang", "l2_age_acquired", "l1", "l2", "l1_reading", "l2_reading",
                "eligible", "equal_comfort", "counterbalance", "attention_ok", "completed", "time_capped",
@@ -428,7 +527,8 @@ EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "
                "noticed_unusual", "saw_gorilla", "knew_gorilla_study",
                "trial_index", "round", "elapsed_s", "task", "image_id", "target_object",
                "clue_lang", "condition", "practice", "rt_ms", "hit", "timed_out", "false_clicks", "effort",
-               "reloads", "focus_lost", "response", "study_version", "stimuli_version", "translation_version"]
+               "reloads", "focus_lost", "response", "study_version", "stimuli_version", "translation_version",
+               "ret_l1_hits", "ret_l1_false_alarms", "ret_l2_hits", "ret_l2_false_alarms"]
 
 
 @app.get("/admin/export.csv")
@@ -447,7 +547,7 @@ def export(key: str = "", db=Depends(get_db)):
                     tr.trial_index, tr.round, tr.elapsed_s, tr.task,
                     tr.image_id, tr.target_object, tr.clue_lang, tr.condition, tr.practice, tr.rt_ms, tr.hit,
                     tr.timed_out, tr.false_clicks, tr.effort, tr.reloads, tr.focus_lost, tr.response,
-                    *versions_for(tr.clue_lang)])
+                    *versions_for(tr.clue_lang), *retention_summary(p)])
     buf.seek(0)
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv",
                              headers={"Content-Disposition": "attachment; filename=trials.csv"})

@@ -5,7 +5,8 @@ Order (the same for everyone):
      small ring on a scan; an unannounced gorilla is also in the image.
   2. One practice trial per task (comfortable language, never scored).
   3. ROUNDS identical rounds. Each round has, per task (search scene, scan,
-     dice board, Corsi blocks, reading passage), the same number of L1 and L2
+     dice board, Corsi blocks, reading passage, rule card, operation span), the
+     same number of L1 and L2
      items (config.ROUND_MIX), shuffled together. Because every
      round has the same mix, a change across rounds can only come from time on
      task (fatigue or practice), not from a change in the task.

@@ -24,6 +24,9 @@ DECOY_OBJECTS = ("car", "tree", "guitar", "elephant")
 COLOR_NAMES = ("red", "blue", "green", "yellow", "purple", "orange")
 N_SEARCH_LEADS, N_SCAN_LEADS, N_WHERE, N_DICE_LEADS = 4, 4, 3, 3
 DIRECTIONS = ("up", "down", "left", "right")
+RULE_TYPES = ("color", "not_color", "more_than", "color_and_more", "color_or_more")
+N_WORDS = 60
+N_FOILS = 10  # words 50-59: retention-check foils only, never shown in operation span
 
 
 def nearest_two_edges(x, y, w, h):
@@ -78,6 +81,12 @@ def make_clue(task: str, lang: str, image_id: str, target: dict, w: int, h: int)
     if task == "corsi":
         # Only the clue says whether to click in the same or the reverse order.
         return upper_first(spec["corsi"][target["direction"]], lang)
+    if task == "rule":
+        rule = target["rule"]
+        text = spec["rule"][rule["type"]].format(color=spec["color_pred"][rule["color"]], n=rule["n"])
+        return upper_first(text, lang)
+    if task == "ospan":
+        return spec["ospan"]["lead"]
     if task == "reading":
         return ""  # passage and question are shown in full; see app/reading.py
     if task == "dice":

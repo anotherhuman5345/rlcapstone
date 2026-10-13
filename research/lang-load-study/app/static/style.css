@@ -67,3 +67,13 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .fatigue .ends { display: flex; justify-content: space-between; max-width: 30rem; font-size: .85rem; color: var(--muted); }
 .fatigue output { font-weight: 600; color: var(--ink); }
 .more-tasks { padding-left: 1.2rem; }
+/* Rule cards and operation span */
+.rule-stage #stim { max-height: calc(100vh - 20rem); }
+.rule-answer .pick, .ospan .pick { margin-right: .6rem; }
+.ospan .sum { font-size: 2rem; font-weight: 600; letter-spacing: .05em; }
+.ospan .word { font-size: 2.4rem; font-weight: 700; margin: 2rem 0; }
+.ospan .choices { display: flex; flex-wrap: wrap; gap: .5rem; }
+.choice-word { margin: 0; background: var(--paper); color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
+.choice-word:disabled { opacity: .4; }
+.ospan .picked { min-height: 1.5rem; font-weight: 600; }
+.retention-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .2rem 1rem; }

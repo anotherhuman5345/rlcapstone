@@ -5074,6 +5074,2549 @@
       "practice": true
     },
     {
+      "id": "rule_00",
+      "task": "rule",
+      "file": "rule_00.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 1,
+        "rule": {
+          "type": "color",
+          "color": "orange",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_01",
+      "task": "rule",
+      "file": "rule_01.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 1,
+        "rule": {
+          "type": "color",
+          "color": "green",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_02",
+      "task": "rule",
+      "file": "rule_02.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 2,
+        "rule": {
+          "type": "not_color",
+          "color": "green",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_03",
+      "task": "rule",
+      "file": "rule_03.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "not_color",
+          "color": "purple",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_04",
+      "task": "rule",
+      "file": "rule_04.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 3,
+        "rule": {
+          "type": "more_than",
+          "color": "green",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_05",
+      "task": "rule",
+      "file": "rule_05.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 4,
+        "rule": {
+          "type": "more_than",
+          "color": "purple",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_06",
+      "task": "rule",
+      "file": "rule_06.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "color_and_more",
+          "color": "orange",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_07",
+      "task": "rule",
+      "file": "rule_07.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "red",
+        "count": 3,
+        "rule": {
+          "type": "color_and_more",
+          "color": "red",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_08",
+      "task": "rule",
+      "file": "rule_08.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 2,
+        "rule": {
+          "type": "color_or_more",
+          "color": "green",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_09",
+      "task": "rule",
+      "file": "rule_09.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "color_or_more",
+          "color": "orange",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_10",
+      "task": "rule",
+      "file": "rule_10.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 2,
+        "rule": {
+          "type": "color",
+          "color": "red",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_11",
+      "task": "rule",
+      "file": "rule_11.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 3,
+        "rule": {
+          "type": "color",
+          "color": "yellow",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_12",
+      "task": "rule",
+      "file": "rule_12.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 4,
+        "rule": {
+          "type": "not_color",
+          "color": "yellow",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_13",
+      "task": "rule",
+      "file": "rule_13.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 1,
+        "rule": {
+          "type": "not_color",
+          "color": "green",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_14",
+      "task": "rule",
+      "file": "rule_14.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 1,
+        "rule": {
+          "type": "more_than",
+          "color": "red",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_15",
+      "task": "rule",
+      "file": "rule_15.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 1,
+        "rule": {
+          "type": "more_than",
+          "color": "orange",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_16",
+      "task": "rule",
+      "file": "rule_16.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 3,
+        "rule": {
+          "type": "color_and_more",
+          "color": "red",
+          "n": 3
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_17",
+      "task": "rule",
+      "file": "rule_17.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 1,
+        "rule": {
+          "type": "color_and_more",
+          "color": "yellow",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_18",
+      "task": "rule",
+      "file": "rule_18.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 2,
+        "rule": {
+          "type": "color_or_more",
+          "color": "blue",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_19",
+      "task": "rule",
+      "file": "rule_19.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 1,
+        "rule": {
+          "type": "color_or_more",
+          "color": "yellow",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_20",
+      "task": "rule",
+      "file": "rule_20.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 2,
+        "rule": {
+          "type": "color",
+          "color": "green",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_21",
+      "task": "rule",
+      "file": "rule_21.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 1,
+        "rule": {
+          "type": "color",
+          "color": "purple",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_22",
+      "task": "rule",
+      "file": "rule_22.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 1,
+        "rule": {
+          "type": "not_color",
+          "color": "purple",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_23",
+      "task": "rule",
+      "file": "rule_23.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "red",
+        "count": 1,
+        "rule": {
+          "type": "not_color",
+          "color": "blue",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_24",
+      "task": "rule",
+      "file": "rule_24.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 3,
+        "rule": {
+          "type": "more_than",
+          "color": "yellow",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_25",
+      "task": "rule",
+      "file": "rule_25.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 4,
+        "rule": {
+          "type": "more_than",
+          "color": "orange",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_26",
+      "task": "rule",
+      "file": "rule_26.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 4,
+        "rule": {
+          "type": "color_and_more",
+          "color": "blue",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_27",
+      "task": "rule",
+      "file": "rule_27.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 3,
+        "rule": {
+          "type": "color_and_more",
+          "color": "purple",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_28",
+      "task": "rule",
+      "file": "rule_28.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "red",
+        "count": 4,
+        "rule": {
+          "type": "color_or_more",
+          "color": "purple",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_29",
+      "task": "rule",
+      "file": "rule_29.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 2,
+        "rule": {
+          "type": "color_or_more",
+          "color": "purple",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_30",
+      "task": "rule",
+      "file": "rule_30.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "purple",
+        "count": 4,
+        "rule": {
+          "type": "color",
+          "color": "red",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_31",
+      "task": "rule",
+      "file": "rule_31.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 2,
+        "rule": {
+          "type": "color",
+          "color": "purple",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_32",
+      "task": "rule",
+      "file": "rule_32.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 1,
+        "rule": {
+          "type": "not_color",
+          "color": "yellow",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_33",
+      "task": "rule",
+      "file": "rule_33.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "not_color",
+          "color": "orange",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_34",
+      "task": "rule",
+      "file": "rule_34.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 1,
+        "rule": {
+          "type": "more_than",
+          "color": "orange",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_35",
+      "task": "rule",
+      "file": "rule_35.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "red",
+        "count": 1,
+        "rule": {
+          "type": "more_than",
+          "color": "purple",
+          "n": 1
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_36",
+      "task": "rule",
+      "file": "rule_36.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "green",
+        "count": 1,
+        "rule": {
+          "type": "color_and_more",
+          "color": "red",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_37",
+      "task": "rule",
+      "file": "rule_37.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 3,
+        "rule": {
+          "type": "color_and_more",
+          "color": "purple",
+          "n": 3
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_38",
+      "task": "rule",
+      "file": "rule_38.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 1,
+        "rule": {
+          "type": "color_or_more",
+          "color": "green",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_39",
+      "task": "rule",
+      "file": "rule_39.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 2,
+        "rule": {
+          "type": "color_or_more",
+          "color": "purple",
+          "n": 2
+        },
+        "answer": "B"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_40",
+      "task": "rule",
+      "file": "rule_40.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 4,
+        "rule": {
+          "type": "color",
+          "color": "yellow",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_41",
+      "task": "rule",
+      "file": "rule_41.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "color",
+          "color": "orange",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_42",
+      "task": "rule",
+      "file": "rule_42.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "yellow",
+        "count": 3,
+        "rule": {
+          "type": "not_color",
+          "color": "green",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_43",
+      "task": "rule",
+      "file": "rule_43.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 4,
+        "rule": {
+          "type": "not_color",
+          "color": "orange",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_44",
+      "task": "rule",
+      "file": "rule_44.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "blue",
+        "count": 3,
+        "rule": {
+          "type": "more_than",
+          "color": "blue",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_45",
+      "task": "rule",
+      "file": "rule_45.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 4,
+        "rule": {
+          "type": "more_than",
+          "color": "red",
+          "n": 1
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_46",
+      "task": "rule",
+      "file": "rule_46.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 3,
+        "rule": {
+          "type": "color_and_more",
+          "color": "orange",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_47",
+      "task": "rule",
+      "file": "rule_47.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "red",
+        "count": 4,
+        "rule": {
+          "type": "color_and_more",
+          "color": "red",
+          "n": 3
+        },
+        "answer": "A"
+      },
+      "practice": false
+    },
+    {
+      "id": "rule_practice",
+      "task": "rule",
+      "file": "rule_practice.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "object": "card",
+        "color": "orange",
+        "count": 2,
+        "rule": {
+          "type": "color",
+          "color": "orange",
+          "n": 2
+        },
+        "answer": "A"
+      },
+      "practice": true
+    },
+    {
+      "id": "ospan_00",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          30,
+          39,
+          15
+        ],
+        "sums": [
+          {
+            "text": "8 \u00d7 4 = 32",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 9 = 37",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 9 = 27",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_01",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          28,
+          2,
+          4
+        ],
+        "sums": [
+          {
+            "text": "2 + 7 = 9",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 6 = 16",
+            "true": false
+          },
+          {
+            "text": "7 + 5 = 12",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_02",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          21,
+          48,
+          20,
+          40
+        ],
+        "sums": [
+          {
+            "text": "7 + 6 = 13",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 5 = 17",
+            "true": false
+          },
+          {
+            "text": "6 + 6 = 13",
+            "true": false
+          },
+          {
+            "text": "6 + 8 = 14",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_03",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          27,
+          16,
+          11,
+          20
+        ],
+        "sums": [
+          {
+            "text": "7 \u00d7 9 = 65",
+            "true": false
+          },
+          {
+            "text": "4 \u00d7 8 = 31",
+            "true": false
+          },
+          {
+            "text": "9 + 7 = 14",
+            "true": false
+          },
+          {
+            "text": "9 \u00d7 9 = 81",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_04",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          38,
+          33,
+          46,
+          37,
+          14
+        ],
+        "sums": [
+          {
+            "text": "4 + 3 = 8",
+            "true": false
+          },
+          {
+            "text": "8 + 4 = 13",
+            "true": false
+          },
+          {
+            "text": "4 + 7 = 13",
+            "true": false
+          },
+          {
+            "text": "2 + 4 = 5",
+            "true": false
+          },
+          {
+            "text": "2 + 9 = 13",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_05",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          32,
+          34,
+          23,
+          46,
+          30
+        ],
+        "sums": [
+          {
+            "text": "4 + 4 = 9",
+            "true": false
+          },
+          {
+            "text": "4 \u00d7 7 = 30",
+            "true": false
+          },
+          {
+            "text": "2 + 9 = 11",
+            "true": true
+          },
+          {
+            "text": "3 + 6 = 10",
+            "true": false
+          },
+          {
+            "text": "5 \u00d7 3 = 15",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_06",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          34,
+          11,
+          27
+        ],
+        "sums": [
+          {
+            "text": "8 + 8 = 16",
+            "true": true
+          },
+          {
+            "text": "6 + 6 = 12",
+            "true": true
+          },
+          {
+            "text": "8 + 6 = 15",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_07",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          5,
+          22,
+          26
+        ],
+        "sums": [
+          {
+            "text": "3 + 2 = 5",
+            "true": true
+          },
+          {
+            "text": "9 + 2 = 11",
+            "true": true
+          },
+          {
+            "text": "9 + 8 = 16",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_08",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          24,
+          1,
+          0,
+          19
+        ],
+        "sums": [
+          {
+            "text": "2 + 4 = 7",
+            "true": false
+          },
+          {
+            "text": "5 + 5 = 11",
+            "true": false
+          },
+          {
+            "text": "5 + 8 = 13",
+            "true": true
+          },
+          {
+            "text": "2 + 7 = 9",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_09",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          32,
+          11,
+          47,
+          39
+        ],
+        "sums": [
+          {
+            "text": "2 + 5 = 7",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 7 = 28",
+            "true": true
+          },
+          {
+            "text": "5 + 8 = 15",
+            "true": false
+          },
+          {
+            "text": "7 + 3 = 12",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_10",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          19,
+          37,
+          9,
+          42,
+          5
+        ],
+        "sums": [
+          {
+            "text": "8 \u00d7 2 = 16",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 9 = 36",
+            "true": true
+          },
+          {
+            "text": "7 + 9 = 16",
+            "true": true
+          },
+          {
+            "text": "5 \u00d7 7 = 33",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 6 = 16",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_11",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          27,
+          26,
+          5,
+          13,
+          12
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 3 = 15",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 8 = 24",
+            "true": true
+          },
+          {
+            "text": "2 \u00d7 5 = 11",
+            "true": false
+          },
+          {
+            "text": "3 + 3 = 6",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 2 = 8",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_12",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          10,
+          17,
+          2
+        ],
+        "sums": [
+          {
+            "text": "9 + 7 = 14",
+            "true": false
+          },
+          {
+            "text": "8 \u00d7 2 = 16",
+            "true": true
+          },
+          {
+            "text": "6 + 8 = 14",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_13",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          32,
+          38,
+          16
+        ],
+        "sums": [
+          {
+            "text": "6 + 2 = 8",
+            "true": true
+          },
+          {
+            "text": "2 \u00d7 5 = 10",
+            "true": true
+          },
+          {
+            "text": "3 + 3 = 4",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_14",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          2,
+          38,
+          14,
+          36
+        ],
+        "sums": [
+          {
+            "text": "5 + 7 = 12",
+            "true": true
+          },
+          {
+            "text": "9 + 7 = 17",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 3 = 7",
+            "true": false
+          },
+          {
+            "text": "8 \u00d7 7 = 54",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_15",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          9,
+          32,
+          0,
+          23
+        ],
+        "sums": [
+          {
+            "text": "6 + 8 = 14",
+            "true": true
+          },
+          {
+            "text": "9 + 7 = 16",
+            "true": true
+          },
+          {
+            "text": "7 + 9 = 14",
+            "true": false
+          },
+          {
+            "text": "7 \u00d7 6 = 41",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_16",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          30,
+          15,
+          8,
+          20,
+          29
+        ],
+        "sums": [
+          {
+            "text": "9 + 5 = 15",
+            "true": false
+          },
+          {
+            "text": "8 \u00d7 9 = 72",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 9 = 25",
+            "true": false
+          },
+          {
+            "text": "8 + 3 = 13",
+            "true": false
+          },
+          {
+            "text": "5 \u00d7 6 = 32",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_17",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          30,
+          1,
+          41,
+          17,
+          38
+        ],
+        "sums": [
+          {
+            "text": "8 + 4 = 12",
+            "true": true
+          },
+          {
+            "text": "5 + 5 = 10",
+            "true": true
+          },
+          {
+            "text": "4 + 4 = 9",
+            "true": false
+          },
+          {
+            "text": "2 \u00d7 7 = 15",
+            "true": false
+          },
+          {
+            "text": "7 + 7 = 12",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_18",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          39,
+          20,
+          35
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 4 = 20",
+            "true": true
+          },
+          {
+            "text": "9 \u00d7 2 = 17",
+            "true": false
+          },
+          {
+            "text": "9 + 3 = 11",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_19",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          34,
+          32,
+          38
+        ],
+        "sums": [
+          {
+            "text": "4 \u00d7 8 = 32",
+            "true": true
+          },
+          {
+            "text": "5 + 5 = 10",
+            "true": true
+          },
+          {
+            "text": "9 + 6 = 15",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_20",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          4,
+          38,
+          44,
+          11
+        ],
+        "sums": [
+          {
+            "text": "4 \u00d7 5 = 20",
+            "true": true
+          },
+          {
+            "text": "5 + 2 = 7",
+            "true": true
+          },
+          {
+            "text": "8 + 9 = 17",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 8 = 24",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_21",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          19,
+          40,
+          22,
+          45
+        ],
+        "sums": [
+          {
+            "text": "6 + 9 = 15",
+            "true": true
+          },
+          {
+            "text": "8 + 6 = 14",
+            "true": true
+          },
+          {
+            "text": "9 + 8 = 15",
+            "true": false
+          },
+          {
+            "text": "7 + 5 = 12",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_22",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          13,
+          35,
+          30,
+          23,
+          29
+        ],
+        "sums": [
+          {
+            "text": "3 \u00d7 4 = 14",
+            "true": false
+          },
+          {
+            "text": "8 + 8 = 17",
+            "true": false
+          },
+          {
+            "text": "3 + 6 = 10",
+            "true": false
+          },
+          {
+            "text": "7 + 7 = 13",
+            "true": false
+          },
+          {
+            "text": "6 + 4 = 10",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_23",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          29,
+          42,
+          41,
+          35,
+          7
+        ],
+        "sums": [
+          {
+            "text": "7 + 3 = 10",
+            "true": true
+          },
+          {
+            "text": "8 \u00d7 6 = 47",
+            "true": false
+          },
+          {
+            "text": "6 + 6 = 13",
+            "true": false
+          },
+          {
+            "text": "4 \u00d7 4 = 16",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 8 = 32",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_24",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          40,
+          39,
+          2
+        ],
+        "sums": [
+          {
+            "text": "6 \u00d7 7 = 42",
+            "true": true
+          },
+          {
+            "text": "8 + 3 = 13",
+            "true": false
+          },
+          {
+            "text": "4 + 5 = 10",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_25",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          5,
+          45,
+          30
+        ],
+        "sums": [
+          {
+            "text": "3 \u00d7 4 = 12",
+            "true": true
+          },
+          {
+            "text": "7 + 2 = 8",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 6 = 20",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_26",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          44,
+          11,
+          18,
+          34
+        ],
+        "sums": [
+          {
+            "text": "8 \u00d7 4 = 31",
+            "true": false
+          },
+          {
+            "text": "3 + 7 = 10",
+            "true": true
+          },
+          {
+            "text": "8 + 6 = 15",
+            "true": false
+          },
+          {
+            "text": "8 + 7 = 15",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_27",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          20,
+          0,
+          46,
+          7
+        ],
+        "sums": [
+          {
+            "text": "4 \u00d7 2 = 8",
+            "true": true
+          },
+          {
+            "text": "7 \u00d7 6 = 42",
+            "true": true
+          },
+          {
+            "text": "8 + 5 = 14",
+            "true": false
+          },
+          {
+            "text": "2 + 9 = 9",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_28",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          42,
+          30,
+          3,
+          39,
+          43
+        ],
+        "sums": [
+          {
+            "text": "8 \u00d7 3 = 22",
+            "true": false
+          },
+          {
+            "text": "8 + 8 = 16",
+            "true": true
+          },
+          {
+            "text": "8 + 7 = 15",
+            "true": true
+          },
+          {
+            "text": "5 \u00d7 2 = 9",
+            "true": false
+          },
+          {
+            "text": "2 + 8 = 9",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_29",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          3,
+          8,
+          48,
+          14,
+          21
+        ],
+        "sums": [
+          {
+            "text": "8 + 8 = 15",
+            "true": false
+          },
+          {
+            "text": "8 + 7 = 14",
+            "true": false
+          },
+          {
+            "text": "5 + 3 = 7",
+            "true": false
+          },
+          {
+            "text": "3 + 7 = 10",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 6 = 25",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_30",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          4,
+          29,
+          15
+        ],
+        "sums": [
+          {
+            "text": "4 + 8 = 13",
+            "true": false
+          },
+          {
+            "text": "6 \u00d7 2 = 10",
+            "true": false
+          },
+          {
+            "text": "2 \u00d7 2 = 2",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_31",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          24,
+          23,
+          37
+        ],
+        "sums": [
+          {
+            "text": "7 \u00d7 7 = 49",
+            "true": true
+          },
+          {
+            "text": "5 + 8 = 13",
+            "true": true
+          },
+          {
+            "text": "6 \u00d7 8 = 46",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_32",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          25,
+          9,
+          49,
+          42
+        ],
+        "sums": [
+          {
+            "text": "5 + 6 = 13",
+            "true": false
+          },
+          {
+            "text": "6 + 4 = 8",
+            "true": false
+          },
+          {
+            "text": "7 + 6 = 13",
+            "true": true
+          },
+          {
+            "text": "5 \u00d7 9 = 45",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_33",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          39,
+          49,
+          46,
+          40
+        ],
+        "sums": [
+          {
+            "text": "3 \u00d7 3 = 7",
+            "true": false
+          },
+          {
+            "text": "5 + 2 = 6",
+            "true": false
+          },
+          {
+            "text": "4 \u00d7 4 = 18",
+            "true": false
+          },
+          {
+            "text": "7 \u00d7 8 = 56",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_34",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          4,
+          28,
+          10,
+          9,
+          12
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 2 = 10",
+            "true": true
+          },
+          {
+            "text": "4 + 6 = 12",
+            "true": false
+          },
+          {
+            "text": "2 + 7 = 9",
+            "true": true
+          },
+          {
+            "text": "9 + 9 = 19",
+            "true": false
+          },
+          {
+            "text": "5 + 6 = 11",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_35",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          14,
+          20,
+          15,
+          3,
+          9
+        ],
+        "sums": [
+          {
+            "text": "9 + 6 = 15",
+            "true": true
+          },
+          {
+            "text": "9 \u00d7 3 = 27",
+            "true": true
+          },
+          {
+            "text": "7 \u00d7 3 = 22",
+            "true": false
+          },
+          {
+            "text": "4 + 9 = 13",
+            "true": true
+          },
+          {
+            "text": "5 + 8 = 13",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_36",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          37,
+          39,
+          22
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 6 = 28",
+            "true": false
+          },
+          {
+            "text": "5 \u00d7 6 = 30",
+            "true": true
+          },
+          {
+            "text": "9 + 3 = 10",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_37",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          42,
+          47,
+          33
+        ],
+        "sums": [
+          {
+            "text": "4 \u00d7 5 = 18",
+            "true": false
+          },
+          {
+            "text": "2 \u00d7 9 = 19",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 5 = 15",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_38",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          17,
+          9,
+          26,
+          23
+        ],
+        "sums": [
+          {
+            "text": "5 + 8 = 11",
+            "true": false
+          },
+          {
+            "text": "8 + 9 = 17",
+            "true": true
+          },
+          {
+            "text": "4 \u00d7 6 = 23",
+            "true": false
+          },
+          {
+            "text": "4 + 5 = 9",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_39",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          44,
+          14,
+          49,
+          10
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 4 = 20",
+            "true": true
+          },
+          {
+            "text": "9 + 2 = 11",
+            "true": true
+          },
+          {
+            "text": "9 + 4 = 11",
+            "true": false
+          },
+          {
+            "text": "4 \u00d7 8 = 32",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_40",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          37,
+          16,
+          46,
+          9,
+          18
+        ],
+        "sums": [
+          {
+            "text": "3 \u00d7 5 = 15",
+            "true": true
+          },
+          {
+            "text": "2 \u00d7 6 = 12",
+            "true": true
+          },
+          {
+            "text": "7 + 2 = 9",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 9 = 28",
+            "true": false
+          },
+          {
+            "text": "9 \u00d7 4 = 38",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_41",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          39,
+          0,
+          2,
+          48,
+          13
+        ],
+        "sums": [
+          {
+            "text": "9 + 4 = 13",
+            "true": true
+          },
+          {
+            "text": "7 \u00d7 9 = 63",
+            "true": true
+          },
+          {
+            "text": "6 \u00d7 2 = 10",
+            "true": false
+          },
+          {
+            "text": "9 + 9 = 17",
+            "true": false
+          },
+          {
+            "text": "8 \u00d7 5 = 39",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_42",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          40,
+          2,
+          21
+        ],
+        "sums": [
+          {
+            "text": "3 \u00d7 4 = 11",
+            "true": false
+          },
+          {
+            "text": "8 + 8 = 16",
+            "true": true
+          },
+          {
+            "text": "8 \u00d7 4 = 32",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_43",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          9,
+          31,
+          48
+        ],
+        "sums": [
+          {
+            "text": "4 \u00d7 4 = 15",
+            "true": false
+          },
+          {
+            "text": "6 + 3 = 10",
+            "true": false
+          },
+          {
+            "text": "5 \u00d7 8 = 41",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_44",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          3,
+          13,
+          26,
+          44
+        ],
+        "sums": [
+          {
+            "text": "2 \u00d7 2 = 4",
+            "true": true
+          },
+          {
+            "text": "3 \u00d7 6 = 17",
+            "true": false
+          },
+          {
+            "text": "8 + 4 = 10",
+            "true": false
+          },
+          {
+            "text": "9 \u00d7 3 = 27",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_45",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          31,
+          41,
+          10,
+          1
+        ],
+        "sums": [
+          {
+            "text": "9 \u00d7 4 = 36",
+            "true": true
+          },
+          {
+            "text": "8 + 3 = 11",
+            "true": true
+          },
+          {
+            "text": "2 + 3 = 4",
+            "true": false
+          },
+          {
+            "text": "9 \u00d7 6 = 56",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_46",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          9,
+          29,
+          19,
+          41,
+          39
+        ],
+        "sums": [
+          {
+            "text": "3 + 5 = 6",
+            "true": false
+          },
+          {
+            "text": "4 + 8 = 11",
+            "true": false
+          },
+          {
+            "text": "3 \u00d7 8 = 24",
+            "true": true
+          },
+          {
+            "text": "4 + 2 = 7",
+            "true": false
+          },
+          {
+            "text": "2 \u00d7 5 = 8",
+            "true": false
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_47",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          47,
+          10,
+          49,
+          37,
+          40
+        ],
+        "sums": [
+          {
+            "text": "5 \u00d7 8 = 40",
+            "true": true
+          },
+          {
+            "text": "9 \u00d7 2 = 18",
+            "true": true
+          },
+          {
+            "text": "4 + 3 = 9",
+            "true": false
+          },
+          {
+            "text": "2 \u00d7 8 = 16",
+            "true": true
+          },
+          {
+            "text": "9 + 5 = 14",
+            "true": true
+          }
+        ]
+      },
+      "practice": false
+    },
+    {
+      "id": "ospan_practice",
+      "task": "ospan",
+      "target": {
+        "object": "words",
+        "color": null,
+        "words": [
+          38,
+          34,
+          16
+        ],
+        "sums": [
+          {
+            "text": "3 + 7 = 10",
+            "true": true
+          },
+          {
+            "text": "6 \u00d7 7 = 42",
+            "true": true
+          },
+          {
+            "text": "7 \u00d7 8 = 57",
+            "true": false
+          }
+        ]
+      },
+      "practice": true
+    },
+    {
       "id": "reading_practice",
       "task": "reading",
       "target": {
@@ -5320,6 +7863,246 @@
         "object": "passage",
         "color": null,
         "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_24",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_25",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_26",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_27",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_28",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_29",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_30",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_31",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_32",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_33",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_34",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_35",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_36",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_37",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_38",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_39",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_40",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_41",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_42",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_43",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_44",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_45",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 1
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_46",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 0
+      },
+      "practice": false
+    },
+    {
+      "id": "reading_47",
+      "task": "reading",
+      "target": {
+        "object": "passage",
+        "color": null,
+        "answer": 2
       },
       "practice": false
     },
