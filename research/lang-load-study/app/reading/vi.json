@@ -1,0 +1,546 @@
+{
+ "code": "vi",
+ "verified": false,
+ "note": "Các đoạn văn được viết riêng cho nghiên cứu này. Câu thứ k ở mọi ngôn ngữ phải mang cùng một ý nghĩa và có cùng thứ tự các lựa chọn; hãy nhờ một người song ngữ kiểm tra trước khi sử dụng chính thức.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Tiệm bánh của Lena mở cửa lúc bảy giờ. Vào thứ Hai, tiệm mở cửa muộn hơn một tiếng vì lò nướng được vệ sinh vào tối Chủ nhật. Hôm nay là thứ Hai.",
+   "question": "Hôm nay tiệm bánh mở cửa lúc mấy giờ?",
+   "options": [
+    "Lúc bảy giờ",
+    "Lúc tám giờ",
+    "Lúc sáu giờ"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Xe buýt của trường xuất phát từ thư viện. Mira lúc nào cũng kịp xe, nhưng sáng nay cô bé bị lỡ xe vì dừng lại giúp một người hàng xóm khiêng thùng. Chuyến xe tiếp theo đến sau hai mươi phút.",
+   "question": "Vì sao Mira sẽ đến muộn hơn thường lệ?",
+   "options": [
+    "Cô bé giúp hàng xóm và bị lỡ xe buýt",
+    "Xe buýt bị hỏng",
+    "Thư viện đóng cửa"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar tưới cà chua vào mỗi buổi tối. Tối qua trời mưa to nên anh ấy không tưới. Sáng nay đất vẫn còn ướt.",
+   "question": "Vì sao tối qua Omar không tưới cà chua?",
+   "options": [
+    "Cà chua đã được hái hết rồi",
+    "Mưa đã tưới chúng rồi",
+    "Anh ấy quên"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Trong bảo tàng, phòng màu xanh dương trưng bày tranh, còn phòng màu xanh lá trưng bày tượng điêu khắc. Hướng dẫn viên nói rằng hiện vật lâu đời nhất của bảo tàng được làm bằng đá và đặt trong phòng màu xanh lá.",
+   "question": "Hiện vật lâu đời nhất là loại đồ vật gì?",
+   "options": [
+    "Một bức tranh",
+    "Một bức ảnh",
+    "Một tác phẩm điêu khắc"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Vé tàu của Deniz rẻ hơn vào ngày thường. Cô ấy định đi thăm dì vào thứ Bảy, nhưng đã dời chuyến đi sang thứ Sáu để tiết kiệm tiền.",
+   "question": "Vì sao Deniz đi vào thứ Sáu?",
+   "options": [
+    "Vé rẻ hơn vào ngày thường",
+    "Thứ Bảy không có tàu",
+    "Thứ Bảy dì của cô ấy bận"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Câu lạc bộ họp ở phòng số 4, trừ khi có hơn hai mươi người đăng ký. Khi đó, buổi họp sẽ chuyển sang hội trường. Tuần này có hai mươi sáu người đăng ký.",
+   "question": "Tuần này câu lạc bộ sẽ họp ở đâu?",
+   "options": [
+    "Sẽ không họp",
+    "Ở phòng số 4",
+    "Ở hội trường"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Pin điện thoại của Kemal dùng được trọn một ngày. Hôm qua anh ấy dùng bản đồ suốt buổi chiều, mà bản đồ thì làm hao pin rất nhanh, nên điện thoại tắt nguồn trước bữa tối.",
+   "question": "Vì sao điện thoại tắt nguồn sớm?",
+   "options": [
+    "Bản đồ tốn nhiều pin",
+    "Điện thoại còn mới",
+    "Anh ấy quên bật máy"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Một cửa hàng tặng một ly cà phê miễn phí cho ai mua hai cái bánh mì kẹp. Ana mua một cái bánh mì kẹp và một ly nước ép. Bạn của cô ấy mua hai cái bánh mì kẹp.",
+   "question": "Ai được cà phê miễn phí?",
+   "options": [
+    "Bạn của Ana",
+    "Cả hai người",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Cổng công viên đóng lúc mặt trời lặn. Vào mùa đông, mặt trời lặn khoảng năm giờ, còn vào mùa hè khoảng tám giờ. Tom đến công viên lúc sáu giờ vào một buổi tối mùa đông.",
+   "question": "Tom có vào được công viên không?",
+   "options": [
+    "Chỉ vào được bằng cổng sau",
+    "Có, cổng vẫn mở",
+    "Không, cổng đã đóng rồi"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Mọi học sinh trong lớp của cô Kaya đều phải mang máy tính bỏ túi đến buổi thi. Selim học lớp của cô ấy. Vào ngày thi, máy tính của cậu ấy nằm ở nhà.",
+   "question": "Selim đã quên gì?",
+   "options": [
+    "Tờ giấy thi của cậu ấy",
+    "Một thứ mà buổi thi yêu cầu",
+    "Tên của cô giáo"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Lá của cây sồi già chuyển vàng trước mọi cây khác trong vườn. Năm nay, những chiếc lá vàng đầu tiên trong vườn xuất hiện vào đầu tháng Mười.",
+   "question": "Lá cây sồi bắt đầu chuyển vàng khi nào?",
+   "options": [
+    "Vào tháng Mười Hai",
+    "Sau tất cả các cây khác",
+    "Vào đầu tháng Mười"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Thư viện cho mượn sách trong hai tuần. Trả sách muộn sẽ bị tính một khoản phí nhỏ cho mỗi ngày. Sam trả sách ba ngày sau khi hết hạn hai tuần.",
+   "question": "Chuyện gì đã xảy ra khi Sam trả sách?",
+   "options": [
+    "Không có gì, cậu ấy trả đúng hạn",
+    "Cậu ấy phải nộp phí trả muộn",
+    "Cậu ấy được cấp thẻ mới"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana chỉ uống trà không đường. Ở quán cà phê, người phục vụ mang ra cho cô ấy một tách trà đã khuấy sẵn hai thìa đường. Cô ấy gửi trả lại.",
+   "question": "Vì sao Hana gửi trả lại tách trà?",
+   "options": [
+    "Trà bị nguội",
+    "Trà đã có đường sẵn",
+    "Đó là cà phê"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Tòa nhà cao nhất trong thị trấn có mười hai tầng. Phòng khám nằm ở tầng trên cùng của tòa nhà đó, và hôm nay thang máy bị hỏng.",
+   "question": "Hôm nay khách đến phòng khám bằng cách nào?",
+   "options": [
+    "Leo cầu thang lên tầng mười hai",
+    "Phòng khám đã chuyển đi nơi khác",
+    "Đi thang máy"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Cây trồng phía sau bức tường cao của khu vườn nhận được ít nắng. Ayla chuyển cây húng quế của mình từ phía sau bức tường ra ban công thoáng đãng, và chưa đầy một tuần sau nó đã lớn nhanh hơn nhiều.",
+   "question": "Nhiều khả năng điều gì đã giúp cây húng quế lớn nhanh?",
+   "options": [
+    "Một cái chậu mới",
+    "Nhiều ánh nắng hơn",
+    "Ít nước hơn"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Một công thức cần ba quả trứng cho một chiếc bánh. Burak muốn nướng hai chiếc bánh và có bốn quả trứng.",
+   "question": "Burak cần gì?",
+   "options": [
+    "Không cần gì, cậu ấy có đủ rồi",
+    "Thêm hai quả trứng",
+    "Thêm một quả trứng"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Buổi hòa nhạc bắt đầu lúc tám giờ. Cửa mở một tiếng trước buổi hòa nhạc. Lara đến lúc bảy giờ mười lăm.",
+   "question": "Khi Lara đến, cửa đã mở chưa?",
+   "options": [
+    "Rồi, cửa đã mở lúc bảy giờ",
+    "Cô ấy đến sau khi buổi hòa nhạc kết thúc",
+    "Chưa, tám giờ cửa mới mở"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Mèo ở trại cứu hộ được cho ăn vào buổi sáng. Chó được cho ăn vào buổi sáng và thêm một lần nữa vào buổi tối. Max, một chú chó, được nhận nuôi lúc giữa trưa.",
+   "question": "Hôm đó Max được ăn mấy bữa ở trại cứu hộ?",
+   "options": [
+    "Không bữa nào",
+    "Một bữa",
+    "Hai bữa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Băng trên hồ chỉ an toàn để đi lên khi dày ít nhất mười xăng-ti-mét. Vào thứ Hai, băng dày tám xăng-ti-mét, và đến thứ Tư thì dày thêm hai xăng-ti-mét.",
+   "question": "Vào thứ Tư, băng có an toàn không?",
+   "options": [
+    "Không, băng vẫn còn quá mỏng",
+    "Có, băng đã dày đến mười xăng-ti-mét",
+    "Băng trên hồ đã tan hết"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Đồng hồ đeo tay của Emre chạy nhanh năm phút. Khi cậu ấy bước vào lớp, đồng hồ chỉ 9:05, đúng lúc giờ học bắt đầu.",
+   "question": "Giờ học bắt đầu lúc mấy giờ?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Chỉ hội viên mới được mượn thuyền của câu lạc bộ. Hội viên phải đóng phí hằng năm. Nadia đã đóng phí vào tuần trước.",
+   "question": "Bây giờ Nadia có mượn thuyền được không?",
+   "options": [
+    "Chỉ vào cuối tuần",
+    "Không, cô ấy không phải là hội viên",
+    "Có, giờ cô ấy đã là hội viên"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Đường phía bắc đang bị chặn để sửa chữa. Đường phía nam dài hơn nhưng vẫn đi được. Hôm nay một xe tải giao hàng phải đến được ngôi làng.",
+   "question": "Nhiều khả năng xe tải đã đi đường nào?",
+   "options": [
+    "Đường phía bắc",
+    "Đường phía nam",
+    "Không đường nào; xe ở lại"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Một cái cây cần được tưới nước ba ngày một lần. Cây được tưới vào thứ Hai.",
+   "question": "Lần tới cây cần được tưới vào thứ mấy?",
+   "options": [
+    "Thứ Năm",
+    "Thứ Bảy",
+    "Thứ Tư"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Bìa hồ sơ màu đỏ đựng các hóa đơn chưa thanh toán. Hóa đơn đã thanh toán được cất vào bìa màu đen. Sáng nay Yusuf đã thanh toán hóa đơn tiền điện.",
+   "question": "Bây giờ hóa đơn tiền điện nên nằm ở đâu?",
+   "options": [
+    "Trong thùng rác",
+    "Trong bìa màu đỏ",
+    "Trong bìa màu đen"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Mọi con chim trong lồng đều biết hót, trừ con nhỏ nhất. Con chim màu vàng là con nhỏ nhất trong lồng.",
+   "question": "Ta biết gì về con chim màu vàng?",
+   "options": [
+    "Nó hót nhiều nhất",
+    "Nó không biết hót",
+    "Nó lớn tuổi nhất"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Tiệm bánh bán bánh mì đến giữa trưa. Sau giữa trưa, tiệm chỉ bán bánh ngọt. Eda đến tiệm lúc hai giờ để mua bánh mì.",
+   "question": "Lúc hai giờ Eda có thể mua gì?",
+   "options": [
+    "Bánh mì",
+    "Chỉ bánh ngọt",
+    "Không mua được gì"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Xe đạp của Selin bị xẹp lốp. Tiệm sửa xe đóng cửa lúc năm giờ, và đi bộ đến đó mất một tiếng. Selin rời nhà lúc bốn giờ rưỡi.",
+   "question": "Selin có đến tiệm trước khi tiệm đóng cửa không?",
+   "options": [
+    "Không, cô ấy sẽ đến sau năm giờ",
+    "Tiệm mở cửa suốt đêm",
+    "Có, dễ dàng"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Tất cả sách trên kệ trên cùng đều bằng tiếng Pháp. Cuốn từ điển nằm trên kệ trên cùng.",
+   "question": "Cuốn từ điển viết bằng tiếng gì?",
+   "options": [
+    "Không thể biết được",
+    "Tiếng Anh",
+    "Tiếng Pháp"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali cho mèo ăn khi chị gái cậu đi vắng. Tuần này chị gái cậu đang đi thăm bà.",
+   "question": "Tuần này ai cho mèo ăn?",
+   "options": [
+    "Ali",
+    "Chị gái của Ali",
+    "Bà của hai chị em"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Hồ bơi đóng cửa vào những ngày trời mưa. Thứ Ba trời mưa cả ngày.",
+   "question": "Thứ Ba hồ bơi có mở cửa không?",
+   "options": [
+    "Không",
+    "Chỉ mở buổi sáng",
+    "Có"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Học sinh nào hoàn thành dự án đều được nhận giấy chứng nhận. Mert đã hoàn thành dự án của mình vào thứ Sáu tuần trước.",
+   "question": "Mert có được nhận giấy chứng nhận không?",
+   "options": [
+    "Phải đến năm sau mới được",
+    "Không",
+    "Có"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Xe buýt màu xanh lá đi đến sân bay. Xe buýt màu xanh dương đi đến sân vận động. Leyla cần đi cho kịp chuyến bay.",
+   "question": "Leyla nên đi xe buýt nào?",
+   "options": [
+    "Xe buýt màu xanh dương",
+    "Xe buýt màu xanh lá",
+    "Xe nào cũng được"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Kem tan rất nhanh dưới nắng. Can để cây kem của mình trên một cái bàn đầy nắng suốt hai mươi phút.",
+   "question": "Nhiều khả năng điều gì đã xảy ra với cây kem?",
+   "options": [
+    "Nó tan chảy",
+    "Nó biến mất vào một cái hộp",
+    "Nó đông cứng hơn"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Trẻ em dưới mười hai tuổi được vào bảo tàng miễn phí. Zeynep mười tuổi.",
+   "question": "Zeynep phải trả bao nhiêu tiền để vào cửa?",
+   "options": [
+    "Nửa giá",
+    "Không phải trả gì",
+    "Giá đầy đủ"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Cứ ba mươi phút lại có một chuyến tàu, bắt đầu từ sáu giờ. Arda đến ga lúc sáu giờ bốn mươi.",
+   "question": "Chuyến tàu kế tiếp sau khi Arda đến là lúc mấy giờ?",
+   "options": [
+    "Sáu giờ rưỡi",
+    "Bảy giờ",
+    "Bảy giờ rưỡi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Chỉ những cầu thủ đến buổi tập mới được thi đấu trong trận đấu. Burcu nghỉ buổi tập vì bị ốm.",
+   "question": "Burcu có được thi đấu trong trận không?",
+   "options": [
+    "Không",
+    "Chỉ với vai trò đội trưởng",
+    "Có"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Người nông dân nhốt đàn cừu trong chuồng khi trời có tuyết. Đêm qua tuyết rơi dày.",
+   "question": "Đêm qua đàn cừu ở đâu?",
+   "options": [
+    "Trên đường",
+    "Ngoài đồng",
+    "Trong chuồng"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Ở quán cà phê này, trà rẻ hơn cà phê. Ece uống một ly cà phê, còn Kaan uống một tách trà.",
+   "question": "Ai trả ít tiền hơn?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Hai người trả như nhau"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Cửa bên trái của tòa nhà dùng để đi vào. Cửa bên phải dùng để đi ra. Murat đang đi vào tòa nhà.",
+   "question": "Murat nên dùng cửa nào?",
+   "options": [
+    "Cửa bên phải",
+    "Cửa nào cũng được",
+    "Cửa bên trái"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Cây trong nhà kính được tưới vào những ngày chẵn. Hôm nay là ngày mười bốn.",
+   "question": "Hôm nay cây có được tưới không?",
+   "options": [
+    "Chỉ một nửa số cây",
+    "Có",
+    "Không"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora luôn mang ô khi dự báo thời tiết nói có mưa. Dự báo hôm nay nói trời nắng cả ngày.",
+   "question": "Nhiều khả năng hôm nay Nora có mang ô không?",
+   "options": [
+    "Có",
+    "Không",
+    "Cô ấy mang hai cái"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Chương trình giảm giá của cửa hàng chỉ áp dụng cho giày. Efe mua một chiếc áo khoác và một đôi giày.",
+   "question": "Món nào được giảm giá?",
+   "options": [
+    "Đôi giày",
+    "Cả hai",
+    "Chiếc áo khoác"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Vận động viên phải về đích trong chưa đầy một giờ mới được nhận huy chương. Deniz về đích sau năm mươi hai phút.",
+   "question": "Deniz có nhận được huy chương không?",
+   "options": [
+    "Cuộc đua bị hủy",
+    "Có",
+    "Không"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Công thức nói phải cho muối vào sau khi nước sôi. Oya đã cho muối vào trước khi bật bếp.",
+   "question": "Oya có làm đúng theo công thức không?",
+   "options": [
+    "Có",
+    "Không",
+    "Công thức không có muối"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Cổng vườn được khóa lúc mười giờ mỗi tối. Sena về nhà lúc mười một giờ mà không mang chìa khóa.",
+   "question": "Sena có mở được cổng không?",
+   "options": [
+    "Không",
+    "Cổng đã mở sẵn",
+    "Có"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Chim non rời tổ khi lông của chúng đã mọc đủ. Lông của những con chim trong tổ trên cây sồi đã mọc đủ.",
+   "question": "Những con chim trong tổ trên cây sồi sẽ làm gì?",
+   "options": [
+    "Xây một cái cây mới",
+    "Ở lại mãi mãi",
+    "Rời tổ"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Vé xem buổi diễn tối đã bán hết. Kerem muốn mua một vé xem buổi diễn tối.",
+   "question": "Kerem có mua được vé đó không?",
+   "options": [
+    "Có",
+    "Không",
+    "Chỉ mua được trên mạng"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Tàu thuyền không thể rời cảng khi gió rất mạnh. Hôm nay gió rất mạnh.",
+   "question": "Hôm nay tàu thuyền có rời cảng được không?",
+   "options": [
+    "Không",
+    "Chỉ tàu nhỏ",
+    "Có"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Giáo viên thu bài tập về nhà vào thứ Năm. Hôm nay là thứ Tư, và Pelin đã làm xong bài tập.",
+   "question": "Khi nào Pelin sẽ nộp bài tập?",
+   "options": [
+    "Tuần sau",
+    "Hôm nay",
+    "Ngày mai"
+   ],
+   "answer": 2
+  }
+ ]
+}

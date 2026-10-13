@@ -298,7 +298,8 @@ def test_language_choice_drives_the_clue_language():
         langs = set()
         for i in range(1, 12):
             page = c.get("/trial").text
-            langs.add(page.split('class="clue" lang="')[1].split('"')[0])
+            # The clue language sits on the clue line, or on the task area for reading/ospan.
+            langs.add(re.search(r'(?:class="clue"|data-item="[^"]*") lang="([a-z]{2})"', page).group(1))
             _answer(c, m, i)
         assert langs == {"ja", "es"}
         assert c.post("/background", data={"group": "adult", "age": 30, "education_years": 16,
@@ -333,10 +334,10 @@ def test_reading_only_when_both_languages_have_passages_and_scoring():
     assert "reading" not in {t["task"] for t in no_reading}
     c = TestClient(app)
     with c:
-        _start(c, l1="ja", l2="es")  # no Japanese/Spanish passages yet
+        _start(c, l1="ja", l2="es")  # both now have passages, so reading is in the plan
         from app.db import Participant, SessionLocal
         with SessionLocal() as db:
-            assert "reading" not in {t["task"] for t in db.get(Participant, c.cookies.get("pid")).plan}
+            assert "reading" in {t["task"] for t in db.get(Participant, c.cookies.get("pid")).plan}
 
 
 def test_corsi_scoring_and_focus_flag():
@@ -442,3 +443,12 @@ def test_library_task_runs_inside_a_session():
                     "response": PLUGINS["flanker"].logic.example_response(item["target"], True)}).json()
         assert ok["hit"] is True and "flanker_cost_ms" in ok["metrics"]
     assert appmain.PLUGINS is PLUGINS
+
+
+def test_reading_passages_match_english():
+    """Every app/reading/<lang>.json has the same items, option counts and correct
+    answers as en.json (tools/check_reading.py)."""
+    import subprocess
+    import sys
+    r = subprocess.run([sys.executable, "tools/check_reading.py"], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout[-2000:]
