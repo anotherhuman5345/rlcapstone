@@ -85,7 +85,14 @@
   "instr_rule": "Cartas e regras: a pista dá uma regra de classificação; decida se a carta pertence ao grupo A ou ao grupo B.",
   "instr_ospan": "Somas e palavras: diga se cada soma está correta e memorize a palavra que vem depois dela. No final, clique nas palavras na ordem em que você as viu.",
   "retention_title": "Um último teste de memória",
-  "retention_q": "Quais destas palavras você viu antes no estudo? Marque todas as que você se lembra de ter visto."
+  "retention_q": "Quais destas palavras você viu antes no estudo? Marque todas as que você se lembra de ter visto.",
+  "withdraw_button": "Parar / desistir",
+  "withdraw_confirm": "Parar de participar agora? Você pode pular as perguntas restantes.",
+  "time_up": "O tempo acabou. As tarefas terminaram; as últimas perguntas são opcionais.",
+  "bg_l2_age_invalid": "A idade em que você começou a aprender o outro idioma não pode ser maior que a sua idade.",
+  "final_optional": "Estas últimas perguntas são opcionais. Você pode respondê-las ou pulá-las.",
+  "final_skip": "Pular e concluir",
+  "saving_retry": "Salvando sua resposta… Se demorar, verifique sua conexão com a internet."
  },
  "clue": {
   "np": "{small} {noun} {color}",

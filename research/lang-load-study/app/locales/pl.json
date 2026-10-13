@@ -85,7 +85,14 @@
   "instr_rule": "Karty i reguły: wskazówka podaje regułę sortowania; zdecyduj, czy karta należy do grupy A, czy do grupy B.",
   "instr_ospan": "Działania i słowa: oceń, czy każde działanie jest poprawne, i zapamiętaj słowo, które po nim następuje. Na końcu kliknij słowa w kolejności, w jakiej je widziałeś/-aś.",
   "retention_title": "Ostatni test pamięci",
-  "retention_q": "Które z tych słów widziałeś/-aś wcześniej w badaniu? Zaznacz każde, które pamiętasz."
+  "retention_q": "Które z tych słów widziałeś/-aś wcześniej w badaniu? Zaznacz każde, które pamiętasz.",
+  "withdraw_button": "Przerwij / wycofaj się",
+  "withdraw_confirm": "Zakończyć teraz udział? Możesz pominąć pozostałe pytania.",
+  "time_up": "Czas minął. Zadania się skończyły; ostatnie pytania są nieobowiązkowe.",
+  "bg_l2_age_invalid": "Wiek, w którym zacząłeś/-ęłaś uczyć się drugiego języka, nie może być wyższy niż Twój wiek.",
+  "final_optional": "Te ostatnie pytania są nieobowiązkowe. Możesz na nie odpowiedzieć albo je pominąć.",
+  "final_skip": "Pomiń i zakończ",
+  "saving_retry": "Zapisywanie odpowiedzi… Jeśli to długo trwa, sprawdź połączenie z internetem."
  },
  "clue": {
   "np": "{small} {color} {noun}",

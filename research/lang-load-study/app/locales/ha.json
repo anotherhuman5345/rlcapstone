@@ -85,7 +85,14 @@
   "instr_rule": "Katuna da dokoki: ishara tana ba da dokar rarrabewa; ku yanke shawara ko katin yana cikin rukunin A ko rukunin B.",
   "instr_ospan": "Lissafi da kalmomi: ku faɗi ko kowane lissafi daidai ne, ku kuma tuna kalmar da ta biyo bayansa. A ƙarshe, ku danna kalmomin bisa jerin da kuka gan su.",
   "retention_title": "Gwajin ƙwaƙwalwa na ƙarshe",
-  "retention_q": "Waɗanne daga cikin waɗannan kalmomi kuka gani a baya a cikin binciken? Ku yi alama a kan kowace wadda kuke tuna kun gani."
+  "retention_q": "Waɗanne daga cikin waɗannan kalmomi kuka gani a baya a cikin binciken? Ku yi alama a kan kowace wadda kuke tuna kun gani.",
+  "withdraw_button": "Tsaya / janye",
+  "withdraw_confirm": "Ku daina shiga yanzu? Kuna iya tsallake sauran tambayoyin.",
+  "time_up": "Lokaci ya ƙare. Ayyukan sun ƙare; tambayoyin ƙarshe ba dole ba ne.",
+  "bg_l2_age_invalid": "Shekarunku lokacin da kuka fara koyon ɗayan harshen ba za su iya wuce shekarunku na yanzu ba.",
+  "final_optional": "Waɗannan tambayoyin ƙarshe ba dole ba ne. Kuna iya amsa su ko ku tsallake su.",
+  "final_skip": "Tsallake ka gama",
+  "saving_retry": "Ana adana amsarku… Idan ya daɗe, don Allah ku duba haɗin intanet ɗinku."
  },
  "clue": {
   "np": "{small} {noun} mai launin {color}",

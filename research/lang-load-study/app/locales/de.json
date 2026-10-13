@@ -85,7 +85,14 @@
   "instr_rule": "Karten und Regeln: Der Hinweis nennt eine Sortierregel; entscheiden Sie, ob die Karte zu Gruppe A oder zu Gruppe B gehört.",
   "instr_ospan": "Rechnungen und Wörter: Geben Sie an, ob jede Rechnung stimmt, und merken Sie sich das Wort, das danach kommt. Klicken Sie am Ende die Wörter in der Reihenfolge an, in der Sie sie gesehen haben.",
   "retention_title": "Ein letzter Gedächtnistest",
-  "retention_q": "Welche dieser Wörter haben Sie früher in der Studie gesehen? Kreuzen Sie jedes Wort an, von dem Sie sich erinnern, dass Sie es gesehen haben."
+  "retention_q": "Welche dieser Wörter haben Sie früher in der Studie gesehen? Kreuzen Sie jedes Wort an, von dem Sie sich erinnern, dass Sie es gesehen haben.",
+  "withdraw_button": "Abbrechen / Teilnahme beenden",
+  "withdraw_confirm": "Die Teilnahme jetzt beenden? Sie können die restlichen Fragen überspringen.",
+  "time_up": "Die Zeit ist um. Die Aufgaben sind beendet; die letzten Fragen sind freiwillig.",
+  "bg_l2_age_invalid": "Das Alter, in dem Sie begonnen haben, Ihre andere Sprache zu lernen, kann nicht höher sein als Ihr Alter.",
+  "final_optional": "Diese letzten Fragen sind freiwillig. Sie können sie beantworten oder überspringen.",
+  "final_skip": "Überspringen und beenden",
+  "saving_retry": "Ihre Antwort wird gespeichert … Wenn das lange dauert, prüfen Sie bitte Ihre Internetverbindung."
  },
  "clue": {
   "np": "{small} {color} {noun}",

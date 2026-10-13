@@ -35,8 +35,7 @@ for _code in ORDER:
 # Interface strings added after the 30 files were translated. Until a translator adds
 # them, unverified languages show the English text (see t() below). A language cannot
 # be marked verified, or used for real data, while any of these is missing from it.
-PENDING_UI_KEYS = {"withdraw_button", "withdraw_confirm", "time_up", "bg_l2_age_invalid",
-                   "final_optional", "final_skip", "saving_retry"}
+PENDING_UI_KEYS: set[str] = set()
 
 LANGUAGES = tuple(c for c in ORDER if c in LOCALES)
 
