@@ -1,0 +1,546 @@
+{
+ "code": "de",
+ "verified": false,
+ "note": "Originaltexte, die für diese Studie geschrieben wurden. Item k muss in jeder Sprache dieselbe Bedeutung und dieselbe Reihenfolge der Antwortoptionen haben; vor dem echten Einsatz von einer zweisprachigen Person prüfen lassen.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Lenas Bäckerei öffnet um sieben. Montags öffnet sie eine Stunde später, weil der Ofen sonntagabends gereinigt wird. Heute ist Montag.",
+   "question": "Wann öffnet die Bäckerei heute?",
+   "options": [
+    "Um sieben",
+    "Um acht",
+    "Um sechs"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Der Schulbus fährt an der Bibliothek ab. Mira erwischt ihn immer, aber heute Morgen hat sie ihn verpasst, weil sie stehen geblieben ist, um einem Nachbarn beim Tragen von Kisten zu helfen. Der nächste Bus kommt zwanzig Minuten später.",
+   "question": "Warum wird Mira später als sonst ankommen?",
+   "options": [
+    "Sie hat einem Nachbarn geholfen und ihren Bus verpasst",
+    "Der Bus hatte eine Panne",
+    "Die Bibliothek war geschlossen"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar gießt die Tomaten jeden Abend. Gestern Abend hat es stark geregnet, deshalb hat er nicht gegossen. Heute Morgen war die Erde noch nass.",
+   "question": "Warum hat Omar die Tomaten gestern Abend nicht gegossen?",
+   "options": [
+    "Die Tomaten waren schon geerntet",
+    "Der Regen hatte sie schon bewässert",
+    "Er hat es vergessen"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Im Museum sind im blauen Saal Gemälde und im grünen Saal Skulpturen ausgestellt. Die Führerin sagte, das älteste Stück im Museum ist aus Stein und steht im grünen Saal.",
+   "question": "Was für ein Objekt ist das älteste Stück?",
+   "options": [
+    "Ein Gemälde",
+    "Ein Foto",
+    "Eine Skulptur"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Deniz' Zugticket kostet unter der Woche weniger. Sie wollte ihre Tante am Samstag besuchen, hat die Reise aber auf Freitag verlegt, um Geld zu sparen.",
+   "question": "Warum ist Deniz am Freitag gefahren?",
+   "options": [
+    "Das Ticket ist unter der Woche billiger",
+    "Am Samstag fuhr kein Zug",
+    "Ihre Tante hatte am Samstag keine Zeit"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Der Klub trifft sich in Raum 4, außer wenn sich mehr als zwanzig Leute anmelden. Dann zieht er in den Saal um. Diese Woche haben sich sechsundzwanzig Leute angemeldet.",
+   "question": "Wo trifft sich der Klub diese Woche?",
+   "options": [
+    "Er trifft sich nicht",
+    "In Raum 4",
+    "Im Saal"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Der Akku von Kemals Handy hält einen ganzen Tag. Gestern hat er den ganzen Nachmittag die Karten-App benutzt, die den Akku schnell leert, und das Handy ging vor dem Abendessen aus.",
+   "question": "Warum ist das Handy früh ausgegangen?",
+   "options": [
+    "Die Karten-App hat viel Akku verbraucht",
+    "Das Handy war neu",
+    "Er hat vergessen, es einzuschalten"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Ein Laden schenkt jedem, der zwei Sandwiches kauft, einen Kaffee. Ana hat ein Sandwich und einen Saft gekauft. Ihre Freundin hat zwei Sandwiches gekauft.",
+   "question": "Wer hat einen Kaffee geschenkt bekommen?",
+   "options": [
+    "Anas Freundin",
+    "Beide",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Das Parktor schließt bei Sonnenuntergang. Im Winter geht die Sonne gegen fünf unter, im Sommer gegen acht. Tom kam an einem Winterabend um sechs am Park an.",
+   "question": "Konnte Tom in den Park hinein?",
+   "options": [
+    "Nur durch das Hintertor",
+    "Ja, es war offen",
+    "Nein, das Tor war schon geschlossen"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Alle Schüler in Frau Kayas Klasse müssen zur Prüfung einen Taschenrechner mitbringen. Selim ist in ihrer Klasse. Am Prüfungstag lag sein Taschenrechner zu Hause.",
+   "question": "Was hat Selim vergessen?",
+   "options": [
+    "Sein Prüfungsblatt",
+    "Etwas, das für die Prüfung nötig war",
+    "Den Namen seiner Lehrerin"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Die Blätter der alten Eiche werden früher gelb als die aller anderen Bäume im Garten. Dieses Jahr erschienen die ersten gelben Blätter im Garten Anfang Oktober.",
+   "question": "Wann begannen die Blätter der Eiche, gelb zu werden?",
+   "options": [
+    "Im Dezember",
+    "Nach allen anderen Bäumen",
+    "Anfang Oktober"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Die Bibliothek verleiht Bücher für zwei Wochen. Für verspätete Bücher zahlt man pro Tag eine kleine Gebühr. Sam hat ein Buch drei Tage nach Ablauf der zwei Wochen zurückgebracht.",
+   "question": "Was passierte, als Sam das Buch zurückbrachte?",
+   "options": [
+    "Nichts, es war pünktlich",
+    "Er zahlte eine Verspätungsgebühr",
+    "Er bekam einen neuen Ausweis"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana trinkt Tee nur ohne Zucker. Im Café brachte ihr der Kellner Tee, in den schon zwei Löffel Zucker eingerührt waren. Sie ließ ihn zurückgehen.",
+   "question": "Warum hat Hana den Tee zurückgehen lassen?",
+   "options": [
+    "Er war kalt",
+    "Es war schon Zucker darin",
+    "Es war Kaffee"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Das höchste Gebäude der Stadt hat zwölf Stockwerke. Die Klinik ist im obersten Stockwerk dieses Gebäudes, und der Aufzug ist heute kaputt.",
+   "question": "Wie kommen Besucher heute zur Klinik?",
+   "options": [
+    "Über die Treppe bis in den zwölften Stock",
+    "Die Klinik ist umgezogen",
+    "Mit dem Aufzug"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Pflanzen hinter der hohen Gartenmauer bekommen wenig Sonne. Ayla hat ihr Basilikum von hinter der Mauer auf den offenen Balkon gestellt, und innerhalb einer Woche wuchs es viel schneller.",
+   "question": "Was hat dem Basilikum wahrscheinlich beim Wachsen geholfen?",
+   "options": [
+    "Ein neuer Topf",
+    "Mehr Sonnenlicht",
+    "Weniger Wasser"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Ein Rezept braucht drei Eier für einen Kuchen. Burak will zwei Kuchen backen und hat vier Eier.",
+   "question": "Was braucht Burak?",
+   "options": [
+    "Nichts, er hat genug",
+    "Noch zwei Eier",
+    "Noch ein Ei"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Das Konzert beginnt um acht. Die Türen öffnen eine Stunde vor dem Konzert. Lara kam um Viertel nach sieben an.",
+   "question": "Waren die Türen offen, als Lara ankam?",
+   "options": [
+    "Ja, sie hatten um sieben geöffnet",
+    "Sie kam nach dem Konzert an",
+    "Nein, sie öffneten um acht"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Die Katzen im Tierheim werden morgens gefüttert. Die Hunde werden morgens und noch einmal abends gefüttert. Max, ein Hund, wurde mittags adoptiert.",
+   "question": "Wie viele Mahlzeiten bekam Max an diesem Tag im Tierheim?",
+   "options": [
+    "Keine",
+    "Eine",
+    "Zwei"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Man kann nur dann sicher auf dem Eis des Sees gehen, wenn es mindestens zehn Zentimeter dick ist. Am Montag war es acht Zentimeter dick, und bis Mittwoch wurde es zwei Zentimeter dicker.",
+   "question": "War das Eis am Mittwoch sicher?",
+   "options": [
+    "Nein, es war noch zu dünn",
+    "Ja, es erreichte zehn Zentimeter",
+    "Der See war aufgetaut"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Emres Uhr geht fünf Minuten vor. Seine Uhr zeigte 9:05, als er ins Klassenzimmer kam, genau als der Unterricht begann.",
+   "question": "Um wie viel Uhr begann der Unterricht?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Nur Mitglieder dürfen die Boote des Vereins ausleihen. Die Mitgliedschaft kostet einen Jahresbeitrag. Nadia hat den Beitrag letzte Woche bezahlt.",
+   "question": "Darf Nadia jetzt ein Boot ausleihen?",
+   "options": [
+    "Nur am Wochenende",
+    "Nein, sie ist kein Mitglied",
+    "Ja, sie ist jetzt Mitglied"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Die Nordstraße ist wegen Bauarbeiten gesperrt. Die Südstraße ist länger, aber offen. Ein Lieferwagen musste heute ins Dorf.",
+   "question": "Welche Straße hat der Lieferwagen wahrscheinlich genommen?",
+   "options": [
+    "Die Nordstraße",
+    "Die Südstraße",
+    "Keine; er ist nicht losgefahren"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Eine Pflanze braucht alle drei Tage Wasser. Sie wurde am Montag gegossen.",
+   "question": "An welchem Tag braucht sie das nächste Mal Wasser?",
+   "options": [
+    "Am Donnerstag",
+    "Am Samstag",
+    "Am Mittwoch"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "In der roten Mappe liegen unbezahlte Rechnungen. Bezahlte Rechnungen kommen in die schwarze Mappe. Yusuf hat heute Morgen die Stromrechnung bezahlt.",
+   "question": "Wo sollte die Stromrechnung jetzt sein?",
+   "options": [
+    "Im Müll",
+    "In der roten Mappe",
+    "In der schwarzen Mappe"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Alle Vögel im Käfig können singen, außer dem kleinsten. Der gelbe Vogel ist der kleinste im Käfig.",
+   "question": "Was wissen wir über den gelben Vogel?",
+   "options": [
+    "Er singt am meisten",
+    "Er kann nicht singen",
+    "Er ist der älteste"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Die Bäckerei verkauft bis zwölf Uhr mittags Brot. Danach verkauft sie nur noch Kuchen. Eda ging um zwei Uhr in die Bäckerei, um Brot zu kaufen.",
+   "question": "Was konnte Eda um zwei Uhr kaufen?",
+   "options": [
+    "Brot",
+    "Nur Kuchen",
+    "Nichts"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Selins Fahrrad hat einen platten Reifen. Die Werkstatt schließt um fünf, und zu Fuß braucht man eine Stunde dorthin. Selin ist um halb fünf von zu Hause losgegangen.",
+   "question": "Wird Selin die Werkstatt erreichen, bevor sie schließt?",
+   "options": [
+    "Nein, sie wird nach fünf ankommen",
+    "Die Werkstatt hat die ganze Nacht offen",
+    "Ja, ganz leicht"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Alle Bücher im obersten Regalfach sind auf Französisch. Das Wörterbuch steht im obersten Regalfach.",
+   "question": "In welcher Sprache ist das Wörterbuch?",
+   "options": [
+    "Das können wir nicht wissen",
+    "Englisch",
+    "Französisch"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali füttert die Katze, wenn seine Schwester weg ist. Seine Schwester besucht diese Woche ihre Großmutter.",
+   "question": "Wer füttert diese Woche die Katze?",
+   "options": [
+    "Ali",
+    "Seine Schwester",
+    "Die Großmutter"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Das Schwimmbad ist an Tagen, an denen es regnet, geschlossen. Am Dienstag hat es den ganzen Tag geregnet.",
+   "question": "War das Schwimmbad am Dienstag offen?",
+   "options": [
+    "Nein",
+    "Nur am Vormittag",
+    "Ja"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Jeder Schüler, der das Projekt abgeschlossen hat, bekommt eine Urkunde. Mert hat sein Projekt letzten Freitag abgeschlossen.",
+   "question": "Bekommt Mert eine Urkunde?",
+   "options": [
+    "Erst nächstes Jahr",
+    "Nein",
+    "Ja"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Der grüne Bus fährt zum Flughafen. Der blaue Bus fährt zum Stadion. Leyla muss einen Flug erreichen.",
+   "question": "Welchen Bus sollte Leyla nehmen?",
+   "options": [
+    "Den blauen Bus",
+    "Den grünen Bus",
+    "Egal welchen"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Eis schmilzt in der Sonne schnell. Can hat sein Eis zwanzig Minuten lang auf einem sonnigen Tisch stehen lassen.",
+   "question": "Was ist mit dem Eis wahrscheinlich passiert?",
+   "options": [
+    "Es ist geschmolzen",
+    "Es ist in einer Schachtel verschwunden",
+    "Es ist noch fester gefroren"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Für Kinder unter zwölf ist das Museum kostenlos. Zeynep ist zehn Jahre alt.",
+   "question": "Wie viel zahlt Zeynep für den Eintritt?",
+   "options": [
+    "Den halben Preis",
+    "Nichts",
+    "Den vollen Preis"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Ab sechs Uhr fährt alle dreißig Minuten ein Zug. Arda kam um sechs Uhr vierzig am Bahnhof an.",
+   "question": "Wann fährt der nächste Zug, nachdem Arda angekommen ist?",
+   "options": [
+    "Um sechs Uhr dreißig",
+    "Um sieben Uhr",
+    "Um sieben Uhr dreißig"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Nur wer zum Training kommt, darf beim Spiel mitspielen. Burcu hat das Training verpasst, weil sie krank war.",
+   "question": "Darf Burcu beim Spiel mitspielen?",
+   "options": [
+    "Nein",
+    "Nur als Kapitänin",
+    "Ja"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Der Bauer hält die Schafe im Stall, wenn es schneit. Letzte Nacht hat es stark geschneit.",
+   "question": "Wo waren die Schafe letzte Nacht?",
+   "options": [
+    "Auf der Straße",
+    "Auf dem Feld",
+    "Im Stall"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "In diesem Café kostet Tee weniger als Kaffee. Ece hatte einen Kaffee und Kaan einen Tee.",
+   "question": "Wer hat weniger bezahlt?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Beide gleich viel"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Die linke Tür des Gebäudes ist zum Hineingehen. Die rechte Tür ist zum Hinausgehen. Murat geht in das Gebäude.",
+   "question": "Welche Tür sollte Murat benutzen?",
+   "options": [
+    "Die rechte Tür",
+    "Egal welche",
+    "Die linke Tür"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Die Pflanzen im Gewächshaus werden an Tagen mit gerader Zahl gegossen. Heute ist der Vierzehnte.",
+   "question": "Werden die Pflanzen heute gegossen?",
+   "options": [
+    "Nur die Hälfte davon",
+    "Ja",
+    "Nein"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora nimmt immer einen Regenschirm mit, wenn die Vorhersage Regen meldet. Die heutige Vorhersage meldet den ganzen Tag Sonne.",
+   "question": "Hat Nora heute wahrscheinlich einen Regenschirm mitgenommen?",
+   "options": [
+    "Ja",
+    "Nein",
+    "Sie hat zwei mitgenommen"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Der Rabatt im Geschäft gilt nur für Schuhe. Efe hat eine Jacke und ein Paar Schuhe gekauft.",
+   "question": "Für welchen Artikel gab es den Rabatt?",
+   "options": [
+    "Für die Schuhe",
+    "Für beide",
+    "Für die Jacke"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Um eine Medaille zu gewinnen, muss man das Rennen in weniger als einer Stunde beenden. Deniz war nach zweiundfünfzig Minuten im Ziel.",
+   "question": "Hat Deniz eine Medaille gewonnen?",
+   "options": [
+    "Das Rennen wurde abgesagt",
+    "Ja",
+    "Nein"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Im Rezept steht, dass man das Salz hinzufügt, nachdem das Wasser kocht. Oya hat das Salz hinzugefügt, bevor sie den Herd eingeschaltet hat.",
+   "question": "Hat Oya sich an das Rezept gehalten?",
+   "options": [
+    "Ja",
+    "Nein",
+    "Im Rezept kommt kein Salz vor"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Das Gartentor wird jeden Abend um zehn abgeschlossen. Sena kam um elf ohne Schlüssel nach Hause.",
+   "question": "Konnte Sena das Tor öffnen?",
+   "options": [
+    "Nein",
+    "Es war schon offen",
+    "Ja"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Die jungen Vögel verlassen das Nest, wenn ihre Federn ganz ausgewachsen sind. Die Federn der Vögel im Nest in der Eiche sind ganz ausgewachsen.",
+   "question": "Was werden die Vögel im Nest in der Eiche tun?",
+   "options": [
+    "Einen neuen Baum bauen",
+    "Für immer bleiben",
+    "Das Nest verlassen"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Die Karten für die Abendvorstellung sind ausverkauft. Kerem wollte eine Karte für die Abendvorstellung kaufen.",
+   "question": "Konnte Kerem diese Karte kaufen?",
+   "options": [
+    "Ja",
+    "Nein",
+    "Nur online"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Schiffe können den Hafen nicht verlassen, wenn der Wind sehr stark ist. Heute ist der Wind sehr stark.",
+   "question": "Können die Schiffe heute den Hafen verlassen?",
+   "options": [
+    "Nein",
+    "Nur die kleinen",
+    "Ja"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Die Lehrerin sammelt donnerstags die Hausaufgaben ein. Heute ist Mittwoch, und Pelins Hausaufgaben sind fertig.",
+   "question": "Wann wird Pelin ihre Hausaufgaben abgeben?",
+   "options": [
+    "Nächste Woche",
+    "Heute",
+    "Morgen"
+   ],
+   "answer": 2
+  }
+ ]
+}
