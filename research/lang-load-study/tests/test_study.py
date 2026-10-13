@@ -296,10 +296,15 @@ def test_language_choice_drives_the_clue_language():
         c.post("/notice", data={"noticed": "no"})
         c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "no"})
         langs = set()
-        for i in range(1, 12):
+        # Practice items (one per task) all use the comfortable language, so look past them.
+        for i in range(1, 30):
             page = c.get("/trial").text
             # The clue language sits on the clue line, or on the task area for reading/ospan.
-            langs.add(re.search(r'(?:class="clue"|data-item="[^"]*") lang="([a-z]{2})"', page).group(1))
+            found = re.search(r'(?:class="clue"|data-item="[^"]*") lang="([a-z]{2})"', page)
+            assert found, page[:300]
+            langs.add(found.group(1))
+            if langs == {"ja", "es"}:
+                break
             _answer(c, m, i)
         assert langs == {"ja", "es"}
         assert c.post("/background", data={"group": "adult", "age": 30, "education_years": 16,
