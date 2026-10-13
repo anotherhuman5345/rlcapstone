@@ -6,11 +6,17 @@ from sqlalchemy import (JSON, Boolean, DateTime, Float, ForeignKey, Integer,
                         String, create_engine, inspect, text)
 from sqlalchemy.orm import (DeclarativeBase, Mapped, mapped_column,
                             relationship, sessionmaker)
+from sqlalchemy.pool import NullPool
 
 from .config import DATABASE_URL
 
-connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    # Postgres behind a transaction pooler (Supabase), used from short-lived serverless
+    # functions: no client-side pool and no prepared statements.
+    engine = create_engine(DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1),
+                           poolclass=NullPool, connect_args={"prepare_threshold": None})
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
 

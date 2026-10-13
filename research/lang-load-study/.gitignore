@@ -4,3 +4,5 @@ __pycache__/
 stimuli/real_scans/
 .pytest_cache/
 .venv/
+.vercel
+.env*

@@ -100,7 +100,7 @@ See `docs/STUDY_PROTOCOL.md` for hypotheses, sample size, and open questions.
 ## Run it locally
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt   # app + images, analysis, tests
 python stimuli/generate_stimuli.py      # makes images + manifest (placeholder scans)
 uvicorn app.main:app --reload           # open http://127.0.0.1:8000
 pytest -q                               # 8 tests
@@ -135,16 +135,22 @@ Primary model: mixed-effects regression on log response time,
 
 ## Deploying to rlcapstone.ai
 
-Any host that runs Python or Docker works (Render, Railway, Fly.io, a VPS). The
-included `Dockerfile` installs everything, generates the images, and starts the
-server on `$PORT`:
+The live study runs on **Vercel** (team UAD NGO, project `rlcapstone-study`) with a
+**Supabase** Postgres database, at https://study.rlcapstone.ai. Vercel detects the
+FastAPI app on its own; `requirements.txt` holds only what the web app needs, and
+`.vercelignore` keeps analysis, tests and docs out of the deployment.
 
 ```bash
-docker build -t lang-load-study .
-docker run -p 8000:8000 -e ADMIN_KEY=<long-random-string> lang-load-study
+npx vercel deploy --prod --scope uad-ngo      # from this folder
 ```
 
-Without Docker, the start command is `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
+Settings live in the Vercel project, never in the repo: `DATABASE_URL` (Supabase
+transaction pooler, port 6543, as the `study_app` role, which can only see the `study`
+schema), `ADMIN_KEY`, `IRB_APPROVED`, `IRB_NUMBER`. The app creates its tables on first
+use and adds new columns automatically when a later version needs them.
+
+Any other host that runs Python or Docker also works: the included `Dockerfile`
+generates the images and starts the server on `$PORT` with a local SQLite file.
 The server refuses to start with `IRB_APPROVED=1` while `ADMIN_KEY` is still the default.
 
 ## Project layout

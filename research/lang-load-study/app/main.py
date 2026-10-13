@@ -23,7 +23,9 @@ from .plan import build_plan, load_manifest
 
 @asynccontextmanager
 async def lifespan(_app):
+    global _db_ready
     init_db()
+    _db_ready = True
     yield
 
 
@@ -42,7 +44,15 @@ def image(name: str):
     return FileResponse(config.STIMULI_DIR / name)
 
 
+_db_ready = False
+
+
 def get_db():
+    # Serverless hosts may skip the startup hook, so make sure the tables exist once per process.
+    global _db_ready
+    if not _db_ready:
+        init_db()
+        _db_ready = True
     db = SessionLocal()
     try:
         yield db
