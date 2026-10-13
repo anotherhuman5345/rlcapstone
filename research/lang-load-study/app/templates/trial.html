@@ -4,7 +4,8 @@
 <header class="trial-head">
   <div class="trial-top">
     <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
-    {% if trial.task != 'surprise' %}<button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>{% endif %}
+    <span class="stop-buttons">{% if trial.task != 'surprise' %}<button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>{% endif %}
+    <button type="button" id="withdraw" class="quit">{{ _('withdraw_button') }}</button></span>
   </div>
   <p class="clue" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}" id="clue" hidden>{{ clue }}</p>
 </header>
@@ -23,8 +24,7 @@ window.TRIAL = {
   timeout: {{ timeout }},
   target: {{ img.target | tojson }},
   naturalW: {{ img.width }}, naturalH: {{ img.height }},
-  msgFound: {{ _('found') | tojson }}, msgTimeout: {{ _('timeout') | tojson }},
-  msgQuitConfirm: {{ _('quit_confirm') | tojson }}
+  msgFound: {{ _('found') | tojson }}, msgTimeout: {{ _('timeout') | tojson }}
 };
 </script>
 <script src="/static/trial.js"></script>

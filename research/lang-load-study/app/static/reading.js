@@ -15,6 +15,13 @@
                       timed_out: timedOut }, timedOut ? T.msgTimeout : "");
   }
 
+  // A stop keeps the option selected so far (not yet submitted, so never scored).
+  Study.setPartial(() => {
+    const picked = new FormData(form).get("answer");
+    return { response: picked === null ? null : Number(picked), timed_out: false,
+             rt_ms: t0 === null ? null : Math.round(performance.now() - t0) };
+  });
+
   form.addEventListener("submit", (evt) => {
     evt.preventDefault();
     finish(Number(new FormData(form).get("answer")), false);

@@ -1,28 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{ _('final_title') }}</h1>
-<form method="post" action="/final" class="stack">
+{# After a stop (exhausted, withdrawn, time cap...) every question here is optional. #}
+{% if optional %}<p class="meta">{{ _('final_optional') }}</p>{% endif %}
+<form method="post" action="/final" class="stack" id="final-form">
   <fieldset class="scale">
     <legend>{{ _('difficulty_q') }}</legend>
-    {% for v in range(1, 10) %}<label><input type="radio" name="difficulty" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}
+    {% for v in range(1, 10) %}<label><input type="radio" name="difficulty" value="{{ v }}"{% if not optional %} required{% endif %}><span>{{ v }}</span></label>{% endfor %}
   </fieldset>
-  <fieldset>
+  {% if options %}<fieldset>
     <legend>{{ _('attention_q') }}</legend>
-    {% for value, label in options %}<label class="choice"><input type="radio" name="attention" value="{{ value }}" required> {{ label }}</label>{% endfor %}
-  </fieldset>
+    {% for value, label in options %}<label class="choice"><input type="radio" name="attention" value="{{ value }}"{% if not optional %} required{% endif %}> {{ label }}</label>{% endfor %}
+  </fieldset>{% endif %}
   <fieldset class="fatigue">
     <legend>{{ _('fatigue_q') }}</legend>
     <input type="range" name="fatigue" min="0" max="100" step="1" value="50">
     <div class="ends"><span>0 · {{ _('fatigue_low') }}</span><output>–</output><span>100 · {{ _('fatigue_high') }}</span></div>
   </fieldset>
   <button type="submit">{{ _('finish') }}</button>
+  {% if optional %}<button type="submit" name="skip" value="1" class="quit" formnovalidate>{{ _('final_skip') }}</button>{% endif %}
 </form>
 <script>
-document.querySelectorAll('.fatigue').forEach(fs => {
-  const range = fs.querySelector('input'), out = fs.querySelector('output');
-  const btn = fs.closest('form').querySelector('button[type=submit]');
-  btn.disabled = true;
-  range.addEventListener('input', () => { out.textContent = range.value; btn.disabled = false; });
-});
+(function (optional) {
+  document.querySelectorAll('.fatigue').forEach(fs => {
+    const range = fs.querySelector('input'), out = fs.querySelector('output');
+    const btn = fs.closest('form').querySelector('button[type=submit]');
+    let touched = false;
+    // Required answers: the slider must be moved, so 50 is never sent by default.
+    if (!optional) btn.disabled = true;
+    range.addEventListener('input', () => { touched = true; out.textContent = range.value; btn.disabled = false; });
+    // Optional answers: an untouched slider is not sent at all.
+    fs.closest('form').addEventListener('submit', () => { if (!touched) range.disabled = true; });
+  });
+})({{ 'true' if optional else 'false' }});
 </script>
 {% endblock %}

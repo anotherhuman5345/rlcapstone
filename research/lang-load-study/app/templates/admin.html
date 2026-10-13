@@ -6,7 +6,10 @@
   <thead><tr><th>Group</th><th>Test data</th><th>Completed</th><th>Sessions</th></tr></thead>
   <tbody>{% for g, test, done, n in rows %}<tr><td>{{ g or '(not yet answered)' }}</td><td>{{ test }}</td><td>{{ done }}</td><td>{{ n }}</td></tr>{% endfor %}</tbody>
 </table>
-<a class="button" href="/admin/export.csv?key={{ key }}">Download trials CSV</a>
-<a class="button" href="/admin/fatigue.csv?key={{ key }}">Download fatigue CSV</a>
+{# Links carry no key: the signed admin cookie (HttpOnly, /admin only) authorises them. #}
+<a class="button" href="/admin/export.csv">Download trials CSV</a>
+<a class="button" href="/admin/sessions.csv">Download sessions CSV</a>
+<a class="button" href="/admin/fatigue.csv">Download fatigue CSV</a>
+<a href="/admin/logout">Log out</a>
 <a class="button" href="/try">Task library</a>
 {% endblock %}

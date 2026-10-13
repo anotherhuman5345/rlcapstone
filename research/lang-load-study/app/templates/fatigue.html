@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if session %}<div class="trial-top"><span></span><span class="stop-buttons"><button type="button" id="withdraw" class="quit">{{ _('withdraw_button') }}</button></span></div>{% endif %}
 {% if done_round %}<p class="meta">{{ _('round_done', r=done_round) }}</p>{% endif %}
 <h1>{{ _('fatigue_title') }}</h1>
 <form method="post" action="/fatigue" class="stack">

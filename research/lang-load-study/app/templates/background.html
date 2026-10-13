@@ -2,14 +2,14 @@
 {% from "_lang_picker.html" import lang_picker %}
 {% block content %}
 <h1>{{ _('bg_title') }}</h1>
-{% if error %}<p class="error" role="alert">{{ _('bg_same_lang') }}</p>{% endif %}
+{% if error %}<p class="error" role="alert">{{ _(error) }}</p>{% endif %}
 <form method="post" action="/background" class="stack">
   <label>{{ _('group') }}
     <select name="group" required>
       {% for g in groups %}<option value="{{ g }}">{{ _('group_' ~ g) }}</option>{% endfor %}
     </select>
   </label>
-  <label>{{ _('age') }} <input type="number" name="age" min="10" max="99" required></label>
+  <label>{{ _('age') }} <input type="number" name="age" min="{{ min_age }}" max="99" required></label>
   <label>{{ _('education_years') }} <input type="number" name="education_years" min="0" max="40" required></label>
   <label>{{ _('years_reading_images') }} <input type="number" name="years_reading_images" min="0" max="60" step="0.5" value="0" required></label>
   {{ lang_picker('l1', _('bg_l1'), languages) }}

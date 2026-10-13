@@ -1,12 +1,7 @@
-"""Run with:  pytest -q"""
-import os
+"""Run with:  pytest -q   (tests/conftest.py points the app at a throwaway SQLite file)"""
+import csv
+import io
 import re
-import tempfile
-
-tmp = tempfile.mkdtemp()
-os.environ["DATABASE_URL"] = f"sqlite:///{tmp}/test.db"
-os.environ["ADMIN_KEY"] = "test-key"
-
 from collections import Counter  # noqa: E402
 
 from fastapi.testclient import TestClient  # noqa: E402
@@ -148,17 +143,15 @@ def test_full_session_flow():
         practice_obj = next(i for i in m.values() if i["id"] == "search_practice")["target"]["object"]
         assert 'value="%s"' % practice_obj in final and 'value="car"' in final
         c.post("/final", data={"difficulty": 5, "attention": practice_obj, "fatigue": 70})
-        rows = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()
-        header = rows[0].split(",")
-        mine = [dict(zip(header, r.split(","))) for r in rows[1:]]
+        mine = _csv_rows(c.get("/admin/export.csv?key=test-key").text)
         mine = [r for r in mine if r["noticed_unusual"] == "False" and r["group"] == "high_school"]
         assert len(mine) == total
         assert {r["task"] for r in mine} == {"surprise", "search", "scan", "dice", "corsi", "reading",
                                              "rule", "ospan"}
         assert mine[0]["ret_l1_hits"] != "" and mine[0]["ret_l2_false_alarms"] != ""
         assert all(r["study_version"] and r["stimuli_version"] and r["translation_version"] for r in mine)
-        fatigue = c.get("/admin/fatigue.csv?key=test-key").text.strip().splitlines()[1:]
-        points = [row.split(",")[8] for row in fatigue if ",high_school," in row]
+        fatigue = _csv_rows(c.get("/admin/fatigue.csv?key=test-key").text)
+        points = [row["point"] for row in fatigue if row["participant_id"] == c.cookies.get("pid")]
         assert points == ["baseline"] + [f"after_round_{k}" for k in range(1, 24)] + ["final"]
         assert mine[0]["task"] == "surprise" and mine[0]["knew_gorilla_study"] == "True"
         assert {r["round"] for r in mine if r["practice"] == "False" and r["task"] != "surprise"} == \
@@ -167,7 +160,12 @@ def test_full_session_flow():
         assert c.get("/admin/export.csv?key=wrong").status_code == 403
 
 
+def _csv_rows(text):
+    return list(csv.DictReader(io.StringIO(text)))
+
+
 def test_session_stops_at_time_limit():
+    """The cap counts from the first scored stimulus, not from the start page."""
     from datetime import timedelta
     from app.db import Participant, SessionLocal, now
     c = TestClient(app)
@@ -179,11 +177,20 @@ def test_session_stops_at_time_limit():
         c.post("/notice2", data={"saw_gorilla": "yes", "knew_study": "no"})
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
-            p.created_at = now() - timedelta(minutes=60.5)
+            p.created_at = now() - timedelta(minutes=600)  # a long consent/practice does not count
+            db.commit()
+        for i in range(1, 8):  # the seven practice trials
+            _answer(c, m, i)
+        assert c.get("/trial").url.path == "/trial"  # first scored trial: the clock starts here
+        with SessionLocal() as db:
+            p = db.get(Participant, c.cookies.get("pid"))
+            assert p.deadline_at is not None
+            p.deadline_at = now() - timedelta(seconds=1)
             db.commit()
         assert c.get("/trial").url.path == "/final"
         with SessionLocal() as db:
-            assert db.get(Participant, c.cookies.get("pid")).time_capped is True
+            p = db.get(Participant, c.cookies.get("pid"))
+            assert p.time_capped is True and p.stop_reason == "time_cap"
 
 
 def _start(c, l1_reading=7, l2_reading=6, l1="tr", l2="en"):
@@ -216,8 +223,7 @@ def test_reloaded_trial_is_flagged():
         tg = {i["id"]: i for i in load_manifest()["images"]}[img_id]["target"]
         c.post("/api/trial", json={"trial_index": 0, "rt_ms": 800, "click_x": tg["x"],
                                    "click_y": tg["y"], "effort": 2})
-        rows = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()
-        last = dict(zip(rows[0].split(","), rows[-1].split(",")))
+        last = _csv_rows(c.get("/admin/export.csv?key=test-key").text)[-1]
         assert last["reloads"] == "1"
 
 
@@ -259,14 +265,18 @@ def test_every_language_file_is_complete_and_builds_every_clue():
     import re
     from app.clues import (COLOR_NAMES, DECOY_OBJECTS, N_SCAN_LEADS, N_SEARCH_LEADS, N_WHERE,
                            TARGET_OBJECTS, make_clue)
-    from app.i18n import LANGUAGES, LOCALES
+    from app.i18n import LANGUAGES, LOCALES, PENDING_UI_KEYS, verified
     assert len(LANGUAGES) == 30
     en_ui = LOCALES["en"]["ui"]
     fields = lambda text: set(re.findall(r"{(\w+)}", text))
     for code in LANGUAGES:
         loc = LOCALES[code]
         assert loc["code"] == code and loc["name"] and loc["dir"] in ("ltr", "rtl"), code
-        assert set(loc["ui"]) == set(en_ui), (code, set(en_ui) ^ set(loc["ui"]))
+        # Newer strings may still be untranslated (English is shown instead), but never in
+        # a verified language, and a file may not carry keys English lacks.
+        missing = set(en_ui) - set(loc["ui"])
+        assert missing <= PENDING_UI_KEYS and set(loc["ui"]) <= set(en_ui), (code, set(en_ui) ^ set(loc["ui"]))
+        assert not (missing and verified(code)), code
         for key, text in loc["ui"].items():
             assert text.strip(), (code, key)
             assert fields(text) == fields(en_ui[key]), (code, key)
@@ -301,9 +311,14 @@ def test_language_choice_drives_the_clue_language():
             langs.add(page.split('class="clue" lang="')[1].split('"')[0])
             _answer(c, m, i)
         assert langs == {"ja", "es"}
-        assert c.post("/background", data={"group": "adult", "age": 30, "education_years": 16,
-                      "native_lang": "ja", "l2_age_acquired": 10, "l1": "ja", "l1_reading": 7,
-                      "l2": "ja", "l2_reading": 5}).status_code == 200  # same language twice: re-asked
+    c = TestClient(app)
+    with c:
+        c.post("/start", data={"ui_lang": "en"})
+        c.post("/consent", data={"agree": "yes"})
+        r = c.post("/background", data={"group": "adult", "age": 30, "education_years": 16,
+                   "native_lang": "ja", "l2_age_acquired": 10, "l1": "ja", "l1_reading": 7,
+                   "l2": "ja", "l2_reading": 5})
+        assert r.status_code == 200 and r.url.path == "/background"  # same language twice: re-asked
 
 
 def test_right_to_left_languages_render_rtl():

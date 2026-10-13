@@ -22,7 +22,7 @@ and more educated.
 
 ## Design
 
-People keep going **until they feel exhausted** and press the "I'm exhausted" button; the time it takes is the main fatigue measure. A safety maximum ends every session after **60 minutes** (`SESSION_LIMIT_MIN`), and the consent text says so.
+People keep going **until they feel exhausted** and press the "I'm exhausted" button; the time it takes is the main fatigue measure. A safety maximum ends every session **60 minutes** (`SESSION_LIMIT_MIN`) after the first scored picture (consent, background, instructions and practice do not count), and the consent text says so. The deadline is stored once and enforced on every task screen and every write; the final questions are outside it and optional after any stop.
 
 | Part | What happens | Compared |
 |---|---|---|
@@ -132,7 +132,7 @@ uvicorn app.main:app --reload           # open http://127.0.0.1:8000
 pytest -q                               # 8 tests
 ```
 
-Admin page: `http://127.0.0.1:8000/admin?key=change-me` (CSV export from there).
+Admin page: `http://127.0.0.1:8000/admin?key=change-me` logs in (an HttpOnly cookie) and redirects to a URL without the key; the trial, session and fatigue CSV exports are linked from there.
 
 ## Analysis
 
@@ -177,7 +177,7 @@ use and adds new columns automatically when a later version needs them.
 
 Any other host that runs Python or Docker also works: the included `Dockerfile`
 generates the images and starts the server on `$PORT` with a local SQLite file.
-The server refuses to start with `IRB_APPROVED=1` while `ADMIN_KEY` is still the default.
+The server refuses to start with `IRB_APPROVED=1` or `PUBLIC_DEPLOYMENT=1` while `ADMIN_KEY` is still the default; set `PUBLIC_DEPLOYMENT=1` on every internet-facing host, demo included.
 
 ## Project layout
 
