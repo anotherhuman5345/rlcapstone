@@ -85,7 +85,14 @@
   "instr_rule": "Kadi na kanuni: kidokezo kinatoa kanuni ya kupanga; amua kama kadi iko katika kundi A au kundi B.",
   "instr_ospan": "Hesabu na maneno: sema kama kila hesabu ni sahihi, na ukumbuke neno linalofuata. Mwishoni, bofya maneno kwa mpangilio uliyoyaona.",
   "retention_title": "Ukaguzi wa mwisho wa kumbukumbu",
-  "retention_q": "Ni maneno gani kati ya haya uliyoyaona mapema katika utafiti? Weka alama kwa kila neno unalokumbuka kuliona."
+  "retention_q": "Ni maneno gani kati ya haya uliyoyaona mapema katika utafiti? Weka alama kwa kila neno unalokumbuka kuliona.",
+  "withdraw_button": "Simama / jitoe",
+  "withdraw_confirm": "Uache kushiriki sasa? Unaweza kuruka maswali yaliyobaki.",
+  "time_up": "Muda umekwisha. Kazi zimekwisha; maswali ya mwisho ni ya hiari.",
+  "bg_l2_age_invalid": "Umri ulipoanza kujifunza lugha yako nyingine hauwezi kuwa mkubwa kuliko umri wako.",
+  "final_optional": "Maswali haya ya mwisho ni ya hiari. Unaweza kuyajibu au kuyaruka.",
+  "final_skip": "Ruka na umalize",
+  "saving_retry": "Tunahifadhi jibu lako… Ikichukua muda mrefu, tafadhali angalia muunganisho wako wa intaneti."
  },
  "clue": {
   "np": "{noun} {small} rangi {color}",

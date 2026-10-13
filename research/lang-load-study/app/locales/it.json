@@ -85,7 +85,14 @@
   "instr_rule": "Carte e regole: l'indizio dà una regola di classificazione; decidi se la carta appartiene al gruppo A o al gruppo B.",
   "instr_ospan": "Somme e parole: indica se ogni somma è corretta e ricorda la parola che la segue. Alla fine, clicca sulle parole nell'ordine in cui le hai viste.",
   "retention_title": "Un ultimo controllo della memoria",
-  "retention_q": "Quali di queste parole hai visto prima nello studio? Seleziona tutte quelle che ricordi di aver visto."
+  "retention_q": "Quali di queste parole hai visto prima nello studio? Seleziona tutte quelle che ricordi di aver visto.",
+  "withdraw_button": "Interrompi / ritirati",
+  "withdraw_confirm": "Vuoi smettere di partecipare ora? Puoi saltare le domande rimanenti.",
+  "time_up": "Tempo scaduto. Le attività sono terminate; le ultime domande sono facoltative.",
+  "bg_l2_age_invalid": "L'età in cui hai iniziato a imparare l'altra lingua non può essere superiore alla tua età.",
+  "final_optional": "Queste ultime domande sono facoltative. Puoi rispondere o saltarle.",
+  "final_skip": "Salta e termina",
+  "saving_retry": "Salvataggio della risposta… Se ci vuole molto, controlla la connessione a Internet."
  },
  "clue": {
   "np": "{small} {noun} {color}",

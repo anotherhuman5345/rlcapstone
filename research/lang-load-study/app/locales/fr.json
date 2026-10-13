@@ -85,7 +85,14 @@
   "instr_rule": "Cartes et règles : l'indice donne une règle de tri ; décidez si la carte appartient au groupe A ou au groupe B.",
   "instr_ospan": "Additions et mots : dites si chaque addition est juste, et retenez le mot qui la suit. À la fin, cliquez sur les mots dans l'ordre où vous les avez vus.",
   "retention_title": "Un dernier test de mémoire",
-  "retention_q": "Lesquels de ces mots avez-vous vus plus tôt dans l'étude ? Cochez tous ceux que vous vous souvenez d'avoir vus."
+  "retention_q": "Lesquels de ces mots avez-vous vus plus tôt dans l'étude ? Cochez tous ceux que vous vous souvenez d'avoir vus.",
+  "withdraw_button": "Arrêter / me retirer",
+  "withdraw_confirm": "Arrêter de participer maintenant ? Vous pouvez passer les questions restantes.",
+  "time_up": "Temps écoulé. Les tâches sont terminées ; les dernières questions sont facultatives.",
+  "bg_l2_age_invalid": "L'âge auquel vous avez commencé à apprendre votre autre langue ne peut pas être supérieur à votre âge.",
+  "final_optional": "Ces dernières questions sont facultatives. Vous pouvez y répondre ou les passer.",
+  "final_skip": "Passer et terminer",
+  "saving_retry": "Enregistrement de votre réponse… Si cela prend du temps, vérifiez votre connexion Internet."
  },
  "clue": {
   "np": "{small} {noun} {color}",

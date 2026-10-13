@@ -85,7 +85,14 @@
   "instr_rule": "Kartu dan aturan: petunjuk memberikan aturan pengelompokan; tentukan apakah kartu itu masuk ke grup A atau grup B.",
   "instr_ospan": "Hitungan dan kata: nyatakan apakah setiap hitungan benar, dan ingat kata yang muncul sesudahnya. Di akhir, klik kata-kata sesuai urutan Anda melihatnya.",
   "retention_title": "Satu pemeriksaan ingatan terakhir",
-  "retention_q": "Kata mana saja yang sudah Anda lihat sebelumnya dalam studi ini? Centang setiap kata yang Anda ingat pernah Anda lihat."
+  "retention_q": "Kata mana saja yang sudah Anda lihat sebelumnya dalam studi ini? Centang setiap kata yang Anda ingat pernah Anda lihat.",
+  "withdraw_button": "Berhenti / mundur",
+  "withdraw_confirm": "Berhenti ikut serta sekarang? Anda boleh melewati pertanyaan yang tersisa.",
+  "time_up": "Waktu habis. Tugas sudah berakhir; pertanyaan terakhir bersifat opsional.",
+  "bg_l2_age_invalid": "Usia saat Anda mulai belajar bahasa lain Anda tidak boleh lebih tinggi dari usia Anda.",
+  "final_optional": "Pertanyaan terakhir ini bersifat opsional. Anda boleh menjawab atau melewatinya.",
+  "final_skip": "Lewati dan selesai",
+  "saving_retry": "Menyimpan jawaban Anda… Jika lama, periksa koneksi internet Anda."
  },
  "clue": {
   "np": "{noun} {color} {small}",

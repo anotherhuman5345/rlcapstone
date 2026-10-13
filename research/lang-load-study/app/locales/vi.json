@@ -85,7 +85,14 @@
   "instr_rule": "Thẻ và quy tắc: gợi ý đưa ra một quy tắc phân loại; hãy quyết định thẻ thuộc nhóm A hay nhóm B.",
   "instr_ospan": "Phép tính và từ: hãy cho biết mỗi phép tính đúng hay sai, và ghi nhớ từ xuất hiện ngay sau đó. Cuối cùng, hãy nhấp vào các từ theo thứ tự bạn đã thấy.",
   "retention_title": "Một bài kiểm tra trí nhớ cuối cùng",
-  "retention_q": "Bạn đã thấy những từ nào trong số này ở phần trước của nghiên cứu? Hãy đánh dấu mọi từ bạn nhớ là đã thấy."
+  "retention_q": "Bạn đã thấy những từ nào trong số này ở phần trước của nghiên cứu? Hãy đánh dấu mọi từ bạn nhớ là đã thấy.",
+  "withdraw_button": "Dừng / rút lui",
+  "withdraw_confirm": "Dừng tham gia ngay bây giờ? Bạn có thể bỏ qua các câu hỏi còn lại.",
+  "time_up": "Hết giờ. Các nhiệm vụ đã kết thúc; các câu hỏi cuối là không bắt buộc.",
+  "bg_l2_age_invalid": "Tuổi khi bạn bắt đầu học ngôn ngữ kia không thể lớn hơn tuổi của bạn.",
+  "final_optional": "Các câu hỏi cuối này không bắt buộc. Bạn có thể trả lời hoặc bỏ qua.",
+  "final_skip": "Bỏ qua và hoàn thành",
+  "saving_retry": "Đang lưu câu trả lời của bạn… Nếu mất nhiều thời gian, vui lòng kiểm tra kết nối internet."
  },
  "clue": {
   "np": "{noun} {small} màu {color}",

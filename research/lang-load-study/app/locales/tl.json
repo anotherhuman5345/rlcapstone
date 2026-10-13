@@ -85,7 +85,14 @@
   "instr_rule": "Mga kard at panuntunan: nagbibigay ang clue ng panuntunan sa pag-uuri; tukuyin kung ang kard ay kabilang sa grupo A o grupo B.",
   "instr_ospan": "Mga kuwenta at salita: sabihin kung tama ang bawat kuwenta, at tandaan ang salitang kasunod nito. Sa dulo, i-click ang mga salita ayon sa pagkakasunod-sunod na nakita mo.",
   "retention_title": "Isang huling pagsubok sa memorya",
-  "retention_q": "Alin sa mga salitang ito ang nakita mo kanina sa pag-aaral? Lagyan ng tsek ang bawat isang naaalala mong nakita."
+  "retention_q": "Alin sa mga salitang ito ang nakita mo kanina sa pag-aaral? Lagyan ng tsek ang bawat isang naaalala mong nakita.",
+  "withdraw_button": "Huminto / umatras",
+  "withdraw_confirm": "Titigil na sa pagsali ngayon? Puwede mong laktawan ang natitirang mga tanong.",
+  "time_up": "Ubos na ang oras. Tapos na ang mga gawain; opsyonal ang mga huling tanong.",
+  "bg_l2_age_invalid": "Hindi puwedeng mas mataas sa edad mo ang edad mo nang magsimula kang mag-aral ng ibang wika mo.",
+  "final_optional": "Opsyonal ang mga huling tanong na ito. Puwede mong sagutin o laktawan ang mga ito.",
+  "final_skip": "Laktawan at tapusin",
+  "saving_retry": "Sine-save ang sagot mo… Kung matagal ito, pakitingnan ang koneksyon mo sa internet."
  },
  "clue": {
   "np": "{small} {color} {noun}",
