@@ -1,0 +1,546 @@
+{
+ "code": "id",
+ "verified": false,
+ "note": "Bacaan asli yang ditulis untuk penelitian ini. Butir ke-k dalam setiap bahasa harus memiliki makna yang sama dan urutan pilihan yang sama; periksa bersama peninjau dwibahasa sebelum digunakan sungguhan.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Toko roti Lena buka pukul tujuh. Setiap hari Senin, toko itu buka satu jam lebih lambat karena ovennya dibersihkan pada Minggu malam. Hari ini hari Senin.",
+   "question": "Pukul berapa toko roti itu buka hari ini?",
+   "options": [
+    "Pukul tujuh",
+    "Pukul delapan",
+    "Pukul enam"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Bus sekolah berangkat dari perpustakaan. Mira selalu sempat naik bus itu, tetapi pagi ini dia ketinggalan karena berhenti untuk membantu tetangganya mengangkat kotak-kotak. Bus berikutnya datang dua puluh menit kemudian.",
+   "question": "Mengapa Mira akan tiba lebih lambat dari biasanya?",
+   "options": [
+    "Dia membantu tetangga dan ketinggalan bus",
+    "Busnya mogok",
+    "Perpustakaannya tutup"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar menyiram tanaman tomat setiap sore. Tadi malam hujan turun dengan deras, jadi dia tidak menyiramnya. Pagi ini tanahnya masih basah.",
+   "question": "Mengapa Omar tidak menyiram tanaman tomat tadi malam?",
+   "options": [
+    "Tomatnya sudah dipetik",
+    "Hujan sudah menyiraminya",
+    "Dia lupa"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Di museum, ruang biru berisi lukisan dan ruang hijau berisi patung. Pemandu berkata bahwa benda tertua di museum itu terbuat dari batu dan berdiri di ruang hijau.",
+   "question": "Benda tertua itu termasuk jenis apa?",
+   "options": [
+    "Lukisan",
+    "Foto",
+    "Patung"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Tiket kereta Deniz lebih murah pada hari kerja. Dia ingin mengunjungi bibinya pada hari Sabtu, tetapi memindahkan perjalanannya ke hari Jumat untuk menghemat uang.",
+   "question": "Mengapa Deniz bepergian pada hari Jumat?",
+   "options": [
+    "Tiket lebih murah pada hari kerja",
+    "Tidak ada kereta pada hari Sabtu",
+    "Bibinya sibuk pada hari Sabtu"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Klub itu berkumpul di ruang 4, kecuali jika lebih dari dua puluh orang mendaftar. Jika begitu, pertemuan pindah ke aula. Minggu ini, dua puluh enam orang mendaftar.",
+   "question": "Di mana klub itu berkumpul minggu ini?",
+   "options": [
+    "Klub tidak akan berkumpul",
+    "Di ruang 4",
+    "Di aula"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Baterai ponsel Kemal tahan seharian penuh. Kemarin dia memakai peta sepanjang sore, yang membuat baterai cepat habis, dan ponselnya mati sebelum makan malam.",
+   "question": "Mengapa ponselnya mati lebih cepat?",
+   "options": [
+    "Peta memakai banyak baterai",
+    "Ponselnya masih baru",
+    "Dia lupa menyalakannya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Sebuah toko memberikan kopi gratis kepada siapa saja yang membeli dua roti lapis. Ana membeli satu roti lapis dan satu jus. Temannya membeli dua roti lapis.",
+   "question": "Siapa yang mendapat kopi gratis?",
+   "options": [
+    "Teman Ana",
+    "Mereka berdua",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "Gerbang taman ditutup saat matahari terbenam. Pada musim dingin matahari terbenam sekitar pukul lima, dan pada musim panas sekitar pukul delapan. Tom tiba di taman pukul enam pada suatu sore di musim dingin.",
+   "question": "Apakah Tom bisa masuk ke taman?",
+   "options": [
+    "Hanya lewat gerbang belakang",
+    "Ya, gerbangnya masih buka",
+    "Tidak, gerbangnya sudah tutup"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Setiap murid di kelas Bu Kaya harus membawa kalkulator saat ujian. Selim ada di kelasnya. Pada hari ujian, kalkulatornya tertinggal di rumah.",
+   "question": "Apa yang dilupakan Selim?",
+   "options": [
+    "Kertas ujiannya",
+    "Sesuatu yang diperlukan untuk ujian",
+    "Nama gurunya"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Daun pohon ek tua menguning lebih dulu daripada pohon lain mana pun di kebun. Tahun ini, daun kuning pertama di kebun muncul pada awal Oktober.",
+   "question": "Kapan daun pohon ek mulai menguning?",
+   "options": [
+    "Pada bulan Desember",
+    "Setelah semua pohon lain",
+    "Pada awal Oktober"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "Perpustakaan meminjamkan buku selama dua minggu. Buku yang terlambat dikembalikan dikenai denda kecil per hari. Sam mengembalikan buku tiga hari setelah dua minggu itu berakhir.",
+   "question": "Apa yang terjadi ketika Sam mengembalikan buku itu?",
+   "options": [
+    "Tidak ada, bukunya tepat waktu",
+    "Dia membayar denda keterlambatan",
+    "Dia mendapat kartu baru"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana hanya minum teh tanpa gula. Di kafe, pelayan membawakannya teh dengan dua sendok gula yang sudah diaduk di dalamnya. Dia mengembalikan teh itu.",
+   "question": "Mengapa Hana mengembalikan tehnya?",
+   "options": [
+    "Tehnya dingin",
+    "Tehnya sudah diberi gula",
+    "Itu kopi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Gedung tertinggi di kota itu memiliki dua belas lantai. Klinik berada di lantai paling atas gedung itu, dan liftnya rusak hari ini.",
+   "question": "Bagaimana pengunjung akan sampai ke klinik hari ini?",
+   "options": [
+    "Dengan naik tangga ke lantai dua belas",
+    "Kliniknya sudah pindah",
+    "Dengan lift"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Tanaman di balik tembok tinggi kebun hanya mendapat sedikit sinar matahari. Ayla memindahkan tanaman kemanginya dari balik tembok ke balkon yang terbuka, dan dalam seminggu tanaman itu tumbuh jauh lebih cepat.",
+   "question": "Apa yang kemungkinan besar membantu kemangi itu tumbuh?",
+   "options": [
+    "Pot baru",
+    "Lebih banyak sinar matahari",
+    "Lebih sedikit air"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Sebuah resep membutuhkan tiga butir telur untuk satu kue. Burak ingin membuat dua kue dan dia punya empat butir telur.",
+   "question": "Apa yang dibutuhkan Burak?",
+   "options": [
+    "Tidak ada, telurnya sudah cukup",
+    "Dua butir telur lagi",
+    "Satu butir telur lagi"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Konser dimulai pukul delapan. Pintu dibuka satu jam sebelum konser. Lara tiba pukul tujuh lewat seperempat.",
+   "question": "Apakah pintu sudah dibuka saat Lara tiba?",
+   "options": [
+    "Ya, pintu sudah dibuka pukul tujuh",
+    "Dia tiba setelah konser selesai",
+    "Tidak, pintu dibuka pukul delapan"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Kucing di penampungan diberi makan pada pagi hari. Anjing diberi makan pada pagi hari dan sekali lagi pada sore hari. Max, seekor anjing, diadopsi pukul dua belas siang.",
+   "question": "Berapa kali Max diberi makan di penampungan hari itu?",
+   "options": [
+    "Tidak sama sekali",
+    "Satu kali",
+    "Dua kali"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Es di danau aman untuk dipijak hanya jika tebalnya paling sedikit sepuluh sentimeter. Pada hari Senin tebalnya delapan sentimeter, dan sampai hari Rabu bertambah dua sentimeter.",
+   "question": "Apakah es itu aman pada hari Rabu?",
+   "options": [
+    "Tidak, masih terlalu tipis",
+    "Ya, tebalnya sudah mencapai sepuluh sentimeter",
+    "Danaunya sudah mencair"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Jam tangan Emre lima menit terlalu cepat. Jam tangannya menunjukkan pukul 9.05 ketika dia masuk ke kelas, tepat saat pelajaran dimulai.",
+   "question": "Pukul berapa pelajaran dimulai?",
+   "options": [
+    "9.05",
+    "9.10",
+    "9.00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Hanya anggota yang boleh meminjam perahu klub. Keanggotaan dikenai biaya tahunan. Nadia sudah membayar biaya itu minggu lalu.",
+   "question": "Apakah Nadia bisa meminjam perahu sekarang?",
+   "options": [
+    "Hanya pada akhir pekan",
+    "Tidak, dia bukan anggota",
+    "Ya, sekarang dia anggota"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "Jalan utara ditutup karena perbaikan. Jalan selatan lebih jauh tetapi bisa dilewati. Sebuah truk pengiriman harus sampai di desa itu hari ini.",
+   "question": "Jalan mana yang kemungkinan besar dilewati truk itu?",
+   "options": [
+    "Jalan utara",
+    "Jalan selatan",
+    "Tidak keduanya; truk itu tidak berangkat"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Sebuah tanaman perlu disiram setiap tiga hari. Tanaman itu disiram pada hari Senin.",
+   "question": "Pada hari apa tanaman itu perlu disiram lagi?",
+   "options": [
+    "Kamis",
+    "Sabtu",
+    "Rabu"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Map merah berisi tagihan yang belum dibayar. Tagihan yang sudah dibayar disimpan di map hitam. Yusuf membayar tagihan listrik tadi pagi.",
+   "question": "Di mana seharusnya tagihan listrik itu sekarang?",
+   "options": [
+    "Di tempat sampah",
+    "Di map merah",
+    "Di map hitam"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Semua burung di dalam sangkar bisa berkicau kecuali yang paling kecil. Burung kuning adalah yang paling kecil di sangkar itu.",
+   "question": "Apa yang kita ketahui tentang burung kuning?",
+   "options": [
+    "Ia paling sering berkicau",
+    "Ia tidak bisa berkicau",
+    "Ia yang paling tua"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Toko roti itu menjual roti sampai pukul dua belas siang. Setelah pukul dua belas siang, toko itu hanya menjual kue. Eda pergi ke toko roti itu pukul dua siang untuk membeli roti.",
+   "question": "Apa yang bisa dibeli Eda pukul dua siang?",
+   "options": [
+    "Roti",
+    "Hanya kue",
+    "Tidak ada"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Ban sepeda Selin kempis. Bengkel tutup pukul lima, dan berjalan kaki ke sana memakan waktu satu jam. Selin berangkat dari rumah pukul setengah lima.",
+   "question": "Apakah Selin akan sampai di bengkel sebelum tutup?",
+   "options": [
+    "Tidak, dia akan tiba setelah pukul lima",
+    "Bengkel itu buka sepanjang malam",
+    "Ya, dengan mudah"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Semua buku di rak paling atas berbahasa Prancis. Kamus itu ada di rak paling atas.",
+   "question": "Kamus itu dalam bahasa apa?",
+   "options": [
+    "Kita tidak bisa tahu",
+    "Bahasa Inggris",
+    "Bahasa Prancis"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali memberi makan kucing ketika saudara perempuannya sedang pergi. Minggu ini saudara perempuannya sedang mengunjungi nenek mereka.",
+   "question": "Siapa yang memberi makan kucing minggu ini?",
+   "options": [
+    "Ali",
+    "Saudara perempuannya",
+    "Nenek mereka"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Kolam renang tutup pada hari-hari ketika hujan turun. Pada hari Selasa hujan turun sepanjang hari.",
+   "question": "Apakah kolam renang buka pada hari Selasa?",
+   "options": [
+    "Tidak",
+    "Hanya pada pagi hari",
+    "Ya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Setiap murid yang menyelesaikan proyeknya mendapat sertifikat. Mert menyelesaikan proyeknya Jumat lalu.",
+   "question": "Apakah Mert akan mendapat sertifikat?",
+   "options": [
+    "Baru tahun depan",
+    "Tidak",
+    "Ya"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Bus hijau pergi ke bandara. Bus biru pergi ke stadion. Leyla harus mengejar penerbangan.",
+   "question": "Bus mana yang sebaiknya dinaiki Leyla?",
+   "options": [
+    "Bus biru",
+    "Bus hijau",
+    "Bus mana saja"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Es krim cepat meleleh di bawah sinar matahari. Can meninggalkan es krimnya di meja yang terkena sinar matahari selama dua puluh menit.",
+   "question": "Apa yang kemungkinan besar terjadi pada es krim itu?",
+   "options": [
+    "Meleleh",
+    "Menghilang ke dalam kotak",
+    "Membeku makin keras"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Museum itu gratis untuk anak di bawah dua belas tahun. Zeynep berumur sepuluh tahun.",
+   "question": "Berapa yang harus dibayar Zeynep untuk masuk?",
+   "options": [
+    "Setengah harga",
+    "Tidak membayar apa pun",
+    "Harga penuh"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Kereta berangkat setiap tiga puluh menit, mulai pukul enam. Arda tiba di stasiun pukul enam lewat empat puluh menit.",
+   "question": "Kapan kereta berikutnya setelah Arda tiba?",
+   "options": [
+    "Pukul setengah tujuh",
+    "Pukul tujuh",
+    "Pukul setengah delapan"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Hanya pemain yang datang latihan yang boleh bermain dalam pertandingan. Burcu tidak ikut latihan karena sakit.",
+   "question": "Apakah Burcu boleh bermain dalam pertandingan?",
+   "options": [
+    "Tidak",
+    "Hanya sebagai kapten",
+    "Ya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Petani itu menempatkan domba-dombanya di kandang ketika salju turun. Tadi malam salju turun dengan lebat.",
+   "question": "Di mana domba-domba itu tadi malam?",
+   "options": [
+    "Di jalan",
+    "Di padang rumput",
+    "Di kandang"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Teh di kafe ini lebih murah daripada kopi. Ece memesan kopi dan Kaan memesan teh.",
+   "question": "Siapa yang membayar lebih sedikit?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Mereka membayar sama"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Pintu kiri gedung itu untuk masuk. Pintu kanan untuk keluar. Murat akan masuk ke gedung itu.",
+   "question": "Pintu mana yang sebaiknya dipakai Murat?",
+   "options": [
+    "Pintu kanan",
+    "Pintu mana saja",
+    "Pintu kiri"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Tanaman di rumah kaca disiram pada tanggal genap. Hari ini tanggal empat belas.",
+   "question": "Apakah tanaman disiram hari ini?",
+   "options": [
+    "Hanya separuhnya",
+    "Ya",
+    "Tidak"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora selalu membawa payung jika prakiraan cuaca mengatakan akan hujan. Prakiraan cuaca hari ini mengatakan cerah sepanjang hari.",
+   "question": "Apakah Nora kemungkinan besar membawa payung hari ini?",
+   "options": [
+    "Ya",
+    "Tidak",
+    "Dia membawa dua"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Diskon toko itu hanya berlaku untuk sepatu. Efe membeli sebuah jaket dan sepasang sepatu.",
+   "question": "Barang mana yang mendapat diskon?",
+   "options": [
+    "Sepatunya",
+    "Keduanya",
+    "Jaketnya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Seorang pelari harus menyelesaikan lomba dalam waktu kurang dari satu jam untuk mendapat medali. Deniz selesai dalam lima puluh dua menit.",
+   "question": "Apakah Deniz mendapat medali?",
+   "options": [
+    "Lombanya dibatalkan",
+    "Ya",
+    "Tidak"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Resep itu mengatakan garam ditambahkan setelah air mendidih. Oya menambahkan garam sebelum menyalakan kompor.",
+   "question": "Apakah Oya mengikuti resep?",
+   "options": [
+    "Ya",
+    "Tidak",
+    "Resep itu tidak memakai garam"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Gerbang kebun dikunci setiap malam pukul sepuluh. Sena pulang pukul sebelas tanpa membawa kunci.",
+   "question": "Apakah Sena bisa membuka gerbang itu?",
+   "options": [
+    "Tidak",
+    "Gerbangnya sudah terbuka",
+    "Ya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Burung-burung muda meninggalkan sarang ketika bulu mereka sudah tumbuh lengkap. Bulu burung-burung di sarang pohon ek sudah tumbuh lengkap.",
+   "question": "Apa yang akan dilakukan burung-burung di sarang pohon ek?",
+   "options": [
+    "Membangun pohon baru",
+    "Tinggal di sana selamanya",
+    "Meninggalkan sarang"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Tiket untuk pertunjukan malam sudah habis terjual. Kerem ingin membeli tiket untuk pertunjukan malam.",
+   "question": "Apakah Kerem bisa membeli tiket itu?",
+   "options": [
+    "Ya",
+    "Tidak",
+    "Hanya secara daring"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Kapal tidak bisa meninggalkan pelabuhan ketika angin sangat kencang. Hari ini angin sangat kencang.",
+   "question": "Apakah kapal-kapal bisa meninggalkan pelabuhan hari ini?",
+   "options": [
+    "Tidak",
+    "Hanya kapal-kapal kecil",
+    "Ya"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Guru mengumpulkan pekerjaan rumah setiap hari Kamis. Hari ini hari Rabu, dan pekerjaan rumah Pelin sudah selesai.",
+   "question": "Kapan Pelin akan menyerahkan pekerjaan rumahnya?",
+   "options": [
+    "Minggu depan",
+    "Hari ini",
+    "Besok"
+   ],
+   "answer": 2
+  }
+ ]
+}

@@ -1,0 +1,546 @@
+{
+ "code": "fr",
+ "verified": false,
+ "note": "Textes originaux rédigés pour cette étude. L'item k doit avoir le même sens et le même ordre d'options dans toutes les langues ; faites-le vérifier par un relecteur bilingue avant toute utilisation réelle.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "La boulangerie de Lena ouvre à sept heures. Le lundi, elle ouvre une heure plus tard, car le four est nettoyé le dimanche soir. Aujourd'hui, nous sommes lundi.",
+   "question": "À quelle heure la boulangerie ouvre-t-elle aujourd'hui ?",
+   "options": [
+    "À sept heures",
+    "À huit heures",
+    "À six heures"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "Le bus scolaire part de la bibliothèque. Mira le prend toujours, mais ce matin elle l'a raté parce qu'elle s'est arrêtée pour aider un voisin à porter des cartons. Le bus suivant passe vingt minutes plus tard.",
+   "question": "Pourquoi Mira arrivera-t-elle plus tard que d'habitude ?",
+   "options": [
+    "Elle a aidé un voisin et a raté son bus",
+    "Le bus est tombé en panne",
+    "La bibliothèque était fermée"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar arrose les tomates tous les soirs. Hier soir, il a beaucoup plu, alors il ne les a pas arrosées. Ce matin, la terre était encore mouillée.",
+   "question": "Pourquoi Omar n'a-t-il pas arrosé les tomates hier soir ?",
+   "options": [
+    "Les tomates avaient été cueillies",
+    "La pluie les avait déjà arrosées",
+    "Il a oublié"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "Au musée, la salle bleue contient des peintures et la salle verte des sculptures. Le guide a dit que la pièce la plus ancienne du musée est en pierre et se trouve dans la salle verte.",
+   "question": "Quel type d'objet est la pièce la plus ancienne ?",
+   "options": [
+    "Une peinture",
+    "Une photographie",
+    "Une sculpture"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Le billet de train de Deniz coûte moins cher en semaine. Elle voulait rendre visite à sa tante samedi, mais elle a avancé le voyage à vendredi pour économiser de l'argent.",
+   "question": "Pourquoi Deniz a-t-elle voyagé vendredi ?",
+   "options": [
+    "Le billet est moins cher en semaine",
+    "Il n'y avait pas de train samedi",
+    "Sa tante était occupée samedi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "Le club se réunit dans la salle 4, sauf si plus de vingt personnes s'inscrivent. Dans ce cas, il se réunit dans la grande salle. Cette semaine, vingt-six personnes se sont inscrites.",
+   "question": "Où le club se réunira-t-il cette semaine ?",
+   "options": [
+    "Il ne se réunira pas",
+    "Dans la salle 4",
+    "Dans la grande salle"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "La batterie du téléphone de Kemal tient une journée entière. Hier, il a utilisé l'application de cartes tout l'après-midi, ce qui vide vite la batterie, et le téléphone s'est éteint avant le dîner.",
+   "question": "Pourquoi le téléphone s'est-il éteint plus tôt que prévu ?",
+   "options": [
+    "L'application de cartes a consommé beaucoup de batterie",
+    "Le téléphone était neuf",
+    "Il a oublié de l'allumer"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "Un magasin offre un café à toute personne qui achète deux sandwichs. Ana a acheté un sandwich et un jus. Son amie a acheté deux sandwichs.",
+   "question": "Qui a eu un café gratuit ?",
+   "options": [
+    "L'amie d'Ana",
+    "Les deux",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "La grille du parc ferme au coucher du soleil. En hiver, le soleil se couche vers 17 h, et en été vers 20 h. Tom est arrivé au parc à 18 h, un soir d'hiver.",
+   "question": "Tom a-t-il pu entrer dans le parc ?",
+   "options": [
+    "Seulement par le portail arrière",
+    "Oui, il était ouvert",
+    "Non, le portail était déjà fermé"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Tous les élèves de la classe de Mme Kaya doivent apporter une calculatrice à l'examen. Selim est dans sa classe. Le jour de l'examen, sa calculatrice était restée à la maison.",
+   "question": "Qu'est-ce que Selim a oublié ?",
+   "options": [
+    "Sa copie d'examen",
+    "Une chose exigée pour l'examen",
+    "Le nom de sa professeure"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Les feuilles du vieux chêne jaunissent avant celles de tous les autres arbres du jardin. Cette année, les premières feuilles jaunes du jardin sont apparues début octobre.",
+   "question": "Quand les feuilles du chêne ont-elles commencé à jaunir ?",
+   "options": [
+    "En décembre",
+    "Après tous les autres arbres",
+    "Début octobre"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "La bibliothèque prête les livres pour deux semaines. Chaque jour de retard coûte une petite pénalité. Sam a rendu un livre trois jours après la fin des deux semaines.",
+   "question": "Que s'est-il passé quand Sam a rendu le livre ?",
+   "options": [
+    "Rien, il était dans les temps",
+    "Il a payé une pénalité de retard",
+    "Il a reçu une nouvelle carte"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana boit son thé uniquement sans sucre. Au café, le serveur lui a apporté un thé avec deux cuillerées de sucre déjà mélangées. Elle l'a renvoyé.",
+   "question": "Pourquoi Hana a-t-elle renvoyé le thé ?",
+   "options": [
+    "Il était froid",
+    "Il contenait déjà du sucre",
+    "C'était du café"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "Le plus haut immeuble de la ville compte douze étages. Le cabinet médical se trouve au dernier étage de cet immeuble, et l'ascenseur est en panne aujourd'hui.",
+   "question": "Comment les visiteurs iront-ils au cabinet médical aujourd'hui ?",
+   "options": [
+    "En montant l'escalier jusqu'au douzième étage",
+    "Le cabinet médical a déménagé",
+    "En ascenseur"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Les plantes derrière le haut mur du jardin reçoivent peu de soleil. Ayla a déplacé son basilic de derrière le mur vers le balcon dégagé, et en une semaine il a poussé beaucoup plus vite.",
+   "question": "Qu'est-ce qui a le plus probablement aidé le basilic à pousser ?",
+   "options": [
+    "Un nouveau pot",
+    "Plus de lumière du soleil",
+    "Moins d'eau"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "Une recette demande trois œufs pour un gâteau. Burak veut faire deux gâteaux et il a quatre œufs.",
+   "question": "De quoi Burak a-t-il besoin ?",
+   "options": [
+    "De rien, il en a assez",
+    "De deux œufs de plus",
+    "D'un œuf de plus"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "Le concert commence à 20 h. Les portes ouvrent une heure avant le concert. Lara est arrivée à 19 h 15.",
+   "question": "Les portes étaient-elles ouvertes quand Lara est arrivée ?",
+   "options": [
+    "Oui, elles avaient ouvert à 19 h",
+    "Elle est arrivée après le concert",
+    "Non, elles ont ouvert à 20 h"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Au refuge, les chats sont nourris le matin. Les chiens sont nourris le matin, puis de nouveau le soir. Max, un chien, a été adopté à midi.",
+   "question": "Combien de repas Max a-t-il eus au refuge ce jour-là ?",
+   "options": [
+    "Aucun",
+    "Un",
+    "Deux"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "On ne peut marcher sans danger sur la glace du lac que si elle fait au moins dix centimètres d'épaisseur. Lundi, elle faisait huit centimètres, et mercredi, elle avait gagné deux centimètres.",
+   "question": "La glace était-elle sûre mercredi ?",
+   "options": [
+    "Non, elle était encore trop fine",
+    "Oui, elle avait atteint dix centimètres",
+    "Le lac avait dégelé"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "La montre d'Emre avance de cinq minutes. Elle indiquait 9 h 05 quand il est entré en classe, exactement au début du cours.",
+   "question": "À quelle heure le cours a-t-il commencé ?",
+   "options": [
+    "9 h 05",
+    "9 h 10",
+    "9 h 00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Seuls les membres peuvent emprunter les bateaux du club. Pour être membre, il faut payer une cotisation annuelle. Nadia a payé la cotisation la semaine dernière.",
+   "question": "Nadia peut-elle emprunter un bateau maintenant ?",
+   "options": [
+    "Seulement le week-end",
+    "Non, elle n'est pas membre",
+    "Oui, elle est maintenant membre"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "La route du nord est fermée pour travaux. La route du sud est plus longue, mais ouverte. Un camion de livraison devait arriver au village aujourd'hui.",
+   "question": "Quelle route le camion a-t-il le plus probablement prise ?",
+   "options": [
+    "La route du nord",
+    "La route du sud",
+    "Aucune ; il est resté sur place"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "Une plante a besoin d'eau tous les trois jours. Elle a été arrosée lundi.",
+   "question": "Quel jour aura-t-elle de nouveau besoin d'eau ?",
+   "options": [
+    "Jeudi",
+    "Samedi",
+    "Mercredi"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "Le classeur rouge contient les factures impayées. Les factures payées vont dans le classeur noir. Yusuf a payé la facture d'électricité ce matin.",
+   "question": "Où devrait se trouver la facture d'électricité maintenant ?",
+   "options": [
+    "À la poubelle",
+    "Dans le classeur rouge",
+    "Dans le classeur noir"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Tous les oiseaux de la cage savent chanter, sauf le plus petit. L'oiseau jaune est le plus petit de la cage.",
+   "question": "Que savons-nous de l'oiseau jaune ?",
+   "options": [
+    "C'est lui qui chante le plus",
+    "Il ne sait pas chanter",
+    "C'est le plus vieux"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "La boulangerie vend du pain jusqu'à midi. Après midi, elle ne vend que des gâteaux. Eda est allée à la boulangerie à 14 h pour acheter du pain.",
+   "question": "Qu'est-ce qu'Eda pouvait acheter à 14 h ?",
+   "options": [
+    "Du pain",
+    "Seulement des gâteaux",
+    "Rien"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Le vélo de Selin a un pneu crevé. L'atelier de réparation ferme à 17 h, et il faut une heure pour y aller à pied. Selin est partie de chez elle à 16 h 30.",
+   "question": "Selin arrivera-t-elle à l'atelier avant la fermeture ?",
+   "options": [
+    "Non, elle arrivera après 17 h",
+    "L'atelier est ouvert toute la nuit",
+    "Oui, facilement"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "Tous les livres de l'étagère du haut sont en français. Le dictionnaire est sur l'étagère du haut.",
+   "question": "En quelle langue est le dictionnaire ?",
+   "options": [
+    "On ne peut pas savoir",
+    "En anglais",
+    "En français"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ali nourrit le chat quand sa sœur n'est pas là. Cette semaine, sa sœur rend visite à leur grand-mère.",
+   "question": "Qui nourrit le chat cette semaine ?",
+   "options": [
+    "Ali",
+    "Sa sœur",
+    "Leur grand-mère"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "La piscine est fermée les jours de pluie. Mardi, il a plu toute la journée.",
+   "question": "La piscine était-elle ouverte mardi ?",
+   "options": [
+    "Non",
+    "Seulement le matin",
+    "Oui"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Chaque élève qui a terminé le projet reçoit un certificat. Mert a terminé son projet vendredi dernier.",
+   "question": "Mert recevra-t-il un certificat ?",
+   "options": [
+    "Seulement l'année prochaine",
+    "Non",
+    "Oui"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Le bus vert va à l'aéroport. Le bus bleu va au stade. Leyla doit prendre un avion.",
+   "question": "Quel bus Leyla doit-elle prendre ?",
+   "options": [
+    "Le bus bleu",
+    "Le bus vert",
+    "N'importe lequel des deux"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "La glace fond vite au soleil. Can a laissé sa glace sur une table au soleil pendant vingt minutes.",
+   "question": "Que s'est-il le plus probablement passé avec la glace ?",
+   "options": [
+    "Elle a fondu",
+    "Elle a disparu dans une boîte",
+    "Elle a durci encore plus"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Le musée est gratuit pour les enfants de moins de douze ans. Zeynep a dix ans.",
+   "question": "Combien Zeynep paie-t-elle pour entrer ?",
+   "options": [
+    "Demi-tarif",
+    "Rien",
+    "Plein tarif"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Un train part toutes les trente minutes à partir de six heures. Arda est arrivé à la gare à six heures quarante.",
+   "question": "À quelle heure part le prochain train après l'arrivée d'Arda ?",
+   "options": [
+    "À six heures et demie",
+    "À sept heures",
+    "À sept heures et demie"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Seuls les joueurs qui viennent à l'entraînement peuvent jouer le match. Burcu a manqué l'entraînement parce qu'elle était malade.",
+   "question": "Burcu peut-elle jouer le match ?",
+   "options": [
+    "Non",
+    "Seulement comme capitaine",
+    "Oui"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Le fermier garde les moutons dans la grange quand il neige. Il a beaucoup neigé hier soir.",
+   "question": "Où étaient les moutons hier soir ?",
+   "options": [
+    "Sur la route",
+    "Dans le pré",
+    "Dans la grange"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Dans ce café, le thé coûte moins cher que le café. Ece a pris un café et Kaan un thé.",
+   "question": "Qui a payé le moins ?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Ils ont payé la même chose"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "La porte de gauche du bâtiment sert à entrer. La porte de droite sert à sortir. Murat va entrer dans le bâtiment.",
+   "question": "Quelle porte Murat doit-il utiliser ?",
+   "options": [
+    "La porte de droite",
+    "N'importe laquelle",
+    "La porte de gauche"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Les plantes de la serre sont arrosées les jours pairs. Aujourd'hui, nous sommes le quatorze.",
+   "question": "Les plantes sont-elles arrosées aujourd'hui ?",
+   "options": [
+    "Seulement la moitié",
+    "Oui",
+    "Non"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora prend toujours un parapluie quand la météo annonce de la pluie. Aujourd'hui, la météo annonce du soleil toute la journée.",
+   "question": "Nora a-t-elle probablement pris un parapluie aujourd'hui ?",
+   "options": [
+    "Oui",
+    "Non",
+    "Elle en a pris deux"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "La remise du magasin s'applique uniquement aux chaussures. Efe a acheté une veste et une paire de chaussures.",
+   "question": "Quel article a bénéficié de la remise ?",
+   "options": [
+    "Les chaussures",
+    "Les deux",
+    "La veste"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Pour gagner une médaille, un coureur doit terminer la course en moins d'une heure. Deniz a terminé en cinquante-deux minutes.",
+   "question": "Deniz a-t-elle gagné une médaille ?",
+   "options": [
+    "La course a été annulée",
+    "Oui",
+    "Non"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "La recette dit d'ajouter le sel une fois que l'eau bout. Oya a ajouté le sel avant d'allumer le feu.",
+   "question": "Oya a-t-elle suivi la recette ?",
+   "options": [
+    "Oui",
+    "Non",
+    "La recette ne contient pas de sel"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Le portail du jardin est fermé à clé tous les soirs à 22 h. Sena est rentrée à 23 h sans clé.",
+   "question": "Sena a-t-elle pu ouvrir le portail ?",
+   "options": [
+    "Non",
+    "Il était déjà ouvert",
+    "Oui"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Les jeunes oiseaux quittent le nid quand leurs plumes ont fini de pousser. Les plumes des oiseaux du nid du chêne ont fini de pousser.",
+   "question": "Que vont faire les oiseaux du nid du chêne ?",
+   "options": [
+    "Construire un nouvel arbre",
+    "Rester pour toujours",
+    "Quitter le nid"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Les billets pour le spectacle du soir sont épuisés. Kerem voulait acheter un billet pour le spectacle du soir.",
+   "question": "Kerem a-t-il pu acheter ce billet ?",
+   "options": [
+    "Oui",
+    "Non",
+    "Seulement en ligne"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Les bateaux ne peuvent pas quitter le port quand le vent est très fort. Aujourd'hui, le vent est très fort.",
+   "question": "Les bateaux peuvent-ils quitter le port aujourd'hui ?",
+   "options": [
+    "Non",
+    "Seulement les petits",
+    "Oui"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Le professeur ramasse les devoirs le jeudi. Aujourd'hui, nous sommes mercredi, et les devoirs de Pelin sont terminés.",
+   "question": "Quand Pelin rendra-t-elle ses devoirs ?",
+   "options": [
+    "La semaine prochaine",
+    "Aujourd'hui",
+    "Demain"
+   ],
+   "answer": 2
+  }
+ ]
+}
