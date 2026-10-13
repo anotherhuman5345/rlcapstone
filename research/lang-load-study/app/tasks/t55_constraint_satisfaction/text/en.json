@@ -1,0 +1,56 @@
+{
+ "instr": "Order: put the animals in a row so that every sentence is true.",
+ "clue": "Read the sentences, then put each animal in one of the numbered places so that all the sentences are true. Place 1 is on the far left. Click an animal (or move to it with Tab and press Enter), then click a place. Click a filled place to pick its animal up again. Press Done when every place is filled. Press Start when ready.",
+ "start": "Start",
+ "done": "Done",
+ "give_up": "Give up",
+ "setting": "The animals stand in a row of numbered places, from place 1 on the left to the last place on the right.",
+ "row": "The row",
+ "tray": "Animals not yet placed",
+ "place": "Place",
+ "templates": {
+  "left_of": "The {a} is somewhere to the left of the {b}.",
+  "next_left": "The {a} is directly to the left of the {b}.",
+  "adjacent": "The {a} and the {b} are next to each other.",
+  "not_adjacent": "The {a} and the {b} are not next to each other.",
+  "at": "The {a} is in place {p}.",
+  "not_at": "The {a} is not in place {p}.",
+  "end": "The {a} is either first or last in the row.",
+  "not_end": "The {a} is neither first nor last in the row.",
+  "between": "The {a} is somewhere between the {b} and the {c}."
+ },
+ "objects": [
+  {
+   "name": "cat",
+   "cap": "Cat"
+  },
+  {
+   "name": "dog",
+   "cap": "Dog"
+  },
+  {
+   "name": "horse",
+   "cap": "Horse"
+  },
+  {
+   "name": "rabbit",
+   "cap": "Rabbit"
+  },
+  {
+   "name": "goat",
+   "cap": "Goat"
+  },
+  {
+   "name": "duck",
+   "cap": "Duck"
+  },
+  {
+   "name": "fox",
+   "cap": "Fox"
+  },
+  {
+   "name": "bear",
+   "cap": "Bear"
+  }
+ ]
+}

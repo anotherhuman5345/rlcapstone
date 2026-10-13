@@ -1,0 +1,8 @@
+{
+ "instr": "Pamięć kolorów: zapamiętaj grupę kolorowych kwadratów; po krótkiej przerwie powiedz, czy któryś kwadrat zmienił kolor.",
+ "clue": "Kolorowe kwadraty pojawiają się na chwilę, znikają, a potem wracają. Czy któryś kwadrat zmienił kolor? Naciśnij ← lub „Tak samo”, jeśli nic się nie zmieniło, a → lub „Inaczej”, jeśli jeden się zmienił. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "same": "Tak samo",
+ "different": "Inaczej",
+ "start": "Start",
+ "stage_label": "Kolorowe kwadraty"
+}

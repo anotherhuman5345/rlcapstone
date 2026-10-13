@@ -1,0 +1,31 @@
+{
+ "instr": "Procedimentos: execute uma lista de passos em ordem clicando nos botões dos passos; se outra tarefa interromper você, volte e continue de onde parou.",
+ "clue": "Execute o procedimento: clique nos botões dos passos na ordem da lista (ou pressione as teclas dos números deles). Faça cada passo uma vez; nada vai mostrar quais passos já foram feitos. Às vezes outra tarefa vai interromper você: diga se cada número é par ou ímpar. Quando o procedimento voltar, continue de onde parou. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "case_label": "Tarefa {n} de {total}",
+ "proc_title": "Procedimento",
+ "palette_title": "Botões dos passos",
+ "interrupt_title": "Par ou ímpar?",
+ "interrupt_hint": "Seta para a esquerda = par, seta para a direita = ímpar",
+ "even": "Par",
+ "odd": "Ímpar",
+ "next_case": "Próxima tarefa…",
+ "steps": [
+  "Escanear o código",
+  "Pesar o pacote",
+  "Verificar o lacre",
+  "Imprimir a etiqueta",
+  "Colar a etiqueta",
+  "Registrar a hora",
+  "Tirar uma foto",
+  "Medir o tamanho",
+  "Carimbar o formulário",
+  "Separar por cor",
+  "Embrulhar o item",
+  "Avisar o balcão",
+  "Contar as peças",
+  "Fechar a tampa",
+  "Assinar a folha",
+  "Limpar a bandeja"
+ ]
+}

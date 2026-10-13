@@ -1,0 +1,3 @@
+{"instr": "Labirent: noktayı başlangıçtan çıkışa, bulabildiğiniz en kısa yoldan götürün.",
+ "clue": "Mavi noktayı labirentin içinden yeşil çıkış karesine, olabildiğince az adımla götürün. Önce yolu planlamak işinize yarar. Ok tuşlarıyla, ok düğmeleriyle ya da noktanın yanındaki kareye dokunarak ilerleyin. Duvarlardan geçilemez. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "up": "Yukarı", "down": "Aşağı", "left": "Sol", "right": "Sağ"}

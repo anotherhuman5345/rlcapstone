@@ -1,0 +1,10 @@
+{
+ "instr": "Rastreamento: memorize quais círculos ficam laranja, acompanhe-os enquanto todos os círculos se movem e depois aponte-os.",
+ "clue": "Alguns círculos ficam laranja por um instante. Memorize-os e mantenha os olhos neles enquanto todos os círculos se movem. Quando pararem, clique ou toque nos círculos que você acompanhou (ou pressione as teclas dos números deles) e depois pressione Concluir ou Enter. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "done": "Concluir",
+ "stage_label": "Círculos em movimento",
+ "round": "Rodada {n} de {total}: memorize os {k} círculos laranja.",
+ "track": "Acompanhe-os…",
+ "pick": "Selecione os {k} círculos que você acompanhou e depois pressione Concluir."
+}

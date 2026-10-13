@@ -1,0 +1,12 @@
+{
+ "instr": "Pag-iimpake: ipagkasya ang lahat ng piraso sa board para matakpan ang bawat parisukat at walang pirasong nagpapatong.",
+ "clue": "Punuin ang buong board gamit ang lahat ng piraso, nang walang pagpapatong. Pumili ng piraso (i-click ito o pindutin ang numero nito), ikutin ito gamit ang “Ikutin” (o ang R key) kung kailangan, pagkatapos ay i-click ang parisukat sa board kung saan dapat mapunta ang tuldok ng piraso. Para ilipat ang nailagay nang piraso, i-click ito sa board para bawiin. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "board": "Board",
+ "pieces": "Mga piraso",
+ "rotate": "Ikutin",
+ "give_up": "Sumuko",
+ "choose_first": "Pumili muna ng piraso.",
+ "no_fit": "Hindi kasya roon ang piraso.",
+ "solved": "Tapos na!"
+}

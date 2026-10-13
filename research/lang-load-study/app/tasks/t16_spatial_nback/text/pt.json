@@ -1,0 +1,9 @@
+{
+ "instr": "Grade: quadrados de uma grade acendem um de cada vez; para cada um, diga se ele está no mesmo lugar que um quadrado aceso um certo número de passos antes.",
+ "clue": "Os quadrados da grade acendem um de cada vez. A cada vez, pressione Igual (seta para a direita ou botão) se ele estiver no mesmo lugar que o quadrado indicado pela regra abaixo; caso contrário, pressione Diferente (seta para a esquerda ou botão). Responda rápido; os quadrados continuam vindo. Pressione Começar quando estiver pronto(a).",
+ "rule_1": "Regra: este quadrado está no mesmo lugar que o anterior?",
+ "rule_2": "Regra: este quadrado está no mesmo lugar que o de dois passos atrás?",
+ "same": "Igual",
+ "different": "Diferente",
+ "start": "Começar"
+}

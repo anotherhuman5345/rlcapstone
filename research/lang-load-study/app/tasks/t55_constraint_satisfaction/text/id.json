@@ -1,0 +1,56 @@
+{
+ "instr": "Urutan: susun hewan-hewan dalam satu barisan sehingga setiap kalimat benar.",
+ "clue": "Baca kalimat-kalimatnya, lalu tempatkan setiap hewan di salah satu tempat bernomor sehingga semua kalimat benar. Tempat 1 berada paling kiri. Klik seekor hewan (atau pindah ke sana dengan Tab dan tekan Enter), lalu klik sebuah tempat. Klik tempat yang sudah terisi untuk mengambil hewannya lagi. Tekan Selesai jika semua tempat sudah terisi. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "done": "Selesai",
+ "give_up": "Menyerah",
+ "setting": "Hewan-hewan berdiri dalam satu barisan tempat bernomor, dari tempat 1 di kiri sampai tempat terakhir di kanan.",
+ "row": "Barisan",
+ "tray": "Hewan yang belum ditempatkan",
+ "place": "Tempat",
+ "templates": {
+  "left_of": "{a.cap} berada di suatu tempat di sebelah kiri {b}.",
+  "next_left": "{a.cap} berada tepat di sebelah kiri {b}.",
+  "adjacent": "{a.cap} dan {b} bersebelahan.",
+  "not_adjacent": "{a.cap} dan {b} tidak bersebelahan.",
+  "at": "{a.cap} berada di tempat {p}.",
+  "not_at": "{a.cap} tidak berada di tempat {p}.",
+  "end": "{a.cap} berada di urutan pertama atau terakhir dalam barisan.",
+  "not_end": "{a.cap} tidak berada di urutan pertama maupun terakhir dalam barisan.",
+  "between": "{a.cap} berada di suatu tempat di antara {b} dan {c}."
+ },
+ "objects": [
+  {
+   "name": "kucing",
+   "cap": "Kucing"
+  },
+  {
+   "name": "anjing",
+   "cap": "Anjing"
+  },
+  {
+   "name": "kuda",
+   "cap": "Kuda"
+  },
+  {
+   "name": "kelinci",
+   "cap": "Kelinci"
+  },
+  {
+   "name": "kambing",
+   "cap": "Kambing"
+  },
+  {
+   "name": "bebek",
+   "cap": "Bebek"
+  },
+  {
+   "name": "rubah",
+   "cap": "Rubah"
+  },
+  {
+   "name": "beruang",
+   "cap": "Beruang"
+  }
+ ]
+}

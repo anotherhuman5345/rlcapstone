@@ -1,0 +1,15 @@
+{
+ "instr": "Arıza bulma: bir makine gücü parçalarından geçirerek lambalara iletir; olabildiğince az test yaparak bozuk parçayı bulun.",
+ "clue": "Güç soldan girer, çizgiler boyunca parçalardan geçerek lambalara ulaşır. Bozuk bir parça gücü geçirmez; bu yüzden ondan sonraki her parça ve beslediği her lamba karanlık kalır. Tam olarak bir parça bozuk. Hangi lambaların yandığına bakın. Bir parçayı test edebilirsiniz (her test 1 puan tutar): parçayı seçip Test'e basın; o parçadan güç çıkıp çıkmadığını görürsünüz. Bozuk parçayı bildiğinizde onu seçip Bildir'e basın. Bulunacak iki arıza var. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "power": "Güç",
+ "lamp": "Lamba",
+ "test": "Seçili parçayı test et (1 puan)",
+ "report": "Seçili parçayı bozuk olarak bildir",
+ "signal": "güç çıkıyor",
+ "no_signal": "güç çıkmıyor",
+ "tests_used": "Yapılan test: {n}",
+ "case_label": "Arıza {n} / {total}",
+ "select_hint": "Seçmek için bir parçaya tıklayın (ya da numarasına, 1–6, basın).",
+ "parts": ["Tambur", "Bobin", "Geçit", "Çark", "Süzgeç", "Pompa", "Mercek", "Yay", "Zil", "Pervane", "Vana", "Kayış"]
+}

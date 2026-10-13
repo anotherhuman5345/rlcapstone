@@ -1,0 +1,10 @@
+{
+ "instr": "Sequência de letras: as letras aparecem uma de cada vez e param sem aviso; depois digite apenas as últimas letras, na ordem.",
+ "clue": "Pressione Começar. As letras aparecem uma de cada vez, e a lista para sem aviso, então mantenha em mente as letras mais recentes. Quando parar, digite apenas as ÚLTIMAS letras que você viu, na ordem em que apareceram. Use ? para uma letra de que não se lembra e depois pressione OK.",
+ "keep": "Memorize as últimas {k} letras.",
+ "recall": "Digite as últimas {k} letras na ordem em que apareceram.",
+ "unknown": "Não me lembro desta letra",
+ "start": "Começar",
+ "done": "OK",
+ "delete": "Apagar a última letra"
+}

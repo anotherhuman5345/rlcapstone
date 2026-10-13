@@ -1,0 +1,14 @@
+{
+ "instr": "Wahrscheinlichkeiten: Vergleichen Sie zwei Ereignisse und wählen Sie das wahrscheinlichere, oder sagen Sie, dass sie gleich wahrscheinlich sind.",
+ "clue": "Jeder Bildschirm zeigt zwei Ereignisse, A und B, in Worten und als Bild. Kugeln werden ohne hinzusehen gezogen, und jede Kugel wird mit gleicher Wahrscheinlichkeit gezogen; die Würfel sind fair. Wählen Sie, welches Ereignis wahrscheinlicher ist, oder „Gleich wahrscheinlich“. Benutzen Sie die Schaltflächen oder die Tasten 1 (A), 2 (gleich wahrscheinlich), 3 (B). Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Gleich wahrscheinlich",
+ "question": "Was ist wahrscheinlicher?",
+ "progress": "Frage {i} von {n}",
+ "ev_bag1": "In Beutel {L} sind {r} rote und {b} blaue Kugeln. Sie ziehen eine Kugel, und sie ist rot.",
+ "ev_bag2_replace": "In Beutel {L} sind {r} rote und {b} blaue Kugeln. Sie ziehen eine Kugel, legen sie zurück und ziehen noch einmal. Beide Kugeln sind rot.",
+ "ev_bag2_keep": "In Beutel {L} sind {r} rote und {b} blaue Kugeln. Sie ziehen eine Kugel, legen sie nicht zurück und ziehen noch einmal. Beide Kugeln sind rot.",
+ "ev_dice": "Sie werfen zwei Würfel, und die beiden Augenzahlen ergeben zusammen {s}."
+}

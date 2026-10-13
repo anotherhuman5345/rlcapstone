@@ -1,0 +1,56 @@
+{
+ "instr": "Sắp thứ tự: hãy xếp các con vật thành một hàng sao cho mọi câu đều đúng.",
+ "clue": "Hãy đọc các câu, rồi đặt mỗi con vật vào một trong các vị trí được đánh số sao cho tất cả các câu đều đúng. Vị trí 1 nằm ở ngoài cùng bên trái. Nhấp vào một con vật (hoặc dùng Tab để di chuyển đến nó và nhấn Enter), rồi nhấp vào một vị trí. Nhấp vào một vị trí đã có con vật để lấy con vật đó ra lại. Nhấn Xong khi mọi vị trí đã được lấp đầy. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "done": "Xong",
+ "give_up": "Bỏ cuộc",
+ "setting": "Các con vật đứng thành một hàng gồm các vị trí được đánh số, từ vị trí 1 bên trái đến vị trí cuối cùng bên phải.",
+ "row": "Hàng",
+ "tray": "Các con vật chưa được xếp",
+ "place": "Vị trí",
+ "templates": {
+  "left_of": "{a.cap} đứng ở đâu đó bên trái {b}.",
+  "next_left": "{a.cap} đứng ngay sát bên trái {b}.",
+  "adjacent": "{a.cap} và {b} đứng cạnh nhau.",
+  "not_adjacent": "{a.cap} và {b} không đứng cạnh nhau.",
+  "at": "{a.cap} đứng ở vị trí {p}.",
+  "not_at": "{a.cap} không đứng ở vị trí {p}.",
+  "end": "{a.cap} đứng ở đầu hàng hoặc ở cuối hàng.",
+  "not_end": "{a.cap} không đứng ở đầu hàng, cũng không đứng ở cuối hàng.",
+  "between": "{a.cap} đứng ở đâu đó giữa {b} và {c}."
+ },
+ "objects": [
+  {
+   "name": "con mèo",
+   "cap": "Con mèo"
+  },
+  {
+   "name": "con chó",
+   "cap": "Con chó"
+  },
+  {
+   "name": "con ngựa",
+   "cap": "Con ngựa"
+  },
+  {
+   "name": "con thỏ",
+   "cap": "Con thỏ"
+  },
+  {
+   "name": "con dê",
+   "cap": "Con dê"
+  },
+  {
+   "name": "con vịt",
+   "cap": "Con vịt"
+  },
+  {
+   "name": "con cáo",
+   "cap": "Con cáo"
+  },
+  {
+   "name": "con gấu",
+   "cap": "Con gấu"
+  }
+ ]
+}

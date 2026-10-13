@@ -1,0 +1,13 @@
+{
+ "instr": "Mipira: hamisha mipira yenye rangi mmoja mmoja mpaka vigingi vyako vifanane kabisa na picha ya lengo.",
+ "clue": "Fanya vigingi vyako vifanane kabisa na picha ya lengo. Chukua mpira wa juu kutoka kwenye kigingi kwa kukibofya (au kwa kubonyeza 1, 2 au 3), kisha bofya kigingi unakopaswa kwenda. Vigingi vinabeba mipira isiyozidi 3, 2 na 1. Panga kabla ya kuanza na utumie hatua chache kadiri uwezavyo. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "reset": "Anza upya",
+ "give_up": "Kata tamaa",
+ "yours": "Vigingi vyako",
+ "target": "Lengo",
+ "moves_label": "Hatua:",
+ "full_peg": "Kigingi hicho kimejaa.",
+ "empty_peg": "Kigingi hicho ni kitupu.",
+ "solved": "Umemaliza!"
+}

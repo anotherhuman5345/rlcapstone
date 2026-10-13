@@ -1,0 +1,12 @@
+{
+ "instr": "Tour : déplacez tous les disques sur la tige d'arrivée indiquée, un disque à la fois, sans jamais poser un grand disque sur un plus petit.",
+ "clue": "Déplacez toute la tour de disques sur la tige marquée « arrivée ». Prenez le disque du dessus en cliquant sur sa tige (ou en appuyant sur 1, 2 ou 3), puis cliquez sur la tige où il doit aller. Déplacez un disque à la fois, et ne posez jamais un disque plus grand sur un plus petit. Essayez d'utiliser le moins de coups possible. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "reset": "Recommencer",
+ "give_up": "Abandonner",
+ "target": "arrivée",
+ "moves_label": "Coups :",
+ "illegal": "Interdit : un disque plus grand ne peut pas aller sur un plus petit.",
+ "empty_peg": "Cette tige est vide.",
+ "solved": "Réussi !"
+}

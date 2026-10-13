@@ -1,0 +1,12 @@
+{
+ "instr": "Mengepak: masukkan semua kepingan ke papan sehingga setiap kotak tertutup dan tidak ada kepingan yang bertumpuk.",
+ "clue": "Isi seluruh papan dengan semua kepingan, tanpa tumpang tindih. Pilih sebuah kepingan (klik atau tekan nomornya), putar dengan “Putar” (atau tombol R) jika perlu, lalu klik kotak papan tempat titik kepingan itu harus berada. Untuk memindahkan kepingan yang sudah dipasang, klik kepingan itu di papan untuk mengambilnya kembali. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "board": "Papan",
+ "pieces": "Kepingan",
+ "rotate": "Putar",
+ "give_up": "Menyerah",
+ "choose_first": "Pilih kepingan lebih dulu.",
+ "no_fit": "Kepingan itu tidak muat di sana.",
+ "solved": "Selesai!"
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Kupanga vipande: weka vipande vyote ndani ya ubao ili kila mraba ufunikwe na vipande visipishane.",
+ "clue": "Jaza ubao wote kwa vipande vyote, bila vipande kupishana. Chagua kipande (kibofye au bonyeza namba yake), kizungushe kwa “Zungusha” (au kitufe cha R) ikihitajika, kisha bofya mraba wa ubao ambapo nukta ya kipande inapaswa kuwa. Ili kuhamisha kipande ambacho tayari umekiweka, kibofye ubaoni ili kukirudisha. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "board": "Ubao",
+ "pieces": "Vipande",
+ "rotate": "Zungusha",
+ "give_up": "Kata tamaa",
+ "choose_first": "Chagua kipande kwanza.",
+ "no_fit": "Kipande hakitoshei hapo.",
+ "solved": "Umemaliza!"
+}

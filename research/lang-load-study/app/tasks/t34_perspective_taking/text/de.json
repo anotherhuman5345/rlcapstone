@@ -1,0 +1,12 @@
+{
+ "instr": "Richtungen auf der Karte: Stellen Sie sich vor, Sie stehen an einem Orientierungspunkt und blicken zu einem anderen, und sagen Sie, in welcher Richtung ein dritter liegt.",
+ "clue": "Die Karte zeigt sechs Orientierungspunkte von oben. Stellen Sie sich vor, Sie stehen am ersten Orientierungspunkt und blicken zum zweiten. Liegt der dritte vor Ihnen, rechts von Ihnen, hinter Ihnen oder links von Ihnen? Drehen Sie den Bildschirm nicht. Antworten Sie mit den Pfeiltasten oder den Schaltflächen. Zu dieser Karte gibt es vier Fragen. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "stand": "Sie stehen bei",
+ "face": "Sie blicken zu",
+ "where": "Wo liegt",
+ "ahead": "Vorne",
+ "right": "Rechts",
+ "behind": "Hinten",
+ "left": "Links"
+}

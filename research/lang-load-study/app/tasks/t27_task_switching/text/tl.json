@@ -1,0 +1,9 @@
+{
+ "instr": "Kulay o hugis: sinasabi ng isang cue word kung ang KULAY o ang HUGIS ng kasunod na figure ang huhusgahan mo.",
+ "clue": "Una, may lilitaw na cue: KULAY o HUGIS. Pagkatapos, may lilitaw na asul o kulay-kahel na bilog o parisukat. Kung KULAY ang cue: asul = kaliwa, kulay-kahel = kanan. Kung HUGIS ang cue: bilog = kaliwa, parisukat = kanan. Gamitin ang mga arrow key o ang mga button. Sumagot nang mabilis at tama. Pindutin ang Simulan kapag handa ka na.",
+ "cue_color": "KULAY",
+ "cue_shape": "HUGIS",
+ "left": "Kaliwa",
+ "right": "Kanan",
+ "start": "Simulan"
+}

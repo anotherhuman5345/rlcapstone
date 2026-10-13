@@ -1,0 +1,4 @@
+{"instr": "Gajerun shirye-shirye: ku karanta kowane gajeren shiri, ku rubuta lambar da yake bugawa.",
+ "clue": "Za ku ga gajerun shirye-shiryen kwamfuta guda uku. Ku bi kowanne mataki-mataki, layi bayan layi, ku gano lambar da ake bugawa a ƙarshe. Ku rubuta ta da faifan lambobi ko allon rubutu (ku yi amfani da − don lambar da ke ƙasa da sifili), sannan ku danna Tabbatar ko Enter. Babu buƙatar gaggawa. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "program_of": "Shiri {n} cikin {total}", "output": "Lambar da aka buga:", "ok": "Tabbatar", "erase": "Goge",
+ "kw_set": "sa {v} ya zama {e}", "kw_repeat": "maimaita sau {n}:", "kw_if": "idan {c}:", "kw_else": "idan ba haka ba:", "kw_print": "buga {e}"}

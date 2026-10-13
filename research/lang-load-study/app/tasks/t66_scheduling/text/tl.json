@@ -1,0 +1,64 @@
+{
+ "instr": "Iskedyul: ibigay ang bawat trabaho sa isang tao sa isang araw para masunod ang lahat ng panuntunan.",
+ "clue": "Planuhin ang trabaho: ilagay ang bawat trabaho sa table sa ilalim ng isang tao at isang araw. Hanggang isang trabaho lang bawat araw ang kayang gawin ng bawat tao, at dapat masunod ang lahat ng panuntunan sa listahan. I-click ang isang trabaho (o pumunta rito gamit ang Tab at pindutin ang Enter), pagkatapos ay i-click ang isang kahon sa table. I-click ang kahong may laman para kunin ulit ang trabaho roon. Tama ang anumang plano na sumusunod sa lahat ng panuntunan. Pindutin ang Tapos kapag nailagay na ang bawat trabaho. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "done": "Tapos",
+ "give_up": "Sumuko",
+ "setting": "Hanggang isang trabaho lang bawat araw ang kayang gawin ng bawat tao. Mga panuntunan:",
+ "plan": "Plano",
+ "tray": "Mga trabahong hindi pa nailalagay",
+ "templates": {
+  "before": "Dapat gawin ang {a} sa mas maagang araw kaysa sa {b}.",
+  "same_day": "Dapat gawin sa iisang araw ang {a} at ang {b}.",
+  "diff_day": "Dapat gawin sa magkaibang araw ang {a} at ang {b}.",
+  "by_day": "Dapat matapos ang {a} nang hindi lalampas sa {day}.",
+  "off_day": "Hindi makapagtatrabaho si {w} sa {day}.",
+  "only_person": "Si {w} lang ang puwedeng mag-asikaso ng {a}.",
+  "not_person": "Hindi puwedeng mag-asikaso si {w} ng {a}.",
+  "same_person": "Iisang tao ang dapat mag-asikaso ng {a} at ng {b}."
+ },
+ "jobs": [
+  {
+   "name": "ulat",
+   "cap": "Ulat"
+  },
+  {
+   "name": "paghahatid",
+   "cap": "Paghahatid"
+  },
+  {
+   "name": "pagkukumpuni",
+   "cap": "Pagkukumpuni"
+  },
+  {
+   "name": "paglilinis",
+   "cap": "Paglilinis"
+  },
+  {
+   "name": "imbentaryo",
+   "cap": "Imbentaryo"
+  },
+  {
+   "name": "pagsasanay",
+   "cap": "Pagsasanay"
+  },
+  {
+   "name": "pagpipinta",
+   "cap": "Pagpipinta"
+  },
+  {
+   "name": "inspeksiyon",
+   "cap": "Inspeksiyon"
+  }
+ ],
+ "people": [
+  "Ana",
+  "Ben",
+  "Carla"
+ ],
+ "days": [
+  "Lunes",
+  "Martes",
+  "Miyerkoles"
+ ]
+}

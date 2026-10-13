@@ -1,0 +1,12 @@
+{
+ "instr": "Encajar piezas: coloque todas las piezas en el tablero de modo que cubran todas las casillas sin superponerse.",
+ "clue": "Llene todo el tablero con todas las piezas, sin superposiciones. Elija una pieza (haga clic en ella o pulse su número), gírela con «Girar» (o la tecla R) si hace falta y luego haga clic en la casilla del tablero donde debe ir el punto de la pieza. Para mover una pieza ya colocada, haga clic en ella en el tablero para recuperarla. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "board": "Tablero",
+ "pieces": "Piezas",
+ "rotate": "Girar",
+ "give_up": "Rendirse",
+ "choose_first": "Primero elija una pieza.",
+ "no_fit": "La pieza no cabe ahí.",
+ "solved": "¡Hecho!"
+}

@@ -1,0 +1,26 @@
+<div class="rspan">
+  <style>
+    .rspan .rs-show { font-size: 4.5rem; font-weight: 700; text-align: center; min-height: 6.5rem; margin: 1rem 0; user-select: none; }
+    .rspan .rs-center { text-align: center; }
+    .rspan .rs-k { text-align: center; font-weight: 600; }
+    .rspan .rs-slots { display: flex; justify-content: center; gap: .5rem; margin: .5rem 0 1rem; }
+    .rspan .rs-slot { width: 3rem; height: 3.4rem; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; font-family: ui-monospace, monospace; border-bottom: 3px solid var(--line); }
+    .rspan .rs-slot.next { border-bottom-color: var(--signal); }
+    .rspan .rs-pad { display: grid; grid-template-columns: repeat(auto-fill, minmax(3.4rem, 1fr)); gap: .45rem; max-width: 26rem; margin: 0 auto; }
+    .rspan .rs-pad button { margin: 0; padding: .7rem 0; font-size: 1.3rem; background: var(--paper); color: var(--ink); border: 1px solid var(--line); touch-action: manipulation; }
+    .rspan .rs-pad button.rs-ok { background: var(--signal); color: #fff; border-color: var(--signal); font-size: 1.05rem; grid-column: span 2; }
+  </style>
+  <p class="rs-k">{{ text.keep | replace("{k}", item.k | string) }}</p>
+  <p class="rs-show" id="rs-show" aria-live="off"></p>
+  <div id="rs-recall" hidden>
+    <p class="rs-center">{{ text.recall | replace("{k}", item.k | string) }}</p>
+    <div class="rs-slots" id="rs-slots">{% for i in range(item.k) %}<span class="rs-slot"></span>{% endfor %}</div>
+    <div class="rs-pad">
+      {% for c in "BDFGHKLMNPRSTZ" %}<button type="button" data-c="{{ c }}">{{ c }}</button>{% endfor %}
+      <button type="button" data-c="?" aria-label="{{ text.unknown }}" title="{{ text.unknown }}">?</button>
+      <button type="button" id="rs-del" aria-label="{{ text.delete }}" title="{{ text.delete }}">&#9003;</button>
+      <button type="button" id="rs-ok" class="rs-ok">{{ text.done }}</button>
+    </div>
+  </div>
+  <p class="rs-center"><button type="button" id="rs-start">{{ text.start }}</button></p>
+</div>

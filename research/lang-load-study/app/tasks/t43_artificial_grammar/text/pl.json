@@ -1,0 +1,9 @@
+{
+ "instr": "Wzory z liter: przyjrzyj się ciągom liter utworzonym według ukrytej reguły, a potem oceń, czy nowe ciągi stosują tę samą regułę.",
+ "clue": "Najpierw przyjrzyj się ciągom liter na ekranie; wszystkie są zgodne z ukrytym wzorem. Potem zobaczysz po kolei nowe ciągi. Naciśnij strzałkę w lewo (lub lewy przycisk), jeśli ciąg jest zgodny z tym samym wzorem, a strzałkę w prawo (lub prawy przycisk), jeśli go łamie. Kieruj się pierwszym wrażeniem. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "legal": "Zgodny ze wzorem",
+ "illegal": "Łamie wzór",
+ "study_left": "Przyjrzyj się ciągom: zostało {s} s",
+ "test_of": "Ciąg {n} z {total}"
+}

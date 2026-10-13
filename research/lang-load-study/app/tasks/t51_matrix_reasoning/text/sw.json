@@ -1,0 +1,7 @@
+{
+ "instr": "Gridi za mifumo: chagua picha inayokamilisha kila gridi ya 3 x 3.",
+ "clue": "Kila gridi inafuata kanuni moja au mbili katika safu zake za mlalo na wima, kwa mfano katika idadi, umbo, kivuli au ukubwa wa vielelezo. Gundua kanuni hizo na uchague picha inayopaswa kuwa kwenye mraba mtupu: ibofye au uiguse, au bonyeza 1-4. Kuna gridi nne. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "matrix_of": "Gridi {n} kati ya {total}",
+ "option": "Chaguo {n}"
+}

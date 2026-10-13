@@ -1,0 +1,9 @@
+{
+ "instr": "Mifumo ya herufi: chunguza mifuatano iliyotengenezwa kwa kanuni iliyofichwa, kisha amua kama mifuatano mipya inafuata kanuni hiyohiyo.",
+ "clue": "Kwanza chunguza mifuatano ya herufi iliyo kwenye skrini; yote inafuata mfumo uliofichwa. Kisha utaona mifuatano mipya mmoja baada ya mwingine. Bonyeza mshale wa kushoto (au kitufe cha kushoto) kama mfuatano unafuata mfumo uleule, mshale wa kulia (au kitufe cha kulia) kama unaukiuka. Fuata hisia yako ya kwanza. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "legal": "Unafuata mfumo",
+ "illegal": "Unakiuka mfumo",
+ "study_left": "Chunguza mifuatano: zimebaki sekunde {s}",
+ "test_of": "Mfuatano {n} kati ya {total}"
+}

@@ -1,0 +1,5 @@
+{"instr": "Izgara: ızgaradaki kareler tek tek yanar; her birinin, belirli sayıda adım önce yanan kareyle aynı yerde olup olmadığını belirtin.",
+ "clue": "Izgaradaki kareler tek tek yanacak. Her seferinde, kare aşağıdaki kuralın gösterdiği kareyle aynı yerdeyse Aynı'ya (sağ ok tuşu ya da düğme), değilse Farklı'ya (sol ok tuşu ya da düğme) basın. Hızlı cevap verin; kareler yanmaya devam eder. Hazır olunca Başla'ya basın.",
+ "rule_1": "Kural: bu kare, hemen önceki kareyle aynı yerde mi?",
+ "rule_2": "Kural: bu kare, iki adım önceki kareyle aynı yerde mi?",
+ "same": "Aynı", "different": "Farklı", "start": "Başla"}

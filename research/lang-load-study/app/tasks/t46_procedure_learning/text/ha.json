@@ -1,0 +1,10 @@
+{"instr": "Matakan na'ura: ku koyi yadda ake sarrafa wata ƙirƙirarriyar na'ura daga rubutattun matakai, sannan ku sarrafa ta daga ƙwaƙwalwa.",
+ "clue": "Da farko ku karanta matakan sarrafa na'ura da misalin da aka warware; kuna da har daƙiƙa 45. Sannan matakan za su ɓace, ku kuma sarrafa na'urar sau uku daga ƙwaƙwalwa: ku duba launin fitilar da lambar, ku danna maɓallan bisa jerin da ya dace (ku danna su, ko maɓallan 1-8), sannan ku danna Na gama (Enter). Soke (Backspace) yana cire dannawarku ta ƙarshe. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "study_title": "Yadda ake sarrafa na'urar:", "example": "Misalin da aka warware: ga wannan na'ura, dannawar da ta dace ita ce:",
+ "learned": "Na koya", "study_left": "Saura daƙiƙa {s}", "case_of": "Na'ura {n} cikin {total}",
+ "lamp": "Fitila", "number": "Lamba", "presses": "Dannawarku:", "undo": "Soke", "done": "Na gama",
+ "colors": ["ja", "shuɗi"],
+ "step_fixed": "Ku danna {a}.",
+ "step_cond": "Idan launin fitilar {c} ne, ku danna {a}; idan ba haka ba ku danna {b}.",
+ "step_repeat": "Ku danna {a} sau gwargwadon lambar da ke kan allon nuni.",
+ "actions": ["BUƊE", "RUFE", "DUMAMA", "SANYAYA", "GAURAYA", "GIRGIZA", "CIKA", "ZUBAR", "LIƘE", "MATSA", "JUYA", "ƊAGA", "KULLE", "WANKE", "SHANYA", "AUNA"]}

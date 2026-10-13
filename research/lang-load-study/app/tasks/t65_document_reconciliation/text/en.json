@@ -1,0 +1,8 @@
+{"instr": "Records: compare an order with its delivery note and mark every entry that does not match.",
+ "clue": "The delivery note (right, or below on small screens) should match the order line by line. Mark every entry in the delivery note that differs from the order: click or tap it, or move to it with Tab and press Enter or Space. Click again to unmark. Press Done when finished. Press Start when ready.",
+ "start": "Start", "done": "Done", "marked_count": "Marked: {n}",
+ "title_a": "Order", "title_b": "Delivery note",
+ "col_code": "Line no.", "col_product": "Product", "col_qty": "Quantity", "col_date": "Date",
+ "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+ "products": ["Steel bolts", "Copper wire", "Paint rollers", "Garden hose", "Desk lamp", "Floor tiles", "Door hinges", "Wall clock",
+              "Water filter", "Tool box", "Wood screws", "Extension cord", "Light bulbs", "Work gloves", "Window glass", "Paint brushes"]}

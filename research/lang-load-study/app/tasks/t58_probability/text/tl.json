@@ -1,0 +1,14 @@
+{
+ "instr": "Mga tsansa: paghambingin ang dalawang pangyayari at piliin ang mas malamang mangyari, o sabihing pareho ang tsansa nila.",
+ "clue": "Ipinapakita ng bawat screen ang dalawang pangyayari, A at B, sa salita at sa larawan. Kumukuha ng bola nang hindi tumitingin, at pareho ang tsansang makuha ang bawat bola; patas ang mga dice. Piliin kung aling pangyayari ang mas malamang mangyari, o \"Pareho ang tsansa\". Gamitin ang mga button o ang mga key na 1 (A), 2 (pareho ang tsansa), 3 (B). Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Pareho ang tsansa",
+ "question": "Alin ang mas malamang mangyari?",
+ "progress": "Tanong {i} sa {n}",
+ "ev_bag1": "May {r} pulang bola at {b} asul na bola sa supot {L}. Kumuha ka ng isang bola at pula ito.",
+ "ev_bag2_replace": "May {r} pulang bola at {b} asul na bola sa supot {L}. Kumuha ka ng bola, ibinalik mo ito, at kumuha ka ulit. Pula ang dalawang bola.",
+ "ev_bag2_keep": "May {r} pulang bola at {b} asul na bola sa supot {L}. Kumuha ka ng bola, hindi mo ito ibinalik, at kumuha ka ulit. Pula ang dalawang bola.",
+ "ev_dice": "Naghagis ka ng dalawang dice at {s} ang kabuuan ng dalawang numero."
+}

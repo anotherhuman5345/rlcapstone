@@ -1,0 +1,56 @@
+{
+ "instr": "Wypełnianie formularza: przepisz dane do formularza, stosując podane obok reguły specjalne.",
+ "clue": "Wypełnij formularz po prawej na podstawie danych po lewej. Przepisuj nazwiska i liczby dokładnie. Najpierw przeczytaj reguły specjalne: reguła obowiązuje tylko wtedy, gdy jej warunek jest spełniony dla tych danych. Pomoc pokazuje formaty. Po zakończeniu naciśnij Wyślij. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "record_title": "Dane",
+ "rules_title": "Reguły specjalne",
+ "form_title": "Formularz",
+ "help": "Pomoc",
+ "help_text": "Data: dzień.miesiąc.rok z kropkami, np. 05.11.1987. Liczby: tylko cyfry, bez liter. Pakiet i kontakt: wybierz jedną opcję. Pole zostaw puste tylko wtedy, gdy tak mówi reguła.",
+ "submit": "Wyślij",
+ "choose": "— wybierz —",
+ "no_phone": "—",
+ "date_placeholder": "DD.MM.RRRR",
+ "labels": {
+  "family": "Nazwisko",
+  "given": "Imię",
+  "member": "Numer członkowski",
+  "birth": "Data urodzenia",
+  "postcode": "Kod pocztowy",
+  "phone": "Telefon",
+  "plan": "Pakiet",
+  "contact": "Forma kontaktu",
+  "amount": "Kwota"
+ },
+ "plans": [
+  "Podstawowy",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "E-mail",
+  "Telefon",
+  "Poczta"
+ ],
+ "months": [
+  "stycznia",
+  "lutego",
+  "marca",
+  "kwietnia",
+  "maja",
+  "czerwca",
+  "lipca",
+  "sierpnia",
+  "września",
+  "października",
+  "listopada",
+  "grudnia"
+ ],
+ "rules": [
+  "Jeśli osoba urodziła się w roku {year} lub później, wybierz pakiet Junior, niezależnie od tego, co jest w danych.",
+  "Jeśli kwota jest większa niż 500, wpisz 500.",
+  "Jeśli w danych nie ma numeru telefonu, zostaw pole Telefon puste i jako formę kontaktu wybierz Pocztę.",
+  "Jeśli kod pocztowy ma tylko 4 cyfry, dopisz na początku 0.",
+  "Jeśli numer członkowski kończy się na 7, wpisz nazwisko WIELKIMI literami."
+ ]
+}

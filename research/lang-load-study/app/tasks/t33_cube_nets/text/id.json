@@ -1,0 +1,6 @@
+{
+ "instr": "Jaring-jaring kubus: pilih pola datar yang bisa dilipat menjadi kubus yang ditampilkan.",
+ "clue": "Kubus itu memiliki tanda yang berbeda di setiap sisinya yang enam; Anda melihat tiga di antaranya. Setiap pola datar di bawah bisa dilipat menjadi kubus, dengan tanda di bagian luar. Hanya satu yang menghasilkan kubus ini persis: tanda yang sama, bersebelahan dengan cara yang sama, dan menghadap ke arah yang sama. Klik atau ketuk pola itu, atau tekan tombol angkanya 1 sampai 4. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "options": "Pola mana yang bisa dilipat menjadi kubus ini?"
+}

@@ -1,0 +1,6 @@
+{
+ "instr": "Würfelnetze: Wählen Sie das flache Muster, das sich zum gezeigten Würfel falten lässt.",
+ "clue": "Der Würfel hat auf jeder seiner sechs Seiten ein anderes Zeichen; Sie sehen drei davon. Jedes flache Muster unten lässt sich zu einem Würfel falten, mit den Zeichen außen. Nur eines davon ergibt genau diesen Würfel: dieselben Zeichen, auf dieselbe Weise nebeneinander und in dieselbe Richtung zeigend. Klicken oder tippen Sie auf dieses Muster oder drücken Sie seine Zifferntaste 1 bis 4. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "options": "Welches Muster ergibt gefaltet diesen Würfel?"
+}

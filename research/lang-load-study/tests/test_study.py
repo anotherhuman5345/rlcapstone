@@ -407,3 +407,38 @@ def test_ospan_scoring_and_retention_rates():
             from app.main import retention_summary
             hits_l1, fa_l1, hits_l2, fa_l2 = retention_summary(p)
             assert fa_l1 in (0, None) and fa_l2 in (0, None) and 1 in (hits_l1, hits_l2)
+
+
+def test_every_library_task_passes_its_checks():
+    """Runs tools/check_task.py for each task in app/tasks (determinism, scoring of
+    correct/wrong/junk responses, text keys per language, template, JS syntax)."""
+    import subprocess
+    import sys
+    from app.tasks import LOAD_ERRORS, PLUGINS
+    assert not LOAD_ERRORS, LOAD_ERRORS
+    assert PLUGINS, "no library tasks found"
+    failed = {}
+    for task_id in PLUGINS:
+        r = subprocess.run([sys.executable, "tools/check_task.py", task_id], capture_output=True, text=True)
+        if r.returncode != 0:
+            failed[task_id] = [ln for ln in r.stdout.splitlines() if ln.startswith("FAIL")][:3]
+    assert not failed, failed
+
+
+def test_library_task_runs_inside_a_session():
+    """A library task listed in the round mix appears in a participant's plan,
+    renders on the shared screen, and is scored on the server."""
+    from app import main as appmain
+    from app.tasks import PLUGINS
+    m = load_manifest()
+    plan = build_plan("lib", 0, "en", "tr", m, mix={"flanker": 2}, rounds=2)
+    assert [t["task"] for t in plan if t["round"]] == ["flanker"] * 4
+    c = TestClient(app)
+    with c:
+        r = c.get("/try/flanker?lang=tr")
+        assert r.status_code == 200 and "/taskjs/flanker.js" in r.text
+        item = next(i for i in m["images"] if i["id"] == "flanker_00")
+        ok = c.post("/try/flanker/score", json={"image_id": "flanker_00",
+                    "response": PLUGINS["flanker"].logic.example_response(item["target"], True)}).json()
+        assert ok["hit"] is True and "flanker_cost_ms" in ok["metrics"]
+    assert appmain.PLUGINS is PLUGINS

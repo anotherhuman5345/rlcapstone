@@ -1,0 +1,28 @@
+{
+ "instr": "Paghahanap ng sira: dinadaanan ng kuryente ng isang makina ang mga piyesa nito papunta sa ilang lampara; hanapin ang sirang piyesa, gamit ang pinakakaunting test na kaya mo.",
+ "clue": "Dumadaloy ang kuryente mula sa kaliwa, dumaraan sa mga piyesa, sa kahabaan ng mga linya, papunta sa mga lampara. Walang kuryenteng nakalulusot sa sirang piyesa, kaya madilim ang bawat piyesang kasunod nito at ang bawat lamparang pinadadaluyan nito. Eksaktong isang piyesa ang sira. Tingnan kung aling mga lampara ang nakasindi. Puwede kang mag-test ng isang piyesa (1 ang halaga ng bawat test): piliin ito at pindutin ang I-test para makita kung may kuryenteng lumalabas dito. Kapag alam mo na kung aling piyesa ang sira, piliin ito at pindutin ang I-report. Dalawang sira ang hahanapin. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "power": "Kuryente",
+ "lamp": "Lampara",
+ "test": "I-test ang napiling piyesa (halaga 1)",
+ "report": "I-report na sira ang napiling piyesa",
+ "signal": "may lumalabas na kuryente",
+ "no_signal": "walang lumalabas na kuryente",
+ "tests_used": "Mga test na nagamit: {n}",
+ "case_label": "Sira {n} sa {total}",
+ "select_hint": "I-click ang isang piyesa para piliin ito (o pindutin ang numero nito, 1–6).",
+ "parts": [
+  "Tambor",
+  "Likaw",
+  "Tarangkahan",
+  "Gulong",
+  "Salaan",
+  "Bomba",
+  "Lente",
+  "Muwelye",
+  "Kampana",
+  "Bentilador",
+  "Balbula",
+  "Sinturon"
+ ]
+}

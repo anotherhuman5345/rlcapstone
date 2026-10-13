@@ -1,0 +1,12 @@
+{
+ "instr": "Encuentre el cambio: dos versiones de una imagen se alternan; haga clic en el único objeto que es diferente.",
+ "clue": "La imagen alterna entre dos versiones. Un objeto cambia (cambia su color o su forma, o desaparece). Haga clic o toque ese objeto en cuanto lo encuentre. Con el teclado: mueva la cruz con las teclas de flecha y pulse Enter. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "pick": "Elegir aquí",
+ "stage_label": "Imagen parpadeante",
+ "move_left": "Mover a la izquierda",
+ "move_up": "Mover arriba",
+ "move_down": "Mover abajo",
+ "move_right": "Mover a la derecha",
+ "scene": "Imagen {n} de {total}"
+}

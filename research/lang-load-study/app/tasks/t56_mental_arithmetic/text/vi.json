@@ -1,0 +1,13 @@
+{
+ "instr": "Tính nhẩm: hãy tính nhẩm từng bài trong đầu và gõ đáp án.",
+ "clue": "Hãy tính nhẩm từng bài trong đầu, không viết ra giấy. Gõ đáp án bằng bàn phím số trên màn hình hoặc bàn phím và nhấn OK (hoặc Enter). Mỗi bài có 20 giây. Đáp án đều là số nguyên. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "ok": "OK",
+ "erase": "Xóa chữ số cuối",
+ "seconds_left": "Còn {s} giây",
+ "progress": "Bài {i} / {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

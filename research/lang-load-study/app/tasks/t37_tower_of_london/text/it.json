@@ -1,0 +1,13 @@
+{
+ "instr": "Palline: sposta le palline colorate una alla volta finché i tuoi pioli non sono esattamente come nell'immagine obiettivo.",
+ "clue": "Fai in modo che i tuoi pioli siano esattamente come nell'immagine obiettivo. Prendi la pallina in cima a un piolo cliccandolo (o premendo 1, 2 o 3), poi clicca il piolo dove deve andare. I pioli contengono al massimo 3, 2 e 1 pallina. Pianifica prima di iniziare e usa meno mosse possibile. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "reset": "Ricomincia",
+ "give_up": "Mi arrendo",
+ "yours": "I tuoi pioli",
+ "target": "Obiettivo",
+ "moves_label": "Mosse:",
+ "full_peg": "Quel piolo è pieno.",
+ "empty_peg": "Quel piolo è vuoto.",
+ "solved": "Fatto!"
+}

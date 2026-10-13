@@ -1,0 +1,23 @@
+{
+ "instr": "Neues Gerät: Lernen Sie, was sechs unbekannte Tasten bewirken, und stellen Sie damit dann ohne Hilfe einige Lampen ein.",
+ "clue": "Dieses Gerät hat drei Lampen und sechs unbekannte Tasten. Erstes Ziel: Eine Legende unter den Tasten erklärt sie, also lernen Sie, was jede bewirkt. Bei den nächsten beiden Zielen ist die Legende verborgen: Erreichen Sie jedes Ziel aus dem Gedächtnis. Ein gestrichelter Rahmen um die Lampen bedeutet, dass der Bearbeitungsmodus an ist; die kleine Markierung zeigt die ausgewählte Lampe. Sie können für die Tasten auch 1–6 drücken. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "goal": "Stellen Sie die Lampen ein: links {l}, Mitte {m}, rechts {r}. Bestätigen Sie dann.",
+ "goal_label": "Ziel {n} von {total}",
+ "legend_title": "Legende",
+ "next_goal": "Nächstes Ziel…",
+ "colors": [
+  "aus",
+  "rot",
+  "gelb",
+  "blau"
+ ],
+ "funcs": [
+  "Auswahl eine Lampe nach links verschieben (nur außerhalb des Bearbeitungsmodus)",
+  "Auswahl eine Lampe nach rechts verschieben (nur außerhalb des Bearbeitungsmodus)",
+  "Bearbeitungsmodus ein- oder ausschalten",
+  "Der ausgewählten Lampe ihre nächste Farbe geben: aus, rot, gelb, blau, aus… (nur im Bearbeitungsmodus)",
+  "Alle Lampen ausschalten",
+  "Bestätigen und das Ziel abschließen (nur außerhalb des Bearbeitungsmodus)"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Formas: decida se a forma da direita é a forma da esquerda girada ou a imagem espelhada dela.",
+ "clue": "A cada vez você verá duas formas. A da direita pode estar girada. Ela é a mesma forma, apenas girada, ou uma imagem espelhada da forma da esquerda? Pressione a seta para a esquerda (ou o botão) para Igual e a seta para a direita (ou o botão) para Espelhada. Responda com a maior rapidez e precisão possíveis. Pressione Começar quando estiver pronto(a).",
+ "same": "Igual",
+ "mirror": "Espelhada",
+ "start": "Começar"
+}

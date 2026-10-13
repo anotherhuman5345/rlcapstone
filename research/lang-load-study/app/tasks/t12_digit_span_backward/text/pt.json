@@ -1,0 +1,8 @@
+{
+ "instr": "Dígitos de trás para frente: veja uma pequena lista de dígitos, um de cada vez, e depois digite-os na ordem inversa, começando pelo último.",
+ "clue": "Pressione Começar e veja os dígitos aparecerem um de cada vez. Quando pararem, digite-os DE TRÁS PARA FRENTE, do último dígito ao primeiro, com o teclado na tela ou o seu teclado, e depois pressione OK. Exemplo: se você vir 3 8 1, digite 1 8 3.",
+ "recall": "Digite os dígitos na ordem inversa: o último dígito primeiro.",
+ "start": "Começar",
+ "done": "OK",
+ "delete": "Apagar o último dígito"
+}

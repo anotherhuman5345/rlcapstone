@@ -1,0 +1,31 @@
+{
+ "instr": "Mga pamamaraan: isagawa nang sunod-sunod ang isang listahan ng mga hakbang sa pag-click sa mga button ng hakbang; kung may ibang gawaing sumingit, bumalik at ituloy kung saan ka huminto.",
+ "clue": "Isagawa ang pamamaraan: i-click ang mga button ng hakbang ayon sa pagkakasunod-sunod sa listahan (o pindutin ang mga number key nito). Gawin nang isang beses ang bawat hakbang; walang magpapakita kung aling mga hakbang ang tapos na. Kung minsan, may ibang gawaing sisingit: sabihin kung even o odd ang bawat numero. Kapag bumalik ang pamamaraan, ituloy mula sa kung saan ka huminto. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "case_label": "Gawain {n} sa {total}",
+ "proc_title": "Pamamaraan",
+ "palette_title": "Mga button ng hakbang",
+ "interrupt_title": "Even o odd?",
+ "interrupt_hint": "Kaliwang arrow = even, kanang arrow = odd",
+ "even": "Even",
+ "odd": "Odd",
+ "next_case": "Susunod na gawain…",
+ "steps": [
+  "I-scan ang code",
+  "Timbangin ang parsela",
+  "Suriin ang selyo",
+  "I-print ang label",
+  "Idikit ang label",
+  "Itala ang oras",
+  "Kumuha ng litrato",
+  "Sukatin ang laki",
+  "Tatakan ang form",
+  "Pagbukud-bukurin ayon sa kulay",
+  "Balutin ang item",
+  "Abisuhan ang desk",
+  "Bilangin ang mga piraso",
+  "Isara ang takip",
+  "Pirmahan ang papel",
+  "Linisin ang tray"
+ ]
+}

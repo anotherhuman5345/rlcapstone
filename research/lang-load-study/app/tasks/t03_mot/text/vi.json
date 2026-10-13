@@ -1,0 +1,10 @@
+{
+ "instr": "Theo dõi: hãy nhớ những hình tròn chuyển sang màu cam, bám theo chúng khi tất cả các hình tròn di chuyển, rồi chọn lại chúng.",
+ "clue": "Một vài hình tròn chuyển sang màu cam trong chốc lát. Hãy nhớ chúng và luôn dõi mắt theo chúng trong khi tất cả các hình tròn di chuyển. Khi chúng dừng lại, hãy nhấp hoặc chạm vào những hình tròn bạn đã theo dõi (hoặc nhấn phím số của chúng), rồi nhấn Xong hoặc Enter. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "done": "Xong",
+ "stage_label": "Các hình tròn chuyển động",
+ "round": "Vòng {n} / {total}: hãy nhớ {k} hình tròn màu cam.",
+ "track": "Hãy bám theo chúng…",
+ "pick": "Hãy chọn {k} hình tròn bạn đã bám theo, rồi nhấn Xong."
+}

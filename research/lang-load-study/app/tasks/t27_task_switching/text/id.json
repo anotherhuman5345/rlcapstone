@@ -1,0 +1,9 @@
+{
+ "instr": "Warna atau bentuk: kata petunjuk memberi tahu Anda apakah harus menilai WARNA atau BENTUK gambar berikutnya.",
+ "clue": "Pertama muncul petunjuk: WARNA atau BENTUK. Lalu muncul lingkaran atau persegi berwarna biru atau oranye. Jika petunjuknya WARNA: biru = kiri, oranye = kanan. Jika petunjuknya BENTUK: lingkaran = kiri, persegi = kanan. Gunakan tombol panah atau tombol di layar. Jawab dengan cepat dan tepat. Tekan Mulai jika sudah siap.",
+ "cue_color": "WARNA",
+ "cue_shape": "BENTUK",
+ "left": "Kiri",
+ "right": "Kanan",
+ "start": "Mulai"
+}

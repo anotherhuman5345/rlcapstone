@@ -1,0 +1,10 @@
+{
+ "instr": "Kufuatilia: kumbuka miduara ipi inageuka rangi ya chungwa, ifuatilie wakati miduara yote inasogea, kisha uichague.",
+ "clue": "Baadhi ya miduara inageuka rangi ya chungwa kwa muda mfupi. Ikumbuke na usiiondolee macho wakati miduara yote inasogea. Inaposimama, bofya au gusa miduara uliyoifuatilia (au bonyeza vitufe vya namba zake), kisha bonyeza Tayari au Enter. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "done": "Tayari",
+ "stage_label": "Miduara inayosogea",
+ "round": "Raundi {n} kati ya {total}: kumbuka miduara {k} ya rangi ya chungwa.",
+ "track": "Ifuatilie…",
+ "pick": "Chagua miduara {k} uliyoifuatilia, kisha bonyeza Tayari."
+}

@@ -1,0 +1,17 @@
+{
+ "instr": "Palabras de colores: para cada palabra, pulse el botón del color de su TINTA, no del color que nombra la palabra.",
+ "clue": "Aparece el nombre de un color escrito con tinta de color. Indique el color de la TINTA y no haga caso de lo que dice la palabra. Pulse las teclas 1-4 o toque el botón del color correspondiente. Responda rápido y con precisión. Pulse Iniciar cuando esté listo/a.",
+ "words": [
+  "ROJO",
+  "AZUL",
+  "VERDE",
+  "AMARILLO"
+ ],
+ "color_names": [
+  "Rojo",
+  "Azul",
+  "Verde",
+  "Amarillo"
+ ],
+ "start": "Iniciar"
+}

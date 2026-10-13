@@ -1,0 +1,5 @@
+{"instr": "Simetri ve kareler: her desenin ayna gibi simetrik olup olmadığına karar verin ve kırmızı karelerin nerede çıktığını aklınızda tutun.",
+ "clue": "Her adımda siyah-beyaz bir desen göreceksiniz: sol ve sağ tarafı ayna gibi aynı mı? Evet (sol ok) ya da Hayır (sağ ok) diye cevap verin. Ardından bir ızgarada kırmızı bir kare yanıp söner: yerini aklınızda tutun. Sonunda kareleri çıktıkları sırayla seçin ve Bitti'ye basın. Hazır olunca Başla'ya basın.",
+ "yes": "Evet, simetrik", "no": "Hayır", "start": "Başla", "undo": "Geri al", "done": "Bitti",
+ "phase_judge": "Bu desen simetrik mi?", "phase_remember": "Bu kareyi aklınızda tutun.",
+ "phase_recall": "Kareleri çıktıkları sırayla seçin (ok tuşları ve Enter da çalışır, Backspace geri alır). Sonra Bitti'ye basın."}

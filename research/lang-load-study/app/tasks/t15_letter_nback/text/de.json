@@ -1,0 +1,10 @@
+{
+ "instr": "Buchstaben: Buchstaben erscheinen einzeln; sagen Sie bei jedem, ob er mit einem Buchstaben übereinstimmt, der eine bestimmte Anzahl von Schritten vorher gezeigt wurde.",
+ "clue": "Buchstaben erscheinen einzeln. Drücken Sie bei jedem Buchstaben „Gleich“ (rechte Pfeiltaste oder Schaltfläche), wenn er mit dem Buchstaben übereinstimmt, auf den die Regel unten verweist, andernfalls „Anders“ (linke Pfeiltaste oder Schaltfläche). Antworten Sie schnell; die Buchstaben kommen weiter. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "rule_1": "Regel: Ist dieser Buchstabe derselbe wie der direkt davor?",
+ "rule_2": "Regel: Ist dieser Buchstabe derselbe wie der zwei Schritte davor?",
+ "rule_3": "Regel: Ist dieser Buchstabe derselbe wie der drei Schritte davor?",
+ "same": "Gleich",
+ "different": "Anders",
+ "start": "Starten"
+}

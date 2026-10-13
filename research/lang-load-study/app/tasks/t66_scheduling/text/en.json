@@ -1,0 +1,64 @@
+{
+ "instr": "Schedule: give every job to a person on a day so that all the rules are kept.",
+ "clue": "Plan the work: put every job in the table under one person and one day. Each person can do at most one job per day, and all the rules in the list must be kept. Click a job (or move to it with Tab and press Enter), then click a box in the table. Click a filled box to pick its job up again. Any plan that keeps all the rules is correct. Press Done when every job is placed. Press Start when ready.",
+ "start": "Start",
+ "done": "Done",
+ "give_up": "Give up",
+ "setting": "Each person can do at most one job per day. Rules:",
+ "plan": "Plan",
+ "tray": "Jobs not yet placed",
+ "templates": {
+  "before": "The {a} job must be done on an earlier day than the {b} job.",
+  "same_day": "The {a} job and the {b} job must be done on the same day.",
+  "diff_day": "The {a} job and the {b} job must be done on different days.",
+  "by_day": "The {a} job must be done on {day} at the latest.",
+  "off_day": "{w} is not available on {day}.",
+  "only_person": "Only {w} can do the {a} job.",
+  "not_person": "{w} cannot do the {a} job.",
+  "same_person": "The {a} job and the {b} job must be done by the same person."
+ },
+ "jobs": [
+  {
+   "name": "report",
+   "cap": "Report"
+  },
+  {
+   "name": "delivery",
+   "cap": "Delivery"
+  },
+  {
+   "name": "repair",
+   "cap": "Repair"
+  },
+  {
+   "name": "cleaning",
+   "cap": "Cleaning"
+  },
+  {
+   "name": "stock count",
+   "cap": "Stock count"
+  },
+  {
+   "name": "training",
+   "cap": "Training"
+  },
+  {
+   "name": "painting",
+   "cap": "Painting"
+  },
+  {
+   "name": "inspection",
+   "cap": "Inspection"
+  }
+ ],
+ "people": [
+  "Anna",
+  "Ben",
+  "Clara"
+ ],
+ "days": [
+  "Monday",
+  "Tuesday",
+  "Wednesday"
+ ]
+}

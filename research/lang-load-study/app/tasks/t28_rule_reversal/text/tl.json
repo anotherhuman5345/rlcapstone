@@ -1,0 +1,10 @@
+{
+ "instr": "Dalawang figure: alamin sa pagsubok kung aling figure ang tama. Puwedeng magbago ang tamang figure nang walang babala.",
+ "clue": "Dalawang figure ang lilitaw. Tama ang isa sa mga ito. Pumili ng isa sa pamamagitan ng pag-click o pag-tap dito, o gamit ang kaliwa/kanang arrow key; makikita mo kung tama ka. Patuloy na piliin ang tama. Nang walang babala, puwedeng ang kabilang figure na ang maging tama: kung gayon, lumipat. Hindi mahalaga ang puwesto nito sa screen. Pindutin ang Simulan kapag handa ka na.",
+ "left": "Kaliwa",
+ "right": "Kanan",
+ "correct": "Tama",
+ "wrong": "Mali",
+ "too_slow": "Masyadong mabagal",
+ "start": "Simulan"
+}

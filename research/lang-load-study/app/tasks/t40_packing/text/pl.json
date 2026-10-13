@@ -1,0 +1,12 @@
+{
+ "instr": "Układanka: zmieść wszystkie elementy na planszy tak, aby każde pole było zakryte i żadne elementy na siebie nie nachodziły.",
+ "clue": "Wypełnij całą planszę wszystkimi elementami, bez nakładania się. Wybierz element (kliknij go lub naciśnij jego numer), w razie potrzeby obróć go przyciskiem „Obróć” (lub klawiszem R), a potem kliknij pole planszy, na którym ma się znaleźć kropka elementu. Aby przesunąć położony element, kliknij go na planszy, żeby go zdjąć. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "board": "Plansza",
+ "pieces": "Elementy",
+ "rotate": "Obróć",
+ "give_up": "Poddaję się",
+ "choose_first": "Najpierw wybierz element.",
+ "no_fit": "Element tam nie pasuje.",
+ "solved": "Gotowe!"
+}

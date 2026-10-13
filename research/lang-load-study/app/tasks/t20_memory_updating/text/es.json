@@ -1,0 +1,17 @@
+{
+ "instr": "Casillas con números: siga los números de unas casillas mientras las instrucciones los cambian y luego escriba los números finales.",
+ "clue": "Verá unas casillas con números. Recuérdelos: los números se ocultarán. Después aparecerán instrucciones una a una que le piden sumar o restar a una casilla. Mantenga los números actualizados mentalmente. Al final, escriba el número final de cada casilla (con el teclado o el teclado en pantalla) y pulse Listo. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "done": "Listo",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Sume {n} a la casilla {b}",
+ "op_sub": "Reste {n} a la casilla {b}",
+ "phase_study": "Recuerde los números.",
+ "phase_update": "Actualice los números mentalmente.",
+ "phase_answer": "Escriba el número final de cada casilla. Toque una casilla para elegirla; Enter pasa a la siguiente."
+}

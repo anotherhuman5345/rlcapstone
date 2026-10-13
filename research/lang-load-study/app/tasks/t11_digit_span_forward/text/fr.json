@@ -1,0 +1,8 @@
+{
+ "instr": "Chiffres : regardez une courte liste de chiffres, un par un, puis tapez-les dans le même ordre.",
+ "clue": "Appuyez sur Démarrer et regardez les chiffres apparaître un par un. Quand ils s'arrêtent, tapez-les dans le même ordre avec le pavé ou votre clavier, puis appuyez sur OK.",
+ "recall": "Tapez les chiffres dans l'ordre où vous les avez vus.",
+ "start": "Démarrer",
+ "done": "OK",
+ "delete": "Effacer le dernier chiffre"
+}

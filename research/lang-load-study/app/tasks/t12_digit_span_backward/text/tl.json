@@ -1,0 +1,8 @@
+{
+ "instr": "Mga digit nang pabaliktad: panoorin ang isang maikling listahan ng mga digit, isa-isa, pagkatapos ay i-type ang mga ito nang pabaliktad, simula sa huli.",
+ "clue": "Pindutin ang Simulan at panoorin ang mga digit habang isa-isang lumilitaw. Kapag tumigil na, i-type ang mga ito nang PABALIKTAD, mula sa huling digit hanggang sa una, gamit ang keypad o ang iyong keyboard, pagkatapos ay pindutin ang OK. Halimbawa: kung nakita mo ang 3 8 1, i-type ang 1 8 3.",
+ "recall": "I-type ang mga digit nang pabaliktad: una ang huling digit.",
+ "start": "Simulan",
+ "done": "OK",
+ "delete": "Burahin ang huling digit"
+}

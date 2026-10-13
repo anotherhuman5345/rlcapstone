@@ -1,0 +1,8 @@
+{
+ "instr": "Ciągi liczb: znajdź regułę i wpisz następną liczbę.",
+ "clue": "Każdy rząd liczb stosuje JEDNĄ z tych reguł: za każdym razem dodaj lub odejmij tę samą liczbę; za każdym razem pomnóż przez 2; krok rośnie za każdym razem o tyle samo; albo dwa ciągi przeplatają się, każdy z własnym krokiem. Wpisz następną liczbę na klawiaturze ekranowej lub zwykłej i naciśnij OK (lub Enter). Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "ok": "OK",
+ "erase": "Usuń ostatnią cyfrę",
+ "progress": "Ciąg {i} z {n}"
+}

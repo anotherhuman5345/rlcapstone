@@ -1,0 +1,56 @@
+{
+ "instr": "Pagpupuno ng form: kopyahin ang isang rekord sa isang form, sundin ang mga espesyal na panuntunang kasama nito.",
+ "clue": "Punan ang form sa kanan mula sa rekord sa kaliwa. Kopyahin nang eksakto ang mga pangalan at numero. Basahin muna ang mga espesyal na panuntunan: nalalapat lang ang isang panuntunan kapag totoo ang kondisyon nito para sa rekord na ito. Ipinapakita ng Tulong ang mga format. Pindutin ang Ipasa kapag tapos ka na. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "record_title": "Rekord",
+ "rules_title": "Mga espesyal na panuntunan",
+ "form_title": "Form",
+ "help": "Tulong",
+ "help_text": "Petsa: araw.buwan.taon na may mga tuldok, hal. 05.11.1987. Mga numero: mga digit lang, walang letra. Plano at paraan ng pakikipag-ugnayan: pumili ng isa. Iwanang blangko ang isang field kung sinasabi lang ito ng isang panuntunan.",
+ "submit": "Ipasa",
+ "choose": "— pumili —",
+ "no_phone": "—",
+ "date_placeholder": "DD.MM.YYYY",
+ "labels": {
+  "family": "Apelyido",
+  "given": "Pangalan",
+  "member": "Numero ng miyembro",
+  "birth": "Petsa ng kapanganakan",
+  "postcode": "Postal code",
+  "phone": "Telepono",
+  "plan": "Plano",
+  "contact": "Kontakin sa pamamagitan ng",
+  "amount": "Halaga"
+ },
+ "plans": [
+  "Basic",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "Email",
+  "Telepono",
+  "Koreo"
+ ],
+ "months": [
+  "Enero",
+  "Pebrero",
+  "Marso",
+  "Abril",
+  "Mayo",
+  "Hunyo",
+  "Hulyo",
+  "Agosto",
+  "Setyembre",
+  "Oktubre",
+  "Nobyembre",
+  "Disyembre"
+ ],
+ "rules": [
+  "Kung ipinanganak ang tao noong {year} o pagkatapos nito, piliin ang planong Junior, anuman ang nakasulat sa rekord.",
+  "Kung higit sa 500 ang halaga, ilagay ang 500.",
+  "Kung walang numero ng telepono ang rekord, iwanang blangko ang Telepono at piliin ang Koreo bilang paraan ng pakikipag-ugnayan.",
+  "Kung 4 na digit lang ang postal code, magdagdag ng 0 sa unahan.",
+  "Kung nagtatapos sa 7 ang numero ng miyembro, isulat ang apelyido sa MALALAKING titik."
+ ]
+}

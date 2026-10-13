@@ -1,0 +1,10 @@
+{
+ "instr": "Suivi : retenez quels cercles deviennent orange, suivez-les pendant que tous les cercles bougent, puis désignez-les.",
+ "clue": "Certains cercles deviennent orange un instant. Retenez-les et gardez les yeux sur eux pendant que tous les cercles bougent. Quand ils s'arrêtent, cliquez ou touchez les cercles que vous avez suivis (ou appuyez sur leurs touches numériques), puis appuyez sur Terminé ou Entrée. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "done": "Terminé",
+ "stage_label": "Cercles en mouvement",
+ "round": "Manche {n} sur {total} : retenez les {k} cercles orange.",
+ "track": "Suivez-les…",
+ "pick": "Sélectionnez les {k} cercles que vous avez suivis, puis appuyez sur Terminé."
+}

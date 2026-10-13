@@ -1,0 +1,26 @@
+<style>
+.symspan [hidden] { display: none !important; }
+.symspan .sp-area { min-height: 330px; display: flex; justify-content: center; align-items: center; margin: 1rem 0; }
+.symspan .sp-pat { display: grid; grid-template-columns: repeat(8, 36px); grid-auto-rows: 36px; gap: 2px; background: var(--line); border: 2px solid var(--line); }
+.symspan .sp-pat div { background: var(--paper); }
+.symspan .sp-pat div.on { background: var(--ink); }
+.symspan .sp-grid { display: grid; grid-template-columns: repeat(4, 72px); grid-auto-rows: 72px; gap: 6px; }
+.symspan .sp-grid > * { margin: 0; padding: 0; background: var(--paper); color: var(--ink); border: 2px solid var(--line); border-radius: 4px; font-size: 1.4rem; font-weight: 700; }
+.symspan .sp-grid > .lit { background: #c0392b; border-color: #c0392b; }
+.symspan .sp-grid > button.picked { background: #9ad1ff; }
+@media (max-width: 420px) { .symspan .sp-pat { grid-template-columns: repeat(8, 28px); grid-auto-rows: 28px; }
+  .symspan .sp-grid { grid-template-columns: repeat(4, 60px); grid-auto-rows: 60px; } }
+</style>
+<div class="symspan">
+  <p class="meta" id="sp-phase" aria-live="polite"></p>
+  <div class="sp-area" id="sp-area"></div>
+  <div class="btn-row" id="sp-judge" hidden>
+    <button type="button" data-key="yes">← {{ text.yes }}</button>
+    <button type="button" data-key="no">{{ text.no }} →</button>
+  </div>
+  <div class="btn-row" id="sp-recall" hidden>
+    <button type="button" id="sp-undo">{{ text.undo }}</button>
+    <button type="button" id="sp-done">{{ text.done }}</button>
+  </div>
+  <p><button type="button" id="sp-start">{{ text.start }}</button></p>
+</div>

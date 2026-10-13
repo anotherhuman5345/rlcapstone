@@ -1,0 +1,6 @@
+{
+ "instr": "Collega i cerchi: clicca i cerchi nell'ordine giusto il più velocemente possibile.",
+ "clue": "Clicca o tocca i cerchi in ordine il più velocemente possibile (da tastiera: Tab fino a un cerchio, poi Invio). Se i cerchi contengono solo numeri, vai 1-2-3-4 e così via. Se contengono numeri e lettere, alternali: 1-J-2-K-3-L e così via. Un cerchio sbagliato lampeggia in rosso; allora trova quello giusto. I cerchi compaiono quando premi Inizia.",
+ "go": "Via!",
+ "start": "Inizia"
+}

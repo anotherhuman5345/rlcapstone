@@ -1,0 +1,40 @@
+{
+ "instr": "Hatua za mashine: jifunze jinsi ya kuendesha mashine ya kubuni kutoka kwa hatua zilizoandikwa, kisha iendeshe kwa kumbukumbu.",
+ "clue": "Kwanza soma hatua za kuendesha mashine na mfano uliofanyiwa kazi; una hadi sekunde 45. Kisha hatua zinatoweka na unaendesha mashine mara tatu kwa kumbukumbu: tazama rangi ya taa na namba, bonyeza vitufe kwa mpangilio sahihi (bofya, gusa, au vitufe 1-8), kisha bonyeza Tayari (Enter). Tendua (Backspace) huondoa kubonyeza kwako kwa mwisho. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "study_title": "Jinsi ya kuendesha mashine:",
+ "example": "Mfano uliofanyiwa kazi: kwa mashine hii, vitufe sahihi vya kubonyeza ni:",
+ "learned": "Nimejifunza",
+ "study_left": "Zimebaki sekunde {s}",
+ "case_of": "Mashine {n} kati ya {total}",
+ "lamp": "Taa",
+ "number": "Namba",
+ "presses": "Ulivyobonyeza:",
+ "undo": "Tendua",
+ "done": "Tayari",
+ "colors": [
+  "nyekundu",
+  "buluu"
+ ],
+ "step_fixed": "Bonyeza {a}.",
+ "step_cond": "Ikiwa taa ni {c}, bonyeza {a}; vinginevyo bonyeza {b}.",
+ "step_repeat": "Bonyeza {a} mara nyingi kama namba iliyo kwenye kiashirio.",
+ "actions": [
+  "FUNGUA",
+  "FUNGA",
+  "PASHA MOTO",
+  "POZA",
+  "KOROGA",
+  "TIKISA",
+  "JAZA",
+  "MWAGA",
+  "ZIBA",
+  "GANDAMIZA",
+  "ZUNGUSHA",
+  "INUA",
+  "TIA KUFULI",
+  "OSHA",
+  "KAUSHA",
+  "PIMA UZITO"
+ ]
+}

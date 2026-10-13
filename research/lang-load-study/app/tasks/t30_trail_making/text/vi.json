@@ -1,0 +1,6 @@
+{
+ "instr": "Nối các vòng tròn: hãy nhấp vào các vòng tròn theo đúng thứ tự, nhanh nhất có thể.",
+ "clue": "Hãy nhấp hoặc chạm vào các vòng tròn theo thứ tự, nhanh nhất có thể (bàn phím: dùng Tab để đến một vòng tròn, rồi nhấn Enter). Nếu các vòng tròn chỉ có số, hãy đi 1-2-3-4, cứ thế tiếp tục. Nếu có cả số và chữ cái, hãy xen kẽ: 1-J-2-K-3-L, cứ thế tiếp tục. Vòng tròn sai sẽ nhấp nháy màu đỏ; khi đó hãy tìm vòng tròn đúng. Các vòng tròn hiện ra khi bạn nhấn Bắt đầu.",
+ "go": "Bắt đầu nào!",
+ "start": "Bắt đầu"
+}

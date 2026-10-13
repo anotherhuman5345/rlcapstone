@@ -1,0 +1,16 @@
+{
+ "instr": "Ô số: hãy trượt các ô có số vào chỗ trống cho đến khi chúng được xếp theo thứ tự từ 1 đến 8.",
+ "clue": "Hãy xếp các ô theo thứ tự như trong hình mục tiêu: từ 1 đến 8, với chỗ trống ở góc dưới bên phải. Nhấp vào một ô cạnh chỗ trống để trượt nó vào, hoặc dùng các phím mũi tên (hoặc các nút mũi tên) để đưa một ô vào chỗ trống. Hãy cố dùng ít nước đi nhất có thể. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "reset": "Làm lại",
+ "give_up": "Bỏ cuộc",
+ "yours": "Bảng của bạn",
+ "target": "Mục tiêu",
+ "moves_label": "Số nước đi:",
+ "illegal": "Chỉ ô nằm cạnh chỗ trống mới di chuyển được.",
+ "solved": "Xong!",
+ "left": "Trái",
+ "right": "Phải",
+ "up": "Lên",
+ "down": "Xuống"
+}

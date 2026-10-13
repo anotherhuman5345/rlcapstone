@@ -1,0 +1,17 @@
+{
+ "instr": "Visanduku vya namba: fuatilia namba zilizo katika visanduku vichache wakati maagizo yanazibadilisha, kisha andika namba za mwisho.",
+ "clue": "Utaona visanduku vichache vyenye namba. Zikumbuke: namba zitafichwa. Kisha maagizo yanatokea moja baada ya jingine, yakikuambia uongeze au utoe kwenye kisanduku. Zisasishe namba kichwani mwako. Mwishoni, andika namba ya mwisho ya kila kisanduku (kwa kibodi au vitufe vilivyo kwenye skrini) na ubonyeze Tayari. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "done": "Tayari",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Ongeza {n} kwenye kisanduku {b}",
+ "op_sub": "Toa {n} kutoka kisanduku {b}",
+ "phase_study": "Kumbuka namba.",
+ "phase_update": "Sasisha namba kichwani mwako.",
+ "phase_answer": "Andika namba ya mwisho ya kila kisanduku. Gusa kisanduku ili kukichagua; Enter inakupeleka kwenye kisanduku kinachofuata."
+}

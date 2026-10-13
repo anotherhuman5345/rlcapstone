@@ -1,0 +1,15 @@
+<div class="mx">
+  <style>
+    .mx .mx-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 7.5rem)); gap: 4px; background: var(--line); padding: 4px; width: max-content; max-width: 100%; border-radius: 4px; }
+    .mx .mx-grid > div { background: #fff; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; font-weight: 700; color: var(--muted); }
+    .mx svg { width: 100%; height: 100%; display: block; }
+    .mx .mx-opts { display: grid; grid-template-columns: repeat(4, minmax(0, 7.5rem)); gap: .6rem; margin-top: 1rem; max-width: 100%; }
+    .mx .mx-opts button { margin: 0; padding: .3rem; background: #fff; border: 2px solid var(--line); color: var(--ink); }
+    .mx .mx-opts button .k { display: block; font-weight: 700; }
+    .mx .mx-prog { color: var(--muted); }
+  </style>
+  <p class="mx-prog" id="mx-prog"></p>
+  <div class="mx-grid" id="mx-grid" hidden></div>
+  <div class="mx-opts" id="mx-opts"></div>
+  <p><button type="button" id="mx-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,10 @@
+{
+ "instr": "Folgen und rechnen: Halten Sie den Zeiger auf dem bewegten Punkt, während Sie einfache Rechenaufgaben beantworten, die darunter erscheinen.",
+ "clue": "Halten Sie den Zeiger die ganze Zeit auf dem bewegten blauen Punkt: Bewegen Sie die Maus, ziehen Sie den Finger oder halten Sie die Pfeiltasten (oder Pfeilschaltflächen) gedrückt. Unter dem Feld erscheinen Rechenaufgaben: Wählen Sie die Antwort durch Anklicken oder mit 1, 2 oder 3. Dem Punkt zu folgen und die Aufgaben zu beantworten ist gleich wichtig. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "sum_hint": "Antworten Sie mit 1, 2, 3 oder einem Klick",
+ "up": "Nach oben",
+ "down": "Nach unten",
+ "left": "Nach links",
+ "right": "Nach rechts"
+}

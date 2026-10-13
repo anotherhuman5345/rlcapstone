@@ -1,0 +1,8 @@
+{"instr": "Yiwuwa: ku kwatanta abubuwa biyu da za su iya faruwa, ku zaɓi wanda ya fi yiwuwa, ko ku ce yiwuwarsu daidai take.",
+ "clue": "Kowane shafi yana nuna abubuwa biyu da za su iya faruwa, A da B, a rubuce da kuma a hoto. Ana ɗauko ƙwallaye ba tare da an duba ba, kuma kowace ƙwalla tana da damar da za a ɗauko ta daidai da sauran; 'yan lidon ba su da magudi. Ku zaɓi wanda ya fi yiwuwa, ko \"Yiwuwa daidai take\". Ku yi amfani da maɓallan da ke allo ko maɓallan 1 (A), 2 (yiwuwa daidai take), 3 (B). Ku danna Fara idan kun shirya.",
+ "start": "Fara", "label_a": "A", "label_b": "B", "equal": "Yiwuwa daidai take",
+ "question": "Wanne ne ya fi yiwuwa?", "progress": "Tambaya {i} cikin {n}",
+ "ev_bag1": "Jaka {L} tana ɗauke da ƙwallaye ja guda {r} da shuɗi guda {b}. Kun ɗauko ƙwalla ɗaya, kuma ja ce.",
+ "ev_bag2_replace": "Jaka {L} tana ɗauke da ƙwallaye ja guda {r} da shuɗi guda {b}. Kun ɗauko ƙwalla, kun mayar da ita, sannan kun sake ɗauko wata. Ƙwallayen biyu duka ja ne.",
+ "ev_bag2_keep": "Jaka {L} tana ɗauke da ƙwallaye ja guda {r} da shuɗi guda {b}. Kun ɗauko ƙwalla, kun ajiye ta a waje, sannan kun sake ɗauko wata. Ƙwallayen biyu duka ja ne.",
+ "ev_dice": "Kun jefa 'yan lido biyu, kuma jimillar lambobin biyu ta kai {s}."}

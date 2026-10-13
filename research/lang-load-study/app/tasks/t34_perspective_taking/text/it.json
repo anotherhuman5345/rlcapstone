@@ -1,0 +1,12 @@
+{
+ "instr": "Direzioni sulla mappa: immagina di stare presso un punto di riferimento guardando verso un altro, e indica dove si trova un terzo.",
+ "clue": "La mappa mostra sei punti di riferimento visti dall'alto. Immagina di stare presso il primo punto di riferimento e di guardare verso il secondo. Il terzo punto di riferimento è davanti a te, alla tua destra, dietro di te o alla tua sinistra? Non ruotare lo schermo. Rispondi con i tasti freccia o con i pulsanti. Su questa mappa ci sono quattro domande. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "stand": "Sei presso",
+ "face": "Guardi verso",
+ "where": "Dov'è",
+ "ahead": "Davanti",
+ "right": "A destra",
+ "behind": "Dietro",
+ "left": "A sinistra"
+}

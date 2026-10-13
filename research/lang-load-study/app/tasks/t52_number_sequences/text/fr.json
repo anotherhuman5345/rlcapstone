@@ -1,0 +1,8 @@
+{
+ "instr": "Suites de nombres : trouvez la règle et tapez le nombre suivant.",
+ "clue": "Chaque ligne de nombres suit UNE de ces règles : ajouter ou retirer le même nombre à chaque fois ; multiplier par 2 à chaque fois ; l'écart augmente de la même quantité à chaque fois ; ou deux suites alternent, chacune avec son propre écart. Tapez le nombre suivant avec le pavé ou le clavier et appuyez sur OK (ou Entrée). Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "ok": "OK",
+ "erase": "Effacer le dernier chiffre",
+ "progress": "Suite {i} sur {n}"
+}

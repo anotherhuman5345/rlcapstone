@@ -1,0 +1,19 @@
+{
+"instr": "Alamomi da kalmomi: ku koyi kalmar da ke tafiya da kowace sabuwar alama, sannan ku zaɓi kalmar kowace alama.",
+"clue": "Sabbin alamomi za su bayyana ɗaya bayan ɗaya, kowace da kalma. Ku koyi waɗannan biyu-biyun. Sannan kowace alama za ta bayyana ita kaɗai: ku zaɓi kalmarta daga jerin (ku danna ta, ko ku danna maɓallin lambarta). Za ku yi karatu ku kuma yi gwaji sau biyu. Ku danna Fara idan kun shirya.",
+"start": "Fara",
+"phase_study": "Ku koyi biyu-biyun ({c} cikin 2).",
+"phase_test": "Wace kalma ce ke tafiya da wannan alamar? ({c} cikin 2)",
+"words": [
+"tuffa", "burodi", "kujera", "tebur", "taga", "ƙofa", "kogi", "tsauni", "gajimare", "lambu",
+"gada", "fensir", "kwando", "kwalba", "kyandir", "madubi", "matashin kai", "bargo", "tsani", "guduma",
+"allura", "maɓallin riga", "zaren ado", "jakar kuɗi", "tikiti", "wasiƙa", "tafarnuwa", "albasa", "lemun tsami", "ceri",
+"barkono", "karas", "cuku", "zuma", "man shanu", "butar shayi", "cokali", "faranti", "bokiti", "tawul",
+"sabulu", "matsefi", "safar hannu", "gyale", "dogon takalmi", "hula", "babbar riga", "riga", "doki", "tunkiya",
+"akuya", "zomo", "kunkuru", "gaggafa", "mujiya", "kwaɗo", "kudan zuma", "gizo-gizo", "babban kifin teku", "kifin shark",
+"damisa", "raƙumi", "kurmi", "hamada", "tsibiri", "tafki", "kwari", "makiyaya", "ƙauye", "fada",
+"hasumiya", "kasuwa", "ɗakin karatu", "tasha", "tashar jirgin ruwa", "gona", "agogo", "fitila", "mabuɗi", "makulli",
+"igiya", "anga", "ganga", "goge", "sarewa", "ƙararrawa", "kwabo", "taswira", "kamfas", "tanti",
+"taya", "zanen jirgin ruwa", "gashin tsuntsu", "kwanso", "dutse", "ganye"
+]
+}

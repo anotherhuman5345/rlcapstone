@@ -1,0 +1,8 @@
+{"instr": "Takardu: ku kwatanta odar kaya da takardar isar da kayan, ku yi alama a kan duk bayanin da bai yi daidai ba.",
+ "clue": "Takardar isar da kaya (a dama, ko a ƙasa a ƙananan allo) ya kamata ta yi daidai da odar layi bayan layi. Ku yi alama a kan duk bayanin da ke cikin takardar isar da kaya da ya bambanta da odar: ku danna shi, ko ku je kansa da Tab ku danna Enter ko Space. Ku sake danna shi don cire alamar. Ku danna Na gama idan kun gama. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "done": "Na gama", "marked_count": "An yi wa alama: {n}",
+ "title_a": "Odar kaya", "title_b": "Takardar isar da kaya",
+ "col_code": "Lambar layi", "col_product": "Kaya", "col_qty": "Yawa", "col_date": "Kwanan wata",
+ "months": ["Janairu", "Fabrairu", "Maris", "Afrilu", "Mayu", "Yuni", "Yuli", "Agusta", "Satumba", "Oktoba", "Nuwamba", "Disamba"],
+ "products": ["Ƙusoshin ƙarfe", "Wayar tagulla", "Rolar fenti", "Bututun ruwan lambu", "Fitilar tebur", "Tayil na ƙasa", "Maƙallan ƙofa", "Agogon bango",
+              "Matatar ruwa", "Akwatin kayan aiki", "Ƙusoshin hawa na itace", "Igiyar ƙarin wuta", "Kwan fitila", "Safar hannu ta aiki", "Gilashin taga", "Burushin fenti"]}

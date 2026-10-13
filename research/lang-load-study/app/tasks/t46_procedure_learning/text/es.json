@@ -1,0 +1,40 @@
+{
+ "instr": "Pasos de una máquina: aprenda a manejar una máquina inventada con instrucciones escritas y luego manéjela de memoria.",
+ "clue": "Primero lea los pasos para manejar una máquina y el ejemplo resuelto; tiene hasta 45 segundos. Luego los pasos desaparecen y usted maneja la máquina tres veces de memoria: mire el color de la luz y el número, pulse los botones en el orden correcto (clic, toque o teclas 1-8) y luego pulse Listo (Enter). Deshacer (Retroceso) quita su última pulsación. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "study_title": "Cómo manejar la máquina:",
+ "example": "Ejemplo resuelto: para esta máquina, las pulsaciones correctas son:",
+ "learned": "Ya lo he aprendido",
+ "study_left": "Quedan {s} s",
+ "case_of": "Máquina {n} de {total}",
+ "lamp": "Luz",
+ "number": "Número",
+ "presses": "Sus pulsaciones:",
+ "undo": "Deshacer",
+ "done": "Listo",
+ "colors": [
+  "roja",
+  "azul"
+ ],
+ "step_fixed": "Pulse {a}.",
+ "step_cond": "Si la luz es {c}, pulse {a}; si no, pulse {b}.",
+ "step_repeat": "Pulse {a} tantas veces como indique el número de la pantalla.",
+ "actions": [
+  "ABRIR",
+  "CERRAR",
+  "CALENTAR",
+  "ENFRIAR",
+  "REMOVER",
+  "AGITAR",
+  "LLENAR",
+  "VACIAR",
+  "SELLAR",
+  "PRENSAR",
+  "GIRAR",
+  "LEVANTAR",
+  "BLOQUEAR",
+  "LAVAR",
+  "SECAR",
+  "PESAR"
+ ]
+}

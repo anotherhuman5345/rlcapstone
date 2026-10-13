@@ -1,0 +1,7 @@
+{
+ "instr": "Hình tròn và hình tam giác: nhấn với mỗi hình tròn, không làm gì khi thấy hình tam giác.",
+ "clue": "Các hình sẽ lần lượt xuất hiện theo nhịp đều. Khi thấy HÌNH TRÒN, hãy nhấn phím cách (hoặc nút Nhấn) nhanh nhất có thể. Khi thấy HÌNH TAM GIÁC, đừng nhấn gì cả. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "press": "Nhấn",
+ "start": "Bắt đầu",
+ "stage_label": "Vùng các hình xuất hiện"
+}

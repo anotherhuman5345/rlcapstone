@@ -1,0 +1,19 @@
+{
+ "instr": "Reguły symboli: naucz się dwóch nowych działań oznaczonych symbolami, a potem oblicz z nimi nowe wyrażenia.",
+ "clue": "Poniżej objaśniono dwa wymyślone symbole, z przykładami. Przeczytaj je, potem naciśnij Start i oblicz każde wyrażenie. Wpisz wynik na klawiaturze ekranowej lub zwykłej i naciśnij OK (lub Enter). Reguły pozostają na ekranie.",
+ "start": "Start",
+ "ok": "OK",
+ "erase": "Usuń ostatnią cyfrę",
+ "progress": "Wyrażenie {i} z {n}",
+ "examples": "Przykłady:",
+ "list_sep": ";  ",
+ "precedence": "W wyrażeniu z oboma symbolami zawsze najpierw wykonaj działanie {hi}, a potem {lo}.",
+ "rule_dbl_first": "podwój pierwszą liczbę, a potem dodaj drugą liczbę.",
+ "rule_dbl_second": "podwój drugą liczbę, a potem dodaj pierwszą liczbę.",
+ "rule_sum_dbl": "dodaj obie liczby, a potem podwój wynik.",
+ "rule_sum_ten": "dodaj obie liczby, a potem dodaj 10.",
+ "rule_mul_minus1": "pomnóż obie liczby, a potem odejmij 1.",
+ "rule_mul_plus1": "pomnóż obie liczby, a potem dodaj 1.",
+ "rule_mul_plus_first": "pomnóż obie liczby, a potem dodaj pierwszą liczbę.",
+ "rule_mul_plus_second": "pomnóż obie liczby, a potem dodaj drugą liczbę."
+}

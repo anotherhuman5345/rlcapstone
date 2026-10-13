@@ -1,0 +1,8 @@
+{
+ "instr": "Szukanie koloru: kliknij jedyne pomarańczowe kółko wśród niebieskich albo odpowiedz „Brak”, jeśli go nie ma.",
+ "clue": "Znajdź pomarańczowe kółko wśród niebieskich kółek i kliknij je jak najszybciej (albo naciśnij klawisz →). Jeśli nie ma pomarańczowego kółka, naciśnij ← lub przycisk „Brak”. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "absent": "Brak",
+ "present": "Jest",
+ "start": "Start",
+ "stage_label": "Kółka do przeszukania"
+}

@@ -1,0 +1,19 @@
+{
+ "instr": "Mga panuntunan ng simbolo: pag-aralan ang dalawang bagong operasyon ng simbolo, pagkatapos ay kuwentahin ang mga bagong ekspresyon gamit ang mga ito.",
+ "clue": "Ipinaliliwanag sa ibaba ang dalawang imbentong simbolo, may kasamang mga halimbawa. Basahin ang mga ito, pagkatapos ay pindutin ang Simulan at kuwentahin ang bawat ekspresyon. I-type ang sagot gamit ang keypad o keyboard at pindutin ang OK (o Enter). Mananatili sa screen ang mga panuntunan.",
+ "start": "Simulan",
+ "ok": "OK",
+ "erase": "Burahin ang huling digit",
+ "progress": "Ekspresyon {i} sa {n}",
+ "examples": "Mga halimbawa:",
+ "list_sep": ";  ",
+ "precedence": "Sa ekspresyong may dalawang simbolo, laging kuwentahin muna ang {hi}, pagkatapos ang {lo}.",
+ "rule_dbl_first": "doblehin ang unang numero, pagkatapos ay idagdag ang pangalawang numero.",
+ "rule_dbl_second": "doblehin ang pangalawang numero, pagkatapos ay idagdag ang unang numero.",
+ "rule_sum_dbl": "pagsamahin ang dalawang numero, pagkatapos ay doblehin ang resulta.",
+ "rule_sum_ten": "pagsamahin ang dalawang numero, pagkatapos ay magdagdag ng 10.",
+ "rule_mul_minus1": "i-multiply ang dalawang numero, pagkatapos ay magbawas ng 1.",
+ "rule_mul_plus1": "i-multiply ang dalawang numero, pagkatapos ay magdagdag ng 1.",
+ "rule_mul_plus_first": "i-multiply ang dalawang numero, pagkatapos ay idagdag ang unang numero.",
+ "rule_mul_plus_second": "i-multiply ang dalawang numero, pagkatapos ay idagdag ang pangalawang numero."
+}

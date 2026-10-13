@@ -1,0 +1,14 @@
+{
+ "instr": "Krótkie programy: przeczytaj każdy krótki program i wpisz liczbę, którą wypisuje.",
+ "clue": "Zobaczysz trzy krótkie programy. Prześledź je krok po kroku, wiersz po wierszu, i ustal liczbę wypisaną na końcu. Wpisz ją na klawiaturze ekranowej lub zwykłej (dla liczby ujemnej użyj −), a potem naciśnij OK lub Enter. Nie musisz się spieszyć. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "program_of": "Program {n} z {total}",
+ "output": "Wypisana liczba:",
+ "ok": "OK",
+ "erase": "Wymaż",
+ "kw_set": "ustaw {v} na {e}",
+ "kw_repeat": "powtórz {n} razy:",
+ "kw_if": "jeśli {c}:",
+ "kw_else": "w przeciwnym razie:",
+ "kw_print": "wypisz {e}"
+}

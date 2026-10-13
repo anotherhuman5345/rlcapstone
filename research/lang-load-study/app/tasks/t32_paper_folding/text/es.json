@@ -1,0 +1,8 @@
+{
+ "instr": "Plegado de papel: una hoja se dobla y se perfora; elija cómo queda la hoja al desdoblarla.",
+ "clue": "Los dibujos muestran una hoja cuadrada de papel que se dobla (la parte sombreada se dobla por la línea discontinua, como indica la flecha). En el último dibujo se hace un agujero que atraviesa todas las capas. ¿Cuál de las cuatro hojas muestra dónde quedan los agujeros al desdoblar el papel? Haga clic o toque una hoja, o pulse su tecla numérica del 1 al 4. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "folds": "Doblado",
+ "punched": "Agujero hecho",
+ "options": "¿Qué hoja es la correcta al desdoblarla?"
+}

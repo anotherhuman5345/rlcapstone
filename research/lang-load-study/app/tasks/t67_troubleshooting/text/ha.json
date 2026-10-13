@@ -1,0 +1,15 @@
+{
+ "instr": "Gano lalacewa: wata na'ura tana tura wutar lantarki ta cikin sassanta zuwa wasu fitilu; ku nemo sashen da ya lalace, da gwaji kaɗan gwargwadon iko.",
+ "clue": "Wuta tana gudana daga hagu ta cikin sassan, bisa layukan, zuwa fitilun. Sashen da ya lalace ba ya barin wuta ta wuce, don haka duk sashen da ke bayansa da duk fitilar da yake ba wa wuta suna kasancewa a kashe. Sashe ɗaya ne kacal ya lalace. Ku duba waɗanne fitilu ne ke ci. Kuna iya gwada sashe (kowane gwaji yana da kuɗin maki 1): ku zaɓe shi ku danna Gwada don ganin ko wuta tana fitowa daga gare shi. Idan kun san sashen da ya lalace, ku zaɓe shi ku danna Bayar da rahoto. Akwai lalacewa biyu da za a nemo. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "power": "Wuta",
+ "lamp": "Fitila",
+ "test": "Gwada sashen da aka zaɓa (maki 1)",
+ "report": "Bayar da rahoto cewa sashen da aka zaɓa ya lalace",
+ "signal": "wuta tana fitowa",
+ "no_signal": "wuta ba ta fitowa",
+ "tests_used": "Gwaje-gwajen da aka yi: {n}",
+ "case_label": "Lalacewa {n} cikin {total}",
+ "select_hint": "Ku danna sashe don zaɓar shi (ko ku danna lambarsa, 1–6).",
+ "parts": ["Ganga", "Naɗi", "Ƙofa", "Ƙafa", "Matata", "Famfo", "Tabarau", "Sipirin", "Ƙararrawa", "Fanka", "Bawul", "Bel"]
+}

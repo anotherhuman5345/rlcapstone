@@ -1,0 +1,22 @@
+<div class="snb">
+  <style>
+    .snb .snb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: min(100%, 300px); aspect-ratio: 1; margin: 1rem auto; padding: 6px; background: #2b3540; border-radius: 6px; position: relative; }
+    .snb .snb-cell { background: #5b7085; border-radius: 4px; }
+    .snb .snb-cell.lit { background: #f2c94c; }
+    .snb .snb-fix { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; font-weight: 700; pointer-events: none; }
+    .snb .snb-rule { text-align: center; font-weight: 600; }
+    .snb .btn-row { justify-content: center; }
+    .snb .btn-row button { min-width: 9rem; touch-action: manipulation; }
+    .snb .btn-row button.pressed { outline: 3px solid var(--ink); outline-offset: 2px; }
+  </style>
+  <p class="snb-rule">{{ text["rule_" ~ item.n] }}</p>
+  <div class="snb-grid" id="snb-grid" aria-hidden="true">
+    {% for c in range(9) %}<div class="snb-cell" data-c="{{ c }}"></div>{% endfor %}
+    <span class="snb-fix" id="snb-fix"></span>
+  </div>
+  <div class="btn-row">
+    <button type="button" data-key="nonmatch">&larr; {{ text.different }}</button>
+    <button type="button" data-key="match">{{ text.same }} &rarr;</button>
+  </div>
+  <p class="snb-rule"><button type="button" id="snb-start">{{ text.start }}</button></p>
+</div>

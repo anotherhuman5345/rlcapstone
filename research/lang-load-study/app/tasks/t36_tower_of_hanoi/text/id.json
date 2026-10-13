@@ -1,0 +1,12 @@
+{
+ "instr": "Menara: pindahkan semua cakram ke tiang tujuan yang ditandai, satu per satu, tanpa pernah menaruh cakram besar di atas cakram kecil.",
+ "clue": "Pindahkan seluruh menara cakram ke tiang bertanda “tujuan”. Ambil cakram teratas dengan mengklik tiangnya (atau menekan 1, 2, atau 3), lalu klik tiang tempat cakram itu harus ditaruh. Pindahkan satu cakram setiap kali, dan jangan pernah menaruh cakram yang lebih besar di atas yang lebih kecil. Usahakan langkah sesedikit mungkin. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "reset": "Ulangi dari awal",
+ "give_up": "Menyerah",
+ "target": "tujuan",
+ "moves_label": "Langkah:",
+ "illegal": "Tidak boleh: cakram besar tidak boleh di atas cakram kecil.",
+ "empty_peg": "Tiang itu kosong.",
+ "solved": "Selesai!"
+}

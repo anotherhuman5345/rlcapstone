@@ -1,0 +1,18 @@
+<style>
+  .sorting .refs { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+  .sorting .ref { margin: 0; padding: .3rem; background: #fff; color: #222; border: 2px solid #777; border-radius: 8px; width: 7.5rem; }
+  .sorting .ref svg, .sorting .target svg { display: block; width: 100%; height: auto; }
+  .sorting .ref .num { display: block; font-size: .9rem; font-weight: 600; }
+  .sorting .target { width: 7.5rem; margin: 1.2rem auto .4rem; padding: .3rem; border: 2px dashed #777; border-radius: 8px; min-height: 7.5rem; background: #fff; }
+  .sorting .fb { text-align: center; font-size: 1.4rem; font-weight: 700; min-height: 2rem; margin: .3rem 0; }
+  .sorting .fb.good { color: #1a7f37; }
+  .sorting .fb.bad { color: #b42318; }
+</style>
+<div class="sorting">
+  <div class="refs">
+    {% for i in range(4) %}<button type="button" class="ref" data-key="{{ i }}"><span class="pic"></span><span class="num">{{ i + 1 }}</span></button>{% endfor %}
+  </div>
+  <div class="target" id="rd-target" aria-live="off"></div>
+  <p class="fb" id="rd-fb" aria-live="polite"></p>
+  <p><button type="button" id="rd-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,12 @@
+{
+ "instr": "Recuadros iluminados: lo más rápido que pueda, pulse la tecla o el recuadro que corresponde al recuadro que se ilumina.",
+ "clue": "Uno de los cuatro recuadros se iluminará. Lo más rápido y preciso que pueda, pulse su tecla: D, F, J o K de izquierda a derecha (o 1, 2, 3, 4), o toque el recuadro. Siga hasta el final. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

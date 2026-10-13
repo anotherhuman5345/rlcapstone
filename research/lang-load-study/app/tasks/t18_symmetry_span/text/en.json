@@ -1,0 +1,5 @@
+{"instr": "Symmetry and squares: decide if each pattern is mirror-symmetric, and remember where the red squares appeared.",
+ "clue": "Each step shows a black-and-white pattern: is it the same on the left and the right, like a mirror? Answer Yes (left arrow) or No (right arrow). Then a red square flashes in a grid: remember where. At the end, tap the squares in the order they appeared, then press Done. Press Start when ready.",
+ "yes": "Yes, symmetric", "no": "No", "start": "Start", "undo": "Undo", "done": "Done",
+ "phase_judge": "Is this pattern symmetric?", "phase_remember": "Remember this square.",
+ "phase_recall": "Tap the squares in the order they appeared (arrow keys and Enter also work, Backspace undoes). Then press Done."}

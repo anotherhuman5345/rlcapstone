@@ -1,0 +1,12 @@
+{
+ "instr": "Simmetria e quadrati: decidi se ogni disegno è simmetrico come in uno specchio e ricorda dove sono comparsi i quadrati rossi.",
+ "clue": "A ogni passo compare un disegno in bianco e nero: è uguale a sinistra e a destra, come in uno specchio? Rispondi Sì (freccia sinistra) o No (freccia destra). Poi in una griglia lampeggia un quadrato rosso: ricorda dove. Alla fine tocca i quadrati nell'ordine in cui sono comparsi, poi premi Fatto. Premi Inizia quando sei pronto.",
+ "yes": "Sì, simmetrico",
+ "no": "No",
+ "start": "Inizia",
+ "undo": "Annulla",
+ "done": "Fatto",
+ "phase_judge": "Questo disegno è simmetrico?",
+ "phase_remember": "Ricorda questo quadrato.",
+ "phase_recall": "Tocca i quadrati nell'ordine in cui sono comparsi (funzionano anche i tasti freccia e Invio; Backspace annulla). Poi premi Fatto."
+}

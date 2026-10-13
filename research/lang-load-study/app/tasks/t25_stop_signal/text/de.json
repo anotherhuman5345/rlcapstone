@@ -1,0 +1,9 @@
+{
+ "instr": "Pfeile mit Stoppsignal: Drücken Sie schnell die Richtung des Pfeils, aber halten Sie sich zurück, wenn er rot wird.",
+ "clue": "In der Mitte erscheint ein Pfeil. Drücken Sie so schnell wie möglich die linke oder rechte Pfeiltaste (oder Schaltfläche) für die Richtung, in die er zeigt. Manchmal wird der Pfeil kurz nach dem Erscheinen in einem roten Ring rot (mit einem Piepton, wenn der Ton an ist): Versuchen Sie dann, NICHT zu drücken. Das Stoppen klappt nicht immer; das ist normal. Werden Sie nicht langsamer, um auf das rote Signal zu warten. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "left": "Links",
+ "right": "Rechts",
+ "start": "Starten",
+ "sound": "Piepton beim Stoppsignal",
+ "stage_label": "Bereich, in dem die Pfeile erscheinen"
+}

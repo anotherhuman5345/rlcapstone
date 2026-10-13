@@ -1,0 +1,9 @@
+{
+ "instr": "Hình hiếm gặp: các hình lần lượt lóe lên; chỉ nhấn phím cách (hoặc nút) khi bạn thấy hình vuông.",
+ "clue": "Các hình lần lượt lóe lên ở giữa màn hình. Mỗi khi một hình vuông xuất hiện, hãy nhấn phím cách (hoặc nút lớn) nhanh nhất có thể. Không làm gì khi thấy hình tròn. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "press": "Hình vuông!",
+ "stage_label": "Các hình lóe lên",
+ "target_is": "Nhấn khi thấy:",
+ "ignore": "bỏ qua:"
+}

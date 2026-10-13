@@ -1,0 +1,6 @@
+{"instr": "Number boxes: keep track of the numbers in a few boxes while instructions change them, then type the final numbers.",
+ "clue": "You will see a few boxes with numbers. Remember them: the numbers will be hidden. Then instructions appear one by one, telling you to add to or subtract from a box. Keep the numbers up to date in your head. At the end, type the final number of every box (keyboard or on-screen keypad) and press Done. Press Start when ready.",
+ "start": "Start", "done": "Done", "box_labels": ["A", "B", "C", "D"],
+ "op_add": "Add {n} to box {b}", "op_sub": "Subtract {n} from box {b}",
+ "phase_study": "Remember the numbers.", "phase_update": "Update the numbers in your head.",
+ "phase_answer": "Type the final number of each box. Tap a box to choose it; Enter moves to the next box."}

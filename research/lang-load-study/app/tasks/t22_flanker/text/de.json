@@ -1,0 +1,7 @@
+{
+ "instr": "Pfeile: Drücken Sie die Taste oder Schaltfläche, die zum mittleren Pfeil passt, und ignorieren Sie die Pfeile darum herum.",
+ "clue": "Achten Sie nur auf den Pfeil in der Mitte. Drücken Sie die linke oder rechte Pfeiltaste (oder Schaltfläche), um anzugeben, in welche Richtung er zeigt. Ignorieren Sie die Pfeile auf beiden Seiten. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "left": "Links",
+ "right": "Rechts",
+ "start": "Starten"
+}

@@ -1,0 +1,18 @@
+<style>
+  .cr-rules { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: .5rem 1rem; min-height: 3rem; font-size: 1.15rem; font-weight: 600; }
+  .cr-rules p { margin: .3rem 0; }
+  .cr-q { text-align: center; margin: .6rem 0 0; }
+  .cr-card { display: block; margin: .5rem auto; width: 200px; height: 200px; }
+  .cr-btns { justify-content: center; }
+  .cr-btns button { min-width: 9rem; }
+</style>
+<div class="condreason">
+  <div class="cr-rules" id="cr-rules"></div>
+  <p class="cr-q" id="cr-q">&nbsp;</p>
+  <svg class="cr-card" id="cr-card" viewBox="0 0 200 200" role="img" aria-hidden="true"></svg>
+  <div class="btn-row cr-btns">
+    <button type="button" data-choice="follows">&larr; {{ text.follows }}</button>
+    <button type="button" data-choice="breaks">{{ text.breaks }} &rarr;</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="cr-start">{{ text.start }}</button></p>
+</div>

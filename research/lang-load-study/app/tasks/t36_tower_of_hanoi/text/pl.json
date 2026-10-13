@@ -1,0 +1,12 @@
+{
+ "instr": "Wieża: przenieś wszystkie krążki na oznaczony słupek docelowy, po jednym krążku naraz, nigdy nie kładąc większego krążka na mniejszym.",
+ "clue": "Przenieś całą wieżę krążków na słupek oznaczony jako „cel”. Weź górny krążek, klikając jego słupek (lub naciskając 1, 2 lub 3), a potem kliknij słupek, na który ma trafić. Przenoś po jednym krążku i nigdy nie kładź większego krążka na mniejszym. Postaraj się wykonać jak najmniej ruchów. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "reset": "Od nowa",
+ "give_up": "Poddaję się",
+ "target": "cel",
+ "moves_label": "Ruchy:",
+ "illegal": "Niedozwolone: większy krążek nie może leżeć na mniejszym.",
+ "empty_peg": "Ten słupek jest pusty.",
+ "solved": "Gotowe!"
+}

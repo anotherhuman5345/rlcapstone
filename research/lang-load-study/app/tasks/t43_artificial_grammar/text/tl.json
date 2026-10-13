@@ -1,0 +1,9 @@
+{
+ "instr": "Mga pattern ng letra: pag-aralan ang mga string na ginawa ayon sa isang nakatagong panuntunan, pagkatapos ay husgahan kung sumusunod sa parehong panuntunan ang mga bagong string.",
+ "clue": "Pag-aralan muna ang mga string ng letra sa screen; lahat ng ito ay sumusunod sa isang nakatagong pattern. Pagkatapos, isa-isang lilitaw ang mga bagong string. Pindutin ang kaliwang arrow (o ang kaliwang button) kung sumusunod ang string sa parehong pattern, ang kanang arrow (o ang kanang button) kung lumalabag ito. Sundin ang una mong impresyon. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "legal": "Sumusunod sa pattern",
+ "illegal": "Lumalabag sa pattern",
+ "study_left": "Pag-aralan ang mga string: {s} s na lang",
+ "test_of": "String {n} sa {total}"
+}

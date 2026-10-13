@@ -1,0 +1,12 @@
+{
+ "instr": "Visanduku vinavyowaka: haraka uwezavyo, bonyeza kitufe au kisanduku kinacholingana na kisanduku kinachowaka.",
+ "clue": "Kimoja kati ya visanduku vinne kitawaka. Haraka na kwa usahihi uwezavyo, bonyeza kitufe chake: D, F, J au K kutoka kushoto kwenda kulia (au 1, 2, 3, 4), au gusa kisanduku. Endelea mpaka mwisho. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

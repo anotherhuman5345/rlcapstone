@@ -1,0 +1,10 @@
+{
+ "instr": "Daloy ng letra: isa-isang lumilitaw ang mga letra at biglang humihinto nang walang babala; pagkatapos, i-type lang ang huling ilang letra, ayon sa pagkakasunod-sunod.",
+ "clue": "Pindutin ang Simulan. Isa-isang lumilitaw ang mga letra, at humihinto ang listahan nang walang babala, kaya isaisip ang mga pinakahuling letra. Kapag huminto ito, i-type lang ang mga HULING letrang nakita mo, ayon sa pagkakasunod-sunod ng paglitaw nila. Gamitin ang ? para sa letrang hindi mo maalala, pagkatapos ay pindutin ang OK.",
+ "keep": "Tandaan ang huling {k} letra.",
+ "recall": "I-type ang huling {k} letra ayon sa pagkakasunod-sunod ng paglitaw nila.",
+ "unknown": "Hindi ko maalala ang letrang ito",
+ "start": "Simulan",
+ "done": "OK",
+ "delete": "Burahin ang huling letra"
+}

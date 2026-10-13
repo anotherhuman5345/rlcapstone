@@ -1,0 +1,9 @@
+{
+ "instr": "Punkte: Eine Gruppe von Punkten blitzt sehr kurz auf; geben Sie ein, wie viele es Ihrer Meinung nach waren.",
+ "clue": "Schauen Sie auf das Kreuz in der Mitte. Eine Gruppe von Punkten erscheint kurz und wird dann verdeckt. Zum Zählen bleibt keine Zeit: Geben Sie Ihre beste Schätzung ein, wie viele Punkte es waren, mit den Zifferntasten oder dem Ziffernfeld auf dem Bildschirm, und drücken Sie dann Enter oder OK. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "ask": "Wie viele Punkte?",
+ "erase": "Löschen",
+ "ok": "OK",
+ "start": "Starten",
+ "stage_label": "Bereich, in dem die Punkte erscheinen"
+}

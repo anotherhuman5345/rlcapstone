@@ -3,7 +3,7 @@ import uuid
 from datetime import datetime, timezone
 
 from sqlalchemy import (JSON, Boolean, DateTime, Float, ForeignKey, Integer,
-                        String, create_engine, inspect, text)
+                        String, Text, create_engine, inspect, text)
 from sqlalchemy.orm import (DeclarativeBase, Mapped, mapped_column,
                             relationship, sessionmaker)
 from sqlalchemy.pool import NullPool
@@ -105,6 +105,8 @@ class TrialResult(Base):
     reloads: Mapped[int] = mapped_column(Integer, default=0)  # page reloads before answering
     focus_lost: Mapped[int] = mapped_column(Integer, default=0)  # times the tab was hidden mid-trial
     response: Mapped[str | None] = mapped_column(String(200))  # Corsi clicks / reading choice, as JSON
+    # Task-library tasks: full response and summary scores (JSON); can be long.
+    metrics: Mapped[str | None] = mapped_column(Text)
 
     participant: Mapped[Participant] = relationship(back_populates="trials")
 

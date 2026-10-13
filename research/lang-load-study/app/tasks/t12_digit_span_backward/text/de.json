@@ -1,0 +1,8 @@
+{
+ "instr": "Ziffern rückwärts: Sehen Sie sich eine kurze Folge von Ziffern an, die einzeln erscheinen, und geben Sie sie dann in umgekehrter Reihenfolge ein, beginnend mit der letzten.",
+ "clue": "Drücken Sie „Starten“ und sehen Sie zu, wie die Ziffern einzeln erscheinen. Wenn sie aufhören, geben Sie sie RÜCKWÄRTS ein, von der letzten bis zur ersten Ziffer, über das Ziffernfeld oder Ihre Tastatur, und drücken Sie dann OK. Beispiel: Wenn Sie 3 8 1 sehen, geben Sie 1 8 3 ein.",
+ "recall": "Geben Sie die Ziffern in umgekehrter Reihenfolge ein: die letzte Ziffer zuerst.",
+ "start": "Starten",
+ "done": "OK",
+ "delete": "Letzte Ziffer löschen"
+}

@@ -1,0 +1,4 @@
+{"instr": "Noktalar: bir grup nokta çok kısa bir an görünür; kaç tane olduğunu düşünüyorsanız yazın.",
+ "clue": "Ortadaki artı işaretine bakın. Bir grup nokta bir anlığına görünecek, sonra üstü kapanacak. Saymaya vakit yok: kaç nokta olduğuna dair en iyi tahmininizi rakam tuşlarıyla ya da ekrandaki tuş takımıyla yazın, ardından Enter'a ya da Tamam'a basın. Hazır olunca Başla'ya basın.",
+ "ask": "Kaç nokta vardı?", "erase": "Sil", "ok": "Tamam", "start": "Başla",
+ "stage_label": "Noktaların göründüğü alan"}

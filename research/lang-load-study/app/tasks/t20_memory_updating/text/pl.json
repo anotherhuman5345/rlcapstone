@@ -1,0 +1,17 @@
+{
+ "instr": "Okienka z liczbami: śledź liczby w kilku okienkach, gdy polecenia je zmieniają, a potem wpisz końcowe liczby.",
+ "clue": "Zobaczysz kilka okienek z liczbami. Zapamiętaj je: liczby zostaną ukryte. Potem po kolei pojawią się polecenia, by dodać coś do okienka lub odjąć od niego. Na bieżąco aktualizuj liczby w pamięci. Na końcu wpisz końcową liczbę każdego okienka (klawiaturą lub klawiaturą na ekranie) i naciśnij Gotowe. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "done": "Gotowe",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Dodaj {n} do okienka {b}",
+ "op_sub": "Odejmij {n} od okienka {b}",
+ "phase_study": "Zapamiętaj liczby.",
+ "phase_update": "Aktualizuj liczby w pamięci.",
+ "phase_answer": "Wpisz końcową liczbę każdego okienka. Dotknij okienka, aby je wybrać; Enter przechodzi do następnego okienka."
+}

@@ -1,0 +1,56 @@
+{
+ "instr": "Mpangilio: panga wanyama katika mstari ili kila sentensi iwe kweli.",
+ "clue": "Soma sentensi, kisha weka kila mnyama kwenye mojawapo ya nafasi zenye namba ili sentensi zote ziwe kweli. Nafasi 1 iko mwisho kabisa upande wa kushoto. Bofya mnyama (au umfikie kwa Tab na ubonyeze Enter), kisha bofya nafasi. Bofya nafasi iliyojazwa ili kumchukua tena mnyama aliye hapo. Bonyeza Tayari kila nafasi ikiwa imejazwa. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "done": "Tayari",
+ "give_up": "Kata tamaa",
+ "setting": "Wanyama wamesimama katika mstari wa nafasi zenye namba, kuanzia nafasi 1 upande wa kushoto hadi nafasi ya mwisho upande wa kulia.",
+ "row": "Mstari",
+ "tray": "Wanyama ambao bado hawajawekwa",
+ "place": "Nafasi",
+ "templates": {
+  "left_of": "{a.cap} yuko mahali fulani upande wa kushoto wa {b}.",
+  "next_left": "{a.cap} yuko kando ya {b}, upande wake wa kushoto.",
+  "adjacent": "{a.cap} na {b} wako kando kwa kando.",
+  "not_adjacent": "{a.cap} na {b} hawako kando kwa kando.",
+  "at": "{a.cap} yuko kwenye nafasi namba {p}.",
+  "not_at": "{a.cap} hayuko kwenye nafasi namba {p}.",
+  "end": "{a.cap} ni ama wa kwanza ama wa mwisho katika mstari.",
+  "not_end": "{a.cap} si wa kwanza wala wa mwisho katika mstari.",
+  "between": "{a.cap} yuko mahali fulani kati ya {b} na {c}."
+ },
+ "objects": [
+  {
+   "name": "paka",
+   "cap": "Paka"
+  },
+  {
+   "name": "mbwa",
+   "cap": "Mbwa"
+  },
+  {
+   "name": "farasi",
+   "cap": "Farasi"
+  },
+  {
+   "name": "sungura",
+   "cap": "Sungura"
+  },
+  {
+   "name": "mbuzi",
+   "cap": "Mbuzi"
+  },
+  {
+   "name": "bata",
+   "cap": "Bata"
+  },
+  {
+   "name": "mbweha",
+   "cap": "Mbweha"
+  },
+  {
+   "name": "dubu",
+   "cap": "Dubu"
+  }
+ ]
+}

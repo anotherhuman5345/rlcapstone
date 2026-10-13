@@ -1,0 +1,13 @@
+{
+ "instr": "Liczenie w pamięci: rozwiąż każde zadanie w pamięci i wpisz wynik.",
+ "clue": "Rozwiąż każde zadanie w pamięci, niczego nie zapisując. Wpisz wynik na klawiaturze ekranowej lub zwykłej i naciśnij OK (lub Enter). Na każde zadanie masz 20 sekund. Wyniki są liczbami całkowitymi. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "ok": "OK",
+ "erase": "Usuń ostatnią cyfrę",
+ "seconds_left": "Zostało {s} s",
+ "progress": "Zadanie {i} z {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

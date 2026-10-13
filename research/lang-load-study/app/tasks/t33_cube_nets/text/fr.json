@@ -1,0 +1,6 @@
+{
+ "instr": "Patrons de cube : choisissez le patron à plat qui se plie pour former le cube montré.",
+ "clue": "Le cube porte une marque différente sur chacune de ses six faces ; vous en voyez trois. Chaque patron ci-dessous peut être plié en cube, avec les marques à l'extérieur. Un seul donne exactement ce cube : les mêmes marques, placées côte à côte de la même façon et orientées dans le même sens. Cliquez ou touchez ce patron, ou appuyez sur sa touche numérique de 1 à 4. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "options": "Quel patron forme ce cube ?"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Chữ số ngược: hãy xem một dãy ngắn các chữ số hiện ra lần lượt, rồi gõ lại chúng theo thứ tự ngược lại, bắt đầu từ chữ số cuối cùng.",
+ "clue": "Hãy nhấn Bắt đầu và xem các chữ số hiện ra lần lượt. Khi chúng dừng, hãy gõ lại theo thứ tự NGƯỢC, từ chữ số cuối cùng đến chữ số đầu tiên, bằng bàn phím số trên màn hình hoặc bàn phím của bạn, rồi nhấn OK. Ví dụ: nếu bạn thấy 3 8 1, hãy gõ 1 8 3.",
+ "recall": "Hãy gõ các chữ số theo thứ tự ngược lại: chữ số cuối cùng trước.",
+ "start": "Bắt đầu",
+ "done": "OK",
+ "delete": "Xóa chữ số cuối"
+}

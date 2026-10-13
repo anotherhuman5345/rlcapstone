@@ -1,0 +1,9 @@
+{
+ "instr": "Sequenze di lettere: studia delle sequenze create da una regola nascosta, poi giudica se nuove sequenze seguono la stessa regola.",
+ "clue": "Prima studia le sequenze di lettere sullo schermo; seguono tutte uno schema nascosto. Poi vedrai nuove sequenze, una alla volta. Premi la freccia sinistra (o il pulsante a sinistra) se una sequenza segue lo stesso schema, la freccia destra (o il pulsante a destra) se lo viola. Fidati della prima impressione. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "legal": "Segue lo schema",
+ "illegal": "Viola lo schema",
+ "study_left": "Studia le sequenze: mancano {s} s",
+ "test_of": "Sequenza {n} di {total}"
+}

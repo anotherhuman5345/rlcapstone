@@ -1,0 +1,3 @@
+{"instr": "Şekiller: sağdaki şeklin, soldaki şeklin döndürülmüş hâli mi yoksa ayna görüntüsü mü olduğuna karar verin.",
+ "clue": "Her seferinde iki şekil göreceksiniz. Sağdaki şekil döndürülmüş olabilir. Bu, yalnızca döndürülmüş aynı şekil mi, yoksa soldakinin ayna görüntüsü mü? Aynı için sol ok tuşuna (ya da düğmeye), Ayna için sağ ok tuşuna (ya da düğmeye) basın. Olabildiğince hızlı ve doğru yanıt verin. Hazır olunca Başla'ya basın.",
+ "same": "Aynı", "mirror": "Ayna", "start": "Başla"}

@@ -1,0 +1,17 @@
+<div class="pfold">
+  <style>
+    .pfold .pf-label { color: var(--muted); font-size: .95rem; margin: .4rem 0 .2rem; }
+    .pfold .pf-opts { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .pfold .pf-opt { margin: 0; padding: .4rem; background: var(--paper); color: var(--ink); border: 2px solid var(--line); font-weight: 600; display: flex; flex-direction: column; align-items: center; }
+    .pfold .pf-opt:hover { border-color: var(--signal); }
+    .pfold .pf-opt svg { width: 130px; height: 130px; }
+  </style>
+  <div id="pf-body" hidden>
+    <p class="pf-label">{{ text.folds }} → {{ text.punched }}</p>
+    <svg id="pf-steps" width="700" height="170" viewBox="0 0 700 170" aria-hidden="true"
+         style="display:block;background:#fff;border:1px solid var(--line);border-radius:6px"></svg>
+    <p class="pf-label">{{ text.options }}</p>
+    <div class="pf-opts" id="pf-opts"></div>
+  </div>
+  <p><button type="button" id="pf-start">{{ text.start }}</button></p>
+</div>

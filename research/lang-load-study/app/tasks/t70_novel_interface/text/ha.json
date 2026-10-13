@@ -1,0 +1,16 @@
+{
+ "instr": "Sabuwar na'ura: ku koyi abin da maɓallai shida da ba ku saba da su ba suke yi, sannan ku yi amfani da su don saita wasu fitilu ba tare da taimako ba.",
+ "clue": "Wannan na'ura tana da fitilu uku da maɓallai shida da ba ku saba da su ba. Manufa ta farko: bayani a ƙarƙashin maɓallan yana fayyace su, don haka ku koyi abin da kowanne yake yi. Ga manufofi biyu na gaba an ɓoye bayanin: ku cimma kowace manufa daga ƙwaƙwalwa. Firam mai layin ɗigo-ɗigo a kewayen fitilun yana nufin yanayin gyara yana kunne; ƙaramar alamar tana nuna fitilar da aka zaɓa. Kuna kuma iya danna 1–6 don maɓallan. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "goal": "Ku sa fitilun su zama: hagu {l}, tsakiya {m}, dama {r}. Sannan ku tabbatar.",
+ "goal_label": "Manufa {n} cikin {total}",
+ "legend_title": "Bayani",
+ "next_goal": "Manufa ta gaba…",
+ "colors": ["a kashe", "ja", "rawaya", "shuɗi"],
+ "funcs": ["Zaɓi fitilar da ke hagu (sai lokacin da yanayin gyara ke kashe kawai)",
+           "Zaɓi fitilar da ke dama (sai lokacin da yanayin gyara ke kashe kawai)",
+           "Kunna ko kashe yanayin gyara",
+           "Ba fitilar da aka zaɓa launinta na gaba: a kashe, ja, rawaya, shuɗi, a kashe… (sai a yanayin gyara kawai)",
+           "Kashe dukkan fitilu",
+           "Tabbatar, a gama manufar (sai lokacin da yanayin gyara ke kashe kawai)"]
+}

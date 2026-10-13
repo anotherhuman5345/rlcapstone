@@ -1,0 +1,9 @@
+{
+ "instr": "Kropki: grupa kropek mignie bardzo krótko; wpisz, ile według ciebie ich było.",
+ "clue": "Patrz na krzyżyk na środku. Na chwilę pojawi się grupa kropek, a potem zostanie zakryta. Nie ma czasu na liczenie: wpisz swoją najlepszą ocenę, ile było kropek, klawiszami cyfr lub klawiaturą na ekranie, a potem naciśnij Enter lub OK. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "ask": "Ile kropek?",
+ "erase": "Wymaż",
+ "ok": "OK",
+ "start": "Start",
+ "stage_label": "Obszar, w którym pojawiają się kropki"
+}

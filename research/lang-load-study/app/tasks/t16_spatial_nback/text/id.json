@@ -1,0 +1,9 @@
+{
+ "instr": "Kisi: kotak-kotak dalam kisi menyala satu per satu; untuk setiap kotak, katakan apakah posisinya sama dengan kotak yang menyala beberapa langkah sebelumnya.",
+ "clue": "Kotak-kotak dalam kisi menyala satu per satu. Setiap kali, tekan Sama (tombol panah kanan atau tombol di layar) jika posisinya sama dengan kotak yang ditunjuk aturan di bawah, jika tidak tekan Berbeda (tombol panah kiri atau tombol di layar). Jawab dengan cepat; kotak terus berdatangan. Tekan Mulai jika sudah siap.",
+ "rule_1": "Aturan: apakah kotak ini berada di posisi yang sama dengan kotak tepat sebelumnya?",
+ "rule_2": "Aturan: apakah kotak ini berada di posisi yang sama dengan kotak dua langkah sebelumnya?",
+ "same": "Sama",
+ "different": "Berbeda",
+ "start": "Mulai"
+}

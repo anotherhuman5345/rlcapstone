@@ -1,0 +1,16 @@
+{
+ "instr": "Matakan aiki: ku aiwatar da jerin matakai bisa tsari ta hanyar danna maɓallan matakai; idan wani aiki ya katse ku, ku koma ku ci gaba daga inda kuka tsaya.",
+ "clue": "Ku aiwatar da aikin: ku danna maɓallan matakai bisa jerin da ke cikin lissafin (ko ku danna maɓallan lambobinsu). Ku yi kowane mataki sau ɗaya; babu abin da zai nuna matakan da aka riga aka yi. Wani lokaci wani aiki daban zai katse ku: ku faɗi ko kowace lamba cika ce ko mara. Idan aikin farko ya dawo, ku ci gaba daga inda kuka tsaya. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "case_label": "Aiki {n} cikin {total}",
+ "proc_title": "Matakan aiki",
+ "palette_title": "Maɓallan matakai",
+ "interrupt_title": "Cika ko mara?",
+ "interrupt_hint": "Kibiyar hagu = cika, kibiyar dama = mara",
+ "even": "Cika",
+ "odd": "Mara",
+ "next_case": "Aiki na gaba…",
+ "steps": ["Karanta lambar kaya", "Auna nauyin kunshin", "Duba hatimin", "Buga lakabin", "Liƙa lakabin", "Rubuta lokacin",
+           "Ɗauki hoto", "Auna girman", "Sa tambari a fom", "Rarraba bisa launi", "Naɗe kayan", "Sanar da teburin karɓa",
+           "Ƙirga guntayen", "Rufe murfin", "Sa hannu a takardar", "Goge tiren"]
+}

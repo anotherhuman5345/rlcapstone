@@ -1,0 +1,8 @@
+{
+ "instr": "Ricerca del colore: clicca sull'unico cerchio arancione tra quelli blu, oppure rispondi «Assente» se non c'è.",
+ "clue": "Trova il cerchio arancione tra i cerchi blu e cliccaci sopra il più velocemente possibile (oppure premi il tasto →). Se non c'è nessun cerchio arancione, premi ← o il pulsante «Assente». Premi Inizia quando sei pronto.",
+ "absent": "Assente",
+ "present": "Presente",
+ "start": "Inizia",
+ "stage_label": "Cerchi in cui cercare"
+}

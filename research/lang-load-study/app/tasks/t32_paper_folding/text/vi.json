@@ -1,0 +1,8 @@
+{
+ "instr": "Gấp giấy: một tờ giấy được gấp lại và đục một lỗ xuyên qua; hãy chọn hình dạng của tờ giấy khi mở ra.",
+ "clue": "Các hình cho thấy một tờ giấy hình vuông đang được gấp lại (phần tô đậm được gấp theo đường nét đứt, như mũi tên chỉ). Ở hình cuối, một lỗ được đục xuyên qua tất cả các lớp. Trong bốn tờ giấy, tờ nào cho thấy đúng vị trí các lỗ khi tờ giấy được mở ra? Hãy nhấp hoặc chạm vào một tờ, hoặc nhấn phím số 1 đến 4 của nó. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "folds": "Gấp",
+ "punched": "Đục lỗ",
+ "options": "Khi mở ra, tờ nào đúng?"
+}

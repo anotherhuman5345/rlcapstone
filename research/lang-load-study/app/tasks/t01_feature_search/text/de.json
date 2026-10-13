@@ -1,0 +1,8 @@
+{
+ "instr": "Farbsuche: Klicken Sie auf den einzigen orangefarbenen Kreis zwischen den blauen oder antworten Sie „Fehlt“, wenn es keinen gibt.",
+ "clue": "Finden Sie den orangefarbenen Kreis zwischen den blauen Kreisen und klicken Sie so schnell wie möglich darauf (oder drücken Sie die Taste →). Wenn es keinen orangefarbenen Kreis gibt, drücken Sie ← oder die Schaltfläche „Fehlt“. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "absent": "Fehlt",
+ "present": "Vorhanden",
+ "start": "Starten",
+ "stage_label": "Zu durchsuchende Kreise"
+}

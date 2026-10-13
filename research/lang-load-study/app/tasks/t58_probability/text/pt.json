@@ -1,0 +1,14 @@
+{
+ "instr": "Chances: compare dois eventos e escolha o mais provável, ou diga que são igualmente prováveis.",
+ "clue": "Cada tela mostra dois eventos, A e B, em palavras e em uma imagem. As bolas são tiradas sem olhar, e cada bola tem a mesma chance de ser tirada; os dados não são viciados. Escolha o evento mais provável, ou \"Igualmente prováveis\". Use os botões ou as teclas 1 (A), 2 (igualmente prováveis), 3 (B). Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Igualmente prováveis",
+ "question": "Qual é mais provável?",
+ "progress": "Pergunta {i} de {n}",
+ "ev_bag1": "No saco {L} há bolas vermelhas e azuis (vermelhas: {r}; azuis: {b}). Você tira uma bola e ela é vermelha.",
+ "ev_bag2_replace": "No saco {L} há bolas vermelhas e azuis (vermelhas: {r}; azuis: {b}). Você tira uma bola, devolve-a ao saco e tira de novo. As duas bolas são vermelhas.",
+ "ev_bag2_keep": "No saco {L} há bolas vermelhas e azuis (vermelhas: {r}; azuis: {b}). Você tira uma bola, deixa-a fora do saco e tira de novo. As duas bolas são vermelhas.",
+ "ev_dice": "Você lança dois dados e a soma dos dois números é {s}."
+}

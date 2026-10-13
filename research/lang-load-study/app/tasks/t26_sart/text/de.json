@@ -1,0 +1,7 @@
+{
+ "instr": "Ziffern: Drücken Sie bei jeder Zahl außer der 3.",
+ "clue": "Zahlen von 1 bis 9 erscheinen in gleichmäßigem Tempo nacheinander, jeweils gefolgt von einem Kreuz im Kreis. Drücken Sie bei jeder Zahl AUSSER der 3 die Leertaste (oder die Schaltfläche „Drücken“). Wenn Sie eine 3 sehen, drücken Sie nicht. Geschwindigkeit und Genauigkeit sind gleich wichtig. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "press": "Drücken",
+ "start": "Starten",
+ "stage_label": "Bereich, in dem die Zahlen erscheinen"
+}

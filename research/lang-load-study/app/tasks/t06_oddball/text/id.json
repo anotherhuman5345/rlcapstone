@@ -1,0 +1,9 @@
+{
+ "instr": "Bentuk langka: bentuk-bentuk muncul sekilas satu per satu; tekan Spasi (atau tombolnya) hanya saat Anda melihat persegi.",
+ "clue": "Bentuk-bentuk muncul sekilas di tengah satu per satu. Tekan Spasi (atau tombol besar) secepat mungkin setiap kali persegi muncul. Jangan lakukan apa pun untuk lingkaran. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "press": "Persegi!",
+ "stage_label": "Bentuk yang muncul sekilas",
+ "target_is": "Tekan untuk:",
+ "ignore": "abaikan:"
+}

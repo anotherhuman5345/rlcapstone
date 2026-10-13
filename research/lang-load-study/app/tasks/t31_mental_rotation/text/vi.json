@@ -1,0 +1,7 @@
+{
+ "instr": "Hình khối: hãy quyết định hình bên phải là hình bên trái được xoay đi, hay là ảnh phản chiếu qua gương của nó.",
+ "clue": "Mỗi lần bạn thấy hai hình. Hình bên phải có thể đã được xoay. Đó là cùng một hình, chỉ bị xoay đi, hay là ảnh phản chiếu qua gương của hình bên trái? Nhấn phím mũi tên trái (hoặc nút) cho Giống nhau và phím mũi tên phải (hoặc nút) cho Phản chiếu. Hãy trả lời nhanh và chính xác nhất có thể. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "same": "Giống nhau",
+ "mirror": "Phản chiếu",
+ "start": "Bắt đầu"
+}

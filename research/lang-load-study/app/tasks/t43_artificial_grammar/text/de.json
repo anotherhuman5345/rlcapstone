@@ -1,0 +1,9 @@
+{
+ "instr": "Buchstabenmuster: Prägen Sie sich Ketten ein, die nach einer verborgenen Regel gebildet sind, und beurteilen Sie dann, ob neue Ketten derselben Regel folgen.",
+ "clue": "Sehen Sie sich zuerst die Buchstabenketten auf dem Bildschirm an; sie folgen alle einem verborgenen Muster. Dann sehen Sie nacheinander neue Ketten. Drücken Sie den linken Pfeil (oder die linke Schaltfläche), wenn eine Kette demselben Muster folgt, den rechten Pfeil (oder die rechte Schaltfläche), wenn sie es bricht. Verlassen Sie sich auf Ihren ersten Eindruck. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "legal": "Folgt dem Muster",
+ "illegal": "Bricht das Muster",
+ "study_left": "Ketten einprägen: noch {s} s",
+ "test_of": "Kette {n} von {total}"
+}

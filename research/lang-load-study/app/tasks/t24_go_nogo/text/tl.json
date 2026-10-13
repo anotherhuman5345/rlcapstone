@@ -1,0 +1,7 @@
+{
+ "instr": "Mga bilog at tatsulok: pumindot sa bawat bilog, huwag gumawa ng anuman sa tatsulok.",
+ "clue": "Sunod-sunod na lilitaw ang mga hugis sa pantay na bilis. Kapag nakakita ka ng BILOG, pindutin ang space bar (o ang button na Pindot) nang pinakamabilis na kaya mo. Kapag nakakita ka ng TATSULOK, huwag pumindot ng anuman. Pindutin ang Simulan kapag handa ka na.",
+ "press": "Pindot",
+ "start": "Simulan",
+ "stage_label": "Lugar kung saan lumilitaw ang mga hugis"
+}

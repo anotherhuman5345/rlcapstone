@@ -1,0 +1,7 @@
+{
+ "instr": "Dígitos: pulse con cada número excepto el 3.",
+ "clue": "Irán apareciendo números del 1 al 9 uno tras otro a un ritmo constante, cada uno seguido de una cruz dentro de un círculo. Pulse la barra espaciadora (o el botón Pulsar) con cada número EXCEPTO el 3. Cuando vea un 3, no pulse. La rapidez y la precisión son igual de importantes. Pulse Iniciar cuando esté listo/a.",
+ "press": "Pulsar",
+ "start": "Iniciar",
+ "stage_label": "Zona donde aparecen los números"
+}

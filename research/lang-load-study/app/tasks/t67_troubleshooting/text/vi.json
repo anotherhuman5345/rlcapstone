@@ -1,0 +1,28 @@
+{
+ "instr": "Tìm lỗi: một chiếc máy truyền điện qua các bộ phận đến một số bóng đèn; hãy tìm bộ phận bị hỏng với số lần kiểm tra ít nhất có thể.",
+ "clue": "Dòng điện chạy từ bên trái qua các bộ phận, theo các đường dây, đến các bóng đèn. Bộ phận bị hỏng không cho điện đi qua, nên mọi bộ phận phía sau nó và mọi bóng đèn nó cấp điện đều tắt. Có đúng một bộ phận bị hỏng. Hãy xem bóng đèn nào đang sáng. Bạn có thể kiểm tra một bộ phận (mỗi lần kiểm tra tốn 1): chọn nó và nhấn Kiểm tra để xem có điện đi ra khỏi nó hay không. Khi đã biết bộ phận nào bị hỏng, hãy chọn nó và nhấn Báo hỏng. Có hai lỗi cần tìm. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "power": "Nguồn điện",
+ "lamp": "Bóng đèn",
+ "test": "Kiểm tra bộ phận đã chọn (tốn 1)",
+ "report": "Báo bộ phận đã chọn là bị hỏng",
+ "signal": "có điện ra",
+ "no_signal": "không có điện ra",
+ "tests_used": "Số lần đã kiểm tra: {n}",
+ "case_label": "Lỗi {n} / {total}",
+ "select_hint": "Nhấp vào một bộ phận để chọn nó (hoặc nhấn số của nó, 1–6).",
+ "parts": [
+  "Trống",
+  "Cuộn dây",
+  "Cổng",
+  "Bánh xe",
+  "Bộ lọc",
+  "Máy bơm",
+  "Thấu kính",
+  "Lò xo",
+  "Chuông",
+  "Quạt",
+  "Van",
+  "Dây curoa"
+ ]
+}

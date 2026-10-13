@@ -1,0 +1,28 @@
+{
+ "instr": "Diagnóstico de defeitos: uma máquina leva energia pelas suas peças até algumas lâmpadas; encontre a peça com defeito usando o menor número de testes possível.",
+ "clue": "A energia entra pela esquerda e passa pelas peças, ao longo das linhas, até as lâmpadas. Uma peça com defeito não deixa a energia passar, então todas as peças depois dela e todas as lâmpadas que ela alimenta ficam apagadas. Exatamente uma peça está com defeito. Veja quais lâmpadas estão acesas. Você pode testar uma peça (cada teste custa 1): selecione-a e pressione Testar para ver se sai energia dela. Quando souber qual peça está com defeito, selecione-a e pressione Informar. Há dois defeitos para encontrar. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "power": "Energia",
+ "lamp": "Lâmpada",
+ "test": "Testar a peça selecionada (custo 1)",
+ "report": "Informar que a peça selecionada está com defeito",
+ "signal": "sai energia",
+ "no_signal": "não sai energia",
+ "tests_used": "Testes usados: {n}",
+ "case_label": "Defeito {n} de {total}",
+ "select_hint": "Clique em uma peça para selecioná-la (ou pressione o número dela, 1–6).",
+ "parts": [
+  "Tambor",
+  "Bobina",
+  "Comporta",
+  "Roda",
+  "Filtro",
+  "Bomba",
+  "Lente",
+  "Mola",
+  "Sino",
+  "Ventilador",
+  "Válvula",
+  "Correia"
+ ]
+}

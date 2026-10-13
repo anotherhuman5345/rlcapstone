@@ -1,0 +1,10 @@
+{
+ "instr": "Herufi: herufi zinatokea moja baada ya nyingine; kwa kila moja, sema kama inafanana na herufi iliyoonyeshwa idadi fulani ya hatua kabla.",
+ "clue": "Herufi zinatokea moja baada ya nyingine. Kwa kila herufi, bonyeza Sawa (kitufe cha mshale wa kulia au kitufe kwenye skrini) kama inafanana na herufi ambayo kanuni iliyo hapa chini inaielekeza, la sivyo bonyeza Tofauti (kitufe cha mshale wa kushoto au kitufe kwenye skrini). Jibu haraka; herufi zinaendelea kuja. Bonyeza Anza ukiwa tayari.",
+ "rule_1": "Kanuni: je, herufi hii ni sawa na herufi iliyotangulia moja kwa moja?",
+ "rule_2": "Kanuni: je, herufi hii ni sawa na herufi ya hatua mbili nyuma?",
+ "rule_3": "Kanuni: je, herufi hii ni sawa na herufi ya hatua tatu nyuma?",
+ "same": "Sawa",
+ "different": "Tofauti",
+ "start": "Anza"
+}

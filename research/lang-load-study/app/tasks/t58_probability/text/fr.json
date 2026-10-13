@@ -1,0 +1,14 @@
+{
+ "instr": "Probabilités : comparez deux événements et choisissez le plus probable, ou dites qu'ils sont aussi probables l'un que l'autre.",
+ "clue": "Chaque écran montre deux événements, A et B, en mots et en image. Les boules sont tirées sans regarder, et chaque boule a la même chance d'être tirée ; les dés ne sont pas truqués. Choisissez l'événement le plus probable, ou « Aussi probables ». Utilisez les boutons ou les touches 1 (A), 2 (aussi probables), 3 (B). Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Aussi probables",
+ "question": "Lequel est le plus probable ?",
+ "progress": "Question {i} sur {n}",
+ "ev_bag1": "Le sac {L} contient des boules rouges ({r}) et des boules bleues ({b}). Vous tirez une boule et elle est rouge.",
+ "ev_bag2_replace": "Le sac {L} contient des boules rouges ({r}) et des boules bleues ({b}). Vous tirez une boule, la remettez, et tirez de nouveau. Les deux boules sont rouges.",
+ "ev_bag2_keep": "Le sac {L} contient des boules rouges ({r}) et des boules bleues ({b}). Vous tirez une boule, la gardez de côté, et tirez de nouveau. Les deux boules sont rouges.",
+ "ev_dice": "Vous lancez deux dés et la somme des deux nombres est {s}."
+}

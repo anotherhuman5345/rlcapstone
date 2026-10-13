@@ -1,0 +1,12 @@
+{
+ "instr": "Rangement : placez toutes les pièces sur le plateau de sorte que chaque case soit couverte, sans chevauchement.",
+ "clue": "Remplissez tout le plateau avec toutes les pièces, sans chevauchement. Choisissez une pièce (cliquez dessus ou appuyez sur son numéro), tournez-la avec « Tourner » (ou la touche R) si besoin, puis cliquez sur la case du plateau où doit aller le point de la pièce. Pour déplacer une pièce déjà posée, cliquez dessus sur le plateau pour la reprendre. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "board": "Plateau",
+ "pieces": "Pièces",
+ "rotate": "Tourner",
+ "give_up": "Abandonner",
+ "choose_first": "Choisissez d'abord une pièce.",
+ "no_fit": "La pièce ne rentre pas à cet endroit.",
+ "solved": "Réussi !"
+}

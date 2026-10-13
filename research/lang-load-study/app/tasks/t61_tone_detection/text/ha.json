@@ -1,0 +1,16 @@
+{
+ "instr": "Alamomi da ƙararraki: ku koyi kalmar da ke tafiya da kowace alama, kuma ku danna Space (ko maɓallin Ƙara) a duk lokacin da kuka ji gajeriyar ƙara. Ku yi amfani da belun kunne ko lasifika.",
+ "clue": "Don Allah ku yi amfani da belun kunne ko lasifika. Alamomi shida za su bayyana ɗaya bayan ɗaya, kowace da kalma: ku koyi kalmar da ke tafiya da kowace alama. A lokaci guda, gajerun ƙararraki za su riƙa ji lokaci-lokaci: ku danna Space ko maɓallin Ƙara da zarar kun ji ɗaya. Sassan biyu suna da muhimmanci daidai. Daga baya za ku zaɓi kalmar kowace alama. Ku yi amfani da Gwada sauti don duba ƙarfin sauti, sannan ku danna Fara.",
+ "start": "Fara",
+ "test_tone": "Gwada sauti",
+ "tone_button": "Ƙara",
+ "tone_hint": "Ku danna Space ko Ƙara idan kun ji ƙara",
+ "study_label": "Ku koyi kalmar wannan alamar",
+ "test_label": "Wace kalma ce ta tafi da wannan alamar?",
+ "test_hint": "Ku danna kalma, ko ku danna maɓallin lambarta",
+ "no_audio": "Ba a iya kunna sauti a kan wannan na'urar ba.",
+ "words": ["tuffa", "gada", "kyandir", "kafet", "kujera", "gajimare", "ƙararrawa", "ƙofa", "ganga", "ƙwai", "gashin tsuntsu", "tuta",
+           "cokali mai yatsu", "lambu", "safar hannu", "guduma", "doki", "tsibiri", "jaket", "mabuɗi", "butar shayi", "tsani", "lemun tsami", "wasiƙa",
+           "madubi", "mujiya", "allura", "albasa", "fensir", "matashin kai", "zomo", "kogi", "igiya", "sirdi", "takalmi", "cokali",
+           "tauraro", "dutse", "tebur", "damisa", "haƙori", "hasumiya", "jirgin ƙasa", "bishiya", "jakar kuɗi", "taga", "kerkeci", "kwando"]
+}

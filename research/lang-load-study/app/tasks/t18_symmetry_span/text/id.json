@@ -1,0 +1,12 @@
+{
+ "instr": "Simetri dan kotak: tentukan apakah setiap pola simetris seperti cermin, dan ingat di mana kotak merah muncul.",
+ "clue": "Setiap langkah menampilkan pola hitam-putih: apakah sisi kiri dan kanannya sama, seperti cermin? Jawab Ya (panah kiri) atau Tidak (panah kanan). Lalu sebuah kotak merah berkedip di dalam kisi: ingat posisinya. Di akhir, ketuk kotak-kotak sesuai urutan kemunculannya, lalu tekan Selesai. Tekan Mulai jika sudah siap.",
+ "yes": "Ya, simetris",
+ "no": "Tidak",
+ "start": "Mulai",
+ "undo": "Batalkan",
+ "done": "Selesai",
+ "phase_judge": "Apakah pola ini simetris?",
+ "phase_remember": "Ingat kotak ini.",
+ "phase_recall": "Ketuk kotak-kotak sesuai urutan kemunculannya (tombol panah dan Enter juga bisa, Backspace membatalkan). Lalu tekan Selesai."
+}

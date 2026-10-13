@@ -1,0 +1,8 @@
+{
+ "instr": "Memilah kartu: pasangkan setiap kartu dengan salah satu dari empat kartu menurut aturan tersembunyi, yang Anda temukan dari umpan balik. Aturannya bisa berubah.",
+ "clue": "Sebuah kartu baru muncul di bawah empat kartu acuan. Pasangkan dengan salah satunya dengan mengklik atau mengetuk kartu itu, atau menekan 1–4. Kartu bisa cocok berdasarkan warna, bentuk, atau jumlah gambar, tetapi Anda tidak diberi tahu yang mana: umpan balik (benar / salah) yang memberi tahu Anda. Aturannya berubah dari waktu ke waktu tanpa peringatan; saat itu, temukan aturan yang baru. Tekan Mulai jika sudah siap.",
+ "correct": "Benar",
+ "wrong": "Salah",
+ "too_slow": "Terlalu lambat",
+ "start": "Mulai"
+}

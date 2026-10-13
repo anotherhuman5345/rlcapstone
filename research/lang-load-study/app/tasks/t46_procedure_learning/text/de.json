@@ -1,0 +1,40 @@
+{
+ "instr": "Maschinenschritte: Lernen Sie anhand schriftlicher Schritte, eine erfundene Maschine zu bedienen, und bedienen Sie sie dann aus dem Gedächtnis.",
+ "clue": "Lesen Sie zuerst die Schritte zur Bedienung einer Maschine und das Lösungsbeispiel; Sie haben bis zu 45 Sekunden. Dann verschwinden die Schritte, und Sie bedienen die Maschine dreimal aus dem Gedächtnis: Achten Sie auf die Lampenfarbe und die Zahl, drücken Sie die Tasten in der richtigen Reihenfolge (klicken, tippen oder Tasten 1–8) und drücken Sie dann „Fertig“ (Enter). „Rückgängig“ (Rücktaste) entfernt Ihren letzten Tastendruck. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "study_title": "So bedienen Sie die Maschine:",
+ "example": "Lösungsbeispiel: Für diese Maschine sind die richtigen Tastendrücke:",
+ "learned": "Ich habe es gelernt",
+ "study_left": "noch {s} s",
+ "case_of": "Maschine {n} von {total}",
+ "lamp": "Lampe",
+ "number": "Zahl",
+ "presses": "Ihre Tastendrücke:",
+ "undo": "Rückgängig",
+ "done": "Fertig",
+ "colors": [
+  "rot",
+  "blau"
+ ],
+ "step_fixed": "Drücken Sie „{a}“.",
+ "step_cond": "Wenn die Lampe {c} ist, drücken Sie „{a}“, sonst „{b}“.",
+ "step_repeat": "Drücken Sie „{a}“ so oft, wie die Zahl auf der Anzeige angibt.",
+ "actions": [
+  "ÖFFNEN",
+  "SCHLIESSEN",
+  "HEIZEN",
+  "KÜHLEN",
+  "RÜHREN",
+  "SCHÜTTELN",
+  "FÜLLEN",
+  "LEEREN",
+  "VERSIEGELN",
+  "PRESSEN",
+  "DREHEN",
+  "HEBEN",
+  "SPERREN",
+  "WASCHEN",
+  "TROCKNEN",
+  "WIEGEN"
+ ]
+}

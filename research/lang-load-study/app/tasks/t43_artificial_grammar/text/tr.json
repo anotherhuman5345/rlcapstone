@@ -1,0 +1,4 @@
+{"instr": "Harf örüntüleri: gizli bir kuralla oluşturulmuş dizileri inceleyin, sonra yeni dizilerin aynı kurala uyup uymadığına karar verin.",
+ "clue": "Önce ekrandaki harf dizilerini inceleyin; hepsi gizli bir örüntüye uyuyor. Ardından yeni diziler tek tek gösterilecek. Dizi aynı örüntüye uyuyorsa sol ok tuşuna (ya da soldaki düğmeye), örüntüyü bozuyorsa sağ ok tuşuna (ya da sağdaki düğmeye) basın. İlk izleniminize güvenin. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "legal": "Örüntüye uyuyor", "illegal": "Örüntüyü bozuyor",
+ "study_left": "Dizileri inceleyin: {s} sn kaldı", "test_of": "Dizi {n} / {total}"}

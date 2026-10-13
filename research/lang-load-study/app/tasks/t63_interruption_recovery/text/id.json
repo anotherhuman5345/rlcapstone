@@ -1,0 +1,31 @@
+{
+ "instr": "Prosedur: kerjakan daftar langkah secara berurutan dengan mengklik tombol langkah; jika tugas lain menyela, kembalilah dan lanjutkan dari tempat Anda berhenti.",
+ "clue": "Jalankan prosedurnya: klik tombol-tombol langkah sesuai urutan daftar (atau tekan tombol angkanya). Kerjakan setiap langkah satu kali; tidak ada yang menunjukkan langkah mana yang sudah selesai. Kadang-kadang tugas lain akan menyela: katakan apakah setiap angka genap atau ganjil. Saat prosedur kembali, lanjutkan dari tempat Anda berhenti. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "case_label": "Tugas {n} dari {total}",
+ "proc_title": "Prosedur",
+ "palette_title": "Tombol langkah",
+ "interrupt_title": "Genap atau ganjil?",
+ "interrupt_hint": "Panah kiri = genap, panah kanan = ganjil",
+ "even": "Genap",
+ "odd": "Ganjil",
+ "next_case": "Tugas berikutnya…",
+ "steps": [
+  "Pindai kode",
+  "Timbang paket",
+  "Periksa segel",
+  "Cetak label",
+  "Tempel label",
+  "Catat waktu",
+  "Ambil foto",
+  "Ukur ukurannya",
+  "Cap formulir",
+  "Pilah menurut warna",
+  "Bungkus barang",
+  "Beri tahu meja depan",
+  "Hitung kepingan",
+  "Tutup penutupnya",
+  "Tanda tangani lembar",
+  "Bersihkan baki"
+ ]
+}

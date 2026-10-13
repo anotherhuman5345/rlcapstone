@@ -1,0 +1,12 @@
+{
+ "instr": "Mnara: hamisha diski zote kwenye kigingi cha lengo kilichowekwa alama, diski moja kwa wakati, bila kuweka diski kubwa juu ya ndogo.",
+ "clue": "Hamisha mnara wote wa diski hadi kwenye kigingi kilichoandikwa “lengo”. Chukua diski ya juu kwa kubofya kigingi chake (au kwa kubonyeza 1, 2 au 3), kisha bofya kigingi inakopaswa kwenda. Hamisha diski moja kwa wakati, na usiweke kamwe diski kubwa juu ya diski ndogo. Jaribu kutumia hatua chache kadiri uwezavyo. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "reset": "Anza upya",
+ "give_up": "Kata tamaa",
+ "target": "lengo",
+ "moves_label": "Hatua:",
+ "illegal": "Hairuhusiwi: diski kubwa haiwezi kuwekwa juu ya ndogo.",
+ "empty_peg": "Kigingi hicho ni kitupu.",
+ "solved": "Umemaliza!"
+}

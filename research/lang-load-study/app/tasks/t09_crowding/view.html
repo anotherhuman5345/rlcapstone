@@ -1,0 +1,20 @@
+<div class="crowding">
+  <svg id="cr-stage" viewBox="0 0 1000 400" width="1000" height="400" role="img" aria-label="{{ text.stage_label }}"
+       style="display:block;margin:0 auto;background:#f7f9fb;border:1px solid #c7d0d8;border-radius:6px">
+    <g id="cr-fix" stroke="#1d2731" stroke-width="4">
+      <line x1="485" y1="200" x2="515" y2="200"/><line x1="500" y1="185" x2="500" y2="215"/>
+    </g>
+    <g id="cr-flash"></g>
+  </svg>
+  <div class="btn-row" style="justify-content:center">
+    {% for o, deg in [("up", 0), ("right", 90), ("down", 180), ("left", 270)] %}
+    <button type="button" data-key="{{ o }}" aria-label="{{ text[o] }}">
+      <svg viewBox="-20 -20 40 40" width="28" height="28" aria-hidden="true" style="vertical-align:middle">
+        <g transform="rotate({{ deg }})" fill="#fff"><rect x="-15" y="-15" width="30" height="6"/><rect x="-3" y="-15" width="6" height="30"/></g>
+      </svg>
+      {{ text[o] }}
+    </button>
+    {% endfor %}
+  </div>
+  <p style="text-align:center"><button type="button" id="cr-start">{{ text.start }}</button></p>
+</div>

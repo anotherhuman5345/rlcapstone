@@ -1,0 +1,10 @@
+{
+ "instr": "Bám theo và tính cộng: hãy giữ con trỏ trên chấm đang di chuyển trong khi trả lời các phép cộng đơn giản hiện ra bên dưới.",
+ "clue": "Hãy luôn giữ con trỏ trên chấm xanh dương đang di chuyển: di chuột, trượt ngón tay, hoặc giữ các phím mũi tên (hoặc các nút mũi tên). Các phép cộng sẽ hiện ra bên dưới khung: hãy chọn đáp án bằng cách nhấp vào nó hoặc nhấn 1, 2 hoặc 3. Việc bám theo chấm và việc trả lời các phép cộng đều quan trọng như nhau. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "sum_hint": "Trả lời bằng 1, 2, 3 hoặc nhấp chuột",
+ "up": "Lên",
+ "down": "Xuống",
+ "left": "Trái",
+ "right": "Phải"
+}

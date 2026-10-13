@@ -1,0 +1,5 @@
+{"instr": "Lissafi a rai: ku warware kowace tambayar lissafi a ranku, ku rubuta amsar.",
+ "clue": "Ku warware kowace tambaya a ranku, ba tare da rubuta komai ba. Ku rubuta amsar da faifan lambobi ko allon rubutu, sannan ku danna Tabbatar (ko Enter). Kowace tambaya tana da daƙiƙa 20. Amsoshin cikakkun lambobi ne. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "ok": "Tabbatar", "erase": "Goge lamba ta ƙarshe",
+ "seconds_left": "Saura daƙiƙa {s}", "progress": "Tambaya {i} cikin {n}",
+ "sym_add": "+", "sym_sub": "−", "sym_mul": "×", "sym_div": "÷"}

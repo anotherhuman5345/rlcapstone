@@ -1,0 +1,9 @@
+{
+ "instr": "Labirinto: leve o ponto do início até a saída pelo caminho mais curto que conseguir encontrar.",
+ "clue": "Leve o ponto azul pelo labirinto até o quadrado verde de saída, usando o menor número de passos possível. Ajuda planejar o caminho antes. Mova com as setas do teclado, com os botões de seta ou tocando em um quadrado ao lado do ponto. Não é possível atravessar paredes. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "up": "Para cima",
+ "down": "Para baixo",
+ "left": "Para a esquerda",
+ "right": "Para a direita"
+}

@@ -1,0 +1,16 @@
+{
+ "instr": "Klocki: przesuwaj ponumerowane klocki na wolne miejsce, aż ułożą się po kolei od 1 do 8.",
+ "clue": "Ułóż klocki po kolei jak na obrazku docelowym: od 1 do 8, z wolnym miejscem w prawym dolnym rogu. Kliknij klocek obok wolnego miejsca, aby go tam przesunąć, albo użyj klawiszy strzałek (lub przycisków strzałek), aby przesunąć klocek na wolne miejsce. Postaraj się wykonać jak najmniej ruchów. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "reset": "Od nowa",
+ "give_up": "Poddaję się",
+ "yours": "Twoja plansza",
+ "target": "Cel",
+ "moves_label": "Ruchy:",
+ "illegal": "Przesunąć można tylko klocek obok wolnego miejsca.",
+ "solved": "Gotowe!",
+ "left": "W lewo",
+ "right": "W prawo",
+ "up": "W górę",
+ "down": "W dół"
+}

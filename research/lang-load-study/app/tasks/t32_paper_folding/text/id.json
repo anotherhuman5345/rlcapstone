@@ -1,0 +1,8 @@
+{
+ "instr": "Melipat kertas: selembar kertas dilipat dan dilubangi; pilih bagaimana kertas itu terlihat saat dibuka lagi.",
+ "clue": "Gambar-gambar menunjukkan selembar kertas persegi yang dilipat (bagian yang diarsir dilipat di sepanjang garis putus-putus, seperti ditunjukkan panah). Pada gambar terakhir, sebuah lubang dibuat menembus semua lapisan. Mana dari empat lembar yang menunjukkan letak lubang saat kertas dibuka lagi? Klik atau ketuk sebuah lembar, atau tekan tombol angkanya 1 sampai 4. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "folds": "Melipat",
+ "punched": "Dilubangi",
+ "options": "Lembar mana yang benar saat dibuka?"
+}

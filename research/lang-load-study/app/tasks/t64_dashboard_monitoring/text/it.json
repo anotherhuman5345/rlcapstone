@@ -1,0 +1,16 @@
+{
+ "instr": "Cruscotto: osserva quattro indicatori e reagisci solo quando una barra supera la linea rossa e ci resta sopra.",
+ "clue": "Osserva i quattro indicatori. Quando una barra supera la linea rossa e RESTA sopra, clicca quell'indicatore (oppure premi il suo numero, 1–4) il più velocemente possibile. Ignora i brevi salti che ricadono subito e ignora le barre che scendono in basso. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "hint": "Clicca l'indicatore o premi 1–4",
+ "gauges": [
+  "Pressione",
+  "Flusso",
+  "Calore",
+  "Velocità",
+  "Carico",
+  "Livello",
+  "Carica",
+  "Segnale"
+ ]
+}

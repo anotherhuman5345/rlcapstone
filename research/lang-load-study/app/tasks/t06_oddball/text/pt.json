@@ -1,0 +1,9 @@
+{
+ "instr": "Forma rara: formas piscam uma de cada vez; pressione Espaço (ou o botão) somente quando vir o quadrado.",
+ "clue": "Formas piscam no centro, uma de cada vez. Pressione Espaço (ou o botão grande) o mais rápido que puder toda vez que aparecer um quadrado. Não faça nada para os círculos. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "press": "Quadrado!",
+ "stage_label": "Formas piscando",
+ "target_is": "Pressione para:",
+ "ignore": "ignore:"
+}

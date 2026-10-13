@@ -1,0 +1,13 @@
+{"instr": "Sembol kuralları: iki yeni sembol işlemini öğrenin, sonra bu işlemlerle yeni ifadeleri hesaplayın.",
+ "clue": "Aşağıda iki uydurma sembol örneklerle açıklanıyor. Kuralları okuyun, sonra Başla'ya basıp her ifadeyi hesaplayın. Sonucu tuş takımıyla ya da klavyeyle yazıp Tamam'a (ya da Enter'a) basın. Kurallar ekranda kalır.",
+ "start": "Başla", "ok": "Tamam", "erase": "Son rakamı sil", "progress": "İfade {i} / {n}",
+ "examples": "Örnekler:", "list_sep": ";  ",
+ "precedence": "İki sembolün de bulunduğu bir ifadede her zaman önce {hi} işlemini, sonra {lo} işlemini yapın.",
+ "rule_dbl_first": "birinci sayıyı iki katına çıkarın, sonra ikinci sayıyı ekleyin.",
+ "rule_dbl_second": "ikinci sayıyı iki katına çıkarın, sonra birinci sayıyı ekleyin.",
+ "rule_sum_dbl": "iki sayıyı toplayın, sonra sonucu iki katına çıkarın.",
+ "rule_sum_ten": "iki sayıyı toplayın, sonra 10 ekleyin.",
+ "rule_mul_minus1": "iki sayıyı çarpın, sonra 1 çıkarın.",
+ "rule_mul_plus1": "iki sayıyı çarpın, sonra 1 ekleyin.",
+ "rule_mul_plus_first": "iki sayıyı çarpın, sonra birinci sayıyı ekleyin.",
+ "rule_mul_plus_second": "iki sayıyı çarpın, sonra ikinci sayıyı ekleyin."}

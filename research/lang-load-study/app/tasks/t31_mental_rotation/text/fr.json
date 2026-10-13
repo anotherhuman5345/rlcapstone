@@ -1,0 +1,7 @@
+{
+ "instr": "Formes : décidez si la forme de droite est la forme de gauche tournée, ou son image dans un miroir.",
+ "clue": "Chaque fois, vous voyez deux formes. Celle de droite peut être tournée. Est-ce la même forme, seulement tournée, ou l'image miroir de celle de gauche ? Appuyez sur la flèche gauche (ou le bouton) pour Pareille et sur la flèche droite (ou le bouton) pour Miroir. Répondez aussi vite et aussi juste que possible. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "same": "Pareille",
+ "mirror": "Miroir",
+ "start": "Démarrer"
+}

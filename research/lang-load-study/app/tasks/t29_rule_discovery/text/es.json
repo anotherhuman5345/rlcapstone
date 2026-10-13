@@ -1,0 +1,8 @@
+{
+ "instr": "Clasificación de cartas: ponga cada carta con una de cuatro cartas según una regla oculta, que descubrirá por las respuestas. La regla puede cambiar.",
+ "clue": "Aparece una carta nueva debajo de cuatro cartas de referencia. Póngala con una de ellas haciendo clic o tocando esa carta, o pulsando 1-4. Las cartas pueden coincidir por color, por forma o por número de figuras, pero no se le dice cuál: se lo indica la respuesta (correcto / incorrecto). La regla cambia de vez en cuando sin aviso; entonces busque la nueva. Pulse Iniciar cuando esté listo/a.",
+ "correct": "Correcto",
+ "wrong": "Incorrecto",
+ "too_slow": "Demasiado lento",
+ "start": "Iniciar"
+}

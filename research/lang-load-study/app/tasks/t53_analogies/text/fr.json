@@ -1,0 +1,7 @@
+{
+ "instr": "Analogies en images : la première image se transforme en la deuxième ; choisissez l'image qui transforme la troisième de la même façon.",
+ "clue": "L'image du haut à gauche se transforme en celle à sa droite. Trouvez le choix qui transforme l'image du bas exactement de la même façon (elle peut tourner, se retourner, changer de remplissage, changer de taille ou être dédoublée, ou deux de ces changements). Cliquez ou touchez le choix, ou appuyez sur sa touche numérique 1-4. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "option": "Choix",
+ "progress": "Énigme {i} sur {n}"
+}

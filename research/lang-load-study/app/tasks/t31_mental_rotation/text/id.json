@@ -1,0 +1,7 @@
+{
+ "instr": "Bentuk: tentukan apakah bentuk kanan adalah bentuk kiri yang diputar, atau bayangan cerminnya.",
+ "clue": "Setiap kali Anda melihat dua bentuk. Bentuk kanan mungkin diputar. Apakah itu bentuk yang sama, hanya diputar, atau bayangan cermin dari bentuk kiri? Tekan tombol panah kiri (atau tombol di layar) untuk Sama dan tombol panah kanan (atau tombol di layar) untuk Cermin. Jawab secepat dan setepat mungkin. Tekan Mulai jika sudah siap.",
+ "same": "Sama",
+ "mirror": "Cermin",
+ "start": "Mulai"
+}

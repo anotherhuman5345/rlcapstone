@@ -1,0 +1,4 @@
+{"instr": "Color or shape: a cue word tells you whether to judge the COLOR or the SHAPE of the figure that follows.",
+ "clue": "First a cue appears: COLOR or SHAPE. Then a blue or orange circle or square appears. If the cue is COLOR: blue = left, orange = right. If the cue is SHAPE: circle = left, square = right. Use the arrow keys or the buttons. Answer quickly and accurately. Press Start when ready.",
+ "cue_color": "COLOR", "cue_shape": "SHAPE",
+ "left": "Left", "right": "Right", "start": "Start"}

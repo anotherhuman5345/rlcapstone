@@ -1,0 +1,4 @@
+{"instr": "Yerleştirme: bütün parçaları tahtaya, her kare dolacak ve hiçbir parça üst üste binmeyecek şekilde sığdırın.",
+ "clue": "Bütün parçaları kullanarak tahtanın tamamını, parçalar üst üste binmeden doldurun. Bir parça seçin (üzerine tıklayın ya da numarasına basın), gerekirse “Çevir” düğmesiyle (veya R tuşuyla) döndürün, sonra parçanın üzerindeki noktanın geleceği kareye tıklayın. Yerleştirdiğiniz bir parçayı değiştirmek için tahtada üzerine tıklayıp geri alın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "board": "Tahta", "pieces": "Parçalar", "rotate": "Çevir", "give_up": "Vazgeç",
+ "choose_first": "Önce bir parça seçin.", "no_fit": "Parça oraya sığmıyor.", "solved": "Tamam!"}

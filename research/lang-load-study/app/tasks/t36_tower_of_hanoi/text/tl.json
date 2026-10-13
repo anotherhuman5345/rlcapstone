@@ -1,0 +1,12 @@
+{
+ "instr": "Tore: ilipat ang lahat ng disk sa may-markang target na tulos, isang disk bawat galaw, at huwag kailanman maglagay ng mas malaking disk sa ibabaw ng mas maliit.",
+ "clue": "Ilipat ang buong tore ng mga disk sa tulos na may markang “target”. Kunin ang disk sa itaas sa pamamagitan ng pag-click sa tulos nito (o pagpindot sa 1, 2 o 3), pagkatapos ay i-click ang tulos na paglalagyan nito. Isang disk lang bawat galaw, at huwag kailanman maglagay ng mas malaking disk sa ibabaw ng mas maliit. Subukang gumamit ng pinakakaunting galaw na kaya mo. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "reset": "Magsimula ulit",
+ "give_up": "Sumuko",
+ "target": "target",
+ "moves_label": "Mga galaw:",
+ "illegal": "Hindi puwede: hindi maaaring ipatong ang mas malaking disk sa mas maliit.",
+ "empty_peg": "Walang laman ang tulos na iyan.",
+ "solved": "Tapos na!"
+}

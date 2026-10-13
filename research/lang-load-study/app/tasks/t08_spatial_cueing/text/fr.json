@@ -1,0 +1,8 @@
+{
+ "instr": "Cadres : gardez les yeux au centre et appuyez à gauche ou à droite dès qu'un point apparaît dans un cadre.",
+ "clue": "Gardez les yeux sur la croix au centre. Une flèche y apparaîtra, puis un point dans le cadre de gauche ou de droite. Appuyez sur la flèche gauche ou droite du clavier (ou sur le bouton) du côté où le point est apparu, le plus vite possible. La flèche a généralement raison, mais pas toujours. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "left": "Gauche",
+ "right": "Droite",
+ "start": "Démarrer",
+ "stage_label": "Deux cadres avec une croix entre eux"
+}

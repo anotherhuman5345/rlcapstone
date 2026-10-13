@@ -1,0 +1,30 @@
+<style>
+.packing .pk-wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin: 1rem 0; }
+.packing .pk-board { display: grid; gap: 2px; background: #9aa7b2; padding: 2px; border-radius: 4px; }
+.packing .pk-cell { width: 3rem; height: 3rem; margin: 0; padding: 0; border: 0; border-radius: 2px; background: var(--paper); touch-action: manipulation; }
+.packing .pk-cell.ok { box-shadow: inset 0 0 0 4px #3c9a4a; }
+.packing .pk-cell.bad { box-shadow: inset 0 0 0 4px #c8423b; }
+.packing .pk-tray { display: flex; flex-wrap: wrap; gap: .6rem; max-width: 34rem; }
+.packing .pk-piece { margin: 0; padding: .4rem; background: var(--paper); color: var(--ink); border: 2px solid var(--line); border-radius: 6px;
+  display: flex; flex-direction: column; align-items: center; gap: .3rem; font-weight: 600; touch-action: manipulation; }
+.packing .pk-piece.sel { border-color: var(--signal); box-shadow: 0 0 0 3px var(--signal) inset; }
+.packing .pk-piece.used { visibility: hidden; }
+.packing .pk-mini { display: grid; gap: 1px; }
+.packing .pk-mini span { width: 1.2rem; height: 1.2rem; border-radius: 2px; position: relative; }
+.packing .pk-mini span.anchor::after { content: ""; position: absolute; left: 50%; top: 50%; width: .4rem; height: .4rem; margin: -.2rem 0 0 -.2rem; border-radius: 50%; background: #1d2731; }
+.packing h3 { font-size: 1rem; margin: 0 0 .4rem; color: var(--muted); font-weight: 600; }
+@media (max-width: 30rem) { .packing .pk-cell { width: 2.3rem; height: 2.3rem; } }
+</style>
+<div class="packing">
+  <p><button type="button" class="pk-start">{{ text.start }}</button></p>
+  <div class="pk-area" hidden>
+    <div class="pk-wrap">
+      <div><h3>{{ text.board }}</h3><div class="pk-board"></div></div>
+      <div><h3>{{ text.pieces }}</h3><div class="pk-tray"></div></div>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="pk-rotate">{{ text.rotate }}</button>
+      <button type="button" class="pk-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

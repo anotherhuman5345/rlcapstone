@@ -1,0 +1,25 @@
+<style>
+.memupd [hidden] { display: none !important; }
+.memupd .mu-boxes { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+.memupd .mu-box { width: 6.5rem; text-align: center; background: var(--paper); border: 2px solid var(--line); border-radius: 6px; padding: .5rem; }
+.memupd .mu-label { font-weight: 700; color: var(--muted); font-size: 1.1rem; }
+.memupd .mu-val { font-size: 2.2rem; font-weight: 700; min-height: 3rem; }
+.memupd .mu-box input { width: 4.5rem; font: inherit; font-size: 1.8rem; font-weight: 700; text-align: center; padding: .2rem; border: 2px solid var(--line); border-radius: 4px; }
+.memupd .mu-box input:focus { border-color: var(--signal); outline: 2px solid var(--signal); }
+.memupd .mu-instr { font-size: 1.8rem; font-weight: 700; min-height: 3rem; margin: 1rem 0; }
+.memupd .mu-pad { display: grid; grid-template-columns: repeat(5, 3.6rem); gap: .4rem; }
+.memupd .mu-pad button { margin: 0; padding: .6rem 0; font-size: 1.3rem; }
+</style>
+<div class="memupd">
+  <p class="meta" id="mu-phase" aria-live="polite"></p>
+  <div class="mu-boxes" id="mu-boxes"></div>
+  <p class="mu-instr" id="mu-instr" aria-live="off"></p>
+  <div id="mu-answer" hidden>
+    <div class="mu-pad" id="mu-pad">
+      {% for d in "1234567890" %}<button type="button" data-digit="{{ d }}">{{ d }}</button>{% endfor %}
+      <button type="button" id="mu-back">⌫</button>
+    </div>
+    <p><button type="button" id="mu-done">{{ text.done }}</button></p>
+  </div>
+  <p><button type="button" id="mu-start">{{ text.start }}</button></p>
+</div>

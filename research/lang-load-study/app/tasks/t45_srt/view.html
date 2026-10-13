@@ -1,0 +1,16 @@
+<div class="srt">
+  <style>
+    .srt .srt-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; max-width: 40rem; margin: 2rem 0 1rem; }
+    .srt .srt-box { margin: 0; aspect-ratio: 1; background: var(--paper); color: var(--muted); border: 3px solid var(--line); border-radius: 8px; font-size: 1.2rem; touch-action: manipulation; user-select: none; }
+    .srt .srt-box.lit { background: #f2c94c; border-color: #b8901a; }
+    .srt .srt-prog { color: var(--muted); }
+  </style>
+  <div class="srt-row" id="srt-row">
+    <button type="button" class="srt-box" data-pos="0">{{ text.key_labels[0] }}</button>
+    <button type="button" class="srt-box" data-pos="1">{{ text.key_labels[1] }}</button>
+    <button type="button" class="srt-box" data-pos="2">{{ text.key_labels[2] }}</button>
+    <button type="button" class="srt-box" data-pos="3">{{ text.key_labels[3] }}</button>
+  </div>
+  <p class="srt-prog" id="srt-prog"></p>
+  <p><button type="button" id="srt-start">{{ text.start }}</button></p>
+</div>

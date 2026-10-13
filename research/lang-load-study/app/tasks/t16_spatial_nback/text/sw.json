@@ -1,0 +1,9 @@
+{
+ "instr": "Gridi: miraba katika gridi inawaka mmoja baada ya mwingine; kwa kila mmoja, sema kama uko mahali palepale pa mraba uliowaka idadi fulani ya hatua kabla.",
+ "clue": "Miraba katika gridi inawaka mmoja baada ya mwingine. Kila mara, bonyeza Sawa (kitufe cha mshale wa kulia au kitufe kwenye skrini) kama mraba uko mahali palepale pa mraba ambao kanuni iliyo hapa chini inauelekeza, la sivyo bonyeza Tofauti (kitufe cha mshale wa kushoto au kitufe kwenye skrini). Jibu haraka; miraba inaendelea kuja. Bonyeza Anza ukiwa tayari.",
+ "rule_1": "Kanuni: je, mraba huu uko mahali palepale pa mraba uliotangulia moja kwa moja?",
+ "rule_2": "Kanuni: je, mraba huu uko mahali palepale pa mraba wa hatua mbili nyuma?",
+ "same": "Sawa",
+ "different": "Tofauti",
+ "start": "Anza"
+}

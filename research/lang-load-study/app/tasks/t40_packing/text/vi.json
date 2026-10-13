@@ -1,0 +1,12 @@
+{
+ "instr": "Xếp hình: hãy đặt tất cả các mảnh vào bảng sao cho mọi ô đều được phủ kín và không có mảnh nào chồng lên nhau.",
+ "clue": "Hãy lấp kín cả bảng bằng tất cả các mảnh, không để chồng lên nhau. Chọn một mảnh (nhấp vào nó hoặc nhấn số của nó), xoay nó bằng nút “Xoay” (hoặc phím R) nếu cần, rồi nhấp vào ô trên bảng nơi đặt chấm của mảnh. Để di chuyển một mảnh đã đặt, hãy nhấp vào nó trên bảng để lấy lại. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "board": "Bảng",
+ "pieces": "Các mảnh",
+ "rotate": "Xoay",
+ "give_up": "Bỏ cuộc",
+ "choose_first": "Hãy chọn một mảnh trước.",
+ "no_fit": "Mảnh này không vừa ở đó.",
+ "solved": "Xong!"
+}

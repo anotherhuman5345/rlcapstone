@@ -1,0 +1,7 @@
+{
+ "instr": "Grilles à motifs : choisissez l'image qui complète chaque grille de 3 x 3.",
+ "clue": "Chaque grille suit une ou deux règles le long de ses lignes et de ses colonnes, par exemple dans le nombre, la forme, la teinte ou la taille des figures. Trouvez les règles et choisissez l'image qui va dans la case vide : cliquez ou touchez-la, ou appuyez sur 1-4. Il y a quatre grilles. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "matrix_of": "Grille {n} sur {total}",
+ "option": "Choix {n}"
+}

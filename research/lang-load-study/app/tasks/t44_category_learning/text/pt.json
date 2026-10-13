@@ -1,0 +1,15 @@
+{
+ "instr": "Classificação: aprenda pelo retorno a qual de dois grupos cada objeto pertence e depois classifique objetos novos sem retorno.",
+ "clue": "Cada objeto pertence a um de dois grupos. Indique o grupo com a seta para a esquerda (ou o botão da esquerda) ou a seta para a direita (ou o botão da direita). No começo você terá de adivinhar; depois de cada resposta, você verá o grupo certo, para descobrir o que o define. Mais tarde, aparecem objetos novos sem retorno. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "groups": [
+  "Grupo A",
+  "Grupo B"
+ ],
+ "correct": "Correto",
+ "wrong": "Errado: este pertence ao {group}",
+ "too_slow": "Lento demais: este pertence ao {group}",
+ "transfer_note": "A partir de agora não há retorno. Continue classificando os objetos da mesma forma.",
+ "train_of": "Aprendizagem: objeto {n} de {total}",
+ "transfer_of": "Teste: objeto {n} de {total}"
+}

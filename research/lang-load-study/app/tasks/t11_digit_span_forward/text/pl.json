@@ -1,0 +1,8 @@
+{
+ "instr": "Cyfry: obejrzyj krótki ciąg cyfr, wyświetlanych po jednej, a potem wpisz je w tej samej kolejności.",
+ "clue": "Naciśnij Start i patrz, jak cyfry pojawiają się po jednej. Gdy przestaną się pojawiać, wpisz je w tej samej kolejności na klawiaturze ekranowej lub swojej klawiaturze, a potem naciśnij OK.",
+ "recall": "Wpisz cyfry w kolejności, w jakiej je widziałeś/-aś.",
+ "start": "Start",
+ "done": "OK",
+ "delete": "Usuń ostatnią cyfrę"
+}

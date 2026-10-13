@@ -1,0 +1,9 @@
+{
+ "instr": "Labyrinth: Bewegen Sie den Punkt auf dem kürzesten Weg, den Sie finden, vom Start zum Ausgang.",
+ "clue": "Bewegen Sie den blauen Punkt mit so wenigen Schritten wie möglich durch das Labyrinth zum grünen Ausgangsfeld. Es hilft, den Weg vorher zu planen. Bewegen Sie ihn mit den Pfeiltasten, den Pfeilschaltflächen oder durch Antippen eines Feldes neben dem Punkt. Wände können nicht durchquert werden. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "up": "Nach oben",
+ "down": "Nach unten",
+ "left": "Nach links",
+ "right": "Nach rechts"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Mẫu chữ cái: hãy xem các chuỗi chữ cái được tạo theo một quy tắc ẩn, rồi đánh giá xem các chuỗi mới có theo cùng quy tắc đó hay không.",
+ "clue": "Trước tiên, hãy xem kỹ các chuỗi chữ cái trên màn hình; tất cả đều theo một mẫu ẩn. Sau đó bạn sẽ thấy lần lượt từng chuỗi mới. Nhấn mũi tên trái (hoặc nút bên trái) nếu chuỗi theo đúng mẫu đó, nhấn mũi tên phải (hoặc nút bên phải) nếu chuỗi phá vỡ mẫu. Hãy làm theo ấn tượng đầu tiên của bạn. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "legal": "Theo đúng mẫu",
+ "illegal": "Phá vỡ mẫu",
+ "study_left": "Hãy xem kỹ các chuỗi: còn {s} giây",
+ "test_of": "Chuỗi {n} / {total}"
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Tháp: hãy chuyển tất cả các đĩa sang cọc đích đã đánh dấu, mỗi lần một đĩa, không bao giờ đặt đĩa lớn lên trên đĩa nhỏ.",
+ "clue": "Hãy chuyển cả tháp đĩa sang cọc có ghi “đích”. Lấy đĩa trên cùng bằng cách nhấp vào cọc của nó (hoặc nhấn 1, 2 hoặc 3), rồi nhấp vào cọc muốn đặt đĩa. Mỗi lần chỉ chuyển một đĩa, và không bao giờ đặt đĩa lớn lên trên đĩa nhỏ. Hãy cố dùng ít nước đi nhất có thể. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "reset": "Làm lại",
+ "give_up": "Bỏ cuộc",
+ "target": "đích",
+ "moves_label": "Số nước đi:",
+ "illegal": "Không được: không thể đặt đĩa lớn lên trên đĩa nhỏ.",
+ "empty_peg": "Cọc đó đang trống.",
+ "solved": "Xong!"
+}

@@ -1,0 +1,17 @@
+{
+ "instr": "Mots de couleur : pour chaque mot, appuyez sur le bouton de la couleur de son ENCRE, pas de la couleur que le mot désigne.",
+ "clue": "Un nom de couleur apparaît écrit à l'encre de couleur. Indiquez la couleur de l'ENCRE sans tenir compte de ce que dit le mot. Appuyez sur les touches 1-4 ou touchez le bouton de la couleur correspondante. Répondez vite et sans erreur. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "words": [
+  "ROUGE",
+  "BLEU",
+  "VERT",
+  "JAUNE"
+ ],
+ "color_names": [
+  "Rouge",
+  "Bleu",
+  "Vert",
+  "Jaune"
+ ],
+ "start": "Démarrer"
+}

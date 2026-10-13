@@ -1,0 +1,17 @@
+{
+ "instr": "Mga kahon ng numero: subaybayan ang mga numero sa ilang kahon habang binabago ito ng mga utos, pagkatapos ay i-type ang mga huling numero.",
+ "clue": "Makakakita ka ng ilang kahon na may mga numero. Tandaan ang mga ito: itatago ang mga numero. Pagkatapos, isa-isang lilitaw ang mga utos na nagsasabing magdagdag o magbawas sa isang kahon. Panatilihing updated ang mga numero sa isip mo. Sa dulo, i-type ang huling numero ng bawat kahon (keyboard o keypad sa screen) at pindutin ang Tapos. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "done": "Tapos",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Idagdag ang {n} sa kahon {b}",
+ "op_sub": "Ibawas ang {n} sa kahon {b}",
+ "phase_study": "Tandaan ang mga numero.",
+ "phase_update": "I-update ang mga numero sa isip mo.",
+ "phase_answer": "I-type ang huling numero ng bawat kahon. I-tap ang isang kahon para piliin ito; lilipat sa susunod na kahon ang Enter."
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Temukan perubahan: dua versi sebuah gambar berkedip bergantian; klik satu benda yang berbeda.",
+ "clue": "Gambar berkedip bergantian antara dua versi. Satu benda berubah (warna atau bentuknya berubah, atau benda itu hilang). Klik atau ketuk benda itu begitu Anda menemukannya. Keyboard: gerakkan tanda silang dengan tombol panah dan tekan Enter. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "pick": "Pilih di sini",
+ "stage_label": "Gambar yang berkedip",
+ "move_left": "Geser ke kiri",
+ "move_up": "Geser ke atas",
+ "move_down": "Geser ke bawah",
+ "move_right": "Geser ke kanan",
+ "scene": "Gambar {n} dari {total}"
+}

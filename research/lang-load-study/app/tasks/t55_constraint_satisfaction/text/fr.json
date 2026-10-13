@@ -1,0 +1,80 @@
+{
+ "instr": "Ordre : placez les animaux en rang de sorte que toutes les phrases soient vraies.",
+ "clue": "Lisez les phrases, puis placez chaque animal à l'une des places numérotées de sorte que toutes les phrases soient vraies. La place 1 est tout à gauche. Cliquez sur un animal (ou allez-y avec Tab et appuyez sur Entrée), puis cliquez sur une place. Cliquez sur une place occupée pour reprendre son animal. Appuyez sur Terminé quand toutes les places sont occupées. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "done": "Terminé",
+ "give_up": "Abandonner",
+ "setting": "Les animaux se tiennent en rang sur des places numérotées, de la place 1 à gauche jusqu'à la dernière place à droite.",
+ "row": "Le rang",
+ "tray": "Animaux pas encore placés",
+ "place": "Place",
+ "templates": {
+  "left_of": "{a.Def} se trouve quelque part à gauche {b.de}.",
+  "next_left": "{a.Def} est juste à gauche {b.de}.",
+  "adjacent": "{a.Def} et {b.def} sont côte à côte.",
+  "not_adjacent": "{a.Def} et {b.def} ne sont pas côte à côte.",
+  "at": "{a.Def} est à la place {p}.",
+  "not_at": "{a.Def} n'est pas à la place {p}.",
+  "end": "{a.Def} est soit en première, soit en dernière position du rang.",
+  "not_end": "{a.Def} n'est ni en première ni en dernière position du rang.",
+  "between": "{a.Def} se trouve quelque part entre {b.def} et {c.def}."
+ },
+ "objects": [
+  {
+   "name": "chat",
+   "cap": "Chat",
+   "def": "le chat",
+   "Def": "Le chat",
+   "de": "du chat"
+  },
+  {
+   "name": "chien",
+   "cap": "Chien",
+   "def": "le chien",
+   "Def": "Le chien",
+   "de": "du chien"
+  },
+  {
+   "name": "cheval",
+   "cap": "Cheval",
+   "def": "le cheval",
+   "Def": "Le cheval",
+   "de": "du cheval"
+  },
+  {
+   "name": "lapin",
+   "cap": "Lapin",
+   "def": "le lapin",
+   "Def": "Le lapin",
+   "de": "du lapin"
+  },
+  {
+   "name": "chèvre",
+   "cap": "Chèvre",
+   "def": "la chèvre",
+   "Def": "La chèvre",
+   "de": "de la chèvre"
+  },
+  {
+   "name": "canard",
+   "cap": "Canard",
+   "def": "le canard",
+   "Def": "Le canard",
+   "de": "du canard"
+  },
+  {
+   "name": "renard",
+   "cap": "Renard",
+   "def": "le renard",
+   "Def": "Le renard",
+   "de": "du renard"
+  },
+  {
+   "name": "ours",
+   "cap": "Ours",
+   "def": "l'ours",
+   "Def": "L'ours",
+   "de": "de l'ours"
+  }
+ ]
+}

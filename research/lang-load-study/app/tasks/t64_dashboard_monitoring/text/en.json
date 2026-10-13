@@ -1,0 +1,7 @@
+{
+ "instr": "Dashboard: watch four gauges and respond only when a bar goes above the red line and stays there.",
+ "clue": "Watch the four gauges. When a bar goes above the red line and STAYS above it, click that gauge (or press its number, 1–4) as quickly as you can. Ignore short jumps that fall back at once, and ignore bars that drop low. Press Start when ready.",
+ "start": "Start",
+ "hint": "Click the gauge or press 1–4",
+ "gauges": ["Pressure", "Flow", "Heat", "Speed", "Load", "Level", "Charge", "Signal"]
+}

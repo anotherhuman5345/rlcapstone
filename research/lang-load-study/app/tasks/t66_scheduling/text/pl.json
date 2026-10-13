@@ -1,0 +1,64 @@
+{
+ "instr": "Grafik: przydziel każde zadanie jednej osobie na jeden dzień tak, aby wszystkie reguły były spełnione.",
+ "clue": "Zaplanuj pracę: umieść każde zadanie w tabeli pod jedną osobą i jednym dniem. Każda osoba może wykonać najwyżej jedno zadanie dziennie, a wszystkie reguły z listy muszą być spełnione. Kliknij zadanie (albo przejdź do niego klawiszem Tab i naciśnij Enter), a potem kliknij pole w tabeli. Kliknięcie zajętego pola zdejmuje z niego zadanie. Każdy plan, który spełnia wszystkie reguły, jest poprawny. Gdy wszystkie zadania są rozmieszczone, naciśnij Gotowe. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "done": "Gotowe",
+ "give_up": "Poddaję się",
+ "setting": "Każda osoba może wykonać najwyżej jedno zadanie dziennie. Reguły:",
+ "plan": "Plan",
+ "tray": "Zadania jeszcze nieprzydzielone",
+ "templates": {
+  "before": "Zadanie „{a}” musi zostać wykonane wcześniejszego dnia niż zadanie „{b}”.",
+  "same_day": "Zadania „{a}” i „{b}” muszą zostać wykonane tego samego dnia.",
+  "diff_day": "Zadania „{a}” i „{b}” muszą zostać wykonane w różne dni.",
+  "by_day": "Zadanie „{a}” musi zostać wykonane najpóźniej w dniu: {day}.",
+  "off_day": "{w} nie pracuje w dniu: {day}.",
+  "only_person": "Zadanie „{a}” może wykonać tylko {w}.",
+  "not_person": "{w} nie może wykonać zadania „{a}”.",
+  "same_person": "Zadania „{a}” i „{b}” musi wykonać ta sama osoba."
+ },
+ "jobs": [
+  {
+   "name": "raport",
+   "cap": "Raport"
+  },
+  {
+   "name": "dostawa",
+   "cap": "Dostawa"
+  },
+  {
+   "name": "naprawa",
+   "cap": "Naprawa"
+  },
+  {
+   "name": "sprzątanie",
+   "cap": "Sprzątanie"
+  },
+  {
+   "name": "inwentaryzacja",
+   "cap": "Inwentaryzacja"
+  },
+  {
+   "name": "szkolenie",
+   "cap": "Szkolenie"
+  },
+  {
+   "name": "malowanie",
+   "cap": "Malowanie"
+  },
+  {
+   "name": "kontrola",
+   "cap": "Kontrola"
+  }
+ ],
+ "people": [
+  "Anna",
+  "Bartek",
+  "Celina"
+ ],
+ "days": [
+  "Poniedziałek",
+  "Wtorek",
+  "Środa"
+ ]
+}

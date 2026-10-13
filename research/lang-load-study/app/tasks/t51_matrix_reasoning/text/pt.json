@@ -1,0 +1,7 @@
+{
+ "instr": "Grades de padrões: escolha a imagem que completa cada grade 3 x 3.",
+ "clue": "Cada grade segue uma ou duas regras ao longo das linhas e colunas, por exemplo no número, na forma, no tom ou no tamanho das figuras. Descubra as regras e escolha a imagem que vai no quadrado vazio: clique ou toque nela, ou pressione 1-4. São quatro grades. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "matrix_of": "Grade {n} de {total}",
+ "option": "Opção {n}"
+}

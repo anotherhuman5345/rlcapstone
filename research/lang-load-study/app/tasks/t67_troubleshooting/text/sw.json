@@ -1,0 +1,28 @@
+{
+ "instr": "Kutafuta hitilafu: mashine inapitisha nishati kupitia sehemu zake hadi kwenye taa kadhaa; tafuta sehemu iliyoharibika, ukitumia majaribio machache kadiri uwezavyo.",
+ "clue": "Nishati inatiririka kutoka kushoto kupitia sehemu, kufuata mistari, hadi kwenye taa. Sehemu iliyoharibika haipitishi nishati yoyote, kwa hiyo kila sehemu iliyo baada yake na kila taa inayoilisha inabaki gizani. Sehemu moja tu ndiyo imeharibika. Tazama ni taa zipi zinawaka. Unaweza kujaribu sehemu (kila jaribio linagharimu 1): ichague na ubonyeze Jaribu ili kuona kama nishati inatoka ndani yake. Ukijua ni sehemu ipi imeharibika, ichague na ubonyeze Ripoti. Kuna hitilafu mbili za kutafuta. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "power": "Nishati",
+ "lamp": "Taa",
+ "test": "Jaribu sehemu iliyochaguliwa (gharama 1)",
+ "report": "Ripoti sehemu iliyochaguliwa kuwa imeharibika",
+ "signal": "nishati inatoka",
+ "no_signal": "nishati haitoki",
+ "tests_used": "Majaribio yaliyotumika: {n}",
+ "case_label": "Hitilafu {n} kati ya {total}",
+ "select_hint": "Bofya sehemu ili kuichagua (au bonyeza namba yake, 1–6).",
+ "parts": [
+  "Ngoma",
+  "Koili",
+  "Lango",
+  "Gurudumu",
+  "Kichujio",
+  "Pampu",
+  "Lenzi",
+  "Springi",
+  "Kengele",
+  "Feni",
+  "Vali",
+  "Mkanda"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Chiffres : appuyez pour chaque nombre sauf le 3.",
+ "clue": "Des nombres de 1 à 9 apparaîtront l'un après l'autre à un rythme régulier, chacun suivi d'une croix dans un cercle. Appuyez sur la barre d'espace (ou sur le bouton Appuyer) pour chaque nombre SAUF le 3. Quand vous voyez un 3, n'appuyez pas. La vitesse et la précision sont aussi importantes l'une que l'autre. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "press": "Appuyer",
+ "start": "Démarrer",
+ "stage_label": "Zone où apparaissent les nombres"
+}

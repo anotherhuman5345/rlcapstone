@@ -1,0 +1,16 @@
+<div class="lnb">
+  <style>
+    .lnb .lnb-show { font-size: 4.5rem; font-weight: 700; text-align: center; min-height: 6.5rem; margin: 1rem 0; user-select: none; }
+    .lnb .lnb-rule { text-align: center; font-weight: 600; }
+    .lnb .btn-row { justify-content: center; }
+    .lnb .btn-row button { min-width: 9rem; touch-action: manipulation; }
+    .lnb .btn-row button.pressed { outline: 3px solid var(--ink); outline-offset: 2px; }
+  </style>
+  <p class="lnb-rule">{{ text["rule_" ~ item.n] }}</p>
+  <p class="lnb-show" id="lnb-show" aria-live="off"></p>
+  <div class="btn-row">
+    <button type="button" data-key="nonmatch">&larr; {{ text.different }}</button>
+    <button type="button" data-key="match">{{ text.same }} &rarr;</button>
+  </div>
+  <p class="lnb-rule"><button type="button" id="lnb-start">{{ text.start }}</button></p>
+</div>

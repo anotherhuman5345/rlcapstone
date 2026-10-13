@@ -1,0 +1,8 @@
+{
+ "instr": "Pliage de papier : une feuille est pliée puis percée ; choisissez à quoi ressemble la feuille une fois dépliée.",
+ "clue": "Les images montrent une feuille de papier carrée que l'on plie (la partie grisée se replie le long du pointillé, comme l'indique la flèche). Sur la dernière image, un trou est percé à travers toutes les épaisseurs. Laquelle des quatre feuilles montre où sont les trous quand on déplie le papier ? Cliquez ou touchez une feuille, ou appuyez sur sa touche numérique de 1 à 4. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "folds": "Pliage",
+ "punched": "Trou percé",
+ "options": "Quelle feuille est correcte une fois dépliée ?"
+}

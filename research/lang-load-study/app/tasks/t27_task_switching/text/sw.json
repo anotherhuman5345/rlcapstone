@@ -1,0 +1,9 @@
+{
+ "instr": "Rangi au umbo: neno la ishara linakuambia kama uamue kwa RANGI au kwa UMBO la kielelezo kinachofuata.",
+ "clue": "Kwanza ishara inatokea: RANGI au UMBO. Kisha mduara au mraba wa rangi ya buluu au ya chungwa unatokea. Ishara ikiwa RANGI: buluu = kushoto, chungwa = kulia. Ishara ikiwa UMBO: mduara = kushoto, mraba = kulia. Tumia vitufe vya mishale au vitufe vilivyo kwenye skrini. Jibu haraka na kwa usahihi. Bonyeza Anza ukiwa tayari.",
+ "cue_color": "RANGI",
+ "cue_shape": "UMBO",
+ "left": "Kushoto",
+ "right": "Kulia",
+ "start": "Anza"
+}

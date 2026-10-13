@@ -1,0 +1,6 @@
+{"instr": "Harfler: harfler tek tek görünür; her birinin belirli sayıda adım önce gösterilen harfle aynı olup olmadığını belirtin.",
+ "clue": "Harfler tek tek görünecek. Her harfte, aşağıdaki kuralın gösterdiği harfle aynıysa Aynı'ya (sağ ok tuşu ya da düğme), değilse Farklı'ya (sol ok tuşu ya da düğme) basın. Hızlı cevap verin; harfler gelmeye devam eder. Hazır olunca Başla'ya basın.",
+ "rule_1": "Kural: bu harf, hemen önceki harfle aynı mı?",
+ "rule_2": "Kural: bu harf, iki adım önceki harfle aynı mı?",
+ "rule_3": "Kural: bu harf, üç adım önceki harfle aynı mı?",
+ "same": "Aynı", "different": "Farklı", "start": "Başla"}

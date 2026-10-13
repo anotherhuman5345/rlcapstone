@@ -1,0 +1,4 @@
+{"instr": "Renk ya da şekil: bir ipucu kelimesi, ardından gelen şeklin RENGİNE mi yoksa ŞEKLİNE mi bakacağınızı söyler.",
+ "clue": "Önce bir ipucu görünür: RENK ya da ŞEKİL. Ardından mavi ya da turuncu bir daire veya kare görünür. İpucu RENK ise: mavi = sol, turuncu = sağ. İpucu ŞEKİL ise: daire = sol, kare = sağ. Ok tuşlarını ya da düğmeleri kullanın. Hızlı ve doğru cevap verin. Hazır olunca Başla'ya basın.",
+ "cue_color": "RENK", "cue_shape": "ŞEKİL",
+ "left": "Sol", "right": "Sağ", "start": "Başla"}

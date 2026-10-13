@@ -1,0 +1,10 @@
+{
+ "instr": "Ikuti dan hitung: jaga penunjuk Anda tetap di atas titik yang bergerak sambil menjawab soal penjumlahan sederhana yang muncul di bawahnya.",
+ "clue": "Jaga penunjuk tetap di atas titik biru yang bergerak sepanjang waktu: gerakkan mouse, geser jari Anda, atau tahan tombol panah (atau tombol panah di layar). Soal-soal akan muncul di bawah area itu: pilih jawabannya dengan mengkliknya atau menekan 1, 2, atau 3. Mengikuti titik dan menjawab soal sama pentingnya. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "sum_hint": "Jawab dengan 1, 2, 3 atau klik",
+ "up": "Atas",
+ "down": "Bawah",
+ "left": "Kiri",
+ "right": "Kanan"
+}

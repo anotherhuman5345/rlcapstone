@@ -1,0 +1,10 @@
+{
+ "instr": "Strumień liter: litery pojawiają się po jednej i zatrzymują się bez ostrzeżenia; wtedy wpisz tylko kilka ostatnich liter, po kolei.",
+ "clue": "Naciśnij Start. Litery pojawiają się po jednej, a lista zatrzymuje się bez ostrzeżenia, więc pamiętaj najświeższe litery. Gdy się zatrzyma, wpisz tylko OSTATNIE litery, które widziałeś/-aś, w kolejności, w jakiej się pojawiły. Jeśli nie pamiętasz którejś litery, wpisz ?, a potem naciśnij OK.",
+ "keep": "Pamiętaj ostatnie litery (liczba: {k}).",
+ "recall": "Wpisz ostatnie litery (liczba: {k}) w kolejności, w jakiej się pojawiły.",
+ "unknown": "Nie pamiętam tej litery",
+ "start": "Start",
+ "done": "OK",
+ "delete": "Usuń ostatnią literę"
+}

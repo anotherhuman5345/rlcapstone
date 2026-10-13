@@ -1,0 +1,7 @@
+{
+ "instr": "Mga arrow: pindutin ang key o button na tugma sa arrow sa gitna, at huwag pansinin ang mga arrow sa paligid nito.",
+ "clue": "Ang arrow lang sa gitna ang tingnan. Pindutin ang kaliwa o kanang arrow key (o button) para ipakita kung saan ito nakaturo. Huwag pansinin ang mga arrow sa magkabilang gilid. Pindutin ang Simulan kapag handa ka na.",
+ "left": "Kaliwa",
+ "right": "Kanan",
+ "start": "Simulan"
+}

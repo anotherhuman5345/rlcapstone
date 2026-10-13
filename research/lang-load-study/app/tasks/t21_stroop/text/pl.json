@@ -1,0 +1,17 @@
+{
+ "instr": "Nazwy kolorów: przy każdym słowie naciśnij przycisk koloru jego CZCIONKI, a nie koloru, który słowo nazywa.",
+ "clue": "Pojawi się nazwa koloru napisana kolorową czcionką. Wskaż kolor CZCIONKI i nie zwracaj uwagi na to, co mówi słowo. Naciśnij klawisze 1-4 lub dotknij przycisku w pasującym kolorze. Odpowiadaj szybko i dokładnie. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "words": [
+  "CZERWONY",
+  "NIEBIESKI",
+  "ZIELONY",
+  "ŻÓŁTY"
+ ],
+ "color_names": [
+  "Czerwony",
+  "Niebieski",
+  "Zielony",
+  "Żółty"
+ ],
+ "start": "Start"
+}

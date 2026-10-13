@@ -1,0 +1,4 @@
+{"instr": "Packing: fit all the pieces into the board so that every square is covered and no pieces overlap.",
+ "clue": "Fill the whole board with all the pieces, without overlaps. Choose a piece (click it or press its number), turn it with “Turn” (or the R key) if needed, then click the board square where the piece's dot should go. To move a placed piece, click it on the board to take it back. Press Start when ready.",
+ "start": "Start", "board": "Board", "pieces": "Pieces", "rotate": "Turn", "give_up": "Give up",
+ "choose_first": "Choose a piece first.", "no_fit": "The piece does not fit there.", "solved": "Done!"}

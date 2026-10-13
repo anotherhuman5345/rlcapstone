@@ -1,0 +1,3 @@
+{"instr": "Digits: press for every number except 3.",
+ "clue": "Numbers from 1 to 9 will appear one after another at a steady pace, each followed by a circled cross. Press the space bar (or the Press button) for every number EXCEPT 3. When you see a 3, do not press. Speed and accuracy are equally important. Press Start when ready.",
+ "press": "Press", "start": "Start", "stage_label": "Area where the numbers appear"}

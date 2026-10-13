@@ -1,0 +1,16 @@
+{
+ "instr": "Panel kontrolny: obserwuj cztery wskaźniki i reaguj tylko wtedy, gdy słupek przekroczy czerwoną linię i pozostanie nad nią.",
+ "clue": "Obserwuj cztery wskaźniki. Gdy słupek przekroczy czerwoną linię i POZOSTANIE nad nią, jak najszybciej kliknij ten wskaźnik (lub naciśnij jego numer, 1–4). Nie reaguj na krótkie skoki, które od razu opadają, ani na słupki, które spadają nisko. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "hint": "Kliknij wskaźnik lub naciśnij 1–4",
+ "gauges": [
+  "Ciśnienie",
+  "Przepływ",
+  "Temperatura",
+  "Prędkość",
+  "Obciążenie",
+  "Poziom",
+  "Naładowanie",
+  "Sygnał"
+ ]
+}

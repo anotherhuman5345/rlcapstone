@@ -1,0 +1,24 @@
+<style>
+  .numpad { display: grid; grid-template-columns: repeat(3, 4.8rem); gap: .45rem; justify-content: center; margin-top: .5rem; }
+  .numpad button { margin: 0; padding: .8rem 0; font-size: 1.3rem; }
+  .numpad button[data-act="ok"] { font-size: 1rem; }
+  .numpad button.alt { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+  .entry-box { min-width: 8rem; min-height: 3.2rem; margin: .4rem auto; padding: .2rem 1rem; border: 2px solid var(--line); border-radius: 4px; background: var(--paper); text-align: center; font-size: 1.8rem; font-weight: 700; width: max-content; }
+  .eq-rules { font-size: 1.05rem; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: .6rem 1rem; }
+  .eq-rules p { margin: .3rem 0; }
+  .eq-rules .sym { font-size: 1.3rem; font-weight: 700; }
+  .eq-rules .ex { color: var(--muted); }
+  .eq-rules .prec { font-weight: 600; border-top: 1px solid var(--line); padding-top: .4rem; }
+</style>
+<div class="eqlearn">
+  <div class="eq-rules" id="eq-rules"></div>
+  <p class="big" id="eq-problem" dir="ltr">&nbsp;</p>
+  <div class="entry-box" id="eq-entry" dir="ltr" aria-live="polite" hidden>&nbsp;</div>
+  <div class="numpad" id="eq-pad" dir="ltr" hidden>
+    {% for d in [7, 8, 9, 4, 5, 6, 1, 2, 3] %}<button type="button" data-d="{{ d }}">{{ d }}</button>{% endfor %}
+    <button type="button" class="alt" data-act="back" aria-label="{{ text.erase }}">&#9003;</button>
+    <button type="button" data-d="0">0</button>
+    <button type="button" data-act="ok">{{ text.ok }}</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="eq-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,5 @@
+{"instr": "Değişikliği bulun: bir resmin iki hâli art arda yanıp söner; farklı olan tek nesneye tıklayın.",
+ "clue": "Resim iki hâli arasında gidip gelir. Bir nesne değişir (rengi ya da biçimi değişir veya kaybolur). Bulur bulmaz o nesneye tıklayın ya da dokunun. Klavyeyle: artı işaretini ok tuşlarıyla taşıyın ve Enter'a basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "pick": "Burayı seç", "stage_label": "Yanıp sönen resim",
+ "move_left": "Sola taşı", "move_up": "Yukarı taşı", "move_down": "Aşağı taşı", "move_right": "Sağa taşı",
+ "scene": "Resim {n}/{total}"}

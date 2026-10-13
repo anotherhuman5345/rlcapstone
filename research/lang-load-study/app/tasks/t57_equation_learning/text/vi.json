@@ -1,0 +1,19 @@
+{
+ "instr": "Quy tắc ký hiệu: hãy học hai phép toán với ký hiệu mới, rồi dùng chúng để tính các biểu thức mới.",
+ "clue": "Hai ký hiệu được đặt ra được giải thích bên dưới, kèm ví dụ. Hãy đọc chúng, rồi nhấn Bắt đầu và tính từng biểu thức. Gõ kết quả bằng bàn phím số trên màn hình hoặc bàn phím và nhấn OK (hoặc Enter). Các quy tắc vẫn hiển thị trên màn hình.",
+ "start": "Bắt đầu",
+ "ok": "OK",
+ "erase": "Xóa chữ số cuối",
+ "progress": "Biểu thức {i} / {n}",
+ "examples": "Ví dụ:",
+ "list_sep": ";  ",
+ "precedence": "Trong biểu thức có cả hai ký hiệu, luôn tính phép {hi} trước, rồi mới tính phép {lo}.",
+ "rule_dbl_first": "nhân đôi số thứ nhất, rồi cộng thêm số thứ hai.",
+ "rule_dbl_second": "nhân đôi số thứ hai, rồi cộng thêm số thứ nhất.",
+ "rule_sum_dbl": "cộng hai số lại, rồi nhân đôi kết quả.",
+ "rule_sum_ten": "cộng hai số lại, rồi cộng thêm 10.",
+ "rule_mul_minus1": "nhân hai số với nhau, rồi trừ đi 1.",
+ "rule_mul_plus1": "nhân hai số với nhau, rồi cộng thêm 1.",
+ "rule_mul_plus_first": "nhân hai số với nhau, rồi cộng thêm số thứ nhất.",
+ "rule_mul_plus_second": "nhân hai số với nhau, rồi cộng thêm số thứ hai."
+}

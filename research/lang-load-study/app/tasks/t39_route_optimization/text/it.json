@@ -1,0 +1,8 @@
+{
+ "instr": "Giro di consegne: pianifica il percorso di andata e ritorno più breve dal deposito attraverso tutte le fermate.",
+ "clue": "Parti dal deposito (il quadrato scuro), visita ogni fermata numerata una volta sola e torna al deposito. Rendi l'intero giro il più breve possibile (distanza in linea d'aria). Clicca o tocca le fermate nell'ordine in cui le visiteresti, oppure scrivi i loro numeri. Annulla (tasto Backspace) toglie l'ultima fermata. Premi Fatto (tasto Invio) quando tutte le fermate sono nel percorso. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "undo": "Annulla",
+ "erase": "Svuota",
+ "done": "Fatto"
+}

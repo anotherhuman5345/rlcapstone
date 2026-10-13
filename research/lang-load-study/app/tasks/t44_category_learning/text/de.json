@@ -1,0 +1,15 @@
+{
+ "instr": "Sortieren: Lernen Sie anhand von Rückmeldungen, zu welcher von zwei Gruppen jedes Objekt gehört, und sortieren Sie dann neue Objekte ohne Rückmeldung.",
+ "clue": "Jedes Objekt gehört zu einer von zwei Gruppen. Entscheiden Sie mit dem linken Pfeil (oder der linken Schaltfläche) oder dem rechten Pfeil (oder der rechten Schaltfläche), zu welcher. Am Anfang müssen Sie raten; nach jeder Antwort wird Ihnen die richtige Gruppe gesagt, sodass Sie herausfinden können, was darüber entscheidet. Später erscheinen neue Objekte ohne Rückmeldung. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "groups": [
+  "Gruppe A",
+  "Gruppe B"
+ ],
+ "correct": "Richtig",
+ "wrong": "Falsch: Das gehört zu {group}",
+ "too_slow": "Zu langsam: Das gehört zu {group}",
+ "transfer_note": "Ab jetzt gibt es keine Rückmeldung. Sortieren Sie die Objekte weiter auf dieselbe Weise.",
+ "train_of": "Lernen: Objekt {n} von {total}",
+ "transfer_of": "Test: Objekt {n} von {total}"
+}

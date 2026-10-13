@@ -1,0 +1,6 @@
+{
+ "instr": "Hình trải khối lập phương: hãy chọn hình trải phẳng gấp được thành khối lập phương đã cho.",
+ "clue": "Khối lập phương có một ký hiệu khác nhau trên mỗi mặt trong sáu mặt; bạn nhìn thấy ba mặt. Mỗi hình trải phẳng bên dưới đều có thể gấp thành một khối lập phương, với các ký hiệu ở mặt ngoài. Chỉ một hình tạo ra đúng khối lập phương này: cùng các ký hiệu, nằm cạnh nhau theo cùng một cách và quay về cùng một hướng. Hãy nhấp hoặc chạm vào hình đó, hoặc nhấn phím số 1 đến 4 của nó. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "options": "Hình nào gấp được thành khối lập phương này?"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Points : un groupe de points apparaît très brièvement ; tapez combien il y en avait selon vous.",
+ "clue": "Regardez la croix au centre. Un groupe de points apparaîtra un instant, puis sera masqué. Vous n'avez pas le temps de les compter : tapez votre meilleure estimation du nombre de points, avec les touches numériques ou le pavé à l'écran, puis appuyez sur Entrée ou OK. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "ask": "Combien de points ?",
+ "erase": "Effacer",
+ "ok": "OK",
+ "start": "Démarrer",
+ "stage_label": "Zone où apparaissent les points"
+}

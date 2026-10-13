@@ -1,0 +1,32 @@
+{
+ "instr": "Jeri: ku jera dabbobin a layi ta yadda kowace jumla za ta zama gaskiya.",
+ "clue": "Ku karanta jumlolin, sannan ku sa kowace dabba a ɗaya daga cikin wurare masu lamba ta yadda dukkan jumlolin za su zama gaskiya. Wuri na 1 yana can ƙarshen hagu. Ku danna dabba (ko ku je kanta da Tab ku danna Enter), sannan ku danna wuri. Ku danna wurin da ke da dabba don sake ɗaukar dabbar. Ku danna Na gama idan kowane wuri ya cika. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "done": "Na gama",
+ "give_up": "Na haƙura",
+ "setting": "Dabbobin suna tsaye a layi a wurare masu lamba, daga wuri na 1 a hagu zuwa wuri na ƙarshe a dama.",
+ "row": "Layin",
+ "tray": "Dabbobin da ba a ajiye ba tukuna",
+ "place": "Wuri",
+ "templates": {
+  "left_of": "{a.cap} {a.cop} wani wuri a hagun {b}.",
+  "next_left": "{a.cap} {a.cop} kai tsaye a hagun {b}, babu tazara a tsakaninsu.",
+  "adjacent": "{a.cap} da {b} suna kusa da juna.",
+  "not_adjacent": "{a.cap} da {b} ba sa kusa da juna.",
+  "at": "{a.cap} {a.cop} wuri na {p}.",
+  "not_at": "{a.cap} ba {a.neg} wuri na {p}.",
+  "end": "{a.cap} {a.cop} ko dai a farkon layin ko a ƙarshensa.",
+  "not_end": "{a.cap} ba {a.neg} a farkon layin, kuma ba {a.neg} a ƙarshensa.",
+  "between": "{a.cap} {a.cop} wani wuri a tsakanin {b} da {c}."
+ },
+ "objects": [
+  {"name": "kyanwa", "cap": "Kyanwa", "cop": "tana", "neg": "ta"},
+  {"name": "kare", "cap": "Kare", "cop": "yana", "neg": "ya"},
+  {"name": "doki", "cap": "Doki", "cop": "yana", "neg": "ya"},
+  {"name": "zomo", "cap": "Zomo", "cop": "yana", "neg": "ya"},
+  {"name": "akuya", "cap": "Akuya", "cop": "tana", "neg": "ta"},
+  {"name": "agwagwa", "cap": "Agwagwa", "cop": "tana", "neg": "ta"},
+  {"name": "yanyawa", "cap": "Yanyawa", "cop": "tana", "neg": "ta"},
+  {"name": "beyar", "cap": "Beyar", "cop": "yana", "neg": "ya"}
+ ]
+}

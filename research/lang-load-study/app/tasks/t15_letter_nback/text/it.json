@@ -1,0 +1,10 @@
+{
+ "instr": "Lettere: le lettere compaiono una alla volta; per ognuna, indica se è uguale alla lettera mostrata un certo numero di passi prima.",
+ "clue": "Le lettere compaiono una alla volta. Per ogni lettera, premi Uguale (tasto freccia destra o pulsante) se corrisponde alla lettera indicata dalla regola qui sotto, altrimenti premi Diversa (tasto freccia sinistra o pulsante). Rispondi in fretta: le lettere continuano ad arrivare. Premi Inizia quando sei pronto.",
+ "rule_1": "Regola: questa lettera è uguale a quella subito prima?",
+ "rule_2": "Regola: questa lettera è uguale a quella di due passi prima?",
+ "rule_3": "Regola: questa lettera è uguale a quella di tre passi prima?",
+ "same": "Uguale",
+ "different": "Diversa",
+ "start": "Inizia"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Pagtupi ng papel: itinutupi ang isang papel at binubutasan ito; piliin kung ano ang hitsura ng papel kapag binuklat muli.",
+ "clue": "Ipinapakita ng mga larawan ang pagtupi ng isang parisukat na papel (itinutupi ang bahaging may lilim sa kahabaan ng putol-putol na linya, gaya ng ipinapakita ng arrow). Sa huling larawan, binubutasan ang lahat ng patong. Alin sa apat na papel ang nagpapakita kung nasaan ang mga butas kapag binuklat muli ang papel? I-click o i-tap ang isang papel, o pindutin ang number key nito, 1 hanggang 4. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "folds": "Pagtupi",
+ "punched": "Binutasan",
+ "options": "Aling papel ang tama kapag binuklat?"
+}

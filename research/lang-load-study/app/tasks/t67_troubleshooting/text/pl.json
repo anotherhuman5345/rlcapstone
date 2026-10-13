@@ -1,0 +1,28 @@
+{
+ "instr": "Wykrywanie usterek: maszyna przesyła prąd przez swoje części do kilku lampek; znajdź uszkodzoną część, wykonując jak najmniej testów.",
+ "clue": "Prąd płynie od lewej strony przez części, wzdłuż linii, do lampek. Uszkodzona część nie przepuszcza prądu, więc każda część za nią i każda lampka, którą zasila, pozostaje ciemna. Uszkodzona jest dokładnie jedna część. Zobacz, które lampki się świecą. Możesz przetestować część (każdy test kosztuje 1): zaznacz ją i naciśnij Testuj, aby sprawdzić, czy wychodzi z niej prąd. Gdy wiesz, która część jest uszkodzona, zaznacz ją i naciśnij Zgłoś. Do znalezienia są dwie usterki. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "power": "Zasilanie",
+ "lamp": "Lampka",
+ "test": "Testuj zaznaczoną część (koszt 1)",
+ "report": "Zgłoś zaznaczoną część jako uszkodzoną",
+ "signal": "prąd wychodzi",
+ "no_signal": "prąd nie wychodzi",
+ "tests_used": "Wykonane testy: {n}",
+ "case_label": "Usterka {n} z {total}",
+ "select_hint": "Kliknij część, aby ją zaznaczyć (lub naciśnij jej numer, 1–6).",
+ "parts": [
+  "Bęben",
+  "Cewka",
+  "Bramka",
+  "Koło",
+  "Filtr",
+  "Pompa",
+  "Soczewka",
+  "Sprężyna",
+  "Dzwonek",
+  "Wentylator",
+  "Zawór",
+  "Pas"
+ ]
+}

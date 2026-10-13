@@ -1,0 +1,9 @@
+{
+ "instr": "Griglia: i quadrati di una griglia si illuminano uno alla volta; per ognuno, indica se è nella stessa posizione di un quadrato illuminato un certo numero di passi prima.",
+ "clue": "I quadrati della griglia si illuminano uno alla volta. Ogni volta premi Uguale (tasto freccia destra o pulsante) se è nella stessa posizione del quadrato indicato dalla regola qui sotto, altrimenti premi Diversa (tasto freccia sinistra o pulsante). Rispondi in fretta: i quadrati continuano ad arrivare. Premi Inizia quando sei pronto.",
+ "rule_1": "Regola: questo quadrato è nella stessa posizione di quello subito prima?",
+ "rule_2": "Regola: questo quadrato è nella stessa posizione di quello di due passi prima?",
+ "same": "Uguale",
+ "different": "Diversa",
+ "start": "Inizia"
+}

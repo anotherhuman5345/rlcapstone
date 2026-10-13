@@ -1,0 +1,6 @@
+{"instr": "Sınıflama: her nesnenin iki gruptan hangisine ait olduğunu geri bildirimle öğrenin, sonra yeni nesneleri geri bildirim olmadan sınıflayın.",
+ "clue": "Her nesne iki gruptan birine aittir. Hangi gruba ait olduğunu sol ok tuşuyla (ya da soldaki düğmeyle) veya sağ ok tuşuyla (ya da sağdaki düğmeyle) belirtin. Başta tahmin etmeniz gerekecek; her yanıttan sonra doğru grup söylenecek, böylece grubu neyin belirlediğini çözebilirsiniz. Daha sonra yeni nesneler geri bildirim olmadan gösterilecek. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "groups": ["A grubu", "B grubu"],
+ "correct": "Doğru", "wrong": "Yanlış: bu nesne {group} üyesi", "too_slow": "Çok yavaş: bu nesne {group} üyesi",
+ "transfer_note": "Bundan sonra geri bildirim yok. Nesneleri aynı şekilde sınıflamaya devam edin.",
+ "train_of": "Öğrenme: nesne {n} / {total}", "transfer_of": "Test: nesne {n} / {total}"}

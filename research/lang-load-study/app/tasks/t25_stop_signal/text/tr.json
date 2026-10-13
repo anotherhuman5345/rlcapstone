@@ -1,0 +1,4 @@
+{"instr": "Dur işaretli oklar: okun yönüne hızla basın, ama ok kırmızıya dönerse kendinizi tutun.",
+ "clue": "Ortada bir ok belirecek. Okun gösterdiği yöne göre sol veya sağ ok tuşuna (ya da düğmeye) olabildiğince hızlı basın. Bazen ok belirdikten hemen sonra kırmızı bir halkanın içinde kırmızıya döner (ses açıksa bir bip de duyulur): o zaman BASMAMAYA çalışın. Her seferinde duramamanız normaldir. Kırmızı işareti beklemek için yavaşlamayın. Hazır olunca Başla'ya basın.",
+ "left": "Sol", "right": "Sağ", "start": "Başla", "sound": "Dur işaretiyle birlikte bip sesi",
+ "stage_label": "Okların göründüğü alan"}

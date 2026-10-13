@@ -1,0 +1,8 @@
+{
+ "instr": "Mga kahon: ituon ang tingin sa gitna at pindutin ang kaliwa o kanan sa sandaling may lumitaw na tuldok sa isang kahon.",
+ "clue": "Ituon ang tingin sa krus sa gitna. May lilitaw na arrow doon, pagkatapos ay isang tuldok sa kaliwa o kanang kahon. Pindutin ang kaliwa o kanang arrow key (o button) para sa panig kung saan lumitaw ang tuldok, nang pinakamabilis na kaya mo. Kadalasang tama ang arrow, pero hindi palagi. Pindutin ang Simulan kapag handa ka na.",
+ "left": "Kaliwa",
+ "right": "Kanan",
+ "start": "Simulan",
+ "stage_label": "Dalawang kahon na may krus sa pagitan"
+}

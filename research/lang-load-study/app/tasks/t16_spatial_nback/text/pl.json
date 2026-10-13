@@ -1,0 +1,9 @@
+{
+ "instr": "Siatka: kwadraty w siatce zapalają się po jednym; przy każdym powiedz, czy jest w tym samym miejscu co kwadrat zapalony określoną liczbę kroków wcześniej.",
+ "clue": "Kwadraty w siatce zapalają się po jednym. Za każdym razem naciśnij „To samo miejsce” (klawisz strzałki w prawo lub przycisk), jeśli kwadrat jest w tym samym miejscu co kwadrat wskazany przez regułę poniżej, a w przeciwnym razie „Inne miejsce” (klawisz strzałki w lewo lub przycisk). Odpowiadaj szybko; kwadraty pojawiają się bez przerwy. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "rule_1": "Reguła: czy ten kwadrat jest w tym samym miejscu co kwadrat tuż przed nim?",
+ "rule_2": "Reguła: czy ten kwadrat jest w tym samym miejscu co kwadrat dwa kroki wcześniej?",
+ "same": "To samo miejsce",
+ "different": "Inne miejsce",
+ "start": "Start"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Mga letra: isa-isang lumilitaw ang mga letra; sa bawat isa, sabihin kung kapareho ito ng letrang ipinakita ilang hakbang bago nito.",
+ "clue": "Isa-isang lumilitaw ang mga letra. Sa bawat letra, pindutin ang Pareho (kanang arrow key o button) kung tugma ito sa letrang itinuturo ng panuntunan sa ibaba; kung hindi, pindutin ang Magkaiba (kaliwang arrow key o button). Sumagot nang mabilis; tuloy-tuloy ang pagdating ng mga letra. Pindutin ang Simulan kapag handa ka na.",
+ "rule_1": "Panuntunan: kapareho ba ng letrang ito ang letrang nauna mismo rito?",
+ "rule_2": "Panuntunan: kapareho ba ng letrang ito ang letrang dalawang hakbang bago nito?",
+ "rule_3": "Panuntunan: kapareho ba ng letrang ito ang letrang tatlong hakbang bago nito?",
+ "same": "Pareho",
+ "different": "Magkaiba",
+ "start": "Simulan"
+}

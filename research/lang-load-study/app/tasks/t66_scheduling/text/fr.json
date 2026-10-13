@@ -1,0 +1,80 @@
+{
+ "instr": "Planning : attribuez chaque tâche à une personne et à un jour en respectant toutes les règles.",
+ "clue": "Planifiez le travail : placez chaque tâche dans le tableau sous une personne et un jour. Chaque personne peut faire au plus une tâche par jour, et toutes les règles de la liste doivent être respectées. Cliquez sur une tâche (ou allez-y avec Tab et appuyez sur Entrée), puis cliquez sur une case du tableau. Cliquez sur une case occupée pour reprendre sa tâche. Tout planning qui respecte toutes les règles est correct. Appuyez sur Terminé quand toutes les tâches sont placées. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "done": "Terminé",
+ "give_up": "Abandonner",
+ "setting": "Chaque personne peut faire au plus une tâche par jour. Règles :",
+ "plan": "Planning",
+ "tray": "Tâches pas encore placées",
+ "templates": {
+  "before": "Il faut faire {a.def} un jour antérieur à celui {b.de}.",
+  "same_day": "Il faut faire {a.def} et {b.def} le même jour.",
+  "diff_day": "Il faut faire {a.def} et {b.def} des jours différents.",
+  "by_day": "Il faut faire {a.def} {day} au plus tard.",
+  "off_day": "{w} n'est pas disponible {day}.",
+  "only_person": "{w} est la seule personne qui peut faire {a.def}.",
+  "not_person": "{w} ne peut pas faire {a.def}.",
+  "same_person": "C'est la même personne qui doit faire {a.def} et {b.def}."
+ },
+ "jobs": [
+  {
+   "name": "rapport",
+   "cap": "Rapport",
+   "def": "le rapport",
+   "de": "du rapport"
+  },
+  {
+   "name": "livraison",
+   "cap": "Livraison",
+   "def": "la livraison",
+   "de": "de la livraison"
+  },
+  {
+   "name": "réparation",
+   "cap": "Réparation",
+   "def": "la réparation",
+   "de": "de la réparation"
+  },
+  {
+   "name": "nettoyage",
+   "cap": "Nettoyage",
+   "def": "le nettoyage",
+   "de": "du nettoyage"
+  },
+  {
+   "name": "inventaire",
+   "cap": "Inventaire",
+   "def": "l'inventaire",
+   "de": "de l'inventaire"
+  },
+  {
+   "name": "formation",
+   "cap": "Formation",
+   "def": "la formation",
+   "de": "de la formation"
+  },
+  {
+   "name": "peinture",
+   "cap": "Peinture",
+   "def": "la peinture",
+   "de": "de la peinture"
+  },
+  {
+   "name": "inspection",
+   "cap": "Inspection",
+   "def": "l'inspection",
+   "de": "de l'inspection"
+  }
+ ],
+ "people": [
+  "Anne",
+  "Bruno",
+  "Claire"
+ ],
+ "days": [
+  "lundi",
+  "mardi",
+  "mercredi"
+ ]
+}

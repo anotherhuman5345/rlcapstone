@@ -1,0 +1,8 @@
+{
+ "instr": "Dígitos: veja uma pequena lista de dígitos, um de cada vez, e depois digite-os na mesma ordem.",
+ "clue": "Pressione Começar e veja os dígitos aparecerem um de cada vez. Quando pararem, digite-os na mesma ordem com o teclado na tela ou o seu teclado e depois pressione OK.",
+ "recall": "Digite os dígitos na ordem em que você os viu.",
+ "start": "Começar",
+ "done": "OK",
+ "delete": "Apagar o último dígito"
+}

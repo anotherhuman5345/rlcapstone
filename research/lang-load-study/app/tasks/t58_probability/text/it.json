@@ -1,0 +1,14 @@
+{
+ "instr": "Probabilità: confronta due eventi e scegli quello più probabile, oppure indica che sono ugualmente probabili.",
+ "clue": "Ogni schermata mostra due eventi, A e B, a parole e in un'immagine. Le palline vengono estratte senza guardare e ogni pallina ha la stessa probabilità di essere estratta; i dadi non sono truccati. Scegli quale evento è più probabile, oppure «Ugualmente probabili». Usa i pulsanti o i tasti 1 (A), 2 (ugualmente probabili), 3 (B). Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "label_a": "A",
+ "label_b": "B",
+ "equal": "Ugualmente probabili",
+ "question": "Quale è più probabile?",
+ "progress": "Domanda {i} di {n}",
+ "ev_bag1": "Il sacchetto {L} contiene palline rosse e blu (rosse: {r}, blu: {b}). Estrai una pallina ed è rossa.",
+ "ev_bag2_replace": "Il sacchetto {L} contiene palline rosse e blu (rosse: {r}, blu: {b}). Estrai una pallina, la rimetti dentro ed estrai di nuovo. Entrambe le palline sono rosse.",
+ "ev_bag2_keep": "Il sacchetto {L} contiene palline rosse e blu (rosse: {r}, blu: {b}). Estrai una pallina, la tieni fuori ed estrai di nuovo. Entrambe le palline sono rosse.",
+ "ev_dice": "Lanci due dadi e la somma dei due numeri è {s}."
+}

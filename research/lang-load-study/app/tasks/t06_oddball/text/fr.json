@@ -1,0 +1,9 @@
+{
+ "instr": "Forme rare : des formes apparaissent une à une ; appuyez sur Espace (ou sur le bouton) seulement quand vous voyez le carré.",
+ "clue": "Des formes apparaissent une à une au centre. Appuyez sur Espace (ou sur le grand bouton) le plus vite possible chaque fois qu'un carré apparaît. Ne faites rien pour les cercles. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "press": "Carré !",
+ "stage_label": "Formes qui apparaissent",
+ "target_is": "Appuyez pour :",
+ "ignore": "ignorez :"
+}

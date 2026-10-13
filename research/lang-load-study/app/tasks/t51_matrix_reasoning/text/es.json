@@ -1,0 +1,7 @@
+{
+ "instr": "Cuadrículas de patrones: elija la imagen que completa cada cuadrícula de 3 x 3.",
+ "clue": "Cada cuadrícula sigue una o dos reglas a lo largo de sus filas y columnas, por ejemplo en el número, la forma, el sombreado o el tamaño de las figuras. Descubra las reglas y elija la imagen que va en la casilla vacía: haga clic o tóquela, o pulse 1-4. Hay cuatro cuadrículas. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "matrix_of": "Cuadrícula {n} de {total}",
+ "option": "Opción {n}"
+}

@@ -1,0 +1,28 @@
+{
+ "instr": "Fehlersuche: Eine Maschine leitet Strom durch ihre Teile zu einigen Lampen; finden Sie das defekte Teil mit so wenigen Tests wie möglich.",
+ "clue": "Der Strom fließt von links durch die Teile entlang der Linien zu den Lampen. Ein defektes Teil lässt keinen Strom durch, sodass jedes Teil danach und jede Lampe, die es versorgt, dunkel bleibt. Genau ein Teil ist defekt. Achten Sie darauf, welche Lampen leuchten. Sie können ein Teil testen (jeder Test kostet 1): Wählen Sie es aus und drücken Sie „Testen“, um zu sehen, ob Strom aus ihm herauskommt. Wenn Sie wissen, welches Teil defekt ist, wählen Sie es aus und drücken Sie „Melden“. Es sind zwei Fehler zu finden. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "power": "Strom",
+ "lamp": "Lampe",
+ "test": "Ausgewähltes Teil testen (kostet 1)",
+ "report": "Ausgewähltes Teil als defekt melden",
+ "signal": "Strom kommt heraus",
+ "no_signal": "kein Strom kommt heraus",
+ "tests_used": "Benutzte Tests: {n}",
+ "case_label": "Fehler {n} von {total}",
+ "select_hint": "Klicken Sie auf ein Teil, um es auszuwählen (oder drücken Sie seine Nummer, 1–6).",
+ "parts": [
+  "Trommel",
+  "Spule",
+  "Schieber",
+  "Rad",
+  "Filter",
+  "Pumpe",
+  "Linse",
+  "Feder",
+  "Klingel",
+  "Lüfter",
+  "Ventil",
+  "Riemen"
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Zwei Figuren: Finden Sie durch Ausprobieren heraus, welche Figur richtig ist. Die richtige Figur kann ohne Vorwarnung wechseln.",
+ "clue": "Zwei Figuren erscheinen. Eine davon ist richtig. Wählen Sie eine, indem Sie sie anklicken oder antippen, oder mit der linken/rechten Pfeiltaste; Sie sehen dann, ob Sie richtig lagen. Wählen Sie weiterhin die richtige. Ohne Vorwarnung kann die andere Figur zur richtigen werden: Wechseln Sie dann. Ihre Position auf dem Bildschirm spielt keine Rolle. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "left": "Links",
+ "right": "Rechts",
+ "correct": "Richtig",
+ "wrong": "Falsch",
+ "too_slow": "Zu langsam",
+ "start": "Starten"
+}

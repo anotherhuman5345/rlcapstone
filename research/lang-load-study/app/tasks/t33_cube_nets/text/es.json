@@ -1,0 +1,6 @@
+{
+ "instr": "Desarrollos de cubos: elija el patrón plano que se dobla para formar el cubo que se muestra.",
+ "clue": "El cubo tiene una marca diferente en cada una de sus seis caras; usted ve tres. Cada patrón plano de abajo se puede doblar para formar un cubo, con las marcas por fuera. Solo uno forma exactamente este cubo: las mismas marcas, colocadas una junto a otra de la misma manera y orientadas en la misma dirección. Haga clic o toque ese patrón, o pulse su tecla numérica del 1 al 4. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "options": "¿Qué patrón forma este cubo?"
+}

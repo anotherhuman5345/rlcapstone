@@ -1,0 +1,9 @@
+{
+ "instr": "Cor ou forma: uma palavra-pista indica se você deve julgar a COR ou a FORMA da figura que vem em seguida.",
+ "clue": "Primeiro aparece uma pista: COR ou FORMA. Depois aparece um círculo ou um quadrado, azul ou laranja. Se a pista for COR: azul = esquerda, laranja = direita. Se a pista for FORMA: círculo = esquerda, quadrado = direita. Use as setas do teclado ou os botões. Responda com rapidez e precisão. Pressione Começar quando estiver pronto(a).",
+ "cue_color": "COR",
+ "cue_shape": "FORMA",
+ "left": "Esquerda",
+ "right": "Direita",
+ "start": "Começar"
+}

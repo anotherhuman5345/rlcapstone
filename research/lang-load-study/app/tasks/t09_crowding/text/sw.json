@@ -1,0 +1,10 @@
+{
+ "instr": "Herufi T zinazomulika: weka macho yako katikati na useme herufi T ya katikati katika kikundi kidogo inaelekea upande gani.",
+ "clue": "Weka macho yako kwenye alama ya msalaba iliyo katikati muda wote. Kikundi kidogo cha maumbo ya herufi T kitamulika kwa muda mfupi upande mmoja. Sema mstari bapa wa T ILIYO KATIKATI unaelekea upande gani: juu, kulia, chini au kushoto. Tumia vitufe vya mishale au vitufe vilivyo kwenye skrini. Kama huna uhakika, kisia jibu lako bora. Bonyeza Anza ukiwa tayari.",
+ "up": "Juu",
+ "right": "Kulia",
+ "down": "Chini",
+ "left": "Kushoto",
+ "start": "Anza",
+ "stage_label": "Alama ya msalaba katikati ya eneo tupu"
+}

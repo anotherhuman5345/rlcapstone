@@ -1,0 +1,9 @@
+{
+ "instr": "Color o forma: una palabra clave le indica si debe juzgar el COLOR o la FORMA de la figura que viene después.",
+ "clue": "Primero aparece una palabra clave: COLOR o FORMA. Después aparece un círculo o un cuadrado, azul o naranja. Si la clave es COLOR: azul = izquierda, naranja = derecha. Si la clave es FORMA: círculo = izquierda, cuadrado = derecha. Use las teclas de flecha o los botones. Responda rápido y con precisión. Pulse Iniciar cuando esté listo/a.",
+ "cue_color": "COLOR",
+ "cue_shape": "FORMA",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "start": "Iniciar"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Farbgedächtnis: Merken Sie sich eine Gruppe farbiger Quadrate; sagen Sie nach einer kurzen Pause, ob ein Quadrat seine Farbe geändert hat.",
+ "clue": "Farbige Quadrate erscheinen kurz, verschwinden und kommen dann zurück. Hat ein Quadrat seine Farbe geändert? Drücken Sie ← oder „Gleich“, wenn sich nichts geändert hat, → oder „Anders“, wenn sich eines geändert hat. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "same": "Gleich",
+ "different": "Anders",
+ "start": "Starten",
+ "stage_label": "Farbige Quadrate"
+}

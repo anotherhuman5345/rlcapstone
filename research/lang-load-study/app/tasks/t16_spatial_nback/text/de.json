@@ -1,0 +1,9 @@
+{
+ "instr": "Raster: Quadrate in einem Raster leuchten einzeln auf; sagen Sie bei jedem, ob es an derselben Stelle ist wie ein Quadrat, das eine bestimmte Anzahl von Schritten vorher aufgeleuchtet hat.",
+ "clue": "Quadrate im Raster leuchten einzeln auf. Drücken Sie jedes Mal „Gleich“ (rechte Pfeiltaste oder Schaltfläche), wenn es an derselben Stelle ist wie das Quadrat, auf das die Regel unten verweist, andernfalls „Anders“ (linke Pfeiltaste oder Schaltfläche). Antworten Sie schnell; die Quadrate kommen weiter. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "rule_1": "Regel: Ist dieses Quadrat an derselben Stelle wie das direkt davor?",
+ "rule_2": "Regel: Ist dieses Quadrat an derselben Stelle wie das zwei Schritte davor?",
+ "same": "Gleich",
+ "different": "Anders",
+ "start": "Starten"
+}

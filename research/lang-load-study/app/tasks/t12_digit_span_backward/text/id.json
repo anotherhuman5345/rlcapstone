@@ -1,0 +1,8 @@
+{
+ "instr": "Angka terbalik: perhatikan deretan angka pendek yang muncul satu per satu, lalu ketik dengan urutan terbalik, mulai dari yang terakhir.",
+ "clue": "Tekan Mulai dan perhatikan angka-angka muncul satu per satu. Setelah berhenti, ketik angka-angka itu SECARA TERBALIK, dari angka terakhir ke angka pertama, menggunakan papan angka atau keyboard Anda, lalu tekan OK. Contoh: jika Anda melihat 3 8 1, ketik 1 8 3.",
+ "recall": "Ketik angka-angka dengan urutan terbalik: angka terakhir lebih dulu.",
+ "start": "Mulai",
+ "done": "OK",
+ "delete": "Hapus angka terakhir"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Huruf: huruf muncul satu per satu; untuk setiap huruf, katakan apakah huruf itu sama dengan huruf yang ditampilkan beberapa langkah sebelumnya.",
+ "clue": "Huruf muncul satu per satu. Untuk setiap huruf, tekan Sama (tombol panah kanan atau tombol di layar) jika huruf itu sama dengan huruf yang ditunjuk aturan di bawah, jika tidak tekan Berbeda (tombol panah kiri atau tombol di layar). Jawab dengan cepat; huruf terus berdatangan. Tekan Mulai jika sudah siap.",
+ "rule_1": "Aturan: apakah huruf ini sama dengan huruf tepat sebelumnya?",
+ "rule_2": "Aturan: apakah huruf ini sama dengan huruf dua langkah sebelumnya?",
+ "rule_3": "Aturan: apakah huruf ini sama dengan huruf tiga langkah sebelumnya?",
+ "same": "Sama",
+ "different": "Berbeda",
+ "start": "Mulai"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Verfolgen: Merken Sie sich, welche Kreise orange werden, verfolgen Sie sie, während sich alle Kreise bewegen, und wählen Sie sie dann aus.",
+ "clue": "Einige Kreise werden kurz orange. Merken Sie sie sich und behalten Sie sie im Blick, während sich alle Kreise bewegen. Wenn sie anhalten, klicken oder tippen Sie auf die verfolgten Kreise (oder drücken Sie deren Zifferntasten) und drücken Sie dann „Fertig“ oder Enter. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "done": "Fertig",
+ "stage_label": "Bewegte Kreise",
+ "round": "Runde {n} von {total}: Merken Sie sich die {k} orangefarbenen Kreise.",
+ "track": "Verfolgen Sie sie…",
+ "pick": "Wählen Sie die {k} Kreise aus, die Sie verfolgt haben, und drücken Sie dann „Fertig“."
+}

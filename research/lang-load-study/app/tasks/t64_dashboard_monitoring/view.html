@@ -1,0 +1,23 @@
+<div class="dash-task">
+  <style>
+    .dash-task .gauges { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .dash-task .gauge { margin: 0; padding: .6rem .6rem .8rem; width: 8.5rem; background: #26313c; color: #fff; border: 3px solid transparent; border-radius: 6px; font-weight: 500; touch-action: manipulation; }
+    .dash-task .gauge.ack { border-color: #9ad1ff; }
+    .dash-task .gauge .n { display: block; font-size: .8rem; opacity: .7; }
+    .dash-task .gauge .name { display: block; margin-bottom: .4rem; }
+    .dash-task .track { display: block; position: relative; height: 240px; width: 2.6rem; margin: 0 auto; background: #3a4754; border-radius: 3px; overflow: hidden; }
+    .dash-task .fill { position: absolute; left: 0; right: 0; bottom: 0; background: #8fb3cf; }
+    .dash-task .red { position: absolute; left: -4px; right: -4px; height: 3px; background: #e0524a; }
+    .dash-task .hint { color: var(--muted); }
+  </style>
+  <div class="gauges" id="db-gauges">
+    {% for g in item.names %}
+    <button type="button" class="gauge" data-g="{{ loop.index0 }}">
+      <span class="n">{{ loop.index }}</span><span class="name">{{ text.gauges[g] }}</span>
+      <span class="track"><span class="fill"></span><span class="red" style="bottom: {{ item.red_line }}%"></span></span>
+    </button>
+    {% endfor %}
+  </div>
+  <p class="hint">{{ text.hint }}</p>
+  <p><button type="button" id="db-start">{{ text.start }}</button></p>
+</div>

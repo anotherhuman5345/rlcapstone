@@ -1,0 +1,8 @@
+{
+ "instr": "Kumbukumbu ya rangi: kumbuka kundi la miraba yenye rangi; baada ya pengo fupi, sema kama mraba wowote ulibadilika rangi.",
+ "clue": "Miraba yenye rangi inaonekana kwa muda mfupi, inatoweka, kisha inarudi. Je, mraba mmoja ulibadilika rangi? Bonyeza ← au “Sawa” kama hakuna kilichobadilika, → au “Tofauti” kama mmoja ulibadilika. Bonyeza Anza ukiwa tayari.",
+ "same": "Sawa",
+ "different": "Tofauti",
+ "start": "Anza",
+ "stage_label": "Miraba yenye rangi"
+}

@@ -1,0 +1,14 @@
+<div class="attentional-blink">
+  <div id="ab-screen" aria-live="off"
+       style="width:12rem;height:9rem;margin:1rem auto;display:flex;align-items:center;justify-content:center;background:#F7F7F2;border:1px solid #C7D0D8;border-radius:6px;font:700 4.5rem/1 ui-monospace,Menlo,Consolas,monospace;user-select:none">
+  </div>
+  <div id="ab-answer" hidden>
+    <p class="meta" id="ab-slots" style="font-size:1.4rem;text-align:center"></p>
+    <div class="btn-row" id="ab-letters" style="justify-content:center"></div>
+    <div class="btn-row" style="justify-content:center">
+      <button type="button" id="ab-undo">{{ text.undo }}</button>
+      <button type="button" id="ab-ok" disabled>{{ text.ok }}</button>
+    </div>
+  </div>
+  <p style="text-align:center"><button type="button" id="ab-start">{{ text.start }}</button></p>
+</div>

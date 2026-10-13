@@ -1,0 +1,15 @@
+{
+ "instr": "Kupanga: jifunze kutokana na mrejesho kila kitu ni cha kundi lipi kati ya mawili, kisha panga vitu vipya bila mrejesho.",
+ "clue": "Kila kitu ni cha moja kati ya makundi mawili. Amua ni kundi lipi kwa mshale wa kushoto (au kitufe cha kushoto) au mshale wa kulia (au kitufe cha kulia). Mwanzoni itabidi ubahatishe; baada ya kila jibu utaambiwa kundi sahihi, ili ugundue ni nini kinachoamua kundi. Baadaye, vitu vipya vinatokea bila mrejesho. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "groups": [
+  "Kundi A",
+  "Kundi B"
+ ],
+ "correct": "Sahihi",
+ "wrong": "Si sahihi: kitu hiki ni cha {group}",
+ "too_slow": "Polepole mno: kitu hiki ni cha {group}",
+ "transfer_note": "Kuanzia sasa hakuna mrejesho. Endelea kupanga vitu kwa njia ileile.",
+ "train_of": "Kujifunza: kitu {n} kati ya {total}",
+ "transfer_of": "Jaribio: kitu {n} kati ya {total}"
+}

@@ -1,0 +1,8 @@
+{
+ "instr": "Kotak: pandang bagian tengah dan tekan kiri atau kanan begitu sebuah titik muncul di salah satu kotak.",
+ "clue": "Pandang tanda silang di tengah. Sebuah panah akan muncul di sana, lalu sebuah titik di kotak kiri atau kanan. Tekan tombol panah kiri atau kanan (atau tombol di layar) sesuai sisi tempat titik muncul, secepat mungkin. Panahnya biasanya benar, tetapi tidak selalu. Tekan Mulai jika sudah siap.",
+ "left": "Kiri",
+ "right": "Kanan",
+ "start": "Mulai",
+ "stage_label": "Dua kotak dengan tanda silang di antaranya"
+}

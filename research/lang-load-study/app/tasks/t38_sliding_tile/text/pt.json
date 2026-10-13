@@ -1,0 +1,16 @@
+{
+ "instr": "Peças deslizantes: deslize as peças numeradas para o espaço vazio até que fiquem em ordem de 1 a 8.",
+ "clue": "Coloque as peças em ordem como na imagem-alvo: de 1 a 8, com o espaço vazio no canto inferior direito. Clique em uma peça ao lado do espaço vazio para deslizá-la para ele, ou use as setas do teclado (ou os botões de seta) para mover uma peça para o espaço vazio. Tente usar o menor número de movimentos possível. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "reset": "Recomeçar",
+ "give_up": "Desistir",
+ "yours": "Seu tabuleiro",
+ "target": "Alvo",
+ "moves_label": "Movimentos:",
+ "illegal": "Só uma peça ao lado do espaço vazio pode se mover.",
+ "solved": "Pronto!",
+ "left": "Para a esquerda",
+ "right": "Para a direita",
+ "up": "Para cima",
+ "down": "Para baixo"
+}

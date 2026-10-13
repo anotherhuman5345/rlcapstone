@@ -1,0 +1,4 @@
+{"instr": "Rare shape: shapes flash one at a time; press Space (or the button) only when you see the square.",
+ "clue": "Shapes flash in the middle one by one. Press Space (or the big button) as fast as you can every time a square appears. Do nothing for circles. Press Start when ready.",
+ "start": "Start", "press": "Square!", "stage_label": "Flashing shapes",
+ "target_is": "Press for:", "ignore": "ignore:"}

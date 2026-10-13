@@ -1,0 +1,7 @@
+{
+ "instr": "Analogías con dibujos: el primer dibujo se transforma en el segundo; elija el dibujo que transforma el tercero de la misma manera.",
+ "clue": "El dibujo de arriba a la izquierda se transforma en el de su derecha. Busque la opción que transforma el dibujo de abajo exactamente de la misma manera (puede girar, voltearse, cambiar de relleno, cambiar de tamaño o duplicarse, o dos de estas cosas). Haga clic o toque la opción, o pulse su tecla numérica 1-4. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "option": "Opción",
+ "progress": "Problema {i} de {n}"
+}

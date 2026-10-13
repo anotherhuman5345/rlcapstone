@@ -1,0 +1,22 @@
+<div class="quantity-estimation">
+  <svg id="qe-stage" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="{{ text.stage_label }}"
+       style="display:block;margin:0 auto;max-height:calc(100vh - 22rem);background:#fff;border:1px solid #c7d0d8;border-radius:6px">
+    <g id="qe-fix" stroke="#1d2731" stroke-width="4" visibility="hidden">
+      <line x1="385" y1="250" x2="415" y2="250"/><line x1="400" y1="235" x2="400" y2="265"/>
+    </g>
+    <g id="qe-dots" fill="#1d2731"></g>
+    <g id="qe-mask"></g>
+  </svg>
+  <div id="qe-entry" hidden style="text-align:center">
+    <p style="margin:.6rem 0 .2rem">{{ text.ask }}</p>
+    <p id="qe-value" aria-live="polite" style="font-size:2rem;font-weight:700;min-height:2.6rem;margin:0;letter-spacing:.08em"></p>
+    <div class="btn-row" style="justify-content:center;max-width:24rem;margin:0 auto">
+      {% for d in ["1","2","3","4","5","6","7","8","9","0"] %}<button type="button" data-digit="{{ d }}" style="min-width:3.2rem;margin-top:0">{{ d }}</button>{% endfor %}
+    </div>
+    <div class="btn-row" style="justify-content:center">
+      <button type="button" id="qe-erase">⌫ {{ text.erase }}</button>
+      <button type="button" id="qe-ok">{{ text.ok }}</button>
+    </div>
+  </div>
+  <p style="text-align:center"><button type="button" id="qe-start">{{ text.start }}</button></p>
+</div>

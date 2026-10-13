@@ -1,0 +1,17 @@
+{
+ "instr": "Mga salitang kulay: sa bawat salita, pindutin ang button para sa kulay ng TINTA nito, hindi ang kulay na sinasabi ng salita.",
+ "clue": "May lilitaw na salitang kulay na nakasulat sa may kulay na tinta. Iulat ang kulay ng TINTA at huwag pansinin ang sinasabi ng salita. Pindutin ang mga key na 1-4 o i-tap ang button na kapareho ng kulay. Sumagot nang mabilis at tama. Pindutin ang Simulan kapag handa ka na.",
+ "words": [
+  "PULA",
+  "ASUL",
+  "BERDE",
+  "DILAW"
+ ],
+ "color_names": [
+  "Pula",
+  "Asul",
+  "Berde",
+  "Dilaw"
+ ],
+ "start": "Simulan"
+}

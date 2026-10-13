@@ -1,0 +1,13 @@
+{
+ "instr": "Hesabu za kichwani: tatua kila swali kichwani mwako na uandike jibu.",
+ "clue": "Tatua kila swali kichwani mwako, bila kuandika chochote. Andika jibu kwa vitufe vilivyo kwenye skrini au kibodi na ubonyeze Sawa (au Enter). Kila swali lina sekunde 20. Majibu ni namba kamili. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "ok": "Sawa",
+ "erase": "Futa tarakimu ya mwisho",
+ "seconds_left": "Zimebaki sekunde {s}",
+ "progress": "Swali {i} kati ya {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

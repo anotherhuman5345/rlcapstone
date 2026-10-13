@@ -1,0 +1,16 @@
+<style>
+.prosmem [hidden] { display: none !important; }
+.prosmem .pm-wrap { display: flex; justify-content: center; margin: 1.5rem 0; max-width: 40rem; }
+.prosmem .pm-num { width: 9rem; height: 9rem; display: flex; align-items: center; justify-content: center; font-size: 3.4rem; font-weight: 700; border: 8px solid transparent; }
+.prosmem .pm-num.cue { border-color: #8a5a00; }
+.prosmem .btn-row button { min-width: 7rem; }
+</style>
+<div class="prosmem">
+  <div class="pm-wrap"><div class="pm-num" id="pm-num" aria-live="off">+</div></div>
+  <div class="btn-row">
+    <button type="button" data-key="odd">← {{ text.odd }}</button>
+    <button type="button" data-key="special">{{ text.special }} ({{ text.space }})</button>
+    <button type="button" data-key="even">{{ text.even }} →</button>
+  </div>
+  <p><button type="button" id="pm-start">{{ text.start }}</button></p>
+</div>

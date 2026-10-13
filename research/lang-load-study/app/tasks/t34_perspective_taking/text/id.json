@@ -1,0 +1,12 @@
+{
+ "instr": "Arah di peta: bayangkan Anda berdiri di satu penanda dan menghadap penanda lain, lalu katakan di arah mana penanda ketiga.",
+ "clue": "Peta menunjukkan enam penanda dilihat dari atas. Bayangkan Anda berdiri di penanda pertama dan menghadap penanda kedua. Apakah penanda ketiga ada di depan Anda, di kanan, di belakang, atau di kiri Anda? Jangan memutar layar. Jawab dengan tombol panah atau tombol di layar. Ada empat pertanyaan untuk peta ini. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "stand": "Anda berdiri di",
+ "face": "Anda menghadap",
+ "where": "Di mana",
+ "ahead": "Depan",
+ "right": "Kanan",
+ "behind": "Belakang",
+ "left": "Kiri"
+}

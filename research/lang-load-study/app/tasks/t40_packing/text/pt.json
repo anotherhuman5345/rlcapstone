@@ -1,0 +1,12 @@
+{
+ "instr": "Encaixe: coloque todas as peças no tabuleiro de modo que todos os quadrados fiquem cobertos e nenhuma peça se sobreponha.",
+ "clue": "Preencha o tabuleiro inteiro com todas as peças, sem sobreposições. Escolha uma peça (clique nela ou pressione o número dela), gire-a com “Girar” (ou a tecla R) se necessário e depois clique no quadrado do tabuleiro onde o ponto da peça deve ficar. Para mover uma peça já colocada, clique nela no tabuleiro para pegá-la de volta. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "board": "Tabuleiro",
+ "pieces": "Peças",
+ "rotate": "Girar",
+ "give_up": "Desistir",
+ "choose_first": "Escolha uma peça primeiro.",
+ "no_fit": "A peça não cabe aí.",
+ "solved": "Pronto!"
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Segui e somma: tieni il puntatore sul puntino in movimento mentre rispondi a semplici somme che compaiono sotto.",
+ "clue": "Tieni sempre il puntatore sul puntino blu in movimento: muovi il mouse, fai scorrere il dito oppure tieni premuti i tasti freccia (o i pulsanti freccia). Sotto il campo compariranno delle somme: scegli il risultato cliccandolo o premendo 1, 2 o 3. Seguire il puntino e rispondere alle somme contano allo stesso modo. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "sum_hint": "Rispondi con 1, 2, 3 o con un clic",
+ "up": "Su",
+ "down": "Giù",
+ "left": "Sinistra",
+ "right": "Destra"
+}

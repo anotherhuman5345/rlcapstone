@@ -1,0 +1,40 @@
+{
+ "instr": "Kroki maszyny: naucz się z pisemnych kroków obsługiwać wymyśloną maszynę, a potem obsłuż ją z pamięci.",
+ "clue": "Najpierw przeczytaj kroki obsługi maszyny i rozwiązany przykład; masz na to do 45 sekund. Potem kroki znikną, a ty trzy razy obsłużysz maszynę z pamięci: spójrz na kolor lampki i liczbę, naciśnij przyciski we właściwej kolejności (kliknięciem, dotknięciem lub klawiszami 1-8), a potem naciśnij Gotowe (Enter). Cofnij (Backspace) usuwa ostatnie naciśnięcie. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "study_title": "Jak obsługiwać maszynę:",
+ "example": "Rozwiązany przykład: dla tej maszyny poprawne naciśnięcia to:",
+ "learned": "Już umiem",
+ "study_left": "Zostało {s} s",
+ "case_of": "Maszyna {n} z {total}",
+ "lamp": "Lampka",
+ "number": "Liczba",
+ "presses": "Twoje naciśnięcia:",
+ "undo": "Cofnij",
+ "done": "Gotowe",
+ "colors": [
+  "czerwona",
+  "niebieska"
+ ],
+ "step_fixed": "Naciśnij {a}.",
+ "step_cond": "Jeśli lampka jest {c}, naciśnij {a}; w przeciwnym razie naciśnij {b}.",
+ "step_repeat": "Naciśnij {a} tyle razy, ile wynosi liczba na wyświetlaczu.",
+ "actions": [
+  "OTWÓRZ",
+  "ZAMKNIJ",
+  "PODGRZEJ",
+  "SCHŁÓDŹ",
+  "ZAMIESZAJ",
+  "POTRZĄŚNIJ",
+  "NAPEŁNIJ",
+  "OPRÓŻNIJ",
+  "USZCZELNIJ",
+  "DOCIŚNIJ",
+  "OBRÓĆ",
+  "PODNIEŚ",
+  "ZABLOKUJ",
+  "UMYJ",
+  "OSUSZ",
+  "ZWAŻ"
+ ]
+}

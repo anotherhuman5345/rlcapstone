@@ -1,0 +1,3 @@
+{"instr": "Kâğıt katlama: bir kâğıt katlanır ve içinden bir delik açılır; kâğıt yeniden açıldığında nasıl görüneceğini seçin.",
+ "clue": "Resimler kare bir kâğıdın nasıl katlandığını gösteriyor (gölgeli kısım, okun gösterdiği gibi kesikli çizgi boyunca katlanır). Son resimde tüm katlardan geçen bir delik açılıyor. Kâğıt yeniden açıldığında delikler nerede olur? Dört kâğıttan doğru olana tıklayın ya da dokunun veya 1–4 arasındaki numarasına basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "folds": "Katlama", "punched": "Delik açıldı", "options": "Açıldığında hangi kâğıt doğru?"}

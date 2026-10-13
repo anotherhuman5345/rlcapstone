@@ -1,0 +1,9 @@
+{
+ "instr": "Cuadrícula: los cuadrados de una cuadrícula se iluminan uno a uno; para cada uno, diga si está en el mismo lugar que un cuadrado iluminado un número fijo de pasos antes.",
+ "clue": "Los cuadrados de la cuadrícula se iluminan uno a uno. Cada vez, pulse Igual (tecla de flecha derecha o botón) si está en el mismo lugar que el cuadrado que indica la regla de abajo; si no, pulse Diferente (tecla de flecha izquierda o botón). Responda rápido: los cuadrados siguen llegando. Pulse Iniciar cuando esté listo/a.",
+ "rule_1": "Regla: ¿está este cuadrado en el mismo lugar que el justo anterior?",
+ "rule_2": "Regla: ¿está este cuadrado en el mismo lugar que el de dos pasos atrás?",
+ "same": "Igual",
+ "different": "Diferente",
+ "start": "Iniciar"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Colore o forma: una parola indizio ti dice se giudicare il COLORE o la FORMA della figura che segue.",
+ "clue": "Prima compare un indizio: COLORE o FORMA. Poi compare un cerchio o un quadrato, blu o arancione. Se l'indizio è COLORE: blu = sinistra, arancione = destra. Se l'indizio è FORMA: cerchio = sinistra, quadrato = destra. Usa i tasti freccia o i pulsanti. Rispondi in modo rapido e preciso. Premi Inizia quando sei pronto.",
+ "cue_color": "COLORE",
+ "cue_shape": "FORMA",
+ "left": "Sinistra",
+ "right": "Destra",
+ "start": "Inizia"
+}

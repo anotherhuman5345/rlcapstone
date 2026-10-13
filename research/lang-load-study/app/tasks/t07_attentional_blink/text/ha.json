@@ -1,0 +1,5 @@
+{"instr": "Haruffa masu sauri: haruffa suna bayyana da sauri ƙwarai; bayan haka, ku faɗi haruffa biyu da suke ja.",
+ "clue": "Haruffa suna bayyana da sauri ƙwarai a cikin akwatin. Biyu daga cikinsu ja ne. Bayan kowane jeri, ku zaɓi haruffa biyu masu launin ja (ku danna su ko ku rubuta su), sannan ku danna Tabbatar ko Enter. Idan ba ku da tabbas, ku yi hasashen da ya fi kyau. Ku danna Fara idan kun shirya.",
+ "start": "Fara", "ok": "Tabbatar", "undo": "Soke",
+ "slots": "Haruffa ja: {a} {b}", "ask": "Waɗanne haruffa biyu ne suke ja?",
+ "progress": "Jeri {n} cikin {total}"}

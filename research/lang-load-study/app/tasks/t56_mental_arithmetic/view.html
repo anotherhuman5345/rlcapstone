@@ -1,0 +1,20 @@
+<style>
+  .numpad { display: grid; grid-template-columns: repeat(3, 4.8rem); gap: .45rem; justify-content: center; margin-top: .5rem; }
+  .numpad button { margin: 0; padding: .8rem 0; font-size: 1.3rem; }
+  .numpad button[data-act="ok"] { font-size: 1rem; }
+  .numpad button.alt { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+  .entry-box { min-width: 8rem; min-height: 3.4rem; margin: .5rem auto; padding: .2rem 1rem; border: 2px solid var(--line); border-radius: 4px; background: var(--paper); text-align: center; font-size: 2rem; font-weight: 700; width: max-content; }
+  .ma-clock { text-align: center; color: var(--muted); font-size: .9rem; margin: 0; }
+</style>
+<div class="mental-arith">
+  <p class="big" id="ma-problem" dir="ltr">&nbsp;</p>
+  <div class="entry-box" id="ma-entry" dir="ltr" aria-live="polite">&nbsp;</div>
+  <p class="ma-clock" id="ma-clock">&nbsp;</p>
+  <div class="numpad" id="ma-pad" dir="ltr" hidden>
+    {% for d in [7, 8, 9, 4, 5, 6, 1, 2, 3] %}<button type="button" data-d="{{ d }}">{{ d }}</button>{% endfor %}
+    <button type="button" class="alt" data-act="back" aria-label="{{ text.erase }}">&#9003;</button>
+    <button type="button" data-d="0">0</button>
+    <button type="button" data-act="ok">{{ text.ok }}</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="ma-start">{{ text.start }}</button></p>
+</div>

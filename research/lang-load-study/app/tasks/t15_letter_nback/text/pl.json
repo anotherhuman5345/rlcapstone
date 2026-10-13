@@ -1,0 +1,10 @@
+{
+ "instr": "Litery: litery pojawiają się po jednej; przy każdej powiedz, czy jest taka sama jak litera pokazana określoną liczbę kroków wcześniej.",
+ "clue": "Litery pojawiają się po jednej. Przy każdej literze naciśnij „Ta sama” (klawisz strzałki w prawo lub przycisk), jeśli pasuje do litery wskazanej przez regułę poniżej, a w przeciwnym razie „Inna” (klawisz strzałki w lewo lub przycisk). Odpowiadaj szybko; litery pojawiają się bez przerwy. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "rule_1": "Reguła: czy ta litera jest taka sama jak litera tuż przed nią?",
+ "rule_2": "Reguła: czy ta litera jest taka sama jak litera dwa kroki wcześniej?",
+ "rule_3": "Reguła: czy ta litera jest taka sama jak litera trzy kroki wcześniej?",
+ "same": "Ta sama",
+ "different": "Inna",
+ "start": "Start"
+}

@@ -1,0 +1,25 @@
+<style>
+.hanoi .hn-pegs { display: flex; gap: .8rem; margin: 1rem 0; max-width: 46rem; }
+.hanoi .hn-peg { flex: 1; margin: 0; padding: .4rem .3rem .3rem; min-height: 14rem; display: flex; flex-direction: column;
+  justify-content: flex-end; align-items: center; gap: 4px; background: var(--paper); color: var(--ink);
+  border: 2px solid var(--line); border-radius: 6px; font-weight: 600; position: relative; touch-action: manipulation; }
+.hanoi .hn-peg::before { content: ""; position: absolute; left: 50%; top: 2.2rem; bottom: 2.4rem; width: 6px; margin-left: -3px; background: #9aa7b2; border-radius: 3px; }
+.hanoi .hn-peg.sel { border-color: var(--signal); box-shadow: 0 0 0 3px var(--signal) inset; }
+.hanoi .hn-peg.goal { background: #eef6f0; }
+.hanoi .hn-disk { height: 1.6rem; border-radius: 4px; position: relative; z-index: 1; border: 1px solid rgba(0,0,0,.25); }
+.hanoi .hn-disk.lift { transform: translateY(-.6rem); outline: 3px solid var(--signal); }
+.hanoi .hn-lab { position: relative; z-index: 1; margin-top: .3rem; font-size: .95rem; }
+.hanoi .hn-goal { display: block; font-size: .8rem; color: #1d6b38; min-height: 1.1rem; }
+.hanoi .hn-info { color: var(--muted); }
+</style>
+<div class="hanoi">
+  <p><button type="button" class="hn-start">{{ text.start }}</button></p>
+  <div class="hn-board" hidden>
+    <div class="hn-pegs"></div>
+    <p class="hn-info"></p>
+    <div class="btn-row">
+      <button type="button" class="hn-reset">{{ text.reset }}</button>
+      <button type="button" class="hn-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

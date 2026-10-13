@@ -1,0 +1,15 @@
+{
+ "instr": "Troubleshooting: a machine sends power through its parts to some lamps; find the broken part, using as few tests as you can.",
+ "clue": "Power flows from the left through the parts, along the lines, to the lamps. A broken part lets no power through, so every part after it and every lamp it feeds stays dark. Exactly one part is broken. Look at which lamps are lit. You may test a part (each test costs 1): select it and press Test to see whether power comes out of it. When you know which part is broken, select it and press Report. There are two faults to find. Press Start when ready.",
+ "start": "Start",
+ "power": "Power",
+ "lamp": "Lamp",
+ "test": "Test selected part (cost 1)",
+ "report": "Report selected part as broken",
+ "signal": "power out",
+ "no_signal": "no power out",
+ "tests_used": "Tests used: {n}",
+ "case_label": "Fault {n} of {total}",
+ "select_hint": "Click a part to select it (or press its number, 1–6).",
+ "parts": ["Drum", "Coil", "Gate", "Wheel", "Filter", "Pump", "Lens", "Spring", "Bell", "Fan", "Valve", "Belt"]
+}

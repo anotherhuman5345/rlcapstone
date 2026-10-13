@@ -1,0 +1,19 @@
+{
+ "instr": "Regole dei simboli: impara due nuove operazioni con dei simboli, poi calcola nuove espressioni che le usano.",
+ "clue": "Qui sotto sono spiegati due simboli inventati, con degli esempi. Leggili, poi premi Inizia e calcola ogni espressione. Scrivi il risultato con il tastierino o la tastiera e premi OK (o Invio). Le regole restano sullo schermo.",
+ "start": "Inizia",
+ "ok": "OK",
+ "erase": "Cancella l'ultima cifra",
+ "progress": "Espressione {i} di {n}",
+ "examples": "Esempi:",
+ "list_sep": ";  ",
+ "precedence": "In un'espressione con entrambi i simboli, calcola sempre prima {hi}, poi {lo}.",
+ "rule_dbl_first": "raddoppia il primo numero, poi aggiungi il secondo.",
+ "rule_dbl_second": "raddoppia il secondo numero, poi aggiungi il primo.",
+ "rule_sum_dbl": "somma i due numeri, poi raddoppia il risultato.",
+ "rule_sum_ten": "somma i due numeri, poi aggiungi 10.",
+ "rule_mul_minus1": "moltiplica i due numeri, poi togli 1.",
+ "rule_mul_plus1": "moltiplica i due numeri, poi aggiungi 1.",
+ "rule_mul_plus_first": "moltiplica i due numeri, poi aggiungi il primo numero.",
+ "rule_mul_plus_second": "moltiplica i due numeri, poi aggiungi il secondo numero."
+}

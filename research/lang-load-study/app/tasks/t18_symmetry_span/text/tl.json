@@ -1,0 +1,12 @@
+{
+ "instr": "Simetriya at mga parisukat: tukuyin kung simetriko na parang salamin ang bawat disenyo, at tandaan kung saan lumitaw ang mga pulang parisukat.",
+ "clue": "Bawat hakbang ay nagpapakita ng disenyong itim at puti: pareho ba ang kaliwa at kanan nito, na parang salamin? Sumagot ng Oo (kaliwang arrow) o Hindi (kanang arrow). Pagkatapos, kikislap ang isang pulang parisukat sa isang grid: tandaan kung saan. Sa dulo, i-tap ang mga parisukat ayon sa pagkakasunod-sunod ng paglitaw nila, pagkatapos ay pindutin ang Tapos. Pindutin ang Simulan kapag handa ka na.",
+ "yes": "Oo, simetriko",
+ "no": "Hindi",
+ "start": "Simulan",
+ "undo": "I-undo",
+ "done": "Tapos",
+ "phase_judge": "Simetriko ba ang disenyong ito?",
+ "phase_remember": "Tandaan ang parisukat na ito.",
+ "phase_recall": "I-tap ang mga parisukat ayon sa pagkakasunod-sunod ng paglitaw nila (gumagana rin ang mga arrow key at Enter; ina-undo ng Backspace). Pagkatapos, pindutin ang Tapos."
+}

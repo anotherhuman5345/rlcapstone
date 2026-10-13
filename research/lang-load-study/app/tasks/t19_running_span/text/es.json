@@ -1,0 +1,10 @@
+{
+ "instr": "Serie de letras: las letras aparecen una a una y se detienen sin aviso; luego escriba solo las últimas letras, en orden.",
+ "clue": "Pulse Iniciar. Las letras aparecen una a una y la lista se detiene sin aviso, así que tenga presentes las letras más recientes. Cuando se detenga, escriba solo las ÚLTIMAS letras que vio, en el orden en que aparecieron. Use ? para una letra que no recuerde y luego pulse Aceptar.",
+ "keep": "Recuerde las últimas {k} letras.",
+ "recall": "Escriba las últimas {k} letras en el orden en que aparecieron.",
+ "unknown": "No recuerdo esta letra",
+ "start": "Iniciar",
+ "done": "Aceptar",
+ "delete": "Borrar la última letra"
+}

@@ -1,0 +1,10 @@
+<div class="feature-search">
+  <svg id="fs-stage" viewBox="0 0 {{ item.w }} {{ item.h }}" width="{{ item.w }}" height="{{ item.h }}"
+       style="background:#F7F7F2;border:1px solid #C7D0D8;border-radius:6px;user-select:none" role="img"
+       aria-label="{{ text.stage_label }}"></svg>
+  <div class="btn-row">
+    <button type="button" data-choice="absent">← {{ text.absent }}</button>
+    <button type="button" data-choice="present">{{ text.present }} →</button>
+  </div>
+  <p><button type="button" id="fs-start">{{ text.start }}</button></p>
+</div>

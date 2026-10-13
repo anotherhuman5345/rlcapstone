@@ -1,0 +1,80 @@
+{
+ "instr": "Ordem: coloque os animais em fila de modo que todas as frases sejam verdadeiras.",
+ "clue": "Leia as frases e depois coloque cada animal em um dos lugares numerados de modo que todas as frases sejam verdadeiras. O lugar 1 fica na ponta esquerda. Clique em um animal (ou chegue até ele com Tab e pressione Enter) e depois clique em um lugar. Clique em um lugar ocupado para pegar o animal de volta. Pressione Concluir quando todos os lugares estiverem ocupados. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "done": "Concluir",
+ "give_up": "Desistir",
+ "setting": "Os animais estão em fila, em lugares numerados, do lugar 1 à esquerda até o último lugar à direita.",
+ "row": "A fila",
+ "tray": "Animais ainda não colocados",
+ "place": "Lugar",
+ "templates": {
+  "left_of": "{a.Def} está em algum lugar à esquerda {b.de}.",
+  "next_left": "{a.Def} está imediatamente à esquerda {b.de}.",
+  "adjacent": "{a.Def} e {b.def} estão lado a lado.",
+  "not_adjacent": "{a.Def} e {b.def} não estão lado a lado.",
+  "at": "{a.Def} está no lugar {p}.",
+  "not_at": "{a.Def} não está no lugar {p}.",
+  "end": "{a.Def} está ou no primeiro ou no último lugar da fila.",
+  "not_end": "{a.Def} não está nem no primeiro nem no último lugar da fila.",
+  "between": "{a.Def} está em algum lugar entre {b.def} e {c.def}."
+ },
+ "objects": [
+  {
+   "name": "gato",
+   "cap": "Gato",
+   "def": "o gato",
+   "Def": "O gato",
+   "de": "do gato"
+  },
+  {
+   "name": "cachorro",
+   "cap": "Cachorro",
+   "def": "o cachorro",
+   "Def": "O cachorro",
+   "de": "do cachorro"
+  },
+  {
+   "name": "cavalo",
+   "cap": "Cavalo",
+   "def": "o cavalo",
+   "Def": "O cavalo",
+   "de": "do cavalo"
+  },
+  {
+   "name": "coelho",
+   "cap": "Coelho",
+   "def": "o coelho",
+   "Def": "O coelho",
+   "de": "do coelho"
+  },
+  {
+   "name": "cabra",
+   "cap": "Cabra",
+   "def": "a cabra",
+   "Def": "A cabra",
+   "de": "da cabra"
+  },
+  {
+   "name": "pato",
+   "cap": "Pato",
+   "def": "o pato",
+   "Def": "O pato",
+   "de": "do pato"
+  },
+  {
+   "name": "raposa",
+   "cap": "Raposa",
+   "def": "a raposa",
+   "Def": "A raposa",
+   "de": "da raposa"
+  },
+  {
+   "name": "urso",
+   "cap": "Urso",
+   "def": "o urso",
+   "Def": "O urso",
+   "de": "do urso"
+  }
+ ]
+}

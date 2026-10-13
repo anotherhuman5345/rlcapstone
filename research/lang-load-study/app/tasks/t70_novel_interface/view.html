@@ -1,0 +1,34 @@
+<div class="nif-task">
+  <style>
+    .nif-task .goal { font-size: 1.25rem; font-weight: 600; min-height: 2rem; }
+    .nif-task .device { display: inline-block; background: #26313c; border-radius: 10px; padding: 1rem 1.2rem; }
+    .nif-task .lamps { display: flex; gap: 1.6rem; justify-content: center; padding: .9rem 1.2rem .5rem; border: 3px solid transparent; border-radius: 8px; }
+    .nif-task .lamps.edit { border: 3px dashed #f2c94c; }
+    .nif-task .lampw { text-align: center; }
+    .nif-task .lamp { width: 3.6rem; height: 3.6rem; border-radius: 50%; border: 3px solid #111; }
+    .nif-task .nif-mark { height: 1.2rem; margin-top: .3rem; }
+    .nif-task .nif-mark span { display: inline-block; width: 0; height: 0; border-left: .55rem solid transparent; border-right: .55rem solid transparent; border-bottom: .8rem solid #fff; visibility: hidden; }
+    .nif-task .nif-mark.on span { visibility: visible; }
+    .nif-task .ctrls { display: flex; gap: .6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+    .nif-task .ctrl { margin: 0; padding: .45rem .55rem .25rem; background: #e8eef3; color: #1D2731; border-radius: 6px; }
+    .nif-task .ctrl svg { width: 2.6rem; height: 2.6rem; display: block; }
+    .nif-task .ctrl .n { display: block; font-size: .7rem; color: var(--muted); font-weight: 400; }
+    .nif-task .legend { margin-top: .8rem; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .6rem 1rem; max-width: 44rem; }
+    .nif-task .legend h3 { margin: 0 0 .4rem; font-size: 1rem; color: var(--muted); }
+    .nif-task .legend li { display: flex; align-items: center; gap: .7rem; margin: .25rem 0; }
+    .nif-task .legend ul { list-style: none; padding: 0; margin: 0; }
+    .nif-task .legend svg { width: 1.8rem; height: 1.8rem; flex: none; color: #1D2731; }
+  </style>
+  <p class="meta" id="ni-label"></p>
+  <p class="goal" id="ni-goal" aria-live="polite"></p>
+  <div id="ni-work" hidden>
+    <div class="device">
+      <div class="lamps" id="ni-lamps">
+        {% for k in range(3) %}<div class="lampw"><div class="lamp"></div><div class="nif-mark"><span></span></div></div>{% endfor %}
+      </div>
+      <div class="ctrls" id="ni-ctrls"></div>
+    </div>
+    <div class="legend" id="ni-legend" hidden><h3>{{ text.legend_title }}</h3><ul id="ni-legend-list"></ul></div>
+  </div>
+  <p><button type="button" id="ni-start">{{ text.start }}</button></p>
+</div>

@@ -1,0 +1,10 @@
+{
+ "instr": "Śledź i dodawaj: trzymaj wskaźnik na poruszającej się kropce, odpowiadając na proste działania, które pojawiają się pod nią.",
+ "clue": "Przez cały czas trzymaj wskaźnik na poruszającej się niebieskiej kropce: ruszaj myszą, przesuwaj palcem lub przytrzymuj klawisze strzałek (albo przyciski strzałek). Pod polem będą pojawiać się działania: wybierz wynik, klikając go lub naciskając 1, 2 albo 3. Śledzenie kropki i odpowiadanie na działania są tak samo ważne. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "start": "Start",
+ "sum_hint": "Odpowiedz klawiszem 1, 2, 3 lub kliknięciem",
+ "up": "W górę",
+ "down": "W dół",
+ "left": "W lewo",
+ "right": "W prawo"
+}

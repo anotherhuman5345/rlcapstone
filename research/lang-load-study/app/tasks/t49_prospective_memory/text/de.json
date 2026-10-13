@@ -1,0 +1,9 @@
+{
+ "instr": "Gerade oder ungerade, mit etwas zum Merken: Sortieren Sie Zahlen nach gerade und ungerade, und drücken Sie „Besonders“, wann immer eine Zahl in einem quadratischen Rahmen erscheint.",
+ "clue": "Zahlen erscheinen einzeln. Drücken Sie „Ungerade“ (linker Pfeil) oder „Gerade“ (rechter Pfeil). Denken Sie daran: Wenn eine Zahl in einem dicken quadratischen Rahmen erscheint, drücken Sie stattdessen „Besonders“ (Leertaste). Antworten Sie schnell. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "odd": "Ungerade",
+ "even": "Gerade",
+ "special": "Besonders",
+ "space": "Leertaste",
+ "start": "Starten"
+}

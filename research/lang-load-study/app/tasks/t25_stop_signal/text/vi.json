@@ -1,0 +1,9 @@
+{
+ "instr": "Mũi tên và tín hiệu dừng: hãy nhấn nhanh theo hướng mũi tên, nhưng kìm lại nếu nó chuyển sang màu đỏ.",
+ "clue": "Một mũi tên sẽ xuất hiện ở giữa. Hãy nhấn phím mũi tên trái hoặc phải (hoặc nút) theo hướng nó chỉ, nhanh nhất có thể. Đôi khi, ngay sau khi xuất hiện, mũi tên chuyển sang màu đỏ bên trong một vòng đỏ (kèm tiếng bíp nếu bật âm thanh): khi đó hãy cố KHÔNG nhấn. Không phải lúc nào bạn cũng dừng kịp; điều đó là bình thường. Đừng chậm lại để chờ tín hiệu đỏ. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "left": "Trái",
+ "right": "Phải",
+ "start": "Bắt đầu",
+ "sound": "Phát tiếng bíp cùng tín hiệu dừng",
+ "stage_label": "Vùng các mũi tên xuất hiện"
+}

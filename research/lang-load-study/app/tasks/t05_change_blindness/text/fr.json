@@ -1,0 +1,12 @@
+{
+ "instr": "Trouvez le changement : deux versions d'une image alternent ; cliquez sur le seul objet qui est différent.",
+ "clue": "L'image alterne entre deux versions. Un objet change (sa couleur ou sa forme change, ou il disparaît). Cliquez ou touchez cet objet dès que vous le trouvez. Au clavier : déplacez la croix avec les flèches et appuyez sur Entrée. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "pick": "Choisir ici",
+ "stage_label": "Image clignotante",
+ "move_left": "Déplacer à gauche",
+ "move_up": "Déplacer vers le haut",
+ "move_down": "Déplacer vers le bas",
+ "move_right": "Déplacer à droite",
+ "scene": "Image {n} sur {total}"
+}

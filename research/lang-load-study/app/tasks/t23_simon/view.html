@@ -1,0 +1,22 @@
+<style>
+  .simon .field { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 9rem; background: #f3f3f3; border-radius: 6px; }
+  .simon .slot { display: flex; justify-content: center; }
+  .simon .dot { width: 5.5rem; height: 5.5rem; border-radius: 50%; visibility: hidden; }
+  .simon .fix { font-size: 2.2rem; font-weight: 700; min-width: 2rem; text-align: center; }
+  .simon .sw { display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; vertical-align: -0.2em; margin: 0 .4em; border: 1px solid #0006; }
+  .simon .btn-row { justify-content: space-between; }
+  .simon .btn-row button { background: #fff; color: #222; border: 2px solid #555; min-width: 8rem; }
+</style>
+{% set lc = item.left_color %}
+<div class="simon">
+  <div class="field" aria-live="off">
+    <div class="slot"><div class="dot" id="sm-left"></div></div>
+    <div class="fix" id="sm-fix"></div>
+    <div class="slot"><div class="dot" id="sm-right"></div></div>
+  </div>
+  <div class="btn-row">
+    <button type="button" data-key="left">← <span class="sw" style="background: {{ item.palette[lc] }}"></span>{{ text.left }}</button>
+    <button type="button" data-key="right">{{ text.right }}<span class="sw" style="background: {{ item.palette[1 - lc] }}"></span> →</button>
+  </div>
+  <p><button type="button" id="sm-start">{{ text.start }}</button></p>
+</div>

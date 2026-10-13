@@ -1,0 +1,16 @@
+{
+ "instr": "Fichas: deslice las fichas numeradas al hueco hasta que queden en orden del 1 al 8.",
+ "clue": "Ordene las fichas como en la imagen objetivo: del 1 al 8, con el hueco abajo a la derecha. Haga clic en una ficha junto al hueco para deslizarla, o use las teclas de flecha (o los botones de flecha) para mover una ficha al hueco. Intente usar el menor número de movimientos posible. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "reset": "Empezar de nuevo",
+ "give_up": "Rendirse",
+ "yours": "Su tablero",
+ "target": "Objetivo",
+ "moves_label": "Movimientos:",
+ "illegal": "Solo se puede mover una ficha que esté junto al hueco.",
+ "solved": "¡Hecho!",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "up": "Arriba",
+ "down": "Abajo"
+}

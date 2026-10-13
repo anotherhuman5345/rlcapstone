@@ -1,0 +1,24 @@
+{
+"instr": "Kalmomi da siffofi: ku tuna da kowace kalma, da kuma ko ta bayyana a cikin da'ira ko a cikin murabba'i.",
+"clue": "Kalmomi za su bayyana ɗaya bayan ɗaya, ko dai a cikin da'ira a hagu ko a cikin murabba'i a dama. Ku tuna da kowace kalma da kuma inda take. Sannan za ku sake ganin kalmomi, wasu tsofaffi wasu sababbi. Ga kowace kalma ku zaɓi Da'ira (kibiyar hagu), Murabba'i (kibiyar dama) ko Sabuwa (kibiyar ƙasa), ko ku danna maɓallan. Ku danna Fara idan kun shirya.",
+"start": "Fara",
+"circle": "Da'ira",
+"square": "Murabba'i",
+"new": "Sabuwa",
+"phase_study": "Ku tuna da kowace kalma da siffarta.",
+"phase_test": "A ina wannan kalmar ta bayyana?",
+"words": [
+"lemu", "inabi", "fic", "kankana", "dankali", "tumatur", "shinkafa", "sukari", "gishiri", "ƙwai",
+"madara", "miya", "kek", "gyaɗar itace", "zaitun", "kokwamba", "cokali mai yatsu", "wuƙa", "kofi", "kwano",
+"tukunya", "kasko", "tanda", "kwatami", "gado", "kujerar shakatawa", "shiryayye", "aljihun tebur", "kafet", "labule",
+"rufin gida", "bango", "ƙasan ɗaki", "shinge", "bututun hayaƙi", "baranda", "laima", "akwatin tafiya", "ambulan", "kan sarki",
+"littafin rubutu", "magogi", "rula", "almakashi", "gam", "burushi", "fenti", "rediyo", "waya", "kwamfuta",
+"batir", "kebul", "keke", "bas", "jirgin ƙasa", "kwale-kwale", "jirgin sama", "babbar mota", "tarakta", "hular kwano",
+"ɗamara", "safa", "zobe", "sarƙa", "agogon hannu", "tabarau", "kare", "kyanwa", "saniya", "kaza",
+"agwagwa", "beyar", "kerkeci", "yanyawa", "barewa", "zaki", "biri", "maciji", "kifi", "malam buɗe mana littafi",
+"tururuwa", "dodon koɗi", "bishiya", "fure", "ciyawa", "wardi", "naman kaza", "iri", "saiwa", "reshe",
+"yashi", "dusar ƙanƙara", "ruwan sama", "iska", "hadari", "tauraro", "wata", "rana", "sararin sama", "teku",
+"raƙumin ruwa", "bakin teku", "kogo", "tudu", "hanya", "titi", "wurin shakatawa", "makaranta", "asibiti", "banki",
+"gidan tarihi", "masana'anta", "ɗakin girki", "gareji", "ofis", "shago"
+]
+}

@@ -1,0 +1,56 @@
+{
+ "instr": "Rellenar formularios: copie un registro en un formulario siguiendo las reglas especiales que lo acompañan.",
+ "clue": "Rellene el formulario de la derecha con el registro de la izquierda. Copie los nombres y los números exactamente. Lea primero las reglas especiales: una regla solo se aplica cuando su condición se cumple para este registro. Ayuda muestra los formatos. Pulse Enviar cuando termine. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "record_title": "Registro",
+ "rules_title": "Reglas especiales",
+ "form_title": "Formulario",
+ "help": "Ayuda",
+ "help_text": "Fecha: día.mes.año con puntos, p. ej. 05.11.1987. Números: solo dígitos, sin letras. Plan y contacto: elija uno. Deje un campo vacío solo si una regla lo indica.",
+ "submit": "Enviar",
+ "choose": "— elija —",
+ "no_phone": "—",
+ "date_placeholder": "DD.MM.AAAA",
+ "labels": {
+  "family": "Apellido",
+  "given": "Nombre",
+  "member": "Número de socio",
+  "birth": "Fecha de nacimiento",
+  "postcode": "Código postal",
+  "phone": "Teléfono",
+  "plan": "Plan",
+  "contact": "Contacto por",
+  "amount": "Importe"
+ },
+ "plans": [
+  "Básico",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "Correo electrónico",
+  "Teléfono",
+  "Correo postal"
+ ],
+ "months": [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre"
+ ],
+ "rules": [
+  "Si la persona nació en {year} o después, elija el plan Junior, diga lo que diga el registro.",
+  "Si el importe es mayor que 500, escriba 500.",
+  "Si el registro no tiene número de teléfono, deje Teléfono vacío y elija Correo postal como contacto.",
+  "Si el código postal tiene solo 4 dígitos, añada un 0 delante.",
+  "Si el número de socio termina en 7, escriba el apellido en MAYÚSCULAS."
+ ]
+}

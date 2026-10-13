@@ -1,0 +1,10 @@
+{
+ "instr": "Lettres rapides : des lettres défilent très vite ; ensuite, indiquez les deux lettres qui étaient rouges.",
+ "clue": "Des lettres défilent très vite dans le cadre. Deux d'entre elles sont rouges. Après chaque série, choisissez les deux lettres rouges (cliquez dessus ou tapez-les), puis appuyez sur OK ou Entrée. Si vous n'êtes pas sûr(e), donnez votre meilleure réponse. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "ok": "OK",
+ "undo": "Annuler",
+ "slots": "Lettres rouges : {a} {b}",
+ "ask": "Quelles deux lettres étaient rouges ?",
+ "progress": "Série {n} sur {total}"
+}

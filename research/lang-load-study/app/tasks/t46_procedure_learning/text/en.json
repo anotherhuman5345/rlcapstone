@@ -1,0 +1,10 @@
+{"instr": "Machine steps: learn how to operate a made-up machine from written steps, then operate it from memory.",
+ "clue": "First read the steps for operating a machine and the worked example; you have up to 45 seconds. Then the steps disappear and you operate the machine three times from memory: look at the lamp colour and the number, press the buttons in the right order (click, tap, or keys 1-8), then press Done (Enter). Undo (Backspace) removes your last press. Press Start when ready.",
+ "start": "Start", "study_title": "How to operate the machine:", "example": "Worked example: for this machine, the correct presses are:",
+ "learned": "I have learned it", "study_left": "{s} s left", "case_of": "Machine {n} of {total}",
+ "lamp": "Lamp", "number": "Number", "presses": "Your presses:", "undo": "Undo", "done": "Done",
+ "colors": ["red", "blue"],
+ "step_fixed": "Press {a}.",
+ "step_cond": "If the lamp is {c}, press {a}; otherwise press {b}.",
+ "step_repeat": "Press {a} as many times as the number on the display.",
+ "actions": ["OPEN", "CLOSE", "HEAT", "COOL", "STIR", "SHAKE", "FILL", "DRAIN", "SEAL", "PRESS", "TURN", "LIFT", "LOCK", "WASH", "DRY", "WEIGH"]}

@@ -1,0 +1,5 @@
+{"instr": "Kaydırmaca: numaralı taşları boşluğa kaydırarak 1'den 8'e kadar sıraya dizin.",
+ "clue": "Taşları hedef resimdeki gibi sıraya koyun: 1'den 8'e kadar, boşluk sağ altta olacak. Boşluğun yanındaki bir taşı kaydırmak için ona tıklayın ya da bir taşı boşluğa taşımak için ok tuşlarını (veya ok düğmelerini) kullanın. Olabildiğince az hamle yapmaya çalışın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "reset": "Baştan başla", "give_up": "Vazgeç", "yours": "Sizin tahtanız", "target": "Hedef",
+ "moves_label": "Hamle:", "illegal": "Yalnızca boşluğun yanındaki bir taş hareket edebilir.", "solved": "Tamam!",
+ "left": "Sol", "right": "Sağ", "up": "Yukarı", "down": "Aşağı"}

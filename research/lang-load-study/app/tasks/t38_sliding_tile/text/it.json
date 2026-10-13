@@ -1,0 +1,16 @@
+{
+ "instr": "Tessere: fai scorrere le tessere numerate nello spazio vuoto finché non sono in ordine da 1 a 8.",
+ "clue": "Metti in ordine le tessere come nell'immagine obiettivo: da 1 a 8, con lo spazio vuoto in basso a destra. Clicca una tessera accanto allo spazio vuoto per farla scorrere, oppure usa i tasti freccia (o i pulsanti freccia) per spostare una tessera nello spazio vuoto. Cerca di usare meno mosse possibile. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "reset": "Ricomincia",
+ "give_up": "Mi arrendo",
+ "yours": "La tua tavola",
+ "target": "Obiettivo",
+ "moves_label": "Mosse:",
+ "illegal": "Si può spostare solo una tessera accanto allo spazio vuoto.",
+ "solved": "Fatto!",
+ "left": "Sinistra",
+ "right": "Destra",
+ "up": "Su",
+ "down": "Giù"
+}

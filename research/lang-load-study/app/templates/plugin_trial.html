@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block mainclass %}trial{% endblock %}
+{% block content %}
+<header class="trial-head">
+  <div class="trial-top">
+    <span class="meta">{% if try_mode %}{{ plugin.meta.title }} · #{{ plugin.meta.card }}{% elif trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+    {% if not try_mode %}<button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>{% endif %}
+  </div>
+  {% if text.clue %}<p class="clue" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}" id="clue">{{ text.clue }}</p>{% endif %}
+</header>
+{# Layout stays left-to-right so "left/right" in the instructions and on-screen keys match
+   what people see; right-to-left text inside still reads right-to-left (see .rtl-text). #}
+<div id="task-root" class="task-root{% if clue_dir == 'rtl' %} rtl-text{% endif %}" data-item="{{ img.id }}" lang="{{ trial.clue_lang }}" dir="ltr">
+  {% set item = img.target %}{% set img_url = ('/img/' ~ img.file) if img.file else None %}
+  {% include plugin.template %}
+</div>
+<p id="status" class="status" role="status"></p>
+{% if try_mode %}
+<div id="try-result" class="try-result" hidden></div>
+<p><a class="button" href="/try/{{ plugin.id }}?lang={{ trial.clue_lang }}&k={{ next_k }}">Next item →</a>
+   <a href="/try?lang={{ trial.clue_lang }}">All tasks</a></p>
+{% else %}
+{% include "_effort.html" %}
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = { index: {{ n - 1 }}, timeout: {{ timeout }}, task: {{ plugin.id | tojson }},
+  imageId: {{ img.id | tojson }}, tryMode: {{ 'true' if try_mode else 'false' }},
+  practice: {{ 'true' if trial.practice else 'false' }},
+  item: {{ img.target | tojson }}, text: {{ text | tojson }},
+  imgUrl: {{ (('/img/' ~ img.file) if img.file else None) | tojson }},
+  msgTimeout: {{ _('timeout') | tojson }}, msgQuitConfirm: {{ _('quit_confirm') | tojson }} };
+window.TaskViews = {};
+</script>
+<script src="/static/common.js"></script>
+<script src="/taskjs/{{ plugin.id }}.js"></script>
+<script src="/static/plugin_shell.js"></script>
+{% endblock %}

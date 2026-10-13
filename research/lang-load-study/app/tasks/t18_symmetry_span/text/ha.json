@@ -1,0 +1,5 @@
+{"instr": "Kamanni na madubi da murabba'ai: ku yanke shawara ko kowane zane yana da gefe biyu iri ɗaya kamar madubi, ku kuma tuna inda murabba'ai ja suka bayyana.",
+ "clue": "Kowane mataki yana nuna zane baƙi da fari: shin gefen hagu da na dama iri ɗaya ne, kamar a madubi? Ku amsa Ee (kibiyar hagu) ko A'a (kibiyar dama). Sannan murabba'i ja zai bayyana na ɗan lokaci a cikin jadawali: ku tuna inda yake. A ƙarshe, ku danna murabba'an bisa jerin da suka bayyana, sannan ku danna Na gama. Ku danna Fara idan kun shirya.",
+ "yes": "Ee, iri ɗaya ne kamar madubi", "no": "A'a", "start": "Fara", "undo": "Soke", "done": "Na gama",
+ "phase_judge": "Shin gefe biyu na wannan zane iri ɗaya ne kamar madubi?", "phase_remember": "Ku tuna da wannan murabba'in.",
+ "phase_recall": "Ku danna murabba'an bisa jerin da suka bayyana (maɓallan kibiya da Enter ma suna aiki, Backspace yana sokewa). Sannan ku danna Na gama."}

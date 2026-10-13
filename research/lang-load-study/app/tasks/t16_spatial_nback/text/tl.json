@@ -1,0 +1,9 @@
+{
+ "instr": "Grid: isa-isang umiilaw ang mga parisukat sa isang grid; sa bawat isa, sabihin kung nasa parehong puwesto ito ng parisukat na umilaw ilang hakbang bago nito.",
+ "clue": "Isa-isang umiilaw ang mga parisukat sa grid. Sa bawat pagkakataon, pindutin ang Pareho (kanang arrow key o button) kung nasa parehong puwesto ito ng parisukat na itinuturo ng panuntunan sa ibaba; kung hindi, pindutin ang Magkaiba (kaliwang arrow key o button). Sumagot nang mabilis; tuloy-tuloy ang pagdating ng mga parisukat. Pindutin ang Simulan kapag handa ka na.",
+ "rule_1": "Panuntunan: nasa parehong puwesto ba ang parisukat na ito ng parisukat na nauna mismo rito?",
+ "rule_2": "Panuntunan: nasa parehong puwesto ba ang parisukat na ito ng parisukat na dalawang hakbang bago nito?",
+ "same": "Pareho",
+ "different": "Magkaiba",
+ "start": "Simulan"
+}

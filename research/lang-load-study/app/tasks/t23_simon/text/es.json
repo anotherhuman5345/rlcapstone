@@ -1,0 +1,7 @@
+{
+ "instr": "Círculos de colores: pulse el lado que corresponde al color del círculo, aparezca donde aparezca.",
+ "clue": "Aparece un círculo a la izquierda o a la derecha. Responda según su COLOR, no según dónde está: pulse la tecla de flecha (o el botón) del lado que muestra ese color. Responda rápido y con precisión. Pulse Iniciar cuando esté listo/a.",
+ "left": "Izquierda",
+ "right": "Derecha",
+ "start": "Iniciar"
+}

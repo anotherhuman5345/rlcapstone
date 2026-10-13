@@ -1,0 +1,8 @@
+{
+ "instr": "Sequenze di numeri: trova la regola e scrivi il numero che viene dopo.",
+ "clue": "Ogni fila di numeri segue UNA di queste regole: aggiungere o togliere ogni volta lo stesso numero; moltiplicare ogni volta per 2; il passo cresce ogni volta della stessa quantità; oppure due sequenze si alternano, ognuna con il suo passo. Scrivi il numero successivo con il tastierino o la tastiera e premi OK (o Invio). Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "ok": "OK",
+ "erase": "Cancella l'ultima cifra",
+ "progress": "Sequenza {i} di {n}"
+}

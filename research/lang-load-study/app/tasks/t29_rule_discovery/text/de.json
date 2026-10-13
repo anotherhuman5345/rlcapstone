@@ -1,0 +1,8 @@
+{
+ "instr": "Karten sortieren: Legen Sie jede Karte nach einer verborgenen Regel zu einer von vier Karten; die Regel erschließen Sie aus der Rückmeldung. Die Regel kann sich ändern.",
+ "clue": "Unter vier Vorlagekarten erscheint eine neue Karte. Legen Sie sie zu einer davon, indem Sie diese Karte anklicken oder antippen oder 1–4 drücken. Karten können nach Farbe, Form oder Anzahl der Figuren zusammenpassen, aber man sagt Ihnen nicht, wonach: Die Rückmeldung (richtig / falsch) verrät es Ihnen. Die Regel ändert sich von Zeit zu Zeit ohne Vorwarnung; finden Sie dann die neue. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "correct": "Richtig",
+ "wrong": "Falsch",
+ "too_slow": "Zu langsam",
+ "start": "Starten"
+}

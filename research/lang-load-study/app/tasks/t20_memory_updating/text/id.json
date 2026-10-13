@@ -1,0 +1,17 @@
+{
+ "instr": "Kotak angka: ikuti angka-angka di beberapa kotak sementara instruksi mengubahnya, lalu ketik angka akhirnya.",
+ "clue": "Anda akan melihat beberapa kotak berisi angka. Ingat angka-angka itu: angkanya akan disembunyikan. Lalu instruksi muncul satu per satu, menyuruh Anda menambah atau mengurangi angka sebuah kotak. Perbarui angka-angka itu di kepala Anda. Di akhir, ketik angka akhir setiap kotak (keyboard atau papan angka di layar) dan tekan Selesai. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "done": "Selesai",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Tambahkan {n} ke kotak {b}",
+ "op_sub": "Kurangi kotak {b} dengan {n}",
+ "phase_study": "Ingat angka-angkanya.",
+ "phase_update": "Perbarui angka-angka itu di kepala Anda.",
+ "phase_answer": "Ketik angka akhir setiap kotak. Ketuk sebuah kotak untuk memilihnya; Enter pindah ke kotak berikutnya."
+}

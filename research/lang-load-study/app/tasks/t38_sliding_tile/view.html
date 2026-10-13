@@ -1,0 +1,34 @@
+<style>
+.slide .sl-wrap { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin: 1rem 0; }
+.slide .sl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: min(80vw, 19rem); }
+.slide .sl-goal .sl-grid { width: 7.5rem; gap: 3px; }
+.slide .sl-cell { aspect-ratio: 1; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 700; border-radius: 6px; touch-action: manipulation; }
+.slide button.sl-cell { background: #f6e7c1; color: var(--ink); border: 2px solid #c9a95c; }
+.slide .sl-gap { background: #dfe5ea; border: 2px dashed #b4bfc8; }
+.slide .sl-goal .sl-cell { font-size: .95rem; border-width: 1px; border-radius: 3px; background: #f6e7c1; border-style: solid; border-color: #c9a95c; }
+.slide .sl-goal .sl-gap { background: #dfe5ea; border-color: #b4bfc8; }
+.slide h3 { font-size: 1rem; margin: 0 0 .4rem; color: var(--muted); font-weight: 600; }
+.slide .sl-arrows button { min-width: 3.2rem; }
+.slide .sl-info { color: var(--muted); }
+</style>
+<div class="slide">
+  <p><button type="button" class="sl-start">{{ text.start }}</button></p>
+  <div class="sl-board" hidden>
+    <div class="sl-wrap">
+      <div><h3>{{ text.yours }}</h3><div class="sl-grid sl-work"></div></div>
+      <div class="sl-goal"><h3>{{ text.target }}</h3><div class="sl-grid sl-target"></div></div>
+    </div>
+    <p class="sl-info"></p>
+    <div class="btn-row sl-arrows">
+      <button type="button" data-dir="ArrowLeft" aria-label="{{ text.left }}">←</button>
+      <button type="button" data-dir="ArrowUp" aria-label="{{ text.up }}">↑</button>
+      <button type="button" data-dir="ArrowDown" aria-label="{{ text.down }}">↓</button>
+      <button type="button" data-dir="ArrowRight" aria-label="{{ text.right }}">→</button>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="sl-reset">{{ text.reset }}</button>
+      <button type="button" class="sl-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

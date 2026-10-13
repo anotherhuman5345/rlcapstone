@@ -1,0 +1,10 @@
+{
+ "instr": "Sundan at magdagdag: panatilihin ang pointer sa gumagalaw na tuldok habang sinasagot mo ang mga simpleng sum na lumilitaw sa ilalim nito.",
+ "clue": "Panatilihin ang pointer sa gumagalaw na asul na tuldok sa buong panahon: igalaw ang mouse, idausdos ang daliri mo, o pindutin nang matagal ang mga arrow key (o ang mga arrow button). May lilitaw na mga sum sa ilalim ng lugar na ito: piliin ang sagot sa pamamagitan ng pag-click dito o pagpindot sa 1, 2 o 3. Parehong mahalaga ang pagsunod sa tuldok at ang pagsagot sa mga sum. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "sum_hint": "Sumagot gamit ang 1, 2, 3 o pag-click",
+ "up": "Pataas",
+ "down": "Pababa",
+ "left": "Pakaliwa",
+ "right": "Pakanan"
+}

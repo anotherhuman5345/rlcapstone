@@ -1,0 +1,26 @@
+<div class="track-task">
+  <style>
+    .track-task canvas { display: block; width: min(100%, 720px); aspect-ratio: 5 / 3; background: #26313c; border-radius: 6px; touch-action: none; cursor: crosshair; }
+    .track-task .sum-box { min-height: 7.5rem; width: min(100%, 720px); text-align: center; }
+    .track-task .sum { font-size: 2rem; font-weight: 700; margin: .6rem 0 0; min-height: 2.6rem; }
+    .track-task .opts { display: flex; gap: .6rem; justify-content: center; min-height: 3.2rem; }
+    .track-task .opts button { margin: .4rem 0 0; background: var(--paper); color: var(--ink); border: 1px solid var(--line); min-width: 5rem; }
+    .track-task .opts .n { color: var(--muted); font-size: .8rem; margin-right: .4rem; }
+    .track-task .arrows { display: grid; grid-template-columns: repeat(3, 3.4rem); gap: .3rem; margin-top: .5rem; }
+    .track-task .arrows button { margin: 0; padding: .6rem 0; touch-action: none; user-select: none; }
+    .track-task .hint { color: var(--muted); font-size: .9rem; margin: .2rem 0; }
+  </style>
+  <canvas id="tr-canvas" width="1000" height="600"></canvas>
+  <div class="sum-box">
+    <p class="sum" id="tr-sum" aria-live="off"></p>
+    <div class="opts" id="tr-opts"></div>
+    <p class="hint">{{ text.sum_hint }}</p>
+  </div>
+  <div class="arrows" aria-label="arrows">
+    <span></span><button type="button" data-dir="up" tabindex="-1" aria-label="{{ text.up }}">↑</button><span></span>
+    <button type="button" data-dir="left" tabindex="-1" aria-label="{{ text.left }}">←</button>
+    <button type="button" data-dir="down" tabindex="-1" aria-label="{{ text.down }}">↓</button>
+    <button type="button" data-dir="right" tabindex="-1" aria-label="{{ text.right }}">→</button>
+  </div>
+  <p><button type="button" id="tr-start">{{ text.start }}</button></p>
+</div>

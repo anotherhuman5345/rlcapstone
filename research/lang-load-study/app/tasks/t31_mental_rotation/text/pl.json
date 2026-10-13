@@ -1,0 +1,7 @@
+{
+ "instr": "Kształty: zdecyduj, czy prawy kształt to obrócony lewy kształt, czy jego lustrzane odbicie.",
+ "clue": "Za każdym razem widzisz dwa kształty. Prawy może być obrócony. Czy to ten sam kształt, tylko obrócony, czy lustrzane odbicie lewego? Naciśnij klawisz strzałki w lewo (lub przycisk) dla „Ten sam”, a klawisz strzałki w prawo (lub przycisk) dla „Lustro”. Odpowiadaj jak najszybciej i najdokładniej. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "same": "Ten sam",
+ "mirror": "Lustro",
+ "start": "Start"
+}

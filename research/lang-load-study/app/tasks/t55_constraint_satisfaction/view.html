@@ -1,0 +1,28 @@
+<style>
+.csat .cs-rules { font-size: 1.15rem; line-height: 1.5; max-width: 44rem; padding-left: 1.6rem; }
+.csat .cs-rules li { margin: .25rem 0; }
+.csat .cs-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.csat .cs-slot { margin: 0; width: 7.5rem; min-height: 5rem; padding: .3rem; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  background: var(--paper); color: var(--ink); border: 2px dashed var(--line); border-radius: 6px; font-weight: 600; touch-action: manipulation; }
+.csat .cs-slot .num { font-size: .85rem; color: var(--muted); font-weight: 500; }
+.csat .cs-slot.filled { border-style: solid; }
+.csat .cs-chip { margin: 0; padding: .55rem .9rem; background: #f6e7c1; color: var(--ink); border: 2px solid #c9a95c; border-radius: 6px; font-weight: 600; touch-action: manipulation; }
+.csat .sel { border-color: var(--signal) !important; box-shadow: 0 0 0 3px var(--signal) inset; }
+.csat .cs-tray { display: flex; flex-wrap: wrap; gap: .5rem; min-height: 3rem; }
+.csat h3 { font-size: 1rem; margin: .8rem 0 .4rem; color: var(--muted); font-weight: 600; }
+</style>
+<div class="csat">
+  <p><button type="button" class="cs-start">{{ text.start }}</button></p>
+  <div class="cs-area" hidden>
+    <p>{{ text.setting }}</p>
+    <ol class="cs-rules"></ol>
+    <h3>{{ text.row }}</h3>
+    <div class="cs-row"></div>
+    <h3>{{ text.tray }}</h3>
+    <div class="cs-tray"></div>
+    <div class="btn-row">
+      <button type="button" class="cs-done" disabled>{{ text.done }}</button>
+      <button type="button" class="cs-giveup">{{ text.give_up }}</button>
+    </div>
+  </div>
+</div>

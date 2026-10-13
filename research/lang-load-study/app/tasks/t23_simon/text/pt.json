@@ -1,0 +1,7 @@
+{
+ "instr": "Círculos coloridos: pressione o lado que corresponde à cor do círculo, onde quer que o círculo apareça.",
+ "clue": "Um círculo aparece à esquerda ou à direita. Responda pela COR dele, não pela posição: pressione a seta (ou o botão) do lado que mostra essa cor. Responda com rapidez e precisão. Pressione Começar quando estiver pronto(a).",
+ "left": "Esquerda",
+ "right": "Direita",
+ "start": "Começar"
+}

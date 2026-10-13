@@ -1,0 +1,9 @@
+{
+ "instr": "Suites de lettres : étudiez des suites formées selon une règle cachée, puis jugez si de nouvelles suites suivent la même règle.",
+ "clue": "Étudiez d'abord les suites de lettres à l'écran ; elles suivent toutes un modèle caché. Ensuite, vous verrez de nouvelles suites une par une. Appuyez sur la flèche gauche (ou le bouton de gauche) si une suite suit le même modèle, sur la flèche droite (ou le bouton de droite) si elle ne le suit pas. Fiez-vous à votre première impression. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "legal": "Suit le modèle",
+ "illegal": "Ne suit pas le modèle",
+ "study_left": "Étudiez les suites : encore {s} s",
+ "test_of": "Suite {n} sur {total}"
+}

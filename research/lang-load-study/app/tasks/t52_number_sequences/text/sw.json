@@ -1,0 +1,8 @@
+{
+ "instr": "Mfuatano wa namba: tafuta kanuni na uandike namba inayofuata.",
+ "clue": "Kila safu ya namba inafuata kanuni MOJA kati ya hizi: kuongeza au kutoa namba ileile kila mara; kuzidisha kwa 2 kila mara; hatua inaongezeka kwa kiasi kilekile kila mara; au mifuatano miwili inapokezana, kila mmoja na hatua yake. Andika namba inayofuata kwa vitufe vilivyo kwenye skrini au kibodi na ubonyeze Sawa (au Enter). Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "ok": "Sawa",
+ "erase": "Futa tarakimu ya mwisho",
+ "progress": "Mfuatano {i} kati ya {n}"
+}

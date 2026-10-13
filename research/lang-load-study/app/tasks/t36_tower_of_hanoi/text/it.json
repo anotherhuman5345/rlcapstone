@@ -1,0 +1,12 @@
+{
+ "instr": "Torre: sposta tutti i dischi sul piolo di arrivo segnato, un disco alla volta, senza mai mettere un disco più grande su uno più piccolo.",
+ "clue": "Sposta l'intera torre di dischi sul piolo segnato «arrivo». Prendi il disco in cima cliccando il suo piolo (o premendo 1, 2 o 3), poi clicca il piolo dove deve andare. Sposta un disco alla volta e non mettere mai un disco più grande sopra uno più piccolo. Cerca di usare meno mosse possibile. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "reset": "Ricomincia",
+ "give_up": "Mi arrendo",
+ "target": "arrivo",
+ "moves_label": "Mosse:",
+ "illegal": "Non consentito: un disco più grande non può andare su uno più piccolo.",
+ "empty_peg": "Quel piolo è vuoto.",
+ "solved": "Fatto!"
+}

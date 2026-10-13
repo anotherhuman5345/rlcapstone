@@ -1,0 +1,13 @@
+{
+ "instr": "Mga bola: ilipat ang mga bolang may kulay nang isa-isa hanggang maging kamukhang-kamukha ng target na larawan ang iyong mga tulos.",
+ "clue": "Gawing kamukhang-kamukha ng target na larawan ang iyong mga tulos. Kunin ang bola sa itaas ng isang tulos sa pamamagitan ng pag-click dito (o pagpindot sa 1, 2 o 3), pagkatapos ay i-click ang tulos na paglalagyan nito. Hanggang 3, 2 at 1 bola lang ang kasya sa mga tulos. Magplano bago magsimula at gumamit ng pinakakaunting galaw na kaya mo. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "reset": "Magsimula ulit",
+ "give_up": "Sumuko",
+ "yours": "Ang iyong mga tulos",
+ "target": "Target",
+ "moves_label": "Mga galaw:",
+ "full_peg": "Puno na ang tulos na iyan.",
+ "empty_peg": "Walang laman ang tulos na iyan.",
+ "solved": "Tapos na!"
+}

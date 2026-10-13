@@ -1,0 +1,4 @@
+{"instr": "Rakamlar: kısa bir rakam dizisini tek tek izleyin, sonra aynı sırayla yazın.",
+ "clue": "Başla'ya basın ve rakamları tek tek izleyin. Rakamlar bitince onları tuş takımıyla ya da klavyenizle aynı sırayla yazın, sonra Tamam'a basın.",
+ "recall": "Rakamları gördüğünüz sırayla yazın.",
+ "start": "Başla", "done": "Tamam", "delete": "Son rakamı sil"}

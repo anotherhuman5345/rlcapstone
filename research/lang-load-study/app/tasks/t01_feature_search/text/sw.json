@@ -1,0 +1,8 @@
+{
+ "instr": "Kutafuta rangi: bofya mduara mmoja wa rangi ya chungwa ulio kati ya miduara ya buluu, au jibu “Hakuna” kama haupo.",
+ "clue": "Tafuta mduara wa rangi ya chungwa kati ya miduara ya buluu na uubofye haraka uwezavyo (au bonyeza kitufe →). Kama hakuna mduara wa rangi ya chungwa, bonyeza ← au kitufe cha “Hakuna”. Bonyeza Anza ukiwa tayari.",
+ "absent": "Hakuna",
+ "present": "Upo",
+ "start": "Anza",
+ "stage_label": "Miduara ya kutafuta"
+}

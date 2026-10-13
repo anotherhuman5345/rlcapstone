@@ -1,0 +1,9 @@
+{
+ "instr": "Parzyste czy nieparzyste, z czymś do zapamiętania: dziel liczby na parzyste i nieparzyste i naciskaj Specjalne, gdy liczba pojawi się w kwadratowej ramce.",
+ "clue": "Liczby pojawiają się po jednej. Naciśnij Nieparzysta (strzałka w lewo) lub Parzysta (strzałka w prawo). Pamiętaj: jeśli liczba pojawi się w grubej kwadratowej ramce, naciśnij zamiast tego Specjalne (spacja). Odpowiadaj szybko. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "odd": "Nieparzysta",
+ "even": "Parzysta",
+ "special": "Specjalne",
+ "space": "spacja",
+ "start": "Start"
+}

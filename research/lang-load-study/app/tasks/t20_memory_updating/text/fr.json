@@ -1,0 +1,17 @@
+{
+ "instr": "Cases à nombres : suivez les nombres de quelques cases pendant que des consignes les modifient, puis tapez les nombres finaux.",
+ "clue": "Vous verrez quelques cases contenant des nombres. Retenez-les : les nombres seront masqués. Ensuite, des consignes apparaissent une à une, vous demandant d'ajouter ou de retirer une valeur à une case. Tenez les nombres à jour dans votre tête. À la fin, tapez le nombre final de chaque case (clavier ou pavé à l'écran) et appuyez sur Terminé. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "done": "Terminé",
+ "box_labels": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "op_add": "Ajoutez {n} à la case {b}",
+ "op_sub": "Retirez {n} de la case {b}",
+ "phase_study": "Retenez les nombres.",
+ "phase_update": "Mettez les nombres à jour dans votre tête.",
+ "phase_answer": "Tapez le nombre final de chaque case. Touchez une case pour la choisir ; Entrée passe à la case suivante."
+}

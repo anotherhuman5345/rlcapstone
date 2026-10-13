@@ -1,0 +1,16 @@
+{
+ "instr": "Ubin: geser ubin-ubin bernomor ke celah kosong sampai urut dari 1 sampai 8.",
+ "clue": "Susun ubin sesuai urutan seperti gambar tujuan: 1 sampai 8, dengan celah kosong di kanan bawah. Klik ubin di sebelah celah untuk menggesernya masuk, atau gunakan tombol panah (atau tombol panah di layar) untuk memindahkan ubin ke celah. Usahakan langkah sesedikit mungkin. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "reset": "Ulangi dari awal",
+ "give_up": "Menyerah",
+ "yours": "Papan Anda",
+ "target": "Tujuan",
+ "moves_label": "Langkah:",
+ "illegal": "Hanya ubin di sebelah celah yang bisa digeser.",
+ "solved": "Selesai!",
+ "left": "Kiri",
+ "right": "Kanan",
+ "up": "Atas",
+ "down": "Bawah"
+}

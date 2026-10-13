@@ -1,0 +1,19 @@
+{
+ "instr": "Aturan simbol: pelajari dua operasi simbol baru, lalu hitung ekspresi baru dengannya.",
+ "clue": "Dua simbol buatan dijelaskan di bawah, dengan contoh. Bacalah, lalu tekan Mulai dan hitung setiap ekspresi. Ketik jawabannya dengan papan angka atau keyboard dan tekan OK (atau Enter). Aturannya tetap ada di layar.",
+ "start": "Mulai",
+ "ok": "OK",
+ "erase": "Hapus angka terakhir",
+ "progress": "Ekspresi {i} dari {n}",
+ "examples": "Contoh:",
+ "list_sep": ";  ",
+ "precedence": "Dalam ekspresi yang berisi kedua simbol, selalu kerjakan {hi} lebih dulu, lalu {lo}.",
+ "rule_dbl_first": "gandakan angka pertama, lalu tambahkan angka kedua.",
+ "rule_dbl_second": "gandakan angka kedua, lalu tambahkan angka pertama.",
+ "rule_sum_dbl": "jumlahkan kedua angka, lalu gandakan hasilnya.",
+ "rule_sum_ten": "jumlahkan kedua angka, lalu tambahkan 10.",
+ "rule_mul_minus1": "kalikan kedua angka, lalu kurangi 1.",
+ "rule_mul_plus1": "kalikan kedua angka, lalu tambahkan 1.",
+ "rule_mul_plus_first": "kalikan kedua angka, lalu tambahkan angka pertama.",
+ "rule_mul_plus_second": "kalikan kedua angka, lalu tambahkan angka kedua."
+}

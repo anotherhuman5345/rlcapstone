@@ -1,0 +1,9 @@
+{
+ "instr": "Odd o even, na may kailangang tandaan: uriin ang mga numero bilang odd o even, at pindutin ang Espesyal tuwing lilitaw ang numero sa loob ng parisukat na frame.",
+ "clue": "Isa-isang lilitaw ang mga numero. Pindutin ang Odd (kaliwang arrow) o Even (kanang arrow). Tandaan: kung lilitaw ang numero sa loob ng makapal na parisukat na frame, pindutin na lang ang Espesyal (space bar). Sumagot nang mabilis. Pindutin ang Simulan kapag handa ka na.",
+ "odd": "Odd",
+ "even": "Even",
+ "special": "Espesyal",
+ "space": "space bar",
+ "start": "Simulan"
+}

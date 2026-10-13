@@ -1,0 +1,12 @@
+{
+ "instr": "Symétrie et carrés : décidez si chaque motif est symétrique comme dans un miroir, et retenez où les carrés rouges sont apparus.",
+ "clue": "Chaque étape montre un motif noir et blanc : est-il identique à gauche et à droite, comme dans un miroir ? Répondez Oui (flèche gauche) ou Non (flèche droite). Ensuite, un carré rouge apparaît dans une grille : retenez où. À la fin, touchez les carrés dans l'ordre où ils sont apparus, puis appuyez sur Terminé. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "yes": "Oui, symétrique",
+ "no": "Non",
+ "start": "Démarrer",
+ "undo": "Annuler",
+ "done": "Terminé",
+ "phase_judge": "Ce motif est-il symétrique ?",
+ "phase_remember": "Retenez ce carré.",
+ "phase_recall": "Touchez les carrés dans l'ordre où ils sont apparus (les flèches et Entrée fonctionnent aussi, Retour arrière annule). Appuyez ensuite sur Terminé."
+}

@@ -1,0 +1,10 @@
+{
+ "instr": "Chữ cái: các chữ cái hiện ra lần lượt; với mỗi chữ, hãy cho biết nó có giống chữ cái đã hiện trước đó một số bước nhất định hay không.",
+ "clue": "Các chữ cái hiện ra lần lượt. Với mỗi chữ cái, hãy nhấn Giống (phím mũi tên phải hoặc nút) nếu nó trùng với chữ cái mà quy tắc bên dưới chỉ tới, nếu không thì nhấn Khác (phím mũi tên trái hoặc nút). Hãy trả lời nhanh; các chữ cái liên tục hiện ra. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "rule_1": "Quy tắc: chữ cái này có giống chữ cái ngay trước nó không?",
+ "rule_2": "Quy tắc: chữ cái này có giống chữ cái cách đó hai bước không?",
+ "rule_3": "Quy tắc: chữ cái này có giống chữ cái cách đó ba bước không?",
+ "same": "Giống",
+ "different": "Khác",
+ "start": "Bắt đầu"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Labirin: gerakkan titik dari awal ke pintu keluar melalui jalan terpendek yang bisa Anda temukan.",
+ "clue": "Gerakkan titik biru melewati labirin menuju kotak keluar hijau, dengan langkah sesedikit mungkin. Merencanakan rute lebih dulu akan membantu. Bergeraklah dengan tombol panah, tombol panah di layar, atau dengan mengetuk kotak di sebelah titik. Dinding tidak bisa dilewati. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "up": "Atas",
+ "down": "Bawah",
+ "left": "Kiri",
+ "right": "Kanan"
+}

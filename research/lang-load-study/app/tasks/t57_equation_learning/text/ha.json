@@ -1,0 +1,13 @@
+{"instr": "Dokokin alamomi: ku koyi sababbin ayyukan lissafi guda biyu na alamomi, sannan ku warware sababbin lissafi da su.",
+ "clue": "An bayyana wasu ƙirƙirarrun alamomi guda biyu a ƙasa, tare da misalai. Ku karanta su, sannan ku danna Fara ku warware kowane lissafi. Ku rubuta amsar da faifan lambobi ko allon rubutu, sannan ku danna Tabbatar (ko Enter). Dokokin za su kasance a kan allo.",
+ "start": "Fara", "ok": "Tabbatar", "erase": "Goge lamba ta ƙarshe", "progress": "Lissafi {i} cikin {n}",
+ "examples": "Misalai:", "list_sep": ";  ",
+ "precedence": "A lissafin da ke da alamomin biyu, koyaushe ku fara yin {hi}, sannan {lo}.",
+ "rule_dbl_first": "ku ninka lamba ta farko sau biyu, sannan ku ƙara lamba ta biyu.",
+ "rule_dbl_second": "ku ninka lamba ta biyu sau biyu, sannan ku ƙara lamba ta farko.",
+ "rule_sum_dbl": "ku haɗa lambobin biyu, sannan ku ninka sakamakon sau biyu.",
+ "rule_sum_ten": "ku haɗa lambobin biyu, sannan ku ƙara 10.",
+ "rule_mul_minus1": "ku ninka lambobin biyu da juna, sannan ku rage 1.",
+ "rule_mul_plus1": "ku ninka lambobin biyu da juna, sannan ku ƙara 1.",
+ "rule_mul_plus_first": "ku ninka lambobin biyu da juna, sannan ku ƙara lamba ta farko.",
+ "rule_mul_plus_second": "ku ninka lambobin biyu da juna, sannan ku ƙara lamba ta biyu."}

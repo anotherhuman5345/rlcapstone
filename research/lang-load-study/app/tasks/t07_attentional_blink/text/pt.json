@@ -1,0 +1,10 @@
+{
+ "instr": "Letras rápidas: letras piscam muito rapidamente; depois, diga quais duas letras eram vermelhas.",
+ "clue": "Letras piscam muito rapidamente dentro do quadro. Duas delas são vermelhas. Depois de cada sequência, escolha as duas letras vermelhas (clique nelas ou digite-as) e pressione OK ou Enter. Se não tiver certeza, dê o seu melhor palpite. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "ok": "OK",
+ "undo": "Desfazer",
+ "slots": "Letras vermelhas: {a} {b}",
+ "ask": "Quais duas letras eram vermelhas?",
+ "progress": "Sequência {n} de {total}"
+}

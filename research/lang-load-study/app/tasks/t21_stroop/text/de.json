@@ -1,0 +1,17 @@
+{
+ "instr": "Farbwörter: Drücken Sie bei jedem Wort die Schaltfläche für die Farbe der SCHRIFT, nicht für die Farbe, die das Wort nennt.",
+ "clue": "Ein Farbwort erscheint in farbiger Schrift. Geben Sie die Farbe der SCHRIFT an und ignorieren Sie, was das Wort sagt. Drücken Sie die Tasten 1–4 oder tippen Sie auf die passende Farbschaltfläche. Antworten Sie schnell und genau. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "words": [
+  "ROT",
+  "BLAU",
+  "GRÜN",
+  "GELB"
+ ],
+ "color_names": [
+  "Rot",
+  "Blau",
+  "Grün",
+  "Gelb"
+ ],
+ "start": "Starten"
+}

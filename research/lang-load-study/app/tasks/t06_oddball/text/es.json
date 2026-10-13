@@ -1,0 +1,9 @@
+{
+ "instr": "Forma rara: aparecen formas una a una; pulse Espacio (o el botón) solo cuando vea el cuadrado.",
+ "clue": "Las formas aparecen una a una en el centro. Pulse Espacio (o el botón grande) lo más rápido que pueda cada vez que aparezca un cuadrado. No haga nada con los círculos. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "press": "¡Cuadrado!",
+ "stage_label": "Formas que aparecen",
+ "target_is": "Pulse para:",
+ "ignore": "ignorar:"
+}

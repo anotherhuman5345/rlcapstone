@@ -1,0 +1,40 @@
+{
+ "instr": "Etapas da máquina: aprenda a operar uma máquina inventada a partir de passos escritos e depois opere-a de memória.",
+ "clue": "Primeiro leia os passos para operar a máquina e o exemplo resolvido; você tem até 45 segundos. Depois os passos desaparecem e você opera a máquina três vezes de memória: veja a cor da lâmpada e o número, pressione os botões na ordem certa (clicando, tocando ou com as teclas 1-8) e depois pressione Concluir (Enter). Desfazer (Backspace) remove o seu último toque. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "study_title": "Como operar a máquina:",
+ "example": "Exemplo resolvido: para esta máquina, os botões corretos são:",
+ "learned": "Já aprendi",
+ "study_left": "Faltam {s} s",
+ "case_of": "Máquina {n} de {total}",
+ "lamp": "Lâmpada",
+ "number": "Número",
+ "presses": "Seus toques:",
+ "undo": "Desfazer",
+ "done": "Concluir",
+ "colors": [
+  "vermelha",
+  "azul"
+ ],
+ "step_fixed": "Pressione {a}.",
+ "step_cond": "Se a lâmpada estiver {c}, pressione {a}; caso contrário, pressione {b}.",
+ "step_repeat": "Pressione {a} tantas vezes quanto o número mostrado no visor.",
+ "actions": [
+  "ABRIR",
+  "FECHAR",
+  "AQUECER",
+  "ESFRIAR",
+  "MEXER",
+  "AGITAR",
+  "ENCHER",
+  "ESVAZIAR",
+  "VEDAR",
+  "PRENSAR",
+  "GIRAR",
+  "ERGUER",
+  "TRANCAR",
+  "LAVAR",
+  "SECAR",
+  "PESAR"
+ ]
+}

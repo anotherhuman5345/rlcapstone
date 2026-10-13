@@ -1,0 +1,56 @@
+{
+ "instr": "Mengisi formulir: salin sebuah catatan ke dalam formulir, dengan mengikuti aturan khusus yang ditampilkan bersamanya.",
+ "clue": "Isi formulir di kanan berdasarkan catatan di kiri. Salin nama dan angka dengan tepat. Baca aturan khusus lebih dulu: sebuah aturan hanya berlaku jika syaratnya terpenuhi untuk catatan ini. Bantuan menampilkan formatnya. Tekan Kirim jika sudah selesai. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "record_title": "Catatan",
+ "rules_title": "Aturan khusus",
+ "form_title": "Formulir",
+ "help": "Bantuan",
+ "help_text": "Tanggal: hari.bulan.tahun dengan titik, misalnya 05.11.1987. Angka: hanya digit, tanpa huruf. Paket dan cara kontak: pilih salah satu. Biarkan kolom kosong hanya jika aturan mengatakannya.",
+ "submit": "Kirim",
+ "choose": "— pilih —",
+ "no_phone": "—",
+ "date_placeholder": "HH.BB.TTTT",
+ "labels": {
+  "family": "Nama keluarga",
+  "given": "Nama depan",
+  "member": "Nomor anggota",
+  "birth": "Tanggal lahir",
+  "postcode": "Kode pos",
+  "phone": "Telepon",
+  "plan": "Paket",
+  "contact": "Hubungi lewat",
+  "amount": "Jumlah"
+ },
+ "plans": [
+  "Dasar",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "Email",
+  "Telepon",
+  "Pos"
+ ],
+ "months": [
+  "Januari",
+  "Februari",
+  "Maret",
+  "April",
+  "Mei",
+  "Juni",
+  "Juli",
+  "Agustus",
+  "September",
+  "Oktober",
+  "November",
+  "Desember"
+ ],
+ "rules": [
+  "Jika orang itu lahir pada tahun {year} atau sesudahnya, pilih paket Junior, apa pun yang tertulis di catatan.",
+  "Jika jumlahnya lebih dari 500, isi 500.",
+  "Jika catatan tidak memiliki nomor telepon, biarkan Telepon kosong dan pilih Pos sebagai cara kontak.",
+  "Jika kode pos hanya 4 digit, tambahkan 0 di depannya.",
+  "Jika nomor anggota berakhir dengan 7, tulis nama keluarga dengan HURUF BESAR."
+ ]
+}

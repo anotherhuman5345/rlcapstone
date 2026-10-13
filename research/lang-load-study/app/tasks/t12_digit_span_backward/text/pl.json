@@ -1,0 +1,8 @@
+{
+ "instr": "Cyfry wspak: obejrzyj krótki ciąg cyfr, wyświetlanych po jednej, a potem wpisz je w odwrotnej kolejności, zaczynając od ostatniej.",
+ "clue": "Naciśnij Start i patrz, jak cyfry pojawiają się po jednej. Gdy przestaną się pojawiać, wpisz je WSPAK, od ostatniej do pierwszej, na klawiaturze ekranowej lub swojej klawiaturze, a potem naciśnij OK. Przykład: jeśli zobaczysz 3 8 1, wpisz 1 8 3.",
+ "recall": "Wpisz cyfry w odwrotnej kolejności: najpierw ostatnią.",
+ "start": "Start",
+ "done": "OK",
+ "delete": "Usuń ostatnią cyfrę"
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Labirinto: porta il puntino dalla partenza all'uscita lungo la via più breve che riesci a trovare.",
+ "clue": "Porta il puntino blu attraverso il labirinto fino al quadrato verde dell'uscita, con il minor numero di passi possibile. Conviene pianificare prima il percorso. Muoviti con i tasti freccia, con i pulsanti freccia o toccando un quadrato accanto al puntino. I muri non si possono attraversare. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "up": "Su",
+ "down": "Giù",
+ "left": "Sinistra",
+ "right": "Destra"
+}

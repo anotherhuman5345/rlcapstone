@@ -1,0 +1,9 @@
+{
+ "instr": "Labyrinthe : amenez le point du départ jusqu'à la sortie par le chemin le plus court que vous trouvez.",
+ "clue": "Déplacez le point bleu dans le labyrinthe jusqu'à la case de sortie verte, en aussi peu de pas que possible. Il est utile de planifier le trajet d'abord. Déplacez-vous avec les flèches du clavier, les boutons fléchés, ou en touchant une case à côté du point. Les murs ne peuvent pas être traversés. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "up": "Haut",
+ "down": "Bas",
+ "left": "Gauche",
+ "right": "Droite"
+}

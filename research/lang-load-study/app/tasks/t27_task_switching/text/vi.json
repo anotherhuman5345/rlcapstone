@@ -1,0 +1,9 @@
+{
+ "instr": "Màu hay hình: một từ gợi ý cho biết bạn cần xét MÀU hay HÌNH của hình vẽ tiếp theo.",
+ "clue": "Đầu tiên một từ gợi ý hiện ra: MÀU hoặc HÌNH. Sau đó một hình tròn hoặc hình vuông màu xanh dương hoặc màu cam xuất hiện. Nếu gợi ý là MÀU: xanh dương = trái, cam = phải. Nếu gợi ý là HÌNH: hình tròn = trái, hình vuông = phải. Dùng các phím mũi tên hoặc các nút. Hãy trả lời nhanh và chính xác. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "cue_color": "MÀU",
+ "cue_shape": "HÌNH",
+ "left": "Trái",
+ "right": "Phải",
+ "start": "Bắt đầu"
+}

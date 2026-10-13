@@ -1,0 +1,7 @@
+{
+ "instr": "Círculos y triángulos: pulse con cada círculo; no haga nada con un triángulo.",
+ "clue": "Irán apareciendo formas una tras otra a un ritmo constante. Cuando vea un CÍRCULO, pulse la barra espaciadora (o el botón Pulsar) lo más rápido que pueda. Cuando vea un TRIÁNGULO, no pulse nada. Pulse Iniciar cuando esté listo/a.",
+ "press": "Pulsar",
+ "start": "Iniciar",
+ "stage_label": "Zona donde aparecen las formas"
+}

@@ -1,0 +1,12 @@
+{
+ "instr": "Directions sur un plan : imaginez-vous debout à un repère, face à un autre, et dites où se trouve un troisième.",
+ "clue": "Le plan montre six repères vus d'en haut. Imaginez que vous êtes au premier repère, face au deuxième. Le troisième repère est-il devant vous, à votre droite, derrière vous ou à votre gauche ? Ne tournez pas l'écran. Répondez avec les flèches du clavier ou les boutons. Il y a quatre questions sur ce plan. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "stand": "Vous êtes à",
+ "face": "Vous faites face à",
+ "where": "Où se trouve",
+ "ahead": "Devant",
+ "right": "Droite",
+ "behind": "Derrière",
+ "left": "Gauche"
+}

@@ -1,0 +1,23 @@
+<div class="ct">
+  <style>
+    .ct .ct-code { font-family: ui-monospace, monospace; font-size: 1.25rem; line-height: 1.7; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .8rem 1.2rem; max-width: 36rem; margin: .5rem 0; white-space: pre-wrap; }
+    .ct .ct-entry { display: flex; align-items: center; gap: .8rem; margin: .6rem 0; }
+    .ct .ct-val { min-width: 6rem; min-height: 2.6rem; padding: .3rem .6rem; font-size: 1.6rem; font-weight: 700; border: 2px solid var(--line); border-radius: 4px; background: #fff; font-family: ui-monospace, monospace; }
+    .ct .ct-pad { display: grid; grid-template-columns: repeat(4, 3.6rem); gap: .4rem; }
+    .ct .ct-pad button { margin: 0; padding: .6rem 0; font-size: 1.2rem; }
+    .ct .ct-pad button.sec { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+    .ct .ct-prog { color: var(--muted); }
+  </style>
+  <p class="ct-prog" id="ct-prog"></p>
+  <div class="ct-code" id="ct-code" hidden></div>
+  <div id="ct-answer" hidden>
+    <div class="ct-entry"><span>{{ text.output }}</span><span class="ct-val" id="ct-val" aria-live="polite"></span></div>
+    <div class="ct-pad" id="ct-pad">
+      <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button><button type="button" class="sec" data-k="back" aria-label="{{ text.erase }}">⌫</button>
+      <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button><button type="button" class="sec" data-k="-">−</button>
+      <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button><button type="button" data-k="0">0</button>
+    </div>
+    <p><button type="button" id="ct-ok">{{ text.ok }}</button></p>
+  </div>
+  <p><button type="button" id="ct-start">{{ text.start }}</button></p>
+</div>

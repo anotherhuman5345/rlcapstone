@@ -1,0 +1,64 @@
+{
+ "instr": "Escala: atribua cada tarefa a uma pessoa em um dia, de modo que todas as regras sejam cumpridas.",
+ "clue": "Planeje o trabalho: coloque cada tarefa na tabela, sob uma pessoa e um dia. Cada pessoa pode fazer no máximo uma tarefa por dia, e todas as regras da lista devem ser cumpridas. Clique em uma tarefa (ou chegue até ela com Tab e pressione Enter) e depois clique em uma casa da tabela. Clique em uma casa ocupada para pegar a tarefa de volta. Qualquer plano que cumpra todas as regras está correto. Pressione Concluir quando todas as tarefas estiverem colocadas. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "done": "Concluir",
+ "give_up": "Desistir",
+ "setting": "Cada pessoa pode fazer no máximo uma tarefa por dia. Regras:",
+ "plan": "Plano",
+ "tray": "Tarefas ainda não colocadas",
+ "templates": {
+  "before": "A tarefa de {a} deve ser feita em um dia anterior ao da tarefa de {b}.",
+  "same_day": "As tarefas de {a} e de {b} devem ser feitas no mesmo dia.",
+  "diff_day": "As tarefas de {a} e de {b} devem ser feitas em dias diferentes.",
+  "by_day": "A tarefa de {a} deve ser feita até {day}, no máximo.",
+  "off_day": "{w} não está disponível na {day}.",
+  "only_person": "Só {w} pode fazer a tarefa de {a}.",
+  "not_person": "{w} não pode fazer a tarefa de {a}.",
+  "same_person": "As tarefas de {a} e de {b} devem ser feitas pela mesma pessoa."
+ },
+ "jobs": [
+  {
+   "name": "relatório",
+   "cap": "Relatório"
+  },
+  {
+   "name": "entrega",
+   "cap": "Entrega"
+  },
+  {
+   "name": "conserto",
+   "cap": "Conserto"
+  },
+  {
+   "name": "limpeza",
+   "cap": "Limpeza"
+  },
+  {
+   "name": "contagem de estoque",
+   "cap": "Contagem de estoque"
+  },
+  {
+   "name": "treinamento",
+   "cap": "Treinamento"
+  },
+  {
+   "name": "pintura",
+   "cap": "Pintura"
+  },
+  {
+   "name": "inspeção",
+   "cap": "Inspeção"
+  }
+ ],
+ "people": [
+  "Ana",
+  "Bruno",
+  "Clara"
+ ],
+ "days": [
+  "segunda-feira",
+  "terça-feira",
+  "quarta-feira"
+ ]
+}

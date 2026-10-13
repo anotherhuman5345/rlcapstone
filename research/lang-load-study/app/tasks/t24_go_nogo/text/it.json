@@ -1,0 +1,7 @@
+{
+ "instr": "Cerchi e triangoli: premi per ogni cerchio, non fare niente per un triangolo.",
+ "clue": "Le forme compariranno una dopo l'altra a ritmo costante. Quando vedi un CERCHIO, premi la barra spaziatrice (o il pulsante Premi) il più velocemente possibile. Quando vedi un TRIANGOLO, non premere niente. Premi Inizia quando sei pronto.",
+ "press": "Premi",
+ "start": "Inizia",
+ "stage_label": "Zona in cui compaiono le forme"
+}

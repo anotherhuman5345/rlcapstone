@@ -1,0 +1,12 @@
+{
+ "instr": "Hanapin ang pagbabago: salitan na kumikislap ang dalawang bersiyon ng isang larawan; i-click ang nag-iisang bagay na naiiba.",
+ "clue": "Salitan na kumikislap ang larawan sa pagitan ng dalawang bersiyon. May isang bagay na nagbabago (nag-iiba ang kulay o hugis nito, o nawawala ito). I-click o i-tap ang bagay na iyon sa sandaling makita mo ito. Keyboard: igalaw ang krus gamit ang mga arrow key at pindutin ang Enter. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "pick": "Piliin dito",
+ "stage_label": "Kumikislap na larawan",
+ "move_left": "Igalaw pakaliwa",
+ "move_up": "Igalaw pataas",
+ "move_down": "Igalaw pababa",
+ "move_right": "Igalaw pakanan",
+ "scene": "Larawan {n} sa {total}"
+}

@@ -1,0 +1,19 @@
+{
+ "instr": "Reglas de símbolos: aprenda dos operaciones nuevas con símbolos y luego resuelva expresiones nuevas con ellas.",
+ "clue": "Abajo se explican dos símbolos inventados, con ejemplos. Léalos, pulse Iniciar y resuelva cada expresión. Escriba el resultado con el teclado en pantalla o el teclado y pulse Aceptar (o Enter). Las reglas siguen en pantalla.",
+ "start": "Iniciar",
+ "ok": "Aceptar",
+ "erase": "Borrar el último dígito",
+ "progress": "Expresión {i} de {n}",
+ "examples": "Ejemplos:",
+ "list_sep": ";  ",
+ "precedence": "En una expresión con los dos símbolos, calcule siempre primero {hi} y después {lo}.",
+ "rule_dbl_first": "duplique el primer número y luego sume el segundo.",
+ "rule_dbl_second": "duplique el segundo número y luego sume el primero.",
+ "rule_sum_dbl": "sume los dos números y luego duplique el resultado.",
+ "rule_sum_ten": "sume los dos números y luego sume 10.",
+ "rule_mul_minus1": "multiplique los dos números y luego reste 1.",
+ "rule_mul_plus1": "multiplique los dos números y luego sume 1.",
+ "rule_mul_plus_first": "multiplique los dos números y luego sume el primer número.",
+ "rule_mul_plus_second": "multiplique los dos números y luego sume el segundo número."
+}

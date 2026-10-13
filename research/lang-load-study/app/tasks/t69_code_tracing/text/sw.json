@@ -1,0 +1,14 @@
+{
+ "instr": "Programu fupi: soma kila programu fupi na uandike namba inayochapisha.",
+ "clue": "Utaona programu fupi tatu. Zifuate hatua kwa hatua, mstari kwa mstari, na ukokotoe namba inayochapishwa mwishoni. Iandike kwa vitufe vilivyo kwenye skrini au kibodi (tumia − kwa namba hasi), kisha bonyeza Sawa au Enter. Hakuna haja ya kuharakisha. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "program_of": "Programu {n} kati ya {total}",
+ "output": "Namba iliyochapishwa:",
+ "ok": "Sawa",
+ "erase": "Futa",
+ "kw_set": "weka {v} kuwa {e}",
+ "kw_repeat": "rudia mara {n}:",
+ "kw_if": "ikiwa {c}:",
+ "kw_else": "vinginevyo:",
+ "kw_print": "chapisha {e}"
+}

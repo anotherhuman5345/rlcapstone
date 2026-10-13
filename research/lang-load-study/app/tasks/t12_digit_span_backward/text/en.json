@@ -1,0 +1,4 @@
+{"instr": "Digits backward: watch a short list of digits, one at a time, then type them in reverse order, starting with the last one.",
+ "clue": "Press Start and watch the digits appear one at a time. When they stop, type them BACKWARD, from the last digit to the first, with the keypad or your keyboard, then press OK. Example: if you see 3 8 1, type 1 8 3.",
+ "recall": "Type the digits in reverse order: last digit first.",
+ "start": "Start", "done": "OK", "delete": "Delete last digit"}

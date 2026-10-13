@@ -1,0 +1,64 @@
+{
+ "instr": "Sıralama: hayvanları, bütün cümleler doğru olacak şekilde bir sıraya dizin.",
+ "clue": "Cümleleri okuyun, sonra her hayvanı numaralı yerlerden birine, bütün cümleler doğru olacak şekilde yerleştirin. 1 numaralı yer en soldadır. Bir hayvana tıklayın (ya da Tab ile üzerine gelip Enter'a basın), sonra bir yere tıklayın. Dolu bir yere tıklarsanız oradaki hayvanı yeniden alırsınız. Bütün yerler dolunca Bitti'ye basın. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "done": "Bitti",
+ "give_up": "Vazgeç",
+ "setting": "Hayvanlar, soldaki 1 numaralı yerden sağdaki son yere kadar numaralı yerlerde bir sıra hâlinde duruyor.",
+ "row": "Sıra",
+ "tray": "Henüz yerleştirilmemiş hayvanlar",
+ "place": "Yer",
+ "templates": {
+  "left_of": "{a.cap}, {b.gen} solunda bir yerdedir.",
+  "next_left": "{a.cap}, {b.gen} hemen solundadır.",
+  "adjacent": "{a.cap} ile {b} yan yanadır.",
+  "not_adjacent": "{a.cap} ile {b} yan yana değildir.",
+  "at": "{a.cap} {p} numaralı yerdedir.",
+  "not_at": "{a.cap} {p} numaralı yerde değildir.",
+  "end": "{a.cap} ya sıranın başında ya da sonundadır.",
+  "not_end": "{a.cap} ne sıranın başında ne de sonundadır.",
+  "between": "{a.cap}, {b} ile {c} arasında bir yerdedir."
+ },
+ "objects": [
+  {
+   "name": "kedi",
+   "cap": "Kedi",
+   "gen": "kedinin"
+  },
+  {
+   "name": "köpek",
+   "cap": "Köpek",
+   "gen": "köpeğin"
+  },
+  {
+   "name": "at",
+   "cap": "At",
+   "gen": "atın"
+  },
+  {
+   "name": "tavşan",
+   "cap": "Tavşan",
+   "gen": "tavşanın"
+  },
+  {
+   "name": "keçi",
+   "cap": "Keçi",
+   "gen": "keçinin"
+  },
+  {
+   "name": "ördek",
+   "cap": "Ördek",
+   "gen": "ördeğin"
+  },
+  {
+   "name": "tilki",
+   "cap": "Tilki",
+   "gen": "tilkinin"
+  },
+  {
+   "name": "ayı",
+   "cap": "Ayı",
+   "gen": "ayının"
+  }
+ ]
+}

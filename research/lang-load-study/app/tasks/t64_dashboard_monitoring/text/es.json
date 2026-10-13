@@ -1,0 +1,16 @@
+{
+ "instr": "Panel de control: vigile cuatro indicadores y reaccione solo cuando una barra supere la línea roja y se quede por encima.",
+ "clue": "Vigile los cuatro indicadores. Cuando una barra supere la línea roja y SE QUEDE por encima, haga clic en ese indicador (o pulse su número, 1–4) lo más rápido que pueda. No haga caso de los saltos breves que bajan enseguida, ni de las barras que bajan mucho. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "hint": "Haga clic en el indicador o pulse 1–4",
+ "gauges": [
+  "Presión",
+  "Caudal",
+  "Calor",
+  "Velocidad",
+  "Carga",
+  "Nivel",
+  "Batería",
+  "Señal"
+ ]
+}

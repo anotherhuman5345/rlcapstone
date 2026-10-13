@@ -1,0 +1,16 @@
+{
+ "instr": "Painel: observe quatro medidores e reaja somente quando uma barra passar da linha vermelha e ficar acima dela.",
+ "clue": "Observe os quatro medidores. Quando uma barra passar da linha vermelha e FICAR acima dela, clique nesse medidor (ou pressione o número dele, 1–4) o mais rápido que puder. Ignore saltos curtos que caem logo em seguida e ignore barras que descem muito. Pressione Começar quando estiver pronto(a).",
+ "start": "Começar",
+ "hint": "Clique no medidor ou pressione 1–4",
+ "gauges": [
+  "Pressão",
+  "Vazão",
+  "Calor",
+  "Velocidade",
+  "Carga",
+  "Nível",
+  "Bateria",
+  "Sinal"
+ ]
+}

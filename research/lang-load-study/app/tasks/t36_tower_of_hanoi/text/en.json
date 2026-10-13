@@ -1,0 +1,5 @@
+{"instr": "Tower: move all the disks onto the marked target peg, one disk at a time, never putting a larger disk on a smaller one.",
+ "clue": "Move the whole tower of disks to the peg marked “target”. Take the top disk by clicking its peg (or pressing 1, 2 or 3), then click the peg where it should go. Move one disk at a time, and never put a larger disk on top of a smaller one. Try to use as few moves as you can. Press Start when ready.",
+ "start": "Start", "reset": "Start over", "give_up": "Give up", "target": "target",
+ "moves_label": "Moves:", "illegal": "Not allowed: a larger disk cannot go on a smaller one.",
+ "empty_peg": "That peg is empty.", "solved": "Done!"}

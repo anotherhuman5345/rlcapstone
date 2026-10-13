@@ -1,0 +1,8 @@
+{
+ "instr": "Lieferroute: Planen Sie die kürzeste Rundfahrt vom Depot über jede Station und zurück.",
+ "clue": "Beginnen Sie am Depot (das dunkle Quadrat), besuchen Sie jede nummerierte Station einmal und kehren Sie zum Depot zurück. Machen Sie die ganze Fahrt so kurz wie möglich (Luftlinie). Klicken oder tippen Sie die Stationen in der Reihenfolge an, in der Sie sie besuchen würden, oder tippen Sie ihre Nummern ein. „Rückgängig“ (Rücktaste) entfernt die letzte Station. Drücken Sie „Fertig“ (Enter), wenn jede Station in Ihrer Route ist. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "undo": "Rückgängig",
+ "erase": "Leeren",
+ "done": "Fertig"
+}

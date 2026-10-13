@@ -1,0 +1,16 @@
+{
+ "instr": "Procedures: carry out a list of steps in order by clicking the step buttons; if another task interrupts you, go back and continue where you left off.",
+ "clue": "Carry out the procedure: click the step buttons in the order of the list (or press their number keys). Do each step once; nothing will show which steps are done. Sometimes a different task will interrupt you: say whether each number is even or odd. When the procedure comes back, continue from where you stopped. Press Start when ready.",
+ "start": "Start",
+ "case_label": "Task {n} of {total}",
+ "proc_title": "Procedure",
+ "palette_title": "Step buttons",
+ "interrupt_title": "Even or odd?",
+ "interrupt_hint": "Left arrow = even, right arrow = odd",
+ "even": "Even",
+ "odd": "Odd",
+ "next_case": "Next task…",
+ "steps": ["Scan the code", "Weigh the parcel", "Check the seal", "Print the label", "Attach the label", "Log the time",
+           "Take a photo", "Measure the size", "Stamp the form", "Sort by colour", "Wrap the item", "Notify the desk",
+           "Count the pieces", "Close the lid", "Sign the sheet", "Clean the tray"]
+}

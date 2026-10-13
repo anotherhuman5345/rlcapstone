@@ -1,0 +1,64 @@
+{
+ "instr": "Planificación: asigne cada tarea a una persona y a un día de modo que se cumplan todas las reglas.",
+ "clue": "Planifique el trabajo: ponga cada tarea en la tabla debajo de una persona y de un día. Cada persona puede hacer como máximo una tarea por día, y deben cumplirse todas las reglas de la lista. Haga clic en una tarea (o llegue a ella con Tab y pulse Enter) y luego haga clic en una casilla de la tabla. Haga clic en una casilla ocupada para volver a tomar su tarea. Cualquier plan que cumpla todas las reglas es correcto. Pulse Listo cuando todas las tareas estén colocadas. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "done": "Listo",
+ "give_up": "Rendirse",
+ "setting": "Cada persona puede hacer como máximo una tarea por día. Reglas:",
+ "plan": "Plan",
+ "tray": "Tareas aún sin colocar",
+ "templates": {
+  "before": "La tarea de {a} debe hacerse en un día anterior al de la tarea de {b}.",
+  "same_day": "La tarea de {a} y la tarea de {b} deben hacerse el mismo día.",
+  "diff_day": "La tarea de {a} y la tarea de {b} deben hacerse en días distintos.",
+  "by_day": "La tarea de {a} debe hacerse como muy tarde el {day}.",
+  "off_day": "{w} no está disponible el {day}.",
+  "only_person": "Solo {w} puede hacer la tarea de {a}.",
+  "not_person": "{w} no puede hacer la tarea de {a}.",
+  "same_person": "La tarea de {a} y la tarea de {b} debe hacerlas la misma persona."
+ },
+ "jobs": [
+  {
+   "name": "informe",
+   "cap": "Informe"
+  },
+  {
+   "name": "entrega",
+   "cap": "Entrega"
+  },
+  {
+   "name": "reparación",
+   "cap": "Reparación"
+  },
+  {
+   "name": "limpieza",
+   "cap": "Limpieza"
+  },
+  {
+   "name": "inventario",
+   "cap": "Inventario"
+  },
+  {
+   "name": "formación",
+   "cap": "Formación"
+  },
+  {
+   "name": "pintura",
+   "cap": "Pintura"
+  },
+  {
+   "name": "inspección",
+   "cap": "Inspección"
+  }
+ ],
+ "people": [
+  "Ana",
+  "Bruno",
+  "Clara"
+ ],
+ "days": [
+  "lunes",
+  "martes",
+  "miércoles"
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "instr": "Kolor czy kształt: słowo-wskazówka mówi, czy oceniać KOLOR, czy KSZTAŁT figury, która pojawi się potem.",
+ "clue": "Najpierw pojawia się wskazówka: KOLOR lub KSZTAŁT. Potem pojawia się niebieskie lub pomarańczowe kółko albo kwadrat. Jeśli wskazówka to KOLOR: niebieski = w lewo, pomarańczowy = w prawo. Jeśli wskazówka to KSZTAŁT: kółko = w lewo, kwadrat = w prawo. Użyj klawiszy strzałek lub przycisków. Odpowiadaj szybko i dokładnie. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "cue_color": "KOLOR",
+ "cue_shape": "KSZTAŁT",
+ "left": "W lewo",
+ "right": "W prawo",
+ "start": "Start"
+}

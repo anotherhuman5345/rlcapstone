@@ -1,0 +1,9 @@
+{
+ "instr": "Puntos: un grupo de puntos aparece muy brevemente; escriba cuántos cree que había.",
+ "clue": "Mire la cruz del centro. Un grupo de puntos aparecerá un momento y luego quedará tapado. No hay tiempo para contarlos: escriba su mejor estimación de cuántos puntos había, con las teclas numéricas o el teclado en pantalla, y luego pulse Enter o Aceptar. Pulse Iniciar cuando esté listo/a.",
+ "ask": "¿Cuántos puntos?",
+ "erase": "Borrar",
+ "ok": "Aceptar",
+ "start": "Iniciar",
+ "stage_label": "Zona donde aparecen los puntos"
+}

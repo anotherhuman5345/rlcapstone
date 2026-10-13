@@ -1,0 +1,8 @@
+{
+ "instr": "Ruta ng paghahatid: planuhin ang pinakamaikling balikang biyahe mula sa depot, dadaan sa bawat hintuan, at pabalik.",
+ "clue": "Magsimula sa depot (ang madilim na parisukat), puntahan nang isang beses ang bawat hintuang may numero, at bumalik sa depot. Gawing pinakamaikli hangga't kaya ang buong biyahe (sinusukat ang layo nang tuwid na linya). I-click o i-tap ang mga hintuan ayon sa pagkakasunod-sunod ng pagpunta mo, o i-type ang mga numero nito. Tinatanggal ng I-undo (Backspace key) ang huling hintuan. Pindutin ang Tapos (Enter key) kapag nasa ruta mo na ang lahat ng hintuan. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "undo": "I-undo",
+ "erase": "Burahin lahat",
+ "done": "Tapos"
+}

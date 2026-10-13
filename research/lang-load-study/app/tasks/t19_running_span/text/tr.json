@@ -1,0 +1,6 @@
+{"instr": "Harf akışı: harfler tek tek görünür ve haber vermeden durur; sonra yalnızca son birkaç harfi sırasıyla yazın.",
+ "clue": "Başla'ya basın. Harfler tek tek görünecek ve akış haber vermeden duracak; bu yüzden en son gördüğünüz harfleri aklınızda tutun. Akış durunca yalnızca gördüğünüz SON harfleri, göründükleri sırayla yazın. Hatırlayamadığınız harf için ? kullanın, sonra Tamam'a basın.",
+ "keep": "Son {k} harfi aklınızda tutun.",
+ "recall": "Son {k} harfi göründükleri sırayla yazın.",
+ "unknown": "Bu harfi hatırlamıyorum",
+ "start": "Başla", "done": "Tamam", "delete": "Son harfi sil"}

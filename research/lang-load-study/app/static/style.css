@@ -13,6 +13,8 @@
   background: var(--lightbox);
 }
 * { box-sizing: border-box; }
+/* `hidden` must always win, even over rules that give buttons a display value. */
+[hidden] { display: none !important; }
 body { margin: 0; line-height: 1.55; }
 .banner { background: var(--warn-bg); color: var(--warn-ink); padding: .6rem 1rem; font-size: .9rem; text-align: center; }
 .page { max-width: 40rem; margin: 2.5rem auto; padding: 2rem; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
@@ -77,3 +79,12 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .choice-word:disabled { opacity: .4; }
 .ospan .picked { min-height: 1.5rem; font-weight: 600; }
 .retention-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .2rem 1rem; }
+/* Task library */
+.task-root { margin: .5rem 0 1rem; }
+.task-root canvas, .task-root svg { max-width: 100%; height: auto; touch-action: manipulation; }
+.task-root .btn-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.task-root .big { font-size: 2.4rem; font-weight: 700; letter-spacing: .05em; text-align: center; margin: 1.5rem 0; }
+.try-result { white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: .85rem; background: var(--paper); border: 1px solid var(--line); padding: .8rem; }
+
+/* Library tasks keep a left-to-right layout; right-to-left text inside sets its own direction. */
+.task-root.rtl-text :is(p, li, label, h1, h2, h3, legend, figcaption) { unicode-bidi: plaintext; }

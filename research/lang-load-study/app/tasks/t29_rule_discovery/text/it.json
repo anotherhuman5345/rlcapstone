@@ -1,0 +1,8 @@
+{
+ "instr": "Smistamento di carte: metti ogni carta insieme a una di quattro carte secondo una regola nascosta, che scopri dalle risposte. La regola può cambiare.",
+ "clue": "Una nuova carta compare sotto quattro carte di riferimento. Abbinala a una di esse cliccando o toccando quella carta, oppure premendo 1-4. Le carte possono corrispondere per colore, per forma o per numero di figure, ma non ti viene detto quale: te lo dice la risposta (corretto / sbagliato). Ogni tanto la regola cambia senza preavviso; allora trova quella nuova. Premi Inizia quando sei pronto.",
+ "correct": "Corretto",
+ "wrong": "Sbagliato",
+ "too_slow": "Troppo lento",
+ "start": "Inizia"
+}

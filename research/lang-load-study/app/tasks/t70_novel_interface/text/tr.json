@@ -1,0 +1,16 @@
+{
+ "instr": "Yeni cihaz: altı alışılmadık düğmenin ne yaptığını öğrenin, sonra yardım almadan onlarla lambaları ayarlayın.",
+ "clue": "Bu cihazda üç lamba ve altı alışılmadık düğme var. İlk hedefte düğmelerin altındaki açıklama her birinin ne yaptığını gösterir; bunları öğrenin. Sonraki iki hedefte açıklama gizlenir: hedeflere ezberden ulaşın. Lambaların çevresindeki kesikli çerçeve düzenleme modunun açık olduğunu, küçük işaret de seçili lambayı gösterir. Düğmeler için 1–6 tuşlarını da kullanabilirsiniz. Hazır olunca Başla'ya basın.",
+ "start": "Başla",
+ "goal": "Lambaları şöyle yapın: sol {l}, orta {m}, sağ {r}. Sonra onaylayın.",
+ "goal_label": "Hedef {n} / {total}",
+ "legend_title": "Açıklama",
+ "next_goal": "Sıradaki hedef…",
+ "colors": ["sönük", "kırmızı", "sarı", "mavi"],
+ "funcs": ["Soldaki lambayı seç (yalnızca düzenleme modu kapalıyken)",
+           "Sağdaki lambayı seç (yalnızca düzenleme modu kapalıyken)",
+           "Düzenleme modunu aç ya da kapat",
+           "Seçili lambayı sıradaki renge geçir: sönük, kırmızı, sarı, mavi, sönük… (yalnızca düzenleme modunda)",
+           "Bütün lambaları söndür",
+           "Onayla ve hedefi bitir (yalnızca düzenleme modu kapalıyken)"]
+}

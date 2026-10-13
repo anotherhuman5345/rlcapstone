@@ -1,0 +1,10 @@
+{
+ "instr": "Herufi za kasi: herufi zinamulika haraka sana; baadaye, taja herufi mbili zilizokuwa nyekundu.",
+ "clue": "Herufi zinamulika haraka sana ndani ya kisanduku. Mbili kati ya hizo ni nyekundu. Baada ya kila mfululizo, chagua herufi mbili nyekundu (zibofye au uziandike), kisha bonyeza Sawa au Enter. Kama huna uhakika, kisia jibu lako bora. Bonyeza Anza ukiwa tayari.",
+ "start": "Anza",
+ "ok": "Sawa",
+ "undo": "Tendua",
+ "slots": "Herufi nyekundu: {a} {b}",
+ "ask": "Herufi zipi mbili zilikuwa nyekundu?",
+ "progress": "Mfululizo {n} kati ya {total}"
+}

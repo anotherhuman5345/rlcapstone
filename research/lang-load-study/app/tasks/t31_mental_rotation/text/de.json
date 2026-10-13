@@ -1,0 +1,7 @@
+{
+ "instr": "Formen: Entscheiden Sie, ob die rechte Form die gedrehte linke Form ist oder ihr Spiegelbild.",
+ "clue": "Sie sehen jedes Mal zwei Formen. Die rechte kann gedreht sein. Ist es dieselbe Form, nur gedreht, oder ein Spiegelbild der linken? Drücken Sie die linke Pfeiltaste (oder Schaltfläche) für „Gleich“ und die rechte Pfeiltaste (oder Schaltfläche) für „Spiegelbild“. Antworten Sie so schnell und genau wie möglich. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "same": "Gleich",
+ "mirror": "Spiegelbild",
+ "start": "Starten"
+}

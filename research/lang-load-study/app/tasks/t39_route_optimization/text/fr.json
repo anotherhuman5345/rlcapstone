@@ -1,0 +1,8 @@
+{
+ "instr": "Tournée de livraison : planifiez la boucle la plus courte depuis le dépôt, en passant par chaque arrêt, avec retour au dépôt.",
+ "clue": "Partez du dépôt (le carré foncé), passez une fois par chaque arrêt numéroté et revenez au dépôt. Rendez le trajet total aussi court que possible (distance à vol d'oiseau). Cliquez ou touchez les arrêts dans l'ordre où vous les visiteriez, ou tapez leurs numéros. Annuler (touche Retour arrière) retire le dernier arrêt. Appuyez sur Terminé (touche Entrée) quand tous les arrêts sont dans votre tournée. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "undo": "Annuler",
+ "erase": "Tout effacer",
+ "done": "Terminé"
+}

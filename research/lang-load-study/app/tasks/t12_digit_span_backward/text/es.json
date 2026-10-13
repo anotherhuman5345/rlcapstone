@@ -1,0 +1,8 @@
+{
+ "instr": "Dígitos al revés: observe una lista corta de dígitos, uno a uno, y luego escríbalos en orden inverso, empezando por el último.",
+ "clue": "Pulse Iniciar y observe cómo aparecen los dígitos uno a uno. Cuando terminen, escríbalos AL REVÉS, del último al primero, con el teclado en pantalla o su teclado, y luego pulse Aceptar. Ejemplo: si ve 3 8 1, escriba 1 8 3.",
+ "recall": "Escriba los dígitos en orden inverso: el último primero.",
+ "start": "Iniciar",
+ "done": "Aceptar",
+ "delete": "Borrar el último dígito"
+}

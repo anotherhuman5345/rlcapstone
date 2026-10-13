@@ -1,0 +1,31 @@
+{
+ "instr": "Procedure: esegui un elenco di passaggi in ordine cliccando i pulsanti dei passaggi; se un altro compito ti interrompe, torna indietro e continua da dove eri rimasto.",
+ "clue": "Esegui la procedura: clicca i pulsanti dei passaggi nell'ordine dell'elenco (oppure premi i loro tasti numerici). Fai ogni passaggio una volta sola; niente mostrerà quali passaggi sono già fatti. A volte un compito diverso ti interromperà: indica se ogni numero è pari o dispari. Quando la procedura ritorna, continua da dove ti eri fermato. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "case_label": "Compito {n} di {total}",
+ "proc_title": "Procedura",
+ "palette_title": "Pulsanti dei passaggi",
+ "interrupt_title": "Pari o dispari?",
+ "interrupt_hint": "Freccia sinistra = pari, freccia destra = dispari",
+ "even": "Pari",
+ "odd": "Dispari",
+ "next_case": "Compito successivo…",
+ "steps": [
+  "Scansiona il codice",
+  "Pesa il pacco",
+  "Controlla il sigillo",
+  "Stampa l'etichetta",
+  "Attacca l'etichetta",
+  "Registra l'ora",
+  "Scatta una foto",
+  "Misura le dimensioni",
+  "Timbra il modulo",
+  "Ordina per colore",
+  "Incarta l'articolo",
+  "Avvisa lo sportello",
+  "Conta i pezzi",
+  "Chiudi il coperchio",
+  "Firma il foglio",
+  "Pulisci il vassoio"
+ ]
+}

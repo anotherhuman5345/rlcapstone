@@ -1,0 +1,8 @@
+{
+ "instr": "Papierfalten: Ein Blatt wird gefaltet und durchgelocht; wählen Sie, wie das Blatt aussieht, wenn es wieder aufgefaltet wird.",
+ "clue": "Die Bilder zeigen, wie ein quadratisches Blatt Papier gefaltet wird (der schattierte Teil wird entlang der gestrichelten Linie umgeklappt, wie der Pfeil zeigt). Im letzten Bild wird ein Loch durch alle Lagen gestanzt. Welches der vier Blätter zeigt, wo die Löcher sind, wenn das Papier wieder aufgefaltet wird? Klicken oder tippen Sie auf ein Blatt oder drücken Sie seine Zifferntaste 1 bis 4. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "folds": "Falten",
+ "punched": "Loch gestanzt",
+ "options": "Welches Blatt ist aufgefaltet richtig?"
+}

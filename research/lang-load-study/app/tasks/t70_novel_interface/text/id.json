@@ -1,0 +1,23 @@
+{
+ "instr": "Perangkat baru: pelajari fungsi enam tombol yang asing, lalu gunakan untuk mengatur beberapa lampu tanpa bantuan.",
+ "clue": "Perangkat ini punya tiga lampu dan enam tombol yang asing. Tujuan pertama: keterangan di bawah tombol menjelaskannya, jadi pelajari fungsi setiap tombol. Untuk dua tujuan berikutnya keterangan disembunyikan: capai setiap tujuan dari ingatan. Bingkai putus-putus di sekitar lampu berarti mode edit aktif; tanda kecil menunjukkan lampu yang dipilih. Anda juga bisa menekan 1–6 untuk tombol-tombolnya. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "goal": "Atur lampu: kiri {l}, tengah {m}, kanan {r}. Lalu konfirmasi.",
+ "goal_label": "Tujuan {n} dari {total}",
+ "legend_title": "Keterangan",
+ "next_goal": "Tujuan berikutnya…",
+ "colors": [
+  "mati",
+  "merah",
+  "kuning",
+  "biru"
+ ],
+ "funcs": [
+  "Geser pilihan satu lampu ke kiri (hanya di luar mode edit)",
+  "Geser pilihan satu lampu ke kanan (hanya di luar mode edit)",
+  "Nyalakan atau matikan mode edit",
+  "Ganti warna lampu yang dipilih ke warna berikutnya: mati, merah, kuning, biru, mati… (hanya dalam mode edit)",
+  "Matikan semua lampu",
+  "Konfirmasi dan selesaikan tujuan (hanya di luar mode edit)"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "instr": "Quadrati al contrario: guarda i quadrati che si illuminano uno alla volta, poi cliccali in ordine inverso, partendo dall'ultimo.",
+ "clue": "Premi Inizia e guarda quali quadrati si illuminano e in che ordine. Poi clicca o tocca gli stessi quadrati AL CONTRARIO: per primo l'ultimo che si è illuminato, e per ultimo il primo.",
+ "go": "Ora clicca i quadrati in ordine inverso.",
+ "start": "Inizia",
+ "square": "Quadrato"
+}

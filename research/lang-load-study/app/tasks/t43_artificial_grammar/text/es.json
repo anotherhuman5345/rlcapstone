@@ -1,0 +1,9 @@
+{
+ "instr": "Patrones de letras: estudie series formadas por una regla oculta y luego juzgue si las series nuevas siguen la misma regla.",
+ "clue": "Primero estudie las series de letras de la pantalla; todas siguen un patrón oculto. Después verá series nuevas una a una. Pulse la flecha izquierda (o el botón izquierdo) si una serie sigue el mismo patrón, y la flecha derecha (o el botón derecho) si lo rompe. Déjese llevar por su primera impresión. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "legal": "Sigue el patrón",
+ "illegal": "Rompe el patrón",
+ "study_left": "Estudie las series: quedan {s} s",
+ "test_of": "Serie {n} de {total}"
+}

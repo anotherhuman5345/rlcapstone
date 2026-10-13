@@ -1,0 +1,24 @@
+<style>
+  .pr-q { font-weight: 600; text-align: center; margin: .3rem 0 .6rem; }
+  .pr-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  @media (max-width: 600px) { .pr-opts { grid-template-columns: 1fr; } }
+  .pr-opt { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: .5rem .8rem; }
+  .pr-opt h3 { margin: 0 0 .2rem; font-size: 1.1rem; }
+  .pr-opt p { margin: .2rem 0 .4rem; }
+  .pr-opt svg { display: block; margin: 0 auto; width: 100%; max-width: 260px; height: auto; }
+  .pr-btns { justify-content: center; }
+  .pr-btns button { min-width: 7rem; }
+</style>
+<div class="probability">
+  <p class="pr-q" id="pr-q">&nbsp;</p>
+  <div class="pr-opts" id="pr-opts" hidden>
+    <div class="pr-opt"><h3>{{ text.label_a }}</h3><p id="pr-text-a"></p><svg id="pr-svg-a" viewBox="0 0 260 170" aria-hidden="true"></svg></div>
+    <div class="pr-opt"><h3>{{ text.label_b }}</h3><p id="pr-text-b"></p><svg id="pr-svg-b" viewBox="0 0 260 170" aria-hidden="true"></svg></div>
+  </div>
+  <div class="btn-row pr-btns">
+    <button type="button" data-choice="a">1 &middot; {{ text.label_a }}</button>
+    <button type="button" data-choice="equal">2 &middot; {{ text.equal }}</button>
+    <button type="button" data-choice="b">3 &middot; {{ text.label_b }}</button>
+  </div>
+  <p style="text-align:center"><button type="button" id="pr-start">{{ text.start }}</button></p>
+</div>

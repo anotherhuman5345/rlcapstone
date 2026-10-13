@@ -1,0 +1,13 @@
+{
+ "instr": "Berhitung di kepala: kerjakan setiap soal di kepala Anda dan ketik jawabannya.",
+ "clue": "Kerjakan setiap soal di kepala, tanpa menulis apa pun. Ketik jawabannya dengan papan angka atau keyboard dan tekan OK (atau Enter). Setiap soal punya waktu 20 detik. Jawabannya bilangan bulat. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "ok": "OK",
+ "erase": "Hapus angka terakhir",
+ "seconds_left": "sisa {s} detik",
+ "progress": "Soal {i} dari {n}",
+ "sym_add": "+",
+ "sym_sub": "−",
+ "sym_mul": "×",
+ "sym_div": "÷"
+}

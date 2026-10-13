@@ -1,0 +1,3 @@
+{"instr": "Two figures: find out by trial and error which figure is correct. The correct figure can change without warning.",
+ "clue": "Two figures appear. One of them is correct. Choose one by clicking or tapping it, or with the left/right arrow keys; you will see whether you were right. Keep choosing the correct one. Without warning, the other figure may become the correct one: then switch. Its position on screen does not matter. Press Start when ready.",
+ "left": "Left", "right": "Right", "correct": "Correct", "wrong": "Wrong", "too_slow": "Too slow", "start": "Start"}

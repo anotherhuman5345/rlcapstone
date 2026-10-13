@@ -1,0 +1,16 @@
+<div class="cnets">
+  <style>
+    .cnets .cn-label { color: var(--muted); font-size: .95rem; margin: .4rem 0 .2rem; }
+    .cnets .cn-opts { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .cnets .cn-opt { margin: 0; padding: .4rem; background: var(--paper); color: var(--ink); border: 2px solid var(--line); font-weight: 600; display: flex; flex-direction: column; align-items: center; }
+    .cnets .cn-opt:hover { border-color: var(--signal); }
+    .cnets .cn-opt svg { width: 170px; height: 170px; }
+  </style>
+  <div id="cn-body" hidden>
+    <svg id="cn-cube" width="260" height="250" viewBox="-130 -125 260 250" aria-hidden="true"
+         style="display:block;background:#fff;border:1px solid var(--line);border-radius:6px"></svg>
+    <p class="cn-label">{{ text.options }}</p>
+    <div class="cn-opts" id="cn-opts"></div>
+  </div>
+  <p><button type="button" id="cn-start">{{ text.start }}</button></p>
+</div>

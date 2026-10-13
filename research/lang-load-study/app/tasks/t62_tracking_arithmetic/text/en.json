@@ -1,0 +1,7 @@
+{
+ "instr": "Follow and add: keep your pointer on the moving dot while you answer simple sums that appear below it.",
+ "clue": "Keep the pointer on the moving blue dot the whole time: move the mouse, slide your finger, or hold the arrow keys (or the arrow buttons). Sums will appear below the field: choose the answer by clicking it or pressing 1, 2 or 3. Following the dot and answering the sums matter equally. Press Start when ready.",
+ "start": "Start",
+ "sum_hint": "Answer with 1, 2, 3 or a click",
+ "up": "Up", "down": "Down", "left": "Left", "right": "Right"
+}

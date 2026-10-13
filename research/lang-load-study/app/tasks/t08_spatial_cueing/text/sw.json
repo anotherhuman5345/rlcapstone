@@ -1,0 +1,8 @@
+{
+ "instr": "Visanduku: weka macho yako katikati na ubonyeze kushoto au kulia mara tu nukta inapotokea ndani ya kisanduku.",
+ "clue": "Weka macho yako kwenye alama ya msalaba iliyo katikati. Mshale utatokea hapo, kisha nukta ndani ya kisanduku cha kushoto au cha kulia. Bonyeza kitufe cha mshale wa kushoto au wa kulia (au kitufe kwenye skrini) kwa upande ambapo nukta ilitokea, haraka uwezavyo. Mshale kwa kawaida unaonyesha upande sahihi, lakini si kila mara. Bonyeza Anza ukiwa tayari.",
+ "left": "Kushoto",
+ "right": "Kulia",
+ "start": "Anza",
+ "stage_label": "Visanduku viwili vyenye alama ya msalaba katikati yake"
+}

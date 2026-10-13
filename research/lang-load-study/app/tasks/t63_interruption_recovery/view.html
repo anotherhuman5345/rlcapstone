@@ -1,0 +1,30 @@
+<div class="intr-task">
+  <style>
+    .intr-task .work { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+    .intr-task .panel { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .8rem 1.2rem; min-width: 15rem; }
+    .intr-task h3 { margin: 0 0 .5rem; font-size: 1rem; color: var(--muted); font-weight: 600; }
+    .intr-task ol { margin: 0; padding-left: 1.4rem; font-size: 1.1rem; line-height: 1.9; }
+    .intr-task .palette { display: grid; grid-template-columns: repeat(2, minmax(10rem, 1fr)); gap: .5rem; }
+    .intr-task .palette button { margin: 0; background: var(--paper); color: var(--ink); border: 1px solid var(--line); font-weight: 500; text-align: left; }
+    .intr-task .palette .n { color: var(--muted); font-size: .8rem; margin-right: .5rem; }
+    .intr-task .digit { font-size: 4rem; font-weight: 700; text-align: center; min-height: 5.5rem; margin: 1rem 0; }
+    .intr-task .center { text-align: center; }
+    .intr-task .hint { color: var(--muted); }
+  </style>
+  <p class="meta" id="ir-case"></p>
+  <div class="work" id="ir-work" hidden>
+    <div class="panel"><h3>{{ text.proc_title }}</h3><ol id="ir-proc"></ol></div>
+    <div class="panel"><h3>{{ text.palette_title }}</h3><div class="palette" id="ir-palette"></div></div>
+  </div>
+  <div id="ir-interrupt" class="panel center" hidden>
+    <h3>{{ text.interrupt_title }}</h3>
+    <p class="digit" id="ir-digit" aria-live="off"></p>
+    <div class="btn-row" style="justify-content:center">
+      <button type="button" data-par="even" tabindex="-1">← {{ text.even }}</button>
+      <button type="button" data-par="odd" tabindex="-1">{{ text.odd }} →</button>
+    </div>
+    <p class="hint">{{ text.interrupt_hint }}</p>
+  </div>
+  <p id="ir-between" class="hint" hidden>{{ text.next_case }}</p>
+  <p><button type="button" id="ir-start">{{ text.start }}</button></p>
+</div>

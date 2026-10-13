@@ -1,0 +1,10 @@
+{
+ "instr": "Pagsubaybay: tandaan kung aling mga bilog ang nagiging kulay-kahel, sundan ang mga ito habang gumagalaw ang lahat ng bilog, pagkatapos ay piliin ang mga ito.",
+ "clue": "May ilang bilog na sandaling nagiging kulay-kahel. Tandaan ang mga ito at huwag alisin ang tingin sa mga ito habang gumagalaw ang lahat ng bilog. Kapag tumigil na ang mga ito, i-click o i-tap ang mga bilog na sinundan mo (o pindutin ang mga number key nila), pagkatapos ay pindutin ang Tapos o Enter. Pindutin ang Simulan kapag handa ka na.",
+ "start": "Simulan",
+ "done": "Tapos",
+ "stage_label": "Mga gumagalaw na bilog",
+ "round": "Round {n} sa {total}: tandaan ang {k} kulay-kahel na bilog.",
+ "track": "Sundan ang mga ito…",
+ "pick": "Piliin ang {k} bilog na sinundan mo, pagkatapos ay pindutin ang Tapos."
+}

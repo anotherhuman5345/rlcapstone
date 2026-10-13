@@ -1,0 +1,8 @@
+{
+ "instr": "Tarakimu: tazama orodha fupi ya tarakimu, moja baada ya nyingine, kisha uziandike kwa mpangilio uleule.",
+ "clue": "Bonyeza Anza na utazame tarakimu zikitokea moja baada ya nyingine. Zikisimama, ziandike kwa mpangilio uleule ukitumia vitufe vilivyo kwenye skrini au kibodi yako, kisha bonyeza Sawa.",
+ "recall": "Andika tarakimu kwa mpangilio ulioziona.",
+ "start": "Anza",
+ "done": "Sawa",
+ "delete": "Futa tarakimu ya mwisho"
+}

@@ -1,0 +1,56 @@
+{
+ "instr": "Compilazione di moduli: copia una scheda in un modulo, seguendo le regole speciali indicate.",
+ "clue": "Compila il modulo a destra usando la scheda a sinistra. Copia nomi e numeri esattamente. Leggi prima le regole speciali: una regola vale solo se la sua condizione è vera per questa scheda. Aiuto mostra i formati. Premi Invia quando hai finito. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "record_title": "Scheda",
+ "rules_title": "Regole speciali",
+ "form_title": "Modulo",
+ "help": "Aiuto",
+ "help_text": "Data: giorno.mese.anno con i punti, ad es. 05.11.1987. Numeri: solo cifre, niente lettere. Piano e contatto: scegline uno. Lascia un campo vuoto solo se lo dice una regola.",
+ "submit": "Invia",
+ "choose": "— scegli —",
+ "no_phone": "—",
+ "date_placeholder": "GG.MM.AAAA",
+ "labels": {
+  "family": "Cognome",
+  "given": "Nome",
+  "member": "Numero socio",
+  "birth": "Data di nascita",
+  "postcode": "CAP",
+  "phone": "Telefono",
+  "plan": "Piano",
+  "contact": "Contatto tramite",
+  "amount": "Importo"
+ },
+ "plans": [
+  "Base",
+  "Plus",
+  "Junior"
+ ],
+ "contacts": [
+  "E-mail",
+  "Telefono",
+  "Posta"
+ ],
+ "months": [
+  "gennaio",
+  "febbraio",
+  "marzo",
+  "aprile",
+  "maggio",
+  "giugno",
+  "luglio",
+  "agosto",
+  "settembre",
+  "ottobre",
+  "novembre",
+  "dicembre"
+ ],
+ "rules": [
+  "Se la persona è nata nel {year} o dopo, scegli il piano Junior, qualunque cosa dica la scheda.",
+  "Se l'importo è superiore a 500, scrivi 500.",
+  "Se nella scheda non c'è un numero di telefono, lascia vuoto Telefono e scegli Posta come contatto.",
+  "Se il CAP ha solo 4 cifre, aggiungi uno 0 all'inizio.",
+  "Se il numero socio finisce con 7, scrivi il cognome in lettere MAIUSCOLE."
+ ]
+}

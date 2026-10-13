@@ -1,0 +1,9 @@
+{
+ "instr": "Pair ou impair, avec une chose à retenir : classez les nombres en pairs ou impairs, et appuyez sur Spécial chaque fois qu'un nombre apparaît dans un cadre carré.",
+ "clue": "Les nombres apparaissent un par un. Appuyez sur Impair (flèche gauche) ou Pair (flèche droite). Attention : si un nombre apparaît dans un cadre carré épais, appuyez plutôt sur Spécial (barre d'espace). Répondez vite. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "odd": "Impair",
+ "even": "Pair",
+ "special": "Spécial",
+ "space": "barre d'espace",
+ "start": "Démarrer"
+}

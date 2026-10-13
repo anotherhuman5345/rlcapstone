@@ -1,0 +1,10 @@
+{
+ "instr": "Inseguimento: ricorda quali cerchi diventano arancioni, seguili mentre tutti i cerchi si muovono, poi indicali.",
+ "clue": "Alcuni cerchi diventano arancioni per un attimo. Ricordali e tienili d'occhio mentre tutti i cerchi si muovono. Quando si fermano, clicca o tocca i cerchi che hai seguito (oppure premi i loro tasti numerici), poi premi Fatto o Invio. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "done": "Fatto",
+ "stage_label": "Cerchi in movimento",
+ "round": "Turno {n} di {total}: ricorda i {k} cerchi arancioni.",
+ "track": "Seguili…",
+ "pick": "Seleziona i {k} cerchi che hai seguito, poi premi Fatto."
+}

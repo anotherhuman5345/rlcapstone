@@ -1,0 +1,14 @@
+{
+ "instr": "Program pendek: baca setiap program pendek dan ketik angka yang dicetaknya.",
+ "clue": "Anda akan melihat tiga program pendek. Ikuti langkah demi langkah, baris demi baris, dan cari tahu angka yang dicetak di akhir. Ketik angka itu dengan papan angka atau keyboard (gunakan − untuk angka negatif), lalu tekan OK atau Enter. Tidak perlu terburu-buru. Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "program_of": "Program {n} dari {total}",
+ "output": "Angka yang dicetak:",
+ "ok": "OK",
+ "erase": "Hapus",
+ "kw_set": "atur {v} menjadi {e}",
+ "kw_repeat": "ulangi {n} kali:",
+ "kw_if": "jika {c}:",
+ "kw_else": "jika tidak:",
+ "kw_print": "cetak {e}"
+}

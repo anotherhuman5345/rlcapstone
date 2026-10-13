@@ -1,0 +1,3 @@
+{"instr": "Colour memory: remember a group of coloured squares; after a short gap, say whether any square changed colour.",
+ "clue": "Coloured squares appear briefly, then vanish, then come back. Did one square change colour? Press ← or “Same” if nothing changed, → or “Different” if one changed. Press Start when ready.",
+ "same": "Same", "different": "Different", "start": "Start", "stage_label": "Coloured squares"}

@@ -1,0 +1,28 @@
+{
+ "instr": "Dépannage : une machine envoie du courant à travers ses pièces jusqu'à des lampes ; trouvez la pièce en panne avec le moins de tests possible.",
+ "clue": "Le courant arrive par la gauche, traverse les pièces en suivant les lignes et va jusqu'aux lampes. Une pièce en panne ne laisse passer aucun courant : toutes les pièces placées après elle et toutes les lampes qu'elle alimente restent éteintes. Exactement une pièce est en panne. Regardez quelles lampes sont allumées. Vous pouvez tester une pièce (chaque test coûte 1) : sélectionnez-la et appuyez sur Tester pour voir si du courant en sort. Quand vous savez quelle pièce est en panne, sélectionnez-la et appuyez sur Signaler. Il y a deux pannes à trouver. Appuyez sur Démarrer quand vous êtes prêt(e).",
+ "start": "Démarrer",
+ "power": "Courant",
+ "lamp": "Lampe",
+ "test": "Tester la pièce sélectionnée (coût 1)",
+ "report": "Signaler la pièce sélectionnée comme en panne",
+ "signal": "courant en sortie",
+ "no_signal": "pas de courant en sortie",
+ "tests_used": "Tests utilisés : {n}",
+ "case_label": "Panne {n} sur {total}",
+ "select_hint": "Cliquez sur une pièce pour la sélectionner (ou appuyez sur son numéro, 1–6).",
+ "parts": [
+  "Tambour",
+  "Bobine",
+  "Vanne",
+  "Roue",
+  "Filtre",
+  "Pompe",
+  "Lentille",
+  "Ressort",
+  "Sonnette",
+  "Ventilateur",
+  "Clapet",
+  "Courroie"
+ ]
+}

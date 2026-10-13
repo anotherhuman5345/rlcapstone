@@ -1,0 +1,23 @@
+{
+ "instr": "Nuovo dispositivo: impara che cosa fanno sei pulsanti sconosciuti, poi usali per impostare delle lampade senza aiuto.",
+ "clue": "Questo dispositivo ha tre lampade e sei pulsanti sconosciuti. Primo obiettivo: una legenda sotto i pulsanti li spiega, quindi impara che cosa fa ciascuno. Per i due obiettivi successivi la legenda è nascosta: raggiungi ogni obiettivo a memoria. Una cornice tratteggiata intorno alle lampade indica che la modalità modifica è attiva; il piccolo segno mostra la lampada selezionata. Puoi anche premere 1–6 per i pulsanti. Premi Inizia quando sei pronto.",
+ "start": "Inizia",
+ "goal": "Imposta le lampade così: sinistra {l}, centro {m}, destra {r}. Poi conferma.",
+ "goal_label": "Obiettivo {n} di {total}",
+ "legend_title": "Legenda",
+ "next_goal": "Obiettivo successivo…",
+ "colors": [
+  "spenta",
+  "rossa",
+  "gialla",
+  "blu"
+ ],
+ "funcs": [
+  "Seleziona la lampada a sinistra (solo fuori dalla modalità modifica)",
+  "Seleziona la lampada a destra (solo fuori dalla modalità modifica)",
+  "Attiva o disattiva la modalità modifica",
+  "Dai alla lampada selezionata il colore successivo: spenta, rossa, gialla, blu, spenta… (solo in modalità modifica)",
+  "Spegni tutte le lampade",
+  "Conferma e completa l'obiettivo (solo fuori dalla modalità modifica)"
+ ]
+}

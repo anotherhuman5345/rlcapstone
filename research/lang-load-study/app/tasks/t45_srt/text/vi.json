@@ -1,0 +1,12 @@
+{
+ "instr": "Ô sáng: hãy nhấn phím hoặc ô ứng với ô vừa sáng lên, nhanh nhất có thể.",
+ "clue": "Một trong bốn ô sẽ sáng lên. Hãy nhấn phím của ô đó nhanh và chính xác nhất có thể: D, F, J hoặc K từ trái sang phải (hoặc 1, 2, 3, 4), hoặc chạm vào ô. Hãy tiếp tục cho đến hết. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "key_labels": [
+  "D / 1",
+  "F / 2",
+  "J / 3",
+  "K / 4"
+ ],
+ "progress": "{n} / {total}"
+}

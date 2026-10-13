@@ -1,0 +1,40 @@
+{
+ "instr": "Các bước vận hành máy: hãy học cách vận hành một chiếc máy tưởng tượng qua các bước được viết ra, rồi vận hành nó theo trí nhớ.",
+ "clue": "Trước tiên hãy đọc các bước vận hành máy và ví dụ mẫu; bạn có tối đa 45 giây. Sau đó các bước biến mất và bạn vận hành máy ba lần theo trí nhớ: nhìn màu đèn và con số, nhấn các nút theo đúng thứ tự (nhấp, chạm, hoặc phím 1-8), rồi nhấn Xong (Enter). Hoàn tác (Backspace) xóa lần nhấn cuối cùng của bạn. Khi sẵn sàng, hãy nhấn Bắt đầu.",
+ "start": "Bắt đầu",
+ "study_title": "Cách vận hành máy:",
+ "example": "Ví dụ mẫu: với chiếc máy này, các lần nhấn đúng là:",
+ "learned": "Tôi đã học xong",
+ "study_left": "Còn {s} giây",
+ "case_of": "Máy {n} / {total}",
+ "lamp": "Đèn",
+ "number": "Số",
+ "presses": "Các lần nhấn của bạn:",
+ "undo": "Hoàn tác",
+ "done": "Xong",
+ "colors": [
+  "đỏ",
+  "xanh dương"
+ ],
+ "step_fixed": "Nhấn {a}.",
+ "step_cond": "Nếu đèn màu {c}, nhấn {a}; nếu không, nhấn {b}.",
+ "step_repeat": "Nhấn {a} số lần bằng con số trên màn hình.",
+ "actions": [
+  "MỞ",
+  "ĐÓNG",
+  "ĐUN NÓNG",
+  "LÀM MÁT",
+  "KHUẤY",
+  "LẮC",
+  "ĐỔ ĐẦY",
+  "XẢ",
+  "NIÊM PHONG",
+  "ÉP",
+  "XOAY",
+  "NÂNG",
+  "KHÓA",
+  "RỬA",
+  "SẤY",
+  "CÂN"
+ ]
+}

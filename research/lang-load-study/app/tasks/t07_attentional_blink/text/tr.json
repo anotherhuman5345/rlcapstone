@@ -1,0 +1,5 @@
+{"instr": "Hızlı harfler: harfler çok hızlı yanıp söner; ardından kırmızı olan iki harfi söyleyin.",
+ "clue": "Kutuda harfler çok hızlı bir şekilde birbiri ardına görünür. Bunlardan ikisi kırmızıdır. Her diziden sonra iki kırmızı harfi seçin (tıklayarak ya da yazarak), sonra Tamam'a veya Enter'a basın. Emin değilseniz en iyi tahmininizi yapın. Hazır olunca Başla'ya basın.",
+ "start": "Başla", "ok": "Tamam", "undo": "Geri al",
+ "slots": "Kırmızı harfler: {a} {b}", "ask": "Hangi iki harf kırmızıydı?",
+ "progress": "Dizi {n}/{total}"}

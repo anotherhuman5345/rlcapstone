@@ -1,0 +1,8 @@
+{
+ "instr": "Ruta de reparto: planifique el recorrido de ida y vuelta más corto desde el almacén, pasando por todas las paradas.",
+ "clue": "Salga del almacén (el cuadrado oscuro), visite cada parada numerada una vez y vuelva al almacén. Haga el recorrido total lo más corto posible (distancia en línea recta). Haga clic o toque las paradas en el orden en que las visitaría, o escriba sus números. Deshacer (tecla Retroceso) quita la última parada. Pulse Listo (tecla Enter) cuando todas las paradas estén en su ruta. Pulse Iniciar cuando esté listo/a.",
+ "start": "Iniciar",
+ "undo": "Deshacer",
+ "erase": "Borrar todo",
+ "done": "Listo"
+}

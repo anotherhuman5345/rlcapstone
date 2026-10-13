@@ -1,0 +1,8 @@
+{
+ "instr": "Deret angka: temukan aturannya dan ketik angka berikutnya.",
+ "clue": "Setiap baris angka mengikuti SATU dari aturan berikut: setiap kali ditambah atau dikurangi angka yang sama; setiap kali dikali 2; selisihnya bertambah dengan jumlah yang sama setiap kali; atau dua deret bergantian, masing-masing dengan selisihnya sendiri. Ketik angka berikutnya dengan papan angka atau keyboard dan tekan OK (atau Enter). Tekan Mulai jika sudah siap.",
+ "start": "Mulai",
+ "ok": "OK",
+ "erase": "Hapus angka terakhir",
+ "progress": "Deret {i} dari {n}"
+}

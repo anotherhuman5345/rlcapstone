@@ -1,0 +1,9 @@
+{
+ "instr": "Ganjil atau genap, dengan sesuatu yang harus diingat: pilah angka menjadi ganjil atau genap, dan tekan Khusus setiap kali angka muncul di dalam bingkai persegi.",
+ "clue": "Angka-angka muncul satu per satu. Tekan Ganjil (panah kiri) atau Genap (panah kanan). Ingat: jika sebuah angka muncul di dalam bingkai persegi yang tebal, tekan Khusus (spasi) sebagai gantinya. Jawab dengan cepat. Tekan Mulai jika sudah siap.",
+ "odd": "Ganjil",
+ "even": "Genap",
+ "special": "Khusus",
+ "space": "spasi",
+ "start": "Mulai"
+}

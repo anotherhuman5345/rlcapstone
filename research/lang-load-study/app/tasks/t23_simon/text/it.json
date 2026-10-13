@@ -1,0 +1,7 @@
+{
+ "instr": "Cerchi colorati: premi il lato associato al colore del cerchio, ovunque compaia il cerchio.",
+ "clue": "Un cerchio compare a sinistra o a destra. Rispondi in base al suo COLORE, non alla sua posizione: premi il tasto freccia (o il pulsante) dal lato che mostra quel colore. Rispondi in modo rapido e preciso. Premi Inizia quando sei pronto.",
+ "left": "Sinistra",
+ "right": "Destra",
+ "start": "Inizia"
+}

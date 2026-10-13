@@ -1,0 +1,31 @@
+{
+ "instr": "Abläufe: Führen Sie eine Liste von Schritten der Reihe nach aus, indem Sie die Schritt-Schaltflächen anklicken; wenn eine andere Aufgabe Sie unterbricht, kehren Sie zurück und machen Sie dort weiter, wo Sie aufgehört haben.",
+ "clue": "Führen Sie den Ablauf aus: Klicken Sie die Schritt-Schaltflächen in der Reihenfolge der Liste an (oder drücken Sie ihre Zifferntasten). Führen Sie jeden Schritt einmal aus; nichts zeigt an, welche Schritte erledigt sind. Manchmal unterbricht Sie eine andere Aufgabe: Sagen Sie, ob jede Zahl gerade oder ungerade ist. Wenn der Ablauf zurückkommt, machen Sie dort weiter, wo Sie aufgehört haben. Drücken Sie „Starten“, wenn Sie bereit sind.",
+ "start": "Starten",
+ "case_label": "Aufgabe {n} von {total}",
+ "proc_title": "Ablauf",
+ "palette_title": "Schritt-Schaltflächen",
+ "interrupt_title": "Gerade oder ungerade?",
+ "interrupt_hint": "Linker Pfeil = gerade, rechter Pfeil = ungerade",
+ "even": "Gerade",
+ "odd": "Ungerade",
+ "next_case": "Nächste Aufgabe…",
+ "steps": [
+  "Code scannen",
+  "Paket wiegen",
+  "Siegel prüfen",
+  "Etikett drucken",
+  "Etikett anbringen",
+  "Uhrzeit notieren",
+  "Foto machen",
+  "Größe messen",
+  "Formular stempeln",
+  "Nach Farbe sortieren",
+  "Artikel einpacken",
+  "Schalter benachrichtigen",
+  "Teile zählen",
+  "Deckel schließen",
+  "Blatt unterschreiben",
+  "Ablage reinigen"
+ ]
+}

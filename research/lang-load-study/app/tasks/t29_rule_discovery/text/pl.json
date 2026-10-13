@@ -1,0 +1,8 @@
+{
+ "instr": "Sortowanie kart: dopasuj każdą kartę do jednej z czterech kart według ukrytej reguły, którą odkryjesz dzięki informacjom zwrotnym. Reguła może się zmienić.",
+ "clue": "Pod czterema kartami wzorcowymi pojawia się nowa karta. Dopasuj ją do jednej z nich, klikając lub dotykając tej karty albo naciskając 1-4. Karty mogą pasować kolorem, kształtem lub liczbą figur, ale nie dowiesz się, czym: powie ci to informacja zwrotna (dobrze / źle). Reguła co jakiś czas zmienia się bez ostrzeżenia; wtedy znajdź nową. Gdy będziesz gotowy/-a, naciśnij Start.",
+ "correct": "Dobrze",
+ "wrong": "Źle",
+ "too_slow": "Za wolno",
+ "start": "Start"
+}

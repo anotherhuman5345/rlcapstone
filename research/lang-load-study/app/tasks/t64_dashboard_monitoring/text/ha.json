@@ -1,0 +1,7 @@
+{
+ "instr": "Allon sa ido: ku kalli ma'aunai huɗu, ku amsa kawai idan sanda ta haura sama da layin ja kuma ta zauna a can.",
+ "clue": "Ku kalli ma'aunan huɗu. Idan sanda ta haura sama da layin ja kuma ta ZAUNA a sama da shi, ku danna wannan ma'auni (ko ku danna lambarsa, 1–4) da sauri gwargwadon iko. Kada ku kula da gajerun tsalle-tsalle da ke komawa nan take, kuma kada ku kula da sandunan da suka sauka ƙasa. Ku danna Fara idan kun shirya.",
+ "start": "Fara",
+ "hint": "Ku danna ma'aunin ko ku danna 1–4",
+ "gauges": ["Matsi", "Kwarara", "Zafi", "Gudu", "Nauyi", "Mataki", "Caji", "Sigina"]
+}

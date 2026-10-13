@@ -1,0 +1,10 @@
+{
+ "instr": "Flux de lettres : des lettres apparaissent une à une et s'arrêtent sans prévenir ; tapez alors seulement les dernières lettres, dans l'ordre.",
+ "clue": "Appuyez sur Démarrer. Les lettres apparaissent une à une et la liste s'arrête sans prévenir : gardez donc en tête les lettres les plus récentes. Quand elle s'arrête, tapez seulement les DERNIÈRES lettres vues, dans l'ordre où elles sont apparues. Utilisez ? pour une lettre dont vous ne vous souvenez pas, puis appuyez sur OK.",
+ "keep": "Retenez les {k} dernières lettres.",
+ "recall": "Tapez les {k} dernières lettres dans l'ordre où elles sont apparues.",
+ "unknown": "Je ne me souviens pas de cette lettre",
+ "start": "Démarrer",
+ "done": "OK",
+ "delete": "Effacer la dernière lettre"
+}
