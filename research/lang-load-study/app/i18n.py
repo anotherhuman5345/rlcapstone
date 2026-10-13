@@ -11,6 +11,7 @@ Each file holds:
 Only the CLUE on each trial switches language; that switch is the experimental
 manipulation. The interface stays in the language the participant picked.
 """
+import hashlib
 import json
 from pathlib import Path
 
@@ -22,10 +23,20 @@ ORDER = ("en", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de",
          "tr", "ha", "ta", "sw", "vi", "tl", "ko", "fa", "it", "pa", "gu", "th", "am", "kn", "pl")
 
 LOCALES = {}
+# Short hash of each file as loaded, stored on data rows as its translation version.
+LOCALE_HASH = {}
 for _code in ORDER:
     _path = LOCALE_DIR / f"{_code}.json"
     if _path.exists():
-        LOCALES[_code] = json.loads(_path.read_text(encoding="utf-8"))
+        _raw = _path.read_bytes()
+        LOCALES[_code] = json.loads(_raw)
+        LOCALE_HASH[_code] = hashlib.sha256(_raw).hexdigest()[:10]
+
+# Interface strings added after the 30 files were translated. Until a translator adds
+# them, unverified languages show the English text (see t() below). A language cannot
+# be marked verified, or used for real data, while any of these is missing from it.
+PENDING_UI_KEYS = {"withdraw_button", "withdraw_confirm", "time_up", "bg_l2_age_invalid",
+                   "final_optional", "final_skip", "saving_retry"}
 
 LANGUAGES = tuple(c for c in ORDER if c in LOCALES)
 
@@ -40,7 +51,9 @@ def direction(code: str) -> str:
 
 
 def verified(code: str) -> bool:
-    return bool(LOCALES[code].get("verified"))
+    # A checked file that lacks newer interface strings would show English mid-study.
+    complete = set(LOCALES["en"]["ui"]) <= set(LOCALES[code]["ui"])
+    return bool(LOCALES[code].get("verified")) and complete
 
 
 def t(lang: str):

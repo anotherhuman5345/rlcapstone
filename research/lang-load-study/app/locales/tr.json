@@ -85,7 +85,14 @@
   "instr_rule": "Kartlar ve kurallar: ipucu bir sınıflandırma kuralı verir; kartın A grubuna mı B grubuna mı ait olduğuna karar verin.",
   "instr_ospan": "İşlemler ve kelimeler: her işlemin doğru olup olmadığını söyleyin ve ardından gelen kelimeyi aklınızda tutun. Sonunda kelimelere gördüğünüz sırayla tıklayın.",
   "retention_title": "Son bir hafıza kontrolü",
-  "retention_q": "Bu kelimelerden hangilerini çalışmanın önceki bölümlerinde gördünüz? Gördüğünüzü hatırladığınız her birini işaretleyin."
+  "retention_q": "Bu kelimelerden hangilerini çalışmanın önceki bölümlerinde gördünüz? Gördüğünüzü hatırladığınız her birini işaretleyin.",
+  "withdraw_button": "Bırak / çalışmadan çekil",
+  "withdraw_confirm": "Çalışmayı şimdi bırakmak istiyor musunuz? Kalan soruları atlayabilirsiniz.",
+  "time_up": "Süre doldu. Görevler sona erdi; son sorular isteğe bağlıdır.",
+  "bg_l2_age_invalid": "Diğer dili öğrenmeye başladığınız yaş, şu anki yaşınızdan büyük olamaz.",
+  "final_optional": "Bu son sorular isteğe bağlıdır. Cevaplayabilir ya da atlayabilirsiniz.",
+  "final_skip": "Atla ve bitir",
+  "saving_retry": "Cevabınız kaydediliyor… Uzun sürerse lütfen internet bağlantınızı kontrol edin."
  },
  "clue": {
   "np": "{small} {color} {noun}",

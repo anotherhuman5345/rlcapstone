@@ -99,3 +99,7 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .lang-grid span { display: block; background: var(--paper); padding: .4rem .5rem; border: 1px solid var(--line); border-radius: 4px; text-align: center; }
 .lang-grid input:checked + span { background: var(--signal); border-color: var(--signal); color: #fff; }
 .lang-grid input:focus-visible + span { outline: 2px solid var(--signal); outline-offset: 2px; }
+/* Session deadline reached: hide every task element at once (static/session.js). */
+main.time-up > :not(.time-up-msg) { display: none !important; }
+.time-up-msg { font-size: 1.2rem; margin: 2rem 0; }
+.stop-buttons { display: inline-flex; gap: 0.5rem; flex-wrap: wrap; }

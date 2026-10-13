@@ -1,9 +1,10 @@
 # Study protocol (draft for mentor review)
 
 Status: draft. The demo works, but this protocol is **not ready for confirmatory data
-collection**. Before that, the priority-0 items of the October 2026 review (F01-F08)
-must be fixed, the translations must be reviewed by native speakers, and ethics (IRB)
-approval must exist in writing. Any change to the design described here needs my
+collection**. Most priority-0 items of the October 2026 review (F01-F05, F07, F08) are
+fixed and tested; retention bookkeeping (F06) is still open. Before collection the
+translations must also be reviewed by native speakers, and ethics (IRB) approval must
+exist in writing. Any change to the design described here needs my
 mentor's (the investigator's) approval first.
 
 ## Research questions
@@ -132,13 +133,18 @@ The session normally ends with the "I'm exhausted" button. Both the button and t
 `TASK_SOURCES.md`).
 
 Known problems with the procedure as coded (from the review):
-- The 60-minute limit is only checked when a new trial page loads, so someone can stay
-  on one page past the limit, and the clock starts at the start page, not at the first
-  scored item (F01). The clock origin still has to be decided.
-- Pressing "I'm exhausted" is recorded, but any other reason for stopping looks the
-  same, and the half-finished trial is lost (F05).
-- People whose two languages do not both have reading passages skip the reading task,
-  so they get a different battery (F16).
+- Fixed: the 60-minute limit now counts from the first scored item (consent,
+  background, instructions and practice excluded), is stored once and is enforced on
+  every screen and every write (F01). This clock origin is my proposal and needs my
+  mentor's approval.
+- Fixed: "I'm exhausted" and an ordinary "Stop / withdraw" are separate; the time-limit
+  stop, a stale browser tab and technical failures are recorded as their own reasons,
+  and the half-finished trial is kept (F05).
+- Reading passages now exist in all 30 languages, so every language pair gets the same
+  core battery (F16 for the core tasks; library tasks still depend on which tasks are
+  chosen).
+- The consent text still says people stop by closing the page; it should mention the
+  Stop / withdraw button (an ethics wording change).
 
 The 64 library tasks (`app/tasks/`) are not part of this procedure. They can be tried
 one at a time at `/try`, and they are only for demonstration until a decision is made
@@ -196,10 +202,10 @@ reading language, or a stated tie).
 The app does not ask for or store names, emails or IP addresses. The hosting platform
 keeps its own access logs, which are separate and still need to be checked (review F21).
 
-Known gaps in the data (review): responses on incorrect trials lose their RT and
-detailed task metrics are not exported (F04); version stamps are recalculated at export
-instead of being stored when the data were collected (F03). These must be fixed before
-real data are collected.
+Raw data (fixed after the review): every response keeps its RT and full raw data,
+search and scan record every click, task metrics and timing are exported (F04), and
+study, software, stimulus and translation versions are stored when each trial is shown,
+so later changes cannot rewrite what a person saw (F03).
 
 ## Exclusions (draft, to be finalised before collection)
 Failed attention check; self-rated reading below 3/7 in either language; response
@@ -208,12 +214,10 @@ already been seen). Pressing "I'm exhausted" is not an exclusion: trials up to t
 point are kept. For the gorilla, results are reported both with and without people who
 already knew the study.
 
-The current analysis script drops every session without a submitted final
-questionnaire ("incomplete sessions"). The review (F07) points out that this can remove
-exactly the people who were most tired, which would bias the fatigue and stopping
-results. Before collection I need to define which data count for which analysis (for
-example, a person who stopped and left before the final questions still counts for the
-stopping analysis), and report every exclusion and its reason.
+The analysis no longer drops sessions without a final questionnaire (review F07, fixed):
+each analysis has its own inclusion rule, a person who stopped and left before the final
+questions still counts for the stopping and performance analyses, and the report lists
+every exclusion with its reason. These rules still need to be agreed before collection.
 
 ## Analysis plan
 - H1: mixed-effects model, log RT ~ clue language x task (x group, exploratory), with
@@ -230,8 +234,7 @@ stopping analysis), and report every exclusion and its reason.
 - Time to exhaustion: a **session-level** outcome, described with a survival model by
   group (people stopped by the 60-minute maximum are censored), and compared with the
   fatigue ratings. It is not split by clue language, because every session mixes both.
-  The current survival code mishandles tied times (review F13) and must be fixed or
-  replaced first.
+  The survival code now handles tied times correctly (review F13, fixed and tested).
 - Every group difference is reported as an association, together with the alternative
   explanations listed above.
 

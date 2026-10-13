@@ -18,9 +18,15 @@
     });
   }
 
+  // A stop mid-trial keeps the sums judged and words recalled so far.
+  Study.setPartial(() => ({ response: { recall: recalled.slice(), sums: answers.slice() }, timed_out: false,
+                            rt_ms: t0 === null ? null : Math.round(performance.now() - t0) }));
+
   async function run() {
+    if (Study.stopped()) return;
     $("ospan-start").hidden = true;
     for (let k = 0; k < T.sums.length; k++) {
+      if (Study.stopped()) return;
       $("sum").textContent = T.sums[k];
       sumPhase.hidden = false;
       answers.push(await judge());

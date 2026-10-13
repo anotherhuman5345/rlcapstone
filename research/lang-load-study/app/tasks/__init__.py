@@ -11,6 +11,7 @@ Each folder (a Python package, e.g. app/tasks/t22_flanker/) holds:
 See app/tasks/README.md for the full contract. Folders load automatically; a task joins
 the study only when it is listed in config.ROUND_MIX.
 """
+import hashlib
 import importlib
 import json
 from pathlib import Path
@@ -24,8 +25,10 @@ class Plugin:
         self.meta = json.loads((folder / "task.json").read_text(encoding="utf-8"))
         self.id = self.meta["id"]
         self.logic = importlib.import_module(f"app.tasks.{folder.name}.logic")
-        self.text = {p.stem: json.loads(p.read_text(encoding="utf-8"))
-                     for p in sorted((folder / "text").glob("*.json"))}
+        files = sorted((folder / "text").glob("*.json"))
+        self.text = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in files}
+        # Version of each language's task text as loaded; stored on every data row.
+        self.text_hash = {p.stem: hashlib.sha256(p.read_bytes()).hexdigest()[:10] for p in files}
         self.template = f"{folder.name}/view.html"
         self.js = folder / "view.js"
 

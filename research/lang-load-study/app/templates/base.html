@@ -11,6 +11,10 @@
 <main class="{% block mainclass %}page{% endblock %}">
 {% block content %}{% endblock %}
 </main>
+{% if session %}{# Shared deadline, stop buttons and saving for every timed screen (static/session.js). #}
+<script>window.SESSION = {{ session | tojson }};</script>
+<script src="/static/session.js"></script>
+{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>

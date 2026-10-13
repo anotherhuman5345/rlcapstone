@@ -33,8 +33,16 @@ def main():
         problems.append(f'"code" should be "{code}"')
     if loc.get("dir") not in ("ltr", "rtl"):
         problems.append('"dir" must be "ltr" or "rtl"')
+    from app.i18n import PENDING_UI_KEYS
     missing = set(en["ui"]) - set(loc.get("ui", {}))
     extra = set(loc.get("ui", {})) - set(en["ui"])
+    # Newer strings fall back to English until translated; they block "verified" only.
+    pending = missing & PENDING_UI_KEYS
+    if pending:
+        print(f"note: not yet translated (English is shown): {sorted(pending)}")
+        if loc.get("verified"):
+            problems.append(f"verified file lacks: {sorted(pending)}")
+    missing -= PENDING_UI_KEYS
     if missing:
         problems.append(f"ui keys missing: {sorted(missing)}")
     if extra:

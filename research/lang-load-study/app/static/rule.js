@@ -14,5 +14,7 @@
     Study.askEffort({ response: answer, rt_ms: timedOut ? null : Math.round(performance.now() - t0),
                       timed_out: timedOut }, timedOut ? T.msgTimeout : "");
   }
+  Study.setPartial(() => ({ response: null, timed_out: false,
+                            rt_ms: t0 === null ? null : Math.round(performance.now() - t0) }));
   picks.forEach((b) => b.addEventListener("click", () => finish(b.dataset.v, false)));
 })();

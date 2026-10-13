@@ -85,7 +85,14 @@
   "instr_rule": "Cards and rules: the clue gives a sorting rule; decide whether the card belongs to group A or group B.",
   "instr_ospan": "Sums and words: say whether each sum is correct, and remember the word that follows it. At the end, click the words in the order you saw them.",
   "retention_title": "One last memory check",
-  "retention_q": "Which of these words did you see earlier in the study? Tick every one you remember seeing."
+  "retention_q": "Which of these words did you see earlier in the study? Tick every one you remember seeing.",
+  "withdraw_button": "Stop / withdraw",
+  "withdraw_confirm": "Stop taking part now? You can skip the remaining questions.",
+  "time_up": "Time is up. The tasks have ended; the last questions are optional.",
+  "bg_l2_age_invalid": "The age when you started learning your other language cannot be higher than your age.",
+  "final_optional": "These last questions are optional. You can answer them or skip them.",
+  "final_skip": "Skip and finish",
+  "saving_retry": "Saving your answer… If this takes long, please check your internet connection."
  },
  "clue": {
   "np": "{small} {color} {noun}",

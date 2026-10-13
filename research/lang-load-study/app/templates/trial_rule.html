@@ -4,7 +4,8 @@
 <header class="trial-head">
   <div class="trial-top">
     <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
-    <button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+    <span class="stop-buttons"><button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+    <button type="button" id="withdraw" class="quit">{{ _('withdraw_button') }}</button></span>
   </div>
   <p class="clue" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}" id="clue">{{ clue }}</p>
 </header>
@@ -22,7 +23,7 @@
 {% block scripts %}
 <script>
 window.TRIAL = { index: {{ n - 1 }}, timeout: {{ timeout }},
-  msgTimeout: {{ _('timeout') | tojson }}, msgQuitConfirm: {{ _('quit_confirm') | tojson }} };
+  msgTimeout: {{ _('timeout') | tojson }} };
 </script>
 <script src="/static/common.js"></script>
 <script src="/static/rule.js"></script>

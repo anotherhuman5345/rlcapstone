@@ -10,10 +10,16 @@
   let t0 = null, timer = null, done = false;
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
+  // A stop mid-trial keeps the clicks made so far.
+  Study.setPartial(() => ({ response: clicks.slice(), timed_out: false,
+                            rt_ms: t0 === null ? null : Math.round(performance.now() - t0) }));
+
   async function play() {
+    if (Study.stopped()) return;
     start.hidden = true;
     await wait(600);
     for (const i of T.sequence) {
+      if (Study.stopped()) return;
       blocks[i].classList.add("lit");
       await wait(500);
       blocks[i].classList.remove("lit");

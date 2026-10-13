@@ -6,11 +6,11 @@ harder, and does that cost differ between groups with different experience and
 education?**
 
 Status: **the demo works. It is not ready for confirmatory data collection.**
-No participant data has been collected. Before real collection, three things have to
-be true: the priority-0 problems from the October 2026 review (F01-F08: session
-deadline, stop reasons, raw-data exports, stored versions, retention bookkeeping,
-exclusions, concurrent submissions, database column size) are fixed; the translations
-I use are reviewed by native speakers; and ethics (IRB) approval exists in writing.
+No participant data has been collected. Most priority-0 problems from the October 2026
+review are fixed and tested (session deadline, stop reasons, raw-data exports, stored
+versions, exclusions, concurrent submissions, database column size); retention
+bookkeeping (F06) is still open. Before real collection, the translations I use must
+also be reviewed by native speakers, and ethics (IRB) approval must exist in writing.
 
 ## The question
 
@@ -43,7 +43,7 @@ explanations.
 
 ## Design
 
-People keep going **until they feel exhausted** and press the "I'm exhausted" button; the time it takes is the main (self-declared, session-level) fatigue measure. A safety maximum ends every session after **60 minutes** (`SESSION_LIMIT_MIN`), and the consent text says so.
+People keep going **until they feel exhausted** and press the "I'm exhausted" button; the time it takes is the main (self-declared, session-level) fatigue measure. A safety maximum ends every session **60 minutes** (`SESSION_LIMIT_MIN`) after the first scored picture (consent, background, instructions and practice do not count), and the consent text says so. The deadline is stored once and enforced on every task screen and every write; the final questions are outside it and optional after any stop.
 
 | Part | What happens | Compared |
 |---|---|---|
@@ -127,9 +127,8 @@ task comes from, and what I changed, is in `docs/TASK_SOURCES.md`.
 - **Equal comfort:** people can say they read both languages equally comfortably; the
   tie is stored rather than forcing a preference.
 - **Quality flags:** reloaded trials and trials where the tab was hidden are recorded and
-  dropped in analysis. Exported rows show study, stimulus and translation versions, but
-  right now those are worked out at export time, not stored when the data were
-  collected (review F03), so they are not yet trustworthy for old rows.
+  dropped in analysis. Study, software, stimulus and translation versions are stored
+  when each trial is shown; rows recorded before this change export "unknown".
 - **Outcomes:** for search scenes and scans, time to the correct click (ms), whether
   the target was found within 30 s and false clicks; the other tasks have their own
   response-time and accuracy definitions. A 1-9 mental-effort rating (Paas scale)
@@ -175,7 +174,7 @@ uvicorn app.main:app --reload           # open http://127.0.0.1:8000
 pytest -q                               # automated tests
 ```
 
-Admin page: `http://127.0.0.1:8000/admin?key=change-me` (CSV export from there).
+Admin page: `http://127.0.0.1:8000/admin?key=change-me` logs in (an HttpOnly cookie) and redirects to a URL without the key; the trial, session and fatigue CSV exports are linked from there.
 
 ## Analysis
 
@@ -195,7 +194,7 @@ explains how it will be done (by simulation for the mixed model).
 
 ## Before any real data collection
 
-1. Fix the review's priority-0 items (F01-F08) and add tests for them.
+1. Fix the review's remaining priority-0 item (F06, retention bookkeeping).
 2. Ethics/IRB approval in writing. Until then the site runs with `IRB_APPROVED=0`,
    shows a "demo only" banner, and marks every session as test data.
 3. Replace placeholder scans with 50 de-identified images provided by the lab (48 for
@@ -226,7 +225,7 @@ use and adds new columns automatically when a later version needs them.
 
 Any other host that runs Python or Docker also works: the included `Dockerfile`
 generates the images and starts the server on `$PORT` with a local SQLite file.
-The server refuses to start with `IRB_APPROVED=1` while `ADMIN_KEY` is still the default.
+The server refuses to start with `IRB_APPROVED=1` or `PUBLIC_DEPLOYMENT=1` while `ADMIN_KEY` is still the default; set `PUBLIC_DEPLOYMENT=1` on every internet-facing host, demo included.
 
 ## Project layout
 

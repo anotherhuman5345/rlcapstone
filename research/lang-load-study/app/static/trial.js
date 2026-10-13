@@ -1,5 +1,7 @@
 // One trial: show clue + image together, time until the correct click,
 // then collect a 1-9 mental-effort rating and send everything to the server.
+// Every click is kept (position and time from onset), so first-click time, first-click
+// correctness and wrong clicks can be scored on the server.
 (function () {
   const T = window.TRIAL;
   const img = document.getElementById("stim");
@@ -10,10 +12,19 @@
   const TOLERANCE = 1.6; // must match HIT_TOLERANCE on the server
 
   let t0 = null, done = false, falseClicks = 0, result = null, timer = null;
+  const clicks = []; // {x, y, t_ms} in natural image pixels, ms since onset
   let focusLost = 0; // leaving the tab mid-trial is recorded and flagged in analysis
   document.addEventListener("visibilitychange", () => { if (document.hidden) focusLost += 1; });
 
+  // What a stop (exhausted, withdrawn, time cap) sends for this trial: the finished
+  // result if only the effort rating is missing, otherwise the clicks so far.
+  Session.setPartial(() => result
+    ? { ...result, false_clicks: falseClicks, clicks, focus_lost: focusLost, complete: true }
+    : { clicks, false_clicks: falseClicks, focus_lost: focusLost, timed_out: false,
+        rt_ms: t0 === null ? null : Math.round(performance.now() - t0) });
+
   function begin() {
+    if (Session.stopped()) return;
     clue.hidden = false;
     img.classList.add("live");
     // Start the clock on the next frame, once clue and image are painted.
@@ -33,6 +44,7 @@
   }
 
   function finish(res, message) {
+    if (Session.stopped()) return;
     done = true;
     clearTimeout(timer);
     result = res;
@@ -47,55 +59,32 @@
   }
 
   img.addEventListener("pointerdown", (evt) => {
-    if (done || t0 === null) return;
+    if (done || t0 === null || Session.stopped()) return;
     const p = toNatural(evt);
+    const rt = Math.round(performance.now() - t0);
+    clicks.push({ x: p.x, y: p.y, t_ms: rt });
     const dist = Math.hypot(p.x - T.target.x, p.y - T.target.y);
     if (dist <= T.target.r * TOLERANCE) {
-      const rt = performance.now() - t0;
       mark.style.left = p.px + "px";
       mark.style.top = p.py + "px";
       mark.hidden = false;
-      finish({ rt_ms: Math.round(rt), click_x: p.x, click_y: p.y, timed_out: false }, T.msgFound);
+      finish({ rt_ms: rt, click_x: p.x, click_y: p.y, timed_out: false }, T.msgFound);
     } else {
       falseClicks += 1;
     }
   });
 
-  effortForm.addEventListener("submit", async (evt) => {
+  effortForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
     const effort = Number(new FormData(effortForm).get("effort"));
-    const btn = effortForm.querySelector("button");
-    btn.disabled = true;
-    const res = await fetch("/api/trial", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ trial_index: T.index, false_clicks: falseClicks, effort,
-                             focus_lost: focusLost, ...result })
-    });
-    if (res.ok) {
-      const data = await res.json();
-      window.location.href = data.next;
-    } else {
-      window.location.href = "/trial"; // resync if the trial was already recorded
-    }
+    effortForm.querySelector("button").disabled = true;
+    Session.submitTrial({ trial_index: T.index, false_clicks: falseClicks, clicks, effort,
+                          focus_lost: focusLost, ...result });
   });
 
-  // "I'm exhausted": stop now and go to the last questions. When people stop is data.
-  const quit = document.getElementById("quit");
-  if (quit) {
-    quit.addEventListener("click", async () => {
-      if (!window.confirm(T.msgQuitConfirm)) return;
-      done = true;
-      clearTimeout(timer);
-      const res = await fetch("/api/quit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ trial_index: T.index })
-      });
-      window.location.href = res.ok ? (await res.json()).next : "/final";
-    });
-  }
-
+  // A picture that cannot load makes the trial impossible: record it, do not guess.
+  img.addEventListener("error", () => Session.stop("technical_failure"), { once: true });
   if (img.complete && img.naturalWidth) begin();
+  else if (img.complete) Session.stop("technical_failure"); // failed before this script ran
   else img.addEventListener("load", begin, { once: true });
 })();
