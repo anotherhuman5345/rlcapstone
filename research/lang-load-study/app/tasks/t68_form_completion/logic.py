@@ -12,6 +12,15 @@ Pairs (k, k+1) share the rule set and which rules apply; record values differ.
 """
 import re
 
+from app.tasks import _guard as G
+
+TIMING = "limit"
+LIMIT_MS = 230000         # item limit_ms: view.js submits the form itself after it.limit_ms
+TIME_SLACK_MS = 1000      # timer tolerance at the limit
+TEXT_FIELDS = ("family", "given", "member", "birth", "postcode", "phone", "amount")
+N_OPTIONS = {"plan": 3, "contact": 3}   # text "plans" / "contacts"
+MAX_TEXT = 200
+CEILING_MS = G.trial_ceiling(__file__)
 RULES = 5                 # text "rules": 0 junior, 1 amount cap, 2 no phone, 3 short postcode, 4 capitals
 JUNIOR_YEAR = 2008
 FIELDS = ["family", "given", "member", "birth", "postcode", "phone", "plan", "contact", "amount"]
@@ -51,7 +60,7 @@ def generate(rng, n, save_image):
         on = rng.sample(rules, 2)
         for _ in range(2):
             items.append({"record": _record(rng, rules, on), "rules": rng.sample(rules, 3),
-                          "junior_year": JUNIOR_YEAR, "limit_ms": 230000})
+                          "junior_year": JUNIOR_YEAR, "limit_ms": LIMIT_MS})
     return items[:n]
 
 
@@ -110,20 +119,47 @@ def _field_ok(name, value, gold):
     return _int(value) == gold                               # plan, contact, amount
 
 
+def _fields(a, f):
+    """The submitted field values, validated: text fields must be strings (the browser sends
+    the raw input values), plan / contact an option index or null. A missing or malformed
+    field is flagged and replaced by None (so it is scored wrong)."""
+    out = {}
+    for k in FIELDS:
+        if k not in f:
+            a.malformed(f"missing_{k}")
+            out[k] = None
+            continue
+        v = f[k]
+        if k in TEXT_FIELDS:
+            ok = isinstance(v, str) and len(v) <= MAX_TEXT
+        else:
+            ok = v is None or G.member(v, range(N_OPTIONS[k]))
+        if not ok:
+            a.malformed(f"invalid_{k}")
+            v = None
+        out[k] = v
+    return out
+
+
+@G.safe
 def score(item, response):
     """response: {"fields": {family, given, member, birth, postcode, phone: str;
-    plan, contact: option index or null; amount: str}, "time_ms": ms, "help_views": int,
-    "autofill_events": int, "paste_events": int}.
-    Text is compared after trimming and collapsing spaces; names must match exactly
+    plan, contact: option index or null; amount: str}, "time_ms": ms from Start to the
+    submission, "help_views": int, "autofill_events": int, "paste_events": int}.
+    Fields are validated (a missing field or one of the wrong type is flagged and scored
+    wrong). Text is compared after trimming and collapsing spaces; names must match exactly
     (case included, because one rule concerns capitals); numbers by their digits; the date
     as day.month.year (dots, slashes or dashes).
     exception errors = wrong fields among those a triggered rule changes; over-applied =
     the lure rule's effect was applied although its condition was false.
-    hit = no exception errors AND at most 1 other field wrong."""
-    miss = {"hit": False, "errors": len(FIELDS), "metrics": {}}
+    The submission is the decisive action: time_ms must be a valid time (finite, >= 100 ms)
+    inside the 230 s limit (item limit_ms, view.js) + 1 s tolerance; a form submitted
+    with a missing, non-finite, negative or late time never counts (flagged).
+    hit = no exception errors AND at most 1 other field wrong AND a valid submission time."""
+    a = G.Audit(CEILING_MS)
     if not isinstance(response, dict) or not isinstance(response.get("fields"), dict):
-        return miss
-    f = response["fields"]
+        return a.junk(len(FIELDS))
+    f = _fields(a, response["fields"])
     rec = item["record"]
     gold, changed = gold_form(rec, item["rules"], item["junior_year"])
     wrong = [k for k in FIELDS if not _field_ok(k, f.get(k), gold[k])]
@@ -138,14 +174,20 @@ def score(item, response):
                 or r == 3 and isinstance(v, str) and v.strip() == "0" + rec["postcode"] \
                 or r == 4 and isinstance(v, str) and _text(v) == rec["family"].upper():
             over += 1
-    num = lambda k: int(response[k]) if isinstance(response.get(k), (int, float)) and not isinstance(response.get(k), bool) else None  # noqa: E731
-    return {"hit": not exc_err and len(other) <= 1,
-            "errors": len(wrong),
-            "metrics": {"fields_correct": len(FIELDS) - len(wrong), "fields_total": len(FIELDS),
-                        "exception_errors": len(exc_err), "exceptions_total": len(changed),
-                        "other_errors": len(other), "wrong_fields": wrong, "over_applied_rules": over,
-                        "time_ms": num("time_ms"), "help_views": num("help_views"),
-                        "autofill_events": num("autofill_events"), "paste_events": num("paste_events")}}
+    st, t = a.time(response.get("time_ms", G.MISSING), field="time_ms", window=item.get("limit_ms", LIMIT_MS),
+                   slack=TIME_SLACK_MS, required=True)
+    a.record(st)
+    form_ok = not exc_err and len(other) <= 1
+    if form_ok and st != G.TIMELY:
+        a.flag("submission_outside_time_limit")
+    return a.finish(form_ok and st == G.TIMELY, len(wrong), {
+        "fields_correct": len(FIELDS) - len(wrong), "fields_total": len(FIELDS),
+        "exception_errors": len(exc_err), "exceptions_total": len(changed),
+        "other_errors": len(other), "wrong_fields": wrong, "over_applied_rules": over,
+        "time_ms": t if st == G.TIMELY else None,
+        "help_views": a.opt_int(response, "help_views", hi=100000),
+        "autofill_events": a.opt_int(response, "autofill_events", hi=100000),
+        "paste_events": a.opt_int(response, "paste_events", hi=100000)})
 
 
 def example_response(item, correct=True):

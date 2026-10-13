@@ -20,8 +20,12 @@ distinct equally likely outcome; ordered draws via itertools.product with replac
 itertools.permutations without) and the two probabilities compared exactly as fractions.
 """
 import itertools
-import statistics
 from fractions import Fraction
+
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js answer() has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 
 TYPES = ["urn", "trap", "dice", "draws"]
 
@@ -95,21 +99,34 @@ def generate(rng, n, save_image):
     return items[:n]
 
 
+@G.safe
 def score(item, response):
-    """response: [{"choice": "a" | "b" | "equal" | null, "rt": ms}] in comparison order.
+    """response: [{"choice": "a" | "b" | "equal" | null, "rt": ms}] in comparison order, one
+    entry per comparison (missing entries are omissions, extra ones ignored; both flagged).
+    Any other choice value is flagged and scored wrong.
     Correct = the choice matches the enumerated comparison. hit = at least 3 of 4 correct.
     Error categories: ratio_bias (trap: picked the bag with more red balls), replacement
-    (draws: wrong), tie_missed (exact tie not called equal), false_tie (equal when not)."""
-    comps = item.get("comparisons", []) if isinstance(item, dict) else []
-    resp = response if isinstance(response, list) else []
+    (draws: wrong), tie_missed (exact tie not called equal), false_tie (equal when not).
+    Untimed: rt is descriptive, checked (finite, >= 100 ms, below the trial timeout) and
+    null when bad (flagged); correctness stands."""
+    a = G.Audit(CEILING_MS)
+    comps = item["comparisons"]
+    if not isinstance(response, list):
+        return a.junk(len(comps))
     rows = []
     errs = {"ratio_bias": 0, "replacement": 0, "tie_missed": 0, "false_tie": 0}
-    for k, c in enumerate(comps):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
+    for k, (c, r) in enumerate(zip(comps, a.entries(response, len(comps)))):
         key = key_of(c)
-        choice = r.get("choice") if r.get("choice") in ("a", "b", "equal") else None
+        ev = a.obj(r)
+        choice, rt = None, None
+        if ev is not None:
+            if "choice" not in ev:
+                a.malformed("missing_choice")
+            else:
+                choice = a.choice(ev["choice"], ("a", "b", "equal"), "choice")
+                choice = None if choice is G.BAD else choice
+            rt = a.duration(ev, "rt")
         ok = choice == key
-        rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
         if not ok and choice is not None:
             if key == "equal":
                 errs["tie_missed"] += 1
@@ -121,14 +138,14 @@ def score(item, response):
                 errs["replacement"] += 1
         rows.append({"type": c["type"], "ok": ok, "rt": rt, "omit": choice is None})
     n_ok = sum(r["ok"] for r in rows)
-    rts = [r["rt"] for r in rows if r["ok"] and r["rt"]]
-    return {"hit": bool(rows) and n_ok >= 3, "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(n_ok / (len(rows) or 1), 3),
-                        "correct_by_type": {r["type"]: r["ok"] for r in rows},
-                        "rt_by_type": {r["type"]: r["rt"] for r in rows},
-                        "error_categories": errs,
-                        "median_rt_correct": round(statistics.median(rts), 1) if rts else None,
-                        "omissions": sum(r["omit"] for r in rows)}}
+    rts = [r["rt"] for r in rows if r["ok"] and r["rt"] is not None]
+    return a.finish(bool(rows) and n_ok >= 3, len(rows) - n_ok, {
+        "accuracy": round(n_ok / (len(rows) or 1), 3),
+        "correct_by_type": {r["type"]: r["ok"] for r in rows},
+        "rt_by_type": {r["type"]: r["rt"] for r in rows},
+        "error_categories": errs,
+        "median_rt_correct": G.median(rts),
+        "omissions": sum(r["omit"] for r in rows)})
 
 
 def example_response(item, correct=True):

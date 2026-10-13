@@ -7,7 +7,12 @@ rate and the motion shown is exactly the one stored. Objects bounce off the wall
 each other; their IDs never change. Pairs (k, k+1) share the target-count order and speed;
 only the paths and target IDs differ."""
 import math
-import statistics
+
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # view.js select() has no time limit; rt is descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
+MAX_SELECTED = 100   # selection entries read per round
 
 W, H, R = 600, 400, 18
 N_OBJ = 8
@@ -80,33 +85,75 @@ def generate(rng, n, save_image):
     return items
 
 
-def _num(x):
-    return float(x) if isinstance(x, (int, float)) and not isinstance(x, bool) and x == x else None
+def _selection(raw, n, k, a):
+    """The selected object ids as a set, or None when the round's selection is invalid.
+    The view only allows Done with exactly k distinct ids 0..n-1. Ids that are not
+    integers in range are flagged and dropped; repeated ids are flagged and counted once;
+    fewer than k ids are flagged (scored as given); MORE than k ids are flagged and the
+    round is invalid (selecting extra objects must never earn target credit)."""
+    if raw is G.MISSING:
+        a.malformed("missing_selected")
+        return None
+    if not isinstance(raw, list):
+        a.malformed("invalid_selected")
+        return None
+    sel = set()
+    for s in raw[:MAX_SELECTED]:
+        if not G.member(s, range(n)):
+            a.malformed("invalid_selected_id")
+        elif s in sel:
+            a.malformed("duplicate_selected")
+        else:
+            sel.add(s)
+    if len(raw) > MAX_SELECTED:
+        a.flag("too_many_selected_entries")
+    if len(sel) > k:
+        a.malformed("too_many_selected")
+        return None
+    if len(sel) < k:
+        a.flag("too_few_selected")
+    return sel
 
 
+@G.safe
 def score(item, response):
-    """response: [{"selected": [object ids], "rt": ms}] in round order (rt from motion end
-    to "Done"). Per round: target proportion = correctly selected targets / k; exact = the
-    selected set equals the target set; false selections = selected non-targets.
-    hit = mean target proportion over the rounds >= 0.75 (guessing gives about 0.375)."""
-    resp = response if isinstance(response, list) else []
+    """response: [{"selected": [object ids], "rt": ms}] in round order, one entry per round
+    (missing entries are invalid rounds, extra ones ignored; both flagged); rt from motion
+    end to "Done". Per round: target proportion = correctly selected targets / k; exact =
+    the selected set equals the target set; false selections = selected non-targets.
+    The selection must be at most k distinct ids 0..n-1 (the view requires exactly k):
+    a round with more than k ids is invalid and scores 0 (flagged); bad / repeated ids
+    are flagged and dropped / counted once.
+    hit = mean target proportion over the rounds >= 0.75 (guessing gives about 0.375).
+    Selection is unspeeded: rt is descriptive, checked (finite, >= 100 ms, below the
+    trial timeout) and null when bad (flagged); correctness stands."""
+    a = G.Audit(CEILING_MS)
+    rounds = item["rounds"]
+    if not isinstance(response, list):
+        return a.junk(len(rounds))
     rows = []
-    for k, rd in enumerate(item["rounds"]):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        raw = r.get("selected") if isinstance(r.get("selected"), list) else []
-        sel = {s for s in raw if isinstance(s, int) and not isinstance(s, bool) and 0 <= s < item["n"]}
+    for rd, r in zip(rounds, a.entries(response, len(rounds))):
+        ev = a.obj(r)
         tg = set(rd["targets"])
-        rows.append({"k": rd["k"], "prop": len(sel & tg) / len(tg), "exact": sel == tg,
-                     "false": len(sel - tg), "rt": _num(r.get("rt"))})
+        sel, rt = None, None
+        if ev is not None:
+            sel = _selection(ev.get("selected", G.MISSING), item["n"], rd["k"], a)
+            rt = a.duration(ev, "rt")
+        if sel is None:
+            rows.append({"k": rd["k"], "prop": 0.0, "exact": False, "false": 0, "rt": rt, "valid": False})
+        else:
+            rows.append({"k": rd["k"], "prop": len(sel & tg) / len(tg), "exact": sel == tg,
+                         "false": len(sel - tg), "rt": rt, "valid": True})
     mean_prop = sum(r["prop"] for r in rows) / len(rows) if rows else 0.0
-    rts = [r["rt"] for r in rows if r["rt"] is not None and r["rt"] > 0]
-    return {"hit": mean_prop >= 0.75, "errors": sum(not r["exact"] for r in rows),
-            "metrics": {"target_proportion": round(mean_prop, 3),
-                        "exact_rounds": sum(r["exact"] for r in rows), "rounds": len(rows),
-                        "false_selections": sum(r["false"] for r in rows),
-                        "proportion_by_k": {str(r["k"]): round(r["prop"], 3) for r in rows},
-                        "exact_by_k": {str(r["k"]): r["exact"] for r in rows},
-                        "median_selection_rt": round(statistics.median(rts), 1) if rts else None}}
+    rts = [r["rt"] for r in rows if r["rt"] is not None]
+    return a.finish(mean_prop >= 0.75, sum(not r["exact"] for r in rows), {
+        "target_proportion": round(mean_prop, 3),
+        "exact_rounds": sum(r["exact"] for r in rows), "rounds": len(rows),
+        "invalid_rounds": sum(not r["valid"] for r in rows),
+        "false_selections": sum(r["false"] for r in rows),
+        "proportion_by_k": {str(r["k"]): round(r["prop"], 3) for r in rows},
+        "exact_by_k": {str(r["k"]): r["exact"] for r in rows},
+        "median_selection_rt": G.median(rts)})
 
 
 def example_response(item, correct=True):

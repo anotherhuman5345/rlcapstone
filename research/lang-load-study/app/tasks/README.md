@@ -33,9 +33,34 @@ def score(item, response) -> {"hit": bool, "errors": int, "metrics": dict}:
     (solver, simulator, parser), not trusted from the browser."""
 
 def example_response(item, correct=True):
-    """A response the browser could send: correct=True must score as a hit,
+    """A response the browser could send: correct=True must score as a clean hit (no flags),
     correct=False as a miss. Used by tests."""
+
+TIMING = "window"    # or "limit" / "untimed" (below)
+WINDOW_MS = 2000     # with "window": the per-event response window (LIMIT_MS with "limit")
 ```
+
+### Validating responses (`_guard.py`)
+
+The browser's response is untrusted input. Score it at the event level with the shared
+helpers in `app/tasks/_guard.py` (`from app.tasks import _guard as G`; decorate `score` with
+`@G.safe`, build one `G.Audit(G.trial_ceiling(__file__))` per call and return
+`audit.finish(hit, errors, metrics)`). Every event gets one status: absent, invalid
+(wrong type, non-finite / negative / impossible time, unknown key, key without time, entry
+missing), anticipatory (< 100 ms), late (beyond the documented window) or timely.
+
+- `TIMING = "window"`: events have a response window (often set in view.js, e.g.
+  `await answer(2000)`; copy it into `WINDOW_MS`). Only a timely response counts as made;
+  a withhold (no-go, stop, standard) succeeds only when the event is absent, never when its
+  entry is malformed.
+- `TIMING = "limit"`: the decisive action (solving move, final click, submitted answer) must
+  carry a valid time inside `LIMIT_MS`.
+- `TIMING = "untimed"`: times are descriptive; bad ones are flagged and reported as null.
+
+Malformed data never crashes a scorer and never passes silently: `metrics["flags"]` lists
+everything abnormal (e.g. `invalid_rt`, `late_rt`, `extra_events`, `missing_audio`) and
+`metrics["invalid_events"]` counts malformed events; a clean response has no flags.
+Metrics must be strict JSON (no NaN/Infinity).
 
 ## view.js
 
@@ -79,5 +104,16 @@ python tools/check_task.py <id>
 ```
 
 It checks determinism, scoring of correct/wrong/junk responses, matching text keys,
-template rendering per language, and JavaScript syntax. A task joins the study only when
-listed in `ROUND_MIX`; every task can be tried alone at `/try/<id>`.
+template rendering per language, and JavaScript syntax. Then run
+
+```bash
+python tools/adversarial_check.py <id>
+```
+
+which mutates the correct example response (times set to 999999, -5, 0, NaN, Infinity,
+strings, null; events reordered, duplicated, nulled or blown up to 10 000; wrong types at
+every level; fields deleted or added) and checks that impossible or late times never score
+as a timely correct response and malformed payloads never score as a clean hit (rules in
+the script's docstring; `tests/test_adversarial.py` runs it for every task).
+
+A task joins the study only when listed in `ROUND_MIX`; every task can be tried alone at `/try/<id>`.

@@ -9,10 +9,16 @@ Pairs (k, k+1) have the same number of animals, the same multiset of constraint 
 and one solution each; pairs alternate 4 animals (3-4 sentences) and 5 animals (4-6).
 score() checks the submitted row against every constraint itself, so any valid
 arrangement is accepted."""
+import functools
+import json
 from itertools import permutations
 
+from app.tasks import _guard as G
+
+TIMING = "limit"       # the Done press (rt_ms) must come inside LIMIT_MS
 N_OBJECTS = 8          # animals in text/<lang>.json "objects"
-LIMIT_MS = 90000
+LIMIT_MS = 90000       # view.js: setTimeout(() => end(true, false), it.limit_ms || 90000)
+CEILING_MS = G.trial_ceiling(__file__)
 LEVELS = ((4, 3, 4), (5, 4, 6))   # (animals, min sentences, max sentences)
 TYPES = ("left_of", "next_left", "adjacent", "not_adjacent", "at", "not_at", "end", "not_end", "between")
 
@@ -130,42 +136,69 @@ def generate(rng, n_items, save_image):
     return items[:n_items]
 
 
-def _num(v):
-    return round(float(v), 1) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+@functools.lru_cache(maxsize=256)
+def _n_solutions(key):
+    """Solver solution count for one item, memoized on a JSON key (n, constraints)."""
+    n, cons = json.loads(key)
+    return len(solutions(n, cons))
 
 
+def _order(a, order, n):
+    """The submitted row: (list of n entries, complete). Entries are object indices or None
+    (an empty place, which the browser sends on time-out / give up). A row that is not a
+    list of n entries, holds anything else, or repeats an object is malformed (flagged)."""
+    if order is G.MISSING:
+        a.malformed("missing_order")
+        return None, False
+    if not isinstance(order, list):
+        a.malformed("invalid_order")
+        return None, False
+    if len(order) != n:
+        a.malformed("missing_order_entries" if len(order) < n else "extra_order_entries")
+        return None, False
+    if not all(o is None or G.member(o, range(n)) for o in order):
+        a.malformed("invalid_order_entry")
+        return None, False
+    placed = [o for o in order if o is not None]
+    if len(set(placed)) != len(placed):
+        a.malformed("duplicate_order_entry")
+        return None, False
+    return order, len(placed) == n
+
+
+@G.safe
 def score(item, response):
     """response: {"order": [object index at place 1, place 2, ...], "changes", "first_move_ms",
-    "rt_ms", "gave_up"}; object indices refer to item["objects"] (0..n-1).
-    hit = the order is a complete arrangement (each object exactly once) and every
-    constraint holds; any arrangement that satisfies all constraints counts, not only the
-    generator's. errors = number of violated constraints (all of them if the order is
-    incomplete or invalid). Metrics: violations, solver solution count, changes, times."""
-    miss = {"hit": False, "errors": 0, "metrics": {}}
-    try:
-        if not isinstance(response, dict):
-            return miss
-        n, cons = item["n"], item["constraints"]
-        order = response.get("order")
-        valid = (isinstance(order, list) and len(order) == n
-                 and all(isinstance(o, int) and not isinstance(o, bool) for o in order)
-                 and sorted(order) == list(range(n)))
-        if valid:
-            pos = [0] * n
-            for place, o in enumerate(order):
-                pos[o] = place
-            violated = sum(1 for c in cons if not holds(c, pos, n))
-        else:
-            violated = len(cons)
-        hit = valid and violated == 0
-        return {"hit": hit, "errors": violated,
-                "metrics": {"complete": valid, "violations": violated, "constraints": len(cons),
-                            "objects": n, "n_solutions": len(solutions(n, cons)),
-                            "changes": response.get("changes") if isinstance(response.get("changes"), int) else None,
-                            "first_move_ms": _num(response.get("first_move_ms")),
-                            "rt_ms": _num(response.get("rt_ms")), "gave_up": response.get("gave_up") is True}}
-    except Exception:
-        return miss
+    "rt_ms", "gave_up"}; object indices refer to item["objects"] (0..n-1), null = empty place.
+    hit = the order is a complete arrangement (each object exactly once), every constraint
+    holds (any arrangement that satisfies all constraints counts, not only the generator's)
+    AND the row was sent with a valid rt_ms inside the 90 s limit (a missing, non-finite,
+    negative or late time never counts). errors = number of violated constraints (all of
+    them if the order is incomplete or invalid). Metrics: violations, solver solution count,
+    changes, times; malformed fields are flagged."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
+    n, cons = item["n"], item["constraints"]
+    order, valid = _order(a, response.get("order", G.MISSING), n)
+    if valid:
+        pos = [0] * n
+        for place, o in enumerate(order):
+            pos[o] = place
+        violated = sum(1 for c in cons if not holds(c, pos, n))
+    else:
+        violated = len(cons)
+    st, rt = a.time(response.get("rt_ms"), field="rt_ms", window=LIMIT_MS, required=True)
+    if valid and violated == 0 and st != G.TIMELY:
+        a.flag("solved_outside_time_limit")
+    hit = valid and violated == 0 and st == G.TIMELY
+    return a.finish(hit, violated, {
+        "complete": valid, "violations": violated, "constraints": len(cons),
+        "objects": n, "n_solutions": _n_solutions(json.dumps([n, cons], sort_keys=True)),
+        "changes": a.opt_int(response, "changes"),
+        "first_move_ms": a.duration(response, "first_move_ms", window=LIMIT_MS),
+        "rt_ms": rt if st in (G.TIMELY, G.LATE, G.ANTICIPATORY) else None,
+        "rt_status": st, "gave_up": a.opt_bool(response, "gave_up")})
 
 
 def example_response(item, correct=True):

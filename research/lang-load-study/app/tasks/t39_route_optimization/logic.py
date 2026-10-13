@@ -13,8 +13,16 @@ The optimum is computed exactly (Held-Karp dynamic programming over all subsets;
 8 stops) inside score(), never taken from the browser. Stop count cycles 5, 6, 7, 8
 across pairs; both items of a pair have the same number of stops."""
 
+import functools
+import json
 import math
 
+from app.tasks import _guard as G
+
+TIMING = "limit"        # the Done press (rt) must come inside LIMIT_MS
+LIMIT_MS = 100000       # view.js: timer = setTimeout(() => end(true), 100000)
+CEILING_MS = G.trial_ceiling(__file__)
+MAX_ORDER = 100
 COUNTS = (5, 6, 7, 8)
 TOLERANCE = 0.05
 
@@ -80,35 +88,51 @@ def generate(rng, n, save_image):
     return [_map(rng, COUNTS[(k // 2) % len(COUNTS)]) for k in range(n)]
 
 
-def _num(v):
-    return v if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+@functools.lru_cache(maxsize=256)
+def _optimum_cached(key):
+    """optimum() for one map, memoized on a JSON key (depot, stops)."""
+    depot, stops = json.loads(key)
+    return optimum({"depot": depot, "stops": stops})
 
 
+@G.safe
 def score(item, response):
     """response: {"order": [stop index, ...] in visiting order (0-based), "undos": int,
     "plan_ms": ms from Start to first stop, "rt": ms from Start to Done}.
-    hit = the route visits every stop exactly once (no constraint violations) and its cost
-    is at most 5% above the exact optimum. Metrics: route cost, optimal cost, ratio to
-    optimum, optimal (cost equals the optimum: tied optima all count), violations
-    (missing + repeated + unknown stops), undos, planning and total time."""
+    hit = the route visits every stop exactly once (no constraint violations), its cost
+    is at most 5% above the exact optimum AND the route was sent with a valid rt inside the
+    100 s limit (a missing, non-finite, negative or late time never counts). Unknown or
+    repeated stops (the browser cannot send them) are flagged. Metrics: route cost, optimal
+    cost, ratio to optimum, optimal (cost equals the optimum: tied optima all count),
+    violations (missing + repeated + unknown stops), undos, planning and total time."""
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk()
     n = len(item["stops"])
-    order = response.get("order") if isinstance(response, dict) else None
-    order = order if isinstance(order, list) else []
-    valid = [i for i in order if isinstance(i, int) and not isinstance(i, bool) and 0 <= i < n]
+    order = a.stream(response.get("order", G.MISSING), "order", cap=MAX_ORDER)
+    valid = [i for i in order if G.member(i, range(n))]
     unknown = len(order) - len(valid)
     repeats = len(valid) - len(set(valid))
     missing = n - len(set(valid))
+    if unknown:
+        a.malformed("unknown_stop")
+    if repeats:
+        a.malformed("repeated_stop")
     violations = unknown + repeats + missing
-    opt = optimum(item)
+    opt = _optimum_cached(json.dumps([item["depot"], item["stops"]]))
     cost = route_cost(item, valid) if violations == 0 else None
     ratio = round(cost / opt, 4) if cost is not None else None
-    hit = cost is not None and cost <= (1 + TOLERANCE) * opt
-    r = response if isinstance(response, dict) else {}
-    return {"hit": hit, "errors": violations + (0 if hit else 1),
-            "metrics": {"route_cost": cost, "optimal_cost": opt, "ratio_to_optimum": ratio,
-                        "optimal": cost == opt, "n_stops": n, "violations": violations,
-                        "missing": missing, "repeats": repeats, "undos": _num(r.get("undos")),
-                        "plan_ms": _num(r.get("plan_ms")), "rt": _num(r.get("rt"))}}
+    good = cost is not None and cost <= (1 + TOLERANCE) * opt
+    st, rt = a.time(response.get("rt"), field="rt", window=LIMIT_MS, required=True)
+    if good and st != G.TIMELY:
+        a.flag("solved_outside_time_limit")
+    hit = good and st == G.TIMELY
+    plan = a.duration(response, "plan_ms", window=LIMIT_MS)
+    return a.finish(hit, violations + (0 if hit else 1), {
+        "route_cost": cost, "optimal_cost": opt, "ratio_to_optimum": ratio,
+        "optimal": cost == opt, "n_stops": n, "violations": violations,
+        "missing": missing, "repeats": repeats, "undos": a.opt_int(response, "undos"),
+        "plan_ms": plan, "rt": rt, "rt_status": st})
 
 
 def example_response(item, correct=True):

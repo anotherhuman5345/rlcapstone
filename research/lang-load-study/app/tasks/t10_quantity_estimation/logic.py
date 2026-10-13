@@ -14,13 +14,18 @@ variants shows how much an estimate follows ink, density or spread."""
 import math
 import unicodedata
 
+from app.tasks import _guard as G
+
 NUMBERS = [10, 20, 40]
 VARIANTS = ["size", "area", "field"]
 BASE_R = 9.0
 BASE_FIELD = 140.0
 GAP = 4.0
 FLASH_MS = 200
-LIMIT_MS = 10000
+TIMING = "limit"      # each estimate must be entered within the entry limit (see _guard.py)
+LIMIT_MS = 10000      # view.js: ask() ends the entry after item.limit_ms (setTimeout(..., limit))
+TIME_SLACK_MS = 1000  # timer tolerance at the limit
+CEILING_MS = G.trial_ceiling(__file__)
 MAX_ANSWER = 999
 
 
@@ -78,56 +83,104 @@ def parse_estimate(v):
 
 
 def _events(response):
-    ev = response.get("events") if isinstance(response, dict) else response
-    return ev if isinstance(ev, list) else []
+    """The per-display list: response["events"] (a bare list is also accepted)."""
+    if isinstance(response, list):
+        return response
+    return response.get("events", G.MISSING)
 
 
+@G.safe
 def score(item, response):
-    """response: {"events": [{"estimate": int or digit string or null, "rt": ms from the
-    entry prompt to confirming}], "interruptions": n} (a bare list is also accepted), in
-    display order. The true count is len(display["dots"]) (counted, not trusted from "n").
+    """response: {"events": [{"estimate": digit string (any script) or int or null, "rt": ms
+    from the entry prompt to confirming (or to the 10 s timeout), "confirmed": bool (false =
+    the 10 s limit ran out and whatever was typed was sent), "flash_ms": measured flash
+    duration}], "interruptions": n} (a bare list is also accepted), in display order (one
+    entry per display; extra entries are ignored and flagged, missing ones are omissions).
+    The true count is len(display["dots"]) (counted, not trusted from "n").
+    An estimate counts only when its rt is a valid time inside the 10 s entry limit
+    (finite, >= 100 ms, <= LIMIT_MS + 1 s timer slack, see view.js): a missing,
+    non-finite, negative, impossible, anticipatory or late rt makes the display an
+    omission (flagged). An unreadable estimate is flagged and is an omission too.
     Per display: absolute error |est - n|, proportional error |est - n| / n, signed bias
-    (est - n) / n. A missing/unreadable estimate is an omission (an error) and is left out
-    of the error means. errors = displays with proportional error > 0.5 plus omissions.
-    hit = at least 8 of 9 displays answered and mean proportional error <= 0.35."""
-    try:
-        disps = item["displays"]
-        resp = _events(response)
-        rows = []
-        for k, d in enumerate(disps):
-            r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-            true_n = len(d["dots"])
-            est = parse_estimate(r.get("estimate"))
-            rt = r.get("rt") if isinstance(r.get("rt"), (int, float)) and not isinstance(r.get("rt"), bool) else None
-            rows.append({"n": true_n, "v": d["variant"], "est": est,
-                         "pe": abs(est - true_n) / true_n if est is not None else None,
-                         "bias": (est - true_n) / true_n if est is not None else None,
-                         "ae": abs(est - true_n) if est is not None else None, "rt": rt})
-        ans = [r for r in rows if r["est"] is not None]
+    (est - n) / n. Omissions are errors and are left out of the error means.
+    errors = displays with proportional error > 0.5 plus omissions.
+    hit = at least 8 of 9 displays answered in time and mean proportional error <= 0.35."""
+    a = G.Audit(CEILING_MS)
+    disps = item["displays"]
+    if not isinstance(response, (dict, list)):
+        return a.junk(len(disps))
+    entries = a.entries(_events(response), len(disps), "events")
+    rows = []
+    for k, (d, r) in enumerate(zip(disps, entries)):
+        true_n = len(d["dots"])
+        row = {"n": true_n, "v": d["variant"], "est": None, "rt": None, "status": G.INVALID}
+        rows.append(row)
+        ev = a.obj(r)
+        if ev is None:
+            a.record(G.INVALID)
+            continue
+        raw = ev.get("estimate", G.MISSING)
+        if raw is G.MISSING:
+            a.malformed("missing_estimate")
+            est = None
+        elif raw is None:
+            est = None
+        else:
+            est = parse_estimate(raw)
+            if est is None:
+                a.malformed("invalid_estimate")
+        st, rt = a.time(ev.get("rt", G.MISSING), field="rt", window=LIMIT_MS, slack=TIME_SLACK_MS, required=True)
+        confirmed = a.opt_bool(ev, "confirmed")
+        if confirmed is True and raw is None:
+            a.malformed("confirmed_without_estimate")   # OK only works once something is typed
+        if confirmed is False and st == G.TIMELY and rt < LIMIT_MS - TIME_SLACK_MS:
+            a.flag("unconfirmed_before_limit")          # the view only sends unconfirmed at the limit
+        fl = a.duration(ev, "flash_ms", floor=0)
+        if fl is not None and not (FLASH_MS / 2 <= fl <= 2 * FLASH_MS):
+            a.flag("flash_ms_out_of_range")
+        if raw is not G.MISSING and raw is not None and est is None:
+            row["status"] = a.record(G.INVALID)
+        elif st != G.TIMELY:
+            row["status"] = a.record(st if st != G.ABSENT else G.INVALID)
+            if est is not None:
+                a.flag("estimate_outside_limit")
+        elif est is None:
+            row["status"] = a.record(G.ABSENT)
+            row["rt"] = rt
+        else:
+            row["status"] = a.record(G.TIMELY)
+            row["est"], row["rt"] = est, rt
+    for row in rows:
+        est, true_n = row["est"], row["n"]
+        row["pe"] = abs(est - true_n) / true_n if est is not None else None
+        row["bias"] = (est - true_n) / true_n if est is not None else None
+        row["ae"] = abs(est - true_n) if est is not None else None
+    ans = [r for r in rows if r["est"] is not None]
 
-        def mean(xs):
-            xs = [x for x in xs if x is not None]
-            return round(sum(xs) / len(xs), 3) if xs else None
+    def mean(xs):
+        xs = [x for x in xs if x is not None]
+        return round(sum(xs) / len(xs), 3) if xs else None
 
-        mpe = mean([r["pe"] for r in ans])
-        omissions = len(rows) - len(ans)
-        hit = len(ans) >= len(rows) - 1 and mpe is not None and mpe <= 0.35
-        inter = response.get("interruptions") if isinstance(response, dict) else None
-        return {"hit": bool(hit), "errors": omissions + sum(1 for r in ans if r["pe"] > 0.5),
-                "metrics": {"mean_abs_error": mean([r["ae"] for r in ans]),
-                            "mean_prop_error": mpe,
-                            "signed_bias": mean([r["bias"] for r in ans]),
-                            "prop_error_by_n": {str(n): mean([r["pe"] for r in ans if r["n"] == n]) for n in NUMBERS},
-                            "bias_by_n": {str(n): mean([r["bias"] for r in ans if r["n"] == n]) for n in NUMBERS},
-                            "bias_by_variant": {v: mean([r["bias"] for r in ans if r["v"] == v]) for v in VARIANTS},
-                            "estimates": [r["est"] for r in rows],
-                            "omissions": omissions,
-                            "rt_mean": mean([r["rt"] for r in ans]),
-                            "interruptions": inter if isinstance(inter, int) else None}}
-    except Exception:
-        return {"hit": False, "errors": 0, "metrics": {}}
+    mpe = mean([r["pe"] for r in ans])
+    omissions = len(rows) - len(ans)
+    hit = len(ans) >= len(rows) - 1 and mpe is not None and mpe <= 0.35
+    inter = a.opt_int(response, "interruptions", hi=10000) if isinstance(response, dict) else None
+    return a.finish(hit, omissions + sum(1 for r in ans if r["pe"] > 0.5), {
+        "mean_abs_error": mean([r["ae"] for r in ans]),
+        "mean_prop_error": mpe,
+        "signed_bias": mean([r["bias"] for r in ans]),
+        "prop_error_by_n": {str(n): mean([r["pe"] for r in ans if r["n"] == n]) for n in NUMBERS},
+        "bias_by_n": {str(n): mean([r["bias"] for r in ans if r["n"] == n]) for n in NUMBERS},
+        "bias_by_variant": {v: mean([r["bias"] for r in ans if r["v"] == v]) for v in VARIANTS},
+        "estimates": [r["est"] for r in rows],
+        "omissions": omissions,
+        "rt_mean": mean([r["rt"] for r in ans]),
+        "interruptions": inter,
+        "events": [{"i": k, "n": r["n"], "variant": r["v"], "status": r["status"],
+                    "estimate": r["est"], "rt": r["rt"]} for k, r in enumerate(rows)]})
 
 
 def example_response(item, correct=True):
-    return {"events": [{"estimate": (len(d["dots"]) + 1) if correct else str(len(d["dots"]) * 3), "rt": 2500}
+    return {"events": [{"estimate": (len(d["dots"]) + 1) if correct else str(len(d["dots"]) * 3), "rt": 2500,
+                        "confirmed": True, "flash_ms": 200}
                        for d in item["displays"]], "interruptions": 0}

@@ -15,9 +15,16 @@ optimal lengths, with different glyphs, layouts and colours.
 """
 from collections import deque
 
+from app.tasks import _guard as G
+
+TIMING = "limit"
 N_GLYPHS = 10
 LEFT, RIGHT, EDIT, CYCLE, CLEAR, OK = range(6)
 MAX_ACTIONS = 40
+LIMIT_MS = 200000      # item limit_ms: view.js ends the trial with setTimeout(end, it.limit_ms) from Start
+BETWEEN_MS = 1200      # view.js: pause before the next goal (setTimeout(startGoal, 1200))
+TIME_SLACK_MS = 1000   # timer tolerance at the limit
+CEILING_MS = G.trial_ceiling(__file__)
 GOAL_LEN = [(6, 8), (8, 10), (8, 10)]   # optimal presses: training, transfer 1, transfer 2
 
 
@@ -73,7 +80,7 @@ def generate(rng, n, save_image):
         for _ in range(2):
             items.append({"glyphs": rng.sample(range(N_GLYPHS), 6), "funcs": rng.sample(range(6), 6),
                           "goals": [_goal(rng, L) for L in lengths], "max_actions": MAX_ACTIONS,
-                          "limit_ms": 200000})
+                          "limit_ms": LIMIT_MS})
     return items[:n]
 
 
@@ -90,35 +97,102 @@ def replay(goal, actions):
     return False, steps, noop, wrong_confirm
 
 
+def _goal_presses(a, r, limit):
+    """Validated presses of one goal -> (actions, times, ok). Every action must be a
+    function id 0-5 and every time a finite ms value 0..limit from the goal start, one time
+    per action, in order. Malformed entries are flagged and not applied (ok = False: a goal
+    whose press record is damaged is never scored as a success)."""
+    ok = True
+    raw_a = a.stream(r.get("actions", G.MISSING), "actions", cap=MAX_ACTIONS)
+    raw_t = a.stream(r.get("times", G.MISSING), "times", cap=MAX_ACTIONS)
+    if not isinstance(r.get("actions"), list) or len(r["actions"]) > MAX_ACTIONS:
+        ok = False
+    if not isinstance(r.get("times"), list) or len(r["times"]) > MAX_ACTIONS:
+        ok = False
+    if len(raw_a) != len(raw_t):
+        a.malformed("times_actions_mismatch")
+        ok = False
+    acts, times = [], []
+    for k, v in enumerate(raw_a):
+        if not G.member(v, range(6)):
+            a.malformed("invalid_action")
+            ok = False
+            continue
+        st, t = a.time(raw_t[k] if k < len(raw_t) else G.MISSING, field="times", window=limit,
+                       slack=TIME_SLACK_MS, floor=0, required=True)
+        if st != G.TIMELY:
+            ok = False
+        acts.append(v)
+        times.append(t)
+    if not a.monotonic(times, "times"):
+        ok = False
+    vals = [t for t in times if t is not None]
+    if len(set(vals)) < len(vals):
+        a.malformed("duplicate_times")
+        ok = False
+    return acts, times, ok
+
+
+@G.safe
 def score(item, response):
-    """response: {"goals": [{"actions": [function id 0-5, ...], "times": [ms, ...]}, ...]}
-    (training goal first). The server replays the presses on the state machine; a goal
-    succeeds when confirm is pressed outside edit mode with all three lamps right.
+    """response: {"goals": [{"actions": [function id 0-5, ...], "times": [ms from goal
+    start, ...]}, ...]} (training goal first; one entry per started goal).
+    Presses are validated: every action a function id 0-5, one time per action, times finite,
+    >= 0, increasing and inside the 200 s limit (item limit_ms, view.js) + 1 s tolerance; at
+    most max_actions presses and nothing after the confirm that ends a goal. Malformed entries
+    are flagged and not applied, and a goal with any malformed press is never a success.
+    The server replays the presses on the state machine; a goal succeeds when confirm is
+    pressed outside edit mode with all three lamps right, the confirm has a valid time, and
+    the goals so far (+ the 1.2 s pauses) end inside the limit.
     errors = presses with no effect + wrong confirms; excess = presses beyond the BFS optimum.
     hit = both transfer goals (goals 2 and 3, no legend) succeeded."""
-    miss = {"hit": False, "errors": 3, "metrics": {}}
-    if not isinstance(response, dict) or not isinstance(response.get("goals"), list):
-        return miss
-    res = []
-    for k, goal in enumerate(item["goals"]):
-        r = response["goals"][k] if k < len(response["goals"]) and isinstance(response["goals"][k], dict) else {}
-        acts = [a for a in (r.get("actions") if isinstance(r.get("actions"), list) else [])
-                if isinstance(a, int) and not isinstance(a, bool) and 0 <= a <= 5]
-        times = r.get("times") if isinstance(r.get("times"), list) else []
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk(3)
+    limit = item.get("limit_ms", LIMIT_MS)
+    goals = item["goals"]
+    rg = a.stream(response.get("goals", G.MISSING), "goals", cap=len(goals) + 5)
+    if len(rg) > len(goals):
+        a.malformed("extra_goals")
+    res, elapsed = [], 0.0
+    for k, goal in enumerate(goals):
+        if k >= len(rg):
+            a.record(G.ABSENT)
+            res.append({"ok": False, "steps": 0, "errors": 0, "excess": None, "time_ms": None})
+            continue
+        r = a.obj(rg[k], "goal")
+        if r is None:
+            a.record(G.INVALID)
+            res.append({"ok": False, "steps": 0, "errors": 0, "excess": None, "time_ms": None})
+            continue
+        acts, times, valid = _goal_presses(a, r, limit)
         ok, steps, noop, wc = replay(goal, acts)
-        t_end = times[-1] if times and isinstance(times[-1], (int, float)) and not isinstance(times[-1], bool) else None
-        res.append({"ok": ok, "steps": steps, "errors": noop + wc,
-                    "excess": steps - goal["optimal"] if ok else None, "time_ms": t_end})
+        if steps < len(acts) and (ok or wc):
+            a.malformed("actions_after_confirm")
+            valid = False
+        t_end = times[steps - 1] if steps and steps <= len(times) else None
+        if t_end is not None:
+            elapsed += t_end + (BETWEEN_MS if k else 0)
+            if elapsed > limit + TIME_SLACK_MS:
+                a.malformed("goals_exceed_limit")
+                valid = False
+        status = G.ABSENT if not acts else (G.TIMELY if valid and t_end is not None else G.INVALID)
+        a.record(status)
+        if ok and not valid:
+            a.flag("success_with_invalid_presses")
+        good = ok and valid
+        res.append({"ok": good, "steps": steps, "errors": noop + wc,
+                    "excess": steps - goal["optimal"] if good else None,
+                    "time_ms": t_end if valid else None})
     transfer = res[1:]
     errs = sum(r["errors"] for r in res)
-    return {"hit": all(r["ok"] for r in transfer),
-            "errors": errs + sum(not r["ok"] for r in res),
-            "metrics": {"training_success": res[0]["ok"], "transfer_successes": sum(r["ok"] for r in transfer),
-                        "transfer_steps": sum(r["steps"] for r in transfer),
-                        "transfer_excess_steps": sum(r["excess"] for r in transfer if r["excess"] is not None),
-                        "transfer_errors": sum(r["errors"] for r in transfer),
-                        "training_errors": res[0]["errors"],
-                        "goal_times_ms": [r["time_ms"] for r in res], "goals": res}}
+    return a.finish(all(r["ok"] for r in transfer), errs + sum(not r["ok"] for r in res), {
+        "training_success": res[0]["ok"], "transfer_successes": sum(r["ok"] for r in transfer),
+        "transfer_steps": sum(r["steps"] for r in transfer),
+        "transfer_excess_steps": sum(r["excess"] for r in transfer if r["excess"] is not None),
+        "transfer_errors": sum(r["errors"] for r in transfer),
+        "training_errors": res[0]["errors"],
+        "goal_times_ms": [r["time_ms"] for r in res], "goals": res})
 
 
 def _solve(goal):

@@ -10,6 +10,11 @@ a square-grid shape onto a grid shape, so no other turn can either). The answer 
 stored: score() decides "same" or "mirror" by comparing the right shape's squares with
 the left shape's under every turn."""
 
+from app.tasks import _guard as G
+
+TIMING = "window"
+WINDOW_MS = 7000        # view.js: out.push(await answer(7000)) - each display waits at most 7 s
+CEILING_MS = G.trial_ceiling(__file__)
 SIZE = 7
 ANGLES = (0, 60, 120, 180)
 STEPS = ((0, 1), (1, 0), (0, -1), (-1, 0))
@@ -98,43 +103,51 @@ def angle(display):
     return min(d, 360 - d)
 
 
+@G.safe
 def score(item, response):
-    """response: [{"key": "same"|"mirror"|null, "rt": ms}] in display order.
-    hit = at least 75% of the 8 displays answered correctly (6 of 8); omissions count as
-    errors. Metrics: accuracy, mean correct RT per angle and for same/mirror, the RT slope
-    per degree (rotation cost), omissions."""
-    resp = response if isinstance(response, list) else []
+    """response: [{"key": "same"|"mirror"|null, "rt": ms}] in display order. The answer
+    key is recomputed from the two shapes (key()).
+    Each display is classified (app/tasks/_guard.py) as absent, invalid, anticipatory
+    (< 100 ms), late (> the 7000 ms response window) or timely; only a TIMELY key equal to
+    the answer is correct (an anticipatory, late or malformed answer never is).
+    hit = at least 75% of the 8 displays answered correctly (6 of 8); omissions and
+    invalid entries count as errors. Metrics: accuracy, mean correct RT per angle and for
+    same/mirror, the RT slope per degree (rotation cost), omissions, every display's status
+    in events."""
+    a = G.Audit(CEILING_MS)
+    displays = item["displays"]
+    if not isinstance(response, list):
+        return a.junk(len(displays))
     rows = []
-    for k, d in enumerate(item["displays"]):
-        r = resp[k] if k < len(resp) and isinstance(resp[k], dict) else {}
-        rt = r.get("rt")
-        rt = rt if isinstance(rt, (int, float)) and not isinstance(rt, bool) and rt > 0 else None
+    for k, (d, r) in enumerate(zip(displays, a.entries(response, len(displays)))):
         ans = key(d)
-        rows.append({"answer": ans, "angle": angle(d), "key": r.get("key"), "rt": rt,
-                     "ok": r.get("key") == ans})
+        status, kk, rt = a.keyed(r, ("same", "mirror"), window=WINDOW_MS)
+        ok = status == G.TIMELY and kk == ans
+        rows.append({"i": k, "answer": ans, "angle": angle(d), "status": status, "rt": rt if ok else None, "ok": ok})
     n_ok = sum(r["ok"] for r in rows)
-    acc = n_ok / len(rows)
+    acc = n_ok / len(rows) if rows else 0.0
 
     def mean_rt(sel):
-        rts = [r["rt"] for r in rows if r["ok"] and r["rt"] and sel(r)]
-        return round(sum(rts) / len(rts), 1) if rts else None
+        return G.mean([r["rt"] for r in rows if r["ok"] and sel(r)])
 
-    by_angle = {str(a): mean_rt(lambda r, a=a: r["angle"] == a) for a in ANGLES}
-    acc_angle = {str(a): round(sum(r["ok"] for r in rows if r["angle"] == a) /
-                               max(1, sum(1 for r in rows if r["angle"] == a)), 3) for a in ANGLES}
-    pts = [(r["angle"], r["rt"]) for r in rows if r["ok"] and r["rt"]]
+    by_angle = {str(x): mean_rt(lambda r, x=x: r["angle"] == x) for x in ANGLES}
+    acc_angle = {str(x): round(sum(r["ok"] for r in rows if r["angle"] == x) /
+                               max(1, sum(1 for r in rows if r["angle"] == x)), 3) for x in ANGLES}
+    pts = [(r["angle"], r["rt"]) for r in rows if r["ok"]]
     slope = None
-    if len({a for a, _ in pts}) >= 2:
-        mx = sum(a for a, _ in pts) / len(pts)
+    if len({x for x, _ in pts}) >= 2:
+        mx = sum(x for x, _ in pts) / len(pts)
         my = sum(t for _, t in pts) / len(pts)
-        sxx = sum((a - mx) ** 2 for a, _ in pts)
-        slope = round(sum((a - mx) * (t - my) for a, t in pts) / sxx, 2)
-    return {"hit": n_ok >= 0.75 * len(rows), "errors": len(rows) - n_ok,
-            "metrics": {"accuracy": round(acc, 3), "rt_by_angle": by_angle, "accuracy_by_angle": acc_angle,
-                        "rt_same": mean_rt(lambda r: r["answer"] == "same"),
-                        "rt_mirror": mean_rt(lambda r: r["answer"] == "mirror"),
-                        "rt_slope_ms_per_deg": slope,
-                        "omissions": sum(1 for r in rows if r["key"] is None)}}
+        sxx = sum((x - mx) ** 2 for x, _ in pts)
+        slope = round(sum((x - mx) * (t - my) for x, t in pts) / sxx, 2)
+    return a.finish(bool(rows) and n_ok >= 0.75 * len(rows), len(rows) - n_ok, {
+        "accuracy": round(acc, 3), "rt_by_angle": by_angle, "accuracy_by_angle": acc_angle,
+        "rt_same": mean_rt(lambda r: r["answer"] == "same"),
+        "rt_mirror": mean_rt(lambda r: r["answer"] == "mirror"),
+        "rt_slope_ms_per_deg": slope,
+        "omissions": sum(1 for r in rows if r["status"] == G.ABSENT),
+        "events": [{"i": r["i"], "angle": r["angle"], "answer": r["answer"], "status": r["status"],
+                    "correct": r["ok"], "rt": r["rt"]} for r in rows]})
 
 
 def example_response(item, correct=True):

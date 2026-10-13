@@ -14,6 +14,10 @@ Digits are stored as a STRING ("0583"), so leading zeros survive and nothing is 
 to a number.
 """
 
+from app.tasks import _guard as G
+
+TIMING = "untimed"   # recall is unspeeded; times are descriptive (see _guard.py)
+CEILING_MS = G.trial_ceiling(__file__)
 DIGITS = "0123456789"
 LENGTHS = (2, 3, 4, 5, 6, 7)
 REVERSE = True  # backward span: recall order = presentation order reversed
@@ -54,19 +58,16 @@ def _target(item):
     return seq[::-1] if REVERSE else seq
 
 
-def _answer(response):
-    if not isinstance(response, dict):
-        return None
-    a = response.get("answer")
-    if not isinstance(a, str) or len(a) > MAX_ANSWER or any(c not in DIGITS for c in a):
-        return None  # only a string of ASCII digits is accepted; numbers are rejected, not coerced
-    return a
+def _answer(a, audit):
+    """Only a string of ASCII digits (at most MAX_ANSWER) is an answer; numbers are rejected,
+    not coerced. Anything else is flagged and returns None."""
+    if isinstance(a, str) and len(a) <= MAX_ANSWER and all(c in DIGITS for c in a):
+        return a
+    audit.malformed("invalid_answer" if a is not G.MISSING else "missing_answer")
+    return None
 
 
-def _ms(x):
-    return round(float(x)) if isinstance(x, (int, float)) and not isinstance(x, bool) and 0 <= x < 1e7 else None
-
-
+@G.safe
 def score(item, response):
     """response: {"answer": "0583", "rt": ms recall start -> OK, "first_rt": ms to first key,
     "edits": deletions, "onsets": [ms], "interrupted": bool (tab hidden while digits showed)}.
@@ -74,29 +75,48 @@ def score(item, response):
     The target is the WHOLE presented sequence reversed (oracle: digits[::-1]).
     hit = the typed string equals the target sequence exactly (every digit, right order,
     right length). errors = positions wrong or missing or extra (max(len) - correct positions).
+    Recall is unspeeded: rt / first_rt / edits / onsets are descriptive and are checked
+    (finite, non-negative, below the trial timeout, onsets increasing); bad values are
+    flagged in metrics["flags"] and reported as null, the answer is still scored.
     metrics: positional_accuracy = correct positions / sequence length; span_credit = length
     when exact else 0. Maximum-length criterion (computed across trials in analysis): span =
     the longest length at which at least half of that person's trials at that length are exact.
     """
     target = _target(item)
-    ans = _answer(response)
+    a = G.Audit(CEILING_MS)
+    if not isinstance(response, dict):
+        return a.junk(len(target))
+    ans = _answer(response.get("answer", G.MISSING), a)
+    rt = a.duration(response, "rt")
+    first = a.duration(response, "first_rt", floor=0)
+    edits = a.opt_int(response, "edits", hi=1000)
+    interrupted = a.opt_bool(response, "interrupted")
+    if "onsets" in response:
+        onsets = a.stream(response["onsets"], "onsets", cap=100)
+        ts = []
+        for v in onsets:
+            st, t = a.time(v, field="onsets", floor=0)
+            ts.append(t if st == G.TIMELY else None)
+        a.monotonic(ts, "onsets")
+    if rt is not None and first is not None and first > rt:
+        a.malformed("first_rt_after_rt")
     if ans is None:
-        return {"hit": False, "errors": len(target),
-                "metrics": {"length": len(target), "valid_response": False, "exact": False,
-                            "positional_accuracy": 0.0, "correct_positions": 0, "span_credit": 0}}
+        return a.finish(False, len(target), {
+            "length": len(target), "valid_response": False, "exact": False, "positional_accuracy": 0.0,
+            "correct_positions": 0, "span_credit": 0, "rt_ms": rt, "first_key_rt_ms": first,
+            "edits": edits, "interrupted": interrupted})
     correct = sum(1 for i, c in enumerate(target) if i < len(ans) and ans[i] == c)
     exact = ans == target
-    return {"hit": exact, "errors": max(len(target), len(ans)) - correct,
-            "metrics": {"length": len(target), "valid_response": True, "exact": exact,
-                        "positional_accuracy": round(correct / len(target), 3), "correct_positions": correct,
-                        "answer_length": len(ans), "span_credit": len(target) if exact else 0,
-                        "rt_ms": _ms(response.get("rt")), "first_key_rt_ms": _ms(response.get("first_rt")),
-                        "edits": _ms(response.get("edits")),
-                        "interrupted": response.get("interrupted") is True}}
+    return a.finish(exact, max(len(target), len(ans)) - correct, {
+        "length": len(target), "valid_response": True, "exact": exact,
+        "positional_accuracy": round(correct / len(target), 3), "correct_positions": correct,
+        "answer_length": len(ans), "span_credit": len(target) if exact else 0,
+        "rt_ms": rt, "first_key_rt_ms": first, "edits": edits, "interrupted": interrupted})
 
 
 def example_response(item, correct=True):
     target = _target(item)
     # wrong: the digits in presentation (forward) order; digits are distinct, so this always differs
     answer = target if correct else str(item["digits"])
-    return {"answer": answer, "rt": 4000, "first_rt": 900, "edits": 0, "interrupted": False}
+    onsets = [1000 * i for i in range(len(str(item["digits"])))]
+    return {"answer": answer, "rt": 4000, "first_rt": 900, "edits": 0, "onsets": onsets, "interrupted": False}

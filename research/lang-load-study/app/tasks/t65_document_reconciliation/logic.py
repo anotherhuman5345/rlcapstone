@@ -14,7 +14,12 @@ and types of mismatches, in different rows with different content.
 Answer key (oracle, in score()): table A and table B are compared cell by cell; the
 mismatch coordinates are [row, field]. The generator's own list is not used.
 """
+from app.tasks import _guard as G
+
+TIMING = "untimed"     # view.js has no task time limit (only the shell's task.json timeout)
 FIELDS = ["product", "qty", "date"]
+MAX_MARKS = 200
+CEILING_MS = G.trial_ceiling(__file__)
 ROWS = 6
 N_PRODUCTS = 16
 
@@ -78,30 +83,47 @@ def mismatches(item):
     return out
 
 
+@G.safe
 def score(item, response):
     """response: {"marks": [[row, field], ...] (cells of table B marked as mismatching),
-    "rt": ms from Start to Done}. hit = every mismatch marked and at most 1 false mark.
+    "rt": ms from Start to Done, "toggles": number of cell toggles}.
+    Marks must be [row index, field name]; malformed marks are flagged and ignored, repeated
+    marks are flagged (counted once). The answer key is recomputed by comparing the tables.
+    hit = every mismatch marked and at most 1 false mark. The task is untimed (view.js has no
+    limit): rt is descriptive, validated (reported as null and flagged when missing,
+    non-finite, negative, < 100 ms or above the trial timeout) and does not change the hit.
     metrics: found / missed mismatches (overall and by field), false marks, time."""
+    a = G.Audit(CEILING_MS)
     if not isinstance(item, dict) or "order" not in item:
-        return {"hit": False, "errors": 0, "metrics": {}}
+        return a.junk()
+    if not isinstance(response, dict):
+        return a.junk()
     truth = mismatches(item)
-    resp = response if isinstance(response, dict) else {}
-    marks = set()
-    raw = resp.get("marks")
-    for m in raw if isinstance(raw, list) else []:
-        if (isinstance(m, (list, tuple)) and len(m) == 2 and isinstance(m[0], int) and not isinstance(m[0], bool)
-                and 0 <= m[0] < len(item["order"]) and m[1] in FIELDS):
+    marks, n_raw = set(), 0
+    raw = response.get("marks", G.MISSING)
+    seq = a.stream(raw, "marks", cap=MAX_MARKS)
+    for m in seq:
+        if (isinstance(m, list) and len(m) == 2 and G.member(m[0], range(len(item["order"])))
+                and G.member(m[1], FIELDS)):
+            n_raw += 1
             marks.add((m[0], m[1]))
+        else:
+            a.malformed("invalid_mark")
+    if n_raw > len(marks):
+        a.malformed("duplicate_marks")
     found, missed, false = truth & marks, truth - marks, marks - truth
-    rt = resp.get("rt") if isinstance(resp.get("rt"), (int, float)) and not isinstance(resp.get("rt"), bool) else None
+    rt = a.duration(response, "rt")
+    toggles = a.opt_int(response, "toggles", hi=100000)
+    if toggles is not None and toggles < len(marks):
+        a.malformed("fewer_toggles_than_marks")
     responded = isinstance(raw, list)
-    return {"hit": responded and not missed and len(false) <= 1, "errors": len(missed) + len(false),
-            "metrics": {"mismatches": len(truth), "found": len(found), "missed": len(missed),
-                        "false_marks": len(false),
-                        "found_by_field": {f: sum(1 for c in found if c[1] == f) for f in FIELDS},
-                        "missed_by_field": {f: sum(1 for c in missed if c[1] == f) for f in FIELDS},
-                        "mismatch_cells": sorted([list(c) for c in truth]),
-                        "time_ms": rt}}
+    return a.finish(responded and not missed and len(false) <= 1, len(missed) + len(false), {
+        "mismatches": len(truth), "found": len(found), "missed": len(missed),
+        "false_marks": len(false),
+        "found_by_field": {f: sum(1 for c in found if c[1] == f) for f in FIELDS},
+        "missed_by_field": {f: sum(1 for c in missed if c[1] == f) for f in FIELDS},
+        "mismatch_cells": sorted([list(c) for c in truth]),
+        "time_ms": rt, "toggles": toggles})
 
 
 def example_response(item, correct=True):
@@ -111,4 +133,4 @@ def example_response(item, correct=True):
     else:
         marks = [list(c) for c in truth[1:]] + [[r, f] for r in range(len(item["order"])) for f in FIELDS
                                                 if (r, f) not in set(truth)][:2]
-    return {"marks": marks, "rt": 50000}
+    return {"marks": marks, "rt": 50000, "toggles": len(marks)}
