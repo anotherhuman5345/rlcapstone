@@ -35,6 +35,5 @@ HIT_TOLERANCE = float(os.getenv("HIT_TOLERANCE", "1.6"))
 # Minimum self-rated reading level (1-7) in BOTH languages to be included.
 MIN_READING = 3
 
-LANGUAGES = ("en", "tr")
 GROUPS = ("high_school", "undergraduate", "adult", "phd_student", "professor",
           "physician", "radiologist", "other")

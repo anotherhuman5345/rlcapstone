@@ -18,7 +18,7 @@ import random
 
 from .clues import DECOY_OBJECTS, make_clue, object_name
 from .db import Participant, SessionLocal, TrialResult, init_db, now
-from .i18n import t
+from .i18n import LANGUAGES, direction, language_name, t, verified
 from .plan import build_plan, load_manifest
 
 @asynccontextmanager
@@ -53,7 +53,7 @@ def get_db():
 def render(request, name, p=None, lang="en", **ctx):
     lang = p.ui_lang if p else lang
     return templates.TemplateResponse(request, name, {
-        "_": t(lang), "lang": lang, "demo": not config.IRB_APPROVED,
+        "_": t(lang), "lang": lang, "dir": direction(lang), "demo": not config.IRB_APPROVED,
         "irb_number": config.IRB_NUMBER, **ctx})
 
 
@@ -75,13 +75,13 @@ def current(request, db):
 
 @app.get("/", response_class=HTMLResponse)
 def landing(request: Request, lang: str = "en"):
-    lang = lang if lang in config.LANGUAGES else "en"
-    return render(request, "landing.html", lang=lang)
+    lang = lang if lang in LANGUAGES else "en"
+    return render(request, "landing.html", lang=lang, languages=language_choices(ui=True))
 
 
 @app.post("/start")
 def start(ui_lang: str = Form("en"), db=Depends(get_db)):
-    p = Participant(ui_lang=ui_lang if ui_lang in config.LANGUAGES else "en",
+    p = Participant(ui_lang=ui_lang if ui_lang in LANGUAGES else "en",
                     is_test=not config.IRB_APPROVED)
     db.add(p)
     db.commit()
@@ -110,7 +110,15 @@ def background_page(request: Request, db=Depends(get_db)):
     p = current(request, db)
     if not p.consented:
         return RedirectResponse("/consent", status_code=303)
-    return render(request, "background.html", p, groups=config.GROUPS)
+    return render(request, "background.html", p, groups=config.GROUPS,
+                  languages=language_choices(), all_languages=language_choices(ui=True))
+
+
+def language_choices(ui=False):
+    """(code, name) pairs. Clue languages are limited to native-checked ones once
+    real data collection starts; in demo mode every language can be tried."""
+    codes = LANGUAGES if ui or not config.IRB_APPROVED else [c for c in LANGUAGES if verified(c)]
+    return [(c, language_name(c)) for c in codes]
 
 
 @app.post("/background")
@@ -118,17 +126,21 @@ def background(request: Request, group: str = Form(...), age: int = Form(..., ge
                education_years: int = Form(..., ge=0, le=40),
                years_reading_images: float = Form(0, ge=0, le=60),
                native_lang: str = Form(...), l2_age_acquired: int = Form(..., ge=0, le=99),
-               en_reading: int = Form(..., ge=1, le=7), tr_reading: int = Form(..., ge=1, le=7),
-               comfort: str = Form(...), db=Depends(get_db)):
+               l1: str = Form(...), l2: str = Form(...),
+               l1_reading: int = Form(..., ge=1, le=7), l2_reading: int = Form(..., ge=1, le=7),
+               db=Depends(get_db)):
     p = current(request, db)
-    if group not in config.GROUPS or comfort not in config.LANGUAGES:
+    allowed = {c for c, _ in language_choices()}
+    if group not in config.GROUPS or l1 not in allowed or l2 not in allowed:
         raise HTTPException(400, "Invalid answer")
+    if l1 == l2:
+        return render(request, "background.html", p, groups=config.GROUPS, error=True,
+                      languages=language_choices(), all_languages=language_choices(ui=True))
     p.group, p.age, p.education_years = group, age, education_years
     p.years_reading_images, p.native_lang, p.l2_age_acquired = years_reading_images, native_lang, l2_age_acquired
-    p.en_reading, p.tr_reading = en_reading, tr_reading
-    p.l1 = comfort
-    p.l2 = "tr" if comfort == "en" else "en"
-    p.eligible = min(en_reading, tr_reading) >= config.MIN_READING
+    p.l1, p.l2 = l1, l2
+    p.l1_reading, p.l2_reading = l1_reading, l2_reading
+    p.eligible = min(l1_reading, l2_reading) >= config.MIN_READING
 
     # Rotate counterbalance index within each group.
     n_in_group = db.scalar(select(func.count()).select_from(Participant)
@@ -183,7 +195,9 @@ def notice2(request: Request, saw_gorilla: str = Form(...), knew_study: str = Fo
 
 @app.get("/instructions", response_class=HTMLResponse)
 def instructions(request: Request, db=Depends(get_db)):
-    return render(request, "instructions.html", current(request, db))
+    p = current(request, db)
+    names = {"l1": language_name(p.l1), "l2": language_name(p.l2)} if p.l1 else {"l1": "", "l2": ""}
+    return render(request, "instructions.html", p, **names)
 
 
 @app.get("/trial", response_class=HTMLResponse)
@@ -212,6 +226,7 @@ def trial_page(request: Request, db=Depends(get_db)):
     clue = make_clue(trial["task"], trial["clue_lang"], img["id"], tg, img["width"], img["height"])
     return render(request, "trial.html", p, trial=trial, img=img, clue=clue,
                   n=p.current_trial + 1, total=len(p.plan), rounds=config.ROUNDS,
+                  clue_dir=direction(trial["clue_lang"]),
                   timeout=config.TRIAL_TIMEOUT_MS)
 
 
@@ -322,7 +337,7 @@ def admin(request: Request, key: str = "", db=Depends(get_db)):
 
 
 EXPORT_COLS = ["participant_id", "is_test", "group", "age", "education_years", "years_reading_images",
-               "native_lang", "l2_age_acquired", "en_reading", "tr_reading", "l1", "l2",
+               "native_lang", "l2_age_acquired", "l1", "l2", "l1_reading", "l2_reading",
                "eligible", "counterbalance", "attention_ok", "completed", "time_capped",
                "quit_early", "quit_elapsed_s", "quit_trial",
                "noticed_unusual", "saw_gorilla", "knew_gorilla_study",
@@ -340,7 +355,7 @@ def export(key: str = "", db=Depends(get_db)):
     for tr, p in db.execute(select(TrialResult, Participant).join(Participant)
                             .order_by(Participant.created_at, TrialResult.trial_index)):
         w.writerow([p.id, p.is_test, p.group, p.age, p.education_years, p.years_reading_images,
-                    p.native_lang, p.l2_age_acquired, p.en_reading, p.tr_reading, p.l1, p.l2,
+                    p.native_lang, p.l2_age_acquired, p.l1, p.l2, p.l1_reading, p.l2_reading,
                     p.eligible, p.counterbalance, p.attention_ok, p.completed, p.time_capped,
                     p.quit_early, p.quit_elapsed_s, p.quit_trial,
                     p.noticed_unusual, p.saw_gorilla, p.knew_gorilla_study,

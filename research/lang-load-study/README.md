@@ -76,6 +76,25 @@ The whole session takes **at most 15 minutes**, for everyone.
   the other half; the surprise clue language alternates too; rotation runs separately
   within each group. Which images fall in which round is shuffled per person.
 
+## Languages
+
+The study runs in **30 languages**: English, Chinese (Mandarin), Hindi, Spanish, French,
+Arabic, Bengali, Portuguese, Russian, Urdu, Indonesian, German, Japanese, Marathi,
+Telugu, Turkish, Hausa, Tamil, Swahili, Vietnamese, Filipino, Korean, Persian, Italian,
+Punjabi, Gujarati, Thai, Amharic, Kannada and Polish. Each participant picks the
+language they are **most comfortable** reading (L1) and another language they also read
+(L2); clues alternate between those two. Arabic, Urdu and Persian display right to left.
+
+Every language lives in `app/locales/<code>.json`: the interface text, plus the clue
+vocabulary and grammar (word order, and agreement of "small" and the color with the
+noun's gender or class). Check a file and print sample clues with
+`python tools/check_locale.py <code> --all`.
+
+**Translations must be checked by a native speaker before real data collection.** Each
+file has `"verified": false` until then. In demo mode every language can be tried; once
+`IRB_APPROVED=1`, only verified languages can be chosen for clues. English is the source
+and counts as verified.
+
 See `docs/STUDY_PROTOCOL.md` for hypotheses, sample size, and open questions.
 
 ## Run it locally
@@ -109,7 +128,8 @@ Primary model: mixed-effects regression on log response time,
    the rounds, 1 practice, 1 for the surprise gorilla):
    put them in `stimuli/real_scans/` (git-ignored) and run
    `python stimuli/generate_stimuli.py --real-scans`.
-3. Have a native speaker proofread all Turkish text in `app/i18n.py` and `app/clues.py`.
+3. Have a native speaker check each language that will be used (`app/locales/<code>.json`),
+   then set `"verified": true` in that file.
 4. Set environment variables on the server:
    `ADMIN_KEY` (long random string), `DATABASE_URL` (e.g. Postgres), `IRB_APPROVED=1`, `IRB_NUMBER`.
 

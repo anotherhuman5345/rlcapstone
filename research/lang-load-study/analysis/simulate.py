@@ -45,7 +45,7 @@ def main():
                 "participant_id": pid, "is_test": True, "group": group,
                 "age": age + int(rng.integers(0, 4)), "education_years": edu,
                 "years_reading_images": yrs, "native_lang": l1, "l2_age_acquired": 6,
-                "en_reading": 7, "tr_reading": 6, "l1": l1, "l2": l2, "eligible": True,
+                "l1": l1, "l2": l2, "l1_reading": 7, "l2_reading": 6, "eligible": True,
                 "counterbalance": k % 4, "attention_ok": True, "completed": True, "time_capped": False,
                 "quit_early": False, "quit_elapsed_s": None, "quit_trial": None,
                 "noticed_unusual": saw or bool(rng.random() < 0.1), "saw_gorilla": saw,

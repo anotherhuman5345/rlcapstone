@@ -2,12 +2,12 @@
 {% block content %}
 <h1>{{ _('title') }}</h1>
 <p class="lede">{{ _('intro') }}</p>
-<form method="post" action="/start">
-  <fieldset>
-    <legend>{{ _('choose_lang') }}</legend>
-    <label class="choice"><input type="radio" name="ui_lang" value="en" {% if lang=='en' %}checked{% endif %}> English</label>
-    <label class="choice"><input type="radio" name="ui_lang" value="tr" {% if lang=='tr' %}checked{% endif %}> Türkçe</label>
-  </fieldset>
+<form method="post" action="/start" class="stack">
+  <label>{{ _('choose_lang') }}
+    <select name="ui_lang" onchange="location.href='/?lang=' + this.value">
+      {% for code, name in languages %}<option value="{{ code }}" {% if code == lang %}selected{% endif %}>{{ name }}</option>{% endfor %}
+    </select>
+  </label>
   <button type="submit">{{ _('start') }}</button>
 </form>
 {% endblock %}

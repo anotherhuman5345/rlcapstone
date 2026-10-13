@@ -1,0 +1,209 @@
+{
+ "code": "fr",
+ "name": "Français",
+ "dir": "ltr",
+ "verified": false,
+ "ui": {
+  "title": "À quelle vitesse pouvez-vous le trouver ?",
+  "intro": "Une courte étude sur la façon dont la langue d'un indice écrit modifie la recherche visuelle. Elle ne dure pas plus de 15 minutes.",
+  "start": "Commencer",
+  "choose_lang": "Afficher l'étude en",
+  "demo_banner": "Démonstration uniquement. Cette étude est en attente d'approbation éthique, et rien de ce qui est enregistré ici ne constitue des données de recherche.",
+  "consent_title": "Avant de commencer",
+  "consent_body": "Vous allez regarder des images et cliquer sur une cible le plus vite possible, à l'aide d'un indice écrit. Nous enregistrons vos clics, vos temps de réponse et vos réponses à un court questionnaire. Nous ne vous demandons jamais votre nom, votre adresse e-mail ni votre localisation. Vous pouvez arrêter à tout moment en fermant la page. Si vous avez moins de 18 ans, un parent ou un tuteur doit avoir donné son autorisation avant votre participation.",
+  "consent_irb": "Numéro d'approbation éthique",
+  "consent_agree": "J'accepte de participer",
+  "bg_title": "À propos de vous",
+  "group": "Quelle description vous correspond le mieux ?",
+  "group_high_school": "Lycéen(ne)",
+  "group_undergraduate": "Étudiant(e) à l'université",
+  "group_phd_student": "Doctorant(e)",
+  "group_radiologist": "Radiologue ou interne en radiologie",
+  "group_professor": "Professeur(e) ou chercheur(se)",
+  "group_other": "Autre",
+  "age": "Âge",
+  "education_years": "Nombre total d'années d'études, en comptant à partir de la première année d'école primaire",
+  "years_reading_images": "Années d'expérience en lecture d'images médicales (0 si aucune)",
+  "native_lang": "Première langue que vous avez apprise",
+  "lang_other": "Une autre langue",
+  "l2_age": "Âge auquel vous avez commencé à apprendre cette autre langue",
+  "continue": "Continuer",
+  "instr_title": "Comment ça marche",
+  "instr_search": "Images chargées : l'indice nomme un petit objet à trouver, différent à chaque fois.",
+  "instr_scan": "Images médicales en niveaux de gris : dans chacune, quelque chose sort de l'ordinaire. Trouvez-le et cliquez dessus. Les deux types d'images sont mélangés.",
+  "instr_clue": "Au-dessus de chaque image, un indice vous dit quoi chercher et où. Lisez attentivement chaque indice : il change à chaque fois, parfois en {l1}, parfois en {l2}. Cliquez ensuite sur la cible le plus vite possible.",
+  "instr_effort": "Après chaque image, évaluez l'effort mental qu'elle vous a demandé.",
+  "instr_practice": "Les deux premières images servent d'entraînement.",
+  "begin": "Démarrer",
+  "practice": "Entraînement",
+  "trial_of": "Image {n} sur {total}",
+  "timeout": "Temps écoulé. On passe à la suite.",
+  "found": "Trouvé !",
+  "effort_q": "Quel effort mental cela vous a-t-il demandé ?",
+  "effort_low": "Très, très faible",
+  "effort_high": "Très, très élevé",
+  "next": "Suivant",
+  "final_title": "Presque terminé",
+  "difficulty_q": "Dans l'ensemble, à quel point cette étude était-elle difficile ? (1 = très facile, 9 = très difficile)",
+  "attention_q": "Pour montrer que vous avez lu attentivement : lequel de ces objets avez-vous cherché dans une image chargée ?",
+  "finish": "Terminer",
+  "debrief_title": "Merci",
+  "debrief_body": "Cette étude cherche à savoir si lire un indice dans la langue où vous êtes le moins à l'aise ralentit la recherche visuelle, si cet effet évolue au cours de la session, et si l'expérience et le niveau d'études le modifient. La toute première image testait aussi autre chose : lorsque votre attention est concentrée sur une tâche (trouver l'anneau), remarquez-vous quelque chose d'inattendu (le gorille) ? Beaucoup de gens, y compris des experts, ne le remarquent pas. Nous testons si la langue de l'indice change cela.",
+  "group_adult": "Adulte (non étudiant)",
+  "group_physician": "Médecin (hors radiologie)",
+  "surprise_title": "D'abord, une image rapide",
+  "surprise_body": "Dans l'image suivante, trouvez le petit anneau blanc et cliquez dessus. Un indice écrit au-dessus de l'image vous indique où regarder.",
+  "notice_q": "Avez-vous remarqué quelque chose d'inhabituel dans cette image ?",
+  "gorilla_q": "Avez-vous vu un gorille dans cette image ?",
+  "knew_q": "Avant aujourd'hui, aviez-vous entendu parler de l'étude du « gorille invisible », où les gens ne remarquent pas un gorille caché dans une image ?",
+  "yes": "Oui",
+  "no": "Non",
+  "instr_reveal": "Merci. Il y avait un petit gorille dans cette image ; beaucoup de gens ne le voient pas, et cela fait partie de ce que nous étudions. Rien d'autre dans l'étude n'est un piège.",
+  "instr_rounds": "Les images arrivent par courtes séries. Travaillez vite, mais avec soin. L'étude s'arrête d'elle-même avant 15 minutes, où que vous en soyez ; vous n'avez pas besoin de terminer toutes les séries.",
+  "round_of": "Série {r}",
+  "quit_button": "Je suis épuisé(e) — terminer maintenant",
+  "quit_confirm": "Terminer maintenant la partie images et passer aux deux dernières questions ?",
+  "instr_quit": "Si vous vous sentez épuisé(e), utilisez le bouton « Je suis épuisé(e) » sous n'importe quelle image. C'est tout à fait normal, et cela aide l'étude.",
+  "already_done": "Cette session est terminée. Merci de votre participation.",
+  "bg_l1": "Dans quelle langue êtes-vous le plus à l'aise pour lire ?",
+  "bg_l2": "Quelle autre langue savez-vous aussi lire ?",
+  "bg_l1_reading": "Dans quelle mesure lisez-vous bien la langue où vous êtes le plus à l'aise ? (1 = très peu, 7 = comme un locuteur natif)",
+  "bg_l2_reading": "Dans quelle mesure lisez-vous bien cette autre langue ? (1 = très peu, 7 = comme un locuteur natif)",
+  "bg_same_lang": "Veuillez choisir deux langues différentes."
+ },
+ "clue": {
+  "np": "{small} {noun} {color}",
+  "small": {
+   "m": "un petit",
+   "f": "une petite"
+  },
+  "colors": {
+   "red": {
+    "*": "rouge"
+   },
+   "blue": {
+    "m": "bleu",
+    "f": "bleue"
+   },
+   "green": {
+    "m": "vert",
+    "f": "verte"
+   },
+   "yellow": {
+    "*": "jaune"
+   },
+   "purple": {
+    "m": "violet",
+    "f": "violette"
+   },
+   "orange": {
+    "*": "orange"
+   }
+  },
+  "objects": {
+   "umbrella": {
+    "nom": "parapluie",
+    "g": "m"
+   },
+   "star": {
+    "nom": "étoile",
+    "g": "f"
+   },
+   "heart": {
+    "nom": "cœur",
+    "g": "m"
+   },
+   "moon": {
+    "nom": "croissant de lune",
+    "g": "m"
+   },
+   "arrow": {
+    "nom": "flèche",
+    "g": "f"
+   },
+   "cross": {
+    "nom": "signe plus",
+    "g": "m"
+   },
+   "diamond": {
+    "nom": "losange",
+    "g": "m"
+   },
+   "house": {
+    "nom": "maison",
+    "g": "f"
+   },
+   "fish": {
+    "nom": "poisson",
+    "g": "m"
+   },
+   "key": {
+    "nom": "clé",
+    "g": "f"
+   },
+   "monkey": {
+    "nom": "singe",
+    "g": "m"
+   },
+   "cat": {
+    "nom": "chat",
+    "g": "m"
+   },
+   "bird": {
+    "nom": "oiseau",
+    "g": "m"
+   },
+   "car": {
+    "nom": "voiture",
+    "g": "f"
+   },
+   "tree": {
+    "nom": "arbre",
+    "g": "m"
+   },
+   "guitar": {
+    "nom": "guitare",
+    "g": "f"
+   },
+   "elephant": {
+    "nom": "éléphant",
+    "g": "m"
+   }
+  },
+  "regions": {
+   "0,0": "en haut à gauche",
+   "0,1": "en haut au centre",
+   "0,2": "en haut à droite",
+   "1,0": "au milieu à gauche",
+   "1,1": "au centre",
+   "1,2": "au milieu à droite",
+   "2,0": "en bas à gauche",
+   "2,1": "en bas au centre",
+   "2,2": "en bas à droite"
+  },
+  "edges": {
+   "top": "du haut",
+   "bottom": "du bas",
+   "left": "gauche",
+   "right": "droit"
+  },
+  "search_leads": [
+   "Trouvez {np}.",
+   "Cherchez {np}.",
+   "Votre cible : {np}.",
+   "Quelque part se trouve {np}. Cliquez dessus."
+  ],
+  "scan_leads": [
+   "Quelque chose dans cette image sort de l'ordinaire. Trouvez-le.",
+   "Un élément ici n'est pas à sa place. Cliquez dessus.",
+   "Cherchez tout ce qui ne correspond pas au reste de l'image.",
+   "Il y a quelque chose d'inhabituel dans cette image."
+  ],
+  "surprise_lead": "Trouvez le petit anneau blanc.",
+  "where": [
+   "La cible se trouve {region} de l'image, plus près du bord {near} que du bord {far}.",
+   "Regardez {region}, plus près du bord {near} que du bord {far}.",
+   "Cherchez {region} ; la cible est plus près du bord {near} que du bord {far}."
+  ]
+ }
+}

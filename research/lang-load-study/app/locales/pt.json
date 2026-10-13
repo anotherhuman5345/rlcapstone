@@ -1,0 +1,209 @@
+{
+ "code": "pt",
+ "name": "Português",
+ "dir": "ltr",
+ "verified": false,
+ "ui": {
+  "title": "Com que rapidez você consegue encontrar?",
+  "intro": "Um estudo curto sobre como o idioma de uma pista escrita muda a busca visual. Leva no máximo 15 minutos.",
+  "start": "Começar",
+  "choose_lang": "Mostrar o estudo em",
+  "demo_banner": "Apenas demonstração. Este estudo aguarda aprovação ética, e nada do que for registrado aqui é dado de pesquisa.",
+  "consent_title": "Antes de começar",
+  "consent_body": "Você verá imagens e clicará em um alvo o mais rápido que puder, usando uma pista escrita. Registramos seus cliques, seus tempos e suas respostas a um breve questionário. Nunca pedimos seu nome, e-mail ou localização. Você pode parar a qualquer momento fechando a página. Se você tiver menos de 18 anos, um dos seus pais ou responsável deve ter dado permissão antes de você participar.",
+  "consent_irb": "Número de aprovação ética",
+  "consent_agree": "Concordo em participar",
+  "bg_title": "Sobre você",
+  "group": "Qual opção descreve você melhor?",
+  "group_high_school": "Estudante do ensino médio",
+  "group_undergraduate": "Estudante universitário(a)",
+  "group_phd_student": "Estudante de doutorado",
+  "group_radiologist": "Radiologista ou residente de radiologia",
+  "group_professor": "Professor(a) ou pesquisador(a)",
+  "group_other": "Outro",
+  "age": "Idade",
+  "education_years": "Total de anos de estudo, contando a partir do primeiro ano escolar",
+  "years_reading_images": "Anos de experiência na leitura de imagens médicas (0 se nenhum)",
+  "native_lang": "Primeiro idioma que você aprendeu",
+  "lang_other": "Outro idioma",
+  "l2_age": "Idade em que você começou a aprender esse outro idioma",
+  "continue": "Continuar",
+  "instr_title": "Como funciona",
+  "instr_search": "Imagens cheias de elementos: a pista indica um pequeno objeto para encontrar, e ele é diferente a cada vez.",
+  "instr_scan": "Imagens médicas em tons de cinza: em cada uma há algo fora do comum. Encontre-o e clique nele. Os dois tipos de imagem aparecem misturados.",
+  "instr_clue": "Acima de cada imagem há uma pista dizendo o que procurar e onde. Leia cada pista com atenção: ela muda a cada vez, às vezes em {l1} e às vezes em {l2}. Depois clique no alvo o mais rápido que puder.",
+  "instr_effort": "Depois de cada imagem, avalie quanto esforço mental ela exigiu.",
+  "instr_practice": "As duas primeiras imagens são de treino.",
+  "begin": "Iniciar",
+  "practice": "Treino",
+  "trial_of": "Imagem {n} de {total}",
+  "timeout": "O tempo acabou. Vamos para a próxima.",
+  "found": "Encontrado.",
+  "effort_q": "Quanto esforço mental isso exigiu?",
+  "effort_low": "Muito, muito baixo",
+  "effort_high": "Muito, muito alto",
+  "next": "Próxima",
+  "final_title": "Quase lá",
+  "difficulty_q": "No geral, quão difícil foi este estudo? (1 = muito fácil, 9 = muito difícil)",
+  "attention_q": "Para mostrar que você leu com atenção: qual destes você procurou em uma imagem cheia de elementos?",
+  "finish": "Concluir",
+  "debrief_title": "Obrigado",
+  "debrief_body": "Este estudo investiga se ler uma pista no idioma em que você se sente menos à vontade torna a busca visual mais lenta, se isso muda ao longo da sessão e se a experiência e a escolaridade alteram esse efeito. A primeira imagem também testou outra coisa: quando sua atenção está em uma tarefa (encontrar o anel), você percebe algo inesperado (o gorila)? Muitas pessoas, inclusive especialistas, não percebem. Estamos testando se o idioma da pista muda isso.",
+  "group_adult": "Adulto(a) (não estudante)",
+  "group_physician": "Médico(a) (fora da radiologia)",
+  "surprise_title": "Primeiro, uma rápida",
+  "surprise_body": "Na próxima imagem, encontre o pequeno anel branco e clique nele. Uma pista escrita acima da imagem indica onde olhar.",
+  "notice_q": "Você notou algo incomum naquela imagem?",
+  "gorilla_q": "Você viu um gorila naquela imagem?",
+  "knew_q": "Antes de hoje, você já tinha ouvido falar do estudo do \"gorila invisível\", em que as pessoas não percebem um gorila escondido em uma imagem?",
+  "yes": "Sim",
+  "no": "Não",
+  "instr_reveal": "Obrigado. Havia um pequeno gorila naquela imagem; muitas pessoas não o percebem, e isso faz parte do que estudamos. Nada mais no estudo é uma pegadinha.",
+  "instr_rounds": "As imagens vêm em rodadas curtas. Trabalhe rápido, mas com cuidado. O estudo termina sozinho antes de 15 minutos, onde quer que você esteja; você não precisa concluir todas as rodadas.",
+  "round_of": "Rodada {r}",
+  "quit_button": "Estou exausto(a) — terminar agora",
+  "quit_confirm": "Terminar agora a parte das imagens e ir para as duas últimas perguntas?",
+  "instr_quit": "Se você se sentir exausto(a), use o botão \"Estou exausto(a)\" abaixo de qualquer imagem. Isso é totalmente normal e ajuda o estudo.",
+  "already_done": "Esta sessão foi concluída. Obrigado por participar.",
+  "bg_l1": "Em qual idioma você se sente mais à vontade para ler?",
+  "bg_l2": "Que outro idioma você também consegue ler?",
+  "bg_l1_reading": "Quão bem você lê o idioma em que se sente mais à vontade? (1 = muito pouco, 7 = como um falante nativo)",
+  "bg_l2_reading": "Quão bem você lê esse outro idioma? (1 = muito pouco, 7 = como um falante nativo)",
+  "bg_same_lang": "Por favor, escolha dois idiomas diferentes."
+ },
+ "clue": {
+  "np": "{small} {noun} {color}",
+  "small": {
+   "m": "um pequeno",
+   "f": "uma pequena"
+  },
+  "colors": {
+   "red": {
+    "m": "vermelho",
+    "f": "vermelha"
+   },
+   "blue": {
+    "*": "azul"
+   },
+   "green": {
+    "*": "verde"
+   },
+   "yellow": {
+    "m": "amarelo",
+    "f": "amarela"
+   },
+   "purple": {
+    "m": "roxo",
+    "f": "roxa"
+   },
+   "orange": {
+    "*": "laranja"
+   }
+  },
+  "objects": {
+   "umbrella": {
+    "nom": "guarda-chuva",
+    "g": "m"
+   },
+   "star": {
+    "nom": "estrela",
+    "g": "f"
+   },
+   "heart": {
+    "nom": "coração",
+    "g": "m"
+   },
+   "moon": {
+    "nom": "meia-lua",
+    "g": "f"
+   },
+   "arrow": {
+    "nom": "seta",
+    "g": "f"
+   },
+   "cross": {
+    "nom": "sinal de mais",
+    "g": "m"
+   },
+   "diamond": {
+    "nom": "losango",
+    "g": "m"
+   },
+   "house": {
+    "nom": "casa",
+    "g": "f"
+   },
+   "fish": {
+    "nom": "peixe",
+    "g": "m"
+   },
+   "key": {
+    "nom": "chave",
+    "g": "f"
+   },
+   "monkey": {
+    "nom": "macaco",
+    "g": "m"
+   },
+   "cat": {
+    "nom": "gato",
+    "g": "m"
+   },
+   "bird": {
+    "nom": "pássaro",
+    "g": "m"
+   },
+   "car": {
+    "nom": "carro",
+    "g": "m"
+   },
+   "tree": {
+    "nom": "árvore",
+    "g": "f"
+   },
+   "guitar": {
+    "nom": "violão",
+    "g": "m"
+   },
+   "elephant": {
+    "nom": "elefante",
+    "g": "m"
+   }
+  },
+  "regions": {
+   "0,0": "superior esquerda",
+   "0,1": "superior central",
+   "0,2": "superior direita",
+   "1,0": "central esquerda",
+   "1,1": "central",
+   "1,2": "central direita",
+   "2,0": "inferior esquerda",
+   "2,1": "inferior central",
+   "2,2": "inferior direita"
+  },
+  "edges": {
+   "top": "superior",
+   "bottom": "inferior",
+   "left": "esquerda",
+   "right": "direita"
+  },
+  "search_leads": [
+   "Encontre {np}.",
+   "Procure {np}.",
+   "Seu alvo: {np}.",
+   "Em algum lugar há {np}. Clique no alvo."
+  ],
+  "scan_leads": [
+   "Há algo fora do comum nesta imagem. Encontre-o.",
+   "Uma coisa aqui está fora do lugar. Clique nela.",
+   "Procure qualquer coisa que não combine com o resto da imagem.",
+   "Há algo incomum nesta imagem."
+  ],
+  "surprise_lead": "Encontre o pequeno anel branco.",
+  "where": [
+   "Está na região {region} da imagem, mais perto da borda {near} do que da borda {far}.",
+   "Verifique a parte {region}, mais perto da borda {near} do que da borda {far}.",
+   "Procure na região {region}; o alvo fica mais perto da borda {near} do que da borda {far}."
+  ]
+ }
+}

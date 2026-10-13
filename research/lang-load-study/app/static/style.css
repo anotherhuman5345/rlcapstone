@@ -54,3 +54,4 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .trial-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .quit { background: none; color: var(--muted); border: 1px solid var(--line); font-weight: 400; font-size: .9rem; padding: .45rem .9rem; margin-top: 0; }
 .quit:hover { color: var(--ink); border-color: var(--muted); }
+.error { color: #9b1c1c; font-weight: 600; }

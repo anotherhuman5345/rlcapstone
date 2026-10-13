@@ -1,0 +1,205 @@
+{
+ "code": "tr",
+ "name": "Türkçe",
+ "dir": "ltr",
+ "verified": false,
+ "ui": {
+  "title": "Ne kadar hızlı bulabilirsiniz?",
+  "intro": "Yazılı bir ipucunun dilinin görsel aramayı nasıl etkilediğine dair kısa bir çalışma. En fazla 15 dakika sürer.",
+  "start": "Başla",
+  "choose_lang": "Çalışmayı şu dilde göster",
+  "demo_banner": "Yalnızca deneme sürümü. Bu çalışma etik kurul onayını bekliyor; burada kaydedilen hiçbir şey araştırma verisi değildir.",
+  "consent_title": "Başlamadan önce",
+  "consent_body": "Resimlere bakacak ve yazılı bir ipucunu kullanarak hedefe olabildiğince hızlı tıklayacaksınız. Tıklamalarınızı, sürelerinizi ve kısa bir anketteki cevaplarınızı kaydediyoruz. Adınızı, e-postanızı veya konumunuzu asla sormuyoruz. Sayfayı kapatarak istediğiniz zaman bırakabilirsiniz. 18 yaşından küçükseniz, katılmadan önce bir ebeveyninizin veya velinizin izin vermiş olması gerekir.",
+  "consent_irb": "Etik kurul onay numarası",
+  "consent_agree": "Katılmayı kabul ediyorum",
+  "bg_title": "Hakkınızda",
+  "group": "Sizi en iyi hangisi tanımlıyor?",
+  "group_high_school": "Lise öğrencisi",
+  "group_undergraduate": "Üniversite öğrencisi",
+  "group_phd_student": "Doktora öğrencisi",
+  "group_radiologist": "Radyolog veya radyoloji asistanı",
+  "group_professor": "Profesör veya araştırmacı",
+  "group_other": "Diğer",
+  "age": "Yaş",
+  "education_years": "Birinci sınıftan itibaren toplam eğitim yılı",
+  "years_reading_images": "Tıbbi görüntü okuma deneyimi, yıl olarak (yoksa 0)",
+  "native_lang": "Öğrendiğiniz ilk dil",
+  "lang_other": "Başka bir dil",
+  "l2_age": "O diğer dili öğrenmeye başladığınız yaş",
+  "continue": "Devam",
+  "instr_title": "Nasıl işliyor",
+  "instr_search": "Kalabalık resimler: ipucu bulmanız gereken küçük bir nesneyi söyler ve bu nesne her seferinde farklıdır.",
+  "instr_scan": "Gri tonlu tıbbi görüntüler: her birinde olağan dışı bir şey var. Onu bulun ve üzerine tıklayın. İki tür resim karışık olarak gelir.",
+  "instr_clue": "Her resmin üstünde neyi ve nerede arayacağınızı söyleyen bir ipucu var. Her ipucunu dikkatle okuyun: her seferinde değişir, bazen {l1} bazen {l2}. Sonra hedefe olabildiğince hızlı tıklayın.",
+  "instr_effort": "Her resimden sonra ne kadar zihinsel çaba harcadığınızı puanlayın.",
+  "instr_practice": "İlk iki resim alıştırmadır.",
+  "begin": "Başla",
+  "practice": "Alıştırma",
+  "trial_of": "Resim {n} / {total}",
+  "timeout": "Süre doldu. Devam ediliyor.",
+  "found": "Buldunuz.",
+  "effort_q": "Bu ne kadar zihinsel çaba gerektirdi?",
+  "effort_low": "Çok, çok düşük",
+  "effort_high": "Çok, çok yüksek",
+  "next": "Sonraki",
+  "final_title": "Neredeyse bitti",
+  "difficulty_q": "Genel olarak bu çalışma ne kadar zordu? (1 = çok kolay, 9 = çok zor)",
+  "attention_q": "Dikkatle okuduğunuzu göstermek için: kalabalık bir resimde bunlardan hangisini aradınız?",
+  "finish": "Bitir",
+  "debrief_title": "Teşekkürler",
+  "debrief_body": "Bu çalışma, bir ipucunu daha az rahat olduğunuz dilde okumanın görsel aramayı yavaşlatıp yavaşlatmadığını, bunun oturum boyunca değişip değişmediğini ve deneyim ile eğitimin bunu etkileyip etkilemediğini araştırıyor. İlk görüntü başka bir şeyi de test etti: dikkatiniz bir işe (halkayı bulmaya) yönelmişken beklenmedik bir şeyi (gorili) fark ediyor musunuz? Uzmanlar dahil pek çok kişi fark etmiyor. İpucunun dilinin bunu değiştirip değiştirmediğini test ediyoruz.",
+  "group_adult": "Yetişkin (öğrenci değil)",
+  "group_physician": "Hekim (radyoloji dışı)",
+  "surprise_title": "Önce kısa bir tane",
+  "surprise_body": "Sıradaki görüntüde küçük beyaz halkayı bulun ve üzerine tıklayın. Görüntünün üstündeki yazılı ipucu nereye bakacağınızı söyler.",
+  "notice_q": "O görüntüde olağan dışı bir şey fark ettiniz mi?",
+  "gorilla_q": "O görüntüde bir goril gördünüz mü?",
+  "knew_q": "Bugünden önce, insanların bir görüntüde saklanan gorili fark etmediği \"görünmez goril\" çalışmasını duymuş muydunuz?",
+  "yes": "Evet",
+  "no": "Hayır",
+  "instr_reveal": "Teşekkürler. O görüntüde küçük bir goril vardı; pek çok kişi onu fark etmiyor ve bu, araştırdığımız şeyin bir parçası. Çalışmanın geri kalanında başka bir hile yok.",
+  "instr_rounds": "Resimler kısa turlar halinde gelir. Hızlı ama dikkatli çalışın. Çalışma, nerede olursanız olun 15 dakika dolmadan kendiliğinden biter; her turu bitirmeniz gerekmez.",
+  "round_of": "Tur {r}",
+  "quit_button": "Çok yoruldum — şimdi bitir",
+  "quit_confirm": "Resim bölümünü şimdi bitirip son iki soruya geçilsin mi?",
+  "instr_quit": "Çok yorulursanız, herhangi bir resmin altındaki \"Çok yoruldum\" düğmesini kullanın. Bu tamamen normaldir ve çalışmaya yardımcı olur.",
+  "already_done": "Bu oturum tamamlandı. Katıldığınız için teşekkürler.",
+  "bg_l1": "Okurken en rahat olduğunuz dil hangisi?",
+  "bg_l2": "Okuyabildiğiniz diğer dil hangisi?",
+  "bg_l1_reading": "En rahat olduğunuz dili ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
+  "bg_l2_reading": "O diğer dili ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
+  "bg_same_lang": "Lütfen iki farklı dil seçin."
+ },
+ "clue": {
+  "np": "{small} {color} {noun}",
+  "small": {
+   "*": "küçük"
+  },
+  "colors": {
+   "red": {
+    "*": "kırmızı"
+   },
+   "blue": {
+    "*": "mavi"
+   },
+   "green": {
+    "*": "yeşil"
+   },
+   "yellow": {
+    "*": "sarı"
+   },
+   "purple": {
+    "*": "mor"
+   },
+   "orange": {
+    "*": "turuncu"
+   }
+  },
+  "objects": {
+   "umbrella": {
+    "nom": "şemsiye",
+    "acc": "şemsiyeyi"
+   },
+   "star": {
+    "nom": "yıldız",
+    "acc": "yıldızı"
+   },
+   "heart": {
+    "nom": "kalp",
+    "acc": "kalbi"
+   },
+   "moon": {
+    "nom": "hilal",
+    "acc": "hilali"
+   },
+   "arrow": {
+    "nom": "ok",
+    "acc": "oku"
+   },
+   "cross": {
+    "nom": "artı işareti",
+    "acc": "artı işaretini"
+   },
+   "diamond": {
+    "nom": "karo",
+    "acc": "karoyu"
+   },
+   "house": {
+    "nom": "ev",
+    "acc": "evi"
+   },
+   "fish": {
+    "nom": "balık",
+    "acc": "balığı"
+   },
+   "key": {
+    "nom": "anahtar",
+    "acc": "anahtarı"
+   },
+   "monkey": {
+    "nom": "maymun",
+    "acc": "maymunu"
+   },
+   "cat": {
+    "nom": "kedi",
+    "acc": "kediyi"
+   },
+   "bird": {
+    "nom": "kuş",
+    "acc": "kuşu"
+   },
+   "car": {
+    "nom": "araba",
+    "acc": "arabayı"
+   },
+   "tree": {
+    "nom": "ağaç",
+    "acc": "ağacı"
+   },
+   "guitar": {
+    "nom": "gitar",
+    "acc": "gitarı"
+   },
+   "elephant": {
+    "nom": "fil",
+    "acc": "fili"
+   }
+  },
+  "regions": {
+   "0,0": "sol üst",
+   "0,1": "üst orta",
+   "0,2": "sağ üst",
+   "1,0": "sol orta",
+   "1,1": "orta",
+   "1,2": "sağ orta",
+   "2,0": "sol alt",
+   "2,1": "alt orta",
+   "2,2": "sağ alt"
+  },
+  "edges": {
+   "top": "üst",
+   "bottom": "alt",
+   "left": "sol",
+   "right": "sağ"
+  },
+  "search_leads": [
+   "{np_acc} bulun.",
+   "{np_acc} arayın.",
+   "Hedefiniz: {np}.",
+   "Bir yerde {np} var. Üzerine tıklayın."
+  ],
+  "scan_leads": [
+   "Bu görüntüde olağan dışı bir şey var. Onu bulun.",
+   "Burada bir şey yerine ait değil. Üzerine tıklayın.",
+   "Görüntünün geri kalanıyla uyuşmayan bir şey arayın.",
+   "Bu görüntüde alışılmadık bir şey var."
+  ],
+  "surprise_lead": "Küçük beyaz halkayı bulun.",
+  "where": [
+   "Görüntünün {region} bölgesinde; {far} kenardan çok {near} kenara yakın.",
+   "{Region} kısma bakın; {far} kenardan çok {near} kenara yakın.",
+   "{Region} bölgeyi arayın; {near} kenara, {far} kenardan daha yakın."
+  ]
+ }
+}

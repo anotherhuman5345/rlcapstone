@@ -1,5 +1,6 @@
 """Run with:  pytest -q"""
 import os
+import re
 import tempfile
 
 tmp = tempfile.mkdtemp()
@@ -51,13 +52,18 @@ def test_clues_carry_same_information():
 
 
 def test_scan_clues_never_name_the_target():
-    from app.clues import OBJECTS
+    from app.i18n import LANGUAGES, LOCALES
     m = load_manifest()
     for img in (i for i in m["images"] if i["task"] == "scan"):
-        for lang in ("en", "tr"):
+        for lang in LANGUAGES:
             clue = make_clue("scan", lang, img["id"], img["target"], img["width"], img["height"]).lower()
-            en, nom, acc = OBJECTS[img["target"]["object"]]
-            assert en not in clue and acc not in clue, (img["id"], clue)
+            obj = LOCALES[lang]["clue"]["objects"][img["target"]["object"]]
+            spaced = " " in LOCALES[lang]["clue"]["np"]
+            for form in {obj["nom"], obj.get("acc", obj["nom"])}:
+                form = form.lower()
+                # Whole words where the script uses spaces (Turkish "ok" = arrow is inside "çok").
+                found = re.search(r"(?<!\w)" + re.escape(form) + r"(?!\w)", clue) if spaced else form in clue
+                assert not found, (lang, img["id"], clue)
 
 
 def test_targets_and_wording_do_not_repeat():
@@ -90,7 +96,8 @@ def test_full_session_flow():
         c.post("/consent", data={"agree": "yes"})
         r = c.post("/background", data={
             "group": "high_school", "age": 17, "education_years": 12, "years_reading_images": 0,
-            "native_lang": "tr", "l2_age_acquired": 5, "en_reading": 7, "tr_reading": 6, "comfort": "en"})
+            "native_lang": "tr", "l2_age_acquired": 5, "l1": "en", "l1_reading": 7, "l2": "tr",
+            "l2_reading": 6})
         assert r.status_code == 200 and "goril" not in r.text.lower()  # surprise intro never hints
         m = {i["id"]: i for i in load_manifest()["images"]}
         img_id, res = _answer(c, m, 0)
@@ -144,13 +151,13 @@ def test_session_stops_at_time_limit():
             assert db.get(Participant, c.cookies.get("pid")).time_capped is True
 
 
-def _start(c, en_reading=7, tr_reading=6):
+def _start(c, l1_reading=7, l2_reading=6, l1="tr", l2="en"):
     c.post("/start", data={"ui_lang": "en"})
     c.post("/consent", data={"agree": "yes"})
     return c.post("/background", data={
         "group": "radiologist", "age": 45, "education_years": 22, "years_reading_images": 12,
-        "native_lang": "tr", "l2_age_acquired": 20, "en_reading": en_reading,
-        "tr_reading": tr_reading, "comfort": "tr"})
+        "native_lang": "tr", "l2_age_acquired": 20, "l1": l1, "l1_reading": l1_reading,
+        "l2": l2, "l2_reading": l2_reading})
 
 
 def test_manifest_with_answers_is_not_public():
@@ -178,10 +185,10 @@ def test_reloaded_trial_is_flagged():
 def test_out_of_range_answers_rejected_and_eligibility_flagged():
     c = TestClient(app)
     with c:
-        assert _start(c, en_reading=12).status_code == 422
+        assert _start(c, l1_reading=12).status_code == 422
     c = TestClient(app)
     with c:
-        assert _start(c, en_reading=2).status_code == 200
+        assert _start(c, l2_reading=2).status_code == 200
         from app.db import Participant, SessionLocal
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
@@ -207,3 +214,61 @@ def test_exhausted_button_ends_session_and_is_recorded():
             p = db.get(Participant, c.cookies.get("pid"))
             assert p.quit_early and p.quit_trial == 6 and p.quit_elapsed_s is not None
             assert p.completed and p.attention_ok is False
+
+
+def test_every_language_file_is_complete_and_builds_every_clue():
+    import re
+    from app.clues import (COLOR_NAMES, DECOY_OBJECTS, N_SCAN_LEADS, N_SEARCH_LEADS, N_WHERE,
+                           TARGET_OBJECTS, make_clue)
+    from app.i18n import LANGUAGES, LOCALES
+    assert len(LANGUAGES) == 30
+    en_ui = LOCALES["en"]["ui"]
+    fields = lambda text: set(re.findall(r"{(\w+)}", text))
+    for code in LANGUAGES:
+        loc = LOCALES[code]
+        assert loc["code"] == code and loc["name"] and loc["dir"] in ("ltr", "rtl"), code
+        assert set(loc["ui"]) == set(en_ui), (code, set(en_ui) ^ set(loc["ui"]))
+        for key, text in loc["ui"].items():
+            assert text.strip(), (code, key)
+            assert fields(text) == fields(en_ui[key]), (code, key)
+        cl = loc["clue"]
+        assert set(TARGET_OBJECTS + DECOY_OBJECTS) <= set(cl["objects"]), code
+        assert set(COLOR_NAMES) <= set(cl["colors"]), code
+        assert len(cl["regions"]) == 9 and set(cl["edges"]) == {"top", "bottom", "left", "right"}, code
+        assert (len(cl["search_leads"]), len(cl["scan_leads"]), len(cl["where"])) == \
+            (N_SEARCH_LEADS, N_SCAN_LEADS, N_WHERE), code
+        for kind in TARGET_OBJECTS:
+            for color in COLOR_NAMES:
+                for k in range(N_SEARCH_LEADS * N_WHERE * 3):
+                    clue = make_clue("search", code, f"x{k}", {"x": 90 * k % 1200, "y": 37 * k % 800,
+                                     "object": kind, "color": color}, 1200, 800)
+                    assert "{" not in clue and "  " not in clue, (code, clue)
+        for k in range(12):
+            make_clue("scan", code, f"s{k}", {"x": 100, "y": 700, "object": "cat", "color": None}, 1200, 800)
+        make_clue("surprise", code, "surprise", {"x": 600, "y": 400}, 1200, 800)
+
+
+def test_language_choice_drives_the_clue_language():
+    c = TestClient(app)
+    with c:
+        _start(c, l1="ja", l2="es")
+        m = {i["id"]: i for i in load_manifest()["images"]}
+        _answer(c, m, 0)
+        c.post("/notice", data={"noticed": "no"})
+        c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "no"})
+        langs = set()
+        for i in range(1, 12):
+            page = c.get("/trial").text
+            langs.add(page.split('class="clue" lang="')[1].split('"')[0])
+            _answer(c, m, i)
+        assert langs == {"ja", "es"}
+        assert c.post("/background", data={"group": "adult", "age": 30, "education_years": 16,
+                      "native_lang": "ja", "l2_age_acquired": 10, "l1": "ja", "l1_reading": 7,
+                      "l2": "ja", "l2_reading": 5}).status_code == 200  # same language twice: re-asked
+
+
+def test_right_to_left_languages_render_rtl():
+    c = TestClient(app)
+    with c:
+        assert 'dir="rtl"' in c.get("/?lang=ar").text
+        assert 'dir="ltr"' in c.get("/?lang=ja").text
