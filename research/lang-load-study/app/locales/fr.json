@@ -31,9 +31,10 @@
   "instr_title": "Comment ça marche",
   "instr_search": "Images chargées : l'indice nomme un petit objet à trouver, différent à chaque fois.",
   "instr_scan": "Images médicales en niveaux de gris : dans chacune, quelque chose sort de l'ordinaire. Trouvez-le et cliquez dessus. Les deux types d'images sont mélangés.",
+  "instr_dice": "Grilles avec deux dés : l'indice vous dit dans quelle direction partir de l'étoile, et les dés vous disent de combien de cases. Cliquez sur la case où vous arrivez.",
   "instr_clue": "Au-dessus de chaque image, un indice vous dit quoi chercher et où. Lisez attentivement chaque indice : il change à chaque fois, parfois en {l1}, parfois en {l2}. Cliquez ensuite sur la cible le plus vite possible.",
   "instr_effort": "Après chaque image, évaluez l'effort mental qu'elle vous a demandé.",
-  "instr_practice": "Les deux premières images servent d'entraînement.",
+  "instr_practice": "La première image de chaque type sert d'entraînement.",
   "begin": "Démarrer",
   "practice": "Entraînement",
   "trial_of": "Image {n} sur {total}",
@@ -204,6 +205,17 @@
    "La cible se trouve {region} de l'image, plus près du bord {near} que du bord {far}.",
    "Regardez {region}, plus près du bord {near} que du bord {far}.",
    "Cherchez {region} ; la cible est plus près du bord {near} que du bord {far}."
+  ],
+  "directions": {
+   "up": "vers le haut",
+   "down": "vers le bas",
+   "left": "vers la gauche",
+   "right": "vers la droite"
+  },
+  "dice_leads": [
+   "Partez de l'étoile. Déplacez-vous {dir_a} d'autant de cases que l'indique le dé A, puis {dir_b} d'autant de cases que l'indique le dé B. Cliquez sur la case d'arrivée.",
+   "Depuis l'étoile, allez {dir_a} du nombre de cases indiqué par le dé A, puis {dir_b} du nombre indiqué par le dé B, et cliquez sur cette case.",
+   "Commencez sur l'étoile : le dé A indique de combien de cases aller {dir_a}, puis le dé B de combien de cases aller {dir_b}. Cliquez sur la case finale."
   ]
  }
 }

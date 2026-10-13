@@ -31,9 +31,10 @@
   "instr_title": "Jinsi inavyofanya kazi",
   "instr_search": "Picha zenye vitu vingi: kidokezo kinataja kitu kidogo cha kutafuta, na kinabadilika kila mara.",
   "instr_scan": "Picha za kitabibu za rangi ya kijivu: katika kila moja kuna kitu kisicho cha kawaida. Kitafute na ukibofye. Aina hizi mbili za picha zimechanganywa pamoja.",
+  "instr_dice": "Gridi zenye kete mbili: kidokezo kinakuambia uelekee upande gani kutoka kwenye nyota, na kete zinakuambia uende umbali gani. Bofya mraba utakaofikia.",
   "instr_clue": "Juu ya kila picha kuna kidokezo kinachokuambia utafute nini na wapi. Soma kila kidokezo kwa makini: kinabadilika kila mara, wakati mwingine kwa {l1} na wakati mwingine kwa {l2}. Kisha bofya lengo haraka uwezavyo.",
   "instr_effort": "Baada ya kila picha, kadiria ulitumia juhudi ya akili kiasi gani.",
-  "instr_practice": "Picha mbili za kwanza ni za mazoezi.",
+  "instr_practice": "Picha ya kwanza ya kila aina ni ya mazoezi.",
   "begin": "Anza",
   "practice": "Mazoezi",
   "trial_of": "Picha {n} kati ya {total}",
@@ -80,31 +81,94 @@
    "ji": "dogo la"
   },
   "colors": {
-   "red": {"*": "nyekundu"},
-   "blue": {"*": "ya buluu"},
-   "green": {"*": "ya kijani"},
-   "yellow": {"*": "ya njano"},
-   "purple": {"*": "ya zambarau"},
-   "orange": {"*": "ya chungwa"}
+   "red": {
+    "*": "nyekundu"
+   },
+   "blue": {
+    "*": "ya buluu"
+   },
+   "green": {
+    "*": "ya kijani"
+   },
+   "yellow": {
+    "*": "ya njano"
+   },
+   "purple": {
+    "*": "ya zambarau"
+   },
+   "orange": {
+    "*": "ya chungwa"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "mwavuli", "g": "m"},
-   "star": {"nom": "nyota", "g": "n"},
-   "heart": {"nom": "moyo", "g": "m"},
-   "moon": {"nom": "hilali", "g": "n"},
-   "arrow": {"nom": "mshale", "g": "m"},
-   "cross": {"nom": "alama ya kujumlisha", "g": "n"},
-   "diamond": {"nom": "almasi", "g": "n"},
-   "house": {"nom": "nyumba", "g": "n"},
-   "fish": {"nom": "samaki", "g": "a"},
-   "key": {"nom": "ufunguo", "g": "m"},
-   "monkey": {"nom": "tumbili", "g": "a"},
-   "cat": {"nom": "paka", "g": "a"},
-   "bird": {"nom": "ndege", "g": "a"},
-   "car": {"nom": "gari", "g": "ji"},
-   "tree": {"nom": "mti", "g": "m"},
-   "guitar": {"nom": "gitaa", "g": "n"},
-   "elephant": {"nom": "tembo", "g": "a"}
+   "umbrella": {
+    "nom": "mwavuli",
+    "g": "m"
+   },
+   "star": {
+    "nom": "nyota",
+    "g": "n"
+   },
+   "heart": {
+    "nom": "moyo",
+    "g": "m"
+   },
+   "moon": {
+    "nom": "hilali",
+    "g": "n"
+   },
+   "arrow": {
+    "nom": "mshale",
+    "g": "m"
+   },
+   "cross": {
+    "nom": "alama ya kujumlisha",
+    "g": "n"
+   },
+   "diamond": {
+    "nom": "almasi",
+    "g": "n"
+   },
+   "house": {
+    "nom": "nyumba",
+    "g": "n"
+   },
+   "fish": {
+    "nom": "samaki",
+    "g": "a"
+   },
+   "key": {
+    "nom": "ufunguo",
+    "g": "m"
+   },
+   "monkey": {
+    "nom": "tumbili",
+    "g": "a"
+   },
+   "cat": {
+    "nom": "paka",
+    "g": "a"
+   },
+   "bird": {
+    "nom": "ndege",
+    "g": "a"
+   },
+   "car": {
+    "nom": "gari",
+    "g": "ji"
+   },
+   "tree": {
+    "nom": "mti",
+    "g": "m"
+   },
+   "guitar": {
+    "nom": "gitaa",
+    "g": "n"
+   },
+   "elephant": {
+    "nom": "tembo",
+    "g": "a"
+   }
   },
   "regions": {
    "0,0": "juu kushoto",
@@ -140,6 +204,17 @@
    "Lengo liko katika sehemu ya {region} ya picha, karibu zaidi na ukingo wa {near} kuliko ukingo wa {far}.",
    "Angalia sehemu ya {region}, karibu zaidi na ukingo wa {near} kuliko ukingo wa {far}.",
    "Tafuta katika sehemu ya {region}; lengo liko karibu zaidi na ukingo wa {near} kuliko ukingo wa {far}."
+  ],
+  "directions": {
+   "up": "juu",
+   "down": "chini",
+   "left": "kushoto",
+   "right": "kulia"
+  },
+  "dice_leads": [
+   "Anza kwenye nyota. Sogea {dir_a} miraba mingi kama inavyoonyesha kete A, kisha {dir_b} miraba mingi kama inavyoonyesha kete B. Bofya mahali utakapofika.",
+   "Kutoka kwenye nyota, nenda {dir_a} kwa namba iliyo kwenye kete A, kisha {dir_b} kwa namba iliyo kwenye kete B, na ubofye mraba huo.",
+   "Anzia kwenye nyota: kete A inakuambia usogee miraba mingapi {dir_a}, kisha kete B inakuambia usogee mingapi {dir_b}. Bofya mraba wa mwisho."
   ]
  }
 }

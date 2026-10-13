@@ -31,9 +31,10 @@
   "instr_title": "Come funziona",
   "instr_search": "Immagini affollate: l'indizio indica un piccolo oggetto da trovare, ed è diverso ogni volta.",
   "instr_scan": "Immagini mediche in scala di grigi: in ognuna c'è qualcosa fuori dall'ordinario. Trovalo e cliccaci sopra. I due tipi di immagine sono mescolati tra loro.",
+  "instr_dice": "Griglie con due dadi: l'indizio ti dice in che direzione muoverti partendo dalla stella, e i dadi ti dicono di quanto. Clicca sulla casella in cui arrivi.",
   "instr_clue": "Sopra ogni immagine c'è un indizio che ti dice cosa cercare e dove. Leggi attentamente ogni indizio: cambia ogni volta, a volte è in {l1} e a volte in {l2}. Poi clicca sul bersaglio il più velocemente possibile.",
   "instr_effort": "Dopo ogni immagine, indica quanto sforzo mentale ti ha richiesto.",
-  "instr_practice": "Le prime due immagini sono di prova.",
+  "instr_practice": "La prima immagine di ogni tipo è di prova.",
   "begin": "Comincia",
   "practice": "Prova",
   "trial_of": "Immagine {n} di {total}",
@@ -73,33 +74,104 @@
  },
  "clue": {
   "np": "{small} {noun} {color}",
-  "small": {"m": "un piccolo", "f": "una piccola", "*": "un piccolo"},
+  "small": {
+   "m": "un piccolo",
+   "f": "una piccola",
+   "*": "un piccolo"
+  },
   "colors": {
-   "red": {"m": "rosso", "f": "rossa", "*": "rosso"},
-   "blue": {"*": "blu"},
-   "green": {"*": "verde"},
-   "yellow": {"m": "giallo", "f": "gialla", "*": "giallo"},
-   "purple": {"*": "viola"},
-   "orange": {"*": "arancione"}
+   "red": {
+    "m": "rosso",
+    "f": "rossa",
+    "*": "rosso"
+   },
+   "blue": {
+    "*": "blu"
+   },
+   "green": {
+    "*": "verde"
+   },
+   "yellow": {
+    "m": "giallo",
+    "f": "gialla",
+    "*": "giallo"
+   },
+   "purple": {
+    "*": "viola"
+   },
+   "orange": {
+    "*": "arancione"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "ombrello", "g": "m"},
-   "star": {"nom": "stella", "g": "f"},
-   "heart": {"nom": "cuore", "g": "m"},
-   "moon": {"nom": "mezzaluna", "g": "f"},
-   "arrow": {"nom": "freccia", "g": "f"},
-   "cross": {"nom": "segno più", "g": "m"},
-   "diamond": {"nom": "rombo", "g": "m"},
-   "house": {"nom": "casa", "g": "f"},
-   "fish": {"nom": "pesce", "g": "m"},
-   "key": {"nom": "chiave", "g": "f"},
-   "monkey": {"nom": "scimmia", "g": "f"},
-   "cat": {"nom": "gatto", "g": "m"},
-   "bird": {"nom": "uccello", "g": "m"},
-   "car": {"nom": "macchina", "g": "f"},
-   "tree": {"nom": "albero", "g": "m"},
-   "guitar": {"nom": "chitarra", "g": "f"},
-   "elephant": {"nom": "elefante", "g": "m"}
+   "umbrella": {
+    "nom": "ombrello",
+    "g": "m"
+   },
+   "star": {
+    "nom": "stella",
+    "g": "f"
+   },
+   "heart": {
+    "nom": "cuore",
+    "g": "m"
+   },
+   "moon": {
+    "nom": "mezzaluna",
+    "g": "f"
+   },
+   "arrow": {
+    "nom": "freccia",
+    "g": "f"
+   },
+   "cross": {
+    "nom": "segno più",
+    "g": "m"
+   },
+   "diamond": {
+    "nom": "rombo",
+    "g": "m"
+   },
+   "house": {
+    "nom": "casa",
+    "g": "f"
+   },
+   "fish": {
+    "nom": "pesce",
+    "g": "m"
+   },
+   "key": {
+    "nom": "chiave",
+    "g": "f"
+   },
+   "monkey": {
+    "nom": "scimmia",
+    "g": "f"
+   },
+   "cat": {
+    "nom": "gatto",
+    "g": "m"
+   },
+   "bird": {
+    "nom": "uccello",
+    "g": "m"
+   },
+   "car": {
+    "nom": "macchina",
+    "g": "f"
+   },
+   "tree": {
+    "nom": "albero",
+    "g": "m"
+   },
+   "guitar": {
+    "nom": "chitarra",
+    "g": "f"
+   },
+   "elephant": {
+    "nom": "elefante",
+    "g": "m"
+   }
   },
   "regions": {
    "0,0": "in alto a sinistra",
@@ -135,6 +207,17 @@
    "Si trova nella zona {region} dell'immagine, più vicino al bordo {near} che al bordo {far}.",
    "Controlla la parte {region}, più vicino al bordo {near} che al bordo {far}.",
    "Cerca nella zona {region}: si trova più vicino al bordo {near} che al bordo {far}."
+  ],
+  "directions": {
+   "up": "verso l'alto",
+   "down": "verso il basso",
+   "left": "a sinistra",
+   "right": "a destra"
+  },
+  "dice_leads": [
+   "Parti dalla stella. Spostati {dir_a} di tante caselle quante ne mostra il dado A, poi {dir_b} di tante quante ne mostra il dado B. Clicca dove arrivi.",
+   "Dalla stella, spostati {dir_a} del numero di caselle indicato dal dado A, poi {dir_b} del numero indicato dal dado B, e clicca su quella casella.",
+   "Comincia dalla stella: il dado A dice di quante caselle spostarti {dir_a}, poi il dado B dice di quante spostarti {dir_b}. Clicca sulla casella finale."
   ]
  }
 }

@@ -31,9 +31,10 @@
   "instr_title": "Yadda yake aiki",
   "instr_search": "Hotuna masu cunkoso: ishara tana faɗin wani ƙaramin abu da za ku nema, kuma yana canzawa kowane lokaci.",
   "instr_scan": "Hotunan likitanci masu launin toka: a cikin kowanne akwai wani abu da ba na yau da kullum ba. Ku nemo shi ku danna shi. Nau'ikan hotunan biyu suna gauraye wuri ɗaya.",
+  "instr_dice": "Jadawalai masu 'yan lido biyu: ishara tana gaya muku hanyar da za ku bi daga tauraron, 'yan lidon kuma suna gaya muku nisan tafiya. Ku danna murabba'in da kuka tsaya a kai.",
   "instr_clue": "A saman kowane hoto akwai ishara da take gaya muku abin da za ku nema da kuma inda za ku nema. Ku karanta kowace ishara da kyau: tana canzawa kowane lokaci, wani lokaci da {l1}, wani lokaci kuma da {l2}. Sannan ku danna abin da ake nema da sauri gwargwadon iko.",
   "instr_effort": "Bayan kowane hoto, ku auna yawan ƙoƙarin tunani da ya ɗauka.",
-  "instr_practice": "Hotuna biyu na farko na atisaye ne.",
+  "instr_practice": "Hoton farko na kowane nau'i na atisaye ne.",
   "begin": "Fara",
   "practice": "Atisaye",
   "trial_of": "Hoto {n} cikin {total}",
@@ -79,31 +80,94 @@
    "*": "ƙaramin"
   },
   "colors": {
-   "red": {"*": "ja"},
-   "blue": {"*": "shuɗi"},
-   "green": {"*": "kore"},
-   "yellow": {"*": "rawaya"},
-   "purple": {"*": "shunayya"},
-   "orange": {"*": "ruwan lemu"}
+   "red": {
+    "*": "ja"
+   },
+   "blue": {
+    "*": "shuɗi"
+   },
+   "green": {
+    "*": "kore"
+   },
+   "yellow": {
+    "*": "rawaya"
+   },
+   "purple": {
+    "*": "shunayya"
+   },
+   "orange": {
+    "*": "ruwan lemu"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "laima", "g": "f"},
-   "star": {"nom": "tauraro", "g": "m"},
-   "heart": {"nom": "zuciya", "g": "f"},
-   "moon": {"nom": "jinjirin wata", "g": "m"},
-   "arrow": {"nom": "kibiya", "g": "f"},
-   "cross": {"nom": "alamar ƙari", "g": "f"},
-   "diamond": {"nom": "siffar lu'u-lu'u", "g": "f"},
-   "house": {"nom": "gida", "g": "m"},
-   "fish": {"nom": "kifi", "g": "m"},
-   "key": {"nom": "makulli", "g": "m"},
-   "monkey": {"nom": "biri", "g": "m"},
-   "cat": {"nom": "kyanwa", "g": "f"},
-   "bird": {"nom": "tsuntsu", "g": "m"},
-   "car": {"nom": "mota", "g": "f"},
-   "tree": {"nom": "bishiya", "g": "f"},
-   "guitar": {"nom": "gita", "g": "f"},
-   "elephant": {"nom": "giwa", "g": "f"}
+   "umbrella": {
+    "nom": "laima",
+    "g": "f"
+   },
+   "star": {
+    "nom": "tauraro",
+    "g": "m"
+   },
+   "heart": {
+    "nom": "zuciya",
+    "g": "f"
+   },
+   "moon": {
+    "nom": "jinjirin wata",
+    "g": "m"
+   },
+   "arrow": {
+    "nom": "kibiya",
+    "g": "f"
+   },
+   "cross": {
+    "nom": "alamar ƙari",
+    "g": "f"
+   },
+   "diamond": {
+    "nom": "siffar lu'u-lu'u",
+    "g": "f"
+   },
+   "house": {
+    "nom": "gida",
+    "g": "m"
+   },
+   "fish": {
+    "nom": "kifi",
+    "g": "m"
+   },
+   "key": {
+    "nom": "makulli",
+    "g": "m"
+   },
+   "monkey": {
+    "nom": "biri",
+    "g": "m"
+   },
+   "cat": {
+    "nom": "kyanwa",
+    "g": "f"
+   },
+   "bird": {
+    "nom": "tsuntsu",
+    "g": "m"
+   },
+   "car": {
+    "nom": "mota",
+    "g": "f"
+   },
+   "tree": {
+    "nom": "bishiya",
+    "g": "f"
+   },
+   "guitar": {
+    "nom": "gita",
+    "g": "f"
+   },
+   "elephant": {
+    "nom": "giwa",
+    "g": "f"
+   }
   },
   "regions": {
    "0,0": "hagu na sama",
@@ -139,6 +203,17 @@
    "Abin yana cikin ɓangaren {region} a hoton, ya fi kusa da gefen {near} fiye da gefen {far}.",
    "Ku duba ɓangaren {region}, kusa da gefen {near} fiye da gefen {far}.",
    "Ku bincika ɓangaren {region}; abin ya fi kusa da gefen {near} fiye da gefen {far}."
+  ],
+  "directions": {
+   "up": "zuwa sama",
+   "down": "zuwa ƙasa",
+   "left": "zuwa hagu",
+   "right": "zuwa dama"
+  },
+  "dice_leads": [
+   "Ku fara daga tauraron. Ku matsa {dir_a} murabba'ai gwargwadon abin da ɗan lido A ya nuna, sannan ku matsa {dir_b} gwargwadon abin da ɗan lido B ya nuna. Ku danna inda kuka tsaya.",
+   "Daga tauraron, ku tafi {dir_a} gwargwadon lambar da ke kan ɗan lido A, sannan {dir_b} gwargwadon lambar da ke kan ɗan lido B, ku danna wannan murabba'in.",
+   "Ku fara a kan tauraron: ɗan lido A yana faɗin murabba'ai nawa za ku matsa {dir_a}, sannan ɗan lido B yana faɗin nawa za ku matsa {dir_b}. Ku danna murabba'in ƙarshe."
   ]
  }
 }

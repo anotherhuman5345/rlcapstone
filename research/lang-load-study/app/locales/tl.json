@@ -31,9 +31,10 @@
   "instr_title": "Paano ito gumagana",
   "instr_search": "Mga larawang maraming laman: binabanggit ng clue ang isang maliit na bagay na hahanapin, at iba ito sa bawat pagkakataon.",
   "instr_scan": "Mga grayscale na medikal na larawan: may isang bagay sa bawat isa na hindi pangkaraniwan. Hanapin ito at i-click. Magkahalo ang dalawang uri ng larawan.",
+  "instr_dice": "Mga grid na may dalawang dice: sinasabi ng clue kung saang direksiyon ka gagalaw mula sa bituin, at sinasabi ng dice kung gaano kalayo. I-click ang kahong mararating mo.",
   "instr_clue": "Sa itaas ng bawat larawan ay may clue na nagsasabi kung ano ang hahanapin at kung saan. Basahin nang mabuti ang bawat clue: nagbabago ito sa bawat pagkakataon, minsan sa {l1} at minsan sa {l2}. Pagkatapos, i-click ang target nang mabilis hangga't kaya mo.",
   "instr_effort": "Pagkatapos ng bawat larawan, i-rate kung gaano kalaking pag-iisip ang kinailangan nito.",
-  "instr_practice": "Pagsasanay ang unang dalawang larawan.",
+  "instr_practice": "Pagsasanay ang unang larawan ng bawat uri.",
   "begin": "Simulan",
   "practice": "Pagsasanay",
   "trial_of": "Larawan {n} sa {total}",
@@ -73,33 +74,81 @@
  },
  "clue": {
   "np": "{small} {color} {noun}",
-  "small": {"*": "maliit na"},
+  "small": {
+   "*": "maliit na"
+  },
   "colors": {
-   "red": {"*": "pulang"},
-   "blue": {"*": "asul na"},
-   "green": {"*": "berdeng"},
-   "yellow": {"*": "dilaw na"},
-   "purple": {"*": "lilang"},
-   "orange": {"*": "kulay-kahel na"}
+   "red": {
+    "*": "pulang"
+   },
+   "blue": {
+    "*": "asul na"
+   },
+   "green": {
+    "*": "berdeng"
+   },
+   "yellow": {
+    "*": "dilaw na"
+   },
+   "purple": {
+    "*": "lilang"
+   },
+   "orange": {
+    "*": "kulay-kahel na"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "payong"},
-   "star": {"nom": "bituin"},
-   "heart": {"nom": "puso"},
-   "moon": {"nom": "gasuklay na buwan"},
-   "arrow": {"nom": "palaso"},
-   "cross": {"nom": "plus sign"},
-   "diamond": {"nom": "diyamante"},
-   "house": {"nom": "bahay"},
-   "fish": {"nom": "isda"},
-   "key": {"nom": "susi"},
-   "monkey": {"nom": "unggoy"},
-   "cat": {"nom": "pusa"},
-   "bird": {"nom": "ibon"},
-   "car": {"nom": "kotse"},
-   "tree": {"nom": "puno"},
-   "guitar": {"nom": "gitara"},
-   "elephant": {"nom": "elepante"}
+   "umbrella": {
+    "nom": "payong"
+   },
+   "star": {
+    "nom": "bituin"
+   },
+   "heart": {
+    "nom": "puso"
+   },
+   "moon": {
+    "nom": "gasuklay na buwan"
+   },
+   "arrow": {
+    "nom": "palaso"
+   },
+   "cross": {
+    "nom": "plus sign"
+   },
+   "diamond": {
+    "nom": "diyamante"
+   },
+   "house": {
+    "nom": "bahay"
+   },
+   "fish": {
+    "nom": "isda"
+   },
+   "key": {
+    "nom": "susi"
+   },
+   "monkey": {
+    "nom": "unggoy"
+   },
+   "cat": {
+    "nom": "pusa"
+   },
+   "bird": {
+    "nom": "ibon"
+   },
+   "car": {
+    "nom": "kotse"
+   },
+   "tree": {
+    "nom": "puno"
+   },
+   "guitar": {
+    "nom": "gitara"
+   },
+   "elephant": {
+    "nom": "elepante"
+   }
   },
   "regions": {
    "0,0": "kaliwang itaas",
@@ -135,6 +184,17 @@
    "Nasa bahaging {region} ito ng larawan, mas malapit sa {near} gilid kaysa sa {far} gilid.",
    "Tingnan ang bahaging {region}, mas malapit sa {near} gilid kaysa sa {far} gilid.",
    "Hanapin sa bahaging {region}; mas malapit ito sa {near} gilid kaysa sa {far} gilid."
+  ],
+  "directions": {
+   "up": "pataas",
+   "down": "pababa",
+   "left": "pakaliwa",
+   "right": "pakanan"
+  },
+  "dice_leads": [
+   "Magsimula sa bituin. Gumalaw {dir_a} ng ilang kahon ayon sa ipinapakita ng dice A, pagkatapos ay {dir_b} ayon sa ipinapakita ng dice B. I-click kung saan ka huminto.",
+   "Mula sa bituin, pumunta {dir_a} ayon sa numero sa dice A, pagkatapos ay {dir_b} ayon sa numero sa dice B, at i-click ang kahong iyon.",
+   "Magsimula sa bituin: sinasabi ng dice A kung ilang kahon ka gagalaw {dir_a}, pagkatapos ay sinasabi ng dice B kung ilan ka gagalaw {dir_b}. I-click ang huling kahon."
   ]
  }
 }

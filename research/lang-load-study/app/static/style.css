@@ -31,7 +31,7 @@ label { display: block; margin: .9rem 0; }
 .scale input:focus-visible + span, button:focus-visible, a:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
 button, .button { display: inline-block; margin-top: 1rem; padding: .7rem 1.4rem; font: inherit; font-weight: 600; color: #fff; background: var(--signal); border: 0; border-radius: 4px; cursor: pointer; text-decoration: none; }
 button:disabled { opacity: .5; }
-.examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .examples img { width: 100%; height: auto; border: 1px solid var(--line); }
 .examples figcaption { font-size: .9rem; color: var(--muted); }
 table { border-collapse: collapse; width: 100%; margin: 1rem 0; }

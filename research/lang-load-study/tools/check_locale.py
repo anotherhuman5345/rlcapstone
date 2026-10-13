@@ -23,8 +23,8 @@ def main():
     loc = json.loads(path.read_text(encoding="utf-8"))  # fails loudly on bad JSON
     from app.i18n import LOCALES
     LOCALES[code] = loc  # check this file even if it is not in the official list yet
-    from app.clues import (COLOR_NAMES, DECOY_OBJECTS, N_SCAN_LEADS, N_SEARCH_LEADS, N_WHERE,
-                           TARGET_OBJECTS, make_clue, noun_phrase)
+    from app.clues import (COLOR_NAMES, DECOY_OBJECTS, DIRECTIONS, N_DICE_LEADS, N_SCAN_LEADS,
+                           N_SEARCH_LEADS, N_WHERE, TARGET_OBJECTS, make_clue, noun_phrase)
     en = json.loads((ROOT / "app" / "locales" / "en.json").read_text(encoding="utf-8"))
     problems = []
     fields = lambda text: set(re.findall(r"{(\w+)}", text))
@@ -52,7 +52,10 @@ def main():
         problems.append("clue.regions needs 9 entries")
     if set(cl.get("edges", {})) != {"top", "bottom", "left", "right"}:
         problems.append("clue.edges needs top/bottom/left/right")
-    for name, n in (("search_leads", N_SEARCH_LEADS), ("scan_leads", N_SCAN_LEADS), ("where", N_WHERE)):
+    if set(cl.get("directions", {})) != set(DIRECTIONS):
+        problems.append("clue.directions needs up/down/left/right")
+    for name, n in (("search_leads", N_SEARCH_LEADS), ("scan_leads", N_SCAN_LEADS), ("where", N_WHERE),
+                    ("dice_leads", N_DICE_LEADS)):
         if len(cl.get(name, [])) != n:
             problems.append(f"clue.{name} needs exactly {n} sentences")
     if problems:
@@ -66,6 +69,13 @@ def main():
                 if "{" in clue or "  " in clue:
                     print(f"PROBLEM: bad clue: {clue}")
                     sys.exit(1)
+    for da in DIRECTIONS:
+        for db in DIRECTIONS:
+            for k in range(N_DICE_LEADS * 3):
+                clue = make_clue("dice", code, f"d{k}", {"dir_a": da, "dir_b": db}, 1200, 800)
+                if "{" in clue or "  " in clue:
+                    print(f"PROBLEM: bad dice clue: {clue}")
+                    sys.exit(1)
     print(f"{code} ({loc['name']}, {loc['dir']}, verified={loc.get('verified')}): OK\n")
     print("Sample clues:")
     for k in range(4):
@@ -75,6 +85,8 @@ def main():
         print(" ", make_clue("scan", code, f"scan_{k:02d}", {"x": 900, "y": 650, "object": "cat",
                              "color": None}, 1200, 800))
     print(" ", make_clue("surprise", code, "surprise", {"x": 600, "y": 400}, 1200, 800))
+    for k, (da, db) in enumerate((("up", "right"), ("left", "down"), ("down", "left"))):
+        print(" ", make_clue("dice", code, f"dice_{k:02d}", {"dir_a": da, "dir_b": db}, 1200, 800))
     if show_all:
         print("\nEvery object x color phrase:")
         for kind in TARGET_OBJECTS:

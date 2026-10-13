@@ -31,9 +31,10 @@
   "instr_title": "So funktioniert es",
   "instr_search": "Wimmelbilder: Der Hinweis nennt ein kleines Objekt, das Sie finden sollen, und es ist jedes Mal ein anderes.",
   "instr_scan": "Medizinische Graustufenbilder: In jedem ist etwas ungewöhnlich. Finden Sie es und klicken Sie darauf. Beide Arten von Bildern kommen gemischt vor.",
+  "instr_dice": "Raster mit zwei Würfeln: Der Hinweis sagt Ihnen, in welche Richtung Sie vom Stern aus gehen, und die Würfel sagen, wie weit. Klicken Sie auf das Feld, auf dem Sie landen.",
   "instr_clue": "Über jedem Bild steht ein Hinweis, der Ihnen sagt, was Sie wo suchen sollen. Lesen Sie jeden Hinweis sorgfältig: Er ändert sich jedes Mal, mal auf {l1}, mal auf {l2}. Klicken Sie dann so schnell wie möglich auf das Ziel.",
   "instr_effort": "Bewerten Sie nach jedem Bild, wie viel geistige Anstrengung es gekostet hat.",
-  "instr_practice": "Die ersten beiden Bilder sind Übungsbilder.",
+  "instr_practice": "Das erste Bild jeder Art ist ein Übungsbild.",
   "begin": "Beginnen",
   "practice": "Übung",
   "trial_of": "Bild {n} von {total}",
@@ -73,33 +74,112 @@
  },
  "clue": {
   "np": "{small} {color} {noun}",
-  "small": {"m": "ein kleiner", "f": "eine kleine", "n": "ein kleines"},
+  "small": {
+   "m": "ein kleiner",
+   "f": "eine kleine",
+   "n": "ein kleines"
+  },
   "colors": {
-   "red": {"m": "roter", "f": "rote", "n": "rotes"},
-   "blue": {"m": "blauer", "f": "blaue", "n": "blaues"},
-   "green": {"m": "grüner", "f": "grüne", "n": "grünes"},
-   "yellow": {"m": "gelber", "f": "gelbe", "n": "gelbes"},
-   "purple": {"m": "lilafarbener", "f": "lilafarbene", "n": "lilafarbenes"},
-   "orange": {"m": "orangefarbener", "f": "orangefarbene", "n": "orangefarbenes"}
+   "red": {
+    "m": "roter",
+    "f": "rote",
+    "n": "rotes"
+   },
+   "blue": {
+    "m": "blauer",
+    "f": "blaue",
+    "n": "blaues"
+   },
+   "green": {
+    "m": "grüner",
+    "f": "grüne",
+    "n": "grünes"
+   },
+   "yellow": {
+    "m": "gelber",
+    "f": "gelbe",
+    "n": "gelbes"
+   },
+   "purple": {
+    "m": "lilafarbener",
+    "f": "lilafarbene",
+    "n": "lilafarbenes"
+   },
+   "orange": {
+    "m": "orangefarbener",
+    "f": "orangefarbene",
+    "n": "orangefarbenes"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "Regenschirm", "g": "m"},
-   "star": {"nom": "Stern", "g": "m"},
-   "heart": {"nom": "Herz", "g": "n"},
-   "moon": {"nom": "Mondsichel", "g": "f"},
-   "arrow": {"nom": "Pfeil", "g": "m"},
-   "cross": {"nom": "Pluszeichen", "g": "n"},
-   "diamond": {"nom": "Raute", "g": "f"},
-   "house": {"nom": "Haus", "g": "n"},
-   "fish": {"nom": "Fisch", "g": "m"},
-   "key": {"nom": "Schlüssel", "g": "m"},
-   "monkey": {"nom": "Affe", "g": "m"},
-   "cat": {"nom": "Katze", "g": "f"},
-   "bird": {"nom": "Vogel", "g": "m"},
-   "car": {"nom": "Auto", "g": "n"},
-   "tree": {"nom": "Baum", "g": "m"},
-   "guitar": {"nom": "Gitarre", "g": "f"},
-   "elephant": {"nom": "Elefant", "g": "m"}
+   "umbrella": {
+    "nom": "Regenschirm",
+    "g": "m"
+   },
+   "star": {
+    "nom": "Stern",
+    "g": "m"
+   },
+   "heart": {
+    "nom": "Herz",
+    "g": "n"
+   },
+   "moon": {
+    "nom": "Mondsichel",
+    "g": "f"
+   },
+   "arrow": {
+    "nom": "Pfeil",
+    "g": "m"
+   },
+   "cross": {
+    "nom": "Pluszeichen",
+    "g": "n"
+   },
+   "diamond": {
+    "nom": "Raute",
+    "g": "f"
+   },
+   "house": {
+    "nom": "Haus",
+    "g": "n"
+   },
+   "fish": {
+    "nom": "Fisch",
+    "g": "m"
+   },
+   "key": {
+    "nom": "Schlüssel",
+    "g": "m"
+   },
+   "monkey": {
+    "nom": "Affe",
+    "g": "m"
+   },
+   "cat": {
+    "nom": "Katze",
+    "g": "f"
+   },
+   "bird": {
+    "nom": "Vogel",
+    "g": "m"
+   },
+   "car": {
+    "nom": "Auto",
+    "g": "n"
+   },
+   "tree": {
+    "nom": "Baum",
+    "g": "m"
+   },
+   "guitar": {
+    "nom": "Gitarre",
+    "g": "f"
+   },
+   "elephant": {
+    "nom": "Elefant",
+    "g": "m"
+   }
   },
   "regions": {
    "0,0": "oben links",
@@ -135,6 +215,17 @@
    "Das Ziel liegt im Bild {region}, näher am {near} als am {far} Rand.",
    "Schauen Sie im Bild {region} nach, näher am {near} als am {far} Rand.",
    "Suchen Sie im Bild {region}; das Ziel liegt näher am {near} als am {far} Rand."
+  ],
+  "directions": {
+   "up": "nach oben",
+   "down": "nach unten",
+   "left": "nach links",
+   "right": "nach rechts"
+  },
+  "dice_leads": [
+   "Beginnen Sie beim Stern. Gehen Sie so viele Felder {dir_a}, wie Würfel A zeigt, dann so viele {dir_b}, wie Würfel B zeigt. Klicken Sie auf das Feld, auf dem Sie landen.",
+   "Gehen Sie vom Stern aus so viele Felder {dir_a}, wie die Zahl auf Würfel A angibt, dann so viele {dir_b}, wie die Zahl auf Würfel B angibt, und klicken Sie auf dieses Feld.",
+   "Starten Sie auf dem Stern: Würfel A sagt, wie viele Felder Sie {dir_a} gehen, dann sagt Würfel B, wie viele Felder Sie {dir_b} gehen. Klicken Sie auf das letzte Feld."
   ]
  }
 }

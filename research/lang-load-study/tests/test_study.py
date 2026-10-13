@@ -22,14 +22,15 @@ def test_plan_order_balance_and_counterbalance():
     b = build_plan("p-b", 1, "en", "tr", m)
     # Surprise first, then one practice per task, all before any scored trial
     assert a[0]["task"] == "surprise" and a[0]["condition"] == "L1"
-    assert [t["practice"] for t in a[1:3]] == [True, True]
+    assert [t["practice"] for t in a[1:4]] == [True, True, True]
     scored = [t for t in a if t["round"]]
-    assert len(scored) == 96
+    assert len(scored) == 144
     # Every round has the same mix: per task, 2 L1 and 2 L2 clues
     for r in range(1, 13):
         rnd = [t for t in scored if t["round"] == r]
         assert Counter((t["task"], t["condition"]) for t in rnd) == {
-            ("search", "L1"): 2, ("search", "L2"): 2, ("scan", "L1"): 2, ("scan", "L2"): 2}
+            ("search", "L1"): 2, ("search", "L2"): 2, ("scan", "L1"): 2, ("scan", "L2"): 2,
+            ("dice", "L1"): 2, ("dice", "L2"): 2}
     # Counterbalance flips which images get which language
     cond_a = {t["image_id"]: t["condition"] for t in scored}
     cond_b = {t["image_id"]: t["condition"] for t in b if t["round"]}
@@ -112,7 +113,7 @@ def test_full_session_flow():
         miss = c.post("/api/trial", json={"trial_index": 1, "rt_ms": 900, "click_x": tg0["x"] + 400,
                                           "click_y": tg0["y"], "effort": 3})
         assert miss.json()["hit"] is False
-        for i in range(2, 99):
+        for i in range(2, 148):
             _, res = _answer(c, m, i)
             assert res["hit"] is True
         assert c.get("/trial").url.path == "/final"
@@ -124,7 +125,7 @@ def test_full_session_flow():
         header = rows[0].split(",")
         mine = [dict(zip(header, r.split(","))) for r in rows[1:]]
         mine = [r for r in mine if r["noticed_unusual"] == "False" and r["group"] == "high_school"]
-        assert len(mine) == 99
+        assert len(mine) == 148
         assert mine[0]["task"] == "surprise" and mine[0]["knew_gorilla_study"] == "True"
         assert {r["round"] for r in mine if r["practice"] == "False" and r["task"] != "surprise"} == \
             {str(k) for k in range(1, 13)}
@@ -272,3 +273,17 @@ def test_right_to_left_languages_render_rtl():
     with c:
         assert 'dir="rtl"' in c.get("/?lang=ar").text
         assert 'dir="ltr"' in c.get("/?lang=ja").text
+
+
+def test_dice_target_is_the_square_the_moves_lead_to():
+    from app.clues import make_clue
+    step = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
+    for img in (i for i in load_manifest()["images"] if i["task"] == "dice"):
+        t = img["target"]
+        # Work back from the target to the start: it must land on a board square.
+        col = (t["x"] - 40 - 39) / 78 - step[t["dir_a"]][0] * t["a"] - step[t["dir_b"]][0] * t["b"]
+        row = (t["y"] - 49 - 39) / 78 - step[t["dir_a"]][1] * t["a"] - step[t["dir_b"]][1] * t["b"]
+        assert col == int(col) and row == int(row) and 0 <= col < 9 and 0 <= row < 9, img["id"]
+        assert {t["dir_a"], t["dir_b"]} & {"up", "down"} and {t["dir_a"], t["dir_b"]} & {"left", "right"}
+        clue = make_clue("dice", "en", img["id"], t, 1200, 800)
+        assert t["dir_a"] in clue and t["dir_b"] in clue and not any(ch.isdigit() for ch in clue)
