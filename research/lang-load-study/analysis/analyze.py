@@ -39,6 +39,7 @@ def load(path, include_test):
     # Older exports lack these columns; treat everyone as eligible with no reloads.
     df["eligible"] = df.get("eligible", True)
     df["reloads"] = df.get("reloads", 0)
+    df["focus_lost"] = df.get("focus_lost", 0)
     for col in BOOL_COLS:
         if col in df:
             df[col] = df[col].astype(str).str.lower() == "true"
@@ -150,6 +151,30 @@ def time_on_task(trials):
               "report it as 'no clear decay within 15 minutes'.")
 
 
+def fatigue(path, people):
+    """Self-rated mental fatigue (0-100). Kept separate from performance: the two need not
+    move together. Reports raw ratings and change from each person's own baseline."""
+    print("\n" + "=" * 70 + "\n4. SELF-RATED FATIGUE (0-100)\n" + "=" * 70)
+    f = pd.read_csv(path)
+    f = f[f.participant_id.isin(people)]
+    if f.empty:
+        print("No fatigue ratings for the included participants.")
+        return
+    base = f[f.point == "baseline"].set_index("participant_id").value
+    f = f.assign(change=f.value - f.participant_id.map(base))
+    order = {"baseline": 0, "final": 999}
+    f["step"] = f.point.map(lambda pt: order.get(pt, int(pt.rsplit("_", 1)[1]) if pt.startswith("after_round_") else -1))
+    print("\nMedian rating by group at baseline, after rounds 1-3, and at the end:")
+    keep = f[f.step.isin([0, 1, 2, 3, 999])]
+    print(keep.pivot_table(index="group", columns="point", values="value", aggfunc="median")
+          .reindex(columns=["baseline", "after_round_1", "after_round_2", "after_round_3", "final"]).round(0).to_string())
+    rounds = f[f.point.str.startswith("after_round_") & f.elapsed_s.notna()].copy()
+    if rounds.participant_id.nunique() > 3:
+        rounds["elapsed_min"] = rounds.elapsed_s / 60
+        print("\n--- Model: change from baseline ~ elapsed minutes + group ---")
+        print(fit("change ~ elapsed_min + C(group)", rounds).summary())
+
+
 def correct_rts(trials):
     rt = trials[trials.hit & trials.rt_ms.notna()].copy()
     rt = rt[rt.rt_ms >= 200]  # under 200 ms is anticipation, not search
@@ -167,6 +192,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv")
     ap.add_argument("--include-test", action="store_true")
+    ap.add_argument("--fatigue", help="fatigue.csv export (0-100 ratings at start, after rounds, end)")
     args = ap.parse_args()
 
     df = load(args.csv, args.include_test)
@@ -177,16 +203,21 @@ def main():
     print("\nParticipants per group:")
     print(df.groupby("group").participant_id.nunique().to_string())
 
-    # Scored round trials only; a reloaded trial means the image was seen before the clock restarted.
+    # Scored round trials only. A reloaded trial means the image was seen before the clock
+    # restarted; a trial where the tab was hidden was interrupted. Both are dropped (and counted).
     trials = df[df["round"].notna() & ~df.practice]
     reloaded = trials.reloads.fillna(0) > 0
-    if reloaded.any():
-        print(f"Dropped {int(reloaded.sum())} round trials that were reloaded before answering")
-    trials = trials[~reloaded]
+    hidden = trials.focus_lost.fillna(0) > 0
+    if reloaded.any() or hidden.any():
+        print(f"Dropped {int(reloaded.sum())} reloaded and {int((hidden & ~reloaded).sum())} "
+              "interrupted (tab hidden) round trials")
+    trials = trials[~reloaded & ~hidden]
 
     language_effect(trials)
     gorilla(df)
     time_on_task(trials)
+    if args.fatigue:
+        fatigue(args.fatigue, set(df.participant_id))
 
 
 if __name__ == "__main__":

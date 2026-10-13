@@ -7,6 +7,10 @@
   <figure><img src="/img/scan_practice.png" alt=""><figcaption>{{ _('instr_scan') }}</figcaption></figure>
   <figure><img src="/img/dice_practice.png" alt=""><figcaption>{{ _('instr_dice') }}</figcaption></figure>
 </div>
+<ul class="more-tasks">
+  <li>{{ _('instr_corsi') }}</li>
+  {% if has_reading_task %}<li>{{ _('instr_reading') }}</li>{% endif %}
+</ul>
 <p>{{ _('instr_clue', l1=l1, l2=l2) }}</p>
 <p>{{ _('instr_effort') }} {{ _('instr_practice') }}</p>
 <p>{{ _('instr_rounds') }}</p>

@@ -10,6 +10,19 @@
     <legend>{{ _('attention_q') }}</legend>
     {% for value, label in options %}<label class="choice"><input type="radio" name="attention" value="{{ value }}" required> {{ label }}</label>{% endfor %}
   </fieldset>
+  <fieldset class="fatigue">
+    <legend>{{ _('fatigue_q') }}</legend>
+    <input type="range" name="fatigue" min="0" max="100" step="1" value="50">
+    <div class="ends"><span>0 · {{ _('fatigue_low') }}</span><output>–</output><span>100 · {{ _('fatigue_high') }}</span></div>
+  </fieldset>
   <button type="submit">{{ _('finish') }}</button>
 </form>
+<script>
+document.querySelectorAll('.fatigue').forEach(fs => {
+  const range = fs.querySelector('input'), out = fs.querySelector('output');
+  const btn = fs.closest('form').querySelector('button[type=submit]');
+  btn.disabled = true;
+  range.addEventListener('input', () => { out.textContent = range.value; btn.disabled = false; });
+});
+</script>
 {% endblock %}

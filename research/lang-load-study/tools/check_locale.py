@@ -52,6 +52,8 @@ def main():
         problems.append("clue.regions needs 9 entries")
     if set(cl.get("edges", {})) != {"top", "bottom", "left", "right"}:
         problems.append("clue.edges needs top/bottom/left/right")
+    if set(cl.get("corsi", {})) != {"forward", "backward"}:
+        problems.append("clue.corsi needs forward and backward sentences")
     if set(cl.get("directions", {})) != set(DIRECTIONS):
         problems.append("clue.directions needs up/down/left/right")
     for name, n in (("search_leads", N_SEARCH_LEADS), ("scan_leads", N_SCAN_LEADS), ("where", N_WHERE),
@@ -85,6 +87,8 @@ def main():
         print(" ", make_clue("scan", code, f"scan_{k:02d}", {"x": 900, "y": 650, "object": "cat",
                              "color": None}, 1200, 800))
     print(" ", make_clue("surprise", code, "surprise", {"x": 600, "y": 400}, 1200, 800))
+    for d in ("forward", "backward"):
+        print(" ", make_clue("corsi", code, "corsi_00", {"direction": d}, 1200, 800))
     for k, (da, db) in enumerate((("up", "right"), ("left", "down"), ("down", "left"))):
         print(" ", make_clue("dice", code, f"dice_{k:02d}", {"dir_a": da, "dir_b": db}, 1200, 800))
     if show_all:

@@ -1,0 +1,282 @@
+{
+ "code": "en",
+ "verified": true,
+ "note": "Original passages written for this study. Item k in every language must carry the same meaning and the same option order; check with a bilingual reviewer before real use.",
+ "items": [
+  {
+   "id": "reading_practice",
+   "passage": "Lena's bakery opens at seven. On Mondays it opens one hour later because the oven is cleaned on Sunday nights. Today is Monday.",
+   "question": "When does the bakery open today?",
+   "options": [
+    "At seven",
+    "At eight",
+    "At six"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_00",
+   "passage": "The school bus leaves from the library. Mira always catches it, but this morning she missed it because she stopped to help a neighbor carry boxes. The next bus comes twenty minutes later.",
+   "question": "Why will Mira arrive later than usual?",
+   "options": [
+    "She helped a neighbor and missed her bus",
+    "The bus broke down",
+    "The library was closed"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_01",
+   "passage": "Omar waters the tomatoes every evening. Last night it rained heavily, so he skipped watering. This morning the soil was still wet.",
+   "question": "Why didn't Omar water the tomatoes last night?",
+   "options": [
+    "The tomatoes had been picked",
+    "The rain had already watered them",
+    "He forgot"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_02",
+   "passage": "In the museum, the blue room holds paintings and the green room holds sculptures. The guide said the oldest piece in the museum is made of stone and stands in the green room.",
+   "question": "What kind of object is the oldest piece?",
+   "options": [
+    "A painting",
+    "A photograph",
+    "A sculpture"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_03",
+   "passage": "Deniz's train ticket costs less on weekdays. She wanted to visit her aunt on Saturday, but moved the trip to Friday to save money.",
+   "question": "Why did Deniz travel on Friday?",
+   "options": [
+    "The ticket is cheaper on weekdays",
+    "There was no train on Saturday",
+    "Her aunt was busy on Saturday"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_04",
+   "passage": "The club meets in room 4 unless more than twenty people sign up. Then it moves to the hall. This week, twenty-six people signed up.",
+   "question": "Where will the club meet this week?",
+   "options": [
+    "It will not meet",
+    "In room 4",
+    "In the hall"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_05",
+   "passage": "Kemal's phone battery lasts a full day. Yesterday he used the map all afternoon, which drains the battery quickly, and the phone died before dinner.",
+   "question": "Why did the phone die early?",
+   "options": [
+    "The map used a lot of battery",
+    "The phone was new",
+    "He forgot to turn it on"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_06",
+   "passage": "A shop gives a free coffee to anyone who buys two sandwiches. Ana bought one sandwich and a juice. Her friend bought two sandwiches.",
+   "question": "Who got a free coffee?",
+   "options": [
+    "Ana's friend",
+    "Both of them",
+    "Ana"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_07",
+   "passage": "The park gate closes at sunset. In winter the sun sets around five, and in summer around eight. Tom arrived at the park at six in December.",
+   "question": "Could Tom enter the park?",
+   "options": [
+    "Only through the back gate",
+    "Yes, it was open",
+    "No, the gate was already closed"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_08",
+   "passage": "Every student in Ms. Kaya's class must bring a calculator to the exam. Selim is in her class. On exam day, his calculator was at home.",
+   "question": "What did Selim forget?",
+   "options": [
+    "His exam paper",
+    "Something the exam required",
+    "His teacher's name"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_09",
+   "passage": "Leaves on the old oak turn yellow before any other tree in the garden. This year, the first yellow leaves in the garden appeared in early October.",
+   "question": "When did the oak's leaves start turning yellow?",
+   "options": [
+    "In December",
+    "After all the other trees",
+    "In early October"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_10",
+   "passage": "The library lends books for two weeks. Late books cost a small fee per day. Sam returned a book three days after the two weeks ended.",
+   "question": "What happened when Sam returned the book?",
+   "options": [
+    "Nothing, it was on time",
+    "He paid a late fee",
+    "He got a new card"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_11",
+   "passage": "Hana only drinks tea without sugar. At the café, the waiter brought her tea with two spoons of sugar already stirred in. She sent it back.",
+   "question": "Why did Hana send the tea back?",
+   "options": [
+    "It was cold",
+    "It already had sugar in it",
+    "It was coffee"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_12",
+   "passage": "The tallest building in the town has twelve floors. The clinic is on the top floor of that building, and the elevator is broken today.",
+   "question": "How will visitors reach the clinic today?",
+   "options": [
+    "By climbing the stairs to the twelfth floor",
+    "The clinic has moved",
+    "By the elevator"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_13",
+   "passage": "Plants on the north side of the house get little sun. Ayla moved her basil from the north side to the south side, and within a week it grew much faster.",
+   "question": "What most likely helped the basil grow?",
+   "options": [
+    "A new pot",
+    "More sunlight",
+    "Less water"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_14",
+   "passage": "A recipe needs three eggs for one cake. Burak wants to bake two cakes and has four eggs.",
+   "question": "What does Burak need?",
+   "options": [
+    "Nothing, he has enough",
+    "Two more eggs",
+    "One more egg"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_15",
+   "passage": "The concert starts at eight. The doors open one hour before the concert. Lara arrived at a quarter past seven.",
+   "question": "Were the doors open when Lara arrived?",
+   "options": [
+    "Yes, they had opened at seven",
+    "She arrived after the concert",
+    "No, they opened at eight"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_16",
+   "passage": "Cats in the shelter are fed in the morning. Dogs are fed in the morning and again in the evening. Max, a dog, was adopted at noon.",
+   "question": "How many meals did Max get at the shelter that day?",
+   "options": [
+    "None",
+    "One",
+    "Two"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_17",
+   "passage": "Ice on the lake is safe to walk on only when it is at least ten centimeters thick. On Monday it was eight centimeters, and it grew two centimeters by Wednesday.",
+   "question": "Was the ice safe on Wednesday?",
+   "options": [
+    "No, it was still too thin",
+    "Yes, it reached ten centimeters",
+    "The lake had melted"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_18",
+   "passage": "Emre's watch runs five minutes fast. His watch showed 9:05 when he walked into class, exactly when class began.",
+   "question": "What time did class begin?",
+   "options": [
+    "9:05",
+    "9:10",
+    "9:00"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_19",
+   "passage": "Only members can borrow the club's boats. Membership costs a yearly fee. Nadia paid the fee last week.",
+   "question": "Can Nadia borrow a boat now?",
+   "options": [
+    "Only on weekends",
+    "No, she is not a member",
+    "Yes, she is now a member"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_20",
+   "passage": "The north road is closed for repairs. The south road is longer but open. A delivery truck had to reach the village today.",
+   "question": "Which road did the truck most likely take?",
+   "options": [
+    "The north road",
+    "The south road",
+    "Neither; it stayed"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_21",
+   "passage": "A plant needs water every three days. It was watered on Monday.",
+   "question": "On which day does it next need water?",
+   "options": [
+    "Thursday",
+    "Saturday",
+    "Wednesday"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_22",
+   "passage": "The red folder holds unpaid bills. Paid bills go in the black folder. Yusuf paid the electricity bill this morning.",
+   "question": "Where should the electricity bill be now?",
+   "options": [
+    "In the trash",
+    "In the red folder",
+    "In the black folder"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_23",
+   "passage": "Every bird in the cage can sing except the smallest one. The yellow bird is the smallest in the cage.",
+   "question": "What do we know about the yellow bird?",
+   "options": [
+    "It sings the most",
+    "It cannot sing",
+    "It is the oldest"
+   ],
+   "answer": 1
+  }
+ ]
+}

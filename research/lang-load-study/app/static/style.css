@@ -55,3 +55,15 @@ th, td { text-align: left; padding: .4rem; border-bottom: 1px solid var(--line);
 .quit { background: none; color: var(--muted); border: 1px solid var(--line); font-weight: 400; font-size: .9rem; padding: .45rem .9rem; margin-top: 0; }
 .quit:hover { color: var(--ink); border-color: var(--muted); }
 .error { color: #9b1c1c; font-weight: 600; }
+/* Corsi board: nine squares at fixed positions, lit in sequence. */
+.corsi-board { position: relative; width: min(100%, 720px); aspect-ratio: 3 / 2; margin: 1rem 0; background: #2b3540; border-radius: 6px; }
+.corsi-block { position: absolute; width: 11%; aspect-ratio: 1; transform: translate(-50%, -50%); margin: 0; padding: 0; background: #5b7085; border: 0; border-radius: 4px; cursor: pointer; }
+.corsi-block:disabled { cursor: default; opacity: 1; }
+.corsi-block.lit { background: #f2c94c; }
+.corsi-block.picked { background: #9ad1ff; }
+/* Reading passages */
+.reading .passage { font-size: 1.15rem; line-height: 1.6; max-width: 42rem; }
+.fatigue input[type=range] { width: 100%; max-width: 30rem; }
+.fatigue .ends { display: flex; justify-content: space-between; max-width: 30rem; font-size: .85rem; color: var(--muted); }
+.fatigue output { font-weight: 600; color: var(--ink); }
+.more-tasks { padding-left: 1.2rem; }

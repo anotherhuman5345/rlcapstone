@@ -31,6 +31,7 @@
     <legend>{{ _('bg_l2_reading') }}</legend>
     {% for v in range(1, 8) %}<label><input type="radio" name="l2_reading" value="{{ v }}" required><span>{{ v }}</span></label>{% endfor %}
   </fieldset>
+  <label class="choice"><input type="checkbox" name="equal_comfort" value="yes"> {{ _('bg_equal') }}</label>
   <label>{{ _('l2_age') }} <input type="number" name="l2_age_acquired" min="0" max="99" required></label>
   <label>{{ _('native_lang') }}
     <select name="native_lang" required>

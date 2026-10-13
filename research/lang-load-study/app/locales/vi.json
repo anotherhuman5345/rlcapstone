@@ -70,7 +70,18 @@
   "bg_l2": "Bạn còn đọc được ngôn ngữ nào khác?",
   "bg_l1_reading": "Bạn đọc ngôn ngữ thoải mái nhất của mình tốt đến mức nào? (1 = rất ít, 7 = như người bản ngữ)",
   "bg_l2_reading": "Bạn đọc ngôn ngữ kia tốt đến mức nào? (1 = rất ít, 7 = như người bản ngữ)",
-  "bg_same_lang": "Vui lòng chọn hai ngôn ngữ khác nhau."
+  "bg_same_lang": "Vui lòng chọn hai ngôn ngữ khác nhau.",
+  "fatigue_title": "Kiểm tra nhanh",
+  "fatigue_q": "Lúc này bạn cảm thấy mệt mỏi về tinh thần đến mức nào?",
+  "fatigue_low": "hoàn toàn không",
+  "fatigue_high": "cực kỳ",
+  "round_done": "Đã xong vòng {r}.",
+  "bg_equal": "Tôi đọc cả hai ngôn ngữ thoải mái như nhau",
+  "instr_corsi": "Các ô sáng lên: hãy theo dõi thứ tự, rồi nhấp vào các ô theo cách gợi ý yêu cầu, theo đúng thứ tự hoặc theo thứ tự ngược lại.",
+  "instr_reading": "Đoạn văn ngắn: hãy đọc đoạn văn và chọn câu trả lời đúng nhất.",
+  "corsi_start": "Bắt đầu",
+  "corsi_go": "Đến lượt bạn: hãy nhấp vào các ô.",
+  "reading_answer": "Trả lời"
  },
  "clue": {
   "np": "{noun} {small} màu {color}",
@@ -195,6 +206,10 @@
    "Bắt đầu từ ngôi sao. Đi {dir_a} số ô bằng số mà xúc xắc A hiện, rồi đi {dir_b} số ô bằng số mà xúc xắc B hiện. Hãy nhấp vào nơi bạn dừng lại.",
    "Từ ngôi sao, đi {dir_a} theo con số trên xúc xắc A, rồi đi {dir_b} theo con số trên xúc xắc B, và nhấp vào ô đó.",
    "Bắt đầu tại ngôi sao: xúc xắc A cho biết cần đi {dir_a} bao nhiêu ô, rồi xúc xắc B cho biết cần đi {dir_b} bao nhiêu ô. Hãy nhấp vào ô cuối cùng."
-  ]
+  ],
+  "corsi": {
+   "forward": "Hãy theo dõi các ô lần lượt sáng lên. Sau đó nhấp vào chúng theo đúng thứ tự đó.",
+   "backward": "Hãy theo dõi các ô lần lượt sáng lên. Sau đó nhấp vào chúng theo thứ tự ngược lại, bắt đầu từ ô cuối cùng."
+  }
  }
 }

@@ -10,6 +10,8 @@
   const TOLERANCE = 1.6; // must match HIT_TOLERANCE on the server
 
   let t0 = null, done = false, falseClicks = 0, result = null, timer = null;
+  let focusLost = 0; // leaving the tab mid-trial is recorded and flagged in analysis
+  document.addEventListener("visibilitychange", () => { if (document.hidden) focusLost += 1; });
 
   function begin() {
     clue.hidden = false;
@@ -67,7 +69,8 @@
     const res = await fetch("/api/trial", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ trial_index: T.index, false_clicks: falseClicks, effort, ...result })
+      body: JSON.stringify({ trial_index: T.index, false_clicks: falseClicks, effort,
+                             focus_lost: focusLost, ...result })
     });
     if (res.ok) {
       const data = await res.json();

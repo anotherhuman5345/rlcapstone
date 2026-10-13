@@ -70,7 +70,18 @@
   "bg_l2": "¿Qué otro idioma también puede leer?",
   "bg_l1_reading": "¿Qué tan bien lee en el idioma en que se siente más cómodo/a? (1 = muy poco, 7 = como un hablante nativo)",
   "bg_l2_reading": "¿Qué tan bien lee ese otro idioma? (1 = muy poco, 7 = como un hablante nativo)",
-  "bg_same_lang": "Por favor, elija dos idiomas diferentes."
+  "bg_same_lang": "Por favor, elija dos idiomas diferentes.",
+  "fatigue_title": "Comprobación rápida",
+  "fatigue_q": "¿Qué tan cansado/a mentalmente se siente en este momento?",
+  "fatigue_low": "nada",
+  "fatigue_high": "muchísimo",
+  "round_done": "Ronda {r} terminada.",
+  "bg_equal": "Me siento igual de cómodo/a leyendo en ambos idiomas",
+  "instr_corsi": "Cuadrados que se iluminan: observe el orden y luego haga clic en ellos como indique la pista, en el mismo orden o en orden inverso.",
+  "instr_reading": "Textos breves: lea el texto y elija la mejor respuesta.",
+  "corsi_start": "Comenzar",
+  "corsi_go": "Su turno: haga clic en los cuadrados.",
+  "reading_answer": "Responder"
  },
  "clue": {
   "np": "{small} {noun} {color}",
@@ -216,6 +227,10 @@
    "Empiece en la estrella. Muévase {dir_a} tantas casillas como indique el dado A, y luego {dir_b} tantas como indique el dado B. Haga clic donde termine.",
    "Desde la estrella, avance {dir_a} el número de casillas que marca el dado A, luego {dir_b} el número que marca el dado B, y haga clic en esa casilla.",
    "Comience en la estrella: el dado A indica cuántas casillas moverse {dir_a}, y luego el dado B indica cuántas moverse {dir_b}. Haga clic en la casilla final."
-  ]
+  ],
+  "corsi": {
+   "forward": "Observe cómo se iluminan los cuadrados uno por uno. Luego haga clic en ellos en el mismo orden.",
+   "backward": "Observe cómo se iluminan los cuadrados uno por uno. Luego haga clic en ellos en orden inverso, empezando por el último."
+  }
  }
 }

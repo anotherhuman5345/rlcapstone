@@ -70,7 +70,18 @@
   "bg_l2": "Anong iba pang wika ang kaya mo ring basahin?",
   "bg_l1_reading": "Gaano kahusay ka magbasa sa wikang pinakakomportable ka? (1 = napakakaunti, 7 = parang katutubong nagsasalita)",
   "bg_l2_reading": "Gaano kahusay ka magbasa sa ibang wikang iyon? (1 = napakakaunti, 7 = parang katutubong nagsasalita)",
-  "bg_same_lang": "Pumili ng dalawang magkaibang wika."
+  "bg_same_lang": "Pumili ng dalawang magkaibang wika.",
+  "fatigue_title": "Mabilis na tanong",
+  "fatigue_q": "Gaano ka kapagod sa isip ngayon?",
+  "fatigue_low": "hindi talaga",
+  "fatigue_high": "sobra-sobra",
+  "round_done": "Tapos na ang Round {r}.",
+  "bg_equal": "Pareho akong komportableng magbasa sa dalawang wika",
+  "instr_corsi": "Mga kahong umiilaw: panoorin ang pagkakasunod-sunod, pagkatapos ay i-click ang mga ito ayon sa sinasabi ng clue, sa parehong pagkakasunod-sunod o pabaliktad.",
+  "instr_reading": "Maiikling talata: basahin ang talata at piliin ang pinakamahusay na sagot.",
+  "corsi_start": "Simulan",
+  "corsi_go": "Ikaw na: i-click ang mga kahon.",
+  "reading_answer": "Sumagot"
  },
  "clue": {
   "np": "{small} {color} {noun}",
@@ -195,6 +206,10 @@
    "Magsimula sa bituin. Gumalaw {dir_a} ng ilang kahon ayon sa ipinapakita ng dice A, pagkatapos ay {dir_b} ayon sa ipinapakita ng dice B. I-click kung saan ka huminto.",
    "Mula sa bituin, pumunta {dir_a} ayon sa numero sa dice A, pagkatapos ay {dir_b} ayon sa numero sa dice B, at i-click ang kahong iyon.",
    "Magsimula sa bituin: sinasabi ng dice A kung ilang kahon ka gagalaw {dir_a}, pagkatapos ay sinasabi ng dice B kung ilan ka gagalaw {dir_b}. I-click ang huling kahon."
-  ]
+  ],
+  "corsi": {
+   "forward": "Panoorin ang mga kahon habang umiilaw ang mga ito nang isa-isa. Pagkatapos, i-click ang mga ito sa parehong pagkakasunod-sunod.",
+   "backward": "Panoorin ang mga kahon habang umiilaw ang mga ito nang isa-isa. Pagkatapos, i-click ang mga ito nang pabaliktad, simula sa huli."
+  }
  }
 }

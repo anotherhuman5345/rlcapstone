@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block mainclass %}trial{% endblock %}
+{% block content %}
+<header class="trial-head">
+  <div class="trial-top">
+    <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+    <button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+  </div>
+  <p class="clue" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}" id="clue">{{ clue }}</p>
+</header>
+<div class="corsi-board" id="board" data-item="{{ img.id }}">
+  {% for x, y in img.blocks %}<button type="button" class="corsi-block" data-i="{{ loop.index0 }}" style="left: {{ x * 100 }}%; top: {{ y * 100 }}%" disabled></button>{% endfor %}
+</div>
+<p><button type="button" id="corsi-start">{{ _('corsi_start') }}</button></p>
+<p id="status" class="status" role="status"></p>
+{% include "_effort.html" %}
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = {
+  index: {{ n - 1 }}, timeout: {{ timeout }},
+  sequence: {{ img.target.sequence | tojson }},
+  msgGo: {{ _('corsi_go') | tojson }}, msgTimeout: {{ _('timeout') | tojson }},
+  msgQuitConfirm: {{ _('quit_confirm') | tojson }}
+};
+</script>
+<script src="/static/common.js"></script>
+<script src="/static/corsi.js"></script>
+{% endblock %}

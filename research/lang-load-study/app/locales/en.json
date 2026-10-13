@@ -70,7 +70,18 @@
   "bg_l2": "Which other language can you also read?",
   "bg_l1_reading": "How well do you read your most comfortable language? (1 = very little, 7 = like a native speaker)",
   "bg_l2_reading": "How well do you read that other language? (1 = very little, 7 = like a native speaker)",
-  "bg_same_lang": "Please choose two different languages."
+  "bg_same_lang": "Please choose two different languages.",
+  "fatigue_title": "Quick check",
+  "fatigue_q": "How mentally tired do you feel right now?",
+  "fatigue_low": "not at all",
+  "fatigue_high": "extremely",
+  "round_done": "Round {r} is done.",
+  "bg_equal": "I am equally comfortable reading both languages",
+  "instr_corsi": "Squares that light up: watch the order, then click them the way the clue says, in the same order or in reverse.",
+  "instr_reading": "Short passages: read the passage and choose the best answer.",
+  "corsi_start": "Start",
+  "corsi_go": "Your turn: click the squares.",
+  "reading_answer": "Answer"
  },
  "clue": {
   "np": "{small} {color} {noun}",
@@ -195,6 +206,10 @@
    "down": "down",
    "left": "left",
    "right": "right"
+  },
+  "corsi": {
+   "forward": "Watch the squares light up one by one. Then click them in the same order.",
+   "backward": "Watch the squares light up one by one. Then click them in reverse order, starting with the last one."
   }
  }
 }

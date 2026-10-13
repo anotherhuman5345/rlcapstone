@@ -70,7 +70,18 @@
   "bg_l2": "Quale altra lingua sai leggere?",
   "bg_l1_reading": "Quanto bene leggi la lingua in cui ti senti più a tuo agio? (1 = molto poco, 7 = come un madrelingua)",
   "bg_l2_reading": "Quanto bene leggi quell'altra lingua? (1 = molto poco, 7 = come un madrelingua)",
-  "bg_same_lang": "Scegli due lingue diverse."
+  "bg_same_lang": "Scegli due lingue diverse.",
+  "fatigue_title": "Controllo veloce",
+  "fatigue_q": "Quanta stanchezza mentale provi in questo momento?",
+  "fatigue_low": "nessuna",
+  "fatigue_high": "estrema",
+  "round_done": "Il turno {r} è finito.",
+  "bg_equal": "Leggo entrambe le lingue con la stessa facilità",
+  "instr_corsi": "Quadrati che si illuminano: osserva l'ordine, poi cliccali come dice l'indizio, nello stesso ordine o in ordine inverso.",
+  "instr_reading": "Brevi testi: leggi il testo e scegli la risposta migliore.",
+  "corsi_start": "Inizia",
+  "corsi_go": "Tocca a te: clicca sui quadrati.",
+  "reading_answer": "Rispondi"
  },
  "clue": {
   "np": "{small} {noun} {color}",
@@ -218,6 +229,10 @@
    "Parti dalla stella. Spostati {dir_a} di tante caselle quante ne mostra il dado A, poi {dir_b} di tante quante ne mostra il dado B. Clicca dove arrivi.",
    "Dalla stella, spostati {dir_a} del numero di caselle indicato dal dado A, poi {dir_b} del numero indicato dal dado B, e clicca su quella casella.",
    "Comincia dalla stella: il dado A dice di quante caselle spostarti {dir_a}, poi il dado B dice di quante spostarti {dir_b}. Clicca sulla casella finale."
-  ]
+  ],
+  "corsi": {
+   "forward": "Osserva i quadrati che si illuminano uno alla volta. Poi cliccali nello stesso ordine.",
+   "backward": "Osserva i quadrati che si illuminano uno alla volta. Poi cliccali in ordine inverso, partendo dall'ultimo."
+  }
  }
 }

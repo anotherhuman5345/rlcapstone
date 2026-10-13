@@ -70,7 +70,18 @@
   "bg_l2": "Ni lugha gani nyingine unayoweza pia kuisoma?",
   "bg_l1_reading": "Unasoma vizuri kiasi gani lugha unayostarehe nayo zaidi? (1 = kidogo sana, 7 = kama mzawa wa lugha hiyo)",
   "bg_l2_reading": "Unasoma vizuri kiasi gani lugha hiyo nyingine? (1 = kidogo sana, 7 = kama mzawa wa lugha hiyo)",
-  "bg_same_lang": "Tafadhali chagua lugha mbili tofauti."
+  "bg_same_lang": "Tafadhali chagua lugha mbili tofauti.",
+  "fatigue_title": "Ukaguzi mfupi",
+  "fatigue_q": "Unajisikia umechoka kiakili kiasi gani sasa hivi?",
+  "fatigue_low": "hata kidogo",
+  "fatigue_high": "kupita kiasi",
+  "round_done": "Raundi {r} imekamilika.",
+  "bg_equal": "Nastarehe sawasawa kusoma lugha zote mbili",
+  "instr_corsi": "Miraba inayowaka: tazama mpangilio, kisha uibofye kama kidokezo kinavyosema, kwa mpangilio uleule au kinyume chake.",
+  "instr_reading": "Vifungu vifupi: soma kifungu na uchague jibu bora zaidi.",
+  "corsi_start": "Anza",
+  "corsi_go": "Zamu yako: bofya miraba.",
+  "reading_answer": "Jibu"
  },
  "clue": {
   "np": "{noun} {small} rangi {color}",
@@ -215,6 +226,10 @@
    "Anza kwenye nyota. Sogea {dir_a} miraba mingi kama inavyoonyesha kete A, kisha {dir_b} miraba mingi kama inavyoonyesha kete B. Bofya mahali utakapofika.",
    "Kutoka kwenye nyota, nenda {dir_a} kwa namba iliyo kwenye kete A, kisha {dir_b} kwa namba iliyo kwenye kete B, na ubofye mraba huo.",
    "Anzia kwenye nyota: kete A inakuambia usogee miraba mingapi {dir_a}, kisha kete B inakuambia usogee mingapi {dir_b}. Bofya mraba wa mwisho."
-  ]
+  ],
+  "corsi": {
+   "forward": "Tazama miraba ikiwaka mmoja baada ya mwingine. Kisha uibofye kwa mpangilio uleule.",
+   "backward": "Tazama miraba ikiwaka mmoja baada ya mwingine. Kisha uibofye kwa mpangilio wa kinyume, ukianza na wa mwisho."
+  }
  }
 }

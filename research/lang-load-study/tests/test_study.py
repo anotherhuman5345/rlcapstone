@@ -22,15 +22,14 @@ def test_plan_order_balance_and_counterbalance():
     b = build_plan("p-b", 1, "en", "tr", m)
     # Surprise first, then one practice per task, all before any scored trial
     assert a[0]["task"] == "surprise" and a[0]["condition"] == "L1"
-    assert [t["practice"] for t in a[1:4]] == [True, True, True]
+    assert [t["practice"] for t in a[1:6]] == [True] * 5
     scored = [t for t in a if t["round"]]
-    assert len(scored) == 144
+    assert len(scored) == 120
     # Every round has the same mix: per task, 2 L1 and 2 L2 clues
     for r in range(1, 13):
         rnd = [t for t in scored if t["round"] == r]
         assert Counter((t["task"], t["condition"]) for t in rnd) == {
-            ("search", "L1"): 2, ("search", "L2"): 2, ("scan", "L1"): 2, ("scan", "L2"): 2,
-            ("dice", "L1"): 2, ("dice", "L2"): 2}
+            (task, cond): 1 for task in ("search", "scan", "dice", "corsi", "reading") for cond in ("L1", "L2")}
     # Counterbalance flips which images get which language
     cond_a = {t["image_id"]: t["condition"] for t in scored}
     cond_b = {t["image_id"]: t["condition"] for t in b if t["round"]}
@@ -81,11 +80,31 @@ def test_targets_and_wording_do_not_repeat():
     assert len(leads) >= 3  # several sentence patterns in use
 
 
-def _answer(c, m, i, **extra):
-    img_id = c.get("/trial").text.split('src="/img/')[1].split(".png")[0]
-    tg = m[img_id]["target"]
-    body = {"trial_index": i, "rt_ms": 1500 + i, "click_x": tg["x"], "click_y": tg["y"],
-            "false_clicks": 0, "effort": 4, **extra}
+def _current(c):
+    """Open the current trial, answering a fatigue check-in first if one is due."""
+    r = c.get("/trial")
+    if r.url.path == "/fatigue":
+        point = r.text.split('name="point" value="')[1].split('"')[0]
+        c.post("/fatigue", data={"point": point, "value": 40})
+        r = c.get("/trial")
+    page = r.text
+    if 'src="/img/' in page:
+        return page.split('src="/img/')[1].split(".png")[0]
+    return page.split('data-item="')[1].split('"')[0]
+
+
+def _answer(c, m, i, correct=True, **extra):
+    img_id = _current(c)
+    tg, task = m[img_id]["target"], m[img_id]["task"]
+    body = {"trial_index": i, "rt_ms": 1500 + i, "false_clicks": 0, "effort": 4}
+    if task == "corsi":
+        seq = tg["sequence"] if tg["direction"] == "forward" else tg["sequence"][::-1]
+        body["response"] = seq if correct else seq[::-1]
+    elif task == "reading":
+        body["response"] = tg["answer"] if correct else (tg["answer"] + 1) % 3
+    else:
+        body.update(click_x=tg["x"] + (0 if correct else 400), click_y=tg["y"])
+    body.update(extra)
     return img_id, c.post("/api/trial", json=body).json()
 
 
@@ -108,24 +127,26 @@ def test_full_session_flow():
         c.post("/notice", data={"noticed": "no"})
         c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "yes"})
         # A click far from the target is not a hit, even if the browser sends it
-        first = c.get("/trial").text.split('src="/img/')[1].split(".png")[0]
-        tg0 = m[first]["target"]
-        miss = c.post("/api/trial", json={"trial_index": 1, "rt_ms": 900, "click_x": tg0["x"] + 400,
-                                          "click_y": tg0["y"], "effort": 3})
-        assert miss.json()["hit"] is False
-        for i in range(2, 148):
+        assert _answer(c, m, 1, correct=False)[1]["hit"] is False
+        total = 1 + 5 + 12 * 10  # surprise, 5 practice, 12 rounds of 10
+        for i in range(2, total):
             _, res = _answer(c, m, i)
             assert res["hit"] is True
         assert c.get("/trial").url.path == "/final"
         final = c.get("/final").text
         practice_obj = next(i for i in m.values() if i["id"] == "search_practice")["target"]["object"]
         assert 'value="%s"' % practice_obj in final and 'value="car"' in final
-        c.post("/final", data={"difficulty": 5, "attention": practice_obj})
+        c.post("/final", data={"difficulty": 5, "attention": practice_obj, "fatigue": 70})
         rows = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()
         header = rows[0].split(",")
         mine = [dict(zip(header, r.split(","))) for r in rows[1:]]
         mine = [r for r in mine if r["noticed_unusual"] == "False" and r["group"] == "high_school"]
-        assert len(mine) == 148
+        assert len(mine) == total
+        assert {r["task"] for r in mine} == {"surprise", "search", "scan", "dice", "corsi", "reading"}
+        assert all(r["study_version"] and r["stimuli_version"] and r["translation_version"] for r in mine)
+        fatigue = c.get("/admin/fatigue.csv?key=test-key").text.strip().splitlines()[1:]
+        points = [row.split(",")[8] for row in fatigue if ",high_school," in row]
+        assert points == ["baseline"] + [f"after_round_{k}" for k in range(1, 12)] + ["final"]
         assert mine[0]["task"] == "surprise" and mine[0]["knew_gorilla_study"] == "True"
         assert {r["round"] for r in mine if r["practice"] == "False" and r["task"] != "surprise"} == \
             {str(k) for k in range(1, 13)}
@@ -155,10 +176,13 @@ def test_session_stops_at_time_limit():
 def _start(c, l1_reading=7, l2_reading=6, l1="tr", l2="en"):
     c.post("/start", data={"ui_lang": "en"})
     c.post("/consent", data={"agree": "yes"})
-    return c.post("/background", data={
+    r = c.post("/background", data={
         "group": "radiologist", "age": 45, "education_years": 22, "years_reading_images": 12,
         "native_lang": "tr", "l2_age_acquired": 20, "l1": l1, "l1_reading": l1_reading,
         "l2": l2, "l2_reading": l2_reading})
+    if r.status_code == 200 and r.url.path == "/fatigue":
+        c.post("/fatigue", data={"point": "baseline", "value": 30})
+    return r
 
 
 def test_manifest_with_answers_is_not_public():
@@ -179,8 +203,9 @@ def test_reloaded_trial_is_flagged():
         tg = {i["id"]: i for i in load_manifest()["images"]}[img_id]["target"]
         c.post("/api/trial", json={"trial_index": 0, "rt_ms": 800, "click_x": tg["x"],
                                    "click_y": tg["y"], "effort": 2})
-        last = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()[-1]
-        assert last.endswith(",1")  # reloads column
+        rows = c.get("/admin/export.csv?key=test-key").text.strip().splitlines()
+        last = dict(zip(rows[0].split(","), rows[-1].split(",")))
+        assert last["reloads"] == "1"
 
 
 def test_out_of_range_answers_rejected_and_eligibility_flagged():
@@ -210,7 +235,7 @@ def test_exhausted_button_ends_session_and_is_recorded():
         assert 'id="quit"' in c.get("/trial").text
         assert c.post("/api/quit", json={"trial_index": 6}).json()["next"] == "/final"
         assert c.get("/trial").url.path == "/final"
-        c.post("/final", data={"difficulty": 8, "attention": "car"})  # a decoy: never a target
+        c.post("/final", data={"difficulty": 8, "attention": "car", "fatigue": 85})  # a decoy: never a target
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
             assert p.quit_early and p.quit_trial == 6 and p.quit_elapsed_s is not None
@@ -287,3 +312,40 @@ def test_dice_target_is_the_square_the_moves_lead_to():
         assert {t["dir_a"], t["dir_b"]} & {"up", "down"} and {t["dir_a"], t["dir_b"]} & {"left", "right"}
         clue = make_clue("dice", "en", img["id"], t, 1200, 800)
         assert t["dir_a"] in clue and t["dir_b"] in clue and not any(ch.isdigit() for ch in clue)
+
+
+def test_reading_only_when_both_languages_have_passages_and_scoring():
+    m = load_manifest()
+    no_reading = build_plan("x", 0, "ja", "es", m, available={"search", "scan", "dice", "corsi"})
+    assert "reading" not in {t["task"] for t in no_reading}
+    c = TestClient(app)
+    with c:
+        _start(c, l1="ja", l2="es")  # no Japanese/Spanish passages yet
+        from app.db import Participant, SessionLocal
+        with SessionLocal() as db:
+            assert "reading" not in {t["task"] for t in db.get(Participant, c.cookies.get("pid")).plan}
+
+
+def test_corsi_scoring_and_focus_flag():
+    from app.db import SessionLocal, TrialResult
+    c = TestClient(app)
+    with c:
+        _start(c)
+        m = {i["id"]: i for i in load_manifest()["images"]}
+        _answer(c, m, 0)
+        c.post("/notice", data={"noticed": "no"})
+        c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "no"})
+        i, seen = 1, set()
+        while seen != {"corsi", "reading"}:
+            img_id = _current(c)
+            task = m[img_id]["task"]
+            if task in ("corsi", "reading") and task not in seen:
+                _, res = _answer(c, m, i, correct=False, focus_lost=2)
+                assert res["hit"] is False
+                seen.add(task)
+            else:
+                _answer(c, m, i)
+            i += 1
+        with SessionLocal() as db:
+            rows = db.query(TrialResult).filter(TrialResult.focus_lost == 2).all()
+            assert {r.task for r in rows} >= {"corsi", "reading"} and all(r.response for r in rows)

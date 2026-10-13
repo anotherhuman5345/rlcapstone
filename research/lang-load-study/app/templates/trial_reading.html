@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="trial-top">
+  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+  <button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+</div>
+<form id="reading" class="reading" data-item="{{ img.id }}" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}">
+  <p class="passage">{{ item.passage }}</p>
+  <fieldset>
+    <legend>{{ item.question }}</legend>
+    {% for opt in item.options %}<label class="choice"><input type="radio" name="answer" value="{{ loop.index0 }}" required> {{ opt }}</label>{% endfor %}
+  </fieldset>
+  <button type="submit">{{ _('reading_answer') }}</button>
+</form>
+<p id="status" class="status" role="status"></p>
+{% include "_effort.html" %}
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = {
+  index: {{ n - 1 }}, timeout: {{ timeout * 3 }},
+  msgTimeout: {{ _('timeout') | tojson }}, msgQuitConfirm: {{ _('quit_confirm') | tojson }}
+};
+</script>
+<script src="/static/common.js"></script>
+<script src="/static/reading.js"></script>
+{% endblock %}

@@ -70,7 +70,18 @@
   "bg_l2": "Welche andere Sprache können Sie auch lesen?",
   "bg_l1_reading": "Wie gut lesen Sie die Sprache, die Ihnen am leichtesten fällt? (1 = sehr wenig, 7 = wie eine Muttersprachlerin / ein Muttersprachler)",
   "bg_l2_reading": "Wie gut lesen Sie diese andere Sprache? (1 = sehr wenig, 7 = wie eine Muttersprachlerin / ein Muttersprachler)",
-  "bg_same_lang": "Bitte wählen Sie zwei verschiedene Sprachen."
+  "bg_same_lang": "Bitte wählen Sie zwei verschiedene Sprachen.",
+  "fatigue_title": "Kurze Abfrage",
+  "fatigue_q": "Wie geistig müde fühlen Sie sich gerade?",
+  "fatigue_low": "überhaupt nicht",
+  "fatigue_high": "extrem",
+  "round_done": "Runde {r} ist geschafft.",
+  "bg_equal": "Ich lese beide Sprachen gleich mühelos",
+  "instr_corsi": "Aufleuchtende Quadrate: Achten Sie auf die Reihenfolge und klicken Sie die Quadrate dann so an, wie der Hinweis sagt – in derselben oder in umgekehrter Reihenfolge.",
+  "instr_reading": "Kurze Texte: Lesen Sie den Text und wählen Sie die beste Antwort.",
+  "corsi_start": "Starten",
+  "corsi_go": "Sie sind dran: Klicken Sie auf die Quadrate.",
+  "reading_answer": "Antworten"
  },
  "clue": {
   "np": "{small} {color} {noun}",
@@ -226,6 +237,10 @@
    "Beginnen Sie beim Stern. Gehen Sie so viele Felder {dir_a}, wie Würfel A zeigt, dann so viele {dir_b}, wie Würfel B zeigt. Klicken Sie auf das Feld, auf dem Sie landen.",
    "Gehen Sie vom Stern aus so viele Felder {dir_a}, wie die Zahl auf Würfel A angibt, dann so viele {dir_b}, wie die Zahl auf Würfel B angibt, und klicken Sie auf dieses Feld.",
    "Starten Sie auf dem Stern: Würfel A sagt, wie viele Felder Sie {dir_a} gehen, dann sagt Würfel B, wie viele Felder Sie {dir_b} gehen. Klicken Sie auf das letzte Feld."
-  ]
+  ],
+  "corsi": {
+   "forward": "Beobachten Sie, wie die Quadrate nacheinander aufleuchten. Klicken Sie sie dann in derselben Reihenfolge an.",
+   "backward": "Beobachten Sie, wie die Quadrate nacheinander aufleuchten. Klicken Sie sie dann in umgekehrter Reihenfolge an, beginnend mit dem letzten."
+  }
  }
 }

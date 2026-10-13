@@ -7,4 +7,5 @@
   <tbody>{% for g, test, done, n in rows %}<tr><td>{{ g or '(not yet answered)' }}</td><td>{{ test }}</td><td>{{ done }}</td><td>{{ n }}</td></tr>{% endfor %}</tbody>
 </table>
 <a class="button" href="/admin/export.csv?key={{ key }}">Download trials CSV</a>
+<a class="button" href="/admin/fatigue.csv?key={{ key }}">Download fatigue CSV</a>
 {% endblock %}

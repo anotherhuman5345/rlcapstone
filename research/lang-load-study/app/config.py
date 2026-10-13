@@ -19,12 +19,15 @@ if IRB_APPROVED and ADMIN_KEY == "change-me":
 STIMULI_DIR = Path(os.getenv("STIMULI_DIR", ROOT / "stimuli" / "output"))
 MANIFEST = STIMULI_DIR / "manifest.json"
 
-# Scored trials per task per participant, split into identical rounds so
-# performance can be followed over time on task (12 rounds x 4 per task).
-# That is more than most people finish: the time limit below ends the session,
-# so the rounds fill the whole 15 minutes for fast and slow people alike.
-TRIALS_PER_TASK = int(os.getenv("TRIALS_PER_TASK", "48"))
+# What one round contains: pictures per task (each must be even, half L1 and half
+# L2). Every round has the same mix, so changes across rounds come from time on
+# task. There are more rounds than most people finish: the time limit below ends
+# the session. Override with e.g. ROUND_MIX="search:4,scan:4,dice:4".
+ROUND_MIX = {k: int(v) for k, v in (pair.split(":") for pair in
+             os.getenv("ROUND_MIX", "search:2,scan:2,dice:2,corsi:2,reading:2").split(","))}
 ROUNDS = int(os.getenv("ROUNDS", "12"))
+# Version stamp written into every data row; bump it whenever the study changes.
+STUDY_VERSION = "2026.10.13-tasks5"
 TRIAL_TIMEOUT_MS = int(os.getenv("TRIAL_TIMEOUT_MS", "30000"))
 # Promise to participants: the whole session takes no more than 15 minutes.
 # After this many minutes from the start page, remaining trials are skipped

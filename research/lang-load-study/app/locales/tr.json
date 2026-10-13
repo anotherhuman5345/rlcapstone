@@ -70,7 +70,18 @@
   "bg_l2": "Okuyabildiğiniz diğer dil hangisi?",
   "bg_l1_reading": "En rahat olduğunuz dili ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
   "bg_l2_reading": "O diğer dili ne kadar iyi okuyorsunuz? (1 = çok az, 7 = anadili gibi)",
-  "bg_same_lang": "Lütfen iki farklı dil seçin."
+  "bg_same_lang": "Lütfen iki farklı dil seçin.",
+  "fatigue_title": "Kısa bir kontrol",
+  "fatigue_q": "Şu anda kendinizi zihinsel olarak ne kadar yorgun hissediyorsunuz?",
+  "fatigue_low": "hiç",
+  "fatigue_high": "son derece",
+  "round_done": "Tur {r} bitti.",
+  "bg_equal": "İki dili de okurken eşit derecede rahatım",
+  "instr_corsi": "Yanan kareler: sırayı izleyin, sonra ipucunun dediği gibi tıklayın: aynı sırayla ya da ters sırayla.",
+  "instr_reading": "Kısa metinler: metni okuyun ve en doğru cevabı seçin.",
+  "corsi_start": "Başla",
+  "corsi_go": "Sıra sizde: karelere tıklayın.",
+  "reading_answer": "Cevapla"
  },
  "clue": {
   "np": "{small} {color} {noun}",
@@ -212,6 +223,10 @@
    "down": "aşağı",
    "left": "sola",
    "right": "sağa"
+  },
+  "corsi": {
+   "forward": "Karelerin tek tek yanışını izleyin. Sonra onlara aynı sırayla tıklayın.",
+   "backward": "Karelerin tek tek yanışını izleyin. Sonra onlara ters sırayla, en son yanandan başlayarak tıklayın."
   }
  }
 }
