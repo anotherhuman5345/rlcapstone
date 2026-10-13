@@ -277,6 +277,270 @@
     "En yaşlısı o"
    ],
    "answer": 1
+  },
+  {
+   "id": "reading_24",
+   "passage": "Fırın öğlene kadar ekmek satar. Öğleden sonra yalnızca pasta satar. Eda ekmek almak için saat ikide fırına gitti.",
+   "question": "Eda saat ikide ne alabilirdi?",
+   "options": [
+    "Ekmek",
+    "Yalnızca pasta",
+    "Hiçbir şey"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_25",
+   "passage": "Selin'in bisikletinin lastiği patlak. Tamirci saat beşte kapanıyor ve oraya yürümek bir saat sürüyor. Selin evden dört buçukta çıktı.",
+   "question": "Selin dükkân kapanmadan önce varabilecek mi?",
+   "options": [
+    "Hayır, beşten sonra varacak",
+    "Dükkân bütün gece açık",
+    "Evet, rahatça"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_26",
+   "passage": "En üst raftaki bütün kitaplar Fransızca. Sözlük en üst rafta.",
+   "question": "Sözlük hangi dilde?",
+   "options": [
+    "Bilemeyiz",
+    "İngilizce",
+    "Fransızca"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_27",
+   "passage": "Ablası evde olmadığında kediyi Ali besler. Ablası bu hafta babaannelerini ziyaret ediyor.",
+   "question": "Bu hafta kediyi kim besliyor?",
+   "options": [
+    "Ali",
+    "Ablası",
+    "Babaanneleri"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_28",
+   "passage": "Yüzme havuzu yağmurlu günlerde kapalıdır. Salı günü bütün gün yağmur yağdı.",
+   "question": "Havuz salı günü açık mıydı?",
+   "options": [
+    "Hayır",
+    "Sadece sabah",
+    "Evet"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_29",
+   "passage": "Projeyi bitiren her öğrenci bir sertifika alır. Mert projesini geçen cuma bitirdi.",
+   "question": "Mert sertifika alacak mı?",
+   "options": [
+    "Ancak gelecek yıl",
+    "Hayır",
+    "Evet"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_30",
+   "passage": "Yeşil otobüs havalimanına gider. Mavi otobüs stadyuma gider. Leyla'nın bir uçağa yetişmesi gerekiyor.",
+   "question": "Leyla hangi otobüse binmeli?",
+   "options": [
+    "Mavi otobüse",
+    "Yeşil otobüse",
+    "Herhangi birine"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_31",
+   "passage": "Dondurma güneşte çabuk erir. Can dondurmasını güneşli bir masada yirmi dakika bıraktı.",
+   "question": "Dondurmaya büyük olasılıkla ne oldu?",
+   "options": [
+    "Eridi",
+    "Bir kutuda kayboldu",
+    "Daha da dondu"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_32",
+   "passage": "Müze on iki yaşından küçük çocuklar için ücretsiz. Zeynep on yaşında.",
+   "question": "Zeynep girmek için ne kadar ödüyor?",
+   "options": [
+    "Yarım ücret",
+    "Hiçbir şey",
+    "Tam ücret"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_33",
+   "passage": "Saat altıdan başlayarak her otuz dakikada bir tren kalkıyor. Arda istasyona altıyı kırk geçe geldi.",
+   "question": "Arda geldikten sonraki ilk tren saat kaçta?",
+   "options": [
+    "Altı buçukta",
+    "Yedide",
+    "Yedi buçukta"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_34",
+   "passage": "Maçta yalnızca antrenmana gelen oyuncular oynayabilir. Burcu hasta olduğu için antrenmanı kaçırdı.",
+   "question": "Burcu maçta oynayabilir mi?",
+   "options": [
+    "Hayır",
+    "Sadece kaptan olarak",
+    "Evet"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_35",
+   "passage": "Çiftçi kar yağdığında koyunları ahırda tutar. Dün gece yoğun kar yağdı.",
+   "question": "Koyunlar dün gece neredeydi?",
+   "options": [
+    "Yolda",
+    "Tarlada",
+    "Ahırda"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_36",
+   "passage": "Bu kafede çay kahveden daha ucuz. Ece kahve, Kaan çay içti.",
+   "question": "Kim daha az ödedi?",
+   "options": [
+    "Ece",
+    "Kaan",
+    "Aynı ödediler"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_37",
+   "passage": "Binanın sol kapısı giriş içindir. Sağ kapısı çıkış içindir. Murat binaya giriyor.",
+   "question": "Murat hangi kapıyı kullanmalı?",
+   "options": [
+    "Sağ kapıyı",
+    "Herhangi birini",
+    "Sol kapıyı"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_38",
+   "passage": "Seradaki bitkiler çift sayılı günlerde sulanır. Bugün ayın on dördü.",
+   "question": "Bitkiler bugün sulanıyor mu?",
+   "options": [
+    "Sadece yarısı",
+    "Evet",
+    "Hayır"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_39",
+   "passage": "Nora hava tahmini yağmur dediğinde her zaman şemsiye alır. Bugünkü tahmin bütün gün güneşli diyor.",
+   "question": "Nora bugün büyük olasılıkla şemsiye aldı mı?",
+   "options": [
+    "Evet",
+    "Hayır",
+    "İki tane aldı"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_40",
+   "passage": "Mağazanın indirimi yalnızca ayakkabılarda geçerli. Efe bir ceket ve bir çift ayakkabı aldı.",
+   "question": "Hangi ürün indirimli oldu?",
+   "options": [
+    "Ayakkabılar",
+    "İkisi de",
+    "Ceket"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_41",
+   "passage": "Madalya kazanmak için bir koşucunun yarışı bir saatten kısa sürede bitirmesi gerekir. Deniz elli iki dakikada bitirdi.",
+   "question": "Deniz madalya kazandı mı?",
+   "options": [
+    "Yarış iptal edildi",
+    "Evet",
+    "Hayır"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_42",
+   "passage": "Tarif, tuzun su kaynadıktan sonra eklenmesini söylüyor. Oya tuzu ocağı açmadan önce ekledi.",
+   "question": "Oya tarife uydu mu?",
+   "options": [
+    "Evet",
+    "Hayır",
+    "Tarifte tuz yok"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_43",
+   "passage": "Bahçe kapısı her gece saat onda kilitlenir. Sena eve saat on birde anahtarsız geldi.",
+   "question": "Sena kapıyı açabildi mi?",
+   "options": [
+    "Hayır",
+    "Kapı zaten açıktı",
+    "Evet"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_44",
+   "passage": "Yavru kuşlar tüyleri tamamen çıkınca yuvadan ayrılır. Meşedeki yuvada bulunan kuşların tüyleri tamamen çıktı.",
+   "question": "Meşedeki yuvanın kuşları ne yapacak?",
+   "options": [
+    "Yeni bir ağaç yapacak",
+    "Sonsuza dek kalacak",
+    "Yuvadan ayrılacak"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "reading_45",
+   "passage": "Akşam gösterisinin biletleri tükendi. Kerem akşam gösterisi için bilet almak istiyordu.",
+   "question": "Kerem o bileti alabildi mi?",
+   "options": [
+    "Evet",
+    "Hayır",
+    "Sadece internetten"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "reading_46",
+   "passage": "Rüzgâr çok sert olduğunda gemiler limandan çıkamaz. Bugün rüzgâr çok sert.",
+   "question": "Gemiler bugün limandan çıkabilir mi?",
+   "options": [
+    "Hayır",
+    "Sadece küçük olanlar",
+    "Evet"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "reading_47",
+   "passage": "Öğretmen ödevleri perşembe günleri toplar. Bugün çarşamba ve Pelin'in ödevi bitti.",
+   "question": "Pelin ödevini ne zaman teslim edecek?",
+   "options": [
+    "Gelecek hafta",
+    "Bugün",
+    "Yarın"
+   ],
+   "answer": 2
   }
  ]
 }

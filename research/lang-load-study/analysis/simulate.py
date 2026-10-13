@@ -17,7 +17,7 @@ GROUP_SETUP = {  # group: (n, age, education years, years reading images, P(saw 
     "phd_student": (30, 29, 20, 0, 0.50, 0.15),
     "radiologist": (30, 42, 22, 12, 0.35, 0.40),
 }
-ROUNDS, PER_TASK_PER_ROUND = 12, 4
+ROUNDS, PER_TASK_PER_ROUND = 24, 4
 
 
 def main():
@@ -61,8 +61,9 @@ def main():
                          "false_clicks": 0, "effort": 3, "reloads": 0})
             clock += 60  # surprise questions + instructions + 2 practice trials
             i = 3
-            # Assumed: about 1 in 4 people press "I'm exhausted", somewhere after minute 6.
-            quit_at = rng.uniform(6, 13) if rng.random() < 0.25 else None
+            # Assumed: most people press "I'm exhausted" somewhere between minute 12 and 55;
+            # the rest reach the 60-minute safety maximum.
+            quit_at = rng.uniform(12, 55) if rng.random() < 0.85 else None
             first_row = len(rows)
             for r in range(1, ROUNDS + 1):
                 if common["time_capped"] or common["quit_early"]:
@@ -83,7 +84,7 @@ def main():
                     if quit_at and clock / 60 > quit_at:
                         common.update(quit_early=True, quit_elapsed_s=round(clock, 1), quit_trial=i)
                         break
-                    if clock > 14 * 60 - 60:  # session time limit (counted from the start page)
+                    if clock > 60 * 60 - 60:  # safety maximum (counted from the start page)
                         common["time_capped"] = True
                         break
                     timed_out = rt > 30000

@@ -24,7 +24,8 @@ def main():
     from app.i18n import LOCALES
     LOCALES[code] = loc  # check this file even if it is not in the official list yet
     from app.clues import (COLOR_NAMES, DECOY_OBJECTS, DIRECTIONS, N_DICE_LEADS, N_SCAN_LEADS,
-                           N_SEARCH_LEADS, N_WHERE, TARGET_OBJECTS, make_clue, noun_phrase)
+                           N_SEARCH_LEADS, N_WHERE, N_WORDS, RULE_TYPES, TARGET_OBJECTS, make_clue,
+                           noun_phrase)
     en = json.loads((ROOT / "app" / "locales" / "en.json").read_text(encoding="utf-8"))
     problems = []
     fields = lambda text: set(re.findall(r"{(\w+)}", text))
@@ -52,6 +53,15 @@ def main():
         problems.append("clue.regions needs 9 entries")
     if set(cl.get("edges", {})) != {"top", "bottom", "left", "right"}:
         problems.append("clue.edges needs top/bottom/left/right")
+    if set(cl.get("rule", {})) != set(RULE_TYPES) | {"question", "group_a", "group_b"}:
+        problems.append("clue.rule needs the 5 rule sentences plus question, group_a, group_b")
+    if set(cl.get("color_pred", {})) != set(COLOR_NAMES):
+        problems.append("clue.color_pred needs all 6 colors")
+    if set(cl.get("ospan", {})) != {"lead", "check", "true", "false", "recall", "undo"}:
+        problems.append("clue.ospan needs lead, check, true, false, recall, undo")
+    words = cl.get("words", [])
+    if len(words) != N_WORDS or len(set(words)) != N_WORDS or not all(w.strip() for w in words):
+        problems.append(f"clue.words needs {N_WORDS} different, non-empty words")
     if set(cl.get("corsi", {})) != {"forward", "backward"}:
         problems.append("clue.corsi needs forward and backward sentences")
     if set(cl.get("directions", {})) != set(DIRECTIONS):
@@ -71,6 +81,13 @@ def main():
                 if "{" in clue or "  " in clue:
                     print(f"PROBLEM: bad clue: {clue}")
                     sys.exit(1)
+    for rt in RULE_TYPES:
+        for c in COLOR_NAMES:
+            for n in (1, 2, 3):
+                clue = make_clue("rule", code, "r", {"rule": {"type": rt, "color": c, "n": n}}, 1200, 800)
+                if "{" in clue or "  " in clue:
+                    print(f"PROBLEM: bad rule clue: {clue}")
+                    sys.exit(1)
     for da in DIRECTIONS:
         for db in DIRECTIONS:
             for k in range(N_DICE_LEADS * 3):
@@ -87,6 +104,9 @@ def main():
         print(" ", make_clue("scan", code, f"scan_{k:02d}", {"x": 900, "y": 650, "object": "cat",
                              "color": None}, 1200, 800))
     print(" ", make_clue("surprise", code, "surprise", {"x": 600, "y": 400}, 1200, 800))
+    for rt in RULE_TYPES:
+        print(" ", make_clue("rule", code, "r", {"rule": {"type": rt, "color": "green", "n": 2}}, 1200, 800))
+    print("  words:", ", ".join(loc["clue"]["words"][:8]), "...")
     for d in ("forward", "backward"):
         print(" ", make_clue("corsi", code, "corsi_00", {"direction": d}, 1200, 800))
     for k, (da, db) in enumerate((("up", "right"), ("left", "down"), ("down", "left"))):

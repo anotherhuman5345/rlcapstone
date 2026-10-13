@@ -6,7 +6,7 @@
    language (L1)?
 2. **Inattentional blindness.** When attention is on a stated task, does an L2 clue
    make people less likely to notice an unexpected object (a gorilla in a scan)?
-3. **Time on task.** Within a 15-minute session, when (if at all) does performance
+3. **Time on task.** As a session continues until self-declared exhaustion, when does performance
    start to decline, and does the L2 cost grow as people tire?
 4. **Groups.** Do these effects differ by age, education and image-reading expertise?
 
@@ -34,17 +34,19 @@ bilingual person under two presentation conditions, so each person is their own 
 (The gorilla question is the exception: it is compared between people, because the
 surprise only works once.)
 
-## Procedure (at most 15 minutes)
+## Procedure (until self-declared exhaustion; 60-minute safety maximum)
 1. Consent and background questions (about 3 minutes).
 2. Surprise image: find a small ring; a gorilla is also present and never mentioned.
    Then, on separate pages: "Did you notice anything unusual?"; "Did you see a gorilla?";
    "Had you heard of the invisible-gorilla study?". Then a one-line explanation.
-3. Two practice pictures.
-4. Rounds of 8 pictures until 14 minutes from the start, then final questions. Every
+3. One practice item per task.
+4. Identical rounds of 14 items (2 per task, one per language) until the person presses
+   "I'm exhausted" or 60 minutes have passed since the start, then a word-retention
+   check and the final questions. A 0-100 fatigue rating follows every round. Every
    search scene has its own named target and every scan its own unnamed, faint object
    ("something is out of the ordinary"); clue wording rotates, so nothing becomes
-   automatic. An "I'm exhausted" button under every picture ends the picture part at
-   any time; when people use it is recorded.
+   automatic. The "I'm exhausted" button is the normal way to end; time to exhaustion
+   is the primary self-declared fatigue outcome.
 
 ## Participants
 - Inclusion: reads both English and Turkish (self-rated 3+ on 1-7 in each).
@@ -85,8 +87,9 @@ reported both with and without people who already knew the study.
 - H3: speed, accuracy and L2 cost per round; mixed model of log RT on elapsed minutes x
   clue language; a piecewise model searches for the minute where slowing starts,
   with a log-time term so the early practice speed-up is not mistaken for a bend.
-  If there is no convincing bend, the result is "no clear decay within 15 minutes",
-  and a 30-minute follow-up is proposed.
+  Compare the start of slowing with the self-declared exhaustion time and the 0-100
+  ratings; they need not coincide. Time to exhaustion by group and language profile is
+  analysed with a survival model (people stopped by the 60-minute maximum are censored).
 
 ## Open questions for the lab
 1. IRB: which protocol or pathway should this fall under?

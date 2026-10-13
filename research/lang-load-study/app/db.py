@@ -54,6 +54,8 @@ class Participant(Base):
     # True when the person says both languages are equally comfortable; L1/L2 then
     # only mark which language they listed first, and analysis keeps the tie.
     equal_comfort: Mapped[bool] = mapped_column(Boolean, default=False)
+    # End-of-session word recognition: [{"word", "lang", "cond", "seen", "checked"}, ...]
+    retention: Mapped[list | None] = mapped_column(JSON)
 
     # Assignment
     counterbalance: Mapped[int | None] = mapped_column(Integer)

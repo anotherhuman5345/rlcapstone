@@ -21,18 +21,18 @@ MANIFEST = STIMULI_DIR / "manifest.json"
 
 # What one round contains: pictures per task (each must be even, half L1 and half
 # L2). Every round has the same mix, so changes across rounds come from time on
-# task. There are more rounds than most people finish: the time limit below ends
-# the session. Override with e.g. ROUND_MIX="search:4,scan:4,dice:4".
+# task. People keep going until they press "I'm exhausted"; the time it takes is
+# the main fatigue measure. There are enough rounds for the safety limit below. Override with e.g. ROUND_MIX="search:4,scan:4,dice:4".
 ROUND_MIX = {k: int(v) for k, v in (pair.split(":") for pair in
-             os.getenv("ROUND_MIX", "search:2,scan:2,dice:2,corsi:2,reading:2").split(","))}
-ROUNDS = int(os.getenv("ROUNDS", "12"))
+             os.getenv("ROUND_MIX", "search:2,scan:2,dice:2,corsi:2,reading:2,rule:2,ospan:2").split(","))}
+ROUNDS = int(os.getenv("ROUNDS", "24"))
 # Version stamp written into every data row; bump it whenever the study changes.
-STUDY_VERSION = "2026.10.13-tasks5"
+STUDY_VERSION = "2026.10.13-tasks7"
 TRIAL_TIMEOUT_MS = int(os.getenv("TRIAL_TIMEOUT_MS", "30000"))
-# Promise to participants: the whole session takes no more than 15 minutes.
-# After this many minutes from the start page, remaining trials are skipped
-# and the person goes straight to the short final questions.
-SESSION_LIMIT_MIN = float(os.getenv("SESSION_LIMIT_MIN", "14"))
+# Safety maximum (stated in the consent text): after this many minutes from the
+# start page, remaining trials are skipped and the person goes to the final
+# questions. Change the consent wording in every language if you change this.
+SESSION_LIMIT_MIN = float(os.getenv("SESSION_LIMIT_MIN", "60"))
 # A click counts as a hit if it lands within target radius * this factor.
 HIT_TOLERANCE = float(os.getenv("HIT_TOLERANCE", "1.6"))
 # Minimum self-rated reading level (1-7) in BOTH languages to be included.

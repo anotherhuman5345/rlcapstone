@@ -22,13 +22,13 @@ and more educated.
 
 ## Design
 
-The whole session takes **at most 15 minutes**, for everyone.
+People keep going **until they feel exhausted** and press the "I'm exhausted" button; the time it takes is the main fatigue measure. A safety maximum ends every session after **60 minutes** (`SESSION_LIMIT_MIN`), and the consent text says so.
 
 | Part | What happens | Compared |
 |---|---|---|
 | 1. Surprise image (once, first) | Find a small white ring on a scan. An unannounced gorilla is also in the image. Then: "Anything unusual?", "Did you see a gorilla?", "Had you heard of the invisible-gorilla study?" | **Between people:** half get the clue in L1, half in L2 |
 | 2. Practice | One search scene and one scan, comfortable language, not scored | — |
-| 3. Rounds | Rounds of 10 items, 2 of each task (one L1, one L2): search scene, scan, dice board, Corsi blocks and a reading passage. The mix is set in `config.ROUND_MIX`. A 0-100 fatigue rating follows every round. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
+| 3. Rounds | Rounds of 14 items, 2 of each task (one L1, one L2): search scene, scan, dice board, Corsi blocks, reading passage, rule card and operation span. The mix is set in `config.ROUND_MIX`. A 0-100 fatigue rating follows every round. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
 
 | Factor | Type | Levels |
 |---|---|---|
@@ -60,6 +60,15 @@ The whole session takes **at most 15 minutes**, for everyone.
     combined (instructions and content both in the assigned language). Passages exist in
     English and Turkish so far (`app/reading/`); people whose two languages do not both
     have passages simply skip this task.
+  - **Rule card:** the clue states a sorting rule (by color, not-color, number of shapes,
+    or an and/or combination); the person decides whether the card belongs to group A or B.
+    Pairs share the rule type and the correct answer.
+  - **Operation span with words:** judge 3-5 sums as correct or wrong; after each, a word
+    appears for one second in the trial's language. Then click the words back in order.
+    Memory and sum accuracy are scored separately.
+  - **Word retention:** before the final questions, up to 8 words seen earlier (from L1
+    and L2 trials) are mixed with the same number never shown; ticking the remembered
+    ones gives hit and false-alarm rates for each language about ten minutes later.
   - **Wording:** each clue uses one of several equivalent sentence patterns, the same
     pattern in both languages for a given picture.
 - **Surprise gorilla:** the inattentional-blindness paradigm of Drew, Võ & Wolfe (2013),
@@ -70,14 +79,13 @@ The whole session takes **at most 15 minutes**, for everyone.
   results with and without those who knew.
 - **Clue:** names what to find (search scenes only), the region of the image and the
   nearer edge, in English or Turkish. Both versions carry identical information.
-- **"I'm exhausted" button:** under every picture. Stopping is always allowed; the
-  minute and round where someone stops is recorded as a direct measure of fatigue.
+- **"I'm exhausted" button:** at the top of every item. This is how a session normally
+  ends: the minute and round where someone stops (time to exhaustion) is the main,
+  self-declared measure of fatigue.
 - **Time on task:** every round has the same mix, so a change across rounds comes from
-  time, not from a harder task. There are more rounds (12) than most people finish:
-  at 14 minutes from the start page the session moves to the final questions. Every
-  answer carries its elapsed time, so the analysis can look for the minute where
-  slowing starts. If no decay appears within 15 minutes, that is reported as a finding
-  and a longer follow-up can be proposed.
+  time, not from a harder task. There are 24 rounds, enough to reach the 60-minute
+  safety maximum. Every answer carries its elapsed time, so the analysis can look for
+  the minute where slowing starts, and compare it with when people declared exhaustion.
 - **Fatigue:** "How mentally tired do you feel right now?" (0-100) at the start, after
   every round and at the end, kept separate from performance (`/admin/fatigue.csv`).
 - **Equal comfort:** people can say they read both languages equally comfortably; the

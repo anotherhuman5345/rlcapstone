@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="trial-top">
+  <span class="meta">{% if trial.practice %}{{ _('practice') }}{% elif trial['round'] %}{{ _('round_of', r=trial['round'], total=rounds) }}{% endif %}</span>
+  <button type="button" id="quit" class="quit">{{ _('quit_button') }}</button>
+</div>
+<div id="ospan" class="ospan" data-item="{{ img.id }}" lang="{{ trial.clue_lang }}" dir="{{ clue_dir }}">
+  <p class="clue" lang="{{ trial.clue_lang }}" id="clue">{{ clue }}</p>
+  <div id="sum-phase" hidden>
+    <p class="sum" id="sum"></p>
+    <p>{{ item.labels.check }}</p>
+    <button type="button" class="pick" data-v="1">{{ item.labels.true }}</button>
+    <button type="button" class="pick" data-v="0">{{ item.labels.false }}</button>
+  </div>
+  <p class="word" id="word" hidden></p>
+  <div id="recall-phase" hidden>
+    <p>{{ item.labels.recall }}</p>
+    <div class="choices">{% for k, w in item.choices %}<button type="button" class="choice-word" data-k="{{ k }}">{{ w }}</button>{% endfor %}</div>
+    <p class="picked" id="picked"></p>
+    <button type="button" class="quit" id="undo">{{ item.labels.undo }}</button>
+  </div>
+  <p><button type="button" id="ospan-start">{{ _('corsi_start') }}</button></p>
+</div>
+<p id="status" class="status" role="status"></p>
+{% include "_effort.html" %}
+{% endblock %}
+{% block scripts %}
+<script>
+window.TRIAL = { index: {{ n - 1 }}, timeout: {{ timeout }},
+  sums: {{ item.sums | tojson }}, words: {{ item.words | tojson }}, length: {{ item.words | length }},
+  msgTimeout: {{ _('timeout') | tojson }}, msgQuitConfirm: {{ _('quit_confirm') | tojson }} };
+</script>
+<script src="/static/common.js"></script>
+<script src="/static/ospan.js"></script>
+{% endblock %}

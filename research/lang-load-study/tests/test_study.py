@@ -22,14 +22,15 @@ def test_plan_order_balance_and_counterbalance():
     b = build_plan("p-b", 1, "en", "tr", m)
     # Surprise first, then one practice per task, all before any scored trial
     assert a[0]["task"] == "surprise" and a[0]["condition"] == "L1"
-    assert [t["practice"] for t in a[1:6]] == [True] * 5
+    assert [t["practice"] for t in a[1:8]] == [True] * 7
     scored = [t for t in a if t["round"]]
-    assert len(scored) == 120
+    assert len(scored) == 336
     # Every round has the same mix: per task, 2 L1 and 2 L2 clues
-    for r in range(1, 13):
+    for r in range(1, 25):
         rnd = [t for t in scored if t["round"] == r]
         assert Counter((t["task"], t["condition"]) for t in rnd) == {
-            (task, cond): 1 for task in ("search", "scan", "dice", "corsi", "reading") for cond in ("L1", "L2")}
+            (task, cond): 1 for task in ("search", "scan", "dice", "corsi", "reading", "rule", "ospan")
+            for cond in ("L1", "L2")}
     # Counterbalance flips which images get which language
     cond_a = {t["image_id"]: t["condition"] for t in scored}
     cond_b = {t["image_id"]: t["condition"] for t in b if t["round"]}
@@ -102,6 +103,11 @@ def _answer(c, m, i, correct=True, **extra):
         body["response"] = seq if correct else seq[::-1]
     elif task == "reading":
         body["response"] = tg["answer"] if correct else (tg["answer"] + 1) % 3
+    elif task == "rule":
+        body["response"] = tg["answer"] if correct else {"A": "B", "B": "A"}[tg["answer"]]
+    elif task == "ospan":
+        words = tg["words"] if correct else tg["words"][::-1]
+        body["response"] = {"recall": words, "sums": [sm["true"] for sm in tg["sums"]]}
     else:
         body.update(click_x=tg["x"] + (0 if correct else 400), click_y=tg["y"])
     body.update(extra)
@@ -128,11 +134,16 @@ def test_full_session_flow():
         c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "yes"})
         # A click far from the target is not a hit, even if the browser sends it
         assert _answer(c, m, 1, correct=False)[1]["hit"] is False
-        total = 1 + 5 + 12 * 10  # surprise, 5 practice, 12 rounds of 10
+        total = 1 + 7 + 24 * 14  # surprise, 7 practice, 24 rounds of 14
         for i in range(2, total):
             _, res = _answer(c, m, i)
             assert res["hit"] is True
-        assert c.get("/trial").url.path == "/final"
+        # Words were shown, so the retention check comes before the final questions.
+        ret = c.get("/trial")
+        assert ret.url.path == "/retention"
+        n_words = ret.text.count('name="checked"')
+        assert n_words == 16  # 4 seen + 4 new, per language
+        c.post("/retention", data={"checked": ["0", "1", "2"]})
         final = c.get("/final").text
         practice_obj = next(i for i in m.values() if i["id"] == "search_practice")["target"]["object"]
         assert 'value="%s"' % practice_obj in final and 'value="car"' in final
@@ -142,14 +153,16 @@ def test_full_session_flow():
         mine = [dict(zip(header, r.split(","))) for r in rows[1:]]
         mine = [r for r in mine if r["noticed_unusual"] == "False" and r["group"] == "high_school"]
         assert len(mine) == total
-        assert {r["task"] for r in mine} == {"surprise", "search", "scan", "dice", "corsi", "reading"}
+        assert {r["task"] for r in mine} == {"surprise", "search", "scan", "dice", "corsi", "reading",
+                                             "rule", "ospan"}
+        assert mine[0]["ret_l1_hits"] != "" and mine[0]["ret_l2_false_alarms"] != ""
         assert all(r["study_version"] and r["stimuli_version"] and r["translation_version"] for r in mine)
         fatigue = c.get("/admin/fatigue.csv?key=test-key").text.strip().splitlines()[1:]
         points = [row.split(",")[8] for row in fatigue if ",high_school," in row]
-        assert points == ["baseline"] + [f"after_round_{k}" for k in range(1, 12)] + ["final"]
+        assert points == ["baseline"] + [f"after_round_{k}" for k in range(1, 24)] + ["final"]
         assert mine[0]["task"] == "surprise" and mine[0]["knew_gorilla_study"] == "True"
         assert {r["round"] for r in mine if r["practice"] == "False" and r["task"] != "surprise"} == \
-            {str(k) for k in range(1, 13)}
+            {str(k) for k in range(1, 25)}
         assert all(r["elapsed_s"] != "" for r in mine)
         assert c.get("/admin/export.csv?key=wrong").status_code == 403
 
@@ -166,7 +179,7 @@ def test_session_stops_at_time_limit():
         c.post("/notice2", data={"saw_gorilla": "yes", "knew_study": "no"})
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
-            p.created_at = now() - timedelta(minutes=14.5)
+            p.created_at = now() - timedelta(minutes=60.5)
             db.commit()
         assert c.get("/trial").url.path == "/final"
         with SessionLocal() as db:
@@ -316,7 +329,7 @@ def test_dice_target_is_the_square_the_moves_lead_to():
 
 def test_reading_only_when_both_languages_have_passages_and_scoring():
     m = load_manifest()
-    no_reading = build_plan("x", 0, "ja", "es", m, available={"search", "scan", "dice", "corsi"})
+    no_reading = build_plan("x", 0, "ja", "es", m, available={"search", "scan", "dice", "corsi", "rule", "ospan"})
     assert "reading" not in {t["task"] for t in no_reading}
     c = TestClient(app)
     with c:
@@ -349,3 +362,48 @@ def test_corsi_scoring_and_focus_flag():
         with SessionLocal() as db:
             rows = db.query(TrialResult).filter(TrialResult.focus_lost == 2).all()
             assert {r.task for r in rows} >= {"corsi", "reading"} and all(r.response for r in rows)
+
+
+def test_rule_answers_follow_the_rule():
+    import sys
+    sys.path.insert(0, "stimuli")
+    from generate_stimuli import rule_answer
+    for img in (i for i in load_manifest()["images"] if i["task"] == "rule"):
+        t = img["target"]
+        assert rule_answer(t["rule"], t["color"], t["count"]) == t["answer"], img["id"]
+
+
+def test_ospan_scoring_and_retention_rates():
+    from app.db import Participant, SessionLocal, TrialResult
+    c = TestClient(app)
+    with c:
+        _start(c)
+        m = {i["id"]: i for i in load_manifest()["images"]}
+        _answer(c, m, 0)
+        c.post("/notice", data={"noticed": "no"})
+        c.post("/notice2", data={"saw_gorilla": "no", "knew_study": "no"})
+        i, wrong_done, scored = 1, False, 0
+        while scored < 2:  # until two scored operation-span sets are done
+            img_id = _current(c)
+            if m[img_id]["task"] == "ospan" and not m[img_id]["practice"]:
+                _, res = _answer(c, m, i, correct=wrong_done)
+                assert res["hit"] is wrong_done
+                wrong_done, scored = True, scored + 1
+            else:
+                _answer(c, m, i)
+            i += 1
+        c.post("/api/quit", json={"trial_index": i})
+        page = c.get("/final")
+        assert page.url.path == "/retention"
+        with SessionLocal() as db:
+            p = db.get(Participant, c.cookies.get("pid"))
+            items = p.retention
+        seen_idx = [str(n) for n, it in enumerate(items) if it["seen"]]
+        c.post("/retention", data={"checked": seen_idx})  # tick exactly the seen words
+        assert c.get("/final").url.path == "/final"
+        with SessionLocal() as db:
+            p = db.get(Participant, c.cookies.get("pid"))
+            assert all(it["checked"] == it["seen"] for it in p.retention)
+            from app.main import retention_summary
+            hits_l1, fa_l1, hits_l2, fa_l2 = retention_summary(p)
+            assert fa_l1 in (0, None) and fa_l2 in (0, None) and 1 in (hits_l1, hits_l2)
