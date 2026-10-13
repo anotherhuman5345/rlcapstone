@@ -26,6 +26,7 @@ legend { font-weight: 600; margin-bottom: .5rem; }
 label { display: block; margin: .9rem 0; }
 .stack label > input, .stack label > select { display: block; margin-top: .3rem; width: 100%; max-width: 16rem; padding: .5rem; font: inherit; border: 1px solid var(--line); border-radius: 4px; }
 .choice { display: flex; gap: .5rem; align-items: center; margin: .4rem 0; }
+.stack label.choice > input { display: inline-block; width: auto; max-width: none; margin: 0; }
 .scale label { display: inline-block; margin: 0 .2rem .3rem 0; }
 .scale input { position: absolute; opacity: 0; }
 .scale label span { display: inline-flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; background: var(--paper); }
