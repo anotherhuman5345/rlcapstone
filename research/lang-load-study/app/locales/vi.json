@@ -31,9 +31,10 @@
   "instr_title": "Cách thực hiện",
   "instr_search": "Hình ảnh nhiều chi tiết: gợi ý nêu tên một vật nhỏ cần tìm, và vật đó mỗi lần một khác.",
   "instr_scan": "Hình ảnh y khoa đen trắng: trong mỗi hình có một điều gì đó bất thường. Hãy tìm và nhấp vào đó. Hai loại hình ảnh được trộn lẫn với nhau.",
+  "instr_dice": "Lưới có hai con xúc xắc: gợi ý cho bạn biết đi theo hướng nào từ ngôi sao, còn xúc xắc cho bạn biết đi bao xa. Hãy nhấp vào ô nơi bạn dừng lại.",
   "instr_clue": "Phía trên mỗi hình có một gợi ý cho bạn biết cần tìm gì và ở đâu. Hãy đọc kỹ từng gợi ý: gợi ý thay đổi mỗi lần, lúc bằng {l1}, lúc bằng {l2}. Sau đó nhấp vào mục tiêu nhanh nhất có thể.",
   "instr_effort": "Sau mỗi hình, hãy đánh giá bạn đã phải bỏ ra bao nhiêu nỗ lực trí óc.",
-  "instr_practice": "Hai hình đầu tiên là để luyện tập.",
+  "instr_practice": "Hình đầu tiên của mỗi loại là để luyện tập.",
   "begin": "Bắt đầu",
   "practice": "Luyện tập",
   "trial_of": "Hình {n} / {total}",
@@ -73,33 +74,81 @@
  },
  "clue": {
   "np": "{noun} {small} màu {color}",
-  "small": {"*": "nhỏ"},
+  "small": {
+   "*": "nhỏ"
+  },
   "colors": {
-   "red": {"*": "đỏ"},
-   "blue": {"*": "xanh dương"},
-   "green": {"*": "xanh lá"},
-   "yellow": {"*": "vàng"},
-   "purple": {"*": "tím"},
-   "orange": {"*": "cam"}
+   "red": {
+    "*": "đỏ"
+   },
+   "blue": {
+    "*": "xanh dương"
+   },
+   "green": {
+    "*": "xanh lá"
+   },
+   "yellow": {
+    "*": "vàng"
+   },
+   "purple": {
+    "*": "tím"
+   },
+   "orange": {
+    "*": "cam"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "chiếc ô"},
-   "star": {"nom": "ngôi sao"},
-   "heart": {"nom": "trái tim"},
-   "moon": {"nom": "vầng trăng khuyết"},
-   "arrow": {"nom": "mũi tên"},
-   "cross": {"nom": "dấu cộng"},
-   "diamond": {"nom": "hình thoi"},
-   "house": {"nom": "ngôi nhà"},
-   "fish": {"nom": "con cá"},
-   "key": {"nom": "chiếc chìa khóa"},
-   "monkey": {"nom": "con khỉ"},
-   "cat": {"nom": "con mèo"},
-   "bird": {"nom": "con chim"},
-   "car": {"nom": "chiếc ô tô"},
-   "tree": {"nom": "cái cây"},
-   "guitar": {"nom": "cây đàn ghi-ta"},
-   "elephant": {"nom": "con voi"}
+   "umbrella": {
+    "nom": "chiếc ô"
+   },
+   "star": {
+    "nom": "ngôi sao"
+   },
+   "heart": {
+    "nom": "trái tim"
+   },
+   "moon": {
+    "nom": "vầng trăng khuyết"
+   },
+   "arrow": {
+    "nom": "mũi tên"
+   },
+   "cross": {
+    "nom": "dấu cộng"
+   },
+   "diamond": {
+    "nom": "hình thoi"
+   },
+   "house": {
+    "nom": "ngôi nhà"
+   },
+   "fish": {
+    "nom": "con cá"
+   },
+   "key": {
+    "nom": "chiếc chìa khóa"
+   },
+   "monkey": {
+    "nom": "con khỉ"
+   },
+   "cat": {
+    "nom": "con mèo"
+   },
+   "bird": {
+    "nom": "con chim"
+   },
+   "car": {
+    "nom": "chiếc ô tô"
+   },
+   "tree": {
+    "nom": "cái cây"
+   },
+   "guitar": {
+    "nom": "cây đàn ghi-ta"
+   },
+   "elephant": {
+    "nom": "con voi"
+   }
   },
   "regions": {
    "0,0": "phía trên bên trái",
@@ -135,6 +184,17 @@
    "Nó nằm ở vùng {region} của hình, gần cạnh {near} hơn là cạnh {far}.",
    "Hãy xem phần {region}, gần cạnh {near} hơn cạnh {far}.",
    "Hãy tìm ở vùng {region}; nó nằm gần cạnh {near} hơn là cạnh {far}."
+  ],
+  "directions": {
+   "up": "lên trên",
+   "down": "xuống dưới",
+   "left": "sang trái",
+   "right": "sang phải"
+  },
+  "dice_leads": [
+   "Bắt đầu từ ngôi sao. Đi {dir_a} số ô bằng số mà xúc xắc A hiện, rồi đi {dir_b} số ô bằng số mà xúc xắc B hiện. Hãy nhấp vào nơi bạn dừng lại.",
+   "Từ ngôi sao, đi {dir_a} theo con số trên xúc xắc A, rồi đi {dir_b} theo con số trên xúc xắc B, và nhấp vào ô đó.",
+   "Bắt đầu tại ngôi sao: xúc xắc A cho biết cần đi {dir_a} bao nhiêu ô, rồi xúc xắc B cho biết cần đi {dir_b} bao nhiêu ô. Hãy nhấp vào ô cuối cùng."
   ]
  }
 }

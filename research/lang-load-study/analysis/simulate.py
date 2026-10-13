@@ -67,11 +67,11 @@ def main():
             for r in range(1, ROUNDS + 1):
                 if common["time_capped"] or common["quit_early"]:
                     break
-                trials = [(task, j) for task in ("search", "scan") for j in range(PER_TASK_PER_ROUND)]
+                trials = [(task, j) for task in ("search", "scan", "dice") for j in range(PER_TASK_PER_ROUND)]
                 rng.shuffle(trials)
                 for task, j in trials:
                     cond = "L1" if (j + k) % 2 == 0 else "L2"
-                    base = 8.4 if task == "search" else 8.1
+                    base = {"search": 8.4, "scan": 8.1, "dice": 8.7}[task]
                     if group == "radiologist" and task == "scan":
                         base -= 0.15  # assumed expertise benefit on scans
                     cost = args.l2_cost * (0.6 if group == "radiologist" else 1.0) if cond == "L2" else 0

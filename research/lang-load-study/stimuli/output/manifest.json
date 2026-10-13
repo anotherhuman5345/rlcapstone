@@ -1473,6 +1473,937 @@
       "practice": true
     },
     {
+      "id": "dice_00",
+      "task": "dice",
+      "file": "dice_00.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 625,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 2,
+        "dir_a": "right",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_01",
+      "task": "dice",
+      "file": "dice_01.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 88,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 4,
+        "dir_a": "up",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_02",
+      "task": "dice",
+      "file": "dice_02.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 634,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_03",
+      "task": "dice",
+      "file": "dice_03.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 88,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_04",
+      "task": "dice",
+      "file": "dice_04.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 400,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 1,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_05",
+      "task": "dice",
+      "file": "dice_05.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 5,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_06",
+      "task": "dice",
+      "file": "dice_06.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 235,
+        "y": 244,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 4,
+        "dir_a": "up",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_07",
+      "task": "dice",
+      "file": "dice_07.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 88,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_08",
+      "task": "dice",
+      "file": "dice_08.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 244,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 2,
+        "b": 5,
+        "dir_a": "right",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_09",
+      "task": "dice",
+      "file": "dice_09.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 712,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 2,
+        "dir_a": "down",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_10",
+      "task": "dice",
+      "file": "dice_10.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 235,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 4,
+        "dir_a": "down",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_11",
+      "task": "dice",
+      "file": "dice_11.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 556,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 2,
+        "b": 2,
+        "dir_a": "left",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_12",
+      "task": "dice",
+      "file": "dice_12.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 391,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 1,
+        "b": 4,
+        "dir_a": "up",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_13",
+      "task": "dice",
+      "file": "dice_13.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 703,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 2,
+        "dir_a": "right",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_14",
+      "task": "dice",
+      "file": "dice_14.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 703,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_15",
+      "task": "dice",
+      "file": "dice_15.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 391,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_16",
+      "task": "dice",
+      "file": "dice_16.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 712,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 5,
+        "dir_a": "down",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_17",
+      "task": "dice",
+      "file": "dice_17.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 235,
+        "y": 634,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 1,
+        "b": 6,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_18",
+      "task": "dice",
+      "file": "dice_18.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 556,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_19",
+      "task": "dice",
+      "file": "dice_19.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 235,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 2,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_20",
+      "task": "dice",
+      "file": "dice_20.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 547,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 3,
+        "dir_a": "down",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_21",
+      "task": "dice",
+      "file": "dice_21.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 625,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 4,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_22",
+      "task": "dice",
+      "file": "dice_22.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 547,
+        "y": 634,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 5,
+        "dir_a": "down",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_23",
+      "task": "dice",
+      "file": "dice_23.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 2,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_24",
+      "task": "dice",
+      "file": "dice_24.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 703,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 4,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_25",
+      "task": "dice",
+      "file": "dice_25.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 3,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_26",
+      "task": "dice",
+      "file": "dice_26.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 625,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 2,
+        "dir_a": "right",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_27",
+      "task": "dice",
+      "file": "dice_27.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 5,
+        "dir_a": "left",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_28",
+      "task": "dice",
+      "file": "dice_28.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 79,
+        "y": 634,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_29",
+      "task": "dice",
+      "file": "dice_29.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 391,
+        "y": 556,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 4,
+        "b": 3,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_30",
+      "task": "dice",
+      "file": "dice_30.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 391,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 2,
+        "b": 6,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_31",
+      "task": "dice",
+      "file": "dice_31.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 547,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 1,
+        "dir_a": "down",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_32",
+      "task": "dice",
+      "file": "dice_32.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 235,
+        "y": 88,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 6,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_33",
+      "task": "dice",
+      "file": "dice_33.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 79,
+        "y": 556,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 6,
+        "dir_a": "left",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_34",
+      "task": "dice",
+      "file": "dice_34.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 2,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_35",
+      "task": "dice",
+      "file": "dice_35.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 1,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_36",
+      "task": "dice",
+      "file": "dice_36.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 1,
+        "dir_a": "left",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_37",
+      "task": "dice",
+      "file": "dice_37.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 556,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 1,
+        "b": 2,
+        "dir_a": "right",
+        "dir_b": "up"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_38",
+      "task": "dice",
+      "file": "dice_38.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 703,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_39",
+      "task": "dice",
+      "file": "dice_39.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 1,
+        "b": 5,
+        "dir_a": "down",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_40",
+      "task": "dice",
+      "file": "dice_40.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 5,
+        "dir_a": "up",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_41",
+      "task": "dice",
+      "file": "dice_41.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 400,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 3,
+        "b": 2,
+        "dir_a": "down",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_42",
+      "task": "dice",
+      "file": "dice_42.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 703,
+        "y": 244,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_43",
+      "task": "dice",
+      "file": "dice_43.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 79,
+        "y": 478,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 1,
+        "b": 5,
+        "dir_a": "down",
+        "dir_b": "left"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_44",
+      "task": "dice",
+      "file": "dice_44.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 625,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 2,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_45",
+      "task": "dice",
+      "file": "dice_45.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 469,
+        "y": 400,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 2,
+        "b": 1,
+        "dir_a": "right",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_46",
+      "task": "dice",
+      "file": "dice_46.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 79,
+        "y": 634,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "left",
+        "dir_b": "down"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_47",
+      "task": "dice",
+      "file": "dice_47.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 313,
+        "y": 322,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "right"
+      },
+      "practice": false
+    },
+    {
+      "id": "dice_practice",
+      "task": "dice",
+      "file": "dice_practice.png",
+      "width": 1200,
+      "height": 800,
+      "target": {
+        "x": 157,
+        "y": 166,
+        "r": 23.4,
+        "object": "square",
+        "color": null,
+        "a": 5,
+        "b": 3,
+        "dir_a": "up",
+        "dir_b": "left"
+      },
+      "practice": true
+    },
+    {
       "id": "surprise",
       "task": "surprise",
       "file": "surprise.png",

@@ -31,9 +31,10 @@
   "instr_title": "Cómo funciona",
   "instr_search": "Imágenes con muchos elementos: la pista nombra un objeto pequeño que debe encontrar, y es distinto cada vez.",
   "instr_scan": "Imágenes médicas en escala de grises: en cada una hay algo fuera de lo común. Encuéntrelo y haga clic en ello. Los dos tipos de imagen aparecen mezclados.",
+  "instr_dice": "Cuadrículas con dos dados: la pista le indica hacia dónde moverse desde la estrella, y los dados, cuántas casillas. Haga clic en la casilla donde termine.",
   "instr_clue": "Encima de cada imagen hay una pista que le dice qué buscar y dónde. Lea cada pista con atención: cambia cada vez, a veces en {l1} y a veces en {l2}. Luego haga clic en el objetivo lo más rápido que pueda.",
   "instr_effort": "Después de cada imagen, valore cuánto esfuerzo mental le costó.",
-  "instr_practice": "Las dos primeras imágenes son de práctica.",
+  "instr_practice": "La primera imagen de cada tipo es de práctica.",
   "begin": "Empezar",
   "practice": "Práctica",
   "trial_of": "Imagen {n} de {total}",
@@ -204,6 +205,17 @@
    "Está en la zona {region} de la imagen, más cerca del borde {near} que del borde {far}.",
    "Revise la parte {region}, más cerca del borde {near} que del borde {far}.",
    "Busque en la zona {region}; el objetivo está más cerca del borde {near} que del borde {far}."
+  ],
+  "directions": {
+   "up": "hacia arriba",
+   "down": "hacia abajo",
+   "left": "hacia la izquierda",
+   "right": "hacia la derecha"
+  },
+  "dice_leads": [
+   "Empiece en la estrella. Muévase {dir_a} tantas casillas como indique el dado A, y luego {dir_b} tantas como indique el dado B. Haga clic donde termine.",
+   "Desde la estrella, avance {dir_a} el número de casillas que marca el dado A, luego {dir_b} el número que marca el dado B, y haga clic en esa casilla.",
+   "Comience en la estrella: el dado A indica cuántas casillas moverse {dir_a}, y luego el dado B indica cuántas moverse {dir_b}. Haga clic en la casilla final."
   ]
  }
 }

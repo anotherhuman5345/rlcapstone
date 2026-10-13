@@ -4,8 +4,8 @@ Order (the same for everyone):
   1. Surprise trial, first of all, before anything mentions animals: find a
      small ring on a scan; an unannounced gorilla is also in the image.
   2. One practice trial per task (comfortable language, never scored).
-  3. ROUNDS identical rounds. Each round has, per task (search scene, monkey
-     scan), the same number of L1 and L2 clues, shuffled together. Because every
+  3. ROUNDS identical rounds. Each round has, per task (search scene, scan,
+     dice board), the same number of L1 and L2 clues, shuffled together. Because every
      round has the same mix, a change across rounds can only come from time on
      task (fatigue or practice), not from a change in the task.
 
@@ -22,7 +22,7 @@ import random
 
 from .config import MANIFEST, ROUNDS, TRIALS_PER_TASK
 
-TASKS = ("search", "scan")
+TASKS = ("search", "scan", "dice")
 
 
 def load_manifest(path=MANIFEST):

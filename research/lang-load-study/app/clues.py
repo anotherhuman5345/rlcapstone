@@ -22,7 +22,8 @@ TARGET_OBJECTS = ("umbrella", "star", "heart", "moon", "arrow", "cross", "diamon
 # Used only as wrong answers in the attention check; never a target.
 DECOY_OBJECTS = ("car", "tree", "guitar", "elephant")
 COLOR_NAMES = ("red", "blue", "green", "yellow", "purple", "orange")
-N_SEARCH_LEADS, N_SCAN_LEADS, N_WHERE = 4, 4, 3
+N_SEARCH_LEADS, N_SCAN_LEADS, N_WHERE, N_DICE_LEADS = 4, 4, 3, 3
+DIRECTIONS = ("up", "down", "left", "right")
 
 
 def nearest_two_edges(x, y, w, h):
@@ -74,6 +75,12 @@ def object_name(kind: str, lang: str) -> str:
 
 def make_clue(task: str, lang: str, image_id: str, target: dict, w: int, h: int) -> str:
     spec = LOCALES[lang]["clue"]
+    if task == "dice":
+        # The moves ARE the instruction, so there is no separate "where" sentence.
+        # Directions are in words; the numbers are only on the dice in the picture.
+        template = spec["dice_leads"][variant(image_id, N_DICE_LEADS, "dice")]
+        dirs = spec["directions"]
+        return upper_first(template.format(dir_a=dirs[target["dir_a"]], dir_b=dirs[target["dir_b"]]), lang)
     x, y = target["x"], target["y"]
     if task == "surprise":
         lead = spec["surprise_lead"]

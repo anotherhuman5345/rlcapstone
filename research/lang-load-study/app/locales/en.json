@@ -31,9 +31,10 @@
   "instr_title": "How it works",
   "instr_search": "Busy pictures: the clue names a small object to find, and it is different every time.",
   "instr_scan": "Grayscale medical images: something in each one is out of the ordinary. Find it and click on it. The two kinds of picture are mixed together.",
+  "instr_dice": "Grids with two dice: the clue tells you which way to move from the star, and the dice tell you how far. Click the square where you end up.",
   "instr_clue": "Above each picture is a clue telling you what to look for and where. Read every clue carefully: it changes each time, sometimes in {l1} and sometimes in {l2}. Then click the target as fast as you can.",
   "instr_effort": "After each picture, rate how much mental effort it took.",
-  "instr_practice": "The first two pictures are practice.",
+  "instr_practice": "The first picture of each kind is practice.",
   "begin": "Begin",
   "practice": "Practice",
   "trial_of": "Picture {n} of {total}",
@@ -183,6 +184,17 @@
    "It is in the {region} area of the image, closer to the {near} edge than to the {far} edge.",
    "Check the {region} part, nearer the {near} edge than the {far} edge.",
    "Search the {region} area; it sits closer to the {near} edge than to the {far} edge."
-  ]
+  ],
+  "dice_leads": [
+   "Start at the star. Move {dir_a} as many squares as die A shows, then {dir_b} as many as die B shows. Click where you end up.",
+   "From the star, go {dir_a} by the number on die A, then {dir_b} by the number on die B, and click that square.",
+   "Begin on the star: die A says how many squares to move {dir_a}, then die B says how many to move {dir_b}. Click the final square."
+  ],
+  "directions": {
+   "up": "up",
+   "down": "down",
+   "left": "left",
+   "right": "right"
+  }
  }
 }

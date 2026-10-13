@@ -31,9 +31,10 @@
   "instr_title": "Como funciona",
   "instr_search": "Imagens cheias de elementos: a pista indica um pequeno objeto para encontrar, e ele é diferente a cada vez.",
   "instr_scan": "Imagens médicas em tons de cinza: em cada uma há algo fora do comum. Encontre-o e clique nele. Os dois tipos de imagem aparecem misturados.",
+  "instr_dice": "Grades com dois dados: a pista diz para que lado se mover a partir da estrela, e os dados dizem quantas casas. Clique na casa onde você parar.",
   "instr_clue": "Acima de cada imagem há uma pista dizendo o que procurar e onde. Leia cada pista com atenção: ela muda a cada vez, às vezes em {l1} e às vezes em {l2}. Depois clique no alvo o mais rápido que puder.",
   "instr_effort": "Depois de cada imagem, avalie quanto esforço mental ela exigiu.",
-  "instr_practice": "As duas primeiras imagens são de treino.",
+  "instr_practice": "A primeira imagem de cada tipo é de treino.",
   "begin": "Iniciar",
   "practice": "Treino",
   "trial_of": "Imagem {n} de {total}",
@@ -204,6 +205,17 @@
    "Está na região {region} da imagem, mais perto da borda {near} do que da borda {far}.",
    "Verifique a parte {region}, mais perto da borda {near} do que da borda {far}.",
    "Procure na região {region}; o alvo fica mais perto da borda {near} do que da borda {far}."
+  ],
+  "directions": {
+   "up": "para cima",
+   "down": "para baixo",
+   "left": "para a esquerda",
+   "right": "para a direita"
+  },
+  "dice_leads": [
+   "Comece na estrela. Mova-se {dir_a} tantas casas quanto mostra o dado A e, depois, {dir_b} tantas quanto mostra o dado B. Clique onde você parar.",
+   "A partir da estrela, avance {dir_a} o número de casas do dado A, depois {dir_b} o número do dado B, e clique nessa casa.",
+   "Parta da estrela: o dado A diz quantas casas andar {dir_a}, depois o dado B diz quantas andar {dir_b}. Clique na casa final."
   ]
  }
 }

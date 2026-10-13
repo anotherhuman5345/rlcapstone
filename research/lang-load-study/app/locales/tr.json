@@ -31,9 +31,10 @@
   "instr_title": "Nasıl işliyor",
   "instr_search": "Kalabalık resimler: ipucu bulmanız gereken küçük bir nesneyi söyler ve bu nesne her seferinde farklıdır.",
   "instr_scan": "Gri tonlu tıbbi görüntüler: her birinde olağan dışı bir şey var. Onu bulun ve üzerine tıklayın. İki tür resim karışık olarak gelir.",
+  "instr_dice": "İki zarlı ızgaralar: ipucu yıldızdan hangi yöne gideceğinizi, zarlar ise ne kadar gideceğinizi söyler. Vardığınız kareye tıklayın.",
   "instr_clue": "Her resmin üstünde neyi ve nerede arayacağınızı söyleyen bir ipucu var. Her ipucunu dikkatle okuyun: her seferinde değişir, bazen {l1} bazen {l2}. Sonra hedefe olabildiğince hızlı tıklayın.",
   "instr_effort": "Her resimden sonra ne kadar zihinsel çaba harcadığınızı puanlayın.",
-  "instr_practice": "İlk iki resim alıştırmadır.",
+  "instr_practice": "Her türden ilk resim alıştırmadır.",
   "begin": "Başla",
   "practice": "Alıştırma",
   "trial_of": "Resim {n} / {total}",
@@ -200,6 +201,17 @@
    "Görüntünün {region} bölgesinde; {far} kenardan çok {near} kenara yakın.",
    "{Region} kısma bakın; {far} kenardan çok {near} kenara yakın.",
    "{Region} bölgeyi arayın; {near} kenara, {far} kenardan daha yakın."
-  ]
+  ],
+  "dice_leads": [
+   "Yıldızdan başlayın. A zarı kadar {dir_a} gidin, sonra B zarı kadar {dir_b} gidin. Vardığınız kareye tıklayın.",
+   "Yıldızdan A zarındaki sayı kadar {dir_a}, sonra B zarındaki sayı kadar {dir_b} ilerleyin ve o kareye tıklayın.",
+   "Başlangıç yıldızdır: A zarı {dir_a} kaç kare gideceğinizi, ardından B zarı {dir_b} kaç kare gideceğinizi söyler. Son kareye tıklayın."
+  ],
+  "directions": {
+   "up": "yukarı",
+   "down": "aşağı",
+   "left": "sola",
+   "right": "sağa"
+  }
  }
 }

@@ -13,6 +13,13 @@ shape (fish in other colors) or its color (other green objects), which makes it 
 Scans: a small, faint silhouette (cat, bird, key, house, ...) is planted in a
 grayscale image. Object, size and contrast vary from picture to picture.
 
+Dice boards: a 9x9 grid with a black star on the start square and two dice,
+labeled A and B. The clue gives the directions in words ("move up as many
+squares as die A shows, then right as many as die B shows"); the numbers are
+only in the picture. Reading the directions and holding the numbers at the
+same time loads working memory, so this task is especially sensitive to the
+language of the clue. Dice values and directions change every time.
+
 Surprise image (seen once, FIRST, before anything mentions animals): a scan
 with a small white ring as the stated target and an unannounced gorilla
 silhouette elsewhere in the image. This is the inattentional-blindness test
@@ -34,7 +41,7 @@ import random
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "output"
@@ -260,6 +267,62 @@ def plant_gorilla(img, rng, size=40, contrast=30):
     return img.filter(ImageFilter.GaussianBlur(0.8)), gx, gy
 
 
+GRID, CELL = 9, 78
+BOARD_X, BOARD_Y = 40, (H - GRID * CELL) // 2
+STEP = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
+PIPS = {1: [(0, 0)], 2: [(-1, -1), (1, 1)], 3: [(-1, -1), (0, 0), (1, 1)],
+        4: [(-1, -1), (1, -1), (-1, 1), (1, 1)], 5: [(-1, -1), (1, -1), (0, 0), (-1, 1), (1, 1)],
+        6: [(-1, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (1, 1)]}
+
+
+def _font(size):
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:  # older Pillow
+        return ImageFont.load_default()
+
+
+def draw_die(d, cx, cy, size, value, label):
+    half = size // 2
+    d.rounded_rectangle([cx - half, cy - half, cx + half, cy + half], radius=size // 7,
+                        fill=(250, 250, 250), outline=OUTLINE, width=3)
+    for px, py in PIPS[value]:
+        r = size // 11
+        x, y = cx + px * size * .28, cy + py * size * .28
+        d.ellipse([x - r, y - r, x + r, y + r], fill=OUTLINE)
+    d.text((cx, cy + half + 30), label, fill=OUTLINE, font=_font(44), anchor="mm")
+
+
+def dice_board(rng):
+    """Grid + start star + dice A and B. Returns the image and the move it encodes."""
+    a, b = rng.randint(1, 6), rng.randint(1, 6)
+    if rng.random() < .5:
+        dir_a, dir_b = rng.choice(["up", "down"]), rng.choice(["left", "right"])
+    else:
+        dir_a, dir_b = rng.choice(["left", "right"]), rng.choice(["up", "down"])
+    dx = STEP[dir_a][0] * a + STEP[dir_b][0] * b
+    dy = STEP[dir_a][1] * a + STEP[dir_b][1] * b
+    # Pick a start square from which the whole path stays on the board.
+    col = rng.randint(max(0, -dx), GRID - 1 - max(0, dx))
+    row = rng.randint(max(0, -dy), GRID - 1 - max(0, dy))
+    img = Image.new("RGB", (W, H), rng.choice(BACKGROUNDS))
+    d = ImageDraw.Draw(img)
+    for i in range(GRID):
+        for j in range(GRID):
+            x0, y0 = BOARD_X + i * CELL, BOARD_Y + j * CELL
+            shade = (246, 246, 242) if (i + j) % 2 else (232, 232, 226)
+            d.rectangle([x0, y0, x0 + CELL, y0 + CELL], fill=shade, outline=(170, 170, 165))
+    sx, sy = BOARD_X + col * CELL + CELL // 2, BOARD_Y + row * CELL + CELL // 2
+    draw_object(d, "star", sx, sy, CELL * .34, (35, 35, 35))
+    die_x = (BOARD_X + GRID * CELL + W) // 2
+    draw_die(d, die_x, H * .27, 150, a, "A")
+    draw_die(d, die_x, H * .68, 150, b, "B")
+    tx = BOARD_X + (col + dx) * CELL + CELL // 2
+    ty = BOARD_Y + (row + dy) * CELL + CELL // 2
+    # Hit radius: with the server's 1.6x tolerance a click still has to land in the right square.
+    return img, tx, ty, CELL * .3, {"a": a, "b": b, "dir_a": dir_a, "dir_b": dir_b}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=48, help="scored images per task (12 rounds x 4)")
@@ -306,6 +369,17 @@ def main():
         images.append({"id": iid, "task": "scan", "file": f"{iid}.png", "width": img.width,
                        "height": img.height,
                        "target": {"x": x, "y": y, "r": r, "object": scan_kinds[k], "color": None},
+                       "practice": practice})
+
+    # Dice boards use their own random sequence so the other images stay the same.
+    drng = random.Random(args.seed + 7)
+    for k in range(args.n + 1):
+        img, x, y, r, move = dice_board(drng)
+        practice = k == args.n
+        iid = "dice_practice" if practice else f"dice_{k:02d}"
+        img.save(OUT / f"{iid}.png")
+        images.append({"id": iid, "task": "dice", "file": f"{iid}.png", "width": W, "height": H,
+                       "target": {"x": x, "y": y, "r": r, "object": "square", "color": None, **move},
                        "practice": practice})
 
     # Surprise image: ring target + unannounced gorilla, on its own scan.

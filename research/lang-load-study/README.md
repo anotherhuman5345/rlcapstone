@@ -28,7 +28,7 @@ The whole session takes **at most 15 minutes**, for everyone.
 |---|---|---|
 | 1. Surprise image (once, first) | Find a small white ring on a scan. An unannounced gorilla is also in the image. Then: "Anything unusual?", "Did you see a gorilla?", "Had you heard of the invisible-gorilla study?" | **Between people:** half get the clue in L1, half in L2 |
 | 2. Practice | One search scene and one scan, comfortable language, not scored | — |
-| 3. Rounds | Rounds of 8 pictures: 4 search scenes (find the named object) and 4 scans (find what is out of the ordinary), half with L1 clues and half with L2 clues. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
+| 3. Rounds | Rounds of 12 pictures: 4 search scenes (find the named object), 4 scans (find what is out of the ordinary) and 4 dice boards (follow the moves), half with L1 clues and half with L2 clues. No picture, target or clue wording repeats in a row | **Within each person:** L1 vs. L2, and change over time |
 
 | Factor | Type | Levels |
 |---|---|---|
@@ -48,6 +48,11 @@ The whole session takes **at most 15 minutes**, for everyone.
     is +16 to +22 gray levels over the background, half of the first version's +38.
     The clue never names it: it says something is out of the ordinary, the way a
     reader of a real scan looks for an abnormality. Nobody is asked to diagnose anything.
+  - **Dice board:** a 9x9 grid with a star on the start square and two dice, A and B.
+    The clue gives the directions in words ("move up as many squares as die A shows, then
+    right as many as die B shows"); the numbers are only on the dice. Holding the
+    numbers while reading the directions loads working memory, so this task is
+    especially sensitive to the clue's language (instruction execution).
   - **Wording:** each clue uses one of several equivalent sentence patterns, the same
     pattern in both languages for a given picture.
 - **Surprise gorilla:** the inattentional-blindness paradigm of Drew, Võ & Wolfe (2013),

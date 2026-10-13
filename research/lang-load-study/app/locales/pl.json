@@ -31,9 +31,10 @@
   "instr_title": "Jak to działa",
   "instr_search": "Zatłoczone obrazy: wskazówka podaje mały obiekt do znalezienia i za każdym razem jest to coś innego.",
   "instr_scan": "Czarno-białe obrazy medyczne: na każdym z nich coś odbiega od normy. Znajdź to i kliknij. Oba rodzaje obrazów są przemieszane.",
+  "instr_dice": "Siatki z dwiema kostkami: wskazówka mówi, w którą stronę ruszyć od gwiazdki, a kostki mówią, o ile. Kliknij pole, na którym skończysz.",
   "instr_clue": "Nad każdym obrazem jest wskazówka, która mówi, czego i gdzie szukać. Czytaj uważnie każdą wskazówkę: za każdym razem jest inna, czasem w języku {l1}, a czasem w języku {l2}. Potem jak najszybciej kliknij cel.",
   "instr_effort": "Po każdym obrazie oceń, ile wysiłku umysłowego Cię to kosztowało.",
-  "instr_practice": "Pierwsze dwa obrazy są próbne.",
+  "instr_practice": "Pierwszy obraz każdego rodzaju jest próbny.",
   "begin": "Zaczynamy",
   "practice": "Próba",
   "trial_of": "Obraz {n} z {total}",
@@ -73,33 +74,119 @@
  },
  "clue": {
   "np": "{small} {color} {noun}",
-  "small": {"m": "mały", "f": "mała", "n": "małe", "*": "mały"},
+  "small": {
+   "m": "mały",
+   "f": "mała",
+   "n": "małe",
+   "*": "mały"
+  },
   "colors": {
-   "red": {"m": "czerwony", "f": "czerwona", "n": "czerwone", "*": "czerwony"},
-   "blue": {"m": "niebieski", "f": "niebieska", "n": "niebieskie", "*": "niebieski"},
-   "green": {"m": "zielony", "f": "zielona", "n": "zielone", "*": "zielony"},
-   "yellow": {"m": "żółty", "f": "żółta", "n": "żółte", "*": "żółty"},
-   "purple": {"m": "fioletowy", "f": "fioletowa", "n": "fioletowe", "*": "fioletowy"},
-   "orange": {"m": "pomarańczowy", "f": "pomarańczowa", "n": "pomarańczowe", "*": "pomarańczowy"}
+   "red": {
+    "m": "czerwony",
+    "f": "czerwona",
+    "n": "czerwone",
+    "*": "czerwony"
+   },
+   "blue": {
+    "m": "niebieski",
+    "f": "niebieska",
+    "n": "niebieskie",
+    "*": "niebieski"
+   },
+   "green": {
+    "m": "zielony",
+    "f": "zielona",
+    "n": "zielone",
+    "*": "zielony"
+   },
+   "yellow": {
+    "m": "żółty",
+    "f": "żółta",
+    "n": "żółte",
+    "*": "żółty"
+   },
+   "purple": {
+    "m": "fioletowy",
+    "f": "fioletowa",
+    "n": "fioletowe",
+    "*": "fioletowy"
+   },
+   "orange": {
+    "m": "pomarańczowy",
+    "f": "pomarańczowa",
+    "n": "pomarańczowe",
+    "*": "pomarańczowy"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "parasol", "g": "m"},
-   "star": {"nom": "gwiazda", "g": "f"},
-   "heart": {"nom": "serce", "g": "n"},
-   "moon": {"nom": "półksiężyc", "g": "m"},
-   "arrow": {"nom": "strzałka", "g": "f"},
-   "cross": {"nom": "znak plus", "g": "m"},
-   "diamond": {"nom": "romb", "g": "m"},
-   "house": {"nom": "dom", "g": "m"},
-   "fish": {"nom": "ryba", "g": "f"},
-   "key": {"nom": "klucz", "g": "m"},
-   "monkey": {"nom": "małpa", "g": "f"},
-   "cat": {"nom": "kot", "g": "m"},
-   "bird": {"nom": "ptak", "g": "m"},
-   "car": {"nom": "samochód", "g": "m"},
-   "tree": {"nom": "drzewo", "g": "n"},
-   "guitar": {"nom": "gitara", "g": "f"},
-   "elephant": {"nom": "słoń", "g": "m"}
+   "umbrella": {
+    "nom": "parasol",
+    "g": "m"
+   },
+   "star": {
+    "nom": "gwiazda",
+    "g": "f"
+   },
+   "heart": {
+    "nom": "serce",
+    "g": "n"
+   },
+   "moon": {
+    "nom": "półksiężyc",
+    "g": "m"
+   },
+   "arrow": {
+    "nom": "strzałka",
+    "g": "f"
+   },
+   "cross": {
+    "nom": "znak plus",
+    "g": "m"
+   },
+   "diamond": {
+    "nom": "romb",
+    "g": "m"
+   },
+   "house": {
+    "nom": "dom",
+    "g": "m"
+   },
+   "fish": {
+    "nom": "ryba",
+    "g": "f"
+   },
+   "key": {
+    "nom": "klucz",
+    "g": "m"
+   },
+   "monkey": {
+    "nom": "małpa",
+    "g": "f"
+   },
+   "cat": {
+    "nom": "kot",
+    "g": "m"
+   },
+   "bird": {
+    "nom": "ptak",
+    "g": "m"
+   },
+   "car": {
+    "nom": "samochód",
+    "g": "m"
+   },
+   "tree": {
+    "nom": "drzewo",
+    "g": "n"
+   },
+   "guitar": {
+    "nom": "gitara",
+    "g": "f"
+   },
+   "elephant": {
+    "nom": "słoń",
+    "g": "m"
+   }
   },
   "regions": {
    "0,0": "lewej górnej",
@@ -135,6 +222,17 @@
    "Znajduje się w {region} części obrazu, bliżej {near} krawędzi niż {far}.",
    "Zajrzyj do {region} części, bliżej {near} krawędzi niż {far}.",
    "Szukaj w {region} części obrazu; to, czego szukasz, jest bliżej {near} krawędzi niż {far}."
+  ],
+  "directions": {
+   "up": "w górę",
+   "down": "w dół",
+   "left": "w lewo",
+   "right": "w prawo"
+  },
+  "dice_leads": [
+   "Zacznij od gwiazdki. Przesuń się {dir_a} o tyle pól, ile pokazuje kostka A, a potem {dir_b} o tyle, ile pokazuje kostka B. Kliknij pole, na którym skończysz.",
+   "Od gwiazdki idź {dir_a} o liczbę pól wskazaną przez kostkę A, potem {dir_b} o liczbę wskazaną przez kostkę B i kliknij to pole.",
+   "Zacznij na gwiazdce: kostka A mówi, o ile pól przesunąć się {dir_a}, a potem kostka B mówi, o ile przesunąć się {dir_b}. Kliknij pole końcowe."
   ]
  }
 }

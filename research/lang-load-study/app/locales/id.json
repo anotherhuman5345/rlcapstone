@@ -31,9 +31,10 @@
   "instr_title": "Cara kerjanya",
   "instr_search": "Gambar ramai: petunjuk menyebutkan sebuah benda kecil yang harus ditemukan, dan bendanya selalu berbeda.",
   "instr_scan": "Citra medis hitam-putih: di setiap citra ada sesuatu yang tidak biasa. Temukan dan klik. Kedua jenis gambar ini muncul bercampur.",
+  "instr_dice": "Kisi dengan dua dadu: petunjuk memberi tahu ke arah mana Anda bergerak dari bintang, dan dadu memberi tahu seberapa jauh. Klik kotak tempat Anda berhenti.",
   "instr_clue": "Di atas setiap gambar ada petunjuk yang memberi tahu apa yang dicari dan di mana. Bacalah setiap petunjuk dengan saksama: petunjuknya selalu berubah, kadang dalam {l1} dan kadang dalam {l2}. Lalu klik targetnya secepat mungkin.",
   "instr_effort": "Setelah setiap gambar, nilailah seberapa besar usaha mental yang diperlukan.",
-  "instr_practice": "Dua gambar pertama adalah latihan.",
+  "instr_practice": "Gambar pertama dari setiap jenis adalah latihan.",
   "begin": "Mulai",
   "practice": "Latihan",
   "trial_of": "Gambar {n} dari {total}",
@@ -73,33 +74,81 @@
  },
  "clue": {
   "np": "{noun} {color} {small}",
-  "small": {"*": "kecil"},
+  "small": {
+   "*": "kecil"
+  },
   "colors": {
-   "red": {"*": "merah"},
-   "blue": {"*": "biru"},
-   "green": {"*": "hijau"},
-   "yellow": {"*": "kuning"},
-   "purple": {"*": "ungu"},
-   "orange": {"*": "oranye"}
+   "red": {
+    "*": "merah"
+   },
+   "blue": {
+    "*": "biru"
+   },
+   "green": {
+    "*": "hijau"
+   },
+   "yellow": {
+    "*": "kuning"
+   },
+   "purple": {
+    "*": "ungu"
+   },
+   "orange": {
+    "*": "oranye"
+   }
   },
   "objects": {
-   "umbrella": {"nom": "payung"},
-   "star": {"nom": "bintang"},
-   "heart": {"nom": "hati"},
-   "moon": {"nom": "bulan sabit"},
-   "arrow": {"nom": "panah"},
-   "cross": {"nom": "tanda tambah"},
-   "diamond": {"nom": "belah ketupat"},
-   "house": {"nom": "rumah"},
-   "fish": {"nom": "ikan"},
-   "key": {"nom": "kunci"},
-   "monkey": {"nom": "monyet"},
-   "cat": {"nom": "kucing"},
-   "bird": {"nom": "burung"},
-   "car": {"nom": "mobil"},
-   "tree": {"nom": "pohon"},
-   "guitar": {"nom": "gitar"},
-   "elephant": {"nom": "gajah"}
+   "umbrella": {
+    "nom": "payung"
+   },
+   "star": {
+    "nom": "bintang"
+   },
+   "heart": {
+    "nom": "hati"
+   },
+   "moon": {
+    "nom": "bulan sabit"
+   },
+   "arrow": {
+    "nom": "panah"
+   },
+   "cross": {
+    "nom": "tanda tambah"
+   },
+   "diamond": {
+    "nom": "belah ketupat"
+   },
+   "house": {
+    "nom": "rumah"
+   },
+   "fish": {
+    "nom": "ikan"
+   },
+   "key": {
+    "nom": "kunci"
+   },
+   "monkey": {
+    "nom": "monyet"
+   },
+   "cat": {
+    "nom": "kucing"
+   },
+   "bird": {
+    "nom": "burung"
+   },
+   "car": {
+    "nom": "mobil"
+   },
+   "tree": {
+    "nom": "pohon"
+   },
+   "guitar": {
+    "nom": "gitar"
+   },
+   "elephant": {
+    "nom": "gajah"
+   }
   },
   "regions": {
    "0,0": "kiri atas",
@@ -135,6 +184,17 @@
    "Letaknya di bagian {region} gambar, lebih dekat ke tepi {near} daripada ke tepi {far}.",
    "Periksa bagian {region}, lebih dekat ke tepi {near} daripada ke tepi {far}.",
    "Cari di area {region}; letaknya lebih dekat ke tepi {near} daripada ke tepi {far}."
+  ],
+  "directions": {
+   "up": "ke atas",
+   "down": "ke bawah",
+   "left": "ke kiri",
+   "right": "ke kanan"
+  },
+  "dice_leads": [
+   "Mulailah dari bintang. Bergeraklah {dir_a} sebanyak kotak yang ditunjukkan dadu A, lalu {dir_b} sebanyak yang ditunjukkan dadu B. Klik kotak tempat Anda berhenti.",
+   "Dari bintang, bergeraklah {dir_a} sesuai angka pada dadu A, lalu {dir_b} sesuai angka pada dadu B, dan klik kotak itu.",
+   "Titik awalnya adalah bintang: dadu A menunjukkan berapa kotak Anda bergerak {dir_a}, lalu dadu B menunjukkan berapa kotak Anda bergerak {dir_b}. Klik kotak terakhir."
   ]
  }
 }
