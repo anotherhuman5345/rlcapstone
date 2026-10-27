@@ -254,7 +254,6 @@ Study idea grew out of reading *Cognitive Load Theory* at the suggestion of my
 mentor at the Northwestern Hybrid Intelligence lab. My father and I worked out
 the study design together; he also helped with technical problems.
 
-Authorship clarification: I authored the study code and implementation. An AI tool
-was used only to merge changes, not to write the code. An earlier commit's
-co-author attribution was inaccurate; it is retained in Git history for
-transparency and does not reflect code authorship.
+Code authorship and the correction of an earlier merge-related attribution are
+documented in [Authorship & Development Process](../../AUTHORSHIP.md).
+The historical Git record remains intact.
