@@ -34,7 +34,7 @@ the stock sentiment ablation and the ECG model's poor recall on unseen patients.
 
 | Study | Question | Status |
 |---|---|---|
-| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, make people miss an unexpected object (a hidden gorilla), or wear them down faster within a 15-minute session? Compared across age, education and image-reading expertise (students to radiologists). | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
+| [**Language of the clue**](research/lang-load-study) — cognitive load in visual search | Does a written clue in your less comfortable language slow visual search, make people miss an unexpected object (a hidden gorilla), or change performance and self-reported fatigue over time? The initial protocol capped sessions at 15 minutes; the current protocol allows participants to stop when exhausted, with a 60-minute maximum. The mixed-language design cannot attribute time to exhaustion to either language. Comparisons span age, education and image-reading expertise (students to radiologists). | Platform built and tested; awaiting mentor review and IRB approval. **No participant data collected.** |
 
 ## Trained models
 
