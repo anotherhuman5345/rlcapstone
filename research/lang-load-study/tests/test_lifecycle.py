@@ -570,6 +570,19 @@ def test_public_deployment_refuses_the_default_admin_key(env):
     r = subprocess.run([sys.executable, "-c", "import app.config"], env={**base, **env},
                        capture_output=True, text=True)
     assert r.returncode != 0 and "ADMIN_KEY" in r.stderr
+    ok_env = {**base, **env, "ADMIN_KEY": "a-long-random-test-value"}
+    if env.get("IRB_APPROVED") == "1":
+        ok_env["IRB_NUMBER"] = "TEST-ONLY-APPROVAL-ID"
     ok = subprocess.run([sys.executable, "-c", "import app.config"],
-                        env={**base, **env, "ADMIN_KEY": "a-long-random-test-value"}, capture_output=True)
+                        env=ok_env, capture_output=True)
     assert ok.returncode == 0
+
+
+def test_irb_mode_refuses_missing_approval_identifier():
+    base = {k: v for k, v in os.environ.items()
+            if k not in ("ADMIN_KEY", "PUBLIC_DEPLOYMENT", "IRB_APPROVED", "IRB_NUMBER")}
+    env = {**base, "ADMIN_KEY": "a-long-random-test-value", "IRB_APPROVED": "1",
+           "IRB_NUMBER": "PENDING"}
+    r = subprocess.run([sys.executable, "-c", "import app.config"], env=env,
+                       capture_output=True, text=True)
+    assert r.returncode != 0 and "IRB_NUMBER" in r.stderr
