@@ -899,11 +899,16 @@ def retention_page(request: Request, db=Depends(get_db)):
     if not _ended(p):
         return RedirectResponse(next_step(db, p), status_code=303)
     seen = _seen_words(db, p)
-    if not seen or p.retention is not None:
+    if not seen:
         return RedirectResponse("/final", status_code=303)
-    items = _retention_items(p, seen)
-    p.retention = items  # fixed now, so a reload shows the same list
-    db.commit()
+    if p.retention is not None:
+        if any("checked" in item for item in p.retention):
+            return RedirectResponse("/final", status_code=303)
+        items = p.retention  # keep the same word list after a reload
+    else:
+        items = _retention_items(p, seen)
+        p.retention = items
+        db.commit()
     shown = [(n, LOCALES[it["lang"]]["clue"]["words"][it["word"]], it["lang"], direction(it["lang"]))
              for n, it in enumerate(items)]
     return render(request, "retention.html", p, shown=shown)
