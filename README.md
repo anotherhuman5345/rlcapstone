@@ -9,6 +9,12 @@ training, evaluation, and model export scripts, plus five Flutter apps.
 > **Educational use only.** These are learning projects, not certified products or medical devices,
 > and nothing here constitutes medical, financial, or professional advice.
 
+## Developer & provenance
+
+RLcapstone is a machine-learning portfolio owned and maintained by [anotherhuman5345](https://github.com/anotherhuman5345). I wrote the training and evaluation code, chose the patient-level split, and ran the reported evaluations. The portfolio documents both the results and the limits of those results, including leakage-affected evaluations, performance on unseen patients, and experiments that did not improve performance.
+
+See [Authorship & Development Process](AUTHORSHIP.md) for project provenance, technical evidence, and attribution practices.
+
 ## Projects
 
 | Project | Method | Result | Live write-up |
