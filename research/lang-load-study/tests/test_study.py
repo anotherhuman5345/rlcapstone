@@ -432,6 +432,10 @@ def test_ospan_scoring_and_retention_rates():
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
             items = p.retention
+        reloaded = c.get("/retention")
+        assert reloaded.status_code == 200 and reloaded.url.path == "/retention"
+        with SessionLocal() as db:
+            assert db.get(Participant, c.cookies.get("pid")).retention == items
         seen_idx = [str(n) for n, it in enumerate(items) if it["seen"]]
         c.post("/retention", data={"checked": seen_idx})  # tick exactly the seen words
         assert c.get("/final").url.path == "/final"
