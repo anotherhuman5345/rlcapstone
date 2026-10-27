@@ -280,12 +280,16 @@ def session_versions(ui_lang, l1, l2, plan):
 
 @app.get("/", response_class=HTMLResponse)
 def landing(request: Request, lang: str = "en"):
-    lang = lang if lang in LANGUAGES else "en"
+    # Consent and UI strings also need human review before real recruitment.
+    allowed_ui = {code for code, _ in language_choices(ui=True)}
+    lang = lang if lang in allowed_ui else "en"
     return render(request, "landing.html", lang=lang, languages=language_choices(ui=True))
 
 
 @app.post("/start")
 def start(ui_lang: str = Form("en"), db=Depends(get_db)):
+    if config.IRB_APPROVED and not verified(ui_lang):
+        raise HTTPException(400, "This UI language has not been reviewed for research use.")
     p = Participant(ui_lang=ui_lang if ui_lang in LANGUAGES else "en",
                     is_test=not config.IRB_APPROVED)
     db.add(p)
@@ -313,7 +317,8 @@ def consent(request: Request, agree: str = Form(None), db=Depends(get_db)):
 
 def _background_form(request, p, **extra):
     return render(request, "background.html", p, groups=config.GROUPS, min_age=config.MIN_AGE,
-                  languages=language_choices(), all_languages=language_choices(ui=True), **extra)
+                  languages=language_choices(),
+                  all_languages=[(c, language_name(c)) for c in LANGUAGES], **extra)
 
 
 @app.get("/background", response_class=HTMLResponse)
@@ -328,7 +333,7 @@ def background_page(request: Request, db=Depends(get_db)):
 def language_choices(ui=False):
     """(code, name) pairs. Clue languages are limited to native-checked ones once
     real data collection starts; in demo mode every language can be tried."""
-    codes = LANGUAGES if ui or not config.IRB_APPROVED else [c for c in LANGUAGES if verified(c)]
+    codes = LANGUAGES if not config.IRB_APPROVED else [c for c in LANGUAGES if verified(c)]
     return [(c, language_name(c)) for c in codes]
 
 
