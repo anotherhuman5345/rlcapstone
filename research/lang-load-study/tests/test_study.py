@@ -261,6 +261,19 @@ def test_exhausted_button_ends_session_and_is_recorded():
             assert p.completed and p.attention_ok is False
 
 
+
+def test_approved_sessions_restrict_interface_as_well_as_clue_languages(monkeypatch):
+    from app import config
+    from app.main import language_choices
+
+    monkeypatch.setattr(config, "IRB_APPROVED", True)
+    allowed = {code for code, _ in language_choices(ui=True)}
+    assert allowed == {code for code, _ in language_choices()}
+    assert "en" in allowed and "tr" not in allowed
+    with TestClient(app) as client:
+        assert client.post("/start", data={"ui_lang": "tr"}).status_code == 400
+        assert client.post("/start", data={"ui_lang": "en"}, follow_redirects=False).status_code == 303
+
 def test_every_language_file_is_complete_and_builds_every_clue():
     import re
     from app.clues import (COLOR_NAMES, DECOY_OBJECTS, N_SCAN_LEADS, N_SEARCH_LEADS, N_WHERE,
@@ -419,6 +432,10 @@ def test_ospan_scoring_and_retention_rates():
         with SessionLocal() as db:
             p = db.get(Participant, c.cookies.get("pid"))
             items = p.retention
+        reloaded = c.get("/retention")
+        assert reloaded.status_code == 200 and reloaded.url.path == "/retention"
+        with SessionLocal() as db:
+            assert db.get(Participant, c.cookies.get("pid")).retention == items
         seen_idx = [str(n) for n, it in enumerate(items) if it["seen"]]
         c.post("/retention", data={"checked": seen_idx})  # tick exactly the seen words
         assert c.get("/final").url.path == "/final"
@@ -429,6 +446,54 @@ def test_ospan_scoring_and_retention_rates():
             hits_l1, fa_l1, hits_l2, fa_l2 = retention_summary(p)
             assert fa_l1 in (0, None) and fa_l2 in (0, None) and 1 in (hits_l1, hits_l2)
 
+
+
+def test_retention_tracks_same_word_index_in_both_languages(monkeypatch):
+    """F06 regression: identical numeric word IDs in L1/L2 are separate exposures."""
+    from types import SimpleNamespace
+    from app import main as study
+
+    images = [
+        {"id": "ospan_l1", "target": {"words": [2, 4, 8]}},
+        {"id": "ospan_l1_again", "target": {"words": [2, 4]}},
+        {"id": "ospan_l2", "target": {"words": [2, 9, 11]}},
+    ]
+    monkeypatch.setattr(study, "load_manifest", lambda: {"images": images})
+    trials = [
+        SimpleNamespace(image_id="ospan_l1", clue_lang="en", condition="L1"),
+        SimpleNamespace(image_id="ospan_l1_again", clue_lang="en", condition="L1"),
+        SimpleNamespace(image_id="ospan_l2", clue_lang="tr", condition="L2"),
+    ]
+
+    class StubDB:
+        def scalars(self, _query):
+            return trials
+
+    participant = SimpleNamespace(id="test-overlap", l1="en", l2="tr")
+    seen = study._seen_words(StubDB(), participant)
+    assert seen == {
+        ("en", "L1", 2), ("en", "L1", 4), ("en", "L1", 8),
+        ("tr", "L2", 2), ("tr", "L2", 9), ("tr", "L2", 11),
+    }
+
+    items = study._retention_items(participant, seen)
+    old = {(it["lang"], it["cond"], it["word"]) for it in items if it["seen"]}
+    assert old == seen  # both languages still include index 2
+    assert len(items) == 12  # 3 seen + 3 unseen in each language
+    assert len({it["word"] for it in items if not it["seen"]}) == 6
+    assert all(it["word"] >= 50 for it in items if not it["seen"])
+    assert study._retention_items(participant, seen) == items  # stable on reload
+
+
+def test_retention_handles_single_language_exposure_without_inventing_other():
+    from types import SimpleNamespace
+    from app.main import _retention_items
+
+    participant = SimpleNamespace(id="only-l1", l1="en", l2="tr")
+    items = _retention_items(participant, {("en", "L1", 7)})
+    assert len(items) == 2
+    assert {it["cond"] for it in items} == {"L1"}
+    assert sum(it["seen"] for it in items) == 1
 
 def test_every_library_task_passes_its_checks():
     """Runs tools/check_task.py for each task in app/tasks (determinism, scoring of

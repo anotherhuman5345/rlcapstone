@@ -8,9 +8,11 @@ education?**
 Status: **the demo works. It is not ready for confirmatory data collection.**
 No participant data has been collected. Most priority-0 problems from the October 2026
 review are fixed and tested (session deadline, stop reasons, raw-data exports, stored
-versions, exclusions, concurrent submissions, database column size); retention
-bookkeeping (F06) is still open. Before real collection, the translations I use must
-also be reviewed by native speakers, and ethics (IRB) approval must exist in writing.
+versions, exclusions, concurrent submissions, database column size). The F06
+word-retention correction and regression tests are implemented in this review branch,
+but the full suite and staging workflow still need validation. Before real collection,
+translations must be reviewed by native speakers, the power analysis must be approved,
+and ethics (IRB) approval must exist in writing.
 
 ## The question
 
@@ -188,24 +190,32 @@ Primary model in the current script: mixed-effects regression on log response ti
 `log_rt ~ condition * group * task` with a random intercept per participant. The
 protocol lists the planned changes (item random effects, task-specific outcomes, an
 exploratory-only change-point search, and fixes the review found). Group terms are
-read as associations, not causes. No power analysis has been done yet; the protocol
-explains how it will be done (by simulation for the mixed model).
+read as associations, not causes. No confirmatory power analysis has been completed. A reproducible, assumption-based
+paired-contrast sensitivity tool is available in
+[`analysis/power_sensitivity.py`](analysis/power_sensitivity.py); it is **not** the
+planned mixed-effects-model power analysis. The protocol describes what remains.
 **`SIMULATED_trials.csv` is made-up data to check the pipeline. It is not a result.**
 
 ## Before any real data collection
 
-1. Fix the review's remaining priority-0 item (F06, retention bookkeeping).
+1. Verify the implemented F06 retention fix and page-reload regression tests with
+   the complete test suite and staging exports.
 2. Ethics/IRB approval in writing. Until then the site runs with `IRB_APPROVED=0`,
    shows a "demo only" banner, and marks every session as test data.
 3. Replace placeholder scans with 50 de-identified images provided by the lab (48 for
    the rounds, 1 practice, 1 for the surprise gorilla):
    put them in `stimuli/real_scans/` (git-ignored) and run
    `python stimuli/generate_stimuli.py --real-scans`.
-4. Have a native speaker check each language that will be used (`app/locales/<code>.json`),
-   then set `"verified": true` in that file.
-5. Do the design-specific power analysis and settle sample sizes with my mentor.
-6. Set environment variables on the server:
-   `ADMIN_KEY` (long random string), `DATABASE_URL` (e.g. Postgres), `IRB_APPROVED=1`, `IRB_NUMBER`.
+4. Have qualified native speakers check each language used for study consent,
+   instructions, clues, reading and recall materials, including the updated
+   withdrawal wording, before marking its locale `"verified": true`.
+5. Use `python analysis/power_sensitivity.py` only for hypothetical sensitivity
+   scenarios, then fit the approved mixed-effects model with justified pilot
+   assumptions and settle sample sizes with the investigator.
+6. Obtain written IRB/ethics clearance and investigator approval, then set the
+   production `ADMIN_KEY`, database, `IRB_APPROVED=1` and actual `IRB_NUMBER`.
+   Configuration flags are not substitutes for approval. The release checklist is in
+   [`docs/RESEARCH_READINESS.md`](docs/RESEARCH_READINESS.md).
 
 ## Deploying to rlcapstone.ai
 
@@ -244,7 +254,6 @@ Study idea grew out of reading *Cognitive Load Theory* at the suggestion of my
 mentor at the Northwestern Hybrid Intelligence lab. My father and I worked out
 the study design together; he also helped with technical problems.
 
-Authorship clarification: I authored the study code and implementation. An AI tool
-was used only to merge changes, not to write the code. An earlier commit's
-co-author attribution was inaccurate; it is retained in Git history for
-transparency and does not reflect code authorship.
+Code authorship and the correction of an earlier merge-related attribution are
+documented in [Authorship & Development Process](../../AUTHORSHIP.md).
+The historical Git record remains intact.

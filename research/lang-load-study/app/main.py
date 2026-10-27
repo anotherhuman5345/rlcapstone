@@ -280,12 +280,16 @@ def session_versions(ui_lang, l1, l2, plan):
 
 @app.get("/", response_class=HTMLResponse)
 def landing(request: Request, lang: str = "en"):
-    lang = lang if lang in LANGUAGES else "en"
+    # Consent and UI strings also need human review before real recruitment.
+    allowed_ui = {code for code, _ in language_choices(ui=True)}
+    lang = lang if lang in allowed_ui else "en"
     return render(request, "landing.html", lang=lang, languages=language_choices(ui=True))
 
 
 @app.post("/start")
 def start(ui_lang: str = Form("en"), db=Depends(get_db)):
+    if config.IRB_APPROVED and not verified(ui_lang):
+        raise HTTPException(400, "This UI language has not been reviewed for research use.")
     p = Participant(ui_lang=ui_lang if ui_lang in LANGUAGES else "en",
                     is_test=not config.IRB_APPROVED)
     db.add(p)
@@ -313,7 +317,8 @@ def consent(request: Request, agree: str = Form(None), db=Depends(get_db)):
 
 def _background_form(request, p, **extra):
     return render(request, "background.html", p, groups=config.GROUPS, min_age=config.MIN_AGE,
-                  languages=language_choices(), all_languages=language_choices(ui=True), **extra)
+                  languages=language_choices(),
+                  all_languages=[(c, language_name(c)) for c in LANGUAGES], **extra)
 
 
 @app.get("/background", response_class=HTMLResponse)
@@ -328,7 +333,7 @@ def background_page(request: Request, db=Depends(get_db)):
 def language_choices(ui=False):
     """(code, name) pairs. Clue languages are limited to native-checked ones once
     real data collection starts; in demo mode every language can be tried."""
-    codes = LANGUAGES if ui or not config.IRB_APPROVED else [c for c in LANGUAGES if verified(c)]
+    codes = LANGUAGES if not config.IRB_APPROVED else [c for c in LANGUAGES if verified(c)]
     return [(c, language_name(c)) for c in codes]
 
 
@@ -853,41 +858,57 @@ def attention_options(p):
 
 
 def _seen_words(db, p):
-    """Words this person saw in completed operation-span trials: {word id: (lang, L1/L2)}."""
+    """Distinct (language, condition, word-id) exposures from completed OSPAN trials.
+
+    The vocabulary index is reused across translations. Keying only by word-id
+    silently drops an L2 exposure when the same index was already seen in L1.
+    """
     images = {i["id"]: i for i in load_manifest()["images"]}
-    seen = {}
+    seen = set()
     for tr in db.scalars(select(TrialResult).where(TrialResult.participant_id == p.id,
                                                    TrialResult.task == "ospan",
-                                                   TrialResult.practice.is_(False))):
-        for k in images[tr.image_id]["target"]["words"]:
-            seen.setdefault(k, (tr.clue_lang, tr.condition))
+                                                   TrialResult.practice.is_(False),
+                                                   TrialResult.partial.is_(False))):
+        for word_id in images[tr.image_id]["target"]["words"]:
+            seen.add((tr.clue_lang, tr.condition, word_id))
     return seen
+
+
+def _retention_items(p, seen):
+    """Create a balanced, reproducible recognition check without losing L1/L2 overlap."""
+    rng = random.Random(p.id + "retention")
+    items = []
+    n_words = len(LOCALES[p.l1]["clue"]["words"])
+    foils = list(range(n_words - N_FOILS, n_words))  # reserved, never presented
+    rng.shuffle(foils)
+    for cond, lang in (("L1", p.l1), ("L2", p.l2)):
+        mine = sorted({word_id for seen_lang, seen_cond, word_id in seen
+                       if seen_lang == lang and seen_cond == cond})
+        old = rng.sample(mine, min(4, len(mine)))
+        new = [foils.pop() for _ in old]  # independent foils for each condition
+        items += [{"word": k, "lang": lang, "cond": cond, "seen": True} for k in old]
+        items += [{"word": k, "lang": lang, "cond": cond, "seen": False} for k in new]
+    rng.shuffle(items)
+    return items
 
 
 @app.get("/retention", response_class=HTMLResponse)
 def retention_page(request: Request, db=Depends(get_db)):
-    """About ten minutes after the words were shown: which do you recognise? Up to four
-    seen words per language plus the same number never shown, in random order."""
+    """At the end of the session: up to four seen words and matched foils per language."""
     p = current(request, db)
     if not _ended(p):
         return RedirectResponse(next_step(db, p), status_code=303)
     seen = _seen_words(db, p)
-    if not seen or p.retention is not None:
+    if not seen:
         return RedirectResponse("/final", status_code=303)
-    rng = random.Random(p.id + "retention")
-    items = []
-    n_words = len(LOCALES[p.l1]["clue"]["words"])
-    foils = list(range(n_words - N_FOILS, n_words))  # never shown in operation span
-    rng.shuffle(foils)
-    for cond, lang in (("L1", p.l1), ("L2", p.l2)):
-        mine = [k for k, (_, c) in seen.items() if c == cond]
-        old = rng.sample(mine, min(4, len(mine)))
-        new = [foils.pop() for _ in old]  # different foil words for each language
-        items += [{"word": k, "lang": lang, "cond": cond, "seen": True} for k in old]
-        items += [{"word": k, "lang": lang, "cond": cond, "seen": False} for k in new]
-    rng.shuffle(items)
-    p.retention = items  # fixed now, so a reload shows the same list
-    db.commit()
+    if p.retention is not None:
+        if any("checked" in item for item in p.retention):
+            return RedirectResponse("/final", status_code=303)
+        items = p.retention  # keep the same word list after a reload
+    else:
+        items = _retention_items(p, seen)
+        p.retention = items
+        db.commit()
     shown = [(n, LOCALES[it["lang"]]["clue"]["words"][it["word"]], it["lang"], direction(it["lang"]))
              for n, it in enumerate(items)]
     return render(request, "retention.html", p, shown=shown)
