@@ -21,6 +21,9 @@ DEFAULT_ADMIN_KEYS = {"", "change-me"}
 def check_admin_key():
     if (IRB_APPROVED or PUBLIC_DEPLOYMENT) and ADMIN_KEY in DEFAULT_ADMIN_KEYS:
         raise RuntimeError("Set ADMIN_KEY to a long random string before any public deployment.")
+    # This is a configuration safeguard, NOT verification of written ethics approval.
+    if IRB_APPROVED and IRB_NUMBER.strip().upper() in {"", "PENDING", "NONE", "N/A", "TBD"}:
+        raise RuntimeError("IRB_APPROVED requires IRB_NUMBER from written ethics approval.")
 
 
 check_admin_key()
@@ -39,7 +42,7 @@ ROUND_MIX = {k: int(v) for k, v in (pair.split(":") for pair in
              os.getenv("ROUND_MIX", "search:2,scan:2,dice:2,corsi:2,reading:2,rule:2,ospan:2").split(","))}
 ROUNDS = int(os.getenv("ROUNDS", "24"))
 # Version stamp written into every data row; bump it whenever the study changes.
-STUDY_VERSION = "2026.10.13-tasks7"
+STUDY_VERSION = "2026.10.27-retention-f06"
 TRIAL_TIMEOUT_MS = int(os.getenv("TRIAL_TIMEOUT_MS", "30000"))
 # Safety maximum (stated in the consent text): this many minutes after the first
 # SCORED stimulus, every task screen ends at once and the person goes to the final
