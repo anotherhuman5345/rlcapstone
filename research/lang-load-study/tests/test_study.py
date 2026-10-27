@@ -261,6 +261,19 @@ def test_exhausted_button_ends_session_and_is_recorded():
             assert p.completed and p.attention_ok is False
 
 
+
+def test_approved_sessions_restrict_interface_as_well_as_clue_languages(monkeypatch):
+    from app import config
+    from app.main import language_choices
+
+    monkeypatch.setattr(config, "IRB_APPROVED", True)
+    allowed = {code for code, _ in language_choices(ui=True)}
+    assert allowed == {code for code, _ in language_choices()}
+    assert "en" in allowed and "tr" not in allowed
+    with TestClient(app) as client:
+        assert client.post("/start", data={"ui_lang": "tr"}).status_code == 400
+        assert client.post("/start", data={"ui_lang": "en"}, follow_redirects=False).status_code == 303
+
 def test_every_language_file_is_complete_and_builds_every_clue():
     import re
     from app.clues import (COLOR_NAMES, DECOY_OBJECTS, N_SCAN_LEADS, N_SEARCH_LEADS, N_WHERE,
