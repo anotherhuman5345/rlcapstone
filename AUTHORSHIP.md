@@ -25,7 +25,7 @@ The [Language of the Clue study](research/lang-load-study) is ongoing. Its docum
 
 ## Tools, collaboration, and attribution
 
-Development tools or administrative merging assistance do not automatically establish authorship of underlying research or code. Historical credits should accurately describe actual contributions. An earlier co-author credit was identified as inaccurate; the study documentation clarifies the attribution without rewriting Git history. Any material contributions or required disclosures remain subject to applicable academic, institutional, and licensing policies.
+For the Language of the Clue study, the repository owner has confirmed that an external tool helped merge changes but did not author the study code. A historical commit incorrectly recorded that tool as a code coauthor. This clarification corrects the claim in current documentation without rewriting Git history. Required academic, institutional, and licensing disclosures still apply.
 
 ## Verification and contact
 
