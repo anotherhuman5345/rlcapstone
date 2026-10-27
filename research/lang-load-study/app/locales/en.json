@@ -10,7 +10,7 @@
   "choose_lang": "Show the study in",
   "demo_banner": "Demo only. This study is awaiting ethics approval, and nothing recorded here is research data.",
   "consent_title": "Before you begin",
-  "consent_body": "You will look at pictures and click on a target as quickly as you can, using a written clue. We record your clicks, timings, and answers to a short questionnaire. We never ask for your name, email, or location. You can stop at any time by closing the page. If you are under 18, a parent or guardian must have given permission before you take part. The study continues until you feel mentally exhausted and press the \"I'm exhausted\" button, and it ends automatically after 60 minutes at most.",
+  "consent_body": "You will look at pictures and click on a target as quickly as you can, using a written clue. We record your clicks, timings, and answers to a short questionnaire. We never ask for your name, email, or location. You may stop at any time using the Stop / withdraw button; the remaining questions are optional. Closing the page without pressing Stop does not record a stop reason. If you are under 18, a parent or guardian must have given permission before you take part. The study continues until you feel mentally exhausted and press the \"I'm exhausted\" button, and the task session ends automatically no later than 60 minutes after the first scored task (consent and practice are excluded).",
   "consent_irb": "Ethics approval number",
   "consent_agree": "I agree to take part",
   "bg_title": "About you",
