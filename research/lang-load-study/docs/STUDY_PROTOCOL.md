@@ -2,10 +2,11 @@
 
 Status: draft. The demo works, but this protocol is **not ready for confirmatory data
 collection**. Most priority-0 items of the October 2026 review (F01-F05, F07, F08) are
-fixed and tested; retention bookkeeping (F06) is still open. Before collection the
-translations must also be reviewed by native speakers, and ethics (IRB) approval must
-exist in writing. Any change to the design described here needs my
-mentor's (the investigator's) approval first.
+fixed and tested. A proposed F06 retention correction and regression tests are on a
+review branch; the full test suite and deployment verification must pass before that
+item is considered closed. Before collection, native speakers must review the study
+languages, a design-specific power analysis must be approved, and written ethics (IRB)
+approval must exist. Any protocol change needs the investigator's approval first.
 
 ## Research questions
 1. **Primary.** Within the same person, is performance on a task worse (slower, less
@@ -143,8 +144,9 @@ Known problems with the procedure as coded (from the review):
 - Reading passages now exist in all 30 languages, so every language pair gets the same
   core battery (F16 for the core tasks; library tasks still depend on which tasks are
   chosen).
-- The consent text still says people stop by closing the page; it should mention the
-  Stop / withdraw button (an ethics wording change).
+- The English consent text now names the Stop / withdraw button, the optional final
+  questions and the clock origin. The 29 unverified translations must be brought into
+  alignment through human translation review before they can be approved for study use.
 
 The 64 library tasks (`app/tasks/`) are not part of this procedure. They can be tried
 one at a time at `/try`, and they are only for demonstration until a decision is made
@@ -163,8 +165,10 @@ to add any of them.
 
 I have **not** done a power analysis for this design yet. The earlier rough statements
 ("30-40 people per group gives good power") were not calculated for this model and
-I have removed them. A design-specific power analysis is still to be done, with my
-mentor, before recruitment numbers are fixed.
+I have removed them. A design-specific power analysis is still to be finalized with my
+mentor, before recruitment numbers are fixed. The exploratory sensitivity simulator
+in `analysis/power_sensitivity.py` helps compare hypothetical scenarios but does NOT
+replace fitting the approved mixed model to suitable pilot-based assumptions.
 
 How I plan to do it:
 1. **Write down the exact primary model** (for H1: log RT by clue language, task and
@@ -246,7 +250,9 @@ see `TASK_SOURCES.md`.
 1. IRB: which protocol or pathway should this fall under?
 2. Estimand: is the mixed-language within-person design (this document) the one we
    want, or should single-language sessions be planned as a follow-up?
-3. Clock: should the 60-minute maximum start at consent or at the first scored item?
+3. Clock: implemented from the first scored item, excluding consent, background,
+   instructions and practice; confirm this decision in the signed-off IRB protocol.
+   This is no longer an unresolved software behavior.
 4. Images: can the lab provide ~50 de-identified scans (rounds, practice and
    the surprise image)?
 5. Recruitment of radiologists and physicians: appropriate channel and approvals, and
